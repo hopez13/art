@@ -1,0 +1,274 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "500f6eb1_be769152",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-29T10:41:26Z",
+      "side": 1,
+      "message": "synthesized",
+      "range": {
+        "startLine": 263,
+        "startChar": 13,
+        "endLine": 263,
+        "endChar": 23
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_c0e3aecd",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-29T10:41:26Z",
+      "side": 1,
+      "message": "??? \nAll comments of this algorithm are very confusing to me... The word \u0027use\u0027 appears way too many times.",
+      "range": {
+        "startLine": 264,
+        "startChar": 59,
+        "endLine": 265,
+        "endChar": 60
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_00ead6a5",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-29T10:41:26Z",
+      "side": 1,
+      "message": "long line",
+      "range": {
+        "startLine": 273,
+        "startChar": 80,
+        "endLine": 273,
+        "endChar": 103
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30375a6d_35e88826",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-29T10:41:26Z",
+      "side": 1,
+      "message": "\"Therefore the previous call to AddUse\"",
+      "range": {
+        "startLine": 274,
+        "startChar": 56,
+        "endLine": 274,
+        "endChar": 85
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "500f6eb1_9ea4ed2d",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-29T10:41:26Z",
+      "side": 1,
+      "message": "DCHECK?",
+      "range": {
+        "startLine": 275,
+        "startChar": 21,
+        "endLine": 275,
+        "endChar": 46
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30375a6d_b585785f",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-29T10:41:26Z",
+      "side": 1,
+      "message": "This can\u0027t be null because intervals aren\u0027t split until after the uses have been created, right?",
+      "range": {
+        "startLine": 278,
+        "startChar": 12,
+        "endLine": 278,
+        "endChar": 26
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30375a6d_75b9302a",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-29T10:41:26Z",
+      "side": 1,
+      "message": "DCHECK/mention that the back-edge position is:\n (a) \u003c previous_first_use-\u003eGetPosition()\n (b) \u003e latest_use-\u003eGetPosition()\nprovided they\u0027re not null, of course. That would make the algorithm clearer, i think...",
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_a04c2252",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-29T10:41:26Z",
+      "side": 1,
+      "message": "Can you call this something like \"backedge_use_position\" here and on 273?",
+      "range": {
+        "startLine": 285,
+        "startChar": 12,
+        "endLine": 285,
+        "endChar": 58
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_60b4fac0",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-29T10:41:26Z",
+      "side": 1,
+      "message": "inner-most",
+      "range": {
+        "startLine": 291,
+        "startChar": 25,
+        "endLine": 291,
+        "endChar": 35
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_c075ee80",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-29T10:41:26Z",
+      "side": 1,
+      "message": "private?",
+      "range": {
+        "startLine": 512,
+        "startChar": 0,
+        "endLine": 512,
+        "endChar": 43
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30375a6d_b5dc9899",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-29T10:41:26Z",
+      "side": 1,
+      "message": "You check this here and on 571. How about moving it into its own \u0027IsDefiningPosition\u0027 function?",
+      "range": {
+        "startLine": 544,
+        "startChar": 8,
+        "endLine": 544,
+        "endChar": 46
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_403c5e90",
+        "filename": "test/482-checker-loop-back-edge-use/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-04-29T10:41:26Z",
+      "side": 1,
+      "message": "Split the CHECK and CHECK-NOT into two test cases. Just to be sure...",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 81
+      },
+      "revId": "106884a7856122291ede24724bb9313dcace8410",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
