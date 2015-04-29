@@ -285,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "90e3a61e_c08f2e2e",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-29T09:29:41Z",
+      "side": 1,
+      "message": "The run time overhead of std::function\u003c\u003e is substantial, starting with its internal usage of new/delete. So, I\u0027m not very keen to use it widely.\n\nIt\u0027s already slipped into command line parsing and dex2oat\u0027s class list parsing but I\u0027m now tempted to remove it so that people don\u0027t get used to it.",
+      "parentUuid": "90e3a61e_00b9b60e",
+      "range": {
+        "startLine": 223,
+        "startChar": 8,
+        "endLine": 223,
+        "endChar": 17
+      },
+      "revId": "e103f0f4648b7eb1f20dd910deae1be8b5df6dee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0d42a38_74c4a2e2",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 1
