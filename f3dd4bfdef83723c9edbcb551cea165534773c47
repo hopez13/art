@@ -1,0 +1,757 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "705392ca_234f0a94",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Is this really needed?  The switch seems to cover all the values of the enum.",
+      "range": {
+        "startLine": 847,
+        "startChar": 4,
+        "endLine": 850,
+        "endChar": 17
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_c3ae3699",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Nit: please move this argument on line 853.",
+      "range": {
+        "startLine": 854,
+        "startChar": 32,
+        "endLine": 854,
+        "endChar": 46
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_250cee3c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 863,
+        "startChar": 0,
+        "endLine": 863,
+        "endChar": 101
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_81205ac7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Nit: maybe swap these two lines?",
+      "range": {
+        "startLine": 870,
+        "startChar": 0,
+        "endLine": 871,
+        "endChar": 43
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_e51c966b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 899,
+        "startChar": 0,
+        "endLine": 900,
+        "endChar": 43
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_65b426c1",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "I\u0027m not sure about this, but maybe you could use HBinaryOperation::GetConstantRight and HBinaryOperation::GetLeastConstantLeft here to handle left- as well as right-hand side constants.",
+      "range": {
+        "startLine": 903,
+        "startChar": 10,
+        "endLine": 903,
+        "endChar": 28
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_a3a3fa7c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1003,
+        "startChar": 0,
+        "endLine": 1004,
+        "endChar": 39
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_e1d16600",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "DCHECK_NE(cond, nullptr);",
+      "range": {
+        "startLine": 1086,
+        "startChar": 4,
+        "endLine": 1086,
+        "endChar": 28
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_45dd6ae1",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "DCHECK_NE(compare, nullptr);",
+      "range": {
+        "startLine": 1088,
+        "startChar": 4,
+        "endLine": 1088,
+        "endChar": 31
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_63a6628d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1177,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "\"We do not set location in this case\"?",
+      "range": {
+        "startLine": 1177,
+        "startChar": 7,
+        "endLine": 1177,
+        "endChar": 51
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_a5ee9e84",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Maybe use the same condition as in the location builder visitor?",
+      "range": {
+        "startLine": 1191,
+        "startChar": 6,
+        "endLine": 1191,
+        "endChar": 32
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_e3057297",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Maybe place this declaration on a single line, if it is not greater than 100 characters?",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 55
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_25338e71",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 805,
+        "startChar": 0,
+        "endLine": 805,
+        "endChar": 101
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_e5d7b673",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Same remark regarding HBinaryOperation::GetConstantRight and HBinaryOperation::GetLeastConstantLeft.",
+      "range": {
+        "startLine": 810,
+        "startChar": 10,
+        "endLine": 810,
+        "endChar": 28
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_e14046f7",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "\"a 32-bit integer\"?",
+      "range": {
+        "startLine": 819,
+        "startChar": 32,
+        "endLine": 819,
+        "endChar": 38
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_830a7ea6",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 838,
+        "startChar": 0,
+        "endLine": 838,
+        "endChar": 102
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_a30f7ab5",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 851,
+        "startChar": 0,
+        "endLine": 851,
+        "endChar": 104
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_45c7aac4",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 859,
+        "startChar": 0,
+        "endLine": 860,
+        "endChar": 55
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_03368e60",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 902,
+        "startChar": 0,
+        "endLine": 903,
+        "endChar": 39
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_23338a71",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "DCHECK_NE(cond, nullptr);",
+      "range": {
+        "startLine": 985,
+        "startChar": 4,
+        "endLine": 985,
+        "endChar": 28
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_c3d2b686",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "DCHECK_NE(compare, nullptr);",
+      "range": {
+        "startLine": 987,
+        "startChar": 4,
+        "endLine": 987,
+        "endChar": 31
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_e3d7b273",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1075,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "\"We do not set location in this case\"?",
+      "range": {
+        "startLine": 1075,
+        "startChar": 7,
+        "endLine": 1075,
+        "endChar": 51
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_e15206bb",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Maybe use the same condition as in the location builder visitor?",
+      "range": {
+        "startLine": 1090,
+        "startChar": 6,
+        "endLine": 1090,
+        "endChar": 32
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_a5269e33",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Place this declaration on a single line?",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 55
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_a5b3fe4a",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Place on a single line?",
+      "range": {
+        "startLine": 386,
+        "startChar": 2,
+        "endLine": 387,
+        "endChar": 48
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_41681269",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "\"Conversion not possible\"?",
+      "range": {
+        "startLine": 388,
+        "startChar": 7,
+        "endLine": 388,
+        "endChar": 36
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_83dcbe99",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Place on a single line?",
+      "range": {
+        "startLine": 393,
+        "startChar": 2,
+        "endLine": 394,
+        "endChar": 45
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_45b9ea29",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "compatibility",
+      "range": {
+        "startLine": 407,
+        "startChar": 5,
+        "endLine": 407,
+        "endChar": 17
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_c58b9a74",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1369,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "This is a bit ambiguous; what about \"The comparison must immediately precede the condition (disregarding moves).\"?",
+      "range": {
+        "startLine": 1369,
+        "startChar": 5,
+        "endLine": 1369,
+        "endChar": 36
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_63c422bf",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1379,
+        "startChar": 2,
+        "endLine": 1379,
+        "endChar": 36
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_81621a85",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1655,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": ".",
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_01c9eafa",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1489,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Replace with\n\n  else {\n    DCHECK(user-\u003eIsCondition());\n\nand remove the\n\n  else {\n    DCHECK(false);\n  }\n\nbranch on lines 1495–1497.",
+      "range": {
+        "startLine": 1489,
+        "startChar": 14,
+        "endLine": 1489,
+        "endChar": 45
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_c3f95600",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:28:50Z",
+      "side": 1,
+      "message": "Why did you have to add this condition?",
+      "range": {
+        "startLine": 234,
+        "startChar": 37,
+        "endLine": 234,
+        "endChar": 81
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
