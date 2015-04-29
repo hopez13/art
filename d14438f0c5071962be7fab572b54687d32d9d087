@@ -52,6 +52,24 @@
       "revId": "d14438f0c5071962be7fab572b54687d32d9d087",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0d42a38_69627c15",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 38
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-04-29T01:17:21Z",
+      "side": 0,
+      "message": "No, the string_init case can happen whether or not code_item is null. If code_item !\u003d null, num_regs will be adjusted because the called_method will have been changed. If code_item \u003d\u003d null, then num_regs needs to be adjusted since it won\u0027t pick up on any changes to the called_method.",
+      "parentUuid": "f0f222e5_ea58b85c",
+      "revId": "d14438f0c5071962be7fab572b54687d32d9d087",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
