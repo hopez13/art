@@ -70,6 +70,30 @@
       "revId": "9bd5bfa578d25e5e9dde982d6e29ffee0858ad27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_e5eed6b7",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1030338
+      },
+      "writtenOn": "2015-04-29T15:08:36Z",
+      "side": 1,
+      "message": "Ok. Will do once Nicolas is planning to take a look at this. Otherwise I will have to rebase it some more.",
+      "parentUuid": "500f6eb1_b9d22bd3",
+      "range": {
+        "startLine": 847,
+        "startChar": 0,
+        "endLine": 847,
+        "endChar": 118
+      },
+      "revId": "9bd5bfa578d25e5e9dde982d6e29ffee0858ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
