@@ -70,6 +70,30 @@
       "revId": "b14db951162672a681cc4013e2c67e91f9bad12b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70f8f2fa_afcd8139",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-04-29T22:23:49Z",
+      "side": 1,
+      "message": "i feel like this will be way to spammy, just consider that inbox example. knowing what native method we are in should at least give context for their code review.",
+      "parentUuid": "70f8f2fa_84d7cc3f",
+      "range": {
+        "startLine": 185,
+        "startChar": 8,
+        "endLine": 185,
+        "endChar": 53
+      },
+      "revId": "b14db951162672a681cc4013e2c67e91f9bad12b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
