@@ -22,6 +22,30 @@
       "revId": "1069a0cd1c74646573744661ef16383eadc86400",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30375a6d_7504d0cf",
+        "filename": "runtime/stack.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-29T08:36:32Z",
+      "side": 1,
+      "message": "Yes, the delete is in EnterInterpreterFromDeoptimize (interpreter.cc). We allocate memory on the heap only for deoptimization so it makes sense to have dedicated methods. \n\nI\u0027d rename this method to CreateDeoptimizedFrame and add a DeleteDeoptimizedFrame to be called in EnterInterpreterFromDeoptimize, something like:\n\n  static void DeleteDeoptimizedFrame(ShadowFrame* sf) {\n    uint8_t* memory \u003d reinterpret_cast\u003cuint8_t*\u003e(sf);\n    delete[] memory;\n  }",
+      "parentUuid": "d0d99e70_f533ee9f",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 58
+      },
+      "revId": "1069a0cd1c74646573744661ef16383eadc86400",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
