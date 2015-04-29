@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70f8f2fa_e15cc281",
+        "filename": "runtime/indirect_reference_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-29T21:43:48Z",
+      "side": 1,
+      "message": "As bdc mentioned, it does seem like overkill. But I guess it\u0027s the easiest way to get this done.\n\nI wonder whether a full stack is better, though. If symbols are stripped from the library, the unwind info will be useless.",
+      "range": {
+        "startLine": 185,
+        "startChar": 8,
+        "endLine": 185,
+        "endChar": 53
+      },
+      "revId": "b14db951162672a681cc4013e2c67e91f9bad12b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
