@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0f222e5_03e9a7ad",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-29T04:48:10Z",
+      "side": 1,
+      "message": "Extend the comment. Mention that the sections are here so they are stack-allocated, but only registered in case tthere\u0027s actual info.",
+      "range": {
+        "startLine": 113,
+        "startChar": 2,
+        "endLine": 113,
+        "endChar": 24
+      },
+      "revId": "dbc15d7d1e99b39703d447338101fba110967580",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
