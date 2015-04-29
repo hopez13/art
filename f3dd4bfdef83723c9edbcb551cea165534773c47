@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "30e3da4b_21b06e6c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-29T17:30:30Z",
+      "side": 1,
+      "message": "x86-64?",
+      "range": {
+        "startLine": 7,
+        "startChar": 34,
+        "endLine": 7,
+        "endChar": 40
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "705392ca_234f0a94",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
