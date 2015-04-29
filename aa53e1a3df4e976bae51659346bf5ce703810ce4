@@ -376,6 +376,29 @@
     },
     {
       "key": {
+        "uuid": "90e3a61e_a0754278",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-29T10:21:05Z",
+      "side": 1,
+      "message": "Beware https://android-review.googlesource.com/148090 where ArtMethod is no longer a Java object but a native object.",
+      "range": {
+        "startLine": 177,
+        "startChar": 5,
+        "endLine": 177,
+        "endChar": 77
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90e3a61e_75903a1a",
         "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
         "patchSetId": 4
