@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "500f6eb1_5edb1517",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 774,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T08:11:28Z",
+      "side": 1,
+      "message": "goes -\u003e go",
+      "range": {
+        "startLine": 774,
+        "startChar": 24,
+        "endLine": 774,
+        "endChar": 28
+      },
+      "revId": "617da01f398cc3310b7f065181546c442cdf5c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30375a6d_55398c9e",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 775,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T08:11:28Z",
+      "side": 1,
+      "message": "Nit: add \"(\u0027i\u0027 is in the example above)\"",
+      "range": {
+        "startLine": 775,
+        "startChar": 34,
+        "endLine": 775,
+        "endChar": 56
+      },
+      "revId": "617da01f398cc3310b7f065181546c442cdf5c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30375a6d_f5c8e02a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T08:11:28Z",
+      "side": 1,
+      "message": "And -\u003e We then",
+      "range": {
+        "startLine": 776,
+        "startChar": 36,
+        "endLine": 776,
+        "endChar": 39
+      },
+      "revId": "617da01f398cc3310b7f065181546c442cdf5c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30375a6d_15cea434",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T08:11:28Z",
+      "side": 1,
+      "message": "not to -\u003e to not (though I\u0027m no english expert)",
+      "range": {
+        "startLine": 783,
+        "startChar": 14,
+        "endLine": 783,
+        "endChar": 20
+      },
+      "revId": "617da01f398cc3310b7f065181546c442cdf5c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "500f6eb1_3ed86118",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T08:11:28Z",
+      "side": 1,
+      "message": "throws -\u003e throw",
+      "range": {
+        "startLine": 785,
+        "startChar": 76,
+        "endLine": 785,
+        "endChar": 82
+      },
+      "revId": "617da01f398cc3310b7f065181546c442cdf5c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_1572160c",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T08:11:28Z",
+      "side": 1,
+      "message": "Remove duplicate \u0027from\u0027.",
+      "range": {
+        "startLine": 788,
+        "startChar": 8,
+        "endLine": 788,
+        "endChar": 12
+      },
+      "revId": "617da01f398cc3310b7f065181546c442cdf5c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30375a6d_d5d7dcc1",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 792,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T08:11:28Z",
+      "side": 1,
+      "message": ", so the collected array -\u003e . These accesses are ..",
+      "range": {
+        "startLine": 792,
+        "startChar": 27,
+        "endLine": 792,
+        "endChar": 50
+      },
+      "revId": "617da01f398cc3310b7f065181546c442cdf5c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "500f6eb1_1ed59dde",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 792,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T08:11:28Z",
+      "side": 1,
+      "message": "-\u003e of blocks in the loop that dominates the back edge ?",
+      "range": {
+        "startLine": 791,
+        "startChar": 39,
+        "endLine": 792,
+        "endChar": 26
+      },
+      "revId": "617da01f398cc3310b7f065181546c442cdf5c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_b557c25b",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T08:11:28Z",
+      "side": 1,
+      "message": "I\u0027m having a hard time parsing that sentence. Might be worth splitting it into smaller sentences.",
+      "range": {
+        "startLine": 794,
+        "startChar": 5,
+        "endLine": 796,
+        "endChar": 38
+      },
+      "revId": "617da01f398cc3310b7f065181546c442cdf5c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90e3a61e_955cc680",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-04-29T08:11:28Z",
+      "side": 1,
+      "message": "Maybe add an example, or restate the comment above about increasing by 2 ?",
+      "range": {
+        "startLine": 801,
+        "startChar": 0,
+        "endLine": 801,
+        "endChar": 57
+      },
+      "revId": "617da01f398cc3310b7f065181546c442cdf5c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
