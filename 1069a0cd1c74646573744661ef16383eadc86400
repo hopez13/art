@@ -46,6 +46,30 @@
       "revId": "1069a0cd1c74646573744661ef16383eadc86400",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "300cbaed_64b9c1dc",
+        "filename": "runtime/stack.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2015-04-30T23:09:10Z",
+      "side": 1,
+      "message": "Do you generally use such a specific name for a function of this type? It seems odd to name it like this.\n\nIt would seem better to call it something like CreateAndAllocate and then a companion Deallocate function.\n\nBut since I don\u0027t play in this code very often, whatever you decide is fine with me.",
+      "parentUuid": "30375a6d_7504d0cf",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 58
+      },
+      "revId": "1069a0cd1c74646573744661ef16383eadc86400",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
