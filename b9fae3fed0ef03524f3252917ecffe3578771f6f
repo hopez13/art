@@ -413,6 +413,30 @@
     },
     {
       "key": {
+        "uuid": "705392ca_864dac20",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T11:30:58Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "b0598aea_0836a760",
+      "range": {
+        "startLine": 659,
+        "startChar": 7,
+        "endLine": 659,
+        "endChar": 76
+      },
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0598aea_88c29785",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 3
@@ -777,6 +801,30 @@
     },
     {
       "key": {
+        "uuid": "b0598aea_08e8e725",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T11:30:58Z",
+      "side": 1,
+      "message": "Done (yes, I completely missed this file, sorry)",
+      "parentUuid": "705392ca_6368a220",
+      "range": {
+        "startLine": 141,
+        "startChar": 64,
+        "endLine": 141,
+        "endChar": 73
+      },
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "705392ca_03752ef3",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 3
@@ -788,6 +836,30 @@
       "writtenOn": "2015-04-29T18:34:03Z",
       "side": 1,
       "message": "/* 32-bit */",
+      "range": {
+        "startLine": 147,
+        "startChar": 64,
+        "endLine": 147,
+        "endChar": 73
+      },
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_24019cbf",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T11:30:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "705392ca_03752ef3",
       "range": {
         "startLine": 147,
         "startChar": 64,
