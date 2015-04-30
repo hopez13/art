@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b0598aea_c853afc1",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T11:03:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30e3da4b_a1711e5f",
+      "range": {
+        "startLine": 119,
+        "startChar": 44,
+        "endLine": 119,
+        "endChar": 57
+      },
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0598aea_c5a4fa09",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2015-04-29T18:34:03Z",
       "side": 1,
       "message": "buffer.reserve(dynamics_.size() + 1u);",
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_64d564de",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T11:03:02Z",
+      "side": 1,
+      "message": "Done.  (The reserves where not in the old code, and I did not feel bad enough about it to add them.  I still do not know how I feel about them.  On one hand it is obvious optimization, but on the other hand it seems like unnecessary micro-optimization.  I like the C# variant where the capacity can be specified in constructor.)",
+      "parentUuid": "b0598aea_c5a4fa09",
       "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "30e3da4b_c494301c",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T11:03:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "705392ca_03d1ae7b",
+      "range": {
+        "startLine": 229,
+        "startChar": 49,
+        "endLine": 229,
+        "endChar": 55
+      },
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0598aea_e57b36ed",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 3
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "705392ca_2662b8be",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T11:03:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0598aea_e57b36ed",
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0598aea_456b2a1e",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 3
@@ -93,6 +177,30 @@
       "writtenOn": "2015-04-29T18:34:03Z",
       "side": 1,
       "message": "\"section !\u003d nullptr\" We try to avoid implicit conversions.",
+      "range": {
+        "startLine": 315,
+        "startChar": 12,
+        "endLine": 315,
+        "endChar": 19
+      },
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_c64de451",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T11:03:02Z",
+      "side": 1,
+      "message": "Done (for the record, I personally strongly agree with the no implicit conversions policy.  I still sometimes forget to fix it in old code)",
+      "parentUuid": "b0598aea_456b2a1e",
       "range": {
         "startLine": 315,
         "startChar": 12,
@@ -128,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "30e3da4b_049f3836",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T11:03:02Z",
+      "side": 1,
+      "message": "Done (I keep forgetting this is possible)",
+      "parentUuid": "705392ca_e3a9f2e0",
+      "range": {
+        "startLine": 317,
+        "startChar": 25,
+        "endLine": 317,
+        "endChar": 40
+      },
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0598aea_e562563b",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 3
@@ -145,6 +277,24 @@
     },
     {
       "key": {
+        "uuid": "30e3da4b_24a6bc8b",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T11:03:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0598aea_e562563b",
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0598aea_654f46c5",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 3
@@ -156,6 +306,30 @@
       "writtenOn": "2015-04-29T18:34:03Z",
       "side": 1,
       "message": "Reorder dynsym_ and dynstr_? I prefer to use only constructed members.",
+      "range": {
+        "startLine": 507,
+        "startChar": 48,
+        "endLine": 507,
+        "endChar": 56
+      },
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_a4800cd0",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T11:03:02Z",
+      "side": 1,
+      "message": "Done (The intention was to have the fields sorted in the same order as they are written on disk.  Just for pure organization.  But you convinced me - using only constructed members is more important)",
+      "parentUuid": "b0598aea_654f46c5",
       "range": {
         "startLine": 507,
         "startChar": 48,
@@ -191,6 +365,30 @@
     },
     {
       "key": {
+        "uuid": "705392ca_8624cc66",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T11:03:02Z",
+      "side": 1,
+      "message": "I can not build the programs headers before layout (that is, I can not move all of the code here).\n\nI could determine only the count, but I would have to replicate some of the logic.  Very little logic, but I still would not like the code duplication.\n\nBut the main reason is that reserving fixed amount of space is what the old code did, and I wanted to preserve behavior.\n\nIt is simple, and it works.  Anything else seems like an overkill.",
+      "parentUuid": "30e3da4b_e10fa6b4",
+      "range": {
+        "startLine": 659,
+        "startChar": 7,
+        "endLine": 659,
+        "endChar": 76
+      },
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0598aea_88c29785",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 3
@@ -202,6 +400,30 @@
       "writtenOn": "2015-04-29T18:34:03Z",
       "side": 1,
       "message": "built",
+      "range": {
+        "startLine": 666,
+        "startChar": 39,
+        "endLine": 666,
+        "endChar": 44
+      },
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_663f5087",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T11:03:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0598aea_88c29785",
       "range": {
         "startLine": 666,
         "startChar": 39,
@@ -237,6 +459,30 @@
     },
     {
       "key": {
+        "uuid": "705392ca_263958a0",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T11:03:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "705392ca_83859e5f",
+      "range": {
+        "startLine": 667,
+        "startChar": 4,
+        "endLine": 667,
+        "endChar": 12
+      },
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0598aea_68cabb9e",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 3
@@ -248,6 +494,30 @@
       "writtenOn": "2015-04-29T18:34:03Z",
       "side": 1,
       "message": "Elf_Off",
+      "range": {
+        "startLine": 668,
+        "startChar": 4,
+        "endLine": 668,
+        "endChar": 12
+      },
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_e8c30bda",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T11:03:02Z",
+      "side": 1,
+      "message": "Done (Elf_Addr is better).",
+      "parentUuid": "b0598aea_68cabb9e",
       "range": {
         "startLine": 668,
         "startChar": 4,
@@ -277,6 +547,24 @@
     },
     {
       "key": {
+        "uuid": "705392ca_e6cd8038",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T11:03:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0598aea_c8df2f56",
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "705392ca_c38b9674",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 3
@@ -288,6 +576,30 @@
       "writtenOn": "2015-04-29T18:34:03Z",
       "side": 1,
       "message": "Elf_Off",
+      "range": {
+        "startLine": 673,
+        "startChar": 6,
+        "endLine": 673,
+        "endChar": 9
+      },
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_a6d788c2",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T11:03:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "705392ca_c38b9674",
       "range": {
         "startLine": 673,
         "startChar": 6,
@@ -347,6 +659,30 @@
     },
     {
       "key": {
+        "uuid": "705392ca_06e77caf",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T11:03:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30e3da4b_413c9242",
+      "range": {
+        "startLine": 783,
+        "startChar": 40,
+        "endLine": 783,
+        "endChar": 59
+      },
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30e3da4b_611c36ec",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 3
@@ -358,6 +694,30 @@
       "writtenOn": "2015-04-29T18:34:03Z",
       "side": 1,
       "message": "Style: remove extra parentheses.",
+      "range": {
+        "startLine": 821,
+        "startChar": 13,
+        "endLine": 821,
+        "endChar": 41
+      },
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_c6ef2484",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T11:03:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30e3da4b_611c36ec",
       "range": {
         "startLine": 821,
         "startChar": 13,
