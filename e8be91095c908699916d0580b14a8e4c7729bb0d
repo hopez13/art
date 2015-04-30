@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90fd66eb_32770d52",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-04-30T21:48:42Z",
+      "side": 1,
+      "message": "You can do\n#define ATRACE_TAG ATRACE_TAG_DALVIK\nat the top of the file then use\nATRACE_BEGIN / ATRACE_END\ninstead of passing in ATRACE_TAG_DALVIK everywhere. That is what we do in other parts of the runtime.",
+      "range": {
+        "startLine": 489,
+        "startChar": 19,
+        "endLine": 489,
+        "endChar": 36
+      },
+      "revId": "e8be91095c908699916d0580b14a8e4c7729bb0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
