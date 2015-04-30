@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "300cbaed_a642c11a",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-04-30T22:30:07Z",
+      "side": 1,
+      "message": "This has to change now. Here\u0027s the part that leads to linear_search in the code of libunwind:\n\n if (hdr-\u003etable_enc !\u003d (DW_EH_PE_datarel | DW_EH_PE_sdata4)) {\n   ... ; linear_search ; ...\n }",
+      "range": {
+        "startLine": 189,
+        "startChar": 2,
+        "endLine": 190,
+        "endChar": 76
+      },
+      "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
