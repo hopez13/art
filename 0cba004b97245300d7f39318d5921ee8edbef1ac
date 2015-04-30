@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30e3da4b_a40f6c67",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-04-30T07:15:57Z",
+      "side": 1,
+      "message": "nit: maybe rename to unused_error_msg to make it clear we just ignore it.",
+      "range": {
+        "startLine": 168,
+        "startChar": 14,
+        "endLine": 168,
+        "endChar": 23
+      },
+      "revId": "0cba004b97245300d7f39318d5921ee8edbef1ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
