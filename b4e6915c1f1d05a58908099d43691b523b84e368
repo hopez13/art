@@ -1,0 +1,2903 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "705392ca_06653cc5",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "2015",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_e47a1470",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Unexpected parameter type?",
+      "range": {
+        "startLine": 70,
+        "startChar": 19,
+        "endLine": 70,
+        "endChar": 35
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_66daf0ec",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Please place one argument per line.",
+      "range": {
+        "startLine": 230,
+        "startChar": 33,
+        "endLine": 231,
+        "endChar": 12
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_68b07b6d",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 330,
+        "startChar": 36,
+        "endLine": 331,
+        "endChar": 23
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_ebf54599",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Maybe document or remove this?",
+      "range": {
+        "startLine": 407,
+        "startChar": 2,
+        "endLine": 407,
+        "endChar": 26
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_27fcfeb0",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 413,
+        "startChar": 2,
+        "endLine": 413,
+        "endChar": 26
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_a8a4332d",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Use ?: to define load_type and store_type.",
+      "range": {
+        "startLine": 431,
+        "startChar": 2,
+        "endLine": 436,
+        "endChar": 3
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_089467ba",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 456,
+        "startChar": 0,
+        "endLine": 460,
+        "endChar": 6
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_445b0010",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Maybe introduce a constant defined as 2 * 1024 * 1024 here?",
+      "range": {
+        "startLine": 482,
+        "startChar": 23,
+        "endLine": 482,
+        "endChar": 33
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_460fb4e5",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Could this be turned into a static_assert?",
+      "range": {
+        "startLine": 517,
+        "startChar": 2,
+        "endLine": 517,
+        "endChar": 47
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_48157fc0",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Invert this condition and exchange the branches of this `if\u0027 to get rid of `!\u0027.",
+      "range": {
+        "startLine": 605,
+        "startChar": 10,
+        "endLine": 605,
+        "endChar": 47
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_e646e012",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "One argument per line.",
+      "range": {
+        "startLine": 606,
+        "startChar": 26,
+        "endLine": 607,
+        "endChar": 34
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_6812bbdb",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 609,
+        "startChar": 29,
+        "endLine": 610,
+        "endChar": 34
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_6633d0a2",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK(source.IsRegister() || source.IsFpuRegister());\n\nhere?",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_68395b51",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Use DCHECK_EQ.",
+      "range": {
+        "startLine": 637,
+        "startChar": 10,
+        "endLine": 637,
+        "endChar": 48
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_64e444a9",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "One argument per line.",
+      "range": {
+        "startLine": 657,
+        "startChar": 25,
+        "endLine": 658,
+        "endChar": 39
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_86760c53",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 660,
+        "startChar": 28,
+        "endLine": 661,
+        "endChar": 38
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_88dcd799",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Use DCHECK_EQ.",
+      "range": {
+        "startLine": 675,
+        "startChar": 6,
+        "endLine": 675,
+        "endChar": 74
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_84fea82f",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Agreed; I believe you could use mov.s and mov.d here, but I also think that you need to use to address the float and double cases separately to avoid overwriting registers.",
+      "range": {
+        "startLine": 712,
+        "startChar": 0,
+        "endLine": 717,
+        "endChar": 21
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_e429743f",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "One argument per line.",
+      "range": {
+        "startLine": 726,
+        "startChar": 26,
+        "endLine": 727,
+        "endChar": 33
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_c6a5e42c",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Maybe write a test to exercise these cases?",
+      "range": {
+        "startLine": 728,
+        "startChar": 6,
+        "endLine": 728,
+        "endChar": 42
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_88ae17e6",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK(mem_loc.IsDoubleStackSlot())\n\nhere?",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_26bab84d",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK(reg_loc.IsRegister())\n\nhere?",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_04773851",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "LOG(FATAL) \u003c\u003c \"Unimplemented swap between locations \" \u003c\u003c loc1 \u003c\u003c \" and \" \u003c\u003c loc2;",
+      "range": {
+        "startLine": 743,
+        "startChar": 4,
+        "endLine": 743,
+        "endChar": 34
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_e87b0bed",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Maybe use\n\n  instruction-\u003eAsLongConstant()-\u003eGetValue()\n\ninstead?",
+      "range": {
+        "startLine": 767,
+        "startChar": 28,
+        "endLine": 767,
+        "endChar": 70
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_88805747",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Likewise?",
+      "range": {
+        "startLine": 776,
+        "startChar": 28,
+        "endLine": 776,
+        "endChar": 70
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_486b3f1e",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Remove empty line.",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_269158cb",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Yes, please. :)",
+      "range": {
+        "startLine": 849,
+        "startChar": 2,
+        "endLine": 849,
+        "endChar": 48
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_087547f3",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "I don\u0027t think of any other registers to block; maybe remove this comment if there is nothing more to add?",
+      "range": {
+        "startLine": 856,
+        "startChar": 2,
+        "endLine": 856,
+        "endChar": 33
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_ab30ad17",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Is this cast really needed?  If so, please use static_cast instead.",
+      "range": {
+        "startLine": 876,
+        "startChar": 19,
+        "endLine": 876,
+        "endChar": 27
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_64ce04e0",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 880,
+        "startChar": 19,
+        "endLine": 880,
+        "endChar": 27
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_2b1d9d8f",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "In which cases can `instruction` be null?",
+      "range": {
+        "startLine": 926,
+        "startChar": 6,
+        "endLine": 926,
+        "endChar": 28
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_44ee6036",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Maybe document this?",
+      "range": {
+        "startLine": 938,
+        "startChar": 2,
+        "endLine": 938,
+        "endChar": 25
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_8b661125",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 952,
+        "startChar": 2,
+        "endLine": 952,
+        "endChar": 25
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_e662603b",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 988,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "This is odd.  I\u0027ll try to have a look at this.",
+      "range": {
+        "startLine": 988,
+        "startChar": 10,
+        "endLine": 988,
+        "endChar": 84
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_c45d5080",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1006,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Why this special logging code for xor only?",
+      "range": {
+        "startLine": 1001,
+        "startChar": 0,
+        "endLine": 1006,
+        "endChar": 11
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_4452e06b",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Why this extra block?",
+      "range": {
+        "startLine": 1070,
+        "startChar": 13,
+        "endLine": 1070,
+        "endChar": 14
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_cbf089ac",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1560,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 1560,
+        "startChar": 2,
+        "endLine": 1560,
+        "endChar": 26
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_072c5ac5",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1571,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "\"checks for index \u003c 0 and for length \u003c\u003d index simultaneously\"?",
+      "range": {
+        "startLine": 1570,
+        "startChar": 45,
+        "endLine": 1571,
+        "endChar": 38
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_c90ad559",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1584,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 1584,
+        "startChar": 2,
+        "endLine": 1584,
+        "endChar": 26
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_0909cd5e",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1598,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "From what I am seeing in other code generators, I think we use a signed load for this.",
+      "range": {
+        "startLine": 1598,
+        "startChar": 2,
+        "endLine": 1598,
+        "endChar": 35
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_eb1c656b",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1619,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Please align this argument with the previous one.",
+      "range": {
+        "startLine": 1619,
+        "startChar": 6,
+        "endLine": 1619,
+        "endChar": 64
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_e936b114",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1628,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Use ?: to initialize `call_kind\u0027.",
+      "range": {
+        "startLine": 1625,
+        "startChar": 2,
+        "endLine": 1628,
+        "endChar": 3
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_07673a23",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1631,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Please place on a single line.",
+      "range": {
+        "startLine": 1630,
+        "startChar": 0,
+        "endLine": 1631,
+        "endChar": 71
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_e76b36ed",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1643,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Maybe remove this blank line?",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_0b26a1b2",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1645,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Please place on a single line.",
+      "range": {
+        "startLine": 1644,
+        "startChar": 0,
+        "endLine": 1645,
+        "endChar": 51
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_477142d9",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1647,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 1646,
+        "startChar": 0,
+        "endLine": 1647,
+        "endChar": 51
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_abd18d00",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1672,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Very nice! :)",
+      "range": {
+        "startLine": 1670,
+        "startChar": 0,
+        "endLine": 1672,
+        "endChar": 29
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_4926e5e5",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1678,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1678,
+        "startChar": 6,
+        "endLine": 1678,
+        "endChar": 30
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_a7480e91",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1690,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Please place on a single line.",
+      "range": {
+        "startLine": 1687,
+        "startChar": 0,
+        "endLine": 1690,
+        "endChar": 39
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_0bc1c12d",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1712,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1712,
+        "startChar": 2,
+        "endLine": 1712,
+        "endChar": 29
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_87522a37",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1725,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "What about using GetInt32ValueOf and getting rid of the DCHECK?",
+      "range": {
+        "startLine": 1724,
+        "startChar": 4,
+        "endLine": 1725,
+        "endChar": 30
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_47a302ad",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1764,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Instead of emitting an extra instruction for GE-type conditions, what about handling it in its own `case\u0027 of the `switch\u0027?",
+      "range": {
+        "startLine": 1762,
+        "startChar": 0,
+        "endLine": 1764,
+        "endChar": 7
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_27a07e9e",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1782,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 1780,
+        "startChar": 0,
+        "endLine": 1782,
+        "endChar": 9
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_67aa8680",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1787,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Is this really necessary, given the fact that you covered all the values of the enum?",
+      "range": {
+        "startLine": 1786,
+        "startChar": 0,
+        "endLine": 1787,
+        "endChar": 43
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_89ccdd6b",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1856,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1856,
+        "startChar": 2,
+        "endLine": 1856,
+        "endChar": 26
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_a9d19900",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1865,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Nit: missing space.",
+      "range": {
+        "startLine": 1865,
+        "startChar": 50,
+        "endLine": 1865,
+        "endChar": 52
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_0be781af",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1866,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Remove, as LOG(FATAL) is already taking care of aborting.",
+      "range": {
+        "startLine": 1866,
+        "startChar": 4,
+        "endLine": 1866,
+        "endChar": 11
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_67be06a2",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1890,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Use ATTRIBUTE_UNUSED instead.",
+      "range": {
+        "startLine": 1890,
+        "startChar": 2,
+        "endLine": 1890,
+        "endChar": 19
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_e9eeb1b7",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 1898,
+        "startChar": 2,
+        "endLine": 1898,
+        "endChar": 15
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_c7e9d2b2",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1909,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 1909,
+        "startChar": 2,
+        "endLine": 1909,
+        "endChar": 19
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_cb1ac927",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1932,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1932,
+        "startChar": 4,
+        "endLine": 1932,
+        "endChar": 31
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_899e1d38",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1941,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1941,
+        "startChar": 2,
+        "endLine": 1941,
+        "endChar": 26
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_2b16fdfb",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1963,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Remove blank line?",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_cb4169fd",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1966,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Remove blank line?",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_e7a3367c",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1972,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "What about using GetInt32ValueOf and getting rid of the DCHECK?",
+      "range": {
+        "startLine": 1971,
+        "startChar": 6,
+        "endLine": 1972,
+        "endChar": 33
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_4990251a",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1978,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Remove blank line?",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_098a2dec",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2000,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Useless?",
+      "range": {
+        "startLine": 1999,
+        "startChar": 8,
+        "endLine": 2000,
+        "endChar": 47
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_ab40adf5",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2027,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Useless?",
+      "range": {
+        "startLine": 2026,
+        "startChar": 8,
+        "endLine": 2027,
+        "endChar": 47
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_a9751978",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2079,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2079,
+        "startChar": 2,
+        "endLine": 2079,
+        "endChar": 21
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_495b4510",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2092,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2092,
+        "startChar": 2,
+        "endLine": 2092,
+        "endChar": 29
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_cb6c098b",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2095,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Remove blank line?",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_eb71c55d",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2097,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Remove blank line?",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_4b81f996",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2125,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Replace with\n\n  case Primitive::kPrimVoid:\n\n?",
+      "range": {
+        "startLine": 2125,
+        "startChar": 4,
+        "endLine": 2125,
+        "endChar": 12
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_cb53a9c1",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2146,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2146,
+        "startChar": 2,
+        "endLine": 2146,
+        "endChar": 21
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7011d208_b3b8580c",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2159,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2159,
+        "startChar": 2,
+        "endLine": 2159,
+        "endChar": 29
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_e9cd5138",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2162,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Remove blank line?",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7011d208_f3c2d085",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2165,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Remove blank line?",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7011d208_d3c7d493",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2184,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Replace with\n\n  case Primitive::kPrimVoid:\n\n?",
+      "range": {
+        "startLine": 2184,
+        "startChar": 4,
+        "endLine": 2184,
+        "endChar": 12
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_8bc851f8",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2234,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2234,
+        "startChar": 2,
+        "endLine": 2234,
+        "endChar": 26
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_89d29dd3",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2248,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2248,
+        "startChar": 2,
+        "endLine": 2248,
+        "endChar": 35
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_49dd85e1",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2259,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Add a 4-space indentation.",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7011d208_73d7e040",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2276,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2276,
+        "startChar": 2,
+        "endLine": 2276,
+        "endChar": 19
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7011d208_53d4643a",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2286,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2286,
+        "startChar": 2,
+        "endLine": 2286,
+        "endChar": 19
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_89e93d81",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2350,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Please also add this DCHECK:\n\n  // When we do not run baseline, explicit clinit checks triggered by static\n  // invokes must have been pruned by art::PrepareForRegisterAllocation.\n  DCHECK(codegen_-\u003eIsBaseline() || !invoke-\u003eIsStaticWithExplicitClinitCheck());",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7011d208_13f14ce1",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2373,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Please handle the special case of string initialization (see other code generators).",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_0bbd4144",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2397,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Please also add this DCHECK:\n\n  // When we do not run baseline, explicit clinit checks triggered by static\n  // invokes must have been pruned by art::PrepareForRegisterAllocation.\n  DCHECK(codegen_-\u003eIsBaseline() || !invoke-\u003eIsStaticWithExplicitClinitCheck());",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_2bba7d4d",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2408,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Maybe add:\n\n  // TODO: Try to generate intrinsics code.\n\n?",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_cba5e92c",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2443,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2443,
+        "startChar": 2,
+        "endLine": 2443,
+        "endChar": 26
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_a9ee7984",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2455,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "One argument per line.",
+      "range": {
+        "startLine": 2454,
+        "startChar": 22,
+        "endLine": 2455,
+        "endChar": 69
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_8b9ff1dc",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2476,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2476,
+        "startChar": 2,
+        "endLine": 2476,
+        "endChar": 26
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_690161be",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2528,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2528,
+        "startChar": 2,
+        "endLine": 2528,
+        "endChar": 19
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7011d208_5306244e",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2660,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Yes, I think it would be better to use GetReturnLocation().",
+      "range": {
+        "startLine": 2659,
+        "startChar": 2,
+        "endLine": 2660,
+        "endChar": 52
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_c91ad527",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2662,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Maybe add:\n\n  CheckEntrypointTypes\u003ckQuickAllocArrayWithAccessCheck,\n                       void*, uint32_t, int32_t, mirror::ArtMethod*\u003e();\n\n?",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7011d208_d3307419",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2685,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Maybe add:\n\n  CheckEntrypointTypes\u003ckQuickAllocObjectWithAccessCheck, void*, uint32_t, mirror::ArtMethod*\u003e();\n\n?",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7011d208_732080c6",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2746,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2746,
+        "startChar": 2,
+        "endLine": 2746,
+        "endChar": 26
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7011d208_531d848e",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2757,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2757,
+        "startChar": 2,
+        "endLine": 2757,
+        "endChar": 26
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_8b0a91a6",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2783,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2783,
+        "startChar": 2,
+        "endLine": 2783,
+        "endChar": 22
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7011d208_9361dc11",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2788,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2788,
+        "startChar": 2,
+        "endLine": 2788,
+        "endChar": 27
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_4b1579c0",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2805,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2805,
+        "startChar": 2,
+        "endLine": 2805,
+        "endChar": 22
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7011d208_d36b54ed",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2817,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2816,
+        "startChar": 2,
+        "endLine": 2817,
+        "endChar": 22
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_690c01f0",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2893,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2893,
+        "startChar": 2,
+        "endLine": 2893,
+        "endChar": 14
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_0919cd2c",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2902,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2902,
+        "startChar": 2,
+        "endLine": 2902,
+        "endChar": 14
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_291609fc",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2947,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2947,
+        "startChar": 2,
+        "endLine": 2947,
+        "endChar": 16
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_2b1cbdea",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2998,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2998,
+        "startChar": 2,
+        "endLine": 2998,
+        "endChar": 15
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_8b213120",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3031,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Place on a single line.",
+      "range": {
+        "startLine": 3030,
+        "startChar": 0,
+        "endLine": 3031,
+        "endChar": 74
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7011d208_b3433874",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3050,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Place on a single line.",
+      "range": {
+        "startLine": 3049,
+        "startChar": 0,
+        "endLine": 3050,
+        "endChar": 51
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_ab266d33",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3053,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Place on a single line.",
+      "range": {
+        "startLine": 3052,
+        "startChar": 0,
+        "endLine": 3053,
+        "endChar": 48
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_e946b112",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3164,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 3164,
+        "startChar": 2,
+        "endLine": 3164,
+        "endChar": 22
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_0b36a160",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3170,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 3170,
+        "startChar": 2,
+        "endLine": 3170,
+        "endChar": 22
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_683f1b87",
+        "filename": "compiler/optimizing/code_generator_mips64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "2015",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_88761753",
+        "filename": "compiler/optimizing/code_generator_mips64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Rename as InvokeDexCallingConventionVisitorMIPS64 and inherit from InvokeDexCallingConventionVisitor (from compiler/optimizing/code_generator.h).",
+      "range": {
+        "startLine": 78,
+        "startChar": 6,
+        "endLine": 78,
+        "endChar": 39
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_465b3410",
+        "filename": "compiler/optimizing/code_generator_mips64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Place this on a single line.",
+      "range": {
+        "startLine": 207,
+        "startChar": 2,
+        "endLine": 208,
+        "endChar": 63
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_a4992c54",
+        "filename": "compiler/optimizing/code_generator_mips64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Why making it optional?",
+      "range": {
+        "startLine": 263,
+        "startChar": 5,
+        "endLine": 263,
+        "endChar": 26
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_283923a0",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Maybe place this mask in a constant?",
+      "range": {
+        "startLine": 60,
+        "startChar": 31,
+        "endLine": 60,
+        "endChar": 39
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_86cccc6b",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 66,
+        "startChar": 32,
+        "endLine": 66,
+        "endChar": 41
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_c8c88f2b",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Nit:\n\n  0 \u003c\u003d pos \u0026\u0026 pos \u003c 32\n\n?",
+      "range": {
+        "startLine": 247,
+        "startChar": 9,
+        "endLine": 247,
+        "endChar": 29
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_a6d1c800",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 248,
+        "startChar": 9,
+        "endLine": 248,
+        "endChar": 49
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_24299c84",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Suggestion:\n\n  (value \u0026 0xFFFF) \u003d\u003d 0 \u0026\u0026\n  (-32768 - bit31) \u003c\u003d (value \u003e\u003e 32) \u0026\u0026 (value \u003e\u003e 32) \u003c\u003d (32767 - bit31)",
+      "range": {
+        "startLine": 666,
+        "startChar": 13,
+        "endLine": 667,
+        "endChar": 45
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_e4ffb476",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Use CTZ from runtime/utils.h?",
+      "range": {
+        "startLine": 674,
+        "startChar": 4,
+        "endLine": 679,
+        "endChar": 5
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_c6e964b2",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "31?",
+      "range": {
+        "startLine": 686,
+        "startChar": 35,
+        "endLine": 686,
+        "endChar": 39
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_08e787af",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Likewise?",
+      "range": {
+        "startLine": 692,
+        "startChar": 35,
+        "endLine": 692,
+        "endChar": 39
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_c694041c",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Likewise?",
+      "range": {
+        "startLine": 700,
+        "startChar": 35,
+        "endLine": 700,
+        "endChar": 39
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_e6990053",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Use CTZ?",
+      "range": {
+        "startLine": 703,
+        "startChar": 2,
+        "endLine": 707,
+        "endChar": 7
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_68015bbe",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Likewise?",
+      "range": {
+        "startLine": 714,
+        "startChar": 37,
+        "endLine": 714,
+        "endChar": 41
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_6423a4a2",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Likewise?",
+      "range": {
+        "startLine": 721,
+        "startChar": 37,
+        "endLine": 721,
+        "endChar": 41
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_46a9f45b",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 847,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "static_cast\u003cint32_t\u003e(offset)",
+      "range": {
+        "startLine": 847,
+        "startChar": 13,
+        "endLine": 847,
+        "endChar": 28
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_e846ab12",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 869,
+        "startChar": 13,
+        "endLine": 869,
+        "endChar": 28
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e3da4b_04e458d4",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 978,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Is this really necessary, as you cover all the values of the enum?",
+      "range": {
+        "startLine": 977,
+        "startChar": 0,
+        "endLine": 978,
+        "endChar": 34
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_a616a845",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Maybe place this on a singe line?",
+      "range": {
+        "startLine": 762,
+        "startChar": 6,
+        "endLine": 763,
+        "endChar": 54
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_083c678f",
+        "filename": "disassembler/disassembler_mips.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-04-30T17:33:25Z",
+      "side": 1,
+      "message": "Please document these new members.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 22
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
