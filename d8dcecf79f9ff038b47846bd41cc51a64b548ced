@@ -22,6 +22,29 @@
       "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0598aea_ceae5799",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T23:08:55Z",
+      "side": 1,
+      "message": "Isn\u0027t this the hdr-\u003etable_enc?",
+      "range": {
+        "startLine": 196,
+        "startChar": 19,
+        "endLine": 196,
+        "endChar": 53
+      },
+      "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
