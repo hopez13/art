@@ -16,6 +16,24 @@
       "revId": "74cf23a6c7717ac45060ed1433cb9e02db685d56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "705392ca_e65820e0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-04-30T11:30:49Z",
+      "side": 1,
+      "message": "Then you might not like the previous commit named \"Minor refactoring of ElfBuilder.\" then :-)\n\nThe adjectives are intentional, to make contrast between those.  Both of the commits look huge in gerrit, but the former is mostly template removal and change of indentation, where is this one is close to re-write.",
+      "parentUuid": "b0598aea_483c9f42",
+      "revId": "74cf23a6c7717ac45060ed1433cb9e02db685d56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
