@@ -389,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "b0598aea_0836a760",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-04-30T11:16:50Z",
+      "side": 1,
+      "message": "You don\u0027t need to \"build the programs headers\", just determine how many there are going to be. But I agree that this is not really important, so we can keep it as is.",
+      "parentUuid": "705392ca_8624cc66",
+      "range": {
+        "startLine": 659,
+        "startChar": 7,
+        "endLine": 659,
+        "endChar": 76
+      },
+      "revId": "b9fae3fed0ef03524f3252917ecffe3578771f6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0598aea_88c29785",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 3
