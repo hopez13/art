@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b017cafa_a952a5eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30e3da4b_21b06e6c",
+      "range": {
+        "startLine": 7,
+        "startChar": 34,
+        "endLine": 7,
+        "endChar": 40
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "705392ca_234f0a94",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-04-29T17:28:50Z",
       "side": 1,
       "message": "Is this really needed?  The switch seems to cover all the values of the enum.",
+      "range": {
+        "startLine": 847,
+        "startChar": 4,
+        "endLine": 850,
+        "endChar": 17
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d01c3e21_19db2f18",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "705392ca_234f0a94",
       "range": {
         "startLine": 847,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d01c3e21_b994bb1a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "705392ca_c3ae3699",
+      "range": {
+        "startLine": 854,
+        "startChar": 32,
+        "endLine": 854,
+        "endChar": 46
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0598aea_250cee3c",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "100336c0_3e909119",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0598aea_250cee3c",
+      "range": {
+        "startLine": 863,
+        "startChar": 0,
+        "endLine": 863,
+        "endChar": 101
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30e3da4b_81205ac7",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -105,6 +201,30 @@
       "writtenOn": "2015-04-29T17:28:50Z",
       "side": 1,
       "message": "Nit: maybe swap these two lines?",
+      "range": {
+        "startLine": 870,
+        "startChar": 0,
+        "endLine": 871,
+        "endChar": 43
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "100336c0_1e8dcd03",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30e3da4b_81205ac7",
       "range": {
         "startLine": 870,
         "startChar": 0,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "100336c0_be6661d6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "No, the Locations settings ensures that the right is the constant (if it can be) and the left is in a register.   What would be better would be a pass trying to put the constant on the RHS by swapping the condition/compare.  Have to be careful for float values.",
+      "parentUuid": "b0598aea_65b426c1",
+      "range": {
+        "startLine": 903,
+        "startChar": 10,
+        "endLine": 903,
+        "endChar": 28
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "705392ca_a3a3fa7c",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -174,6 +318,30 @@
       "writtenOn": "2015-04-29T17:28:50Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 1003,
+        "startChar": 0,
+        "endLine": 1004,
+        "endChar": 39
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b017cafa_099f5936",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "705392ca_a3a3fa7c",
       "range": {
         "startLine": 1003,
         "startChar": 0,
@@ -209,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "d01c3e21_d9a3777c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "That doesn\u0027t work.  You need the DCHECK",
+      "parentUuid": "30e3da4b_e1d16600",
+      "range": {
+        "startLine": 1086,
+        "startChar": 4,
+        "endLine": 1086,
+        "endChar": 28
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0598aea_45dd6ae1",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -220,6 +412,30 @@
       "writtenOn": "2015-04-29T17:28:50Z",
       "side": 1,
       "message": "DCHECK_NE(compare, nullptr);",
+      "range": {
+        "startLine": 1088,
+        "startChar": 4,
+        "endLine": 1088,
+        "endChar": 31
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b017cafa_e9a3fd7b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "b0598aea_45dd6ae1",
       "range": {
         "startLine": 1088,
         "startChar": 4,
@@ -255,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "100336c0_9e6b9da0",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1177,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "code removed to make SSA liveness happier",
+      "parentUuid": "705392ca_63a6628d",
+      "range": {
+        "startLine": 1177,
+        "startChar": 7,
+        "endLine": 1177,
+        "endChar": 51
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0598aea_a5ee9e84",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -266,6 +506,30 @@
       "writtenOn": "2015-04-29T17:28:50Z",
       "side": 1,
       "message": "Maybe use the same condition as in the location builder visitor?",
+      "range": {
+        "startLine": 1191,
+        "startChar": 6,
+        "endLine": 1191,
+        "endChar": 32
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "100336c0_3e5b7111",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1191,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0598aea_a5ee9e84",
       "range": {
         "startLine": 1191,
         "startChar": 6,
@@ -301,6 +565,30 @@
     },
     {
       "key": {
+        "uuid": "d01c3e21_996bbfa0",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "705392ca_e3057297",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 55
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0598aea_25338e71",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 3
@@ -312,6 +600,30 @@
       "writtenOn": "2015-04-29T17:28:50Z",
       "side": 1,
       "message": "Nit: long line.",
+      "range": {
+        "startLine": 805,
+        "startChar": 0,
+        "endLine": 805,
+        "endChar": 101
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d01c3e21_59b007bb",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0598aea_25338e71",
       "range": {
         "startLine": 805,
         "startChar": 0,
@@ -347,6 +659,30 @@
     },
     {
       "key": {
+        "uuid": "100336c0_be4dc152",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Same answer :-)",
+      "parentUuid": "b0598aea_e5d7b673",
+      "range": {
+        "startLine": 810,
+        "startChar": 10,
+        "endLine": 810,
+        "endChar": 28
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30e3da4b_e14046f7",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 3
@@ -358,6 +694,30 @@
       "writtenOn": "2015-04-29T17:28:50Z",
       "side": 1,
       "message": "\"a 32-bit integer\"?",
+      "range": {
+        "startLine": 819,
+        "startChar": 32,
+        "endLine": 819,
+        "endChar": 38
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b017cafa_6987ede1",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30e3da4b_e14046f7",
       "range": {
         "startLine": 819,
         "startChar": 32,
@@ -393,6 +753,30 @@
     },
     {
       "key": {
+        "uuid": "100336c0_9e527dec",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Assume this was a long line.",
+      "parentUuid": "705392ca_830a7ea6",
+      "range": {
+        "startLine": 838,
+        "startChar": 0,
+        "endLine": 838,
+        "endChar": 102
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "705392ca_a30f7ab5",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 3
@@ -404,6 +788,30 @@
       "writtenOn": "2015-04-29T17:28:50Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 851,
+        "startChar": 0,
+        "endLine": 851,
+        "endChar": 104
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d01c3e21_b97b1b77",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "705392ca_a30f7ab5",
       "range": {
         "startLine": 851,
         "startChar": 0,
@@ -439,6 +847,30 @@
     },
     {
       "key": {
+        "uuid": "100336c0_fe47392c",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "I think I need this as there are other types in the switch and it will complain if I don\u0027t have them all",
+      "parentUuid": "b0598aea_45c7aac4",
+      "range": {
+        "startLine": 859,
+        "startChar": 0,
+        "endLine": 860,
+        "endChar": 55
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "705392ca_03368e60",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 3
@@ -450,6 +882,30 @@
       "writtenOn": "2015-04-29T17:28:50Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 902,
+        "startChar": 0,
+        "endLine": 903,
+        "endChar": 39
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d01c3e21_9980dfd0",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "705392ca_03368e60",
       "range": {
         "startLine": 902,
         "startChar": 0,
@@ -485,6 +941,30 @@
     },
     {
       "key": {
+        "uuid": "b017cafa_495b1110",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Can\u0027t do",
+      "parentUuid": "705392ca_23338a71",
+      "range": {
+        "startLine": 985,
+        "startChar": 4,
+        "endLine": 985,
+        "endChar": 28
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "705392ca_c3d2b686",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 3
@@ -496,6 +976,30 @@
       "writtenOn": "2015-04-29T17:28:50Z",
       "side": 1,
       "message": "DCHECK_NE(compare, nullptr);",
+      "range": {
+        "startLine": 987,
+        "startChar": 4,
+        "endLine": 987,
+        "endChar": 31
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d01c3e21_f9759380",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Cant\u0027 do",
+      "parentUuid": "705392ca_c3d2b686",
       "range": {
         "startLine": 987,
         "startChar": 4,
@@ -531,6 +1035,30 @@
     },
     {
       "key": {
+        "uuid": "d01c3e21_d97a5770",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1075,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "code removed to make ssa liveness happy",
+      "parentUuid": "705392ca_e3d7b273",
+      "range": {
+        "startLine": 1075,
+        "startChar": 7,
+        "endLine": 1075,
+        "endChar": 51
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30e3da4b_e15206bb",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 3
@@ -542,6 +1070,30 @@
       "writtenOn": "2015-04-29T17:28:50Z",
       "side": 1,
       "message": "Maybe use the same condition as in the location builder visitor?",
+      "range": {
+        "startLine": 1090,
+        "startChar": 6,
+        "endLine": 1090,
+        "endChar": 32
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "100336c0_de4cf553",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30e3da4b_e15206bb",
       "range": {
         "startLine": 1090,
         "startChar": 6,
@@ -577,6 +1129,30 @@
     },
     {
       "key": {
+        "uuid": "d01c3e21_79b343c9",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0598aea_a5269e33",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 55
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0598aea_a5b3fe4a",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 3
@@ -588,6 +1164,30 @@
       "writtenOn": "2015-04-29T17:28:50Z",
       "side": 1,
       "message": "Place on a single line?",
+      "range": {
+        "startLine": 386,
+        "startChar": 2,
+        "endLine": 387,
+        "endChar": 48
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d01c3e21_3990ab19",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0598aea_a5b3fe4a",
       "range": {
         "startLine": 386,
         "startChar": 2,
@@ -623,6 +1223,30 @@
     },
     {
       "key": {
+        "uuid": "100336c0_3e42511d",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30e3da4b_41681269",
+      "range": {
+        "startLine": 388,
+        "startChar": 7,
+        "endLine": 388,
+        "endChar": 36
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "705392ca_83dcbe99",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 3
@@ -634,6 +1258,30 @@
       "writtenOn": "2015-04-29T17:28:50Z",
       "side": 1,
       "message": "Place on a single line?",
+      "range": {
+        "startLine": 393,
+        "startChar": 2,
+        "endLine": 394,
+        "endChar": 45
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "100336c0_1e3f8d87",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "705392ca_83dcbe99",
       "range": {
         "startLine": 393,
         "startChar": 2,
@@ -669,6 +1317,30 @@
     },
     {
       "key": {
+        "uuid": "d01c3e21_198def03",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0598aea_45b9ea29",
+      "range": {
+        "startLine": 407,
+        "startChar": 5,
+        "endLine": 407,
+        "endChar": 17
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0598aea_c58b9a74",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 3
@@ -680,6 +1352,30 @@
       "writtenOn": "2015-04-29T17:28:50Z",
       "side": 1,
       "message": "This is a bit ambiguous; what about \"The comparison must immediately precede the condition (disregarding moves).\"?",
+      "range": {
+        "startLine": 1369,
+        "startChar": 5,
+        "endLine": 1369,
+        "endChar": 36
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d01c3e21_798a23ed",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1369,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0598aea_c58b9a74",
       "range": {
         "startLine": 1369,
         "startChar": 5,
@@ -715,6 +1411,30 @@
     },
     {
       "key": {
+        "uuid": "d01c3e21_598767e1",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1379,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "705392ca_63c422bf",
+      "range": {
+        "startLine": 1379,
+        "startChar": 2,
+        "endLine": 1379,
+        "endChar": 36
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30e3da4b_81621a85",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -726,6 +1446,24 @@
       "writtenOn": "2015-04-29T17:28:50Z",
       "side": 1,
       "message": ".",
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "100336c0_7e3cc990",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1655,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30e3da4b_81621a85",
       "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -755,6 +1493,30 @@
     },
     {
       "key": {
+        "uuid": "d01c3e21_b9667bd6",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1489,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "removed this code completely.",
+      "parentUuid": "30e3da4b_01c9eafa",
+      "range": {
+        "startLine": 1489,
+        "startChar": 14,
+        "endLine": 1489,
+        "endChar": 45
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "705392ca_c3f95600",
         "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
         "patchSetId": 3
@@ -766,6 +1528,30 @@
       "writtenOn": "2015-04-29T17:28:50Z",
       "side": 1,
       "message": "Why did you have to add this condition?",
+      "range": {
+        "startLine": 234,
+        "startChar": 37,
+        "endLine": 234,
+        "endChar": 81
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "100336c0_5e39059f",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-04-30T18:29:31Z",
+      "side": 1,
+      "message": "Was done because no location was set for compare.  Changed the logic and removed this clause.",
+      "parentUuid": "705392ca_c3f95600",
       "range": {
         "startLine": 234,
         "startChar": 37,
