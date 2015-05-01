@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "507cce56_a231fe1f",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-05-01T14:50:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0598aea_0ec1cf2d",
+      "range": {
+        "startLine": 152,
+        "startChar": 25,
+        "endLine": 152,
+        "endChar": 40
+      },
+      "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70f8f2fa_f6bd8f45",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2015-05-01T01:47:23Z",
       "side": 1,
       "message": "Please use a better name and document this so I don\u0027t have to look at how it\u0027s used. Maybe patched_against_section_? patch_base_ wasn\u0027t bad in that respect.",
+      "range": {
+        "startLine": 204,
+        "startChar": 19,
+        "endLine": 204,
+        "endChar": 33
+      },
+      "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70bf1233_2371aada",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-05-01T14:50:20Z",
+      "side": 1,
+      "message": "Done (patch_base_section_ + comment)",
+      "parentUuid": "70f8f2fa_f6bd8f45",
       "range": {
         "startLine": 204,
         "startChar": 19,
@@ -210,6 +258,30 @@
     },
     {
       "key": {
+        "uuid": "70bf1233_83ee9eb6",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-05-01T14:50:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "300cbaed_f5aa9c7d",
+      "range": {
+        "startLine": 207,
+        "startChar": 21,
+        "endLine": 207,
+        "endChar": 60
+      },
+      "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70f8f2fa_96124bd8",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 1
@@ -221,6 +293,30 @@
       "writtenOn": "2015-05-01T01:47:23Z",
       "side": 1,
       "message": "We treat those like constants, so they\u0027re often named like kSubtractMyAddr in the runtime. Also, lately we\u0027re avoiding booleans for readability at the call-site, instead introducing enums...\n\nAlternatively you could consider introducing minimal wrappers that have self-explaining names, e.g., PatchMakeRelative or so (though I don\u0027t know good names for all combinations).",
+      "range": {
+        "startLine": 111,
+        "startChar": 15,
+        "endLine": 111,
+        "endChar": 29
+      },
+      "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70bf1233_a3ae3a97",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-05-01T14:50:20Z",
+      "side": 1,
+      "message": "I have combined the two bools into single enum.",
+      "parentUuid": "70f8f2fa_96124bd8",
       "range": {
         "startLine": 111,
         "startChar": 15,
@@ -280,6 +376,30 @@
     },
     {
       "key": {
+        "uuid": "90c486d3_a443e273",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-05-01T14:50:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7011d208_13330ca3",
+      "range": {
+        "startLine": 113,
+        "startChar": 27,
+        "endLine": 113,
+        "endChar": 29
+      },
+      "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7011d208_b36cd889",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 1
@@ -291,6 +411,30 @@
       "writtenOn": "2015-05-01T09:34:00Z",
       "side": 1,
       "message": "I think the SubtractLocation is unnecessary, considering that we are now adding to *to_patch rather than assigning. We should either choose to subtract location together with my_address if SubtractMyAddress (as it\u0027s been done previously), or don\u0027t subtract it at all. In both cases we can prepare the original buffer so that this yields the correct result.",
+      "range": {
+        "startLine": 118,
+        "startChar": 31,
+        "endLine": 118,
+        "endChar": 66
+      },
+      "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "507cce56_62ad3696",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-05-01T14:50:20Z",
+      "side": 1,
+      "message": "I known what you mean, I have briefly considered it as well.  However, I have decided that I would rather have the extra complexity here than doing half of the calculation here and half in WriteEhFrame.\n\nThe intention is that the unpatched address is just \"method_info-\u003elow_pc_\" in all cases, and the patch method transforms it to its final form - whatever that might be.",
+      "parentUuid": "7011d208_b36cd889",
       "range": {
         "startLine": 118,
         "startChar": 31,
@@ -337,6 +481,30 @@
       "writtenOn": "2015-05-01T01:47:23Z",
       "side": 1,
       "message": "I don\u0027t know whether I really see all patches, but it looks like eh_frame doesn\u0027t have that many? (In fact, I only see one.) So maybe we could avoid this parameter?",
+      "range": {
+        "startLine": 149,
+        "startChar": 64,
+        "endLine": 149,
+        "endChar": 68
+      },
+      "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90c486d3_e43ddae1",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-05-01T14:50:20Z",
+      "side": 1,
+      "message": "eh_frame should have one patch location per method - so quite a few...\nsame for eh_frame_hdr",
+      "parentUuid": "70f8f2fa_596c7405",
       "range": {
         "startLine": 149,
         "startChar": 64,
