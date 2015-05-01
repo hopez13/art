@@ -1,0 +1,308 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "507cce56_42daf2eb",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-01T15:57:26Z",
+      "side": 1,
+      "message": "at",
+      "range": {
+        "startLine": 1116,
+        "startChar": 24,
+        "endLine": 1116,
+        "endChar": 25
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70bf1233_a3c8fa29",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1128,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-01T15:57:26Z",
+      "side": 1,
+      "message": "before",
+      "range": {
+        "startLine": 1128,
+        "startChar": 42,
+        "endLine": 1128,
+        "endChar": 47
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90c486d3_64656ac5",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1130,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-01T15:57:26Z",
+      "side": 1,
+      "message": "chance",
+      "range": {
+        "startLine": 1130,
+        "startChar": 35,
+        "endLine": 1130,
+        "endChar": 41
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70bf1233_83cdfe39",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-01T15:57:26Z",
+      "side": 1,
+      "message": "as",
+      "range": {
+        "startLine": 1131,
+        "startChar": 35,
+        "endLine": 1131,
+        "endChar": 39
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90c486d3_a44da252",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-01T15:57:26Z",
+      "side": 1,
+      "message": "just \"avoid\"",
+      "range": {
+        "startLine": 1131,
+        "startChar": 61,
+        "endLine": 1131,
+        "endChar": 69
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90c486d3_845226ec",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1136,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-01T15:57:26Z",
+      "side": 1,
+      "message": "dominated blocks are not sorted in liveness order",
+      "range": {
+        "startLine": 1136,
+        "startChar": 17,
+        "endLine": 1136,
+        "endChar": 67
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70bf1233_23dd2ae3",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-01T15:57:26Z",
+      "side": 1,
+      "message": "You use this three times, turn into a local var?",
+      "range": {
+        "startLine": 1138,
+        "startChar": 11,
+        "endLine": 1138,
+        "endChar": 47
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70bf1233_03daaeea",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-01T15:57:26Z",
+      "side": 1,
+      "message": "Explain what this is or give it a better name, \u0027first_sibling_start\u0027?",
+      "range": {
+        "startLine": 1139,
+        "startChar": 14,
+        "endLine": 1139,
+        "endChar": 23
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70bf1233_43fb0641",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1140,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-01T15:57:26Z",
+      "side": 1,
+      "message": "How about a DCHECK that block_to !\u003d block_from. It\u0027s guaranteed by the strict greater-than on 1138 but it would be nice to write that written explicitly.",
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70bf1233_e324b267",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-01T15:57:26Z",
+      "side": 1,
+      "message": "Isn\u0027t this just !IsParent() \u003d IsSplit()?",
+      "range": {
+        "startLine": 339,
+        "startChar": 6,
+        "endLine": 339,
+        "endChar": 37
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90c486d3_a4c8022a",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1119,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-01T15:57:26Z",
+      "side": 1,
+      "message": "Sounds like it would be useful to document what `index` is in this context.",
+      "range": {
+        "startLine": 1119,
+        "startChar": 0,
+        "endLine": 1119,
+        "endChar": 57
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "507cce56_a21ade25",
+        "filename": "test/484-checker-register-hints/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-01T15:57:26Z",
+      "side": 1,
+      "message": "Might be worth doing a \u0027CHECK-NOT: end_block\u0027 between the name and the If, just to make sure it is in B1. Same with the ArraySet below.",
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90c486d3_64e72aaf",
+        "filename": "test/484-checker-register-hints/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-01T15:57:26Z",
+      "side": 1,
+      "message": "Different indentation, more below",
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70bf1233_e33b127c",
+        "filename": "test/484-checker-register-hints/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-01T15:57:26Z",
+      "side": 1,
+      "message": "Does this actually create an empty block?",
+      "range": {
+        "startLine": 104,
+        "startChar": 11,
+        "endLine": 105,
+        "endChar": 5
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
