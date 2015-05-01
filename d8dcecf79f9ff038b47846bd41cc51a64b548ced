@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "300cbaed_95eec133",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-01T01:47:23Z",
+      "side": 1,
+      "message": "I think the standard style would suffix with Fn or something like that to make clear it\u0027s a function pointer type.",
+      "range": {
+        "startLine": 152,
+        "startChar": 8,
+        "endLine": 152,
+        "endChar": 13
+      },
+      "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70f8f2fa_f6bd8f45",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-01T01:47:23Z",
+      "side": 1,
+      "message": "Please use a better name and document this so I don\u0027t have to look at how it\u0027s used. Maybe patched_against_section_? patch_base_ wasn\u0027t bad in that respect.",
+      "range": {
+        "startLine": 204,
+        "startChar": 19,
+        "endLine": 204,
+        "endChar": 33
+      },
+      "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "300cbaed_a642c11a",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 1
@@ -65,6 +111,190 @@
         "startChar": 19,
         "endLine": 196,
         "endChar": 53
+      },
+      "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "300cbaed_f5aa9c7d",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-01T01:47:23Z",
+      "side": 1,
+      "message": "Put into a variable before the loop?",
+      "range": {
+        "startLine": 207,
+        "startChar": 21,
+        "endLine": 207,
+        "endChar": 60
+      },
+      "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "300cbaed_9571a08e",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-01T01:47:23Z",
+      "side": 1,
+      "message": "Can you add a comment here saying that we know the exact layout (eh_frame immediately before eh_frame_hdr) and the data is relative to the start of the eh_frame_hdr, so patching isn\u0027t necessary. (In contrast to the PC)",
+      "range": {
+        "startLine": 207,
+        "startChar": 4,
+        "endLine": 207,
+        "endChar": 76
+      },
+      "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70f8f2fa_96124bd8",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-01T01:47:23Z",
+      "side": 1,
+      "message": "We treat those like constants, so they\u0027re often named like kSubtractMyAddr in the runtime. Also, lately we\u0027re avoiding booleans for readability at the call-site, instead introducing enums...\n\nAlternatively you could consider introducing minimal wrappers that have self-explaining names, e.g., PatchMakeRelative or so (though I don\u0027t know good names for all combinations).",
+      "range": {
+        "startLine": 111,
+        "startChar": 15,
+        "endLine": 111,
+        "endChar": 29
+      },
+      "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fd66eb_91dedc05",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-01T01:47:23Z",
+      "side": 1,
+      "message": "Maybe base_address (or base_section_address) is a better name? \"my\" isn\u0027t really expressive.",
+      "range": {
+        "startLine": 113,
+        "startChar": 27,
+        "endLine": 113,
+        "endChar": 29
+      },
+      "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fd66eb_11c3ec3d",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-01T01:47:23Z",
+      "side": 1,
+      "message": "Period.",
+      "range": {
+        "startLine": 148,
+        "startChar": 85,
+        "endLine": 148,
+        "endChar": 86
+      },
+      "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70f8f2fa_596c7405",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-01T01:47:23Z",
+      "side": 1,
+      "message": "I don\u0027t know whether I really see all patches, but it looks like eh_frame doesn\u0027t have that many? (In fact, I only see one.) So maybe we could avoid this parameter?",
+      "range": {
+        "startLine": 149,
+        "startChar": 64,
+        "endLine": 149,
+        "endChar": 68
+      },
+      "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90fd66eb_f1c76045",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-01T01:47:23Z",
+      "side": 1,
+      "message": "Period.",
+      "range": {
+        "startLine": 154,
+        "startChar": 76,
+        "endLine": 154,
+        "endChar": 77
+      },
+      "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "300cbaed_b5294486",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-01T01:47:23Z",
+      "side": 1,
+      "message": "Could omit this one, but in general I\u0027d prefer to be expressive here and below to distinguish the different patching modes (different wrapper functions would be nice and intention-revealing here, but I don\u0027t know good names for all of \u0027em, see above).",
+      "range": {
+        "startLine": 155,
+        "startChar": 56,
+        "endLine": 155,
+        "endChar": 63
       },
       "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
