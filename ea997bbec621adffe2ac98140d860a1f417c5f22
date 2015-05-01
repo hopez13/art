@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7011d208_93aa7cfb",
+        "filename": "compiler/dex/quick/arm64/arm64_lir.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-01T11:03:58Z",
+      "side": 1,
+      "message": "Please keep the descriptions ordered, add a new line for r18.",
+      "range": {
+        "startLine": 34,
+        "startChar": 9,
+        "endLine": 34,
+        "endChar": 13
+      },
+      "revId": "ea997bbec621adffe2ac98140d860a1f417c5f22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70bf1233_c3c7f693",
+        "filename": "disassembler/disassembler_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-01T11:03:58Z",
+      "side": 1,
+      "message": "19",
+      "range": {
+        "startLine": 34,
+        "startChar": 8,
+        "endLine": 34,
+        "endChar": 10
+      },
+      "revId": "ea997bbec621adffe2ac98140d860a1f417c5f22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70bf1233_63d72241",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-01T11:03:58Z",
+      "side": 1,
+      "message": "This looks bogus. We have already overwritten the xIP0 we had at the function entry. And we\u0027re not going to restore it in epilogue.",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 26
+      },
+      "revId": "ea997bbec621adffe2ac98140d860a1f417c5f22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90c486d3_24f412d1",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-01T11:03:58Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 109,
+        "startChar": 4,
+        "endLine": 109,
+        "endChar": 26
+      },
+      "revId": "ea997bbec621adffe2ac98140d860a1f417c5f22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70bf1233_2326cae4",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-01T11:03:58Z",
+      "side": 1,
+      "message": "This is bogus, x2 has not been saved.",
+      "range": {
+        "startLine": 623,
+        "startChar": 4,
+        "endLine": 623,
+        "endChar": 19
+      },
+      "revId": "ea997bbec621adffe2ac98140d860a1f417c5f22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "507cce56_0231ca1a",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-01T11:03:58Z",
+      "side": 1,
+      "message": "B (bytes rather than bits)",
+      "range": {
+        "startLine": 1089,
+        "startChar": 27,
+        "endLine": 1089,
+        "endChar": 28
+      },
+      "revId": "ea997bbec621adffe2ac98140d860a1f417c5f22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "507cce56_6220d6c6",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-01T11:03:58Z",
+      "side": 1,
+      "message": "#24 (The convention is to keep the return address in the last slot. The gap should be at #16.)",
+      "range": {
+        "startLine": 1094,
+        "startChar": 18,
+        "endLine": 1094,
+        "endChar": 21
+      },
+      "revId": "ea997bbec621adffe2ac98140d860a1f417c5f22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90c486d3_441dce8e",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-01T11:03:58Z",
+      "side": 1,
+      "message": "If you\u0027re merging \"sub sp, sp, #n\" with \"stp\", why not merge \"add sp, sp, #n\" with \"ldp\"? (Requires reordering of the \"ldp\"s above.)",
+      "range": {
+        "startLine": 1120,
+        "startChar": 4,
+        "endLine": 1120,
+        "endChar": 19
+      },
+      "revId": "ea997bbec621adffe2ac98140d860a1f417c5f22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
