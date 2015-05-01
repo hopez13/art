@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "90c486d3_c4eede85",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-01T16:23:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "507cce56_42daf2eb",
+      "range": {
+        "startLine": 1116,
+        "startChar": 24,
+        "endLine": 1116,
+        "endChar": 25
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70bf1233_a3c8fa29",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "90c486d3_240412cf",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1128,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-01T16:23:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70bf1233_a3c8fa29",
+      "range": {
+        "startLine": 1128,
+        "startChar": 42,
+        "endLine": 1128,
+        "endChar": 47
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90c486d3_64656ac5",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-05-01T15:57:26Z",
       "side": 1,
       "message": "chance",
+      "range": {
+        "startLine": 1130,
+        "startChar": 35,
+        "endLine": 1130,
+        "endChar": 41
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90c486d3_a44122fe",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1130,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-01T16:23:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90c486d3_64656ac5",
       "range": {
         "startLine": 1130,
         "startChar": 35,
@@ -117,6 +189,54 @@
     },
     {
       "key": {
+        "uuid": "70bf1233_a36c7a89",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-01T16:23:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90c486d3_a44da252",
+      "range": {
+        "startLine": 1131,
+        "startChar": 61,
+        "endLine": 1131,
+        "endChar": 69
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90c486d3_040116bf",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-01T16:23:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70bf1233_83cdfe39",
+      "range": {
+        "startLine": 1131,
+        "startChar": 35,
+        "endLine": 1131,
+        "endChar": 39
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90c486d3_845226ec",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2015-05-01T15:57:26Z",
       "side": 1,
       "message": "dominated blocks are not sorted in liveness order",
+      "range": {
+        "startLine": 1136,
+        "startChar": 17,
+        "endLine": 1136,
+        "endChar": 67
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90c486d3_64fe0a33",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1136,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-01T16:23:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90c486d3_845226ec",
       "range": {
         "startLine": 1136,
         "startChar": 17,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "507cce56_e224e667",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-01T16:23:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70bf1233_23dd2ae3",
+      "range": {
+        "startLine": 1138,
+        "startChar": 11,
+        "endLine": 1138,
+        "endChar": 47
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70bf1233_03daaeea",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 1
@@ -174,6 +342,30 @@
       "writtenOn": "2015-05-01T15:57:26Z",
       "side": 1,
       "message": "Explain what this is or give it a better name, \u0027first_sibling_start\u0027?",
+      "range": {
+        "startLine": 1139,
+        "startChar": 14,
+        "endLine": 1139,
+        "endChar": 23
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90c486d3_a41ac225",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-01T16:23:56Z",
+      "side": 1,
+      "message": "Actually the variable duplicates block_to. Removed.",
+      "parentUuid": "70bf1233_03daaeea",
       "range": {
         "startLine": 1139,
         "startChar": 14,
@@ -203,6 +395,24 @@
     },
     {
       "key": {
+        "uuid": "507cce56_220faee6",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-01T16:23:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70bf1233_43fb0641",
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70bf1233_e324b267",
         "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
         "patchSetId": 1
@@ -214,6 +424,30 @@
       "writtenOn": "2015-05-01T15:57:26Z",
       "side": 1,
       "message": "Isn\u0027t this just !IsParent() \u003d IsSplit()?",
+      "range": {
+        "startLine": 339,
+        "startChar": 6,
+        "endLine": 339,
+        "endChar": 37
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "507cce56_e23b067c",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-01T16:23:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70bf1233_e324b267",
       "range": {
         "startLine": 339,
         "startChar": 6,
@@ -249,6 +483,30 @@
     },
     {
       "key": {
+        "uuid": "70bf1233_2381aa98",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1119,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-01T16:23:56Z",
+      "side": 1,
+      "message": "Yeah, this index/position is a mess. I\u0027ll cleanup in another CL.",
+      "parentUuid": "90c486d3_a4c8022a",
+      "range": {
+        "startLine": 1119,
+        "startChar": 0,
+        "endLine": 1119,
+        "endChar": 57
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "507cce56_a21ade25",
         "filename": "test/484-checker-register-hints/src/Main.java",
         "patchSetId": 1
@@ -260,6 +518,24 @@
       "writtenOn": "2015-05-01T15:57:26Z",
       "side": 1,
       "message": "Might be worth doing a \u0027CHECK-NOT: end_block\u0027 between the name and the If, just to make sure it is in B1. Same with the ArraySet below.",
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70bf1233_638ba2b8",
+        "filename": "test/484-checker-register-hints/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-01T16:23:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "507cce56_a21ade25",
       "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -283,6 +559,24 @@
     },
     {
       "key": {
+        "uuid": "70bf1233_438826ba",
+        "filename": "test/484-checker-register-hints/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-01T16:23:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90c486d3_64e72aaf",
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70bf1233_e33b127c",
         "filename": "test/484-checker-register-hints/src/Main.java",
         "patchSetId": 1
@@ -294,6 +588,30 @@
       "writtenOn": "2015-05-01T15:57:26Z",
       "side": 1,
       "message": "Does this actually create an empty block?",
+      "range": {
+        "startLine": 104,
+        "startChar": 11,
+        "endLine": 105,
+        "endChar": 5
+      },
+      "revId": "e64612463bdeb15c1c052bbc1437e4ef462de009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70bf1233_a353dac1",
+        "filename": "test/484-checker-register-hints/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-01T16:23:56Z",
+      "side": 1,
+      "message": "Yes. I added instructions though to ensure it\u0027s not.",
+      "parentUuid": "70bf1233_e33b127c",
       "range": {
         "startLine": 104,
         "startChar": 11,
