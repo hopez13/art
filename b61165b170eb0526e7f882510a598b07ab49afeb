@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "105fb6fa_cce46f29",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-01T21:34:55Z",
+      "side": 1,
+      "message": "Please don\u0027t. Leave it INTERNAL, so that it matches the arm64 version (where I guess it was copied from).\n\nAlso, move the comment down to the next macro, where it belongs.",
+      "range": {
+        "startLine": 184,
+        "startChar": 45,
+        "endLine": 184,
+        "endChar": 59
+      },
+      "revId": "b61165b170eb0526e7f882510a598b07ab49afeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
