@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "d0ca7edd_26b3767c",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-01T16:05:33Z",
+      "side": 1,
+      "message": "Could be used higher up (line 198).",
+      "range": {
+        "startLine": 202,
+        "startChar": 16,
+        "endLine": 202,
+        "endChar": 39
+      },
+      "revId": "a736cfb8954dd4bb784cc9274fe4cac44d128940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "507cce56_22424e1d",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 3
