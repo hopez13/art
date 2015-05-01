@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d078be71_2bb9492b",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-01T22:19:20Z",
+      "side": 1,
+      "message": "Remove, checked just above.",
+      "range": {
+        "startLine": 522,
+        "startChar": 6,
+        "endLine": 522,
+        "endChar": 32
+      },
+      "revId": "22823e9f1363a1e2ead0a74bd9f80a88de74a3ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f06142bc_5102b40c",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-01T22:19:20Z",
+      "side": 1,
+      "message": "It looks to me like the sign-extension is the intended semantics. EmitLoad is used in Load, which is used by the JNI compiler to a) copy parameters and b) manage cookie and return value. This should all be sign-extended.",
+      "range": {
+        "startLine": 524,
+        "startChar": 21,
+        "endLine": 524,
+        "endChar": 30
+      },
+      "revId": "22823e9f1363a1e2ead0a74bd9f80a88de74a3ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
