@@ -517,6 +517,30 @@
     },
     {
       "key": {
+        "uuid": "f0d30294_67b3b2c9",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-01T16:02:06Z",
+      "side": 1,
+      "message": "I only saw one, that\u0027s why I was confused. But overall this comment was about the subtractLocation discussion above...",
+      "parentUuid": "90c486d3_e43ddae1",
+      "range": {
+        "startLine": 149,
+        "startChar": 64,
+        "endLine": 149,
+        "endChar": 68
+      },
+      "revId": "d8dcecf79f9ff038b47846bd41cc51a64b548ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90fd66eb_f1c76045",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 1
