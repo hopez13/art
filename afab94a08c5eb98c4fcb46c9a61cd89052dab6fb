@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f06142bc_a54f4591",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2112,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-05-04T17:45:14Z",
+      "side": 1,
+      "message": "probably should be conditionally ERROR based on return_errors?",
+      "range": {
+        "startLine": 2112,
+        "startChar": 12,
+        "endLine": 2112,
+        "endChar": 26
+      },
+      "revId": "afab94a08c5eb98c4fcb46c9a61cd89052dab6fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "105fb6fa_18005a04",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2115,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-05-04T17:45:14Z",
+      "side": 1,
+      "message": "will this work, or will it fatal out after one line is printed? if so, I\u0027d use ERROR/INTERNAL_FATAL, then add an extra FATAL at the end",
+      "range": {
+        "startLine": 2115,
+        "startChar": 21,
+        "endLine": 2115,
+        "endChar": 65
+      },
+      "revId": "afab94a08c5eb98c4fcb46c9a61cd89052dab6fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
