@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "f056a2ec_925d1a81",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-05T16:02:23Z",
+      "side": 1,
+      "message": "Thanks.  Could you also place the first argument on the same line as the function name, as long as it is no longer than 100 characters; e.g.:\n\n  mips64_codegen-\u003eMoveLocation(locations-\u003eOut(),\n                               calling_convention.GetReturnLocation(type),\n                               type);\n\n(Likewise for similar cases in this file.)",
+      "parentUuid": "b017cafa_8aeeb701",
+      "range": {
+        "startLine": 230,
+        "startChar": 33,
+        "endLine": 231,
+        "endChar": 12
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0598aea_68b07b6d",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 2
@@ -1117,6 +1141,30 @@
     },
     {
       "key": {
+        "uuid": "f056a2ec_35fc58b1",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-05T16:02:23Z",
+      "side": 1,
+      "message": "It ensures that `instruction\u0027 is indeed an instance of art::HLongConstant in debug mode.",
+      "parentUuid": "504a0e43_92a43c09",
+      "range": {
+        "startLine": 767,
+        "startChar": 28,
+        "endLine": 767,
+        "endChar": 70
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0598aea_88805747",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 2
@@ -1422,6 +1470,30 @@
       "side": 1,
       "message": "No idea. Copied over from and still exists in the ARM64 implementation.",
       "parentUuid": "b0598aea_2b1d9d8f",
+      "range": {
+        "startLine": 926,
+        "startChar": 6,
+        "endLine": 926,
+        "endChar": 28
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "304d9a5a_970a6c58",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-05T16:02:23Z",
+      "side": 1,
+      "message": "There is no such check in the ARM code generator, as `instruction` is not supposed to be null, and I think that should also be the case for the MIPS64 code generator.  I\u0027ll investigate the case of the ARM64 code generator.",
+      "parentUuid": "b017cafa_4f9af1ec",
       "range": {
         "startLine": 926,
         "startChar": 6,
@@ -2241,6 +2313,30 @@
     },
     {
       "key": {
+        "uuid": "f056a2ec_55ad5c95",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1764,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-05T16:02:23Z",
+      "side": 1,
+      "message": "Alright.  Could you add this explanation as a comment (and likewise for kCondLE)?  Thanks.",
+      "parentUuid": "d01c3e21_fcc2a185",
+      "range": {
+        "startLine": 1762,
+        "startChar": 0,
+        "endLine": 1764,
+        "endChar": 7
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30e3da4b_27a07e9e",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 2
@@ -2990,6 +3086,24 @@
     },
     {
       "key": {
+        "uuid": "105416e3_f6de5857",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2095,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-05T16:02:23Z",
+      "side": 1,
+      "message": "Not yet. :)",
+      "parentUuid": "d01c3e21_194fafc5",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0598aea_eb71c55d",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 2
@@ -3019,6 +3133,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "b0598aea_eb71c55d",
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "105416e3_16f4bcd0",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2097,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-05T16:02:23Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "d01c3e21_39526b6b",
       "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -3060,6 +3192,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "b0598aea_4b81f996",
+      "range": {
+        "startLine": 2125,
+        "startChar": 4,
+        "endLine": 2125,
+        "endChar": 12
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "304d9a5a_17267ce4",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2125,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-05T16:02:23Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "b017cafa_8ffec92f",
       "range": {
         "startLine": 2125,
         "startChar": 4,
@@ -4640,6 +4796,30 @@
       "side": 1,
       "message": "Copied over from and still exists in the ARM64 implementation.",
       "parentUuid": "30e3da4b_a4992c54",
+      "range": {
+        "startLine": 263,
+        "startChar": 5,
+        "endLine": 263,
+        "endChar": 26
+      },
+      "revId": "b4e6915c1f1d05a58908099d43691b523b84e368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f056a2ec_9276fa04",
+        "filename": "compiler/optimizing/code_generator_mips64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-05T16:02:23Z",
+      "side": 1,
+      "message": "Fair enough.  There seems to be a single use of MoveLocation with no type argument in both the MIPS64 and ARM64 code generators (resp. in art::mips64::ParallelMoveResolverMIPS64::EmitMove and art::arm64::ParallelMoveResolverARM64::EmitMove).  Let\u0027s keep it as is for now.",
+      "parentUuid": "b017cafa_84307095",
       "range": {
         "startLine": 263,
         "startChar": 5,
