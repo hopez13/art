@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "102df676_d4e4d928",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1163,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-05-05T22:15:58Z",
+      "side": 1,
+      "message": "initial is used in bce for initial value of induction variable. Maybe just call it input1 instead?",
+      "revId": "0c2385bb3b030984062b19fa4f74e4ad38a5842f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d026fe9b_7dca2d9e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1307,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-05-05T22:15:58Z",
+      "side": 1,
+      "message": "Should `at` be `to` in the comment?",
+      "revId": "0c2385bb3b030984062b19fa4f74e4ad38a5842f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d19f971_d6d8a2f2",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-05-05T22:15:58Z",
+      "side": 1,
+      "message": "synthesized uses only seem to be used in some asserts. What\u0027s the true purpose of it?",
+      "revId": "0c2385bb3b030984062b19fa4f74e4ad38a5842f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
