@@ -25,6 +25,46 @@
     },
     {
       "key": {
+        "uuid": "105416e3_b6485091",
+        "filename": "compiler/optimizing/code_generator_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-05T16:33:27Z",
+      "side": 1,
+      "message": "On second thoughts, I think it would be better for the MIPS64 code generator to look like other code generators, and have this constructor take a `const Mips64InstructionSetFeatures\u0026 isa_features\u0027 as second argument, initializing an `isa_features_\u0027 member…",
+      "range": {
+        "startLine": 205,
+        "startChar": 2,
+        "endLine": 205,
+        "endChar": 78
+      },
+      "revId": "dd9e7dc013604235f9637143e6e6185243d3cabc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "304d9a5a_5784840d",
+        "filename": "compiler/optimizing/code_generator_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-05T16:33:27Z",
+      "side": 1,
+      "message": "… and add a\n\n  const Mips64InstructionSetFeatures\u0026 GetInstructionSetFeatures() const {\n    return isa_features_;\n  }\n\naccessor here…",
+      "revId": "dd9e7dc013604235f9637143e6e6185243d3cabc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f056a2ec_f5165046",
         "filename": "compiler/optimizing/codegen_test.cc",
         "patchSetId": 4
@@ -36,6 +76,30 @@
       "writtenOn": "2015-05-05T16:13:24Z",
       "side": 1,
       "message": "Is this really needed?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 56
+      },
+      "revId": "dd9e7dc013604235f9637143e6e6185243d3cabc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f056a2ec_55c1dc2c",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-05T16:33:27Z",
+      "side": 1,
+      "message": "…making this comment irrelevant, as you would need this header inclusion…",
+      "parentUuid": "f056a2ec_f5165046",
       "range": {
         "startLine": 27,
         "startChar": 0,
@@ -64,6 +128,52 @@
         "startChar": 0,
         "endLine": 47,
         "endChar": 49
+      },
+      "revId": "dd9e7dc013604235f9637143e6e6185243d3cabc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "105416e3_f642d86c",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-05T16:33:27Z",
+      "side": 1,
+      "message": "…here…",
+      "range": {
+        "startLine": 180,
+        "startChar": 2,
+        "endLine": 180,
+        "endChar": 69
+      },
+      "revId": "dd9e7dc013604235f9637143e6e6185243d3cabc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "304d9a5a_778188fc",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-05T16:33:27Z",
+      "side": 1,
+      "message": "…and here, to instantiate the code generator.",
+      "range": {
+        "startLine": 233,
+        "startChar": 4,
+        "endLine": 233,
+        "endChar": 71
       },
       "revId": "dd9e7dc013604235f9637143e6e6185243d3cabc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
