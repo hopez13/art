@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd24a5a6_2c041c18",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-06T22:25:57Z",
+      "side": 1,
+      "message": "This is a sign-extension issue. The exact expected result is 0xFFFFFFFF, we get the 64-bit 0xFFFFFFFFFFFFFFFF. I\u0027m reading documentation on what we should expect to happen. Potentially it\u0027s a stub-test expectation fix.",
+      "range": {
+        "startLine": 13,
+        "startChar": 43,
+        "endLine": 13,
+        "endChar": 51
+      },
+      "revId": "1d9a21809fca17f52dc7f9e19c20a91766183674",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
