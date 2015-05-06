@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "ad24d1ad_d0fae2b4",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3553,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-06T13:56:47Z",
+      "side": 1,
+      "message": "ah, thanks,",
+      "parentUuid": "2d62a1ee_c9eb5122",
+      "range": {
+        "startLine": 3553,
+        "startChar": 6,
+        "endLine": 3553,
+        "endChar": 67
+      },
+      "revId": "55443432b42d48612a4beaa298afce7eb1066963",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd290587_aebb774f",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "More generic? What do you actually mean?",
       "parentUuid": "2d62a1ee_89cc39e6",
+      "range": {
+        "startLine": 3271,
+        "startChar": 2,
+        "endLine": 3273,
+        "endChar": 27
+      },
+      "revId": "55443432b42d48612a4beaa298afce7eb1066963",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_f158425b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 3273,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-06T13:56:47Z",
+      "side": 1,
+      "message": "It was a thought that came to my mind without being well defined...\n\nI was thinking that there might be opportunities to merge some other not fatal slow paths and it would be nice to come out with a consistent/generic way to do that.\n\nAnyway, we can handle this later when/if needed.",
+      "parentUuid": "ad24d1ad_6d5fd577",
       "range": {
         "startLine": 3271,
         "startChar": 2,
