@@ -45,6 +45,30 @@
       "revId": "019e45474585156ec134f8b24363b4fa11e499b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_f1b72236",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-05-06T19:47:12Z",
+      "side": 1,
+      "message": "I agree, it\u0027s confusing. The \"first time\" you see a method call on a ref, the if is false, and you fall down in the for loop below. This loop replaces all uses of the current NullCheck\u0027s source, including next NullCheck. Like this:\n\nGiven:\nl6 ParamValue\n...\nl42 NullCheck [ l6 ]\nv43 Invoke [ l42 ... ]\n...\nl52 NullCheck [ l6 ]\nv53 Invoke [ l52 ... ]\n\nWhen we visit the first Invoke (v43), we will execute the for loop below, replace following uses of l6 with l42, and have this:\n\nl6 ParamValue\n...\nl42 NullCheck [ l6 ]\nv43 Invoke [ l42 ... ]\n...\nl52 NullCheck [ l42 ]\nv53 Invoke [ l52 ... ]\n\nbut now l52 has another NullCheck as input. So, when we will visit v53, checking that l52\u0027s input is a NullCheck is a way to know that we already changed inputs. Finally, we fall in the if, and output:\n\nl6 ParamValue\n...\nl42 NullCheck [ l6 ]\nv43 Invoke [ l42 ... ]\n...\nl52 NullCheck [ l42 ]  \u003c\u003d\u003d output is ignored, will be removed\nv53 Invoke [ l42 ... ] \u003c\u003d\u003d notice the s/l52/l42/\n\nIs that more clear? Reversing the order of the if and the for and adding comments will make this more understandable, I guess.",
+      "parentUuid": "2d62a1ee_cc391f52",
+      "range": {
+        "startLine": 596,
+        "startChar": 0,
+        "endLine": 603,
+        "endChar": 2
+      },
+      "revId": "019e45474585156ec134f8b24363b4fa11e499b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
