@@ -324,6 +324,48 @@
     },
     {
       "key": {
+        "uuid": "cd290587_2e9e6739",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-06T09:24:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad24d1ad_eda185a5",
+      "range": {
+        "startLine": 216,
+        "startChar": 26,
+        "endLine": 216,
+        "endChar": 65
+      },
+      "revId": "13723421f5522a1c1146d8df2a7becc419291198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_ad26ddb1",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-06T09:24:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d62a1ee_c987d113",
+      "revId": "13723421f5522a1c1146d8df2a7becc419291198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd290587_2e13075b",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 3
@@ -335,6 +377,30 @@
       "writtenOn": "2015-05-06T09:00:37Z",
       "side": 1,
       "message": "This comment needs an update: if this was the last back edge, then the loop becomes invalid.",
+      "range": {
+        "startLine": 963,
+        "startChar": 6,
+        "endLine": 964,
+        "endChar": 75
+      },
+      "revId": "13723421f5522a1c1146d8df2a7becc419291198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_8d2321a2",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-06T09:24:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd290587_2e13075b",
       "range": {
         "startLine": 963,
         "startChar": 6,
@@ -370,6 +436,30 @@
     },
     {
       "key": {
+        "uuid": "cd290587_6e7d8f69",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1040,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-06T09:24:14Z",
+      "side": 1,
+      "message": "As discussed, we realized this was bogus before. Will fix in another standalone CL.",
+      "parentUuid": "cd290587_8e231ba2",
+      "range": {
+        "startLine": 1040,
+        "startChar": 0,
+        "endLine": 1040,
+        "endChar": 43
+      },
+      "revId": "13723421f5522a1c1146d8df2a7becc419291198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad24d1ad_0dbdf1c6",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -381,6 +471,24 @@
       "writtenOn": "2015-05-06T09:00:37Z",
       "side": 1,
       "message": "Add UNREACHABLE",
+      "revId": "13723421f5522a1c1146d8df2a7becc419291198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_ee905f1c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-06T09:24:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad24d1ad_0dbdf1c6",
       "revId": "13723421f5522a1c1146d8df2a7becc419291198",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
