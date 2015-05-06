@@ -16,6 +16,24 @@
       "revId": "d5f1005da7599f149b1332402c9791ef2acb8c42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_d0b2e2d5",
+        "filename": "runtime/quick/inline_method_analyser.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-06T14:56:50Z",
+      "side": 1,
+      "message": "I thought about it and decided to be consistent with the line above and let the compiler optimize that. According to objdump, this is the code for the second \"strmcp(...) \u003d\u003d 0\":\n\n  68:   782c            ldrb    r4, [r5, #0]\n  6a:   f1a4 042d       sub.w   r4, r4, #45     ; 0x2d\n  6e:   fab4 f184       clz     r1, r4\n  72:   0948            lsrs    r0, r1, #5",
+      "parentUuid": "0d407d41_96768ccf",
+      "revId": "d5f1005da7599f149b1332402c9791ef2acb8c42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
