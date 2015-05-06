@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d62a1ee_8c332770",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-06T19:23:20Z",
+      "side": 1,
+      "message": "make this clearer with:\n\n  HNullCheck* instance \u003d invoke-\u003eInputAt(0)-\u003eAsNullCheck();\n\n  if (instance \u003d\u003d nullptr) {\n    // Can this actually happen? It shouldn\u0027t. So I think we can DCHECK it.\n    return;\n  }",
+      "range": {
+        "startLine": 590,
+        "startChar": 2,
+        "endLine": 594,
+        "endChar": 3
+      },
+      "revId": "019e45474585156ec134f8b24363b4fa11e499b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_cc391f52",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-06T19:23:20Z",
+      "side": 1,
+      "message": "you are checking that the input of a NullCheck is a NullCheck here. why?",
+      "range": {
+        "startLine": 596,
+        "startChar": 0,
+        "endLine": 603,
+        "endChar": 2
+      },
+      "revId": "019e45474585156ec134f8b24363b4fa11e499b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
