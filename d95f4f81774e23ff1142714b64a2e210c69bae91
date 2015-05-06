@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd24a5a6_25f0b85e",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-06T04:03:25Z",
+      "side": 1,
+      "message": "See comment below.",
+      "range": {
+        "startLine": 42,
+        "startChar": 7,
+        "endLine": 42,
+        "endChar": 44
+      },
+      "revId": "d95f4f81774e23ff1142714b64a2e210c69bae91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d19f971_a897ff8f",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-06T04:03:25Z",
+      "side": 1,
+      "message": "Q: I think Ian intentionally pushed the store away from the load. Do you have performance data on something like an A53 that indicates that this doesn\u0027t matter?",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 26
+      },
+      "revId": "d95f4f81774e23ff1142714b64a2e210c69bae91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d1e2d58_a9a82585",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-06T04:03:25Z",
+      "side": 1,
+      "message": "Comment was wrong (not your fault), maybe fix it...",
+      "range": {
+        "startLine": 95,
+        "startChar": 69,
+        "endLine": 95,
+        "endChar": 76
+      },
+      "revId": "d95f4f81774e23ff1142714b64a2e210c69bae91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d1e2d58_29965549",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-06T04:03:25Z",
+      "side": 1,
+      "message": "That comment should be above this.\n\nMaybe re-order so that the check is below the str?",
+      "range": {
+        "startLine": 104,
+        "startChar": 4,
+        "endLine": 104,
+        "endChar": 44
+      },
+      "revId": "d95f4f81774e23ff1142714b64a2e210c69bae91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d19f971_48806b46",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-06T04:03:25Z",
+      "side": 1,
+      "message": "vmarko, ngeoffray: do we really need to restore the args? If you could point out why the respective compilers need to - I didn\u0027t see anything that required it...\n\nProbably it\u0027s a useless micro optimization, though.",
+      "range": {
+        "startLine": 1108,
+        "startChar": 4,
+        "endLine": 1108,
+        "endChar": 25
+      },
+      "revId": "d95f4f81774e23ff1142714b64a2e210c69bae91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
