@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad24d1ad_8d60c1b6",
+        "filename": "runtime/arch/stub_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-06T10:32:29Z",
+      "side": 1,
+      "message": "Isn\u0027t GP a callee saved register?",
+      "range": {
+        "startLine": 280,
+        "startChar": 41,
+        "endLine": 280,
+        "endChar": 52
+      },
+      "revId": "10cb6b70e0502f8ac74707b57e5126cbdedcce4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_2e242766",
+        "filename": "runtime/arch/stub_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-06T10:32:29Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 632,
+        "startChar": 41,
+        "endLine": 632,
+        "endChar": 52
+      },
+      "revId": "10cb6b70e0502f8ac74707b57e5126cbdedcce4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
