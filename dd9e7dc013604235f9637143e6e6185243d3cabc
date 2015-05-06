@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b0734a93_de21791f",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-05-06T01:03:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "105416e3_d62b14ae",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 19
+      },
+      "revId": "dd9e7dc013604235f9637143e6e6185243d3cabc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "105416e3_b6485091",
         "filename": "compiler/optimizing/code_generator_mips64.h",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "504a0e43_ef70368a",
+        "filename": "compiler/optimizing/code_generator_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-05-06T01:03:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "105416e3_b6485091",
+      "range": {
+        "startLine": 205,
+        "startChar": 2,
+        "endLine": 205,
+        "endChar": 78
+      },
+      "revId": "dd9e7dc013604235f9637143e6e6185243d3cabc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "304d9a5a_5784840d",
         "filename": "compiler/optimizing/code_generator_mips64.h",
         "patchSetId": 4
@@ -59,6 +107,24 @@
       "writtenOn": "2015-05-05T16:33:27Z",
       "side": 1,
       "message": "… and add a\n\n  const Mips64InstructionSetFeatures\u0026 GetInstructionSetFeatures() const {\n    return isa_features_;\n  }\n\naccessor here…",
+      "revId": "dd9e7dc013604235f9637143e6e6185243d3cabc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "706d52b3_fc6b9dec",
+        "filename": "compiler/optimizing/code_generator_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-05-06T01:03:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "304d9a5a_5784840d",
       "revId": "dd9e7dc013604235f9637143e6e6185243d3cabc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -112,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "706d52b3_bc368513",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-05-06T01:03:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f056a2ec_55c1dc2c",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 56
+      },
+      "revId": "dd9e7dc013604235f9637143e6e6185243d3cabc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "105416e3_f6301819",
         "filename": "compiler/optimizing/codegen_test.cc",
         "patchSetId": 4
@@ -123,6 +213,30 @@
       "writtenOn": "2015-05-05T16:13:24Z",
       "side": 1,
       "message": "Please keep this list sorted.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 49
+      },
+      "revId": "dd9e7dc013604235f9637143e6e6185243d3cabc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "706d52b3_dc2b41ae",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-05-06T01:03:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "105416e3_f6301819",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -158,6 +272,30 @@
     },
     {
       "key": {
+        "uuid": "706d52b3_5c2011c6",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-05-06T01:03:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "105416e3_f642d86c",
+      "range": {
+        "startLine": 180,
+        "startChar": 2,
+        "endLine": 180,
+        "endChar": 69
+      },
+      "revId": "dd9e7dc013604235f9637143e6e6185243d3cabc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "304d9a5a_778188fc",
         "filename": "compiler/optimizing/codegen_test.cc",
         "patchSetId": 4
@@ -181,6 +319,30 @@
     },
     {
       "key": {
+        "uuid": "706d52b3_7c1dcd8e",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-05-06T01:03:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "304d9a5a_778188fc",
+      "range": {
+        "startLine": 233,
+        "startChar": 4,
+        "endLine": 233,
+        "endChar": 71
+      },
+      "revId": "dd9e7dc013604235f9637143e6e6185243d3cabc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "105416e3_d0dcfc9a",
         "filename": "disassembler/disassembler_mips.h",
         "patchSetId": 4
@@ -192,6 +354,30 @@
       "writtenOn": "2015-05-05T08:18:03Z",
       "side": 1,
       "message": "Needs to end with \u0027_\u0027.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 22
+      },
+      "revId": "dd9e7dc013604235f9637143e6e6185243d3cabc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "706d52b3_7c06ad4e",
+        "filename": "disassembler/disassembler_mips.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-05-06T01:03:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "105416e3_d0dcfc9a",
       "range": {
         "startLine": 42,
         "startChar": 0,
