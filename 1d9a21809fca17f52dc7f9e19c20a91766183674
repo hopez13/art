@@ -22,6 +22,30 @@
       "revId": "1d9a21809fca17f52dc7f9e19c20a91766183674",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d8435cc_29fbceba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-06T23:06:44Z",
+      "side": 1,
+      "message": "I am a bit surprised here. The value comes from artGet32StaticFromCode, which is declared to return uint32_t. Why is a sign-extension happening?",
+      "parentUuid": "cd24a5a6_2c041c18",
+      "range": {
+        "startLine": 13,
+        "startChar": 43,
+        "endLine": 13,
+        "endChar": 51
+      },
+      "revId": "1d9a21809fca17f52dc7f9e19c20a91766183674",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
