@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ad24d1ad_ad737d10",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1163,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-06T13:09:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd290587_2e4f8718",
+      "range": {
+        "startLine": 1163,
+        "startChar": 27,
+        "endLine": 1163,
+        "endChar": 42
+      },
+      "revId": "55443432b42d48612a4beaa298afce7eb1066963",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad24d1ad_8de2019d",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-05-06T11:10:50Z",
       "side": 1,
       "message": "can you explain why?",
+      "range": {
+        "startLine": 3553,
+        "startChar": 6,
+        "endLine": 3553,
+        "endChar": 67
+      },
+      "revId": "55443432b42d48612a4beaa298afce7eb1066963",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_c9eb5122",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3553,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-06T13:09:42Z",
+      "side": 1,
+      "message": "The explanation is already in code_generator.h.",
+      "parentUuid": "ad24d1ad_8de2019d",
       "range": {
         "startLine": 3553,
         "startChar": 6,
@@ -107,6 +155,30 @@
       "side": 1,
       "message": "I know that will probably be a bit harder :)",
       "parentUuid": "ad24d1ad_2d242d66",
+      "range": {
+        "startLine": 3271,
+        "startChar": 2,
+        "endLine": 3273,
+        "endChar": 27
+      },
+      "revId": "55443432b42d48612a4beaa298afce7eb1066963",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_6d5fd577",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 3273,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-06T13:09:42Z",
+      "side": 1,
+      "message": "More generic? What do you actually mean?",
+      "parentUuid": "2d62a1ee_89cc39e6",
       "range": {
         "startLine": 3271,
         "startChar": 2,
