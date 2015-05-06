@@ -69,6 +69,30 @@
       "revId": "019e45474585156ec134f8b24363b4fa11e499b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_517b96ed",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-06T20:09:27Z",
+      "side": 1,
+      "message": "Thanks for the explanations! Clear now.\n\nI see... maybe we should not wait until GVN to remove the extra null checks. We can do it now and avoid this source of confusion. I don\u0027t mind doing it here but I\u0027m not sure if the ssabuilder is the best place to do.. Let\u0027s chat offline.\n\nNicolas, do you have any early feedback on this?",
+      "parentUuid": "cd290587_f1b72236",
+      "range": {
+        "startLine": 596,
+        "startChar": 0,
+        "endLine": 603,
+        "endChar": 2
+      },
+      "revId": "019e45474585156ec134f8b24363b4fa11e499b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
