@@ -284,6 +284,109 @@
     },
     {
       "key": {
+        "uuid": "2d62a1ee_c987d113",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-06T09:00:37Z",
+      "side": 1,
+      "message": "Count from 1",
+      "revId": "13723421f5522a1c1146d8df2a7becc419291198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_eda185a5",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-06T09:00:37Z",
+      "side": 1,
+      "message": "You seem to use e\u003dSize() elsewhere, stick to one.",
+      "range": {
+        "startLine": 216,
+        "startChar": 26,
+        "endLine": 216,
+        "endChar": 65
+      },
+      "revId": "13723421f5522a1c1146d8df2a7becc419291198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_2e13075b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-06T09:00:37Z",
+      "side": 1,
+      "message": "This comment needs an update: if this was the last back edge, then the loop becomes invalid.",
+      "range": {
+        "startLine": 963,
+        "startChar": 6,
+        "endLine": 964,
+        "endChar": 75
+      },
+      "revId": "13723421f5522a1c1146d8df2a7becc419291198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_8e231ba2",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1040,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-06T09:00:37Z",
+      "side": 1,
+      "message": "This needs an update too... The condition has to change to: has loop info (IsInLoop) but doesn\u0027t have a path to any of the remaining back edges.",
+      "range": {
+        "startLine": 1040,
+        "startChar": 0,
+        "endLine": 1040,
+        "endChar": 43
+      },
+      "revId": "13723421f5522a1c1146d8df2a7becc419291198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_0dbdf1c6",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-06T09:00:37Z",
+      "side": 1,
+      "message": "Add UNREACHABLE",
+      "revId": "13723421f5522a1c1146d8df2a7becc419291198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad24d1ad_2d3f8dda",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 3
