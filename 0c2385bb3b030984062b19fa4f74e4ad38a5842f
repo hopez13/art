@@ -104,6 +104,24 @@
       "revId": "0c2385bb3b030984062b19fa4f74e4ad38a5842f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd24a5a6_7d0f6868",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-05-06T17:31:01Z",
+      "side": 1,
+      "message": "I see. So uses aren\u0027t for correctness of register allocation. It\u0027s more like a hint thing. The AddLoopRange() in ComputeLiveRanges() guarantees correctness, right?\n\nIt seems to me there is no need to add synthesize use at all back edges, since any use that has higher priority then the use added at current-\u003eGetLifetimeEnd() is also something used in the loop. It\u0027s hard to say another back edge should take priority over that that use. It all depends on which branch in the loop is taken.",
+      "parentUuid": "cd290587_ee8a9f1b",
+      "revId": "0c2385bb3b030984062b19fa4f74e4ad38a5842f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
