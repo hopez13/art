@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d62a1ee_097cc969",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-06T09:59:23Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 75
+      },
+      "revId": "e53747781f33578848bd62a1a1e005ca2038e175",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_0d7cd169",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-06T09:59:23Z",
+      "side": 1,
+      "message": "Place this on a single line.",
+      "range": {
+        "startLine": 752,
+        "startChar": 0,
+        "endLine": 753,
+        "endChar": 50
+      },
+      "revId": "e53747781f33578848bd62a1a1e005ca2038e175",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
