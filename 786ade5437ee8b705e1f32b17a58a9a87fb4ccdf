@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad24d1ad_705c4e5a",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-06T14:19:58Z",
+      "side": 1,
+      "message": "When passing \u0027false\u0027, please add a comment to explain why it is not necessary to visit inlined methods.",
+      "range": {
+        "startLine": 171,
+        "startChar": 43,
+        "endLine": 171,
+        "endChar": 48
+      },
+      "revId": "786ade5437ee8b705e1f32b17a58a9a87fb4ccdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_ccf11fe3",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-06T14:19:58Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 312,
+        "startChar": 43,
+        "endLine": 312,
+        "endChar": 48
+      },
+      "revId": "786ade5437ee8b705e1f32b17a58a9a87fb4ccdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_106bcaee",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-06T14:19:58Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 962,
+        "startChar": 57,
+        "endLine": 962,
+        "endChar": 62
+      },
+      "revId": "786ade5437ee8b705e1f32b17a58a9a87fb4ccdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_91a8de85",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 975,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-06T14:19:58Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 975,
+        "startChar": 57,
+        "endLine": 975,
+        "endChar": 62
+      },
+      "revId": "786ade5437ee8b705e1f32b17a58a9a87fb4ccdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_d09e6265",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-06T14:19:58Z",
+      "side": 1,
+      "message": "Add a comment we don\u0027t count inlined methods because we don\u0027t instrument them with instrumentation stubs.",
+      "range": {
+        "startLine": 354,
+        "startChar": 10,
+        "endLine": 354,
+        "endChar": 42
+      },
+      "revId": "786ade5437ee8b705e1f32b17a58a9a87fb4ccdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_90045a47",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-06T14:19:58Z",
+      "side": 1,
+      "message": "C++11 allows to call the other constructor below:\n\n  StackVisitor::StackVisitor(Thread* thread, Context* context, bool include_inlined_methods) : StackVisitor(thread, context, include_inlined_methods, 0) {}",
+      "range": {
+        "startLine": 88,
+        "startChar": 6,
+        "endLine": 97,
+        "endChar": 1
+      },
+      "revId": "786ade5437ee8b705e1f32b17a58a9a87fb4ccdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_f1a162a5",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-06T14:19:58Z",
+      "side": 1,
+      "message": "const size_t",
+      "range": {
+        "startLine": 599,
+        "startChar": 4,
+        "endLine": 599,
+        "endChar": 10
+      },
+      "revId": "786ade5437ee8b705e1f32b17a58a9a87fb4ccdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_302da6c2",
+        "filename": "runtime/stack.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-06T14:19:58Z",
+      "side": 1,
+      "message": "This should be true by default IMO. A subclass should explicitly pass \u0027false\u0027 to not visit inlined methods.",
+      "range": {
+        "startLine": 415,
+        "startChar": 20,
+        "endLine": 415,
+        "endChar": 43
+      },
+      "revId": "786ade5437ee8b705e1f32b17a58a9a87fb4ccdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
