@@ -45,6 +45,29 @@
       "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d8435cc_1ff2bce6",
+        "filename": "compiler/dex/verified_method.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-07T00:03:17Z",
+      "side": 1,
+      "message": "Cleanup maybe in a separate CL? That way that can be merged immediately. But not a strong preference...",
+      "range": {
+        "startLine": 123,
+        "startChar": 2,
+        "endLine": 123,
+        "endChar": 42
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
