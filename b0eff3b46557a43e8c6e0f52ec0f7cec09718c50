@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d8435cc_e2709b05",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-05-07T02:57:19Z",
+      "side": 1,
+      "message": "Global variables with non trivial destructors cause issues if someone calls exit(), is there a way to avoid this, perhaps char*?",
+      "range": {
+        "startLine": 61,
+        "startChar": 25,
+        "endLine": 61,
+        "endChar": 47
+      },
+      "revId": "b0eff3b46557a43e8c6e0f52ec0f7cec09718c50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d1e2d58_b57d086c",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-05-07T02:57:19Z",
+      "side": 1,
+      "message": "Worth combining into 1 if statement for less lines?",
+      "range": {
+        "startLine": 473,
+        "startChar": 16,
+        "endLine": 473,
+        "endChar": 31
+      },
+      "revId": "b0eff3b46557a43e8c6e0f52ec0f7cec09718c50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d1e2d58_95f68c5d",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 933,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-05-07T02:57:19Z",
+      "side": 1,
+      "message": "Here we are making a copy of the pointer? That doesn\u0027t guard against the contents of the list changing underneath us, is that WAI?",
+      "range": {
+        "startLine": 933,
+        "startChar": 55,
+        "endLine": 933,
+        "endChar": 63
+      },
+      "revId": "b0eff3b46557a43e8c6e0f52ec0f7cec09718c50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d1e2d58_209898ef",
+        "filename": "runtime/instrumentation_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-05-07T02:57:19Z",
+      "side": 1,
+      "message": "Some of these lines are too long.",
+      "range": {
+        "startLine": 629,
+        "startChar": 75,
+        "endLine": 629,
+        "endChar": 110
+      },
+      "revId": "b0eff3b46557a43e8c6e0f52ec0f7cec09718c50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
