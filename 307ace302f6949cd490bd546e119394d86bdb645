@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad24d1ad_161982ae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-07T14:08:14Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 92
+      },
+      "revId": "307ace302f6949cd490bd546e119394d86bdb645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_37e59ad3",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-07T14:08:14Z",
+      "side": 1,
+      "message": "Maybe DCHECK that this is not null?",
+      "range": {
+        "startLine": 586,
+        "startChar": 16,
+        "endLine": 586,
+        "endChar": 34
+      },
+      "revId": "307ace302f6949cd490bd546e119394d86bdb645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_17ea9ea1",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-07T14:08:14Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 587,
+        "startChar": 16,
+        "endLine": 587,
+        "endChar": 28
+      },
+      "revId": "307ace302f6949cd490bd546e119394d86bdb645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_d2f1bae2",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-07T14:08:14Z",
+      "side": 1,
+      "message": "This could probably be factored with the contents of art::SsaBuilder::VisitInvokeStaticOrDirect.",
+      "range": {
+        "startLine": 598,
+        "startChar": 0,
+        "endLine": 606,
+        "endChar": 3
+      },
+      "revId": "307ace302f6949cd490bd546e119394d86bdb645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
