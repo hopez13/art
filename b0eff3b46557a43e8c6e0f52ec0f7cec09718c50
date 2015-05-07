@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "2d62a1ee_4fe64132",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-07T07:35:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d8435cc_d379abc0",
+      "range": {
+        "startLine": 61,
+        "startChar": 25,
+        "endLine": 61,
+        "endChar": 47
+      },
+      "revId": "b0eff3b46557a43e8c6e0f52ec0f7cec09718c50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d1e2d58_b57d086c",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 9
@@ -60,6 +84,30 @@
       "writtenOn": "2015-05-07T02:57:19Z",
       "side": 1,
       "message": "Worth combining into 1 if statement for less lines?",
+      "range": {
+        "startLine": 473,
+        "startChar": 16,
+        "endLine": 473,
+        "endChar": 31
+      },
+      "revId": "b0eff3b46557a43e8c6e0f52ec0f7cec09718c50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_f3cba89e",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-07T07:35:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d1e2d58_b57d086c",
       "range": {
         "startLine": 473,
         "startChar": 16,
@@ -119,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "cd290587_34911851",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 933,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-07T07:35:36Z",
+      "side": 1,
+      "message": "Yes, this is exactly to guard against a listener (like the debugger) removing itself while we loop over the list.",
+      "parentUuid": "cd24a5a6_872d46c4",
+      "range": {
+        "startLine": 933,
+        "startChar": 55,
+        "endLine": 933,
+        "endChar": 63
+      },
+      "revId": "b0eff3b46557a43e8c6e0f52ec0f7cec09718c50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d8435cc_b3f5079c",
         "filename": "runtime/instrumentation.h",
         "patchSetId": 9
@@ -142,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "cd290587_14961c49",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-07T07:35:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d8435cc_b3f5079c",
+      "range": {
+        "startLine": 471,
+        "startChar": 18,
+        "endLine": 471,
+        "endChar": 29
+      },
+      "revId": "b0eff3b46557a43e8c6e0f52ec0f7cec09718c50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d1e2d58_209898ef",
         "filename": "runtime/instrumentation_test.cc",
         "patchSetId": 9
@@ -153,6 +249,30 @@
       "writtenOn": "2015-05-07T02:57:19Z",
       "side": 1,
       "message": "Some of these lines are too long.",
+      "range": {
+        "startLine": 629,
+        "startChar": 75,
+        "endLine": 629,
+        "endChar": 110
+      },
+      "revId": "b0eff3b46557a43e8c6e0f52ec0f7cec09718c50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_8fd2f94e",
+        "filename": "runtime/instrumentation_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-07T07:35:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d1e2d58_209898ef",
       "range": {
         "startLine": 629,
         "startChar": 75,
