@@ -93,6 +93,29 @@
       "revId": "019e45474585156ec134f8b24363b4fa11e499b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_73e1f817",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-07T07:53:31Z",
+      "side": 1,
+      "message": "Let\u0027s chat about the decision you made on doing this after SSA building. I don\u0027t understand it. As it is, you more or less added an optimization pass after the SSA. The idea was to do it during SSA to avoid calling Dominates.",
+      "range": {
+        "startLine": 609,
+        "startChar": 11,
+        "endLine": 609,
+        "endChar": 49
+      },
+      "revId": "019e45474585156ec134f8b24363b4fa11e499b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
