@@ -1,0 +1,326 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad24d1ad_1642a2fe",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 760,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-07T17:14:51Z",
+      "side": 1,
+      "message": "I would remove (and even forbid) this case, as we do not allow it in code generators.",
+      "range": {
+        "startLine": 759,
+        "startChar": 6,
+        "endLine": 760,
+        "endChar": 63
+      },
+      "revId": "4df0a63a62d84f06cb4d445a814e8b55d5b2af2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_f29a7ee9",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-07T17:14:51Z",
+      "side": 1,
+      "message": "I think we should probably abort in default case (this one and the others below), as we do not allow these patterns in the code generators.",
+      "range": {
+        "startLine": 772,
+        "startChar": 8,
+        "endLine": 772,
+        "endChar": 23
+      },
+      "revId": "4df0a63a62d84f06cb4d445a814e8b55d5b2af2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_178cde87",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-07T17:14:51Z",
+      "side": 1,
+      "message": "Likewise, I would forbid these cases (as well as the missing kPrimChar case), as we do not allow them in code generators.",
+      "range": {
+        "startLine": 777,
+        "startChar": 6,
+        "endLine": 782,
+        "endChar": 66
+      },
+      "revId": "4df0a63a62d84f06cb4d445a814e8b55d5b2af2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_3780fa45",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-07T17:14:51Z",
+      "side": 1,
+      "message": "Nit: std::isnan (and likewise below).",
+      "range": {
+        "startLine": 796,
+        "startChar": 12,
+        "endLine": 796,
+        "endChar": 17
+      },
+      "revId": "4df0a63a62d84f06cb4d445a814e8b55d5b2af2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_9797ae90",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 798,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-07T17:14:51Z",
+      "side": 1,
+      "message": "kPrimIntMax",
+      "range": {
+        "startLine": 798,
+        "startChar": 21,
+        "endLine": 798,
+        "endChar": 28
+      },
+      "revId": "4df0a63a62d84f06cb4d445a814e8b55d5b2af2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_f67f1625",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-07T17:14:51Z",
+      "side": 1,
+      "message": "kPrimIntMax",
+      "range": {
+        "startLine": 799,
+        "startChar": 39,
+        "endLine": 799,
+        "endChar": 46
+      },
+      "revId": "4df0a63a62d84f06cb4d445a814e8b55d5b2af2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_d67c1a33",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-07T17:14:51Z",
+      "side": 1,
+      "message": "kPrimLongMax",
+      "range": {
+        "startLine": 804,
+        "startChar": 21,
+        "endLine": 804,
+        "endChar": 29
+      },
+      "revId": "4df0a63a62d84f06cb4d445a814e8b55d5b2af2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_72a7ae36",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-07T17:14:51Z",
+      "side": 1,
+      "message": "kPrimLongMax",
+      "range": {
+        "startLine": 805,
+        "startChar": 40,
+        "endLine": 805,
+        "endChar": 48
+      },
+      "revId": "4df0a63a62d84f06cb4d445a814e8b55d5b2af2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_d2977ac1",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-07T17:14:51Z",
+      "side": 1,
+      "message": "kPrimIntMax",
+      "range": {
+        "startLine": 818,
+        "startChar": 21,
+        "endLine": 818,
+        "endChar": 28
+      },
+      "revId": "4df0a63a62d84f06cb4d445a814e8b55d5b2af2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_968692ad",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-07T17:14:51Z",
+      "side": 1,
+      "message": "kPrimIntMax",
+      "range": {
+        "startLine": 819,
+        "startChar": 39,
+        "endLine": 819,
+        "endChar": 46
+      },
+      "revId": "4df0a63a62d84f06cb4d445a814e8b55d5b2af2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_565a6ad6",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-07T17:14:51Z",
+      "side": 1,
+      "message": "kPrimLongMax",
+      "range": {
+        "startLine": 824,
+        "startChar": 21,
+        "endLine": 824,
+        "endChar": 29
+      },
+      "revId": "4df0a63a62d84f06cb4d445a814e8b55d5b2af2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_52acaa16",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-07T17:14:51Z",
+      "side": 1,
+      "message": "kPrimLongMax",
+      "range": {
+        "startLine": 825,
+        "startChar": 40,
+        "endLine": 825,
+        "endChar": 48
+      },
+      "revId": "4df0a63a62d84f06cb4d445a814e8b55d5b2af2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_0c4297fe",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2873,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-07T17:14:51Z",
+      "side": 1,
+      "message": "nullptr",
+      "range": {
+        "startLine": 2873,
+        "startChar": 70,
+        "endLine": 2873,
+        "endChar": 74
+      },
+      "revId": "4df0a63a62d84f06cb4d445a814e8b55d5b2af2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_902d7a3f",
+        "filename": "test/442-checker-constant-folding/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-07T17:14:51Z",
+      "side": 1,
+      "message": "Maybe use a shorter name (Conv?) not to break the indentation?",
+      "range": {
+        "startLine": 413,
+        "startChar": 22,
+        "endLine": 413,
+        "endChar": 33
+      },
+      "revId": "4df0a63a62d84f06cb4d445a814e8b55d5b2af2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
