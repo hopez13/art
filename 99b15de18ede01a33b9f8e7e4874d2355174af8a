@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad24d1ad_d63f7a84",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-07T16:02:48Z",
+      "side": 1,
+      "message": "why is that nor xorq?",
+      "range": {
+        "startLine": 102,
+        "startChar": 11,
+        "endLine": 102,
+        "endChar": 15
+      },
+      "revId": "99b15de18ede01a33b9f8e7e4874d2355174af8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_76c8c627",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4437,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-07T16:02:48Z",
+      "side": 1,
+      "message": "xorq?",
+      "range": {
+        "startLine": 4437,
+        "startChar": 7,
+        "endLine": 4437,
+        "endChar": 11
+      },
+      "revId": "99b15de18ede01a33b9f8e7e4874d2355174af8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
