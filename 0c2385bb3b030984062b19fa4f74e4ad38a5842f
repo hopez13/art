@@ -122,6 +122,24 @@
       "revId": "0c2385bb3b030984062b19fa4f74e4ad38a5842f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_b42628b2",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-07T08:34:34Z",
+      "side": 1,
+      "message": "Good point. I discussed that with David too and we came to the same conclusion. Added a comment.",
+      "parentUuid": "cd24a5a6_7d0f6868",
+      "revId": "0c2385bb3b030984062b19fa4f74e4ad38a5842f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
