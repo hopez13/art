@@ -46,6 +46,30 @@
       "revId": "1d9a21809fca17f52dc7f9e19c20a91766183674",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_b6d86e18",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-05-07T15:17:58Z",
+      "side": 1,
+      "message": "On mips64, all 32bit types including uint32_t are sign-extended when they are in 64bit registers.",
+      "parentUuid": "4d8435cc_29fbceba",
+      "range": {
+        "startLine": 13,
+        "startChar": 43,
+        "endLine": 13,
+        "endChar": 51
+      },
+      "revId": "1d9a21809fca17f52dc7f9e19c20a91766183674",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
