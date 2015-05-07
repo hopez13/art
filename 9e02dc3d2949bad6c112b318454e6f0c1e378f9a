@@ -68,6 +68,75 @@
       "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd24a5a6_02afe710",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-07T00:36:23Z",
+      "side": 1,
+      "message": "Coding style is reg_list.",
+      "range": {
+        "startLine": 479,
+        "startChar": 11,
+        "endLine": 479,
+        "endChar": 18
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd24a5a6_029807ef",
+        "filename": "runtime/dex_instruction.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-07T00:36:23Z",
+      "side": 1,
+      "message": "Long line.",
+      "range": {
+        "startLine": 230,
+        "startChar": 100,
+        "endLine": 230,
+        "endChar": 114
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d1e2d58_1556fc2e",
+        "filename": "runtime/dex_instruction.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-07T00:36:23Z",
+      "side": 1,
+      "message": "Why is fall-through intended here? Seems more like LOG(FATAL) ; UNREACHABLE();",
+      "range": {
+        "startLine": 333,
+        "startChar": 6,
+        "endLine": 333,
+        "endChar": 27
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
