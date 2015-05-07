@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4d8435cc_d379abc0",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-07T03:24:40Z",
+      "side": 1,
+      "message": "I would think a constexpr const char* should be fine.",
+      "parentUuid": "4d8435cc_e2709b05",
+      "range": {
+        "startLine": 61,
+        "startChar": 25,
+        "endLine": 61,
+        "endChar": 47
+      },
+      "revId": "b0eff3b46557a43e8c6e0f52ec0f7cec09718c50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d1e2d58_b57d086c",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 9
@@ -64,6 +88,53 @@
         "startChar": 55,
         "endLine": 933,
         "endChar": 63
+      },
+      "revId": "b0eff3b46557a43e8c6e0f52ec0f7cec09718c50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd24a5a6_872d46c4",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 933,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-07T03:24:40Z",
+      "side": 1,
+      "message": "Changing the list creates a completely new list. That\u0027s why the whole shared_ptr setup exists...",
+      "parentUuid": "8d1e2d58_95f68c5d",
+      "range": {
+        "startLine": 933,
+        "startChar": 55,
+        "endLine": 933,
+        "endChar": 63
+      },
+      "revId": "b0eff3b46557a43e8c6e0f52ec0f7cec09718c50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d8435cc_b3f5079c",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-07T03:24:40Z",
+      "side": 1,
+      "message": "From the users right now, it seems a const char* would be fine and more efficient.",
+      "range": {
+        "startLine": 471,
+        "startChar": 18,
+        "endLine": 471,
+        "endChar": 29
       },
       "revId": "b0eff3b46557a43e8c6e0f52ec0f7cec09718c50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
