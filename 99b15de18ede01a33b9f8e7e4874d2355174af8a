@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2d39c1d0_97868cad",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-07T16:04:05Z",
+      "side": 1,
+      "message": "xorl will zero extend the 0 :-) and is 1 byte shorter",
+      "parentUuid": "ad24d1ad_d63f7a84",
+      "range": {
+        "startLine": 102,
+        "startChar": 11,
+        "endLine": 102,
+        "endChar": 15
+      },
+      "revId": "99b15de18ede01a33b9f8e7e4874d2355174af8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad24d1ad_76c8c627",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-05-07T16:02:48Z",
       "side": 1,
       "message": "xorq?",
+      "range": {
+        "startLine": 4437,
+        "startChar": 7,
+        "endLine": 4437,
+        "endChar": 11
+      },
+      "revId": "99b15de18ede01a33b9f8e7e4874d2355174af8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d39c1d0_775568a6",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4437,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-07T16:04:05Z",
+      "side": 1,
+      "message": "shorter encoding.",
+      "parentUuid": "ad24d1ad_76c8c627",
       "range": {
         "startLine": 4437,
         "startChar": 7,
