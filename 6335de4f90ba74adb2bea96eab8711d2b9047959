@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4d36f5df_c107ac4a",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-08T17:46:58Z",
+      "side": 1,
+      "message": "It was fine \u0026 got lost somehow.  Will restore.",
+      "parentUuid": "ad24d1ad_7c5c255a",
+      "range": {
+        "startLine": 74,
+        "startChar": 38,
+        "endLine": 74,
+        "endChar": 43
+      },
+      "revId": "6335de4f90ba74adb2bea96eab8711d2b9047959",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd290587_42874268",
         "filename": "test/442-checker-constant-folding/src/Main.java",
         "patchSetId": 3
