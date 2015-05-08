@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4d36f5df_06ccaab6",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-08T02:08:16Z",
+      "side": 1,
+      "message": "You can do it programmatically by checking the input in the LocationsBuilder, and provide Location::ConstantLocation for an in range constant, else set the Location to EAX.  I think that scanning for a constant (i.e. \u0027/\u0027) would be fairly common.  I can do it later if it seems like a problem.",
+      "parentUuid": "cd24a5a6_e40aad57",
+      "range": {
+        "startLine": 948,
+        "startChar": 2,
+        "endLine": 951,
+        "endChar": 55
+      },
+      "revId": "5cb200ffbaa33bb187358971711b1219fc6a9a75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d407d41_9a6c6a89",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
