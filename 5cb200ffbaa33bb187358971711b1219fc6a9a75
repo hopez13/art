@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "ad24d1ad_c10d723b",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-08T10:53:08Z",
+      "side": 1,
+      "message": "EDI",
+      "range": {
+        "startLine": 946,
+        "startChar": 29,
+        "endLine": 946,
+        "endChar": 32
+      },
+      "revId": "5cb200ffbaa33bb187358971711b1219fc6a9a75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d407d41_da30b296",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
@@ -96,6 +119,98 @@
     },
     {
       "key": {
+        "uuid": "2d62a1ee_3d9ea739",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-08T10:53:08Z",
+      "side": 1,
+      "message": "EDI",
+      "range": {
+        "startLine": 953,
+        "startChar": 19,
+        "endLine": 953,
+        "endChar": 22
+      },
+      "revId": "5cb200ffbaa33bb187358971711b1219fc6a9a75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_1da3e37f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-08T10:53:08Z",
+      "side": 1,
+      "message": "ECX",
+      "range": {
+        "startLine": 956,
+        "startChar": 20,
+        "endLine": 956,
+        "endChar": 23
+      },
+      "revId": "5cb200ffbaa33bb187358971711b1219fc6a9a75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_2118b671",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-08T10:53:08Z",
+      "side": 1,
+      "message": "This is really: \"Check if the length is 0\".",
+      "range": {
+        "startLine": 996,
+        "startChar": 5,
+        "endLine": 996,
+        "endChar": 23
+      },
+      "revId": "5cb200ffbaa33bb187358971711b1219fc6a9a75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_fda7ef87",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-08T10:53:08Z",
+      "side": 1,
+      "message": "EDI",
+      "range": {
+        "startLine": 1009,
+        "startChar": 31,
+        "endLine": 1009,
+        "endChar": 34
+      },
+      "revId": "5cb200ffbaa33bb187358971711b1219fc6a9a75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d407d41_9a6c6a89",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
@@ -136,6 +251,52 @@
         "startChar": 34,
         "endLine": 1042,
         "endChar": 50
+      },
+      "revId": "5cb200ffbaa33bb187358971711b1219fc6a9a75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_c2fe9230",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-08T10:53:08Z",
+      "side": 1,
+      "message": "Check if the length is 0.",
+      "range": {
+        "startLine": 1084,
+        "startChar": 5,
+        "endLine": 1084,
+        "endChar": 22
+      },
+      "revId": "5cb200ffbaa33bb187358971711b1219fc6a9a75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_a2fb863e",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-08T10:53:08Z",
+      "side": 1,
+      "message": "EDI",
+      "range": {
+        "startLine": 1106,
+        "startChar": 37,
+        "endLine": 1106,
+        "endChar": 40
       },
       "revId": "5cb200ffbaa33bb187358971711b1219fc6a9a75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -190,6 +351,29 @@
     },
     {
       "key": {
+        "uuid": "cd290587_821aca24",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-08T10:53:08Z",
+      "side": 1,
+      "message": "Check if the length is 0.",
+      "range": {
+        "startLine": 915,
+        "startChar": 5,
+        "endLine": 915,
+        "endChar": 22
+      },
+      "revId": "5cb200ffbaa33bb187358971711b1219fc6a9a75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d39c1d0_9a811100",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 1
@@ -206,6 +390,29 @@
         "startChar": 34,
         "endLine": 961,
         "endChar": 50
+      },
+      "revId": "5cb200ffbaa33bb187358971711b1219fc6a9a75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_621fde16",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-08T10:53:08Z",
+      "side": 1,
+      "message": "Check if the length is 0.",
+      "range": {
+        "startLine": 1003,
+        "startChar": 5,
+        "endLine": 1003,
+        "endChar": 22
       },
       "revId": "5cb200ffbaa33bb187358971711b1219fc6a9a75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
