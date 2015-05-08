@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "cd290587_62a91ede",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-08T14:27:11Z",
+      "side": 1,
+      "message": "Alright; let\u0027s return nullptr in the default case.\n\nAs for\n\n  (int) int_value\n\nand similar cases, they should already be addressed by art::InstructionSimplifierVisitor::VisitTypeConversion; so it should be fine to return nullptr in those cases too.",
+      "parentUuid": "4d36f5df_bb529b37",
+      "range": {
+        "startLine": 772,
+        "startChar": 8,
+        "endLine": 772,
+        "endChar": 23
+      },
+      "revId": "4df0a63a62d84f06cb4d445a814e8b55d5b2af2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd290587_178cde87",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 2
