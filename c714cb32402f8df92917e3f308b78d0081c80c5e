@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad24d1ad_012dba8f",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-08T10:59:34Z",
+      "side": 1,
+      "message": "OnSlowPath.",
+      "range": {
+        "startLine": 855,
+        "startChar": 77,
+        "endLine": 855,
+        "endChar": 82
+      },
+      "revId": "c714cb32402f8df92917e3f308b78d0081c80c5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_fd900f1c",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-08T10:59:34Z",
+      "side": 1,
+      "message": "Why is that not in the assembly impl?",
+      "range": {
+        "startLine": 876,
+        "startChar": 2,
+        "endLine": 880,
+        "endChar": 39
+      },
+      "revId": "c714cb32402f8df92917e3f308b78d0081c80c5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_9d87d3e2",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-08T10:59:34Z",
+      "side": 1,
+      "message": "If you were to move SaveLiveRegisters and RestoreLiveRegisters to CodeGenerator would you still need this?",
+      "range": {
+        "startLine": 888,
+        "startChar": 8,
+        "endLine": 888,
+        "endChar": 33
+      },
+      "revId": "c714cb32402f8df92917e3f308b78d0081c80c5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
