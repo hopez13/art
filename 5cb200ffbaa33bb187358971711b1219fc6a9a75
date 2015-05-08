@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cd24a5a6_e40aad57",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-08T01:02:13Z",
+      "side": 1,
+      "message": "If you do feel strongly, I\u0027d suggest a follow-up CL. :-) Maybe Nicolas will override my opinion, though,.\n\nI would have felt more strongly about it if it was possible to give the constraint to the register allocator, i.e., I could say that the input register is eax if it was a register. Else there\u0027s another register required, and x86 doesn\u0027t have that many...",
+      "parentUuid": "0d407d41_da30b296",
+      "range": {
+        "startLine": 948,
+        "startChar": 2,
+        "endLine": 951,
+        "endChar": 55
+      },
+      "revId": "5cb200ffbaa33bb187358971711b1219fc6a9a75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d407d41_9a6c6a89",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4d8435cc_f09d6c89",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1042,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-08T01:02:13Z",
+      "side": 1,
+      "message": "To wire that through, the below code becomes a bit more complicated and branch-y. Personally I don\u0027t think it\u0027s worth it, as I think it is a lot rarer than the case of the character being searched being constant.",
+      "parentUuid": "0d407d41_9a6c6a89",
+      "range": {
+        "startLine": 1042,
+        "startChar": 34,
+        "endLine": 1042,
+        "endChar": 50
+      },
+      "revId": "5cb200ffbaa33bb187358971711b1219fc6a9a75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d39c1d0_ba84d50f",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-05-08T00:50:00Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 867,
+        "startChar": 5,
+        "endLine": 870,
+        "endChar": 4
+      },
+      "revId": "5cb200ffbaa33bb187358971711b1219fc6a9a75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd24a5a6_a43f15d8",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-08T01:02:13Z",
+      "side": 1,
+      "message": "Personally I think it\u0027s easier to justify here as we have more registers and don\u0027t necessarily be saving them.",
+      "parentUuid": "2d39c1d0_ba84d50f",
       "range": {
         "startLine": 867,
         "startChar": 5,
