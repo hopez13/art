@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "cd290587_22a67637",
+        "filename": "compiler/optimizing/dead_code_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-08T13:24:15Z",
+      "side": 1,
+      "message": "Maybe put on a single line?",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 28
+      },
+      "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_029b7aef",
+        "filename": "compiler/optimizing/dead_code_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-08T13:24:15Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 34
+      },
+      "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_e2974ec1",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-08T13:24:15Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 295,
+        "startChar": 0,
+        "endLine": 297,
+        "endChar": 13
+      },
+      "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_3dc8e7f4",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-08T13:24:15Z",
+      "side": 1,
+      "message": "Indentation is off by 1 character.",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 253,
+        "endChar": 14
+      },
+      "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_01dc9ae4",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-08T13:24:15Z",
+      "side": 1,
+      "message": "Don\u0027t you get a warning from the compiler about this variable not being used in non-debug mode?",
+      "range": {
+        "startLine": 1078,
+        "startChar": 8,
+        "endLine": 1078,
+        "endChar": 32
+      },
+      "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad24d1ad_4177428a",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -18,6 +133,98 @@
         "startChar": 7,
         "endLine": 445,
         "endChar": 20
+      },
+      "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_9db8f353",
+        "filename": "test/485-checker-dce-loop-update/smali/TestCase.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-08T13:24:15Z",
+      "side": 1,
+      "message": "Maybe have \"$inline$\" be part of the name of this method to ensure Optimizing always inlines it?",
+      "range": {
+        "startLine": 19,
+        "startChar": 22,
+        "endLine": 19,
+        "endChar": 32
+      },
+      "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_220f96b7",
+        "filename": "test/485-checker-dce-loop-update/smali/TestCase.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-08T13:24:15Z",
+      "side": 1,
+      "message": "Seems to be unused; remove?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 11
+      },
+      "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_7da77f36",
+        "filename": "test/485-checker-dce-loop-update/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-08T13:24:15Z",
+      "side": 1,
+      "message": "Nit: the stars are not aligned.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 1
+      },
+      "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_1da64337",
+        "filename": "test/485-checker-dce-loop-update/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-08T13:24:15Z",
+      "side": 1,
+      "message": "Side comment: it would be nice if we could write Checker annotations in Smali files. :)",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 1
       },
       "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
