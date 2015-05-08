@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d62a1ee_fd36cf92",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3744,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-08T12:16:03Z",
+      "side": 1,
+      "message": "I\u0027m not sure this is the right approach - we\u0027re losing the stack trace of the exception. Maybe we should move the responsibility for the throw from ValidateSuperClassDescriptors() to HasSameSignatureWithDifferentClassLoaders() and properly wrap the type resolution exception here instead of storing just the message.",
+      "range": {
+        "startLine": 3744,
+        "startChar": 2,
+        "endLine": 3744,
+        "endChar": 24
+      },
+      "revId": "3c58e76f6a9d6c0330af9f4b551b24f9c6a6f76d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
