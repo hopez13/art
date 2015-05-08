@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cd290587_a286e6ac",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-08T12:12:02Z",
+      "side": 1,
+      "message": "Actually forget my comment. You should keep the kCall. Making it a kCall makes it that there is no live register, so you don\u0027t need to save them in both \"slow paths\".",
+      "parentUuid": "ad24d1ad_012dba8f",
+      "range": {
+        "startLine": 855,
+        "startChar": 77,
+        "endLine": 855,
+        "endChar": 82
+      },
+      "revId": "c714cb32402f8df92917e3f308b78d0081c80c5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d62a1ee_fd900f1c",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
