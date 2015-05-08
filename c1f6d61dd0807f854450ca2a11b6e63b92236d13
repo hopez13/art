@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad24d1ad_4177428a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-08T12:20:37Z",
+      "side": 1,
+      "message": "Adding this state here seems off. Why can\u0027t you push that information only in the dead block elimination (eg a growable array of loop information that need to be updated, or a bitset of loop headers whose loop must be updated).",
+      "range": {
+        "startLine": 445,
+        "startChar": 7,
+        "endLine": 445,
+        "endChar": 20
+      },
+      "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
