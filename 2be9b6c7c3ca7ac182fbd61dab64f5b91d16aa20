@@ -70,6 +70,144 @@
       "revId": "2be9b6c7c3ca7ac182fbd61dab64f5b91d16aa20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed5b293d_6cb30a7c",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-09T14:14:10Z",
+      "side": 1,
+      "message": "Don\u0027t we have a kMaxUint16?",
+      "range": {
+        "startLine": 985,
+        "startChar": 81,
+        "endLine": 985,
+        "endChar": 88
+      },
+      "revId": "2be9b6c7c3ca7ac182fbd61dab64f5b91d16aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed5b293d_4cae0615",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-09T14:14:10Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 995,
+        "startChar": 36,
+        "endLine": 995,
+        "endChar": 42
+      },
+      "revId": "2be9b6c7c3ca7ac182fbd61dab64f5b91d16aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed5b293d_2cbd1244",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-09T14:14:10Z",
+      "side": 1,
+      "message": "-\u003e Load length (that is, the \u0027count\u0027 field of the string).",
+      "range": {
+        "startLine": 1007,
+        "startChar": 10,
+        "endLine": 1007,
+        "endChar": 16
+      },
+      "revId": "2be9b6c7c3ca7ac182fbd61dab64f5b91d16aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad921112_2c775b8b",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-09T14:14:10Z",
+      "side": 1,
+      "message": "update ecx, used as a counter.",
+      "range": {
+        "startLine": 1131,
+        "startChar": 21,
+        "endLine": 1131,
+        "endChar": 37
+      },
+      "revId": "2be9b6c7c3ca7ac182fbd61dab64f5b91d16aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d5fd527_6a920ca8",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-09T14:14:10Z",
+      "side": 1,
+      "message": "When is it going to be that value? I find the comment confusing.",
+      "range": {
+        "startLine": 1131,
+        "startChar": 44,
+        "endLine": 1131,
+        "endChar": 81
+      },
+      "revId": "2be9b6c7c3ca7ac182fbd61dab64f5b91d16aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d5fd527_8a8d408a",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-09T14:14:10Z",
+      "side": 1,
+      "message": "going to",
+      "range": {
+        "startLine": 1131,
+        "startChar": 44,
+        "endLine": 1131,
+        "endChar": 49
+      },
+      "revId": "2be9b6c7c3ca7ac182fbd61dab64f5b91d16aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
