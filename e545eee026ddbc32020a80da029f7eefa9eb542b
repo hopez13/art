@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed5b293d_ac50e2b4",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-09T07:05:43Z",
+      "side": 1,
+      "message": "Same comment as for arm64.",
+      "range": {
+        "startLine": 857,
+        "startChar": 0,
+        "endLine": 858,
+        "endChar": 42
+      },
+      "revId": "e545eee026ddbc32020a80da029f7eefa9eb542b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad921112_ccd597e1",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-09T07:05:43Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you just say that we are going to call a hand-crafted assembly stub that requires the inputs to follow the runtime calling convention?",
+      "range": {
+        "startLine": 1000,
+        "startChar": 0,
+        "endLine": 1001,
+        "endChar": 42
+      },
+      "revId": "e545eee026ddbc32020a80da029f7eefa9eb542b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed5b293d_ec56dab2",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-09T07:05:43Z",
+      "side": 1,
+      "message": "What is that for?",
+      "range": {
+        "startLine": 1043,
+        "startChar": 4,
+        "endLine": 1043,
+        "endChar": 38
+      },
+      "revId": "e545eee026ddbc32020a80da029f7eefa9eb542b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed5b293d_cc59d6e1",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-09T07:05:43Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1057,
+        "startChar": 0,
+        "endLine": 1058,
+        "endChar": 42
+      },
+      "revId": "e545eee026ddbc32020a80da029f7eefa9eb542b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
