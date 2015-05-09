@@ -46,6 +46,30 @@
       "revId": "2be9b6c7c3ca7ac182fbd61dab64f5b91d16aa20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d407d41_01248dda",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-09T12:41:33Z",
+      "side": 1,
+      "message": "I like Andreas\u0027s solution.  A bit ugly looking, but it generates the best code.",
+      "parentUuid": "4d6d15ec_707bed3b",
+      "range": {
+        "startLine": 948,
+        "startChar": 0,
+        "endLine": 950,
+        "endChar": 35
+      },
+      "revId": "2be9b6c7c3ca7ac182fbd61dab64f5b91d16aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
