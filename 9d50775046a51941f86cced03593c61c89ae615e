@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad24d1ad_8219a87b",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-11T17:34:15Z",
+      "side": 1,
+      "message": "Shouldn\u0027t that be a while? In theory, there can be 3 phi equivalents.",
+      "range": {
+        "startLine": 285,
+        "startChar": 6,
+        "endLine": 285,
+        "endChar": 8
+      },
+      "revId": "9d50775046a51941f86cced03593c61c89ae615e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
