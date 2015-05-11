@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "2d62a1ee_039b82ef",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T12:56:22Z",
+      "side": 1,
+      "message": "Maybe turn into a \"for\" loop?",
+      "range": {
+        "startLine": 390,
+        "startChar": 2,
+        "endLine": 390,
+        "endChar": 7
+      },
+      "revId": "ff29ac9bdc3bd55d96c9afba4bf89ce58ed1a070",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_c3944abf",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T12:56:22Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 216,
+        "startChar": 6,
+        "endLine": 216,
+        "endChar": 11
+      },
+      "revId": "ff29ac9bdc3bd55d96c9afba4bf89ce58ed1a070",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_274e864a",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T12:56:22Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 9
+      },
+      "revId": "ff29ac9bdc3bd55d96c9afba4bf89ce58ed1a070",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_a887e7e1",
+        "filename": "compiler/optimizing/licm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T12:56:22Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 7
+      },
+      "revId": "ff29ac9bdc3bd55d96c9afba4bf89ce58ed1a070",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_8329b209",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T12:56:22Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 7
+      },
+      "revId": "ff29ac9bdc3bd55d96c9afba4bf89ce58ed1a070",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad24d1ad_a78716e2",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -43,6 +158,46 @@
         "endLine": 360,
         "endChar": 29
       },
+      "revId": "ff29ac9bdc3bd55d96c9afba4bf89ce58ed1a070",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_a8e2479c",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T12:56:22Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 222,
+        "startChar": 6,
+        "endLine": 222,
+        "endChar": 11
+      },
+      "revId": "ff29ac9bdc3bd55d96c9afba4bf89ce58ed1a070",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_8743fa04",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T12:56:22Z",
+      "side": 1,
+      "message": "/* environment */",
       "revId": "ff29ac9bdc3bd55d96c9afba4bf89ce58ed1a070",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
