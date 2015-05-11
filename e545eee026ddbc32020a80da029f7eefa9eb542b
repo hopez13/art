@@ -25,6 +25,46 @@
     },
     {
       "key": {
+        "uuid": "cd290587_a89127cd",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T14:05:10Z",
+      "side": 1,
+      "message": "Nit: start-index \u003d 0 (to be consistent with line 896).",
+      "range": {
+        "startLine": 864,
+        "startChar": 67,
+        "endLine": 864,
+        "endChar": 80
+      },
+      "revId": "e545eee026ddbc32020a80da029f7eefa9eb542b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_5eb391fe",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T14:05:10Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you add this check:\n\n  // Note that the null check must have been done earlier.\n  DCHECK(!invoke-\u003eCanDoImplicitNullCheckOn(invoke-\u003eInputAt(0)));\n\nas you did in x86 and x86-64 back ends?",
+      "revId": "e545eee026ddbc32020a80da029f7eefa9eb542b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad921112_ccd597e1",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
