@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "2d62a1ee_a333966f",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-11T12:15:22Z",
+      "side": 1,
+      "message": "yea, please do so. I was a bit confused by this comment before seeing Nicolas\u0027 note.",
+      "parentUuid": "ad921112_ccd597e1",
+      "range": {
+        "startLine": 1000,
+        "startChar": 0,
+        "endLine": 1001,
+        "endChar": 42
+      },
+      "revId": "e545eee026ddbc32020a80da029f7eefa9eb542b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed5b293d_ec56dab2",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
