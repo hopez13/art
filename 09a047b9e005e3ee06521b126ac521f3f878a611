@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d62a1ee_1e7cf969",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T15:10:46Z",
+      "side": 1,
+      "message": "Is this change really needed, as you\u0027ve reverted the one in art::LocationsBuilderX86::VisitCondition?",
+      "range": {
+        "startLine": 1178,
+        "startChar": 0,
+        "endLine": 1179,
+        "endChar": 35
+      },
+      "revId": "09a047b9e005e3ee06521b126ac521f3f878a611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_3e70dd87",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1083,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T15:10:46Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 1082,
+        "startChar": 0,
+        "endLine": 1083,
+        "endChar": 35
+      },
+      "revId": "09a047b9e005e3ee06521b126ac521f3f878a611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_48808346",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1399,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T15:10:46Z",
+      "side": 1,
+      "message": "preceding?",
+      "range": {
+        "startLine": 1399,
+        "startChar": 25,
+        "endLine": 1399,
+        "endChar": 35
+      },
+      "revId": "09a047b9e005e3ee06521b126ac521f3f878a611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_27856656",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1409,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T15:10:46Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 1409,
+        "startChar": 25,
+        "endLine": 1409,
+        "endChar": 35
+      },
+      "revId": "09a047b9e005e3ee06521b126ac521f3f878a611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
