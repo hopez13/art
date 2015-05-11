@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ad24d1ad_22ff9479",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T17:25:35Z",
+      "side": 1,
+      "message": "Agreed; I was just wondering why changing from\n\n  if (comp-\u003eNeedsMaterialization())\n\nto\n\n  if (locations-\u003eOut().IsValid())\n\n?",
+      "parentUuid": "4d36f5df_4c0ad3a7",
+      "range": {
+        "startLine": 1178,
+        "startChar": 0,
+        "endLine": 1179,
+        "endChar": 35
+      },
+      "revId": "09a047b9e005e3ee06521b126ac521f3f878a611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d62a1ee_3e70dd87",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 6
