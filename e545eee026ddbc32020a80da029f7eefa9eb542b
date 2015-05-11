@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "cd290587_e8872f13",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-05-11T10:55:52Z",
+      "side": 1,
+      "message": "We use the BlockPoolsScope whenever we call RecordPcInfo(). This way we make sure that the Vixl MacroAssembler does not generate any Literal or Vermeer Pool behind our back and thus GetAssembler()-\u003eCodeSize() will record the correct exact native_pc position of an instruction that might cause a transition to the runtime.\n\nIn this case is not needed since we do not call RecordPcInfo().",
+      "parentUuid": "ed5b293d_0cb80e51",
+      "range": {
+        "startLine": 1043,
+        "startChar": 4,
+        "endLine": 1043,
+        "endChar": 38
+      },
+      "revId": "e545eee026ddbc32020a80da029f7eefa9eb542b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed5b293d_cc59d6e1",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
