@@ -73,6 +73,75 @@
     },
     {
       "key": {
+        "uuid": "ad24d1ad_a7aef65f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T11:48:54Z",
+      "side": 1,
+      "message": "repne?",
+      "range": {
+        "startLine": 956,
+        "startChar": 5,
+        "endLine": 956,
+        "endChar": 8
+      },
+      "revId": "2be9b6c7c3ca7ac182fbd61dab64f5b91d16aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_27d1e6ff",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T11:48:54Z",
+      "side": 1,
+      "message": "counter?",
+      "range": {
+        "startLine": 971,
+        "startChar": 11,
+        "endLine": 971,
+        "endChar": 14
+      },
+      "revId": "2be9b6c7c3ca7ac182fbd61dab64f5b91d16aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_e7b2bed5",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 972,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T11:48:54Z",
+      "side": 1,
+      "message": "string_length?",
+      "range": {
+        "startLine": 972,
+        "startChar": 11,
+        "endLine": 972,
+        "endChar": 15
+      },
+      "revId": "2be9b6c7c3ca7ac182fbd61dab64f5b91d16aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed5b293d_6cb30a7c",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 2
@@ -142,6 +211,75 @@
     },
     {
       "key": {
+        "uuid": "cd290587_e8296f83",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1010,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T11:48:54Z",
+      "side": 1,
+      "message": "Maybe move TODO on its own line to make it easier to spot?",
+      "range": {
+        "startLine": 1010,
+        "startChar": 29,
+        "endLine": 1010,
+        "endChar": 49
+      },
+      "revId": "2be9b6c7c3ca7ac182fbd61dab64f5b91d16aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_e3650e91",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1049,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T11:48:54Z",
+      "side": 1,
+      "message": "Do you think we could factor these implementations?",
+      "range": {
+        "startLine": 1048,
+        "startChar": 38,
+        "endLine": 1049,
+        "endChar": 14
+      },
+      "revId": "2be9b6c7c3ca7ac182fbd61dab64f5b91d16aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_68821fda",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1055,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T11:48:54Z",
+      "side": 1,
+      "message": "VisitStringIndexOf?",
+      "range": {
+        "startLine": 1055,
+        "startChar": 54,
+        "endLine": 1055,
+        "endChar": 61
+      },
+      "revId": "2be9b6c7c3ca7ac182fbd61dab64f5b91d16aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad921112_2c775b8b",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 2
@@ -204,6 +342,29 @@
         "startChar": 44,
         "endLine": 1131,
         "endChar": 49
+      },
+      "revId": "2be9b6c7c3ca7ac182fbd61dab64f5b91d16aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_27756678",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T11:48:54Z",
+      "side": 1,
+      "message": "repne_scasw?",
+      "range": {
+        "startLine": 467,
+        "startChar": 7,
+        "endLine": 467,
+        "endChar": 17
       },
       "revId": "2be9b6c7c3ca7ac182fbd61dab64f5b91d16aa20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
