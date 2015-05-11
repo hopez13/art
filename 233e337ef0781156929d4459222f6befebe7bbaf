@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2d62a1ee_5e0f1168",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2257,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-11T13:25:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad24d1ad_07dcaae4",
+      "range": {
+        "startLine": 2257,
+        "startChar": 96,
+        "endLine": 2257,
+        "endChar": 101
+      },
+      "revId": "233e337ef0781156929d4459222f6befebe7bbaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d62a1ee_83d2d285",
         "filename": "runtime/debugger.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-05-11T13:19:53Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 2297,
+        "startChar": 93,
+        "endLine": 2297,
+        "endChar": 99
+      },
+      "revId": "233e337ef0781156929d4459222f6befebe7bbaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_1e1999ae",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2297,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-11T13:25:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d62a1ee_83d2d285",
       "range": {
         "startLine": 2297,
         "startChar": 93,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2d62a1ee_defae1b4",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-11T13:25:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd290587_c86353c2",
+      "range": {
+        "startLine": 49,
+        "startChar": 45,
+        "endLine": 49,
+        "endChar": 65
+      },
+      "revId": "233e337ef0781156929d4459222f6befebe7bbaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad24d1ad_87f1ba68",
         "filename": "runtime/stack.h",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2015-05-11T13:19:53Z",
       "side": 1,
       "message": "kSkipInlinedFrames?",
+      "range": {
+        "startLine": 415,
+        "startChar": 4,
+        "endLine": 415,
+        "endChar": 20
+      },
+      "revId": "233e337ef0781156929d4459222f6befebe7bbaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd290587_886c2b89",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-11T13:25:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad24d1ad_87f1ba68",
       "range": {
         "startLine": 415,
         "startChar": 4,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "cd290587_6871ff5c",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-11T13:25:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd290587_08439b22",
+      "range": {
+        "startLine": 413,
+        "startChar": 2,
+        "endLine": 416,
+        "endChar": 4
+      },
+      "revId": "233e337ef0781156929d4459222f6befebe7bbaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd290587_e8560fe6",
         "filename": "runtime/stack.h",
         "patchSetId": 3
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "cd290587_08803b93",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-11T13:25:54Z",
+      "side": 1,
+      "message": "Thanks. I actually also prefer this style, but didn\u0027t realize all arguments fit on one line.",
+      "parentUuid": "cd290587_e8560fe6",
+      "range": {
+        "startLine": 419,
+        "startChar": 15,
+        "endLine": 421,
+        "endChar": 38
+      },
+      "revId": "233e337ef0781156929d4459222f6befebe7bbaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d62a1ee_e3c2aeb3",
         "filename": "runtime/stack.h",
         "patchSetId": 3
@@ -151,6 +295,30 @@
       "writtenOn": "2015-05-11T13:19:53Z",
       "side": 1,
       "message": "const StackWalkKind",
+      "range": {
+        "startLine": 706,
+        "startChar": 2,
+        "endLine": 706,
+        "endChar": 15
+      },
+      "revId": "233e337ef0781156929d4459222f6befebe7bbaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad24d1ad_47c872f5",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-11T13:25:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d62a1ee_e3c2aeb3",
       "range": {
         "startLine": 706,
         "startChar": 2,
