@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4d36f5df_4c0ad3a7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-11T16:47:34Z",
+      "side": 1,
+      "message": "You still need this, as you don\u0027t want to generate code here if the condition doesn\u0027t need materialization (i.e. will generate in \u0027if\u0027)",
+      "parentUuid": "2d62a1ee_1e7cf969",
+      "range": {
+        "startLine": 1178,
+        "startChar": 0,
+        "endLine": 1179,
+        "endChar": 35
+      },
+      "revId": "09a047b9e005e3ee06521b126ac521f3f878a611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d62a1ee_3e70dd87",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 6
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "2d39c1d0_80f1a068",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1399,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-11T16:47:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd290587_48808346",
+      "range": {
+        "startLine": 1399,
+        "startChar": 25,
+        "endLine": 1399,
+        "endChar": 35
+      },
+      "revId": "09a047b9e005e3ee06521b126ac521f3f878a611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad24d1ad_27856656",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 6
@@ -82,6 +130,30 @@
       "writtenOn": "2015-05-11T15:10:46Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 1409,
+        "startChar": 25,
+        "endLine": 1409,
+        "endChar": 35
+      },
+      "revId": "09a047b9e005e3ee06521b126ac521f3f878a611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d39c1d0_60f6bc60",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1409,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-11T16:47:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad24d1ad_27856656",
       "range": {
         "startLine": 1409,
         "startChar": 25,
