@@ -257,6 +257,30 @@
     },
     {
       "key": {
+        "uuid": "2d70e1c2_3601f107",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1049,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-11T15:55:26Z",
+      "side": 1,
+      "message": "The usage of the temporaries is inverted up to the repne scasw - otherwise the register can\u0027t be saved.\n\nIf you feel strongly, I can unify and use one more temporary, just like Quick does.",
+      "parentUuid": "2d62a1ee_e3650e91",
+      "range": {
+        "startLine": 1048,
+        "startChar": 38,
+        "endLine": 1049,
+        "endChar": 14
+      },
+      "revId": "2be9b6c7c3ca7ac182fbd61dab64f5b91d16aa20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd290587_68821fda",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 2
