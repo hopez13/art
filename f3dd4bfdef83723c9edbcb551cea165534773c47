@@ -307,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "2d62a1ee_1e751978",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T15:10:46Z",
+      "side": 1,
+      "message": "Alright, thanks for the clarification.",
+      "parentUuid": "100336c0_be6661d6",
+      "range": {
+        "startLine": 903,
+        "startChar": 10,
+        "endLine": 903,
+        "endChar": 28
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "705392ca_a3a3fa7c",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -389,6 +413,30 @@
       "side": 1,
       "message": "That doesn\u0027t work.  You need the DCHECK",
       "parentUuid": "30e3da4b_e1d16600",
+      "range": {
+        "startLine": 1086,
+        "startChar": 4,
+        "endLine": 1086,
+        "endChar": 28
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_9e60e9b6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T15:10:46Z",
+      "side": 1,
+      "message": "Sorry, I forgot DCHECK_{EQ,NE} would not work in this case.",
+      "parentUuid": "d01c3e21_d9a3777c",
       "range": {
         "startLine": 1086,
         "startChar": 4,
@@ -777,6 +825,30 @@
     },
     {
       "key": {
+        "uuid": "2d62a1ee_be8a8de8",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T15:10:46Z",
+      "side": 1,
+      "message": "Yes; sorry for the confusion.",
+      "parentUuid": "100336c0_9e527dec",
+      "range": {
+        "startLine": 838,
+        "startChar": 0,
+        "endLine": 838,
+        "endChar": 102
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "705392ca_a30f7ab5",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 3
@@ -859,6 +931,30 @@
       "side": 1,
       "message": "I think I need this as there are other types in the switch and it will complain if I don\u0027t have them all",
       "parentUuid": "b0598aea_45c7aac4",
+      "range": {
+        "startLine": 859,
+        "startChar": 0,
+        "endLine": 860,
+        "endChar": 55
+      },
+      "revId": "f3dd4bfdef83723c9edbcb551cea165534773c47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d62a1ee_9e87c9e2",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-11T15:10:46Z",
+      "side": 1,
+      "message": "Indeed!  Sorry, I got this case mixed up with another one.",
+      "parentUuid": "100336c0_fe47392c",
       "range": {
         "startLine": 859,
         "startChar": 0,
