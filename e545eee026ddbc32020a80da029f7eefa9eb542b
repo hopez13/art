@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "2d70e1c2_0dcdb3e0",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-12T02:56:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd290587_a89127cd",
+      "range": {
+        "startLine": 864,
+        "startChar": 67,
+        "endLine": 864,
+        "endChar": 80
+      },
+      "revId": "e545eee026ddbc32020a80da029f7eefa9eb542b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d62a1ee_5eb391fe",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 2
@@ -59,6 +83,24 @@
       "writtenOn": "2015-05-11T14:05:10Z",
       "side": 1,
       "message": "Shouldn\u0027t you add this check:\n\n  // Note that the null check must have been done earlier.\n  DCHECK(!invoke-\u003eCanDoImplicitNullCheckOn(invoke-\u003eInputAt(0)));\n\nas you did in x86 and x86-64 back ends?",
+      "revId": "e545eee026ddbc32020a80da029f7eefa9eb542b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d679d0f_0e5a940a",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-12T02:56:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d62a1ee_5eb391fe",
       "revId": "e545eee026ddbc32020a80da029f7eefa9eb542b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -99,6 +141,30 @@
       "writtenOn": "2015-05-11T12:15:22Z",
       "side": 1,
       "message": "yea, please do so. I was a bit confused by this comment before seeing Nicolas\u0027 note.",
+      "parentUuid": "ad921112_ccd597e1",
+      "range": {
+        "startLine": 1000,
+        "startChar": 0,
+        "endLine": 1001,
+        "endChar": 42
+      },
+      "revId": "e545eee026ddbc32020a80da029f7eefa9eb542b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d6d15ec_8f9e9437",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-12T02:56:09Z",
+      "side": 1,
+      "message": "Done",
       "parentUuid": "ad921112_ccd597e1",
       "range": {
         "startLine": 1000,
@@ -218,6 +284,30 @@
       "writtenOn": "2015-05-09T07:05:43Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1057,
+        "startChar": 0,
+        "endLine": 1058,
+        "endChar": 42
+      },
+      "revId": "e545eee026ddbc32020a80da029f7eefa9eb542b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d6d15ec_afa3587d",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-12T02:56:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed5b293d_cc59d6e1",
       "range": {
         "startLine": 1057,
         "startChar": 0,
