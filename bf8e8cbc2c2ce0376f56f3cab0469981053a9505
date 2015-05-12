@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ad3e91ea_dc68046a",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-12T15:34:39Z",
+      "side": 1,
+      "message": "Done here and in all the copies.",
+      "parentUuid": "0d3a3df6_80f57603",
+      "range": {
+        "startLine": 906,
+        "startChar": 20,
+        "endLine": 906,
+        "endChar": 27
+      },
+      "revId": "bf8e8cbc2c2ce0376f56f3cab0469981053a9505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d531d56_981055d3",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2015-05-12T13:00:23Z",
       "side": 1,
       "message": "Missing DCHECK:\n\n  // Note that the null check must have been done earlier.\n  DCHECK(!invoke-\u003eCanDoImplicitNullCheckOn(invoke-\u003eInputAt(0)));\n\n?",
+      "revId": "bf8e8cbc2c2ce0376f56f3cab0469981053a9505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad3e91ea_3c5ac8d5",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-12T15:34:39Z",
+      "side": 1,
+      "message": "Argh, slipped through in refactoring.",
+      "parentUuid": "0d531d56_981055d3",
       "revId": "bf8e8cbc2c2ce0376f56f3cab0469981053a9505",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
