@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d338121_1021b2ca",
+        "filename": "compiler/dwarf/headers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-12T15:13:33Z",
+      "side": 1,
+      "message": "Make this an enum, please, for readability at the call-sites.",
+      "range": {
+        "startLine": 44,
+        "startChar": 24,
+        "endLine": 44,
+        "endChar": 49
+      },
+      "revId": "cf824d15976f4f880b201468764966a2092685e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad3e91ea_1ce6ecb3",
+        "filename": "compiler/dwarf/headers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-12T15:13:33Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 71,
+        "startChar": 24,
+        "endLine": 71,
+        "endChar": 49
+      },
+      "revId": "cf824d15976f4f880b201468764966a2092685e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd43c57f_d890151d",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-12T15:13:33Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 34,
+        "startChar": 31,
+        "endLine": 34,
+        "endChar": 56
+      },
+      "revId": "cf824d15976f4f880b201468764966a2092685e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd43c57f_b88d4905",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-12T15:13:33Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 170,
+        "startChar": 21,
+        "endLine": 170,
+        "endChar": 46
+      },
+      "revId": "cf824d15976f4f880b201468764966a2092685e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d338121_f01d2e90",
+        "filename": "compiler/elf_writer_debug.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-12T15:13:33Z",
+      "side": 1,
+      "message": "See comment before.",
+      "range": {
+        "startLine": 31,
+        "startChar": 21,
+        "endLine": 31,
+        "endChar": 46
+      },
+      "revId": "cf824d15976f4f880b201468764966a2092685e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d338121_30615610",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-12T15:13:33Z",
+      "side": 1,
+      "message": "Maybe define somewhere at the top of the file (as a constexpr), that has been common style for flags in other parts of the codebase.",
+      "range": {
+        "startLine": 191,
+        "startChar": 6,
+        "endLine": 191,
+        "endChar": 45
+      },
+      "revId": "cf824d15976f4f880b201468764966a2092685e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d338121_d06f4af7",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1381,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-12T15:13:33Z",
+      "side": 1,
+      "message": "bdc likes early exit instead of nesting.",
+      "range": {
+        "startLine": 1381,
+        "startChar": 2,
+        "endLine": 1381,
+        "endChar": 32
+      },
+      "revId": "cf824d15976f4f880b201468764966a2092685e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d338121_5045fa77",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1396,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-12T15:13:33Z",
+      "side": 1,
+      "message": "If you write a minimal helper, this can become\n\n return Update(\".debug_frame\", base_address_delta) \u0026\u0026\n        Update(\".debug_info\", base_address_delta) \u0026\u0026\n        Update(\".debug_line\", base_address_delta);\n\nBut that\u0027s somewhat personal preference.",
+      "range": {
+        "startLine": 1382,
+        "startChar": 4,
+        "endLine": 1396,
+        "endChar": 5
+      },
+      "revId": "cf824d15976f4f880b201468764966a2092685e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
