@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd43c57f_a5dcfd98",
+        "filename": "runtime/jdwp/jdwp_event.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-05-12T17:57:04Z",
+      "side": 1,
+      "message": "Is there a way to guarantee that ModBasket is never allocated on the heap?",
+      "range": {
+        "startLine": 123,
+        "startChar": 2,
+        "endLine": 123,
+        "endChar": 18
+      },
+      "revId": "4cc56477aabfdd9bd1e0b8576c582e1ef455d78b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
