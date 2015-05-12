@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2d5c6163_59d1a3fe",
+        "filename": "compiler/optimizing/dead_code_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-12T10:38:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd290587_22a67637",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 28
+      },
+      "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd290587_029b7aef",
         "filename": "compiler/optimizing/dead_code_elimination.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-05-08T13:24:15Z",
       "side": 1,
       "message": "Likewise.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 34
+      },
+      "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d5c6163_b9b55fc1",
+        "filename": "compiler/optimizing/dead_code_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-12T10:38:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd290587_029b7aef",
       "range": {
         "startLine": 41,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2d5c6163_99b21bd5",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-12T10:38:43Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "cd290587_e2974ec1",
+      "range": {
+        "startLine": 295,
+        "startChar": 0,
+        "endLine": 297,
+        "endChar": 13
+      },
+      "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d62a1ee_3dc8e7f4",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-05-08T13:24:15Z",
       "side": 1,
       "message": "Indentation is off by 1 character.",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 253,
+        "endChar": 14
+      },
+      "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d531d56_38c2e939",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-12T10:38:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d62a1ee_3dc8e7f4",
       "range": {
         "startLine": 253,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "0d3a3df6_c0dbfeec",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-12T10:38:43Z",
+      "side": 1,
+      "message": "Surprisingly I don\u0027t. Do you see a way around this without having to special case it based on kIsDebugBuild?",
+      "parentUuid": "ad24d1ad_01dc9ae4",
+      "range": {
+        "startLine": 1078,
+        "startChar": 8,
+        "endLine": 1078,
+        "endChar": 32
+      },
+      "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad24d1ad_4177428a",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2015-05-08T12:20:37Z",
       "side": 1,
       "message": "Adding this state here seems off. Why can\u0027t you push that information only in the dead block elimination (eg a growable array of loop information that need to be updated, or a bitset of loop headers whose loop must be updated).",
+      "range": {
+        "startLine": 445,
+        "startChar": 7,
+        "endLine": 445,
+        "endChar": 20
+      },
+      "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d5c6163_19c72b4a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-12T10:38:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad24d1ad_4177428a",
       "range": {
         "startLine": 445,
         "startChar": 7,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "0d3a3df6_8049f643",
+        "filename": "test/485-checker-dce-loop-update/smali/TestCase.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-12T10:38:43Z",
+      "side": 1,
+      "message": "Done, although the Checker tests would fail too if it didn\u0027t get inlined.",
+      "parentUuid": "2d62a1ee_9db8f353",
+      "range": {
+        "startLine": 19,
+        "startChar": 22,
+        "endLine": 19,
+        "endChar": 32
+      },
+      "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd290587_220f96b7",
         "filename": "test/485-checker-dce-loop-update/smali/TestCase.smali",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2015-05-08T13:24:15Z",
       "side": 1,
       "message": "Seems to be unused; remove?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 11
+      },
+      "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d3a3df6_0064c6c9",
+        "filename": "test/485-checker-dce-loop-update/smali/TestCase.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-12T10:38:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd290587_220f96b7",
       "range": {
         "startLine": 25,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "0d3a3df6_e039e29f",
+        "filename": "test/485-checker-dce-loop-update/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-12T10:38:43Z",
+      "side": 1,
+      "message": "Done. Looks like that\u0027s the case with many test files, btw",
+      "parentUuid": "2d62a1ee_7da77f36",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 1
+      },
+      "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d62a1ee_1da64337",
         "filename": "test/485-checker-dce-loop-update/src/Main.java",
         "patchSetId": 2
@@ -220,6 +436,30 @@
       "writtenOn": "2015-05-08T13:24:15Z",
       "side": 1,
       "message": "Side comment: it would be nice if we could write Checker annotations in Smali files. :)",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 1
+      },
+      "revId": "c1f6d61dd0807f854450ca2a11b6e63b92236d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d531d56_587cfd6a",
+        "filename": "test/485-checker-dce-loop-update/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-12T10:38:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d62a1ee_1da64337",
       "range": {
         "startLine": 24,
         "startChar": 0,
