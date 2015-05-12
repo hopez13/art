@@ -46,6 +46,30 @@
       "revId": "9d50775046a51941f86cced03593c61c89ae615e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d3a3df6_a0551a24",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-12T08:17:21Z",
+      "side": 1,
+      "message": "Indeed.\n\nSmall suggestion: introduce a phi-\u003eIsEquivalentOf(phi). I should have probably introduced it earlier.",
+      "parentUuid": "ad24d1ad_c22690b3",
+      "range": {
+        "startLine": 285,
+        "startChar": 6,
+        "endLine": 285,
+        "endChar": 8
+      },
+      "revId": "9d50775046a51941f86cced03593c61c89ae615e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
