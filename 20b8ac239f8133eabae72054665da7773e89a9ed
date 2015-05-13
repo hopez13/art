@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6df6599f_71e5b0d2",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1190,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-13T19:50:48Z",
+      "side": 1,
+      "message": "Returning false instead of crashing makes it more resilient. However, it also makes our tests pass as long as Runtime::Current()-\u003eIsDexFileFallbackEnabled() returns true even if GetLoadedSize() fails. Maybe we should update tests to disable the fall-back?",
+      "range": {
+        "startLine": 1187,
+        "startChar": 0,
+        "endLine": 1190,
+        "endChar": 7
+      },
+      "revId": "20b8ac239f8133eabae72054665da7773e89a9ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
