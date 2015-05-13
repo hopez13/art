@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "cd1ae5b3_305a05d6",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-13T20:24:43Z",
+      "side": 1,
+      "message": "Please rename this to be more expressive. What do we need to fix up? Generic Elf stuff (vs. our custom oat part above)...",
+      "range": {
+        "startLine": 661,
+        "startChar": 7,
+        "endLine": 661,
+        "endChar": 17
+      },
+      "revId": "20b8ac239f8133eabae72054665da7773e89a9ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6df6599f_71e5b0d2",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 1
@@ -13,6 +36,30 @@
       "writtenOn": "2015-05-13T19:50:48Z",
       "side": 1,
       "message": "Returning false instead of crashing makes it more resilient. However, it also makes our tests pass as long as Runtime::Current()-\u003eIsDexFileFallbackEnabled() returns true even if GetLoadedSize() fails. Maybe we should update tests to disable the fall-back?",
+      "range": {
+        "startLine": 1187,
+        "startChar": 0,
+        "endLine": 1190,
+        "endChar": 7
+      },
+      "revId": "20b8ac239f8133eabae72054665da7773e89a9ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad15b184_82444b7b",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1190,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-13T20:24:43Z",
+      "side": 1,
+      "message": "There was discussion for this. Problem is some tests test that we can fall back correctly...\n\nWe may consider printing a LOG(ERROR) here. That will be visible in tests (but needs to be filtered in that tests where the error is expected).",
+      "parentUuid": "6df6599f_71e5b0d2",
       "range": {
         "startLine": 1187,
         "startChar": 0,
