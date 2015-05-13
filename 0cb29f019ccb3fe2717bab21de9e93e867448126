@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "adecd1ce_90101ad3",
+        "filename": "runtime/oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-13T14:52:39Z",
+      "side": 1,
+      "message": "I believe it\u0027s cleaner to have a dedicated key for this. It would add an extra key in the oat header (like the PIC key).\n\nOpinions?",
+      "range": {
+        "startLine": 452,
+        "startChar": 2,
+        "endLine": 454,
+        "endChar": 88
+      },
+      "revId": "0cb29f019ccb3fe2717bab21de9e93e867448126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
