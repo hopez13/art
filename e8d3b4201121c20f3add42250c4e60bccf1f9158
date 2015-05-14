@@ -22,6 +22,30 @@
       "revId": "e8d3b4201121c20f3add42250c4e60bccf1f9158",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eda6c9c2_3b55a2a7",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-05-14T21:13:37Z",
+      "side": 1,
+      "message": "I changed the sh -c \"...\" style back to the normal style. But it seems that an empty double-quoted string still needs escaping.",
+      "parentUuid": "cd8d8546_0e2ee039",
+      "range": {
+        "startLine": 58,
+        "startChar": 13,
+        "endLine": 58,
+        "endChar": 14
+      },
+      "revId": "e8d3b4201121c20f3add42250c4e60bccf1f9158",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
