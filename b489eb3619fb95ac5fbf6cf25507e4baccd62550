@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d9a7579_f5e5f24e",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-05-14T04:55:01Z",
+      "side": 1,
+      "message": "How about using a ? : conditional to remove this if statement.",
+      "range": {
+        "startLine": 401,
+        "startChar": 41,
+        "endLine": 401,
+        "endChar": 48
+      },
+      "revId": "b489eb3619fb95ac5fbf6cf25507e4baccd62550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6dbd79c9_966f6af8",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-05-14T04:55:01Z",
+      "side": 1,
+      "message": "Since holder_ doesn\u0027t change it can be constant I think.",
+      "range": {
+        "startLine": 412,
+        "startChar": 18,
+        "endLine": 412,
+        "endChar": 25
+      },
+      "revId": "b489eb3619fb95ac5fbf6cf25507e4baccd62550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6dbd79c9_f676decf",
+        "filename": "runtime/mirror/object.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-05-14T04:55:01Z",
+      "side": 1,
+      "message": "Possible to use ArtField::FindInstanceFieldWithOffset for some of the implementation?",
+      "revId": "b489eb3619fb95ac5fbf6cf25507e4baccd62550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
