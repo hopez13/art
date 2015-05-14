@@ -25,6 +25,52 @@
     },
     {
       "key": {
+        "uuid": "ad885137_f0d5fee0",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-14T16:38:39Z",
+      "side": 1,
+      "message": "every time I read the spec for rvalue references I\u0027m left with a bit of voodoo/magic feeling :P",
+      "range": {
+        "startLine": 38,
+        "startChar": 68,
+        "endLine": 38,
+        "endChar": 70
+      },
+      "revId": "b8d30c44be823ad2ad90b4537f8c6982ec4a77cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad885137_d0d8021a",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-14T16:38:39Z",
+      "side": 1,
+      "message": "how does this work? does it split the values in the head and tail?",
+      "range": {
+        "startLine": 40,
+        "startChar": 24,
+        "endLine": 40,
+        "endChar": 39
+      },
+      "revId": "b8d30c44be823ad2ad90b4537f8c6982ec4a77cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad885137_9003da10",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 2
@@ -41,6 +87,52 @@
         "startChar": 2,
         "endLine": 79,
         "endChar": 12
+      },
+      "revId": "b8d30c44be823ad2ad90b4537f8c6982ec4a77cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d970d54_6fea0da3",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-14T16:38:39Z",
+      "side": 1,
+      "message": "is this a visualizer constraint or it\u0027s for the checker work?",
+      "range": {
+        "startLine": 186,
+        "startChar": 6,
+        "endLine": 186,
+        "endChar": 35
+      },
+      "revId": "b8d30c44be823ad2ad90b4537f8c6982ec4a77cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d970d54_8fde5905",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-14T16:38:39Z",
+      "side": 1,
+      "message": "can you remind why we add this?",
+      "range": {
+        "startLine": 210,
+        "startChar": 18,
+        "endLine": 210,
+        "endChar": 19
       },
       "revId": "b8d30c44be823ad2ad90b4537f8c6982ec4a77cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
