@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d970d54_af295584",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-14T16:09:24Z",
+      "side": 1,
+      "message": "didn\u0027t look closely yet, but this should be ouside the if. otherwise you\u0027ll get the Begin after the End for the last one.",
+      "range": {
+        "startLine": 705,
+        "startChar": 22,
+        "endLine": 705,
+        "endChar": 42
+      },
+      "revId": "a3f05258cc9a8831eb2e6a35163a88601737bc3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
