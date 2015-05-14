@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ad885137_8d13c1de",
+        "filename": "compiler/elf_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-14T12:32:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d92d967_6bf04160",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 63
+      },
+      "revId": "485a74e07dc6af186540514f6382655f0610f679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad885137_6dcdb504",
         "filename": "runtime/elf_file_impl.h",
         "patchSetId": 2
