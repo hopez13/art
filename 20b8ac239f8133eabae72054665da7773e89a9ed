@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ad885137_edae0561",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-14T10:09:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd1ae5b3_305a05d6",
+      "range": {
+        "startLine": 661,
+        "startChar": 7,
+        "endLine": 661,
+        "endChar": 17
+      },
+      "revId": "20b8ac239f8133eabae72054665da7773e89a9ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6df6599f_71e5b0d2",
         "filename": "runtime/elf_file.cc",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "There was discussion for this. Problem is some tests test that we can fall back correctly...\n\nWe may consider printing a LOG(ERROR) here. That will be visible in tests (but needs to be filtered in that tests where the error is expected).",
       "parentUuid": "6df6599f_71e5b0d2",
+      "range": {
+        "startLine": 1187,
+        "startChar": 0,
+        "endLine": 1190,
+        "endChar": 7
+      },
+      "revId": "20b8ac239f8133eabae72054665da7773e89a9ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d92d967_eb0a7120",
+        "filename": "runtime/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1190,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-14T10:09:39Z",
+      "side": 1,
+      "message": "LOG(ERROR) here would duplicate the LOG() in OatFileAssistant::GetOatFile(). I\u0027ll file a bug to use \"-Xno-dex-file-fallback\" for all tests that don\u0027t actually need the fallback.",
+      "parentUuid": "ad15b184_82444b7b",
       "range": {
         "startLine": 1187,
         "startChar": 0,
