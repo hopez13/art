@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eda6c9c2_8700ec70",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1737,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-15T08:35:25Z",
+      "side": 1,
+      "message": "Very curious to see numbers for this. I guess the hardware divide is still too crappy for this.",
+      "range": {
+        "startLine": 1737,
+        "startChar": 6,
+        "endLine": 1737,
+        "endChar": 49
+      },
+      "revId": "018900a281c0dac0ce875c431922809e9d115f5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
