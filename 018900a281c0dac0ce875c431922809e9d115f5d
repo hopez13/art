@@ -22,6 +22,30 @@
       "revId": "018900a281c0dac0ce875c431922809e9d115f5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d970d54_8fc579bf",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1737,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-05-15T09:06:03Z",
+      "side": 1,
+      "message": "According to the ARM documents, sdiv is very slow. When I did the similar thing in Quick on arm32, it is about 2 times faster on a15, a53 and a57.\n\nBut I guess denver has a much different implementation. I tested it on Nexus-9 this time. It is about the same with or without this patch.",
+      "parentUuid": "eda6c9c2_8700ec70",
+      "range": {
+        "startLine": 1737,
+        "startChar": 6,
+        "endLine": 1737,
+        "endChar": 49
+      },
+      "revId": "018900a281c0dac0ce875c431922809e9d115f5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
