@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d92d967_31bdc8f9",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-15T12:43:06Z",
+      "side": 1,
+      "message": "Any reason why this is not in prepare_for_register_allocation.cc, just like what we do for HCondition?",
+      "range": {
+        "startLine": 378,
+        "startChar": 0,
+        "endLine": 378,
+        "endChar": 62
+      },
+      "revId": "228bc9447f6eb6dc7b2765a483c7fff8c4282d65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
