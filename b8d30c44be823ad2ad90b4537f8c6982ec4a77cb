@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6d92d967_ce94e3bf",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-15T13:04:28Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "6d92d967_cbc135a0",
+      "range": {
+        "startLine": 33,
+        "startChar": 49,
+        "endLine": 33,
+        "endChar": 50
+      },
+      "revId": "b8d30c44be823ad2ad90b4537f8c6982ec4a77cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad885137_f0d5fee0",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-05-14T16:38:39Z",
       "side": 1,
       "message": "every time I read the spec for rvalue references I\u0027m left with a bit of voodoo/magic feeling :P",
+      "range": {
+        "startLine": 38,
+        "startChar": 68,
+        "endLine": 38,
+        "endChar": 70
+      },
+      "revId": "b8d30c44be823ad2ad90b4537f8c6982ec4a77cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d970d54_2f92c5a6",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-15T13:04:28Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "ad885137_f0d5fee0",
       "range": {
         "startLine": 38,
         "startChar": 68,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8d970d54_4f871168",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-15T13:04:28Z",
+      "side": 1,
+      "message": "Yep... but it\u0027s all done in compile time, so it just expands PrintToStream(x1, ..., xn) to \"stream \u003c\u003c x1 \u003c\u003c ... \u003c\u003c xn\".",
+      "parentUuid": "ad885137_d0d8021a",
+      "range": {
+        "startLine": 40,
+        "startChar": 24,
+        "endLine": 40,
+        "endChar": 39
+      },
+      "revId": "b8d30c44be823ad2ad90b4537f8c6982ec4a77cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad885137_9003da10",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-05-14T15:47:34Z",
       "side": 1,
       "message": "What about:\n\n  return os \u003c\u003c \"[ \" \u003c\u003c list.sstream_.str() \u003c\u003c \" ]\";\n\n?",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 12
+      },
+      "revId": "b8d30c44be823ad2ad90b4537f8c6982ec4a77cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d970d54_6f8ccd89",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-15T13:04:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad885137_9003da10",
       "range": {
         "startLine": 78,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "ad885137_d3848c11",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-15T13:04:28Z",
+      "side": 1,
+      "message": "Checker, commented",
+      "parentUuid": "8d970d54_6fea0da3",
+      "range": {
+        "startLine": 186,
+        "startChar": 6,
+        "endLine": 186,
+        "endChar": 35
+      },
+      "revId": "b8d30c44be823ad2ad90b4537f8c6982ec4a77cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d970d54_8fde5905",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2015-05-14T16:38:39Z",
       "side": 1,
       "message": "can you remind why we add this?",
+      "range": {
+        "startLine": 210,
+        "startChar": 18,
+        "endLine": 210,
+        "endChar": 19
+      },
+      "revId": "b8d30c44be823ad2ad90b4537f8c6982ec4a77cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d92d967_6e0f6fb6",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-15T13:04:28Z",
+      "side": 1,
+      "message": "How do you mean?",
+      "parentUuid": "8d970d54_8fde5905",
       "range": {
         "startLine": 210,
         "startChar": 18,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "ad885137_f38188fe",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-15T13:04:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad885137_90267ae4",
+      "range": {
+        "startLine": 217,
+        "startChar": 18,
+        "endLine": 217,
+        "endChar": 22
+      },
+      "revId": "b8d30c44be823ad2ad90b4537f8c6982ec4a77cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad885137_7032ee21",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 2
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "ad885137_50133259",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-15T13:04:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad885137_7032ee21",
+      "range": {
+        "startLine": 288,
+        "startChar": 23,
+        "endLine": 288,
+        "endChar": 27
+      },
+      "revId": "b8d30c44be823ad2ad90b4537f8c6982ec4a77cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad885137_b000d604",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 2
@@ -197,6 +389,30 @@
       "writtenOn": "2015-05-14T15:47:34Z",
       "side": 1,
       "message": "Pretty-printing ranges, uses and env_uses uses similar code; maybe try to factor it?",
+      "range": {
+        "startLine": 654,
+        "startChar": 4,
+        "endLine": 661,
+        "endChar": 18
+      },
+      "revId": "b8d30c44be823ad2ad90b4537f8c6982ec4a77cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d970d54_cf9a21b8",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-15T13:04:28Z",
+      "side": 1,
+      "message": "I\u0027ve now let this one be (it\u0027s also used by the register allocator) and implemented it with StringList in the GraphVisualizer",
+      "parentUuid": "ad885137_b000d604",
       "range": {
         "startLine": 654,
         "startChar": 4,
