@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8d970d54_920d9cee",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-15T15:55:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad885137_73f03860",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 20
+      },
+      "revId": "c74652867cd9293e86232324e5e057cd73c48e74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d92d967_31386800",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-05-15T13:45:35Z",
       "side": 1,
       "message": "could we somehow show that start is included and end is excluded?",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 36
+      },
+      "revId": "c74652867cd9293e86232324e5e057cd73c48e74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d92d967_91903c1c",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-15T15:55:44Z",
+      "side": 1,
+      "message": "Being extra careful again. As long as we don\u0027t have the space there, we should be fine. I\u0027ve sent you the CL.",
+      "parentUuid": "6d92d967_31386800",
       "range": {
         "startLine": 79,
         "startChar": 0,
