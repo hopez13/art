@@ -22,6 +22,30 @@
       "revId": "27b5a2aacb641ea500f4c34b921851cfd72f5f26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad885137_f3d508e1",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-15T13:04:28Z",
+      "side": 1,
+      "message": "We should stick to one and not support it in one mode but not the other. The fact that it\u0027s \u0027const char*\u0027 means it will always be a programmer-defined constant or string.c_str(), so turning it into a DCHECK seems safe.",
+      "parentUuid": "6d92d967_0ed26b87",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 21
+      },
+      "revId": "27b5a2aacb641ea500f4c34b921851cfd72f5f26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
