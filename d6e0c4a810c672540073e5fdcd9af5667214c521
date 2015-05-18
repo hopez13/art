@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "adcf719d_f5c79817",
+        "filename": "runtime/interpreter/unstarted_runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-18T12:38:56Z",
+      "side": 1,
+      "message": "Also add DISALLOW_COPY_AND_ASSIGN(UnstartedRuntime).",
+      "range": {
+        "startLine": 66,
+        "startChar": 1,
+        "endLine": 66,
+        "endChar": 8
+      },
+      "revId": "d6e0c4a810c672540073e5fdcd9af5667214c521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d9a7579_f2bb3d4e",
         "filename": "runtime/interpreter/unstarted_runtime_test.cc",
         "patchSetId": 2
@@ -37,6 +60,30 @@
       "side": 1,
       "message": "Yeah, I too agree having a shared include.",
       "parentUuid": "4d9a7579_f2bb3d4e",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 18
+      },
+      "revId": "d6e0c4a810c672540073e5fdcd9af5667214c521",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adcf719d_b57fe0d7",
+        "filename": "runtime/interpreter/unstarted_runtime_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-18T12:38:56Z",
+      "side": 1,
+      "message": "I have a preference for the shared include too.",
+      "parentUuid": "cdd4a530_16ec5c07",
       "range": {
         "startLine": 34,
         "startChar": 0,
