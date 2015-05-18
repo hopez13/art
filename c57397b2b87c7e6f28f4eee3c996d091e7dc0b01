@@ -46,6 +46,30 @@
       "revId": "c57397b2b87c7e6f28f4eee3c996d091e7dc0b01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdd4a530_560bf4d7",
+        "filename": "test/462-checker-inlining-across-dex-files/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-18T10:47:03Z",
+      "side": 1,
+      "message": "OK, thanks for the explanation.  Then maybe you could add to your comment on line 123 that by listing the Return instruction first you make it make bind \u003c\u003cClass\u003e\u003e to its (LoadClass) input beforehand, which makes the LoadClass check on the next line correctly match the right instruction.",
+      "parentUuid": "adcf719d_b5d120d3",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 45
+      },
+      "revId": "c57397b2b87c7e6f28f4eee3c996d091e7dc0b01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
