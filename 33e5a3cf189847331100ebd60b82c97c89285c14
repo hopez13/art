@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "0dbb1df3_9bfe4f7a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3254,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-18T14:20:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "add4d137_6d2d158f",
+      "range": {
+        "startLine": 3253,
+        "startChar": 8,
+        "endLine": 3254,
+        "endChar": 73
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dce2da2_f4ef98ca",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 9
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "We are generating code for it, so the TODOs are confusing. At the very least, I would move this to the code generation.\n\nAlso I can\u0027t parse \"how to use better Quick code\". Do you mean we should do something similar to Quick ?",
       "parentUuid": "0dbb1df3_fbef8bca",
+      "range": {
+        "startLine": 3252,
+        "startChar": 0,
+        "endLine": 3255,
+        "endChar": 80
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dc4617c_d953b3f1",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3255,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-18T14:20:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdd4a530_d960570e",
       "range": {
         "startLine": 3252,
         "startChar": 0,
@@ -296,6 +344,30 @@
       "side": 1,
       "message": "I think folding the comparison in the Condition sounds simpler. Could you do it? I\u0027ll implement it for the other archs as part of this CL.",
       "parentUuid": "2dc4617c_f97c376f",
+      "range": {
+        "startLine": 98,
+        "startChar": 2,
+        "endLine": 98,
+        "endChar": 42
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dbb1df3_7b049b18",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-18T14:20:06Z",
+      "side": 1,
+      "message": "Will do.  Is doing this in instruction simplification the right place?",
+      "parentUuid": "adcf719d_5856812f",
       "range": {
         "startLine": 98,
         "startChar": 2,
