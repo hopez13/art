@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cdd4a530_f9faf3f1",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-18T18:15:08Z",
+      "side": 1,
+      "message": "This checks only makes sense if we have a compilation unit. We should not bother DCHECKING if we don\u0027t know anything about it.",
+      "parentUuid": "cdd4a530_d9abb7fe",
+      "range": {
+        "startLine": 550,
+        "startChar": 1,
+        "endLine": 554,
+        "endChar": 7
+      },
+      "revId": "293d6d9e742d4180e4af8a83b2ae2665efccc955",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "add4d137_4d9ed9ae",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-05-18T17:07:26Z",
       "side": 1,
       "message": "I don\u0027t understand how does that show it\u0027s the super invocation?",
+      "range": {
+        "startLine": 181,
+        "startChar": 3,
+        "endLine": 181,
+        "endChar": 80
+      },
+      "revId": "293d6d9e742d4180e4af8a83b2ae2665efccc955",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adcf719d_58ec413a",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-18T18:15:08Z",
+      "side": 1,
+      "message": "We discussed this offline. I replaced it with a better check.",
+      "parentUuid": "add4d137_4d9ed9ae",
       "range": {
         "startLine": 181,
         "startChar": 3,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "cdd4a530_d9ff37e0",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-18T18:15:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "add4d137_0d98d1bd",
+      "range": {
+        "startLine": 183,
+        "startChar": 56,
+        "endLine": 183,
+        "endChar": 92
+      },
+      "revId": "293d6d9e742d4180e4af8a83b2ae2665efccc955",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdd4a530_799b83ef",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2015-05-18T17:07:26Z",
       "side": 1,
       "message": "should_generate_constructor_barrier?",
+      "range": {
+        "startLine": 368,
+        "startChar": 13,
+        "endLine": 368,
+        "endChar": 42
+      },
+      "revId": "293d6d9e742d4180e4af8a83b2ae2665efccc955",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adcf719d_38e9852a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-18T18:15:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdd4a530_799b83ef",
       "range": {
         "startLine": 368,
         "startChar": 13,
