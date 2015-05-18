@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cdd4a530_7669506b",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T12:00:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d92d967_111a8c26",
+      "revId": "9cc4633e06d154d7b2a86b78d6254dfd629f4542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adcf719d_d52dbc13",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 5
@@ -30,6 +48,30 @@
       "writtenOn": "2015-05-18T11:57:43Z",
       "side": 1,
       "message": "rename to depth",
+      "range": {
+        "startLine": 310,
+        "startChar": 18,
+        "endLine": 310,
+        "endChar": 19
+      },
+      "revId": "9cc4633e06d154d7b2a86b78d6254dfd629f4542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adcf719d_3537505f",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T12:00:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adcf719d_d52dbc13",
       "range": {
         "startLine": 310,
         "startChar": 18,
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "cdd4a530_5666549d",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T12:00:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d92d967_d1b1e4c1",
+      "revId": "9cc4633e06d154d7b2a86b78d6254dfd629f4542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad885137_f3e5084f",
         "filename": "compiler/optimizing/stack_map_test.cc",
         "patchSetId": 5
@@ -70,6 +130,30 @@
       "writtenOn": "2015-05-18T09:26:22Z",
       "side": 1,
       "message": "Maybe introduce a `number_of_dex_registers_in_inline_info\u0027 (or any better/shorter name) constant here?",
+      "range": {
+        "startLine": 130,
+        "startChar": 37,
+        "endLine": 130,
+        "endChar": 38
+      },
+      "revId": "9cc4633e06d154d7b2a86b78d6254dfd629f4542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dce2da2_141b34f5",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T12:00:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad885137_f3e5084f",
       "range": {
         "startLine": 130,
         "startChar": 37,
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "8dce2da2_94274432",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T12:00:36Z",
+      "side": 1,
+      "message": "I can\u0027t, it needs to know the number of dex registers per inline_info/depth. I improved the comment.",
+      "parentUuid": "8dce2da2_74438822",
+      "range": {
+        "startLine": 263,
+        "startChar": 2,
+        "endLine": 263,
+        "endChar": 51
+      },
+      "revId": "9cc4633e06d154d7b2a86b78d6254dfd629f4542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dce2da2_d4537cf1",
         "filename": "runtime/stack_map.cc",
         "patchSetId": 5
@@ -116,6 +224,30 @@
       "writtenOn": "2015-05-18T09:26:22Z",
       "side": 1,
       "message": "Nit: long line.",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 269,
+        "endChar": 103
+      },
+      "revId": "9cc4633e06d154d7b2a86b78d6254dfd629f4542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dce2da2_743dc83c",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T12:00:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dce2da2_d4537cf1",
       "range": {
         "startLine": 269,
         "startChar": 0,
@@ -151,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "adcf719d_950e24b8",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T12:00:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adcf719d_b56fe0a9",
+      "range": {
+        "startLine": 275,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 72
+      },
+      "revId": "9cc4633e06d154d7b2a86b78d6254dfd629f4542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adcf719d_9574e47c",
         "filename": "runtime/stack_map.cc",
         "patchSetId": 5
@@ -162,6 +318,30 @@
       "writtenOn": "2015-05-18T09:26:22Z",
       "side": 1,
       "message": "Maybe replace with\n\n  uint16_t number_of_dex_registers[]\n\nto make it more explicit that `number_of_dex_registers\u0027 is an array?",
+      "range": {
+        "startLine": 286,
+        "startChar": 22,
+        "endLine": 286,
+        "endChar": 55
+      },
+      "revId": "9cc4633e06d154d7b2a86b78d6254dfd629f4542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dce2da2_543acc46",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T12:00:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adcf719d_9574e47c",
       "range": {
         "startLine": 286,
         "startChar": 22,
@@ -197,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "cdd4a530_1660dc7c",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 988,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T12:00:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdd4a530_36d9981c",
+      "range": {
+        "startLine": 988,
+        "startChar": 17,
+        "endLine": 988,
+        "endChar": 41
+      },
+      "revId": "9cc4633e06d154d7b2a86b78d6254dfd629f4542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adcf719d_358bd0f0",
         "filename": "runtime/stack_map.h",
         "patchSetId": 5
@@ -208,6 +412,30 @@
       "writtenOn": "2015-05-18T09:26:22Z",
       "side": 1,
       "message": "Nit: long line.",
+      "range": {
+        "startLine": 992,
+        "startChar": 0,
+        "endLine": 992,
+        "endChar": 101
+      },
+      "revId": "9cc4633e06d154d7b2a86b78d6254dfd629f4542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dce2da2_b4224022",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T12:00:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adcf719d_358bd0f0",
       "range": {
         "startLine": 992,
         "startChar": 0,
