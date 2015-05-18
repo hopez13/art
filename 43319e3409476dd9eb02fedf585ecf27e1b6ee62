@@ -22,6 +22,30 @@
       "revId": "43319e3409476dd9eb02fedf585ecf27e1b6ee62",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "add4d137_2d370d5f",
+        "filename": "runtime/oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-18T16:31:21Z",
+      "side": 1,
+      "message": "I wanted to but the compiler is not happy with that\n\n  error: array initializer must be an initializer list or string literal\n\nSo I chose the string initializer. I\u0027m looking at improving this.",
+      "parentUuid": "cdd4a530_5988c722",
+      "range": {
+        "startLine": 455,
+        "startChar": 30,
+        "endLine": 455,
+        "endChar": 36
+      },
+      "revId": "43319e3409476dd9eb02fedf585ecf27e1b6ee62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
