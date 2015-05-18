@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cdd4a530_d698244f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T09:22:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dce2da2_d4c6dc4b",
+      "range": {
+        "startLine": 9,
+        "startChar": 8,
+        "endLine": 9,
+        "endChar": 24
+      },
+      "revId": "3ef6f30d0551103263d39d5563cbec1d625ce9aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adcf719d_f5eaf8a3",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-05-18T09:13:58Z",
       "side": 1,
       "message": "kNoRegister",
+      "range": {
+        "startLine": 863,
+        "startChar": 19,
+        "endLine": 863,
+        "endChar": 21
+      },
+      "revId": "3ef6f30d0551103263d39d5563cbec1d625ce9aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdd4a530_96a2ac79",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T09:22:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adcf719d_f5eaf8a3",
       "range": {
         "startLine": 863,
         "startChar": 19,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "adcf719d_d56a5c9b",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T09:22:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdd4a530_b6f92896",
+      "range": {
+        "startLine": 869,
+        "startChar": 6,
+        "endLine": 871,
+        "endChar": 12
+      },
+      "revId": "3ef6f30d0551103263d39d5563cbec1d625ce9aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adcf719d_95e984af",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-05-18T09:13:58Z",
       "side": 1,
       "message": "HasCallingSafepoint? Otherwise it\u0027s a little misleading",
+      "range": {
+        "startLine": 545,
+        "startChar": 7,
+        "endLine": 545,
+        "endChar": 19
+      },
+      "revId": "3ef6f30d0551103263d39d5563cbec1d625ce9aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdd4a530_56a5347e",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T09:22:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adcf719d_95e984af",
       "range": {
         "startLine": 545,
         "startChar": 7,
