@@ -1,0 +1,199 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d92d967_111a8c26",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-18T09:26:22Z",
+      "side": 1,
+      "message": "Maybe add something like this:\n\n  DCHECK(current_dex_register_, current_inline_info_.num_dex_registers)\n      \u003c\u003c \"Inline info contains less registers than expected.\";\n\nhere?",
+      "revId": "9cc4633e06d154d7b2a86b78d6254dfd629f4542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d92d967_d1b1e4c1",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-18T09:26:22Z",
+      "side": 1,
+      "message": "Maybe check that inline_entry.live_dex_registers_mask is empty?",
+      "revId": "9cc4633e06d154d7b2a86b78d6254dfd629f4542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad885137_f3e5084f",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-18T09:26:22Z",
+      "side": 1,
+      "message": "Maybe introduce a `number_of_dex_registers_in_inline_info\u0027 (or any better/shorter name) constant here?",
+      "range": {
+        "startLine": 130,
+        "startChar": 37,
+        "endLine": 130,
+        "endChar": 38
+      },
+      "revId": "9cc4633e06d154d7b2a86b78d6254dfd629f4542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dce2da2_74438822",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-18T09:26:22Z",
+      "side": 1,
+      "message": "Remove and replace with a call to InlineInfo::Dump?",
+      "range": {
+        "startLine": 263,
+        "startChar": 2,
+        "endLine": 263,
+        "endChar": 51
+      },
+      "revId": "9cc4633e06d154d7b2a86b78d6254dfd629f4542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dce2da2_d4537cf1",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-18T09:26:22Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 269,
+        "endChar": 103
+      },
+      "revId": "9cc4633e06d154d7b2a86b78d6254dfd629f4542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adcf719d_b56fe0a9",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-18T09:26:22Z",
+      "side": 1,
+      "message": "Maybe place on a single line?",
+      "range": {
+        "startLine": 275,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 72
+      },
+      "revId": "9cc4633e06d154d7b2a86b78d6254dfd629f4542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adcf719d_9574e47c",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-18T09:26:22Z",
+      "side": 1,
+      "message": "Maybe replace with\n\n  uint16_t number_of_dex_registers[]\n\nto make it more explicit that `number_of_dex_registers\u0027 is an array?",
+      "range": {
+        "startLine": 286,
+        "startChar": 22,
+        "endLine": 286,
+        "endChar": 55
+      },
+      "revId": "9cc4633e06d154d7b2a86b78d6254dfd629f4542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdd4a530_36d9981c",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 988,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-18T09:26:22Z",
+      "side": 1,
+      "message": "Maybe document that this method retrieves a Dex register map within an InlineInfo object and/or alter this method\u0027s name to make it more explicit?",
+      "range": {
+        "startLine": 988,
+        "startChar": 17,
+        "endLine": 988,
+        "endChar": 41
+      },
+      "revId": "9cc4633e06d154d7b2a86b78d6254dfd629f4542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adcf719d_358bd0f0",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-18T09:26:22Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 992,
+        "startChar": 0,
+        "endLine": 992,
+        "endChar": 101
+      },
+      "revId": "9cc4633e06d154d7b2a86b78d6254dfd629f4542",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
