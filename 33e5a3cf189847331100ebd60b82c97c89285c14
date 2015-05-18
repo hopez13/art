@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8dce2da2_f4ef98ca",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3255,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T07:50:04Z",
+      "side": 1,
+      "message": "What is this? Can you fix it?",
+      "range": {
+        "startLine": 3252,
+        "startChar": 0,
+        "endLine": 3255,
+        "endChar": 80
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adcf719d_95fe247a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 2092,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T07:50:04Z",
+      "side": 1,
+      "message": "Nit: New line for this.",
+      "range": {
+        "startLine": 2092,
+        "startChar": 62,
+        "endLine": 2092,
+        "endChar": 73
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adcf719d_5501ac06",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T07:50:04Z",
+      "side": 1,
+      "message": "Please add a helper for this:\nHInstruction::HasAnyEnvironmentUseBefore(HInstruction* other);",
+      "range": {
+        "startLine": 94,
+        "startChar": 7,
+        "endLine": 94,
+        "endChar": 51
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdd4a530_569f7461",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T07:50:04Z",
+      "side": 1,
+      "message": "What happens to this instruction? Is it marked as not materialize?\n\nShould we instead removing the HCompare from the graph, and handle FP and long comparisons in HCondition?",
+      "range": {
+        "startLine": 98,
+        "startChar": 2,
+        "endLine": 98,
+        "endChar": 42
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dce2da2_5401ac06",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T07:50:04Z",
+      "side": 1,
+      "message": "This is the pessimized debuggable problem right? Could you check if the graph is debuggable instead, and remove the environment uses if it\u0027s not?\n\nYou still need make sure there is only one use, or that could break any deopt.",
+      "range": {
+        "startLine": 100,
+        "startChar": 40,
+        "endLine": 101,
+        "endChar": 74
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adcf719d_350e3037",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T07:50:04Z",
+      "side": 1,
+      "message": "Why not 1 and -1 ?",
+      "range": {
+        "startLine": 107,
+        "startChar": 5,
+        "endLine": 107,
+        "endChar": 60
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdd4a530_d6b264fa",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T07:50:04Z",
+      "side": 1,
+      "message": "Same comment as above.",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 3
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dce2da2_f418b877",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T07:50:04Z",
+      "side": 1,
+      "message": "Use the helper.",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 3
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdd4a530_b6b7e8e8",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T07:50:04Z",
+      "side": 1,
+      "message": "What is this?",
+      "range": {
+        "startLine": 130,
+        "startChar": 2,
+        "endLine": 130,
+        "endChar": 84
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
