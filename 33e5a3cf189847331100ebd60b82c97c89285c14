@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2dc4617c_d96a939b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-18T14:00:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dce2da2_9453c4c0",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 2
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dce2da2_f4ef98ca",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2015-05-18T07:50:04Z",
       "side": 1,
       "message": "What is this? Can you fix it?",
+      "range": {
+        "startLine": 3252,
+        "startChar": 0,
+        "endLine": 3255,
+        "endChar": 80
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dbb1df3_fbef8bca",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3255,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-18T14:00:24Z",
+      "side": 1,
+      "message": "The problem is that we need 6 registers here:\n- 2 for the LHS\n- 2 for the RHS\n- 2 for the temps.\n\nI think that the problem is that the allocation order(?) (in particular if one of the operands comes back in EAX:EDX, which is in 2 pairs) doesn\u0027t allow allocating the registers in the right order that preserves the even/odd pairing.\n\nTo be honest, I would rather get this merged, and then I can make a CL that demonstrates the problem, and let you have a look at it.",
+      "parentUuid": "8dce2da2_f4ef98ca",
       "range": {
         "startLine": 3252,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4dc1956b_5ad9d5f3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 2092,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-18T14:00:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adcf719d_95fe247a",
+      "range": {
+        "startLine": 2092,
+        "startChar": 62,
+        "endLine": 2092,
+        "endChar": 73
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adcf719d_5501ac06",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 9
@@ -82,6 +154,30 @@
       "writtenOn": "2015-05-18T07:50:04Z",
       "side": 1,
       "message": "Please add a helper for this:\nHInstruction::HasAnyEnvironmentUseBefore(HInstruction* other);",
+      "range": {
+        "startLine": 94,
+        "startChar": 7,
+        "endLine": 94,
+        "endChar": 51
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dbb1df3_5b88b722",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-18T14:00:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adcf719d_5501ac06",
       "range": {
         "startLine": 94,
         "startChar": 7,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "2dc4617c_f97c376f",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-18T14:00:24Z",
+      "side": 1,
+      "message": "It turns out that if there is only 1 use, it will be marked as not materialize.  I opted to do this in the HCompare, as I wanted a scheme that is backwards compatible with other architectures, and I am not qualified to implement the others.  An alternate would be a call to the code generator to \u0027allow merging of HCompare with HCondition\u0027.  I am fine with that, but need approval first.  Would that be done in instruction simplification? I don\u0027t think it can be done in the builder, as we don\u0027t know all the users until after the SSA is built.",
+      "parentUuid": "cdd4a530_569f7461",
+      "range": {
+        "startLine": 98,
+        "startChar": 2,
+        "endLine": 98,
+        "endChar": 42
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dce2da2_5401ac06",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 9
@@ -128,6 +248,30 @@
       "writtenOn": "2015-05-18T07:50:04Z",
       "side": 1,
       "message": "This is the pessimized debuggable problem right? Could you check if the graph is debuggable instead, and remove the environment uses if it\u0027s not?\n\nYou still need make sure there is only one use, or that could break any deopt.",
+      "range": {
+        "startLine": 100,
+        "startChar": 40,
+        "endLine": 101,
+        "endChar": 74
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dc4617c_f96557cd",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-18T14:00:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dce2da2_5401ac06",
       "range": {
         "startLine": 100,
         "startChar": 40,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "2dc4617c_39b2afc6",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-18T14:00:24Z",
+      "side": 1,
+      "message": "The short answer is because the compare is ALWAYS to 0, because that is how the code is generated by dx. I\u0027m not sure if we would get the bias right for FP compares to non-zero cases.  In any case, since this would only happen with hand-crafted smali code, it isn\u0027t worth doing.",
+      "parentUuid": "adcf719d_350e3037",
+      "range": {
+        "startLine": 107,
+        "startChar": 5,
+        "endLine": 107,
+        "endChar": 60
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdd4a530_d6b264fa",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 9
@@ -174,6 +342,30 @@
       "writtenOn": "2015-05-18T07:50:04Z",
       "side": 1,
       "message": "Same comment as above.",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 3
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dbb1df3_1b823f03",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-18T14:00:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdd4a530_d6b264fa",
       "range": {
         "startLine": 113,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "4dc1956b_1ae35da4",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-18T14:00:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dce2da2_f418b877",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 3
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdd4a530_b6b7e8e8",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 9
@@ -220,6 +436,30 @@
       "writtenOn": "2015-05-18T07:50:04Z",
       "side": 1,
       "message": "What is this?",
+      "range": {
+        "startLine": 130,
+        "startChar": 2,
+        "endLine": 130,
+        "endChar": 84
+      },
+      "revId": "33e5a3cf189847331100ebd60b82c97c89285c14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4dc1956b_3ae621b4",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-18T14:00:24Z",
+      "side": 1,
+      "message": "Implemented as part of above fixes.",
+      "parentUuid": "cdd4a530_b6b7e8e8",
       "range": {
         "startLine": 130,
         "startChar": 2,
