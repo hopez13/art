@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "add4d137_4d56d92f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T13:59:28Z",
+      "side": 1,
+      "message": "It seems to be. It\u0027s unclear whether it was on purpose for handling different compilers.",
+      "parentUuid": "cdd4a530_16921cd1",
+      "range": {
+        "startLine": 9,
+        "startChar": 45,
+        "endLine": 9,
+        "endChar": 50
+      },
+      "revId": "0681a47578e29c503a38e7c4a8f263f5cf4caeef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdd4a530_9653ccc0",
         "filename": "runtime/stack.cc",
         "patchSetId": 4
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "cdd4a530_f65e8079",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T13:59:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdd4a530_9653ccc0",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 62
+      },
+      "revId": "0681a47578e29c503a38e7c4a8f263f5cf4caeef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dce2da2_f4ff98f8",
         "filename": "runtime/stack.h",
         "patchSetId": 4
@@ -83,6 +131,30 @@
       "writtenOn": "2015-05-18T11:35:13Z",
       "side": 1,
       "message": "in?",
+      "range": {
+        "startLine": 708,
+        "startChar": 59,
+        "endLine": 708,
+        "endChar": 61
+      },
+      "revId": "0681a47578e29c503a38e7c4a8f263f5cf4caeef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdd4a530_965d0c7d",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T13:59:28Z",
+      "side": 1,
+      "message": "I don\u0027t think so. We\u0027re walking \u0027at\u0027 this method, not necessarily meaning we\u0027re currently executing that method (walking the stack can be done by other threads).",
+      "parentUuid": "8dce2da2_f4ff98f8",
       "range": {
         "startLine": 708,
         "startChar": 59,
