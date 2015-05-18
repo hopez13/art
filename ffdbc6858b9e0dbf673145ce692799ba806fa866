@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cdd4a530_d998574f",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-18T15:22:54Z",
+      "side": 1,
+      "message": "I\u0027d document now that this *must* be the dominator order (just to avoid doubts)",
+      "range": {
+        "startLine": 83,
+        "startChar": 7,
+        "endLine": 83,
+        "endChar": 32
+      },
+      "revId": "ffdbc6858b9e0dbf673145ce692799ba806fa866",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
