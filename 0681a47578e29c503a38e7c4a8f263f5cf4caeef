@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cdd4a530_9653ccc0",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-18T11:35:13Z",
+      "side": 1,
+      "message": "Nit: this part could be factored with the newly added code in StackVisitor::GetDexPc (and maybe StackVisitor::GetVRegFromOptimizedCode?).",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 62
+      },
+      "revId": "0681a47578e29c503a38e7c4a8f263f5cf4caeef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dce2da2_f4ff98f8",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-18T11:35:13Z",
+      "side": 1,
+      "message": "in?",
+      "range": {
+        "startLine": 708,
+        "startChar": 59,
+        "endLine": 708,
+        "endChar": 61
+      },
+      "revId": "0681a47578e29c503a38e7c4a8f263f5cf4caeef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
