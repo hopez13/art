@@ -22,6 +22,30 @@
       "revId": "c57397b2b87c7e6f28f4eee3c996d091e7dc0b01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adcf719d_b5d120d3",
+        "filename": "test/462-checker-inlining-across-dex-files/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-18T10:32:13Z",
+      "side": 1,
+      "message": "Yes, what\u0027s changed is where we get the instruction id from. The output is something like this:\n\n  id1  LoadClass\n       ClinitCheck [id1]\n  id11 LoadClass\n       Return [id11]\n\nThe test was broken. It first set Class\u003d\u0027id1\u0027 and matched \u0027id11\u0027 later. This changed fixed the bug and broke the test. Changing the order and finding the id from the Return instruction restores the test.",
+      "parentUuid": "adcf719d_1561f4b9",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 45
+      },
+      "revId": "c57397b2b87c7e6f28f4eee3c996d091e7dc0b01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
