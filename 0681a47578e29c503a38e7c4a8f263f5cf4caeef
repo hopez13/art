@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "cdd4a530_16921cd1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-18T12:02:55Z",
+      "side": 1,
+      "message": "just \"seems\"? or actually is?\n\nI\u0027d remove what follows the comma.",
+      "range": {
+        "startLine": 9,
+        "startChar": 45,
+        "endLine": 9,
+        "endChar": 50
+      },
+      "revId": "0681a47578e29c503a38e7c4a8f263f5cf4caeef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdd4a530_9653ccc0",
         "filename": "runtime/stack.cc",
         "patchSetId": 4
@@ -13,6 +36,30 @@
       "writtenOn": "2015-05-18T11:35:13Z",
       "side": 1,
       "message": "Nit: this part could be factored with the newly added code in StackVisitor::GetDexPc (and maybe StackVisitor::GetVRegFromOptimizedCode?).",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 62
+      },
+      "revId": "0681a47578e29c503a38e7c4a8f263f5cf4caeef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdd4a530_361e38e5",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-18T12:02:55Z",
+      "side": 1,
+      "message": "yea, please do so, too much code duplication :)",
+      "parentUuid": "cdd4a530_9653ccc0",
       "range": {
         "startLine": 112,
         "startChar": 0,
