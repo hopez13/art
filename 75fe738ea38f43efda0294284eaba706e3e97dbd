@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cdd4a530_1677bccd",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T07:10:12Z",
+      "side": 1,
+      "message": "Alternatively ,make this a requirement of the caller, to be consistent with GetBootOatfile?",
+      "range": {
+        "startLine": 840,
+        "startChar": 0,
+        "endLine": 840,
+        "endChar": 53
+      },
+      "revId": "75fe738ea38f43efda0294284eaba706e3e97dbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdd4a530_566d34fd",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T07:10:12Z",
+      "side": 1,
+      "message": "Don\u0027t you need lock information here? Say that it requires the dex_lock_ ReaderMutexLock ?",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 37
+      },
+      "revId": "75fe738ea38f43efda0294284eaba706e3e97dbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdd4a530_367ab8b5",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T07:10:12Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 622,
+        "startChar": 0,
+        "endLine": 622,
+        "endChar": 34
+      },
+      "revId": "75fe738ea38f43efda0294284eaba706e3e97dbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dce2da2_f496784a",
+        "filename": "runtime/oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-18T07:10:12Z",
+      "side": 1,
+      "message": "Could this be refactored with a template method, or a helper that takes the key whose value can only be true/false?",
+      "range": {
+        "startLine": 445,
+        "startChar": 0,
+        "endLine": 455,
+        "endChar": 1
+      },
+      "revId": "75fe738ea38f43efda0294284eaba706e3e97dbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
