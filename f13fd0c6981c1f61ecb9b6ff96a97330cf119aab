@@ -337,6 +337,24 @@
     },
     {
       "key": {
+        "uuid": "ad4211dc_80a59881",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-19T23:53:18Z",
+      "side": 1,
+      "message": "It means replicating some of the VisitCompare code in the VisitCondition code.  I will just omit the eflags optimization if the HCondition had long/FP values.\n\nLet\u0027s see what it looks like.",
+      "parentUuid": "0d179dd9_3bbf230d",
+      "revId": "f13fd0c6981c1f61ecb9b6ff96a97330cf119aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d20e12c_f92d3713",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 11
