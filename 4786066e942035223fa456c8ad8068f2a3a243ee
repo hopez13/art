@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2d20e12c_fc6a059b",
+        "filename": "tools/checker/match/line.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-19T16:16:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d20e12c_3ca95d89",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "4786066e942035223fa456c8ad8068f2a3a243ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed19690f_5ab691cc",
         "filename": "tools/checker/match/line.py",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-05-19T14:50:10Z",
       "side": 1,
       "message": "The comment is not on par with the method name. IS the splitting a side effect? More comments please.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 65
+      },
+      "revId": "4786066e942035223fa456c8ad8068f2a3a243ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d20e12c_9c6f49aa",
+        "filename": "tools/checker/match/line.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-19T16:16:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed19690f_5ab691cc",
       "range": {
         "startLine": 21,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2d20e12c_bc748d7c",
+        "filename": "tools/checker/match/line.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-19T16:16:46Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "ed19690f_9acbc952",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 18
+      },
+      "revId": "4786066e942035223fa456c8ad8068f2a3a243ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed19690f_7ab355db",
         "filename": "tools/checker/match/line.py",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2015-05-19T14:50:10Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 58
+      },
+      "revId": "4786066e942035223fa456c8ad8068f2a3a243ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d179dd9_3b6163ba",
+        "filename": "tools/checker/match/line.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-19T16:16:46Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "ed19690f_7ab355db",
       "range": {
         "startLine": 33,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "0d179dd9_3be3a3a4",
+        "filename": "tools/checker/match/line.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-19T16:16:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d20e12c_bc956d3d",
+      "range": {
+        "startLine": 45,
+        "startChar": 30,
+        "endLine": 45,
+        "endChar": 31
+      },
+      "revId": "4786066e942035223fa456c8ad8068f2a3a243ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed19690f_daeaa1a4",
         "filename": "tools/checker/match/line.py",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2015-05-19T14:50:10Z",
       "side": 1,
       "message": "was a ...",
+      "range": {
+        "startLine": 65,
+        "startChar": 16,
+        "endLine": 65,
+        "endChar": 19
+      },
+      "revId": "4786066e942035223fa456c8ad8068f2a3a243ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d179dd9_1be6dfb3",
+        "filename": "tools/checker/match/line.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-19T16:16:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed19690f_daeaa1a4",
       "range": {
         "startLine": 65,
         "startChar": 16,
