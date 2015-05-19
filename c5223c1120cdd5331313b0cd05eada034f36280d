@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0d8cfd85_90db94a0",
+        "filename": "test/137-cfi/cfi.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-19T16:07:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d179dd9_7867e150",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 26
+      },
+      "revId": "c5223c1120cdd5331313b0cd05eada034f36280d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d179dd9_783a8147",
         "filename": "test/137-cfi/cfi.cc",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2015-05-19T12:34:53Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 60,
+        "startChar": 43,
+        "endLine": 60,
+        "endChar": 49
+      },
+      "revId": "c5223c1120cdd5331313b0cd05eada034f36280d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d37016d_a7a0ee1b",
+        "filename": "test/137-cfi/cfi.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-19T16:07:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d179dd9_783a8147",
       "range": {
         "startLine": 60,
         "startChar": 43,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "adfdb1c1_281ee3e4",
+        "filename": "test/137-cfi/cfi.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-19T16:07:11Z",
+      "side": 1,
+      "message": "Yes, because this was extremely flaky in my tests. It can\u0027t do harm, a stopped process stays a stopped process.",
+      "parentUuid": "0d179dd9_5bf537cd",
+      "range": {
+        "startLine": 163,
+        "startChar": 2,
+        "endLine": 163,
+        "endChar": 21
+      },
+      "revId": "c5223c1120cdd5331313b0cd05eada034f36280d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d20e12c_f963f73e",
         "filename": "test/137-cfi/cfi.cc",
         "patchSetId": 10
@@ -88,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "0d8cfd85_d0d11c84",
+        "filename": "test/137-cfi/cfi.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-19T16:07:11Z",
+      "side": 1,
+      "message": "Sorry, yes, this was supposed to be on the Java side, though I think I\u0027ll have to send a SIGCONT for it to react to it.",
+      "parentUuid": "2d20e12c_f963f73e",
+      "revId": "c5223c1120cdd5331313b0cd05eada034f36280d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d20e12c_59b6a3cc",
         "filename": "test/137-cfi/src/Main.java",
         "patchSetId": 10
@@ -99,6 +189,30 @@
       "writtenOn": "2015-05-19T13:58:51Z",
       "side": 1,
       "message": "\"args.length - 1\" to match the code in runPrimary().",
+      "range": {
+        "startLine": 41,
+        "startChar": 34,
+        "endLine": 41,
+        "endChar": 35
+      },
+      "revId": "c5223c1120cdd5331313b0cd05eada034f36280d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adfdb1c1_e828cb05",
+        "filename": "test/137-cfi/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-19T16:07:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d20e12c_59b6a3cc",
       "range": {
         "startLine": 41,
         "startChar": 34,
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "2d37016d_87984af2",
+        "filename": "test/137-cfi/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-19T16:07:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed19690f_d7c11c36",
+      "range": {
+        "startLine": 91,
+        "startChar": 9,
+        "endLine": 91,
+        "endChar": 16
+      },
+      "revId": "c5223c1120cdd5331313b0cd05eada034f36280d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed19690f_970964b4",
         "filename": "test/137-cfi/src/Main.java",
         "patchSetId": 10
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "0d8cfd85_b0e0184b",
+        "filename": "test/137-cfi/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-19T16:07:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed19690f_970964b4",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 8
+      },
+      "revId": "c5223c1120cdd5331313b0cd05eada034f36280d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed19690f_b70ee8b7",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 10
@@ -168,6 +330,30 @@
       "writtenOn": "2015-05-19T12:34:53Z",
       "side": 1,
       "message": "Please also mark the test as failing for ndebug (because they are using libarttest.so)",
+      "range": {
+        "startLine": 441,
+        "startChar": 0,
+        "endLine": 441,
+        "endChar": 69
+      },
+      "revId": "c5223c1120cdd5331313b0cd05eada034f36280d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adfdb1c1_081b27f5",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-19T16:07:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed19690f_b70ee8b7",
       "range": {
         "startLine": 441,
         "startChar": 0,
