@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d179dd9_783a8147",
+        "filename": "test/137-cfi/cfi.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-19T12:34:53Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 60,
+        "startChar": 43,
+        "endLine": 60,
+        "endChar": 49
+      },
+      "revId": "c5223c1120cdd5331313b0cd05eada034f36280d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_970964b4",
+        "filename": "test/137-cfi/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-19T12:34:53Z",
+      "side": 1,
+      "message": "Missing space.",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 8
+      },
+      "revId": "c5223c1120cdd5331313b0cd05eada034f36280d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_b70ee8b7",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-19T12:34:53Z",
+      "side": 1,
+      "message": "Please also mark the test as failing for ndebug (because they are using libarttest.so)",
+      "range": {
+        "startLine": 441,
+        "startChar": 0,
+        "endLine": 441,
+        "endChar": 69
+      },
+      "revId": "c5223c1120cdd5331313b0cd05eada034f36280d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
