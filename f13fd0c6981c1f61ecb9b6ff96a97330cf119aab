@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ad4211dc_bd747f7c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-19T18:01:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d179dd9_78ecc13a",
+      "range": {
+        "startLine": 836,
+        "startChar": 0,
+        "endLine": 836,
+        "endChar": 28
+      },
+      "revId": "f13fd0c6981c1f61ecb9b6ff96a97330cf119aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed19690f_b7e0284b",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2015-05-19T13:03:29Z",
       "side": 1,
       "message": "Why isn\u0027t that line 1234?",
+      "range": {
+        "startLine": 1204,
+        "startChar": 0,
+        "endLine": 1214,
+        "endChar": 5
+      },
+      "revId": "f13fd0c6981c1f61ecb9b6ff96a97330cf119aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed4089d5_7f402f14",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1214,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-19T18:01:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed19690f_b7e0284b",
       "range": {
         "startLine": 1204,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ed4089d5_1f3d638b",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-19T18:01:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed19690f_57c66cca",
+      "range": {
+        "startLine": 943,
+        "startChar": 0,
+        "endLine": 953,
+        "endChar": 5
+      },
+      "revId": "f13fd0c6981c1f61ecb9b6ff96a97330cf119aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed19690f_d7fa7cf2",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 11
@@ -82,6 +154,30 @@
       "writtenOn": "2015-05-19T13:03:29Z",
       "side": 1,
       "message": "p -\u003e current.\n\nAlso move it to within the for? The DCHECK line 1497 is not very useful.",
+      "range": {
+        "startLine": 1488,
+        "startChar": 2,
+        "endLine": 1488,
+        "endChar": 25
+      },
+      "revId": "f13fd0c6981c1f61ecb9b6ff96a97330cf119aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed4089d5_62f5f8cd",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-19T18:01:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed19690f_d7fa7cf2",
       "range": {
         "startLine": 1488,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "ed4089d5_9fd173d3",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1490,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-19T18:01:19Z",
+      "side": 1,
+      "message": "Changed to check for use of \u0027this\u0027.",
+      "parentUuid": "0d179dd9_78b5a12c",
+      "range": {
+        "startLine": 1490,
+        "startChar": 11,
+        "endLine": 1490,
+        "endChar": 25
+      },
+      "revId": "f13fd0c6981c1f61ecb9b6ff96a97330cf119aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d179dd9_98ad15ec",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 11
@@ -128,6 +248,30 @@
       "writtenOn": "2015-05-19T13:03:29Z",
       "side": 1,
       "message": "Shouldn\u0027t you do env_uses_.Clear() at the end?",
+      "range": {
+        "startLine": 1507,
+        "startChar": 2,
+        "endLine": 1507,
+        "endChar": 3
+      },
+      "revId": "f13fd0c6981c1f61ecb9b6ff96a97330cf119aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed4089d5_3f3aa794",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1507,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-19T18:01:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d179dd9_98ad15ec",
       "range": {
         "startLine": 1507,
         "startChar": 2,
@@ -157,6 +301,24 @@
     },
     {
       "key": {
+        "uuid": "ed4089d5_c2df2452",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-19T18:01:19Z",
+      "side": 1,
+      "message": "I would like to be able to move it there, but it is only safe to make the replacement if we know that the condition doesn\u0027t need to be materialized, and we don\u0027t know that until here.\n\nThe problem cases are 32-bit longs and FP values (i.e. NaNs) that have to generate complex branching code.",
+      "parentUuid": "2d20e12c_1937cb5e",
+      "revId": "f13fd0c6981c1f61ecb9b6ff96a97330cf119aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d20e12c_f92d3713",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 11
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "cd4745eb_5edf7502",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-19T18:01:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d20e12c_f92d3713",
+      "range": {
+        "startLine": 98,
+        "startChar": 10,
+        "endLine": 98,
+        "endChar": 28
+      },
+      "revId": "f13fd0c6981c1f61ecb9b6ff96a97330cf119aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed19690f_37cdf8e0",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 11
@@ -191,6 +377,30 @@
       "writtenOn": "2015-05-19T13:03:29Z",
       "side": 1,
       "message": "Should this check be line 100?",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 5
+      },
+      "revId": "f13fd0c6981c1f61ecb9b6ff96a97330cf119aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed4089d5_bfd6b7c6",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-19T18:01:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed19690f_37cdf8e0",
       "range": {
         "startLine": 103,
         "startChar": 0,
