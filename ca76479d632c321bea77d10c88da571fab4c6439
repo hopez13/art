@@ -22,6 +22,30 @@
       "revId": "ca76479d632c321bea77d10c88da571fab4c6439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed4089d5_7fb34fdb",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1039961
+      },
+      "writtenOn": "2015-05-19T06:55:08Z",
+      "side": 1,
+      "message": "Yes, should be \"this is safe\". Thanks!",
+      "parentUuid": "eda409cd_41d689ed",
+      "range": {
+        "startLine": 537,
+        "startChar": 37,
+        "endLine": 537,
+        "endChar": 52
+      },
+      "revId": "ca76479d632c321bea77d10c88da571fab4c6439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
