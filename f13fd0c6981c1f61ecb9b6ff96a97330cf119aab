@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d179dd9_78ecc13a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-19T13:03:29Z",
+      "side": 1,
+      "message": "Please drop. If you need to, just do the pessimized version. And fix the register allocator in another change.",
+      "range": {
+        "startLine": 836,
+        "startChar": 0,
+        "endLine": 836,
+        "endChar": 28
+      },
+      "revId": "f13fd0c6981c1f61ecb9b6ff96a97330cf119aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_b7e0284b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1214,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-19T13:03:29Z",
+      "side": 1,
+      "message": "Why isn\u0027t that line 1234?",
+      "range": {
+        "startLine": 1204,
+        "startChar": 0,
+        "endLine": 1214,
+        "endChar": 5
+      },
+      "revId": "f13fd0c6981c1f61ecb9b6ff96a97330cf119aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_57c66cca",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-19T13:03:29Z",
+      "side": 1,
+      "message": "Move to line 975.",
+      "range": {
+        "startLine": 943,
+        "startChar": 0,
+        "endLine": 953,
+        "endChar": 5
+      },
+      "revId": "f13fd0c6981c1f61ecb9b6ff96a97330cf119aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_d7fa7cf2",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-19T13:03:29Z",
+      "side": 1,
+      "message": "p -\u003e current.\n\nAlso move it to within the for? The DCHECK line 1497 is not very useful.",
+      "range": {
+        "startLine": 1488,
+        "startChar": 2,
+        "endLine": 1488,
+        "endChar": 25
+      },
+      "revId": "f13fd0c6981c1f61ecb9b6ff96a97330cf119aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d179dd9_78b5a12c",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1490,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-19T13:03:29Z",
+      "side": 1,
+      "message": "Please add a comment that this is also conservative, as the environment may not be a user of `this`.",
+      "range": {
+        "startLine": 1490,
+        "startChar": 11,
+        "endLine": 1490,
+        "endChar": 25
+      },
+      "revId": "f13fd0c6981c1f61ecb9b6ff96a97330cf119aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d179dd9_98ad15ec",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1507,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-19T13:03:29Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you do env_uses_.Clear() at the end?",
+      "range": {
+        "startLine": 1507,
+        "startChar": 2,
+        "endLine": 1507,
+        "endChar": 3
+      },
+      "revId": "f13fd0c6981c1f61ecb9b6ff96a97330cf119aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d20e12c_1937cb5e",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-19T13:03:29Z",
+      "side": 1,
+      "message": "Sorry for the back and forth, but the code below probably belongs to instruction simplification, since it\u0027s removing an instruction from the graph completely.",
+      "revId": "f13fd0c6981c1f61ecb9b6ff96a97330cf119aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d20e12c_f92d3713",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-19T13:03:29Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 98,
+        "startChar": 10,
+        "endLine": 98,
+        "endChar": 28
+      },
+      "revId": "f13fd0c6981c1f61ecb9b6ff96a97330cf119aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_37cdf8e0",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-19T13:03:29Z",
+      "side": 1,
+      "message": "Should this check be line 100?",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 5
+      },
+      "revId": "f13fd0c6981c1f61ecb9b6ff96a97330cf119aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
