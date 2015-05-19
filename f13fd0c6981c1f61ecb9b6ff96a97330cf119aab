@@ -319,6 +319,24 @@
     },
     {
       "key": {
+        "uuid": "0d179dd9_3bbf230d",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-19T18:08:59Z",
+      "side": 1,
+      "message": "Why? We can handle materialization of the condition. Are you saying the materialization is so complex it\u0027s not worth it?",
+      "parentUuid": "ed4089d5_c2df2452",
+      "revId": "f13fd0c6981c1f61ecb9b6ff96a97330cf119aab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d20e12c_f92d3713",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 11
