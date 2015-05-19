@@ -46,6 +46,30 @@
       "revId": "f595bb3ffb7ecaaf1b2a37394624c2fe43d264c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d37016d_211e0ee5",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-19T03:46:21Z",
+      "side": 1,
+      "message": "And extra parens is the usual discussion. There is enough precedent in our codebase to clearly delineate parts of a complex condition. I\u0027ve changed it, just for you, though.",
+      "parentUuid": "2d37016d_01050a97",
+      "range": {
+        "startLine": 321,
+        "startChar": 7,
+        "endLine": 321,
+        "endChar": 10
+      },
+      "revId": "f595bb3ffb7ecaaf1b2a37394624c2fe43d264c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
