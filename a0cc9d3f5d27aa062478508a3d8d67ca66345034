@@ -60,6 +60,98 @@
     },
     {
       "key": {
+        "uuid": "0d179dd9_18d02578",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2160,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-19T12:45:14Z",
+      "side": 1,
+      "message": "\"right\" or \"optimized\" ?",
+      "range": {
+        "startLine": 2160,
+        "startChar": 19,
+        "endLine": 2160,
+        "endChar": 24
+      },
+      "revId": "a0cc9d3f5d27aa062478508a3d8d67ca66345034",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d20e12c_19958bb8",
+        "filename": "test/139-register-natives/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-19T12:45:14Z",
+      "side": 1,
+      "message": "Could you please add a few comments on what you expect from each registerNatives?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 35
+      },
+      "revId": "a0cc9d3f5d27aa062478508a3d8d67ca66345034",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d179dd9_f8ff71df",
+        "filename": "test/139-register-natives/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-19T12:45:14Z",
+      "side": 1,
+      "message": "It\u0027s hard to know from this code what is actually expected. And looking at the golden file is overhead we can afford not to have. Could you add something like expectThrows() or expectNotThrows() ?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 5
+      },
+      "revId": "a0cc9d3f5d27aa062478508a3d8d67ca66345034",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_d7283c06",
+        "filename": "test/139-register-natives/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-19T12:45:14Z",
+      "side": 1,
+      "message": "Please mark this test as failing for ndebug.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 34
+      },
+      "revId": "a0cc9d3f5d27aa062478508a3d8d67ca66345034",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed19690f_77c930a6",
         "filename": "test/139-register-natives/src/Main.java",
         "patchSetId": 3
