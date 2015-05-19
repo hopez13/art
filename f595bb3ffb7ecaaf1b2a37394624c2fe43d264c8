@@ -22,6 +22,30 @@
       "revId": "f595bb3ffb7ecaaf1b2a37394624c2fe43d264c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d37016d_01050a97",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-19T03:44:31Z",
+      "side": 1,
+      "message": "That\u0027s a typo that made it into the commit.",
+      "parentUuid": "2d37016d_21184e27",
+      "range": {
+        "startLine": 321,
+        "startChar": 7,
+        "endLine": 321,
+        "endChar": 10
+      },
+      "revId": "f595bb3ffb7ecaaf1b2a37394624c2fe43d264c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
