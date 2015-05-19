@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "2d20e12c_f9e53724",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-19T07:33:12Z",
+      "side": 1,
+      "message": "It should be better to save that in a variable since the length does not change during the loop. I don\u0027t know if the compiler optimizes it but you can write the loop like this:\n\n  for (size_t i \u003d 0; e \u003d c-\u003eNumDirectMethods(); i \u003c e; ++i) {\n     ...\n  }",
+      "range": {
+        "startLine": 319,
+        "startChar": 25,
+        "endLine": 319,
+        "endChar": 46
+      },
+      "revId": "a0cc9d3f5d27aa062478508a3d8d67ca66345034",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd4745eb_5e045518",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 3
@@ -31,6 +54,29 @@
       "side": 1,
       "message": "I think so, I think it\u0027s excellent. It separates the distinct blocks for direct and virtual methods. But I\u0027m open to being convinced otherwise.",
       "parentUuid": "cd4745eb_5e045518",
+      "revId": "a0cc9d3f5d27aa062478508a3d8d67ca66345034",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_77c930a6",
+        "filename": "test/139-register-natives/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-19T07:33:12Z",
+      "side": 1,
+      "message": "That does not seem to be used. Remove?",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 51
+      },
       "revId": "a0cc9d3f5d27aa062478508a3d8d67ca66345034",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
