@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d20e12c_1ce9f929",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-19T18:06:39Z",
+      "side": 0,
+      "message": "ditto: we\u0027re passing sp after the call??",
+      "range": {
+        "startLine": 535,
+        "startChar": 3,
+        "endLine": 535,
+        "endChar": 53
+      },
+      "revId": "dc23a3882b82a7a3dd5078cda3f4b4706e172617",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
