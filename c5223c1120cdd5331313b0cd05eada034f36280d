@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0d179dd9_7867e150",
+        "filename": "test/137-cfi/cfi.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-19T13:58:51Z",
+      "side": 1,
+      "message": "char* go_away_compiler_cfi",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 26
+      },
+      "revId": "c5223c1120cdd5331313b0cd05eada034f36280d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d179dd9_783a8147",
         "filename": "test/137-cfi/cfi.cc",
         "patchSetId": 10
@@ -18,6 +41,92 @@
         "startChar": 43,
         "endLine": 60,
         "endChar": 49
+      },
+      "revId": "c5223c1120cdd5331313b0cd05eada034f36280d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d179dd9_5bf537cd",
+        "filename": "test/137-cfi/cfi.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-19T13:58:51Z",
+      "side": 1,
+      "message": "Second SIGSTOP on the same thread?",
+      "range": {
+        "startLine": 163,
+        "startChar": 2,
+        "endLine": 163,
+        "endChar": 21
+      },
+      "revId": "c5223c1120cdd5331313b0cd05eada034f36280d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d20e12c_f963f73e",
+        "filename": "test/137-cfi/cfi.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-19T13:58:51Z",
+      "side": 1,
+      "message": "I think the other process should now be stopped in an infinite loop. Are we not going to kill it?",
+      "revId": "c5223c1120cdd5331313b0cd05eada034f36280d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d20e12c_59b6a3cc",
+        "filename": "test/137-cfi/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-19T13:58:51Z",
+      "side": 1,
+      "message": "\"args.length - 1\" to match the code in runPrimary().",
+      "range": {
+        "startLine": 41,
+        "startChar": 34,
+        "endLine": 41,
+        "endChar": 35
+      },
+      "revId": "c5223c1120cdd5331313b0cd05eada034f36280d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_d7c11c36",
+        "filename": "test/137-cfi/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-19T13:58:51Z",
+      "side": 1,
+      "message": "\"Wait 5s\" in line with the sleep below, or non-specific \"Wait a bit\".",
+      "range": {
+        "startLine": 91,
+        "startChar": 9,
+        "endLine": 91,
+        "endChar": 16
       },
       "revId": "c5223c1120cdd5331313b0cd05eada034f36280d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
