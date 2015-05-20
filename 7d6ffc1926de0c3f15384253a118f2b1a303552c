@@ -22,6 +22,53 @@
       "revId": "7d6ffc1926de0c3f15384253a118f2b1a303552c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d20e12c_bfef9f80",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-20T10:53:46Z",
+      "side": 1,
+      "message": "I\u0027m thinking about rolling this one back as it\u0027s not important for performance. But I definitely want to use the CLZ() approach in \u003carch\u003eContext::FillCalleeSaves().",
+      "parentUuid": "ed19690f_fd98bf4e",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 26
+      },
+      "revId": "7d6ffc1926de0c3f15384253a118f2b1a303552c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d20e12c_1fe6cbb3",
+        "filename": "runtime/arch/arm/context_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-20T10:53:46Z",
+      "side": 1,
+      "message": "Ooops, this should be gprs_ and there should be fprs_ below. Same for arm64, mips and mips64.",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 9
+      },
+      "revId": "7d6ffc1926de0c3f15384253a118f2b1a303552c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
