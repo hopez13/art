@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed19690f_a0cb0052",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-20T13:55:11Z",
+      "side": 1,
+      "message": "I think just SetReferenceTypeInfo is enough. Why \"GetAnd\"?",
+      "range": {
+        "startLine": 164,
+        "startChar": 31,
+        "endLine": 164,
+        "endChar": 57
+      },
+      "revId": "7c8ff03b4443d759e477749f8e0704c3e5b963b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d20e12c_7f502762",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-20T13:55:11Z",
+      "side": 1,
+      "message": "We should DCHECK this.",
+      "range": {
+        "startLine": 165,
+        "startChar": 5,
+        "endLine": 165,
+        "endChar": 46
+      },
+      "revId": "7c8ff03b4443d759e477749f8e0704c3e5b963b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
