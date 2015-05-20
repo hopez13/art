@@ -46,6 +46,29 @@
       "revId": "f0888fa914f1f6917a801a22e87c380001f39602",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_c028743b",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-20T15:00:47Z",
+      "side": 1,
+      "message": "We clarified this offline.\n\nIndeed, this removed only a limited number of clinit checks. Updated the CL and moved the logic in the call visitor.",
+      "range": {
+        "startLine": 62,
+        "startChar": 2,
+        "endLine": 62,
+        "endChar": 3
+      },
+      "revId": "f0888fa914f1f6917a801a22e87c380001f39602",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
