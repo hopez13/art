@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ad4211dc_b17fc8d7",
+        "filename": "compiler/optimizing/boolean_simplifier.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-20T12:50:07Z",
+      "side": 1,
+      "message": "Done.  I tried flipping the bias as well, but it didn\u0027t help :-(",
+      "parentUuid": "ed19690f_bd7b2773",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 3
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d20e12c_df96134b",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 13
@@ -36,6 +60,30 @@
       "writtenOn": "2015-05-20T08:10:02Z",
       "side": 1,
       "message": "true_label (please avoid abbreviations)",
+      "range": {
+        "startLine": 855,
+        "startChar": 57,
+        "endLine": 855,
+        "endChar": 65
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed4089d5_a5d1cad2",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-20T12:50:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d20e12c_df96134b",
       "range": {
         "startLine": 855,
         "startChar": 57,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ed4089d5_c5d64ec8",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-20T12:50:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d20e12c_ff9bd76f",
+      "range": {
+        "startLine": 958,
+        "startChar": 30,
+        "endLine": 958,
+        "endChar": 34
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d179dd9_bed001fd",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 13
@@ -82,6 +154,30 @@
       "writtenOn": "2015-05-20T08:10:02Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 977,
+        "startChar": 30,
+        "endLine": 977,
+        "endChar": 34
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd4745eb_e1fa60f2",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-20T12:50:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d179dd9_bed001fd",
       "range": {
         "startLine": 977,
         "startChar": 30,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "ad4211dc_f17550fb",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-20T12:50:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed19690f_bd74877c",
+      "range": {
+        "startLine": 1055,
+        "startChar": 0,
+        "endLine": 1056,
+        "endChar": 25
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d20e12c_bf955f3d",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 13
@@ -128,6 +248,30 @@
       "writtenOn": "2015-05-20T08:10:02Z",
       "side": 1,
       "message": "Do you think this is ok? It is kind of duplicating the HCompare code. Should we care?\n\nIt looks like we could end up in this situation where a HCondition needs to be materialized, so we need to handle it.",
+      "range": {
+        "startLine": 1270,
+        "startChar": 0,
+        "endLine": 1281,
+        "endChar": 21
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd4745eb_0100ac6e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1281,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-20T12:50:07Z",
+      "side": 1,
+      "message": "I have factored out the common code.  Is is very similar to the HCompare logic, but it is producing 0/1 instead.  This is why I wanted to avoid this case, but now that I have it working, I prefer to leave it.",
+      "parentUuid": "2d20e12c_bf955f3d",
       "range": {
         "startLine": 1270,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "cd4745eb_a1f45805",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-20T12:50:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d20e12c_1fac8b98",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 89
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d179dd9_5eb685cc",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 13
@@ -174,6 +342,30 @@
       "writtenOn": "2015-05-20T08:10:02Z",
       "side": 1,
       "message": "indentation is off",
+      "range": {
+        "startLine": 799,
+        "startChar": 0,
+        "endLine": 800,
+        "endChar": 69
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad4211dc_117b1cef",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-20T12:50:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d179dd9_5eb685cc",
       "range": {
         "startLine": 799,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "ed4089d5_65dc22e6",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-20T12:50:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed19690f_5d5a0b0c",
+      "range": {
+        "startLine": 954,
+        "startChar": 0,
+        "endLine": 956,
+        "endChar": 5
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed19690f_dd65bbcd",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 13
@@ -220,6 +436,30 @@
       "writtenOn": "2015-05-20T08:10:02Z",
       "side": 1,
       "message": "You need to loop over the parent of the environment. FWIW, I wouldn\u0027t bother doing it, and just be conservative.",
+      "range": {
+        "startLine": 1494,
+        "startChar": 0,
+        "endLine": 1500,
+        "endChar": 7
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd4745eb_c1f964fc",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-20T12:50:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed19690f_dd65bbcd",
       "range": {
         "startLine": 1494,
         "startChar": 0,
