@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed19690f_bd7b2773",
+        "filename": "compiler/optimizing/boolean_simplifier.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-20T08:10:02Z",
+      "side": 1,
+      "message": "I know we need to do this, but it\u0027s unfortunate. Please improve the comment by explaining why, and add a test.",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 3
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d20e12c_df96134b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-20T08:10:02Z",
+      "side": 1,
+      "message": "true_label (please avoid abbreviations)",
+      "range": {
+        "startLine": 855,
+        "startChar": 57,
+        "endLine": 855,
+        "endChar": 65
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d20e12c_ff9bd76f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-20T08:10:02Z",
+      "side": 1,
+      "message": "lets -\u003e let\u0027s (or drop it)",
+      "range": {
+        "startLine": 958,
+        "startChar": 30,
+        "endLine": 958,
+        "endChar": 34
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d179dd9_bed001fd",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-20T08:10:02Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 977,
+        "startChar": 30,
+        "endLine": 977,
+        "endChar": 34
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_bd74877c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-20T08:10:02Z",
+      "side": 1,
+      "message": "Could you merge this with the eflags_set assignment above?",
+      "range": {
+        "startLine": 1055,
+        "startChar": 0,
+        "endLine": 1056,
+        "endChar": 25
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d20e12c_bf955f3d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1281,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-20T08:10:02Z",
+      "side": 1,
+      "message": "Do you think this is ok? It is kind of duplicating the HCompare code. Should we care?\n\nIt looks like we could end up in this situation where a HCondition needs to be materialized, so we need to handle it.",
+      "range": {
+        "startLine": 1270,
+        "startChar": 0,
+        "endLine": 1281,
+        "endChar": 21
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d20e12c_1fac8b98",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-20T08:10:02Z",
+      "side": 1,
+      "message": "Some \u0027*\u0027 are misplaced. Here and in other files.",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 89
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d179dd9_5eb685cc",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-20T08:10:02Z",
+      "side": 1,
+      "message": "indentation is off",
+      "range": {
+        "startLine": 799,
+        "startChar": 0,
+        "endLine": 800,
+        "endChar": 69
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_5d5a0b0c",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-20T08:10:02Z",
+      "side": 1,
+      "message": "ditto. move this above?",
+      "range": {
+        "startLine": 954,
+        "startChar": 0,
+        "endLine": 956,
+        "endChar": 5
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_dd65bbcd",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-20T08:10:02Z",
+      "side": 1,
+      "message": "You need to loop over the parent of the environment. FWIW, I wouldn\u0027t bother doing it, and just be conservative.",
+      "range": {
+        "startLine": 1494,
+        "startChar": 0,
+        "endLine": 1500,
+        "endChar": 7
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
