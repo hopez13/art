@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed19690f_fd98bf4e",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-20T07:36:59Z",
+      "side": 1,
+      "message": "This looks like black magic. Why can\u0027t we iterate over 31?",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 26
+      },
+      "revId": "7d6ffc1926de0c3f15384253a118f2b1a303552c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
