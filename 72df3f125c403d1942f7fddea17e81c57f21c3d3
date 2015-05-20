@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d179dd9_5e044518",
+        "filename": "test/139-register-natives/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-20T07:32:50Z",
+      "side": 1,
+      "message": "I was more thinking of putting the try catch in the helper, eg:\n\nexpectThrows(() \u003d\u003e new TestSub().foo());\n\nBut then realized closures are too 2020 for Java.\n\nAn alternative could be to have the helper call the \"foo\" method on the passed argument.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 5
+      },
+      "revId": "72df3f125c403d1942f7fddea17e81c57f21c3d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
