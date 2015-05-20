@@ -22,6 +22,29 @@
       "revId": "8909bafa5d64e12eb53f3d37b984f53e7a632224",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d179dd9_3ebdd1a2",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-20T08:36:35Z",
+      "side": 1,
+      "message": "Could you pass in the input index as an argument? Not that this would be wrong or ever used with anything else than zero, it just seems like a good practice.",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 42
+      },
+      "revId": "8909bafa5d64e12eb53f3d37b984f53e7a632224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
