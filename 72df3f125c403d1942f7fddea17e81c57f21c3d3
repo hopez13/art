@@ -46,6 +46,30 @@
       "revId": "72df3f125c403d1942f7fddea17e81c57f21c3d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_e07578fb",
+        "filename": "test/139-register-natives/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-20T17:27:30Z",
+      "side": 1,
+      "message": "No without reflection. All classes could implement an Interface that only has the foo method.",
+      "parentUuid": "adfdb1c1_bdb20a47",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 5
+      },
+      "revId": "72df3f125c403d1942f7fddea17e81c57f21c3d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
