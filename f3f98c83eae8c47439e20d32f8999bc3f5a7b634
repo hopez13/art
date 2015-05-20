@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ad4211dc_6c8ba321",
+        "filename": "compiler/optimizing/boolean_simplifier.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-20T15:38:06Z",
+      "side": 1,
+      "message": "There is a test for this already, which is how I found the problem, in 432-optimizing-cmp",
+      "parentUuid": "ed19690f_bd7b2773",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 3
+      },
+      "revId": "f3f98c83eae8c47439e20d32f8999bc3f5a7b634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d20e12c_df96134b",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 13
