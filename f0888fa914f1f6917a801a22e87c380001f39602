@@ -22,6 +22,30 @@
       "revId": "f0888fa914f1f6917a801a22e87c380001f39602",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_e0e01817",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-20T11:47:42Z",
+      "side": 1,
+      "message": "If there\u0027s a field access then this method will return true and the check will be done.\n\nThis states, that if we\u0027re only gonna use the class with instruction that don\u0027t require the class to be initialized then we shouldn\u0027t do it.\n\nDoing it at the call site, is not enough as you may have a CheckCast in between.\n\n\nAs a side question, I don\u0027t really understand your remark, that if the clinit was done be a static call you need to redo it for a field access.",
+      "parentUuid": "0d179dd9_9ecbbd52",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 5
+      },
+      "revId": "f0888fa914f1f6917a801a22e87c380001f39602",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
