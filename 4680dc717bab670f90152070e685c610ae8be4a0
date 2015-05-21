@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "ed19690f_8b3a9d44",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-21T10:42:08Z",
+      "side": 1,
+      "message": "Then maybe a HEnvironment::Copy method. There\u0027s way too many arguments here and when I see it, I\u0027m looking through each one to figure out if they\u0027ve changed.",
+      "parentUuid": "2d20e12c_0de6a130",
+      "range": {
+        "startLine": 1134,
+        "startChar": 30,
+        "endLine": 1139,
+        "endChar": 68
+      },
+      "revId": "4680dc717bab670f90152070e685c610ae8be4a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed19690f_cb53b5bf",
         "filename": "compiler/optimizing/stack_map_test.cc",
         "patchSetId": 1
