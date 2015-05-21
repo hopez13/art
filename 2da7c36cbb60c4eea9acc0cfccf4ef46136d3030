@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ed67a99d_caf08365",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-21T14:21:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed19690f_e6ea70a4",
+      "revId": "2da7c36cbb60c4eea9acc0cfccf4ef46136d3030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adcf719d_5898c1f0",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 6
@@ -30,6 +48,30 @@
       "writtenOn": "2015-05-21T14:05:18Z",
       "side": 1,
       "message": "Put braces on the same line.",
+      "range": {
+        "startLine": 333,
+        "startChar": 70,
+        "endLine": 334,
+        "endChar": 3
+      },
+      "revId": "2da7c36cbb60c4eea9acc0cfccf4ef46136d3030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed4089d5_739b88ef",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-21T14:21:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adcf719d_5898c1f0",
       "range": {
         "startLine": 333,
         "startChar": 70,
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "ed67a99d_8aea8b71",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-21T14:21:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d20e12c_2d64c5c9",
+      "revId": "2da7c36cbb60c4eea9acc0cfccf4ef46136d3030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adcf719d_b8db55a0",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 6
@@ -70,6 +130,30 @@
       "writtenOn": "2015-05-21T14:05:18Z",
       "side": 1,
       "message": "Nit: long line.",
+      "range": {
+        "startLine": 2101,
+        "startChar": 0,
+        "endLine": 2101,
+        "endChar": 101
+      },
+      "revId": "2da7c36cbb60c4eea9acc0cfccf4ef46136d3030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed67a99d_aaef4f80",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2101,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-21T14:21:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adcf719d_b8db55a0",
       "range": {
         "startLine": 2101,
         "startChar": 0,
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "ed67a99d_4a0573cb",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2196,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-21T14:21:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdd4a530_391e2be5",
+      "range": {
+        "startLine": 2196,
+        "startChar": 0,
+        "endLine": 2196,
+        "endChar": 101
+      },
+      "revId": "2da7c36cbb60c4eea9acc0cfccf4ef46136d3030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdd4a530_191b6ff5",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 6
@@ -116,6 +224,30 @@
       "writtenOn": "2015-05-21T14:05:18Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 2367,
+        "startChar": 0,
+        "endLine": 2367,
+        "endChar": 101
+      },
+      "revId": "2da7c36cbb60c4eea9acc0cfccf4ef46136d3030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed4089d5_339500b9",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2367,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-21T14:21:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdd4a530_191b6ff5",
       "range": {
         "startLine": 2367,
         "startChar": 0,
@@ -151,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "ed67a99d_6a02b7c6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2758,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-21T14:21:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adcf719d_98e0994b",
+      "range": {
+        "startLine": 2758,
+        "startChar": 0,
+        "endLine": 2758,
+        "endChar": 101
+      },
+      "revId": "2da7c36cbb60c4eea9acc0cfccf4ef46136d3030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d179dd9_0c9227a7",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 6
@@ -162,6 +318,30 @@
       "writtenOn": "2015-05-21T14:05:18Z",
       "side": 1,
       "message": "Maybe this should be an int32_t, as well as other offset types introduced in this CL?",
+      "range": {
+        "startLine": 4821,
+        "startChar": 6,
+        "endLine": 4821,
+        "endChar": 9
+      },
+      "revId": "2da7c36cbb60c4eea9acc0cfccf4ef46136d3030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed4089d5_f3ff98f8",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4821,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-21T14:21:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d179dd9_0c9227a7",
       "range": {
         "startLine": 4821,
         "startChar": 6,
@@ -197,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "ed67a99d_eaf54752",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-21T14:21:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed19690f_c6d08cfe",
+      "range": {
+        "startLine": 321,
+        "startChar": 2,
+        "endLine": 321,
+        "endChar": 67
+      },
+      "revId": "2da7c36cbb60c4eea9acc0cfccf4ef46136d3030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "add4d137_ed5ea579",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 6
@@ -208,6 +412,30 @@
       "writtenOn": "2015-05-21T14:05:18Z",
       "side": 1,
       "message": "Make it private (or protected).\nAlso, it would be nice to document this new member.",
+      "range": {
+        "startLine": 1532,
+        "startChar": 2,
+        "endLine": 1532,
+        "endChar": 44
+      },
+      "revId": "2da7c36cbb60c4eea9acc0cfccf4ef46136d3030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed4089d5_13055c97",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1532,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-21T14:21:18Z",
+      "side": 1,
+      "message": "It is already protected.  Done.",
+      "parentUuid": "add4d137_ed5ea579",
       "range": {
         "startLine": 1532,
         "startChar": 2,
@@ -243,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "ad4211dc_4627a3af",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 3055,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-21T14:21:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdd4a530_d92df713",
+      "range": {
+        "startLine": 3055,
+        "startChar": 37,
+        "endLine": 3055,
+        "endChar": 99
+      },
+      "revId": "2da7c36cbb60c4eea9acc0cfccf4ef46136d3030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d20e12c_0d5461d8",
         "filename": "compiler/utils/x86/assembler_x86.h",
         "patchSetId": 6
@@ -266,6 +518,30 @@
     },
     {
       "key": {
+        "uuid": "ad4211dc_e617cf42",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-21T14:21:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d20e12c_0d5461d8",
+      "range": {
+        "startLine": 276,
+        "startChar": 4,
+        "endLine": 276,
+        "endChar": 24
+      },
+      "revId": "2da7c36cbb60c4eea9acc0cfccf4ef46136d3030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d20e12c_ed6b2d6f",
         "filename": "compiler/utils/x86/assembler_x86.h",
         "patchSetId": 6
@@ -277,6 +553,30 @@
       "writtenOn": "2015-05-21T14:05:18Z",
       "side": 1,
       "message": "Is this used somewhere (yet)?",
+      "range": {
+        "startLine": 713,
+        "startChar": 2,
+        "endLine": 715,
+        "endChar": 3
+      },
+      "revId": "2da7c36cbb60c4eea9acc0cfccf4ef46136d3030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed4089d5_b3a0301c",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-21T14:21:18Z",
+      "side": 1,
+      "message": "This will be used for packed switch tables, assuming they get in.  It is used for the X86_64 in https://android-review.googlesource.com/145123",
+      "parentUuid": "2d20e12c_ed6b2d6f",
       "range": {
         "startLine": 713,
         "startChar": 2,
