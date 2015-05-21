@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d179dd9_8cb397da",
+        "filename": "tools/checker/file_format/checker/struct.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-21T10:02:59Z",
+      "side": 1,
+      "message": "Perhaps be more specific here? E.g.: \"A next-line assertion can only be placed after an in-order assertion or another next-line assertion\"?",
+      "range": {
+        "startLine": 58,
+        "startChar": 21,
+        "endLine": 58,
+        "endChar": 50
+      },
+      "revId": "8cb44e278de72a10fd346968de15ff97a89d6283",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_6b69496b",
+        "filename": "tools/checker/match/test.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-21T10:02:59Z",
+      "side": 1,
+      "message": "Maybe introduce an additional line between `abc\u0027 and `def\u0027?",
+      "revId": "8cb44e278de72a10fd346968de15ff97a89d6283",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
