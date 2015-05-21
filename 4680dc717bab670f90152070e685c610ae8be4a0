@@ -49,6 +49,54 @@
     },
     {
       "key": {
+        "uuid": "2d20e12c_ede00d17",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-21T10:27:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d179dd9_2c27ebb0",
+      "range": {
+        "startLine": 124,
+        "startChar": 34,
+        "endLine": 124,
+        "endChar": 61
+      },
+      "revId": "4680dc717bab670f90152070e685c610ae8be4a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d179dd9_0c5467d8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-21T10:27:56Z",
+      "side": 1,
+      "message": "I wouldn\u0027t change the enum, this is very local to the graph and may be changed in the future once we support more inlining.",
+      "parentUuid": "ed19690f_2b63518d",
+      "range": {
+        "startLine": 124,
+        "startChar": 34,
+        "endLine": 124,
+        "endChar": 61
+      },
+      "revId": "4680dc717bab670f90152070e685c610ae8be4a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d179dd9_ecc1f335",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -60,6 +108,30 @@
       "writtenOn": "2015-05-21T09:57:20Z",
       "side": 1,
       "message": "How about we create a copy constructor for this and other copies below.",
+      "range": {
+        "startLine": 1134,
+        "startChar": 30,
+        "endLine": 1139,
+        "endChar": 68
+      },
+      "revId": "4680dc717bab670f90152070e685c610ae8be4a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d20e12c_0de6a130",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-21T10:27:56Z",
+      "side": 1,
+      "message": "It would be a precedent, I\u0027m not a big fan of implicit things.",
+      "parentUuid": "0d179dd9_ecc1f335",
       "range": {
         "startLine": 1134,
         "startChar": 30,
@@ -119,6 +191,54 @@
     },
     {
       "key": {
+        "uuid": "2d20e12c_4dd33955",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-21T10:27:56Z",
+      "side": 1,
+      "message": "Random.",
+      "parentUuid": "ed19690f_cb53b5bf",
+      "range": {
+        "startLine": 131,
+        "startChar": 37,
+        "endLine": 131,
+        "endChar": 44
+      },
+      "revId": "4680dc717bab670f90152070e685c610ae8be4a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d179dd9_8c407715",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-21T10:27:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed19690f_cba5f52a",
+      "range": {
+        "startLine": 131,
+        "startChar": 37,
+        "endLine": 131,
+        "endChar": 44
+      },
+      "revId": "4680dc717bab670f90152070e685c610ae8be4a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d179dd9_6c5ac30c",
         "filename": "runtime/stack_map.h",
         "patchSetId": 1
@@ -130,6 +250,30 @@
       "writtenOn": "2015-05-21T10:24:06Z",
       "side": 1,
       "message": "Shouldn\u0027t this be uint8_t?",
+      "range": {
+        "startLine": 763,
+        "startChar": 27,
+        "endLine": 763,
+        "endChar": 35
+      },
+      "revId": "4680dc717bab670f90152070e685c610ae8be4a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d20e12c_0d0f8168",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-21T10:27:56Z",
+      "side": 1,
+      "message": "Great catch!",
+      "parentUuid": "0d179dd9_6c5ac30c",
       "range": {
         "startLine": 763,
         "startChar": 27,
