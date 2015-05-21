@@ -287,6 +287,30 @@
     },
     {
       "key": {
+        "uuid": "2d20e12c_0d61c10f",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-21T10:57:46Z",
+      "side": 1,
+      "message": "Maybe also check the other cases below?",
+      "parentUuid": "0d179dd9_8c407715",
+      "range": {
+        "startLine": 131,
+        "startChar": 37,
+        "endLine": 131,
+        "endChar": 44
+      },
+      "revId": "4680dc717bab670f90152070e685c610ae8be4a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d179dd9_6c5ac30c",
         "filename": "runtime/stack_map.h",
         "patchSetId": 1
