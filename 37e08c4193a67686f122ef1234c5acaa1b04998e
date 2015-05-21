@@ -1,0 +1,418 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d20e12c_4d9259d2",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-21T15:26:36Z",
+      "side": 1,
+      "message": "It seems error prone: it\u0027s easy to forget doing this when adding a new return in this part of the code. Why not having a scoped object that pushes/pops the shadow frame in its constructor/destructor ?",
+      "range": {
+        "startLine": 570,
+        "startChar": 14,
+        "endLine": 570,
+        "endChar": 61
+      },
+      "revId": "37e08c4193a67686f122ef1234c5acaa1b04998e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d179dd9_e7182c78",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-21T15:26:36Z",
+      "side": 1,
+      "message": "I would give a few more details here:\n\n\"For nested deoptimization cases: the called method may cause a deoptimization while we already are in the middle of another deoptimization. Therefore we need to save the top shadow frame into a stack and restore it after the call.\"\n\nFeel free to amend it :)",
+      "range": {
+        "startLine": 427,
+        "startChar": 9,
+        "endLine": 427,
+        "endChar": 41
+      },
+      "revId": "37e08c4193a67686f122ef1234c5acaa1b04998e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_c6d64cc8",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-21T15:26:36Z",
+      "side": 1,
+      "message": "I think you also need to save the deoptimized return value. Otherwise a nested deoptimization will clobber it.\n\nAnd if the return value is an object, we need the GC to visit it... Though I\u0027m not sure we are doing this at the moment.",
+      "range": {
+        "startLine": 428,
+        "startChar": 88,
+        "endLine": 428,
+        "endChar": 95
+      },
+      "revId": "37e08c4193a67686f122ef1234c5acaa1b04998e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_86d934f7",
+        "filename": "runtime/mirror/art_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-21T15:26:36Z",
+      "side": 1,
+      "message": "From my comment above, you\u0027d need to restore the deoptimized return value here.",
+      "range": {
+        "startLine": 452,
+        "startChar": 12,
+        "endLine": 452,
+        "endChar": 40
+      },
+      "revId": "37e08c4193a67686f122ef1234c5acaa1b04998e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d179dd9_a7123454",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-21T15:26:36Z",
+      "side": 1,
+      "message": "DCHECK(sf !\u003d nullptr) ?",
+      "range": {
+        "startLine": 166,
+        "startChar": 66,
+        "endLine": 166,
+        "endChar": 68
+      },
+      "revId": "37e08c4193a67686f122ef1234c5acaa1b04998e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d179dd9_87885024",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-21T15:26:36Z",
+      "side": 1,
+      "message": "I prefer two DCHECKs so we know which condition is wrong if that fails.",
+      "range": {
+        "startLine": 174,
+        "startChar": 2,
+        "endLine": 174,
+        "endChar": 64
+      },
+      "revId": "37e08c4193a67686f122ef1234c5acaa1b04998e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_e6f03065",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-21T15:26:36Z",
+      "side": 1,
+      "message": "I\u0027d create a common method passing the extra enum kind. This is almost the same code than PushStackedShadowFrameUnderConstruction.",
+      "range": {
+        "startLine": 181,
+        "startChar": 13,
+        "endLine": 181,
+        "endChar": 49
+      },
+      "revId": "37e08c4193a67686f122ef1234c5acaa1b04998e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d179dd9_47823804",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-21T15:26:36Z",
+      "side": 1,
+      "message": "I\u0027d say the same for this method: you could pass the enum kind for the DCHECK.",
+      "range": {
+        "startLine": 188,
+        "startChar": 2,
+        "endLine": 193,
+        "endChar": 22
+      },
+      "revId": "37e08c4193a67686f122ef1234c5acaa1b04998e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d20e12c_cd274931",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2401,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-21T15:26:36Z",
+      "side": 1,
+      "message": "nit: I would have preferred a for loop but that\u0027s a question of style.",
+      "range": {
+        "startLine": 2400,
+        "startChar": 6,
+        "endLine": 2401,
+        "endChar": 39
+      },
+      "revId": "37e08c4193a67686f122ef1234c5acaa1b04998e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d20e12c_0d054197",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-21T15:26:36Z",
+      "side": 1,
+      "message": "Prefer enum class here.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 4
+      },
+      "revId": "37e08c4193a67686f122ef1234c5acaa1b04998e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d179dd9_678bbc21",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-21T15:26:36Z",
+      "side": 1,
+      "message": "Add DISALLOW_COPY_AND_ASSIGN",
+      "range": {
+        "startLine": 106,
+        "startChar": 6,
+        "endLine": 106,
+        "endChar": 30
+      },
+      "revId": "37e08c4193a67686f122ef1234c5acaa1b04998e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d179dd9_c7bc08cd",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-21T15:26:36Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 115,
+        "startChar": 31,
+        "endLine": 115,
+        "endChar": 32
+      },
+      "revId": "37e08c4193a67686f122ef1234c5acaa1b04998e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_86405415",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-21T15:26:36Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 116,
+        "startChar": 31,
+        "endLine": 116,
+        "endChar": 32
+      },
+      "revId": "37e08c4193a67686f122ef1234c5acaa1b04998e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d20e12c_ad09b5b3",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-21T15:26:36Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 117,
+        "startChar": 28,
+        "endLine": 117,
+        "endChar": 29
+      },
+      "revId": "37e08c4193a67686f122ef1234c5acaa1b04998e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed19690f_263dc88b",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-21T15:26:36Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 118,
+        "startChar": 37,
+        "endLine": 118,
+        "endChar": 38
+      },
+      "revId": "37e08c4193a67686f122ef1234c5acaa1b04998e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d179dd9_079c4067",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-21T15:26:36Z",
+      "side": 1,
+      "message": "ShadowFrame* const",
+      "range": {
+        "startLine": 121,
+        "startChar": 2,
+        "endLine": 121,
+        "endChar": 14
+      },
+      "revId": "37e08c4193a67686f122ef1234c5acaa1b04998e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d179dd9_a790f44d",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-21T15:26:36Z",
+      "side": 1,
+      "message": "const StackedShadowFrameType",
+      "range": {
+        "startLine": 122,
+        "startChar": 2,
+        "endLine": 122,
+        "endChar": 24
+      },
+      "revId": "37e08c4193a67686f122ef1234c5acaa1b04998e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d20e12c_4d1b39f4",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-21T15:26:36Z",
+      "side": 1,
+      "message": "StackedShadowFrameRecord* const",
+      "range": {
+        "startLine": 123,
+        "startChar": 2,
+        "endLine": 123,
+        "endChar": 27
+      },
+      "revId": "37e08c4193a67686f122ef1234c5acaa1b04998e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
