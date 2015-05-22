@@ -393,6 +393,30 @@
       "revId": "914293941d54a609f2504c715b46f7f9854c7a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0db87d3c_f012c054",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-05-22T09:57:53Z",
+      "side": 1,
+      "message": "I don\u0027t know why, but it happens with this command line (executed within build-art-host). What\u0027s wrong with this boundaries check?\n\ndex2oatd --runtime-arg -Xms64m --runtime-arg -Xmx64m --image-classes\u003d --dex-file\u003dout/host/common/obj/JAVA_LIBRARIES/core-libart-hostdex_intermediates/javalib.jar --dex-file\u003dout/host/common/obj/JAVA_LIBRARIES/conscrypt-hostdex_intermediates/javalib.jar --dex-file\u003dout/host/common/obj/JAVA_LIBRARIES/okhttp-hostdex_intermediates/javalib.jar --dex-file\u003dout/host/common/obj/JAVA_LIBRARIES/bouncycastle-hostdex_intermediates/javalib.jar --dex-location\u003dout/host/linux-x86/framework/core-libart-hostdex.jar --dex-location\u003dout/host/linux-x86/framework/conscrypt-hostdex.jar --dex-location\u003dout/host/linux-x86/framework/okhttp-hostdex.jar --dex-location\u003dout/host/linux-x86/framework/bouncycastle-hostdex.jar --oat-file\u003dout/host/linux-x86/framework/x86/core-optimizing-pic.oat --oat-location\u003dout/host/linux-x86/framework/x86/core-optimizing-pic.oat --image\u003dout/host/linux-x86/framework/x86/core-optimizing-pic.art --base\u003d0x60000000 --instruction-set\u003dx86 --instruction-set-features\u003ddefault --host --android-root\u003dout/host/linux-x86 --include-patch-information --compiler-backend\u003dOptimizing --compile-pic",
+      "parentUuid": "2db1c157_51a91488",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 75
+      },
+      "revId": "914293941d54a609f2504c715b46f7f9854c7a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
