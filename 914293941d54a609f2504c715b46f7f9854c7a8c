@@ -71,6 +71,53 @@
     },
     {
       "key": {
+        "uuid": "edba4936_2fdfc903",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-22T09:13:09Z",
+      "side": 1,
+      "message": "One reason used to be that the use of handles is a hack in the reference type propagation, and you don\u0027t want that use to be everywhere.\n\nArtField not being a GC object anymore, we could do it, but then sometimes we cannot get hold of an ArtField at build time (because the field is unresolved). I know we\u0027re not handling this case today (we fallback to Quick), but we have to keep it in mind.",
+      "parentUuid": "2db1c157_71ac189a",
+      "range": {
+        "startLine": 826,
+        "startChar": 0,
+        "endLine": 828,
+        "endChar": 45
+      },
+      "revId": "914293941d54a609f2504c715b46f7f9854c7a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2db1c157_919b7c71",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-22T09:13:09Z",
+      "side": 1,
+      "message": "One per line please.",
+      "range": {
+        "startLine": 834,
+        "startChar": 39,
+        "endLine": 834,
+        "endChar": 72
+      },
+      "revId": "914293941d54a609f2504c715b46f7f9854c7a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edba4936_6fc0b12b",
         "filename": "compiler/optimizing/gvn_test.cc",
         "patchSetId": 2
@@ -82,6 +129,30 @@
       "writtenOn": "2015-05-22T09:01:34Z",
       "side": 1,
       "message": "Maybe use some obviously invalid idx, like static_cast\u003cuint32_t\u003e(-1), so it definitely fails if it tries to resolve it.",
+      "range": {
+        "startLine": 45,
+        "startChar": 35,
+        "endLine": 45,
+        "endChar": 36
+      },
+      "revId": "914293941d54a609f2504c715b46f7f9854c7a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2db1c157_f190084f",
+        "filename": "compiler/optimizing/gvn_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-22T09:13:09Z",
+      "side": 1,
+      "message": "And please make it a named constant used everywhere.",
+      "parentUuid": "edba4936_6fc0b12b",
       "range": {
         "startLine": 45,
         "startChar": 35,
@@ -110,6 +181,98 @@
         "startChar": 93,
         "endLine": 3116,
         "endChar": 104
+      },
+      "revId": "914293941d54a609f2504c715b46f7f9854c7a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0db87d3c_909b7471",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3118,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-22T09:13:09Z",
+      "side": 1,
+      "message": "indentation is off.",
+      "range": {
+        "startLine": 3118,
+        "startChar": 0,
+        "endLine": 3118,
+        "endChar": 30
+      },
+      "revId": "914293941d54a609f2504c715b46f7f9854c7a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edba4936_0fdc850b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3137,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-22T09:13:09Z",
+      "side": 1,
+      "message": "one per line please",
+      "range": {
+        "startLine": 3137,
+        "startChar": 47,
+        "endLine": 3137,
+        "endChar": 56
+      },
+      "revId": "914293941d54a609f2504c715b46f7f9854c7a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edba4936_6fd9d11b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3177,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-22T09:13:09Z",
+      "side": 1,
+      "message": "one per line please",
+      "range": {
+        "startLine": 3177,
+        "startChar": 0,
+        "endLine": 3177,
+        "endChar": 57
+      },
+      "revId": "914293941d54a609f2504c715b46f7f9854c7a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0db87d3c_f090004f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3602,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-22T09:13:09Z",
+      "side": 1,
+      "message": "one per line please",
+      "range": {
+        "startLine": 3602,
+        "startChar": 0,
+        "endLine": 3602,
+        "endChar": 55
       },
       "revId": "914293941d54a609f2504c715b46f7f9854c7a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -156,6 +319,29 @@
         "startChar": 0,
         "endLine": 205,
         "endChar": 3
+      },
+      "revId": "914293941d54a609f2504c715b46f7f9854c7a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edba4936_4fd68ded",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-22T09:13:09Z",
+      "side": 1,
+      "message": "Please don\u0027t change this. Something looks wrong if you need to.",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 76
       },
       "revId": "914293941d54a609f2504c715b46f7f9854c7a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
