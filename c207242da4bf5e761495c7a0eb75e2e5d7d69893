@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "edba4936_aff0d963",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-22T10:56:17Z",
+      "side": 1,
+      "message": "Nit: don\u0027t we write this the other way round? \"/* is_near */ true\"",
+      "range": {
+        "startLine": 681,
+        "startChar": 40,
+        "endLine": 681,
+        "endChar": 58
+      },
+      "revId": "c207242da4bf5e761495c7a0eb75e2e5d7d69893",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
