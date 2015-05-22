@@ -567,6 +567,30 @@
     },
     {
       "key": {
+        "uuid": "edba4936_8f5995e3",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-05-22T12:45:59Z",
+      "side": 1,
+      "message": "Actually, it crashes since GetResolvedField sometimes cannot resolve the field. Leaving it for now.",
+      "parentUuid": "0db87d3c_50af4c5d",
+      "range": {
+        "startLine": 197,
+        "startChar": 2,
+        "endLine": 197,
+        "endChar": 15
+      },
+      "revId": "914293941d54a609f2504c715b46f7f9854c7a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edba4936_0f2ac577",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 2
