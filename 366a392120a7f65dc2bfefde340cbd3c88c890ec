@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0d031dc0_65eb7f77",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-05-23T01:26:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d031dc0_858e93fd",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 6
+      },
+      "revId": "366a392120a7f65dc2bfefde340cbd3c88c890ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adc5b1ce_9a04399d",
         "filename": "runtime/native/dalvik_system_VMRuntime.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-05-23T01:18:02Z",
       "side": 1,
       "message": "Separate with vertical whitespace and put a comment why. (And what the zeros mean...)",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 6
+      },
+      "revId": "366a392120a7f65dc2bfefde340cbd3c88c890ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d0995dc_086c6586",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-05-23T01:26:13Z",
+      "side": 1,
+      "message": "Done.. The comment above is actually explains why... it just linker wants to know about it too...",
+      "parentUuid": "adc5b1ce_9a04399d",
       "range": {
         "startLine": 198,
         "startChar": 0,
