@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d031dc0_858e93fd",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-23T01:18:02Z",
+      "side": 1,
+      "message": "Normally we order \"system\" headers above ART headers. I think this fits better with limits and ScopedUtfChars.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 6
+      },
+      "revId": "366a392120a7f65dc2bfefde340cbd3c88c890ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adc5b1ce_9a04399d",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-23T01:18:02Z",
+      "side": 1,
+      "message": "Separate with vertical whitespace and put a comment why. (And what the zeros mean...)",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 6
+      },
+      "revId": "366a392120a7f65dc2bfefde340cbd3c88c890ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
