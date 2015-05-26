@@ -189,6 +189,30 @@
       "revId": "030daa8b0766e8601eb55e7dcf37ce8cea64ab6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d0c61ed_8ed0877a",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-26T14:43:53Z",
+      "side": 1,
+      "message": "I\u0027m against removing the name altogether. The exact format of the name isn\u0027t that important to me.",
+      "parentUuid": "2d0c61ed_ee28233b",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 51
+      },
+      "revId": "030daa8b0766e8601eb55e7dcf37ce8cea64ab6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
