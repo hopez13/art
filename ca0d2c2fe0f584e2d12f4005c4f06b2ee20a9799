@@ -96,6 +96,29 @@
     },
     {
       "key": {
+        "uuid": "8d162dff_23c994a7",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1392,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-05-26T17:34:24Z",
+      "side": 1,
+      "message": "xmm7",
+      "range": {
+        "startLine": 1392,
+        "startChar": 71,
+        "endLine": 1392,
+        "endChar": 75
+      },
+      "revId": "ca0d2c2fe0f584e2d12f4005c4f06b2ee20a9799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d0c61ed_0218cb71",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 2
