@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2d0c61ed_c270935c",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-26T16:31:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdf3c519_452ad978",
+      "range": {
+        "startLine": 1096,
+        "startChar": 4,
+        "endLine": 1096,
+        "endChar": 22
+      },
+      "revId": "ca0d2c2fe0f584e2d12f4005c4f06b2ee20a9799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed8889a6_a8c71f18",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2d0c61ed_2276af55",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1372,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-26T16:31:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed8889a6_a8c71f18",
+      "range": {
+        "startLine": 1372,
+        "startChar": 4,
+        "endLine": 1372,
+        "endChar": 79
+      },
+      "revId": "ca0d2c2fe0f584e2d12f4005c4f06b2ee20a9799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d0c61ed_0218cb71",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2015-05-26T16:11:55Z",
       "side": 1,
       "message": "Since this is already guarded by kIsDebugBuild, use CHECK rather than DCHECK.",
+      "range": {
+        "startLine": 2089,
+        "startChar": 0,
+        "endLine": 2094,
+        "endChar": 7
+      },
+      "revId": "ca0d2c2fe0f584e2d12f4005c4f06b2ee20a9799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdf3c519_c55389f1",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2094,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-26T16:31:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d0c61ed_0218cb71",
       "range": {
         "startLine": 2089,
         "startChar": 0,
