@@ -22,6 +22,30 @@
       "revId": "80afd02024d20e60b197d3adfbb43cc303cf29e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdf3c519_651435c7",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-26T17:42:26Z",
+      "side": 1,
+      "message": "I will keep int for the moment as the it\u0027s really an XRegister and, without an enum-base, the underlying type is implementation-defined \"except that the underlying type shall not be larger than int unless the value of an\nenumerator cannot fit in an int or unsigned int.\"",
+      "parentUuid": "cd8f45ac_e1222023",
+      "range": {
+        "startLine": 162,
+        "startChar": 7,
+        "endLine": 162,
+        "endChar": 10
+      },
+      "revId": "80afd02024d20e60b197d3adfbb43cc303cf29e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
