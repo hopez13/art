@@ -22,6 +22,30 @@
       "revId": "030daa8b0766e8601eb55e7dcf37ce8cea64ab6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d0c61ed_2e24dbda",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-05-26T12:15:30Z",
+      "side": 1,
+      "message": "First deduped method gets symbol with [DEDUPED] suffix, other deduped methods with the same address have no symbols to save space (see WriteDebugSymbols below).  Methods are not deduped in the first pace if --debuggable is set.",
+      "parentUuid": "cdf3c519_581485c6",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 51
+      },
+      "revId": "030daa8b0766e8601eb55e7dcf37ce8cea64ab6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
