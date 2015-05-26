@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d0995dc_c83a6293",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-26T23:55:05Z",
+      "side": 1,
+      "message": "Shouldn\u0027t it be sufficient to do\n\n RawSection(name, type, 0, nullptr, 0, 1, 0) {}\n\n?",
+      "range": {
+        "startLine": 171,
+        "startChar": 10,
+        "endLine": 172,
+        "endChar": 74
+      },
+      "revId": "60320980ea126f2bfd898e59debfb11a5a16a954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d0995dc_6877d689",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-26T23:55:05Z",
+      "side": 1,
+      "message": "Could use the simplified constructor?",
+      "range": {
+        "startLine": 169,
+        "startChar": 2,
+        "endLine": 169,
+        "endChar": 78
+      },
+      "revId": "60320980ea126f2bfd898e59debfb11a5a16a954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d5f9dfa_0828f37c",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-26T23:55:05Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 170,
+        "startChar": 2,
+        "endLine": 170,
+        "endChar": 72
+      },
+      "revId": "60320980ea126f2bfd898e59debfb11a5a16a954",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
