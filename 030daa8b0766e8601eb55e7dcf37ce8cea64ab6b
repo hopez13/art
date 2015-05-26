@@ -70,6 +70,30 @@
       "revId": "030daa8b0766e8601eb55e7dcf37ce8cea64ab6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdf3c519_9331ce9b",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-05-26T13:28:15Z",
+      "side": 1,
+      "message": "Correct.\n\n(However, the names will be available only if dex2oat was run with --include-debug-symbols;  or with --include-cfi with this CL)\n\nThe [DEDUPED] suffix is part of the symbol name, so I believe it should be visible in all tools.\n\nDo you mean the deduped methods just have just [DEDUPED] as the method name and nothing else?  Well, on one hand, the printed name has at least 50% chance being wrong and thus misleading.  On the other hand, it must be a function with the exact same behavior so it is still somewhat informative.  I can persuaded either way, and not including the name saves us a bit of space.",
+      "parentUuid": "ed8889a6_c5536ef1",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 51
+      },
+      "revId": "030daa8b0766e8601eb55e7dcf37ce8cea64ab6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
