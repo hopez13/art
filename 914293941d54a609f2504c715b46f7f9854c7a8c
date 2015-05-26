@@ -638,6 +638,29 @@
     },
     {
       "key": {
+        "uuid": "ed8889a6_8577a6cb",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-26T11:39:23Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 478,
+        "startChar": 67,
+        "endLine": 478,
+        "endChar": 68
+      },
+      "revId": "914293941d54a609f2504c715b46f7f9854c7a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edba4936_4fd68ded",
         "filename": "runtime/mirror/dex_cache-inl.h",
         "patchSetId": 2
@@ -701,6 +724,29 @@
         "startChar": 0,
         "endLine": 55,
         "endChar": 75
+      },
+      "revId": "914293941d54a609f2504c715b46f7f9854c7a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8889a6_e53eb2db",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-26T11:39:23Z",
+      "side": 1,
+      "message": "Use static_cast.",
+      "range": {
+        "startLine": 55,
+        "startChar": 8,
+        "endLine": 55,
+        "endChar": 18
       },
       "revId": "914293941d54a609f2504c715b46f7f9854c7a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
