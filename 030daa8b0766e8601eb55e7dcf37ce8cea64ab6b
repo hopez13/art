@@ -94,6 +94,30 @@
       "revId": "030daa8b0766e8601eb55e7dcf37ce8cea64ab6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d0c61ed_4e430f22",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-26T13:30:43Z",
+      "side": 1,
+      "message": "Good point about same behavior. Maybe reverse the name then to:\n\n[DEDUPED from MyClass.MyMethod]\n\n?",
+      "parentUuid": "cdf3c519_9331ce9b",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 51
+      },
+      "revId": "030daa8b0766e8601eb55e7dcf37ce8cea64ab6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
