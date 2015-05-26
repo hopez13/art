@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4d0995dc_d174d8fa",
+        "filename": "runtime/native_bridge_art_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-26T16:46:08Z",
+      "side": 1,
+      "message": "Yes, that was an oversight when merging that CL, the comment should have been removed (as seen in the review discussion).",
+      "parentUuid": "6d11f908_d94d334e",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 54
+      },
+      "revId": "7a358766cd0e8c8b7a59ff80bf0e0e998a242f4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d11f908_f9d10fd2",
         "filename": "runtime/native_bridge_art_interface.cc",
         "patchSetId": 1
