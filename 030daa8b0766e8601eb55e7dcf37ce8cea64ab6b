@@ -46,6 +46,30 @@
       "revId": "030daa8b0766e8601eb55e7dcf37ce8cea64ab6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8889a6_c5536ef1",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-26T13:02:57Z",
+      "side": 1,
+      "message": "Ok, so:\n1) Debuggable is not set: we can get something irrelevant as a stack, but the irrelevant names are marked [DEDUPED]\n2) Debuggable is set: we get correct stack trace with correct names.\n\nIs that correct?\n\nIf a developer gets a crash, will the DEDUPED be visible to her? Will it be obvious what is going on? Wouldn\u0027t it be better to not print a method name to not be confusing? Should we care?",
+      "parentUuid": "2d0c61ed_2e24dbda",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 51
+      },
+      "revId": "030daa8b0766e8601eb55e7dcf37ce8cea64ab6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
