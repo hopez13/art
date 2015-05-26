@@ -16,6 +16,24 @@
       "revId": "99b9a4c154cfe8dec936020ca8bdba0420273f4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d5f9dfa_d33a3c93",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-05-26T21:42:25Z",
+      "side": 1,
+      "message": "removed min/max as discussed, they are not very meaningful in terms of expected behavior.",
+      "parentUuid": "8d99cdfb_62fff22c",
+      "revId": "99b9a4c154cfe8dec936020ca8bdba0420273f4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
