@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cdf3c519_18dcbd96",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-26T10:33:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d0c61ed_5380dc94",
+      "range": {
+        "startLine": 18,
+        "startChar": 27,
+        "endLine": 18,
+        "endChar": 36
+      },
+      "revId": "2486694914aa43afaf8dc709b4c7b576be7453b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d0c61ed_b35978e3",
         "filename": "runtime/debugger.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-05-26T10:16:03Z",
       "side": 1,
       "message": "Explain why here too.",
+      "range": {
+        "startLine": 2809,
+        "startChar": 5,
+        "endLine": 2809,
+        "endChar": 90
+      },
+      "revId": "2486694914aa43afaf8dc709b4c7b576be7453b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8889a6_c2ffe4df",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2809,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-26T10:33:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d0c61ed_b35978e3",
       "range": {
         "startLine": 2809,
         "startChar": 5,
