@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cdf3c519_452ad978",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-26T16:11:55Z",
+      "side": 1,
+      "message": "Why didn\u0027t we have a \"nop\" after the \"jalr\" here? I guess we should put the \"move $a0, $t0\" after the \"jalr\".",
+      "range": {
+        "startLine": 1096,
+        "startChar": 4,
+        "endLine": 1096,
+        "endChar": 22
+      },
+      "revId": "ca0d2c2fe0f584e2d12f4005c4f06b2ee20a9799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8889a6_a8c71f18",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1372,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-26T16:11:55Z",
+      "side": 1,
+      "message": "This is now a bogus insn. The \"move $a0, $t0\" should be here.",
+      "range": {
+        "startLine": 1372,
+        "startChar": 4,
+        "endLine": 1372,
+        "endChar": 79
+      },
+      "revId": "ca0d2c2fe0f584e2d12f4005c4f06b2ee20a9799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d0c61ed_0218cb71",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2094,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-26T16:11:55Z",
+      "side": 1,
+      "message": "Since this is already guarded by kIsDebugBuild, use CHECK rather than DCHECK.",
+      "range": {
+        "startLine": 2089,
+        "startChar": 0,
+        "endLine": 2094,
+        "endChar": 7
+      },
+      "revId": "ca0d2c2fe0f584e2d12f4005c4f06b2ee20a9799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
