@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "4daef5fa_8c4d1bcc",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1039961
+      },
+      "writtenOn": "2015-05-26T08:49:53Z",
+      "side": 1,
+      "message": "Is there a potential data race here? We do not have 64-bit \nfutex and the futex here could only monitor the low 32 bits \nof the lock state. When the high 32 bits of the mutex state \nare not zero but low 32 bits are zero (shared locked) there \nwould be a race between the thread to wait by futex and other \nthreads to clean the high 32 bits (release the shared lock).\nE.g. initial cur_state:\n   0x0000000100000000(shared locked by thread B) \n-\u003e current thread enters the \"else\" branch\n-\u003e 0x0000000000000000 (thread B releases the shared lock) \n-\u003e futex should fail and try again from the beginning, but it \nwill wait because the futex could only monitor the low 32 \nbits.",
+      "range": {
+        "startLine": 557,
+        "startChar": 10,
+        "endLine": 557,
+        "endChar": 77
+      },
+      "revId": "bfb4ede3aae4424ca6c5a0ad7c5c67affc1b0442",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66259842_dccffc5a",
         "filename": "runtime/base/mutex.cc",
         "patchSetId": 1
