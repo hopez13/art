@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed6169bc_7dd30f55",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-27T15:56:36Z",
+      "side": 1,
+      "message": "If g++/clang++ allows it, could we get rid of this return?",
+      "range": {
+        "startLine": 851,
+        "startChar": 2,
+        "endLine": 851,
+        "endChar": 17
+      },
+      "revId": "d50efe33eb8ff347685b2b6fce5bfa606aff750d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd782572_79bfa30b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-27T15:56:36Z",
+      "side": 1,
+      "message": "Place this argument on the previous line and adjust the indentation of the other arguments.",
+      "range": {
+        "startLine": 985,
+        "startChar": 32,
+        "endLine": 985,
+        "endChar": 46
+      },
+      "revId": "d50efe33eb8ff347685b2b6fce5bfa606aff750d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd782572_d958b78e",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-27T15:56:36Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 844,
+        "startChar": 32,
+        "endLine": 844,
+        "endChar": 46
+      },
+      "revId": "d50efe33eb8ff347685b2b6fce5bfa606aff750d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8889a6_48692e6b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1491,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-27T15:56:36Z",
+      "side": 1,
+      "message": "HInstruction* current",
+      "range": {
+        "startLine": 1491,
+        "startChar": 2,
+        "endLine": 1491,
+        "endChar": 23
+      },
+      "revId": "d50efe33eb8ff347685b2b6fce5bfa606aff750d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8889a6_6866f29d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1508,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-27T15:56:36Z",
+      "side": 1,
+      "message": "Nit: place on a single line.",
+      "range": {
+        "startLine": 1507,
+        "startChar": 0,
+        "endLine": 1508,
+        "endChar": 26
+      },
+      "revId": "d50efe33eb8ff347685b2b6fce5bfa606aff750d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8889a6_888a56b1",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 1931,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-27T15:56:36Z",
+      "side": 1,
+      "message": "As this has been moved out of art::HCompare, maybe rename it to something more specific (e.g. `ComparisonBias\u0027) to avoid ambiguities?",
+      "range": {
+        "startLine": 1931,
+        "startChar": 5,
+        "endLine": 1931,
+        "endChar": 9
+      },
+      "revId": "d50efe33eb8ff347685b2b6fce5bfa606aff750d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
