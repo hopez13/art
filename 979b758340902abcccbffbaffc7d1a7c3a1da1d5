@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cd782572_7cecf108",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1031,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-05-27T15:56:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed6169bc_9aa38901",
+      "range": {
+        "startLine": 1030,
+        "startChar": 48,
+        "endLine": 1031,
+        "endChar": 54
+      },
+      "revId": "979b758340902abcccbffbaffc7d1a7c3a1da1d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd782572_f9a5732a",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-05-27T15:02:01Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 1998,
+        "startChar": 33,
+        "endLine": 1999,
+        "endChar": 60
+      },
+      "revId": "979b758340902abcccbffbaffc7d1a7c3a1da1d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8889a6_abd39453",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1999,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-05-27T15:56:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd782572_f9a5732a",
       "range": {
         "startLine": 1998,
         "startChar": 33,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "cd782572_9c09cd66",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-05-27T15:56:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed8889a6_6834328a",
+      "range": {
+        "startLine": 164,
+        "startChar": 55,
+        "endLine": 165,
+        "endChar": 27
+      },
+      "revId": "979b758340902abcccbffbaffc7d1a7c3a1da1d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd782572_f90e53b8",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2015-05-27T15:02:01Z",
       "side": 1,
       "message": "Use DCHECK_EQ.",
+      "range": {
+        "startLine": 166,
+        "startChar": 2,
+        "endLine": 166,
+        "endChar": 8
+      },
+      "revId": "979b758340902abcccbffbaffc7d1a7c3a1da1d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8889a6_cbe0d817",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-05-27T15:56:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd782572_f90e53b8",
       "range": {
         "startLine": 166,
         "startChar": 2,
