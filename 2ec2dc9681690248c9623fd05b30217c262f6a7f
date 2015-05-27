@@ -45,6 +45,30 @@
       "revId": "2ec2dc9681690248c9623fd05b30217c262f6a7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd782572_193dcf3d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 3141,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-05-27T15:08:26Z",
+      "side": 1,
+      "message": "Couldn\u0027t it be used elsewhere to denote an unknown index?",
+      "parentUuid": "ed8889a6_08248665",
+      "range": {
+        "startLine": 3141,
+        "startChar": 22,
+        "endLine": 3141,
+        "endChar": 35
+      },
+      "revId": "2ec2dc9681690248c9623fd05b30217c262f6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
