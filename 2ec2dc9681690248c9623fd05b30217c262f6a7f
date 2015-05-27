@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed6169bc_7a9235d2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-27T14:56:01Z",
+      "side": 1,
+      "message": "Long line.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 75
+      },
+      "revId": "2ec2dc9681690248c9623fd05b30217c262f6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8889a6_08248665",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 3141,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-27T14:56:01Z",
+      "side": 1,
+      "message": "This name is very general; how about `kUnknownFieldIndex\u0027 or `kInvalidFieldIndex\u0027?",
+      "range": {
+        "startLine": 3141,
+        "startChar": 22,
+        "endLine": 3141,
+        "endChar": 35
+      },
+      "revId": "2ec2dc9681690248c9623fd05b30217c262f6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
