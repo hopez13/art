@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d5f9dfa_85ff8176",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-05-27T18:33:05Z",
+      "side": 1,
+      "message": "so the .PHONY is enough? I\u0027d expected an empty test-art-target-sync definition in the else",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 32
+      },
+      "revId": "effbfba86549b2b85a2a48cfc4fd25b976bd985b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
