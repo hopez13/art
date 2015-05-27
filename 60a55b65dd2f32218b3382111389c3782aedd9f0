@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cd782572_fc6ac1e8",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T16:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdf3c519_d87c1570",
+      "range": {
+        "startLine": 655,
+        "startChar": 43,
+        "endLine": 655,
+        "endChar": 66
+      },
+      "revId": "60a55b65dd2f32218b3382111389c3782aedd9f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed8889a6_e275c849",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-05-26T10:33:21Z",
       "side": 1,
       "message": "Hmm, we need to be careful here. Graph with an infinite loop might not have an exit block after simplify+dce. Right now this will work because:\n- above we run DCE first, so \"if (const)\" will not have been simplified yet\n- DCE does not set Exit block to null if removed (currently not a problem but needs to be fixed, I\u0027ll submit a CL)\n- we do not inline loops",
+      "range": {
+        "startLine": 261,
+        "startChar": 28,
+        "endLine": 261,
+        "endChar": 57
+      },
+      "revId": "60a55b65dd2f32218b3382111389c3782aedd9f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed6169bc_dd6fbba8",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T16:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed8889a6_e275c849",
       "range": {
         "startLine": 261,
         "startChar": 28,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ed6169bc_1d5a130b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1302,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T16:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d0c61ed_b31e9817",
+      "range": {
+        "startLine": 1302,
+        "startChar": 22,
+        "endLine": 1302,
+        "endChar": 26
+      },
+      "revId": "60a55b65dd2f32218b3382111389c3782aedd9f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdf3c519_7860617e",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2015-05-26T10:33:21Z",
       "side": 1,
       "message": "Is this guaranteed not null?",
+      "range": {
+        "startLine": 1577,
+        "startChar": 22,
+        "endLine": 1577,
+        "endChar": 33
+      },
+      "revId": "60a55b65dd2f32218b3382111389c3782aedd9f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd782572_9c446d7e",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1577,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T16:17:56Z",
+      "side": 1,
+      "message": "Yes, env_use always have an environment. Why do you worry on this one?",
+      "parentUuid": "cdf3c519_7860617e",
       "range": {
         "startLine": 1577,
         "startChar": 22,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "ed6169bc_3d57d7e3",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T16:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed8889a6_22b89025",
+      "range": {
+        "startLine": 120,
+        "startChar": 11,
+        "endLine": 120,
+        "endChar": 55
+      },
+      "revId": "60a55b65dd2f32218b3382111389c3782aedd9f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdf3c519_18ae7de6",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2015-05-26T10:58:52Z",
       "side": 1,
       "message": "3?",
+      "range": {
+        "startLine": 54,
+        "startChar": 19,
+        "endLine": 54,
+        "endChar": 20
+      },
+      "revId": "60a55b65dd2f32218b3382111389c3782aedd9f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed6169bc_5d648bca",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T16:17:56Z",
+      "side": 1,
+      "message": "That\u0027s 4, see below.",
+      "parentUuid": "cdf3c519_18ae7de6",
       "range": {
         "startLine": 54,
         "startChar": 19,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "ed6169bc_9d4e234b",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T16:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdf3c519_789221d2",
+      "range": {
+        "startLine": 71,
+        "startChar": 15,
+        "endLine": 71,
+        "endChar": 38
+      },
+      "revId": "60a55b65dd2f32218b3382111389c3782aedd9f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdf3c519_d8fff5f8",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 3
@@ -174,6 +342,30 @@
       "writtenOn": "2015-05-26T10:33:21Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 74,
+        "startChar": 12,
+        "endLine": 74,
+        "endChar": 21
+      },
+      "revId": "60a55b65dd2f32218b3382111389c3782aedd9f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd782572_fc43a170",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T16:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdf3c519_d8fff5f8",
       "range": {
         "startLine": 74,
         "startChar": 12,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "ed6169bc_bd53e7f1",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T16:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d0c61ed_b3c218d7",
+      "range": {
+        "startLine": 82,
+        "startChar": 13,
+        "endLine": 82,
+        "endChar": 22
+      },
+      "revId": "60a55b65dd2f32218b3382111389c3782aedd9f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdf3c519_f80e31b8",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 3
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "ed6169bc_bdccc73b",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T16:17:56Z",
+      "side": 1,
+      "message": "I\u0027ve followed the style. And I\u0027ve just checked, I could not find any.",
+      "parentUuid": "cdf3c519_f80e31b8",
+      "range": {
+        "startLine": 310,
+        "startChar": 34,
+        "endLine": 310,
+        "endChar": 47
+      },
+      "revId": "60a55b65dd2f32218b3382111389c3782aedd9f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdf3c519_781b41f4",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 3
@@ -243,6 +483,30 @@
       "writtenOn": "2015-05-26T10:33:21Z",
       "side": 1,
       "message": "Validity check",
+      "range": {
+        "startLine": 312,
+        "startChar": 15,
+        "endLine": 312,
+        "endChar": 24
+      },
+      "revId": "60a55b65dd2f32218b3382111389c3782aedd9f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed6169bc_ddd17bd2",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T16:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdf3c519_781b41f4",
       "range": {
         "startLine": 312,
         "startChar": 15,
@@ -289,6 +553,30 @@
       "writtenOn": "2015-05-26T10:58:52Z",
       "side": 1,
       "message": "If it were to work like $inline$, I believe this marker would not prevent inlining, but warn/abort if the tagged method were inlined.",
+      "parentUuid": "2d0c61ed_3398c8f0",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 22
+      },
+      "revId": "60a55b65dd2f32218b3382111389c3782aedd9f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd782572_fcbc81cc",
+        "filename": "test/466-get-live-vreg/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T16:17:56Z",
+      "side": 1,
+      "message": "The thing is, we don\u0027t have the infrastructure to know whether we\u0027re running a test. And we cannot use kIsDebugBuild otherwise non-debug runs would fail the test.",
       "parentUuid": "2d0c61ed_3398c8f0",
       "range": {
         "startLine": 68,
