@@ -308,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "ed6169bc_3d98b7f0",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T17:23:19Z",
+      "side": 1,
+      "message": "Good point. Done.",
+      "parentUuid": "cd782572_bc6a099a",
+      "range": {
+        "startLine": 54,
+        "startChar": 19,
+        "endLine": 54,
+        "endChar": 20
+      },
+      "revId": "60a55b65dd2f32218b3382111389c3782aedd9f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdf3c519_789221d2",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 3
