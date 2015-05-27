@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed8889a6_3437e690",
+        "filename": "runtime/entrypoints/quick/callee_save_frame.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T11:18:16Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 50,
+        "startChar": 2,
+        "endLine": 50,
+        "endChar": 10
+      },
+      "revId": "b8f2afa3576197ca3ccd2c0268b6dedd43041f3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8889a6_54346a89",
+        "filename": "runtime/entrypoints/quick/quick_instrumentation_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T11:18:16Z",
+      "side": 1,
+      "message": "Why? Is that the timeout? Please document.",
+      "range": {
+        "startLine": 32,
+        "startChar": 56,
+        "endLine": 32,
+        "endChar": 61
+      },
+      "revId": "b8f2afa3576197ca3ccd2c0268b6dedd43041f3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd782572_56e9d428",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T11:18:16Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 826,
+        "startChar": 56,
+        "endLine": 826,
+        "endChar": 61
+      },
+      "revId": "b8f2afa3576197ca3ccd2c0268b6dedd43041f3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
