@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed8889a6_b4bdb64b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T12:03:11Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 807,
+        "startChar": 0,
+        "endLine": 809,
+        "endChar": 100
+      },
+      "revId": "ad3abb17e11852890d7aa00c0a499f9bb1947fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd782572_39c9aba7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 3143,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T12:03:11Z",
+      "side": 1,
+      "message": "I don\u0027t think this abstraction is really worth it. It\u0027s not like it\u0027s hiding implementation details, as you are always fetching its two fields. Also, every abstraction adds overhead to the reader:\n1) what\u0027s a DexCacheIndex?\n2) grep for its definition\n3) see that it just encodes a dex file and an index\n4) (in this case) Why is the index not const?\n5) Why... ?\n\nSo I\u0027d suggest just not adding an abstraction for such a simple concept.",
+      "range": {
+        "startLine": 3143,
+        "startChar": 6,
+        "endLine": 3143,
+        "endChar": 19
+      },
+      "revId": "ad3abb17e11852890d7aa00c0a499f9bb1947fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed6169bc_574d4cc8",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T12:03:11Z",
+      "side": 1,
+      "message": "Why do you need this now?",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 18
+      },
+      "revId": "ad3abb17e11852890d7aa00c0a499f9bb1947fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
