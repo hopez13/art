@@ -46,6 +46,54 @@
       "revId": "effbfba86549b2b85a2a48cfc4fd25b976bd985b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad3851b1_8db7c11a",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T20:45:53Z",
+      "side": 1,
+      "message": "It\u0027s for the case we are push instead of sync (see line 131), which is used by the buildbot. The way the buildbot runs is by invoking multiple times make:\n1) target gtest\n2) run-test for optimizing\n3) run-test for quick\n4) run-test for interpreter\n\nInvoking make multiple times is to better triage failures. And since any target test has a dependency to test-art-target-sync, the sync (which is actually a push for the buildbot) is always happening. So my plan is:\n\n1) Step1: m -j32 build-art-target-test\n\n2) Step2: m -j32 test-art-target-sync\n\n3) Step3: ART_TEST_NO_SYNC\u003dtrue m -j32 test-art-target-gtest\n\n4) Step4: ART_TEST_NO_SYNC\u003dtrue m -j32 test-art-target-run-test-optimizing\n\n5) ....",
+      "parentUuid": "ad73f192_7ebdc5a1",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 32
+      },
+      "revId": "effbfba86549b2b85a2a48cfc4fd25b976bd985b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8889a6_3e0ee0e8",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T20:45:53Z",
+      "side": 1,
+      "message": "Good catch. I guess apparently the .PHONY is enough, as it worked. I\u0027ll double check.",
+      "parentUuid": "0d5f9dfa_85ff8176",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 32
+      },
+      "revId": "effbfba86549b2b85a2a48cfc4fd25b976bd985b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
