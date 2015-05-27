@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ed8889a6_88d6d643",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 3143,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-27T13:04:24Z",
+      "side": 1,
+      "message": "I think factorization would mean just having a struct with two fields. But yes, I\u0027d prefer having two fields in those classes.",
+      "parentUuid": "ed8889a6_f422de22",
+      "range": {
+        "startLine": 3143,
+        "startChar": 6,
+        "endLine": 3143,
+        "endChar": 19
+      },
+      "revId": "ad3abb17e11852890d7aa00c0a499f9bb1947fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed6169bc_574d4cc8",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 4
