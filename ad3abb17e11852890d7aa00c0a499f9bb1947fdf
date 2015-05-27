@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "ed8889a6_f422de22",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 3143,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-05-27T12:25:11Z",
+      "side": 1,
+      "message": "It\u0027s more a question of factorisation than abstraction.\nDo you suggest adding two fields to all the classes in need?",
+      "parentUuid": "cd782572_39c9aba7",
+      "range": {
+        "startLine": 3143,
+        "startChar": 6,
+        "endLine": 3143,
+        "endChar": 19
+      },
+      "revId": "ad3abb17e11852890d7aa00c0a499f9bb1947fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed6169bc_574d4cc8",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 4
@@ -59,6 +83,30 @@
       "writtenOn": "2015-05-27T12:03:11Z",
       "side": 1,
       "message": "Why do you need this now?",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 18
+      },
+      "revId": "ad3abb17e11852890d7aa00c0a499f9bb1947fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed6169bc_7a05d540",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-05-27T12:25:11Z",
+      "side": 1,
+      "message": "I don\u0027t. It\u0027s a mistake.",
+      "parentUuid": "ed6169bc_574d4cc8",
       "range": {
         "startLine": 43,
         "startChar": 4,
