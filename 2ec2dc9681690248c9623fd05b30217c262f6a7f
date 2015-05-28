@@ -69,6 +69,30 @@
       "revId": "2ec2dc9681690248c9623fd05b30217c262f6a7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad3851b1_d3b7ace7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 3141,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-28T13:11:28Z",
+      "side": 1,
+      "message": "Making this constant specific makes it easier to grep and associate with this code (and this CL).  We could refactor this later to a more general name if this is really necessary.",
+      "parentUuid": "cd782572_193dcf3d",
+      "range": {
+        "startLine": 3141,
+        "startChar": 22,
+        "endLine": 3141,
+        "endChar": 35
+      },
+      "revId": "2ec2dc9681690248c9623fd05b30217c262f6a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
