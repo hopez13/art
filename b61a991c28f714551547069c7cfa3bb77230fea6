@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8d470d3e_cfc701e6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-28T09:31:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d470d3e_aff55553",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "b61a991c28f714551547069c7cfa3bb77230fea6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d470d3e_af49d594",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6d42d931_ae7ab7e7",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-28T09:31:10Z",
+      "side": 1,
+      "message": "Good point. Done.",
+      "parentUuid": "8d470d3e_af49d594",
+      "range": {
+        "startLine": 644,
+        "startChar": 0,
+        "endLine": 676,
+        "endChar": 3
+      },
+      "revId": "b61a991c28f714551547069c7cfa3bb77230fea6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d470d3e_2f0245c5",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 5
@@ -59,6 +107,30 @@
       "writtenOn": "2015-05-28T08:30:56Z",
       "side": 1,
       "message": "Nit: This is hard to read. How about you add an empty CurrentMethod branch before?",
+      "range": {
+        "startLine": 1727,
+        "startChar": 39,
+        "endLine": 1727,
+        "endChar": 73
+      },
+      "revId": "b61a991c28f714551547069c7cfa3bb77230fea6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d42d931_ee84bf5b",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1727,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-28T09:31:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d470d3e_2f0245c5",
       "range": {
         "startLine": 1727,
         "startChar": 39,
