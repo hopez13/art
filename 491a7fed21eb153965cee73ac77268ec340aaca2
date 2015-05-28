@@ -22,6 +22,30 @@
       "revId": "491a7fed21eb153965cee73ac77268ec340aaca2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d42d931_14a11aed",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-05-28T16:23:53Z",
+      "side": 1,
+      "message": "True, Andreas mentioned that possibility as well.\nFor a fix-build CL, I wanted to keep things as simple as possible.\nI think it is fine either way.  If you feel strongly about it, I will move it.",
+      "parentUuid": "8d470d3e_95f0a664",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 68
+      },
+      "revId": "491a7fed21eb153965cee73ac77268ec340aaca2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
