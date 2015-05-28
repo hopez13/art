@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d42d931_14df5a03",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 3141,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-28T15:50:46Z",
+      "side": 1,
+      "message": "move this at the top, together with the other constants.",
+      "range": {
+        "startLine": 3141,
+        "startChar": 22,
+        "endLine": 3141,
+        "endChar": 40
+      },
+      "revId": "c1df690f05c4856c97cf77e739fa3377aada1ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d42d931_74d6deed",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-28T15:50:46Z",
+      "side": 1,
+      "message": "this is becoming too much. Let\u0027s make ReferenceTypePropagation a visitor or create a new one if that\u0027s cumbersome. You can address this in a follow up CL but please add a todo comment for it.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 5
+      },
+      "revId": "c1df690f05c4856c97cf77e739fa3377aada1ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
