@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d470d3e_cf22a123",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-28T10:08:47Z",
+      "side": 1,
+      "message": "Nit: move one up, and put all arguments on each line, with correct indentation.",
+      "range": {
+        "startLine": 940,
+        "startChar": 0,
+        "endLine": 940,
+        "endChar": 41
+      },
+      "revId": "1f27b89c436825f491cf43411a6de562bc18aa84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d42d931_b1377811",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-28T10:08:47Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 949,
+        "startChar": 0,
+        "endLine": 949,
+        "endChar": 41
+      },
+      "revId": "1f27b89c436825f491cf43411a6de562bc18aa84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d470d3e_ef275d30",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 3149,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-28T10:08:47Z",
+      "side": 1,
+      "message": "Make this a const\u0026 please.",
+      "range": {
+        "startLine": 3149,
+        "startChar": 12,
+        "endLine": 3149,
+        "endChar": 35
+      },
+      "revId": "1f27b89c436825f491cf43411a6de562bc18aa84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d470d3e_0f3d893d",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-28T10:08:47Z",
+      "side": 1,
+      "message": "Check against nullptr instead of !.",
+      "range": {
+        "startLine": 197,
+        "startChar": 50,
+        "endLine": 197,
+        "endChar": 65
+      },
+      "revId": "1f27b89c436825f491cf43411a6de562bc18aa84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad3851b1_b07a16e8",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-28T10:08:47Z",
+      "side": 1,
+      "message": "check against nullptr.",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 16
+      },
+      "revId": "1f27b89c436825f491cf43411a6de562bc18aa84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d42d931_b160580d",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-28T10:08:47Z",
+      "side": 1,
+      "message": "What is this?",
+      "range": {
+        "startLine": 431,
+        "startChar": 0,
+        "endLine": 431,
+        "endChar": 64
+      },
+      "revId": "1f27b89c436825f491cf43411a6de562bc18aa84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
