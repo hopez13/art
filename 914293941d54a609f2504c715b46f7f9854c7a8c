@@ -775,6 +775,30 @@
       "revId": "914293941d54a609f2504c715b46f7f9854c7a8c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2db1c157_718b78ef",
+        "filename": "runtime/mirror/dex_cache-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-28T08:55:36Z",
+      "side": 1,
+      "message": "That\u0027s the core image... Are you sure it\u0027s because of this idx being out of bounds? What you store in the builder is an index into this array, so I am struggling to see how it can overflow.",
+      "parentUuid": "0db87d3c_f012c054",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 75
+      },
+      "revId": "914293941d54a609f2504c715b46f7f9854c7a8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
