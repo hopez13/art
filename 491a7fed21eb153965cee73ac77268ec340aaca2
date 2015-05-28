@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d470d3e_95f0a664",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-28T16:07:26Z",
+      "side": 1,
+      "message": "I would prefer to allocate these sections just before they are added to the builder. And comment that the pointers need to be here to extend their lifetime.",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 68
+      },
+      "revId": "491a7fed21eb153965cee73ac77268ec340aaca2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
