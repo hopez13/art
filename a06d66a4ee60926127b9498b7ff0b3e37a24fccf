@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6d42d931_7198b0bf",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-05-28T13:13:33Z",
+      "side": 1,
+      "message": "Can\u0027t. The whole point is that lines marked for Checker must parse.",
+      "parentUuid": "8d470d3e_9218bc77",
+      "range": {
+        "startLine": 431,
+        "startChar": 2,
+        "endLine": 431,
+        "endChar": 4
+      },
+      "revId": "a06d66a4ee60926127b9498b7ff0b3e37a24fccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad3851b1_53e65cb4",
         "filename": "test/458-checker-instruction-simplification/src/Main.java",
         "patchSetId": 3
