@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d470d3e_6fd60dee",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-28T07:03:34Z",
+      "side": 1,
+      "message": "This sounds dangerous. It looks to me that this will replace all array length accesses dominated by this block, which does include blocks after the loop, right? So if there is such an instruction after the loop, it will skip the NPE check.",
+      "range": {
+        "startLine": 813,
+        "startChar": 0,
+        "endLine": 813,
+        "endChar": 37
+      },
+      "revId": "513d181f989c33c56381da38a15df87eae19fee1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
