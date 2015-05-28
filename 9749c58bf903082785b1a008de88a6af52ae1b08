@@ -46,6 +46,30 @@
       "revId": "9749c58bf903082785b1a008de88a6af52ae1b08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad3851b1_b3d6a078",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-28T14:21:06Z",
+      "side": 1,
+      "message": "Maybe we should consider building these as part of the core tests. They are after all *core* tests...",
+      "parentUuid": "2db1c157_91537cf2",
+      "range": {
+        "startLine": 23,
+        "startChar": 15,
+        "endLine": 23,
+        "endChar": 91
+      },
+      "revId": "9749c58bf903082785b1a008de88a6af52ae1b08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
