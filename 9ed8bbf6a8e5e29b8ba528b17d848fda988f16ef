@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d42d931_6e87efaa",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-28T09:57:39Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we use the SDu macro here? Because mips32r2 uses 32-bit FP registers while mips32r6 used 64-bit FP registers.",
+      "range": {
+        "startLine": 71,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 7
+      },
+      "revId": "9ed8bbf6a8e5e29b8ba528b17d848fda988f16ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
