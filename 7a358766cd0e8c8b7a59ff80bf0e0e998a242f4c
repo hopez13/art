@@ -69,6 +69,29 @@
       "revId": "7a358766cd0e8c8b7a59ff80bf0e0e998a242f4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d470d3e_3540d213",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-28T16:01:34Z",
+      "side": 1,
+      "message": "small consistency issue: Set*Managed*Handler sets a *Special*SignalHandler.\n\nI\u0027d use the same name for both.",
+      "range": {
+        "startLine": 80,
+        "startChar": 7,
+        "endLine": 80,
+        "endChar": 47
+      },
+      "revId": "7a358766cd0e8c8b7a59ff80bf0e0e998a242f4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
