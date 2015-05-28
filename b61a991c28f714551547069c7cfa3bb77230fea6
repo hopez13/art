@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d470d3e_af49d594",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1042649
+      },
+      "writtenOn": "2015-05-28T04:12:00Z",
+      "side": 1,
+      "message": "The HCurrentMethod is not a constant. And it is not a temporary or a v-reg in this patch. So I think we will need handle Move(HCurrentMethod ...) specially for baseline compiler.",
+      "range": {
+        "startLine": 644,
+        "startChar": 0,
+        "endLine": 676,
+        "endChar": 3
+      },
+      "revId": "b61a991c28f714551547069c7cfa3bb77230fea6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
