@@ -46,6 +46,30 @@
       "revId": "9ed8bbf6a8e5e29b8ba528b17d848fda988f16ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad3851b1_530e5c37",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1062659
+      },
+      "writtenOn": "2015-05-28T11:25:53Z",
+      "side": 1,
+      "message": "On r6 kernel is responsible for handling unaligned exception. That is why this boots. \n\nI can create another PS with SDu if somebody did not start working on it.",
+      "parentUuid": "6d42d931_9118bc77",
+      "range": {
+        "startLine": 71,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 7
+      },
+      "revId": "9ed8bbf6a8e5e29b8ba528b17d848fda988f16ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
