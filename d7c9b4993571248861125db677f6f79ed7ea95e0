@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6d42d931_2e508761",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3616,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-28T09:35:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d470d3e_afc2b5d6",
+      "range": {
+        "startLine": 3615,
+        "startChar": 0,
+        "endLine": 3616,
+        "endChar": 53
+      },
+      "revId": "d7c9b4993571248861125db677f6f79ed7ea95e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad3851b1_103daa3d",
         "filename": "runtime/debugger.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-05-28T09:29:19Z",
       "side": 1,
       "message": "Does this log make sense in the case m is null?",
+      "range": {
+        "startLine": 3717,
+        "startChar": 0,
+        "endLine": 3728,
+        "endChar": 3
+      },
+      "revId": "d7c9b4993571248861125db677f6f79ed7ea95e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad3851b1_d0db229f",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3728,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-05-28T09:35:22Z",
+      "side": 1,
+      "message": "Yes it is. Having a null method does not prevent from single-stepping.",
+      "parentUuid": "ad3851b1_103daa3d",
       "range": {
         "startLine": 3717,
         "startChar": 0,
