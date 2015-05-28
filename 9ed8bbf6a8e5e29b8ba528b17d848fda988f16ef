@@ -22,6 +22,30 @@
       "revId": "9ed8bbf6a8e5e29b8ba528b17d848fda988f16ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d42d931_9118bc77",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-28T10:48:33Z",
+      "side": 1,
+      "message": "These are indeed unaligned and require SDu. I guess the emulator doesn\u0027t do alignment checking, otherwise it shouldn\u0027t boot with these s.d insns.",
+      "parentUuid": "6d42d931_6e87efaa",
+      "range": {
+        "startLine": 71,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 7
+      },
+      "revId": "9ed8bbf6a8e5e29b8ba528b17d848fda988f16ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
