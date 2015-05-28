@@ -96,6 +96,29 @@
     },
     {
       "key": {
+        "uuid": "6d42d931_4e74f3f8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1834,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-28T09:37:55Z",
+      "side": 1,
+      "message": "Maybe document (even briefly) the role of this new instruction?",
+      "range": {
+        "startLine": 1834,
+        "startChar": 0,
+        "endLine": 1834,
+        "endChar": 20
+      },
+      "revId": "b61a991c28f714551547069c7cfa3bb77230fea6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d470d3e_2f0245c5",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 5
