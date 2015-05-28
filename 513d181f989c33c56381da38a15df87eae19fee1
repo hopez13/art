@@ -22,6 +22,30 @@
       "revId": "513d181f989c33c56381da38a15df87eae19fee1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d54fde2_178cb387",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-05-28T12:49:16Z",
+      "side": 1,
+      "message": "In this case array_length must be defined in loop body so there is no use after the loop.\n\nFor array_length defined before the loop, we don\u0027t need the phi. For array_length defined in loop header (usually should have already been hoisted to pre-header by licm), we bail out the deopt based approach for it (done in CanAddDeoptimizationArrayLength()).\n\nI added some asserts to make sure array_length is in loop body.",
+      "parentUuid": "8d470d3e_6fd60dee",
+      "range": {
+        "startLine": 813,
+        "startChar": 0,
+        "endLine": 813,
+        "endChar": 37
+      },
+      "revId": "513d181f989c33c56381da38a15df87eae19fee1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
