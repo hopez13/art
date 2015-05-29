@@ -22,6 +22,30 @@
       "revId": "a2a300b7378f22fb20ed48934859f7d90ab9fcaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d470d3e_c1cc303d",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-29T10:33:27Z",
+      "side": 1,
+      "message": "Because we are now inlining method calls, you can inline a method from another dex file that calls a method that happens to have the same index in that other dex file than the original outer method.",
+      "parentUuid": "6d42d931_65370a5e",
+      "range": {
+        "startLine": 655,
+        "startChar": 8,
+        "endLine": 656,
+        "endChar": 77
+      },
+      "revId": "a2a300b7378f22fb20ed48934859f7d90ab9fcaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
