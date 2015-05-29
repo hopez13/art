@@ -52,6 +52,24 @@
       "revId": "5a00501df5786ca1b5de1d15c742959afec11497",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d42d931_a0a3a000",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-05-29T15:23:45Z",
+      "side": 1,
+      "message": "Ignore my DCHECK_LE request. There is a CHECK_LE on the next line.",
+      "parentUuid": "b9f6d849_c97244c1",
+      "revId": "5a00501df5786ca1b5de1d15c742959afec11497",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
