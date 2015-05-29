@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "d9fb8c32_01afec6c",
+        "filename": "compiler/optimizing/gvn_test.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-29T09:05:18Z",
+      "side": 1,
+      "message": "Nit: one up (here and below).\n\n(I acknowledge style was broken before).",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 44,
+        "endChar": 40
+      },
+      "revId": "c1df690f05c4856c97cf77e739fa3377aada1ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d42d931_14df5a03",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 17
@@ -18,6 +41,29 @@
         "startChar": 22,
         "endLine": 3141,
         "endChar": 40
+      },
+      "revId": "c1df690f05c4856c97cf77e739fa3377aada1ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9fb8c32_e1abe05c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 3151,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-05-29T09:05:18Z",
+      "side": 1,
+      "message": "One per line please.",
+      "range": {
+        "startLine": 3150,
+        "startChar": 7,
+        "endLine": 3151,
+        "endChar": 45
       },
       "revId": "c1df690f05c4856c97cf77e739fa3377aada1ff3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
