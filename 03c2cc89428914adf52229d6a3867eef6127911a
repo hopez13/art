@@ -22,6 +22,30 @@
       "revId": "03c2cc89428914adf52229d6a3867eef6127911a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d54fde2_5c049318",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-29T15:26:19Z",
+      "side": 1,
+      "message": "abort() is annotated that way (as it obviously won\u0027t return), and about two months ago I added a Clang warn that tells you you can annotate a function this way.\n\nIn theory allows some optimizations (e.g., no epilogue).",
+      "parentUuid": "8d470d3e_f3901f4f",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 15
+      },
+      "revId": "03c2cc89428914adf52229d6a3867eef6127911a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
