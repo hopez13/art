@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9fb8c32_8460aa2e",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-05-29T14:58:11Z",
+      "side": 1,
+      "message": "The return type can\u0027t be resolved in this dex file. I\u0027m investigating.",
+      "range": {
+        "startLine": 733,
+        "startChar": 48,
+        "endLine": 733,
+        "endChar": 57
+      },
+      "revId": "6a5627745944f13e35deb16a9f27980eb21ece64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
