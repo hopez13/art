@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "6d42d931_40ecbc3a",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-29T15:30:49Z",
+      "side": 1,
+      "message": "Could this method be made `const\u0027?",
+      "revId": "8909bafa5d64e12eb53f3d37b984f53e7a632224",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d179dd9_3ebdd1a2",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 11
