@@ -34,6 +34,24 @@
       "revId": "5a00501df5786ca1b5de1d15c742959afec11497",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f6d849_c97244c1",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-29T15:21:36Z",
+      "side": 1,
+      "message": "The place-holder pushed in line 688 (e.g., a similar check to what we do when patching - is the expected value there).",
+      "parentUuid": "8d470d3e_d31ec318",
+      "revId": "5a00501df5786ca1b5de1d15c742959afec11497",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
