@@ -46,6 +46,52 @@
       "revId": "a2a300b7378f22fb20ed48934859f7d90ab9fcaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d42d931_6085380a",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-29T13:02:11Z",
+      "side": 1,
+      "message": "nit: {\ncontinue;\n}",
+      "range": {
+        "startLine": 53,
+        "startChar": 37,
+        "endLine": 53,
+        "endChar": 45
+      },
+      "revId": "a2a300b7378f22fb20ed48934859f7d90ab9fcaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9fb8c32_04c13a21",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1306,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-29T13:02:11Z",
+      "side": 1,
+      "message": "why the scope?",
+      "range": {
+        "startLine": 1306,
+        "startChar": 2,
+        "endLine": 1306,
+        "endChar": 3
+      },
+      "revId": "a2a300b7378f22fb20ed48934859f7d90ab9fcaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
