@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9fb8c32_c180e495",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-29T10:23:11Z",
+      "side": 1,
+      "message": "Maybe add a usage function and hook it to `--help\u0027?",
+      "revId": "5e4513d42bbc9ab2b19f5bbba91cba6ee4ddad56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d42d931_05280600",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-29T10:23:11Z",
+      "side": 1,
+      "message": "Nit: Android",
+      "range": {
+        "startLine": 18,
+        "startChar": 50,
+        "endLine": 18,
+        "endChar": 57
+      },
+      "revId": "5e4513d42bbc9ab2b19f5bbba91cba6ee4ddad56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9fb8c32_e173e05d",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-05-29T10:23:11Z",
+      "side": 1,
+      "message": "Maybe use:\n\n  env $env $make_command\n\n?",
+      "range": {
+        "startLine": 75,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 30
+      },
+      "revId": "5e4513d42bbc9ab2b19f5bbba91cba6ee4ddad56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
