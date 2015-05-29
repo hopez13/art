@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b9f6d849_897e7cdb",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-29T15:24:49Z",
+      "side": 1,
+      "message": "For rpl, to be more explicit than Nicolas.\n\nDex files have independent tables for their methods, which are also sorted. The dex_method_index is the index in the defining dex file. It\u0027s not that hard to have a \"collision\" between dex files...",
+      "parentUuid": "8d470d3e_c1cc303d",
+      "range": {
+        "startLine": 655,
+        "startChar": 8,
+        "endLine": 656,
+        "endChar": 77
+      },
+      "revId": "a2a300b7378f22fb20ed48934859f7d90ab9fcaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d42d931_6085380a",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 7
