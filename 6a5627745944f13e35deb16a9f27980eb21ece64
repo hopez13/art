@@ -22,6 +22,29 @@
       "revId": "6a5627745944f13e35deb16a9f27980eb21ece64",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d42d931_e0220823",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-05-29T15:00:24Z",
+      "side": 1,
+      "message": "This index seems not to be usable in this function",
+      "range": {
+        "startLine": 310,
+        "startChar": 52,
+        "endLine": 310,
+        "endChar": 91
+      },
+      "revId": "6a5627745944f13e35deb16a9f27980eb21ece64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
