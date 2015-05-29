@@ -46,6 +46,30 @@
       "revId": "03c2cc89428914adf52229d6a3867eef6127911a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d470d3e_537d732b",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-05-29T15:33:54Z",
+      "side": 1,
+      "message": "hmmm, how come that returning void is not enough?",
+      "parentUuid": "0d54fde2_5c049318",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 15
+      },
+      "revId": "03c2cc89428914adf52229d6a3867eef6127911a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
