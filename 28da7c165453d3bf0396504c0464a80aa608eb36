@@ -46,6 +46,30 @@
       "revId": "28da7c165453d3bf0396504c0464a80aa608eb36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b91fb853_4354c44b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-05-30T01:09:54Z",
+      "side": 1,
+      "message": "I would have formulated it the other way around (but whatever you prefer):\n\nAdd heap poisoning support to the entrypoints in preparation for full compiler/managed-code support. Enable stub_test testing.",
+      "parentUuid": "0d54fde2_e4da2264",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 40
+      },
+      "revId": "28da7c165453d3bf0396504c0464a80aa608eb36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
