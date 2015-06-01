@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "6d42d931_83c0692c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2394,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-01T10:55:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d42d931_c8960e4b",
+      "range": {
+        "startLine": 2394,
+        "startChar": 18,
+        "endLine": 2394,
+        "endChar": 37
+      },
+      "revId": "875a33902b662f8b05aa75981ab55e5e5a5e6f62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d42d931_c07a6ce9",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 5
@@ -83,6 +107,30 @@
       "writtenOn": "2015-06-01T09:24:53Z",
       "side": 1,
       "message": "note that we now inline this, so I doubt that the test will pass after rebase. please try it. \n\nto defeat inlining you can add an infinite loop.",
+      "range": {
+        "startLine": 367,
+        "startChar": 19,
+        "endLine": 367,
+        "endChar": 30
+      },
+      "revId": "875a33902b662f8b05aa75981ab55e5e5a5e6f62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7919c071_87043687",
+        "filename": "test/450-checker-types/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-01T10:55:58Z",
+      "side": 1,
+      "message": "The test still passes",
+      "parentUuid": "6d42d931_6888ba23",
       "range": {
         "startLine": 367,
         "startChar": 19,
