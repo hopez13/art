@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0d54fde2_0fbac54b",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-06-01T17:41:47Z",
+      "side": 1,
+      "message": "I\u0027ll keep it this way because ebx isn\u0027t dead after the cmpl (it\u0027d be used later) and unpoisoning ebx after the cmpl would modify the condition codes (the neg instruction), which would invalidate the result of cmpl.",
+      "parentUuid": "6d42d931_88d6c643",
+      "range": {
+        "startLine": 1152,
+        "startChar": 0,
+        "endLine": 1158,
+        "endChar": 5
+      },
+      "revId": "285b383585c3665adeef215180a0393512a97603",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d42d931_c8e0ce17",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-01T07:34:33Z",
       "side": 1,
       "message": "I guess macros taking macros doesn\u0027t work?",
+      "range": {
+        "startLine": 1183,
+        "startChar": 4,
+        "endLine": 1183,
+        "endChar": 42
+      },
+      "revId": "285b383585c3665adeef215180a0393512a97603",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed56c9ec_b113ca58",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-06-01T17:41:47Z",
+      "side": 1,
+      "message": "Not sure what you mean. What macros taking what macros?\n\nMaybe a custom macro could be invented for this pattern, but it seems not worth it, at least not yet, unless it\u0027d be used more than once. I\u0027d add it later if necessary.",
+      "parentUuid": "6d42d931_c8e0ce17",
       "range": {
         "startLine": 1183,
         "startChar": 4,
