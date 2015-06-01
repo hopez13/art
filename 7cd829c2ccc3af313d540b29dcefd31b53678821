@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7919c071_cd8fedfc",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-01T16:54:15Z",
+      "side": 1,
+      "message": "this should probably be renamed to HandleInvoke, as it\u0027s not called directly by an HInstruction.",
+      "range": {
+        "startLine": 287,
+        "startChar": 31,
+        "endLine": 287,
+        "endChar": 42
+      },
+      "revId": "7cd829c2ccc3af313d540b29dcefd31b53678821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
