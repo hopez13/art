@@ -93,6 +93,30 @@
       "revId": "285b383585c3665adeef215180a0393512a97603",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9fb8c32_1b5e34be",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-01T17:44:49Z",
+      "side": 1,
+      "message": "The macros taking macros comment was bogus. What I meant was more having a macro that would just do all this: pushing an unpoisoned ref.",
+      "parentUuid": "ed56c9ec_b113ca58",
+      "range": {
+        "startLine": 1183,
+        "startChar": 4,
+        "endLine": 1183,
+        "endChar": 42
+      },
+      "revId": "285b383585c3665adeef215180a0393512a97603",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
