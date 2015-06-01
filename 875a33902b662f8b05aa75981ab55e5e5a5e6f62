@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "7919c071_87ab16e3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2394,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-01T11:06:09Z",
+      "side": 1,
+      "message": "As far as I understood:\nGetDexFile() returns the inliner\u0027s dex file\nGetMethodDexFile() instead returns the inlinee\u0027s dex file",
+      "parentUuid": "6d42d931_63dc5d0d",
+      "range": {
+        "startLine": 2394,
+        "startChar": 18,
+        "endLine": 2394,
+        "endChar": 37
+      },
+      "revId": "875a33902b662f8b05aa75981ab55e5e5a5e6f62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d42d931_c07a6ce9",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 5
