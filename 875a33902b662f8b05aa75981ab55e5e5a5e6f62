@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "7919c071_a2ff20a2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2394,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-06-01T12:43:23Z",
+      "side": 1,
+      "message": "it\u0027s not just about inliner\n\nGetDexFile returns the invoke\u0027s get dex file which might not be same as the dex file where the method is defined.\n\nWe could possible use GetDexFile but that will lower the precision so I\u0027m good having the defining dex file here.",
+      "parentUuid": "7919c071_87ab16e3",
+      "range": {
+        "startLine": 2394,
+        "startChar": 18,
+        "endLine": 2394,
+        "endChar": 37
+      },
+      "revId": "875a33902b662f8b05aa75981ab55e5e5a5e6f62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d42d931_c07a6ce9",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 5
