@@ -69,6 +69,54 @@
       "revId": "7cd829c2ccc3af313d540b29dcefd31b53678821",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9a97860_c8f1efe0",
+        "filename": "test/450-checker-types/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-02T11:08:48Z",
+      "side": 1,
+      "message": "Yeah, let\u0027s start by adding this $noinline$ as a marker with no effect for now.\n\nWe can then think about how to make it have an effect.",
+      "parentUuid": "99a8345d_a4c5c29c",
+      "range": {
+        "startLine": 367,
+        "startChar": 19,
+        "endLine": 367,
+        "endChar": 30
+      },
+      "revId": "7cd829c2ccc3af313d540b29dcefd31b53678821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9ae2c65_a916f977",
+        "filename": "test/450-checker-types/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-02T11:08:48Z",
+      "side": 1,
+      "message": "No for two reasons:\n\n1) The getSubclass call site is virtual, and the receiver is not statically known.\n2) The method always throws, so won\u0027t be inlined thanks to our heuristics, and should probably never be inlined.",
+      "parentUuid": "7919c071_0d5de5f8",
+      "range": {
+        "startLine": 367,
+        "startChar": 19,
+        "endLine": 367,
+        "endChar": 30
+      },
+      "revId": "7cd829c2ccc3af313d540b29dcefd31b53678821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
