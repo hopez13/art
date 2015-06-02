@@ -117,6 +117,30 @@
       "revId": "7cd829c2ccc3af313d540b29dcefd31b53678821",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9a97860_082627f1",
+        "filename": "test/450-checker-types/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-06-02T11:36:16Z",
+      "side": 1,
+      "message": "for 2). I think we should try inline in this case. It will enable more dead code elimination. Alternatively it should not be hard to figure out that a function always throw and mark everything after the call dead. Anyway, I don\u0027t think that\u0027s not a common case so it probably doesn\u0027t worth thinking about it too much.",
+      "parentUuid": "d9ae2c65_a916f977",
+      "range": {
+        "startLine": 367,
+        "startChar": 19,
+        "endLine": 367,
+        "endChar": 30
+      },
+      "revId": "7cd829c2ccc3af313d540b29dcefd31b53678821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
