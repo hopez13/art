@@ -91,6 +91,29 @@
       "revId": "1fd7c554b5e82c7ebae0724bbd17aa539a441a47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9ae2c65_ad027e3a",
+        "filename": "test/444-checker-nce/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-03T17:14:35Z",
+      "side": 1,
+      "message": "Why not \"instruction_simplifier_after_types\" too?",
+      "range": {
+        "startLine": 30,
+        "startChar": 40,
+        "endLine": 30,
+        "endChar": 51
+      },
+      "revId": "1fd7c554b5e82c7ebae0724bbd17aa539a441a47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
