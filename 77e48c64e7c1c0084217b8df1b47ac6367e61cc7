@@ -93,6 +93,29 @@
       "revId": "77e48c64e7c1c0084217b8df1b47ac6367e61cc7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99a8345d_8b652e3f",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-06-03T13:33:24Z",
+      "side": 1,
+      "message": "can this ever be NULL? Add a dcheck just in case.",
+      "range": {
+        "startLine": 298,
+        "startChar": 2,
+        "endLine": 298,
+        "endChar": 49
+      },
+      "revId": "77e48c64e7c1c0084217b8df1b47ac6367e61cc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
