@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "99a8345d_811aed2a",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-03T16:52:12Z",
+      "side": 1,
+      "message": "Oh right, the collection is modified during the iteration! Thanks!",
+      "parentUuid": "99a8345d_81f3cd6a",
+      "range": {
+        "startLine": 79,
+        "startChar": 5,
+        "endLine": 79,
+        "endChar": 25
+      },
+      "revId": "ab5143cbf4a683400ba27c02e61166eea5753d79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9ae2c65_cde81af2",
         "filename": "test/422-type-conversion/src/Main.java",
         "patchSetId": 1
