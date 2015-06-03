@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "b9a97860_71dd438c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-03T17:08:13Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 74
+      },
+      "revId": "1fd7c554b5e82c7ebae0724bbd17aa539a441a47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9ae2c65_edf876be",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-03T17:08:13Z",
+      "side": 1,
+      "message": "Maybe move this into ArtMethod?",
+      "range": {
+        "startLine": 79,
+        "startChar": 12,
+        "endLine": 79,
+        "endChar": 41
+      },
+      "revId": "1fd7c554b5e82c7ebae0724bbd17aa539a441a47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9ae2c65_2d268ef1",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 2
