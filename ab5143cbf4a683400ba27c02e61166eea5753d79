@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "b9a97860_d14af7a3",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-03T16:50:29Z",
+      "side": 1,
+      "message": "Inlining will insert things after `instruction`, overwriting its `next_` field. Since inlining is recursive, we don\u0027t want to iterate over the inlined instructions again, which is why we save the next position we should investigate beforehand.",
+      "parentUuid": "b9a97860_51ba872f",
+      "range": {
+        "startLine": 79,
+        "startChar": 5,
+        "endLine": 79,
+        "endChar": 25
+      },
+      "revId": "ab5143cbf4a683400ba27c02e61166eea5753d79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9ae2c65_cde81af2",
         "filename": "test/422-type-conversion/src/Main.java",
         "patchSetId": 1
