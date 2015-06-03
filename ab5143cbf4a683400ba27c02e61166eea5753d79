@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "b9a97860_11bc0f27",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-03T16:43:09Z",
+      "side": 1,
+      "message": "Ooooooooooooooooooooh okay. I got it wrong.",
+      "parentUuid": "99a8345d_c1dea5fa",
+      "range": {
+        "startLine": 63,
+        "startChar": 7,
+        "endLine": 68,
+        "endChar": 9
+      },
+      "revId": "ab5143cbf4a683400ba27c02e61166eea5753d79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99a8345d_e14de18f",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 1
@@ -83,6 +107,30 @@
       "side": 1,
       "message": "I don\u0027t understand the question... in what \"for\"? This is already in the for from L58.",
       "parentUuid": "99a8345d_e14de18f",
+      "range": {
+        "startLine": 79,
+        "startChar": 5,
+        "endLine": 79,
+        "endChar": 25
+      },
+      "revId": "ab5143cbf4a683400ba27c02e61166eea5753d79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9a97860_51ba872f",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-03T16:43:09Z",
+      "side": 1,
+      "message": "Exactly. Why can\u0027t we write this line in the 3rd part of the for L58 like this:\n\n    for (HInstruction* instruction \u003d block-\u003eGetFirstInstruction(); instruction !\u003d nullptr; instruction \u003d instruction-\u003eGetNext()) {\n\n?",
+      "parentUuid": "b9a97860_d1abd70a",
       "range": {
         "startLine": 79,
         "startChar": 5,
