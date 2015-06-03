@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9ae2c65_5ba147b0",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-03T13:58:16Z",
+      "side": 1,
+      "message": "Did observe better performance by forcing inlining of LoadAt and StoreAt?  Does this entail a significant code size penalty?",
+      "range": {
+        "startLine": 848,
+        "startChar": 2,
+        "endLine": 848,
+        "endChar": 15
+      },
+      "revId": "d434c86e1b258b867ca07a24ff4c99096b881c36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9a97860_4e3bc28a",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-03T13:58:16Z",
+      "side": 1,
+      "message": "Nit: two space.",
+      "range": {
+        "startLine": 848,
+        "startChar": 15,
+        "endLine": 848,
+        "endChar": 17
+      },
+      "revId": "d434c86e1b258b867ca07a24ff4c99096b881c36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
