@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99a8345d_e14de18f",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-03T15:56:30Z",
+      "side": 1,
+      "message": "Why, please tell me why moving this in the for makes 004-Signal to eat ALL THE AVAILABLE RAM AND CRASH THE COMPUTER? That makes absolutely NO SENSE to me. I spent HOURS understanding this!",
+      "range": {
+        "startLine": 79,
+        "startChar": 5,
+        "endLine": 79,
+        "endChar": 25
+      },
+      "revId": "ab5143cbf4a683400ba27c02e61166eea5753d79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
