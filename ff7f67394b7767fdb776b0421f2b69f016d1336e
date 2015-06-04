@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b9ec18cf_1c1a812c",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-04T15:38:03Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 103
+      },
+      "revId": "ff7f67394b7767fdb776b0421f2b69f016d1336e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9f1cca3_77a5a28b",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 1
@@ -41,6 +64,29 @@
         "startChar": 2,
         "endLine": 299,
         "endChar": 35
+      },
+      "revId": "ff7f67394b7767fdb776b0421f2b69f016d1336e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9ec18cf_bca40d3f",
+        "filename": "test/450-checker-types/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-04T15:38:03Z",
+      "side": 1,
+      "message": "Maybe add $noinline$?",
+      "range": {
+        "startLine": 367,
+        "startChar": 19,
+        "endLine": 367,
+        "endChar": 30
       },
       "revId": "ff7f67394b7767fdb776b0421f2b69f016d1336e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
