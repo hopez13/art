@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b9ec18cf_41ff027a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-04T11:28:59Z",
+      "side": 1,
+      "message": "Yay!",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 16
+      },
+      "revId": "8768b6a936cb582831f8a61785e43fafc5d0bee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9f1cca3_745ac07c",
         "filename": "runtime/check_reference_map_visitor.h",
         "patchSetId": 7
@@ -176,6 +199,30 @@
       "writtenOn": "2015-06-04T08:33:29Z",
       "side": 1,
       "message": "I\u0027d like to keep the stack map as an abstraction over a memory region. Hence make it state-less. Why didn\u0027t you keep the extra argument to all methods?",
+      "range": {
+        "startLine": 759,
+        "startChar": 25,
+        "endLine": 759,
+        "endChar": 45
+      },
+      "revId": "8768b6a936cb582831f8a61785e43fafc5d0bee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9f1cca3_97400e06",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-04T11:28:59Z",
+      "side": 1,
+      "message": "+1, it does not follow the state-less design used so far.  (BTW we should probably state this design choice explicitly in a comment in this file.)",
+      "parentUuid": "99fbd485_955ac6c6",
       "range": {
         "startLine": 759,
         "startChar": 25,
