@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "b9ec18cf_76e7665d",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-04T08:57:40Z",
+      "side": 1,
+      "message": "I think it\u0027s forced by the design of having CodeInfo and StackMap just be abstractions over a MemoryRegion.",
+      "parentUuid": "99fbd485_75bbda63",
+      "range": {
+        "startLine": 182,
+        "startChar": 6,
+        "endLine": 184,
+        "endChar": 93
+      },
+      "revId": "8768b6a936cb582831f8a61785e43fafc5d0bee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9ec18cf_76300676",
         "filename": "runtime/stack_map.h",
         "patchSetId": 7
