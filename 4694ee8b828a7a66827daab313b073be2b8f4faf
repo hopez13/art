@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9f1cca3_1497fc9c",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-04T07:54:57Z",
+      "side": 1,
+      "message": "You don\u0027t need this when not running debug build.",
+      "range": {
+        "startLine": 63,
+        "startChar": 8,
+        "endLine": 64,
+        "endChar": 89
+      },
+      "revId": "4694ee8b828a7a66827daab313b073be2b8f4faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9ec18cf_36b15e84",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-04T07:54:57Z",
+      "side": 1,
+      "message": "\"Should not have inlined\"",
+      "range": {
+        "startLine": 76,
+        "startChar": 40,
+        "endLine": 76,
+        "endChar": 47
+      },
+      "revId": "4694ee8b828a7a66827daab313b073be2b8f4faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99fbd485_f5298a3d",
+        "filename": "test/422-type-conversion/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-04T07:54:57Z",
+      "side": 1,
+      "message": "I don\u0027t think these depend on not being inlined. This tests the conversion instructions, regardless of the method they end up in.",
+      "range": {
+        "startLine": 141,
+        "startChar": 30,
+        "endLine": 141,
+        "endChar": 38
+      },
+      "revId": "4694ee8b828a7a66827daab313b073be2b8f4faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
