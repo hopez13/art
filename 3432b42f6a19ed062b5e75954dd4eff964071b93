@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d9f1cca3_f7e4f2a5",
+        "filename": "test/458-long-to-fpu/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-04T11:32:43Z",
+      "side": 1,
+      "message": "Thanks!  Yes, using recursion is not enough now to block the inliner. :)",
+      "parentUuid": "b9ec18cf_011dfa6e",
+      "range": {
+        "startLine": 26,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 24
+      },
+      "revId": "3432b42f6a19ed062b5e75954dd4eff964071b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9ec18cf_e119ce82",
         "filename": "test/458-long-to-fpu/src/Main.java",
         "patchSetId": 4
