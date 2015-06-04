@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b9ec18cf_b6d0ae70",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-06-04T09:03:24Z",
+      "side": 1,
+      "message": "yea, and mostly because our design uses the same objects to create and read the stack maps. It still look silly. Don\u0027t have an immediate suggestion how to fix it (except having methods with and without the encoding parameter but that seem overkill)",
+      "parentUuid": "b9ec18cf_76e7665d",
+      "range": {
+        "startLine": 182,
+        "startChar": 6,
+        "endLine": 184,
+        "endChar": 93
+      },
+      "revId": "8768b6a936cb582831f8a61785e43fafc5d0bee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9ec18cf_76300676",
         "filename": "runtime/stack_map.h",
         "patchSetId": 7
