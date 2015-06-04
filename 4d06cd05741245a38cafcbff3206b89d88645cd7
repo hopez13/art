@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b9ec18cf_615f9e6b",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-04T13:45:42Z",
+      "side": 1,
+      "message": "I added some comments. Don\u0027t forget that we\u0027re dealing with method resolution here, where at runtime we could get incompatible class changes error.",
+      "parentUuid": "99fbd485_0044d6c6",
+      "range": {
+        "startLine": 131,
+        "startChar": 13,
+        "endLine": 131,
+        "endChar": 42
+      },
+      "revId": "4d06cd05741245a38cafcbff3206b89d88645cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9ec18cf_01c97ab8",
         "filename": "test/490-checker-inline/src/Main.java",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "99fbd485_2097529d",
+        "filename": "test/490-checker-inline/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-04T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9ec18cf_01c97ab8",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 1
+      },
+      "revId": "4d06cd05741245a38cafcbff3206b89d88645cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9ec18cf_c1be5221",
         "filename": "test/490-checker-inline/src/Main.java",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2015-06-04T13:37:17Z",
       "side": 1,
       "message": "You can merge this into a single pass, or even a single assertion: CHECK-NOT: Invoke{{.*}}",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 36
+      },
+      "revId": "4d06cd05741245a38cafcbff3206b89d88645cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99fbd485_808c468e",
+        "filename": "test/490-checker-inline/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-04T13:45:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9ec18cf_c1be5221",
       "range": {
         "startLine": 41,
         "startChar": 0,
