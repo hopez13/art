@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b9ec18cf_4188a22a",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4029,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-04T10:33:22Z",
+      "side": 1,
+      "message": "We also must not suspend other threads after invoke if the debugger detached. By extension, we don\u0027t need to fill the reply either since it won\u0027t be sent.",
+      "range": {
+        "startLine": 4023,
+        "startChar": 2,
+        "endLine": 4029,
+        "endChar": 3
+      },
+      "revId": "470d0d77d231c7673eacd1da7a1a2ccd6978bf9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99fbd485_d5d72e64",
         "filename": "runtime/debugger.cc",
         "patchSetId": 5
