@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d96c6c17_71790ff4",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-04T03:44:00Z",
+      "side": 1,
+      "message": "Can probably be unified with the full-deopt visitor, but for quick changes and so on it seemed easier this way.",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 69
+      },
+      "revId": "ce47bec4c71f921c7de23326893551ed5b1377f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d96c6c17_31a037ef",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-04T03:44:00Z",
+      "side": 1,
+      "message": "Alternative for this is another entrypoint that \"wraps\" the interpreter bridge and does the stack update transparently (so is a nop for arm). Or just not re-use the bridge at all...",
+      "range": {
+        "startLine": 533,
+        "startChar": 0,
+        "endLine": 536,
+        "endChar": 6
+      },
+      "revId": "ce47bec4c71f921c7de23326893551ed5b1377f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d96c6c17_119d3bb6",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-04T03:44:00Z",
+      "side": 1,
+      "message": "Could have delegated this further, but it seemed to weird to have \"smash_except_arg0.\"",
+      "range": {
+        "startLine": 600,
+        "startChar": 2,
+        "endLine": 602,
+        "endChar": 3
+      },
+      "revId": "ce47bec4c71f921c7de23326893551ed5b1377f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f955b039_16ec0d04",
+        "filename": "runtime/quick_exception_handler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-04T03:44:00Z",
+      "side": 1,
+      "message": "This is special-purposed because it\u0027s only for debugging - I didn\u0027t want to play in the regular StackDumpVisitor which is quite heavyweight (for lock dumping etc.).",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 91
+      },
+      "revId": "ce47bec4c71f921c7de23326893551ed5b1377f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
