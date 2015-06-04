@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b9ec18cf_96693220",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-06-04T09:37:36Z",
+      "side": 1,
+      "message": "yes, even if it gets to duplicate code move it inside kIsDebugBuild. PrettyMethod is not a cheap call.",
+      "parentUuid": "d9f1cca3_1497fc9c",
+      "range": {
+        "startLine": 63,
+        "startChar": 8,
+        "endLine": 64,
+        "endChar": 89
+      },
+      "revId": "4694ee8b828a7a66827daab313b073be2b8f4faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9ec18cf_36b15e84",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 2
