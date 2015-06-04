@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9f1cca3_77a5a28b",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-04T10:36:54Z",
+      "side": 1,
+      "message": "This should fix the issue of the previous version.",
+      "range": {
+        "startLine": 298,
+        "startChar": 47,
+        "endLine": 298,
+        "endChar": 52
+      },
+      "revId": "ff7f67394b7767fdb776b0421f2b69f016d1336e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
