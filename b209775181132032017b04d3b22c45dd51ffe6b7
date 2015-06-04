@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b9ec18cf_61bafe2f",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-04T13:39:18Z",
+      "side": 1,
+      "message": "We could. I did not see a pressing need for it though, as the intrinsics code is already not factored.",
+      "parentUuid": "d9f1cca3_1709be9d",
+      "range": {
+        "startLine": 1257,
+        "startChar": 0,
+        "endLine": 1260,
+        "endChar": 5
+      },
+      "revId": "b209775181132032017b04d3b22c45dd51ffe6b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99fbd485_00869698",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-04T13:34:10Z",
       "side": 1,
       "message": "Why is `receiver` not always a register on ARM, as it is the case in the ARM64 and x86 code generators?",
+      "range": {
+        "startLine": 1323,
+        "startChar": 2,
+        "endLine": 1328,
+        "endChar": 3
+      },
+      "revId": "b209775181132032017b04d3b22c45dd51ffe6b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9ec18cf_a1bb462f",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1328,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-04T13:39:18Z",
+      "side": 1,
+      "message": "Yes, I removed in other places but forgot here. Removed.",
+      "parentUuid": "99fbd485_00869698",
       "range": {
         "startLine": 1323,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d9f1cca3_42054249",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1404,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-04T13:39:18Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "d9f1cca3_f74d12be",
+      "range": {
+        "startLine": 1399,
+        "startChar": 0,
+        "endLine": 1404,
+        "endChar": 3
+      },
+      "revId": "b209775181132032017b04d3b22c45dd51ffe6b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99fbd485_80e7265c",
         "filename": "test/441-checker-inliner/src/Main.java",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-06-04T13:34:10Z",
       "side": 1,
       "message": "What about adding the HCurrentMethod node to this list of instructions, and explicitly matching its id here (and in other places of this CL)?",
+      "range": {
+        "startLine": 22,
+        "startChar": 75,
+        "endLine": 22,
+        "endChar": 77
+      },
+      "revId": "b209775181132032017b04d3b22c45dd51ffe6b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9ec18cf_01a05aee",
+        "filename": "test/441-checker-inliner/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-04T13:39:18Z",
+      "side": 1,
+      "message": "That wasn\u0027t really the purpose of this test, so I kept the change at a minimal (I was going for [\\*] at the beginning, but as pointed by David, it doesn\u0027t fully work as expected).",
+      "parentUuid": "99fbd485_80e7265c",
       "range": {
         "startLine": 22,
         "startChar": 75,
