@@ -68,6 +68,30 @@
       "revId": "4694ee8b828a7a66827daab313b073be2b8f4faf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9ec18cf_56ecea3f",
+        "filename": "test/422-type-conversion/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-04T08:59:41Z",
+      "side": 1,
+      "message": "Indeed, but inlining the call will trigger the constant folding and therefore not test the code we generate, which is what this test is intended to :-) So we should probably add the noinline.",
+      "parentUuid": "99fbd485_f5298a3d",
+      "range": {
+        "startLine": 141,
+        "startChar": 30,
+        "endLine": 141,
+        "endChar": 38
+      },
+      "revId": "4694ee8b828a7a66827daab313b073be2b8f4faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
