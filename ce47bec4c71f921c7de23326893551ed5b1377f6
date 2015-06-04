@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "b9ec18cf_964652d0",
+        "filename": "runtime/arch/arm/context_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-04T08:55:26Z",
+      "side": 1,
+      "message": "Not sure about the abstraction here. Isn\u0027t it really SetArtMethod?\n\nSetArg0 seems like there is a generic ABI for all platforms.",
+      "range": {
+        "startLine": 48,
+        "startChar": 7,
+        "endLine": 48,
+        "endChar": 14
+      },
+      "revId": "ce47bec4c71f921c7de23326893551ed5b1377f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9f1cca3_97c76e85",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-04T08:55:26Z",
+      "side": 1,
+      "message": "How about if (IsSingleFrameDeopt()) { ...\n\nThen you wouldn\u0027t need the comment below.",
+      "range": {
+        "startLine": 645,
+        "startChar": 0,
+        "endLine": 645,
+        "endChar": 31
+      },
+      "revId": "ce47bec4c71f921c7de23326893551ed5b1377f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99fbd485_b5a4223f",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-04T08:55:26Z",
+      "side": 1,
+      "message": "This is very scary. Why is there an alloca? Why can\u0027t the deopt_frame be enough?",
+      "range": {
+        "startLine": 657,
+        "startChar": 0,
+        "endLine": 659,
+        "endChar": 57
+      },
+      "revId": "ce47bec4c71f921c7de23326893551ed5b1377f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99fbd485_95a1262f",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-04T08:55:26Z",
+      "side": 1,
+      "message": "Do you plan on keeping this?",
+      "range": {
+        "startLine": 669,
+        "startChar": 8,
+        "endLine": 669,
+        "endChar": 38
+      },
+      "revId": "ce47bec4c71f921c7de23326893551ed5b1377f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d96c6c17_71790ff4",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 1
@@ -13,6 +105,30 @@
       "writtenOn": "2015-06-04T03:44:00Z",
       "side": 1,
       "message": "Can probably be unified with the full-deopt visitor, but for quick changes and so on it seemed easier this way.",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 69
+      },
+      "revId": "ce47bec4c71f921c7de23326893551ed5b1377f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9f1cca3_d7d1f641",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-04T08:55:26Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s too crazy thinking to unify it before submitting?",
+      "parentUuid": "d96c6c17_71790ff4",
       "range": {
         "startLine": 326,
         "startChar": 0,
