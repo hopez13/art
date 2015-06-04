@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "99fbd485_40053e49",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-04T10:42:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9ec18cf_96693220",
+      "range": {
+        "startLine": 63,
+        "startChar": 8,
+        "endLine": 64,
+        "endChar": 89
+      },
+      "revId": "4694ee8b828a7a66827daab313b073be2b8f4faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9ec18cf_36b15e84",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 2
@@ -60,6 +84,30 @@
       "writtenOn": "2015-06-04T07:54:57Z",
       "side": 1,
       "message": "\"Should not have inlined\"",
+      "range": {
+        "startLine": 76,
+        "startChar": 40,
+        "endLine": 76,
+        "endChar": 47
+      },
+      "revId": "4694ee8b828a7a66827daab313b073be2b8f4faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9ec18cf_61b03efd",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-04T10:42:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9ec18cf_36b15e84",
       "range": {
         "startLine": 76,
         "startChar": 40,
@@ -143,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "d9f1cca3_97e48ece",
+        "filename": "test/422-type-conversion/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-04T10:42:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9ec18cf_f6da368e",
+      "range": {
+        "startLine": 141,
+        "startChar": 30,
+        "endLine": 141,
+        "endChar": 38
+      },
+      "revId": "4694ee8b828a7a66827daab313b073be2b8f4faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99fbd485_151416ce",
         "filename": "test/478-checker-clinit-check-pruning/src/Main.java",
         "patchSetId": 2
@@ -154,6 +226,24 @@
       "writtenOn": "2015-06-04T09:12:49Z",
       "side": 1,
       "message": "Please retain the original comment here.",
+      "revId": "4694ee8b828a7a66827daab313b073be2b8f4faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9ec18cf_81abaa90",
+        "filename": "test/478-checker-clinit-check-pruning/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-04T10:42:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99fbd485_151416ce",
       "revId": "4694ee8b828a7a66827daab313b073be2b8f4faf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -177,6 +267,24 @@
     },
     {
       "key": {
+        "uuid": "d9f1cca3_57f34699",
+        "filename": "test/478-checker-clinit-check-pruning/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-04T10:42:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9f1cca3_3705da4a",
+      "revId": "4694ee8b828a7a66827daab313b073be2b8f4faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9f1cca3_170a5e5a",
         "filename": "test/478-checker-clinit-check-pruning/src/Main.java",
         "patchSetId": 2
@@ -188,6 +296,24 @@
       "writtenOn": "2015-06-04T09:12:49Z",
       "side": 1,
       "message": "Ditto.",
+      "revId": "4694ee8b828a7a66827daab313b073be2b8f4faf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99fbd485_e0e8aaf1",
+        "filename": "test/478-checker-clinit-check-pruning/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-04T10:42:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9f1cca3_170a5e5a",
       "revId": "4694ee8b828a7a66827daab313b073be2b8f4faf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
