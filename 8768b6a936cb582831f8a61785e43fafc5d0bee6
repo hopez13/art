@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "99fbd485_8009e636",
+        "filename": "runtime/check_reference_map_visitor.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-04T14:44:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9f1cca3_745ac07c",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 55
+      },
+      "revId": "8768b6a936cb582831f8a61785e43fafc5d0bee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99fbd485_75bbda63",
         "filename": "runtime/stack_map.cc",
         "patchSetId": 7
@@ -142,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "d9f1cca3_37ee7a84",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-04T14:44:29Z",
+      "side": 1,
+      "message": "StackMapStream doesn\u0027t have all the values until PrepareForFillIn, so stack_map_encoding_ has to be initialized to something dummy until then.",
+      "parentUuid": "b9ec18cf_76300676",
+      "range": {
+        "startLine": 640,
+        "startChar": 2,
+        "endLine": 640,
+        "endChar": 23
+      },
+      "revId": "8768b6a936cb582831f8a61785e43fafc5d0bee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99fbd485_75447aec",
         "filename": "runtime/stack_map.h",
         "patchSetId": 7
@@ -165,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "b9ec18cf_218756eb",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-04T14:44:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99fbd485_75447aec",
+      "range": {
+        "startLine": 655,
+        "startChar": 26,
+        "endLine": 655,
+        "endChar": 33
+      },
+      "revId": "8768b6a936cb582831f8a61785e43fafc5d0bee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9f1cca3_b4538863",
         "filename": "runtime/stack_map.h",
         "patchSetId": 7
@@ -176,6 +248,30 @@
       "writtenOn": "2015-06-04T08:33:29Z",
       "side": 1,
       "message": "all const?",
+      "range": {
+        "startLine": 735,
+        "startChar": 0,
+        "endLine": 740,
+        "endChar": 34
+      },
+      "revId": "8768b6a936cb582831f8a61785e43fafc5d0bee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99fbd485_e019ca82",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-04T14:44:29Z",
+      "side": 1,
+      "message": "I\u0027d love to but then I\u0027d need to initialize them explicitly in the no-argument constructor, and i\u0027d also need a copy constructor for passing the structure around...",
+      "parentUuid": "d9f1cca3_b4538863",
       "range": {
         "startLine": 735,
         "startChar": 0,
@@ -235,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "b9ec18cf_e129ce14",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-04T14:44:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99fbd485_955ac6c6",
+      "range": {
+        "startLine": 759,
+        "startChar": 25,
+        "endLine": 759,
+        "endChar": 45
+      },
+      "revId": "8768b6a936cb582831f8a61785e43fafc5d0bee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99fbd485_359832fc",
         "filename": "runtime/stack_map.h",
         "patchSetId": 7
@@ -246,6 +366,30 @@
       "writtenOn": "2015-06-04T08:56:12Z",
       "side": 1,
       "message": "move to cc",
+      "range": {
+        "startLine": 865,
+        "startChar": 25,
+        "endLine": 865,
+        "endChar": 31
+      },
+      "revId": "8768b6a936cb582831f8a61785e43fafc5d0bee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99fbd485_9b63170d",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-04T14:44:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99fbd485_359832fc",
       "range": {
         "startLine": 865,
         "startChar": 25,
