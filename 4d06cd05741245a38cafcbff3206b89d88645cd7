@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99fbd485_0044d6c6",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-04T13:37:17Z",
+      "side": 1,
+      "message": "Can you give me an example when you need this special case? Maybe I\u0027m just missing something but if it\u0027s abstract, then neither the method nor the class can be final and the type cannot be exact, so it should fall through to the else block, right?",
+      "range": {
+        "startLine": 131,
+        "startChar": 13,
+        "endLine": 131,
+        "endChar": 42
+      },
+      "revId": "4d06cd05741245a38cafcbff3206b89d88645cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9ec18cf_c1be5221",
+        "filename": "test/490-checker-inline/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-04T13:37:17Z",
+      "side": 1,
+      "message": "You can merge this into a single pass, or even a single assertion: CHECK-NOT: Invoke{{.*}}",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 36
+      },
+      "revId": "4d06cd05741245a38cafcbff3206b89d88645cd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
