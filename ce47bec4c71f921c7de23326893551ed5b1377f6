@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d9f1cca3_e2826e82",
+        "filename": "runtime/arch/arm/context_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-04T15:36:53Z",
+      "side": 1,
+      "message": "Yeah, but was is arg0 really? Is that the c++ abi arg0? the art abi arg0? But then the actual argument or the method?\n\nHence the suggestion to use SetArtMethod which makes it pretty clear.",
+      "parentUuid": "f955b039_76c0e9be",
+      "range": {
+        "startLine": 48,
+        "startChar": 7,
+        "endLine": 48,
+        "endChar": 14
+      },
+      "revId": "ce47bec4c71f921c7de23326893551ed5b1377f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9f1cca3_97c76e85",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "So if (IsSingleFrameDeopt(self)) or something like that? I don\u0027t think it makes sense to do IsSingleFrameDeopt(deopt_frame).",
       "parentUuid": "d9f1cca3_97c76e85",
+      "range": {
+        "startLine": 645,
+        "startChar": 0,
+        "endLine": 645,
+        "endChar": 31
+      },
+      "revId": "ce47bec4c71f921c7de23326893551ed5b1377f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99fbd485_7bd10bc5",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-04T15:36:53Z",
+      "side": 1,
+      "message": "Oh I didn\u0027t realize the deopt frame was on the thread, I though it was on this object. Nevermind then.",
+      "parentUuid": "d96c6c17_0c9d20b6",
       "range": {
         "startLine": 645,
         "startChar": 0,
@@ -143,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "d9f1cca3_826d6a7f",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-04T15:36:53Z",
+      "side": 1,
+      "message": "I understand the unified statement, it\u0027s more the magic that you\u0027re pushing the frame on the C stack. But I can see it\u0027d done below, so nevermind.",
+      "parentUuid": "f955b039_36b6717c",
+      "range": {
+        "startLine": 657,
+        "startChar": 0,
+        "endLine": 659,
+        "endChar": 57
+      },
+      "revId": "ce47bec4c71f921c7de23326893551ed5b1377f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99fbd485_95a1262f",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 1
@@ -178,6 +250,30 @@
       "side": 1,
       "message": "Yes, except if you think that it should be part of VLOG(deopt) (which currently only dumps the stack before deopt).",
       "parentUuid": "99fbd485_95a1262f",
+      "range": {
+        "startLine": 669,
+        "startChar": 8,
+        "endLine": 669,
+        "endChar": 38
+      },
+      "revId": "ce47bec4c71f921c7de23326893551ed5b1377f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9f1cca3_a273465e",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-04T15:36:53Z",
+      "side": 1,
+      "message": "Yeah, I think VLOG(deopt) is good enough.",
+      "parentUuid": "f923f0e9_7692bedb",
       "range": {
         "startLine": 669,
         "startChar": 8,
