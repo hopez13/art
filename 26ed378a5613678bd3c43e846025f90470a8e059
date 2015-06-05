@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "19d6040d_a05dfac2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-05T00:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d96c6c17_611daf6e",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 43
+      },
+      "revId": "26ed378a5613678bd3c43e846025f90470a8e059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d96c6c17_812bab89",
         "filename": "runtime/debugger.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-05T00:00:06Z",
       "side": 1,
       "message": "Sort...",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 15
+      },
+      "revId": "26ed378a5613678bd3c43e846025f90470a8e059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9df0c22_1e98cdfb",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-05T00:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d96c6c17_812bab89",
       "range": {
         "startLine": 30,
         "startChar": 0,
@@ -82,6 +130,30 @@
       "writtenOn": "2015-06-05T00:00:06Z",
       "side": 1,
       "message": "A comment to explain why this is necessary, please.",
+      "range": {
+        "startLine": 521,
+        "startChar": 21,
+        "endLine": 521,
+        "endChar": 38
+      },
+      "revId": "26ed378a5613678bd3c43e846025f90470a8e059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99e914d2_bcd7e1b6",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-05T00:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "790f0079_d1c0cf1f",
       "range": {
         "startLine": 521,
         "startChar": 21,
