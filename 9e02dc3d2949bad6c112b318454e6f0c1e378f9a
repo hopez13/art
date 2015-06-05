@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "59595c72_9d504758",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-05T01:07:10Z",
+      "side": 1,
+      "message": "No performance numbers for this. This is just a temporary solution though until we can get compiler support, we won\u0027t be shipping a release this way as-is.",
+      "parentUuid": "cd24a5a6_c2a8cf86",
+      "range": {
+        "startLine": 426,
+        "startChar": 0,
+        "endLine": 429,
+        "endChar": 2
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd24a5a6_c7a8e186",
         "filename": "compiler/dex/quick/quick_compiler.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-05-07T00:01:27Z",
       "side": 1,
       "message": "Nope. We\u0027re going with null in comments.",
+      "range": {
+        "startLine": 431,
+        "startChar": 28,
+        "endLine": 431,
+        "endChar": 31
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7948e0a0_fe121d0d",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-05T01:07:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd24a5a6_c7a8e186",
       "range": {
         "startLine": 431,
         "startChar": 28,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "395ca863_3f3acff9",
+        "filename": "compiler/dex/verified_method.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-05T01:07:10Z",
+      "side": 1,
+      "message": "SGTM, I\u0027ll separate cleanup in CLs going forward (in future CLs).",
+      "parentUuid": "4d8435cc_1ff2bce6",
+      "range": {
+        "startLine": 123,
+        "startChar": 2,
+        "endLine": 123,
+        "endChar": 42
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd24a5a6_02afe710",
         "filename": "runtime/dex_instruction-inl.h",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2015-05-07T00:36:23Z",
       "side": 1,
       "message": "Coding style is reg_list.",
+      "range": {
+        "startLine": 479,
+        "startChar": 11,
+        "endLine": 479,
+        "endChar": 18
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7948e0a0_9e73195f",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-05T01:07:10Z",
+      "side": 1,
+      "message": "I\u0027m surprised lint didn\u0027t catch that, is this a common mistake?",
+      "parentUuid": "cd24a5a6_02afe710",
       "range": {
         "startLine": 479,
         "startChar": 11,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "ad3e91ea_d0f105e3",
+        "filename": "runtime/dex_instruction.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-05T01:07:10Z",
+      "side": 1,
+      "message": "Its the same as above, do you want me to change this entire function to obey line limit?",
+      "parentUuid": "cd24a5a6_029807ef",
+      "range": {
+        "startLine": 230,
+        "startChar": 100,
+        "endLine": 230,
+        "endChar": 114
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d1e2d58_1556fc2e",
         "filename": "runtime/dex_instruction.cc",
         "patchSetId": 6
@@ -128,6 +248,30 @@
       "writtenOn": "2015-05-07T00:36:23Z",
       "side": 1,
       "message": "Why is fall-through intended here? Seems more like LOG(FATAL) ; UNREACHABLE();",
+      "range": {
+        "startLine": 333,
+        "startChar": 6,
+        "endLine": 333,
+        "endChar": 27
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad3e91ea_705c715a",
+        "filename": "runtime/dex_instruction.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-05T01:07:10Z",
+      "side": 1,
+      "message": "Right, I think I just want to do a default case here \u0027%s v%d, thing@%d\"",
+      "parentUuid": "8d1e2d58_1556fc2e",
       "range": {
         "startLine": 333,
         "startChar": 6,
@@ -232,6 +376,30 @@
     },
     {
       "key": {
+        "uuid": "cd43c57f_c5394952",
+        "filename": "runtime/stack.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-05T01:07:10Z",
+      "side": 1,
+      "message": "Basically GetVregReference can return a non-null pointer if the vreg is a reference..right?\n\nExcept that on non-moving collectors, they don\u0027t bother updating the vreg references part of the array ever, so it could return some pointer looking thing even though that current vreg only holds a plain old primitive.\n\nOn the other hand on moving collectors the vreg references array section are always updated , since when an object gets moved the pointer would otherwise point to not-valid memory. So it needs to update.\n\nAnyway, this is just a comment to explain *why* you have to do this weird check of \"GetVreg \u003d\u003d GetVregReference\" every time you use this function. Please let me know if I should reword it to be more clear.",
+      "parentUuid": "8d1e2d58_f5b140c1",
+      "range": {
+        "startLine": 149,
+        "startChar": 5,
+        "endLine": 150,
+        "endChar": 29
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd24a5a6_8292d7a4",
         "filename": "runtime/stack.h",
         "patchSetId": 6
@@ -243,6 +411,30 @@
       "writtenOn": "2015-05-07T01:00:18Z",
       "side": 1,
       "message": "Not necessarily. The goal was to not use a reference array, but...",
+      "range": {
+        "startLine": 290,
+        "startChar": 63,
+        "endLine": 290,
+        "endChar": 79
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd43c57f_85e10150",
+        "filename": "runtime/stack.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-05T01:07:10Z",
+      "side": 1,
+      "message": "Is it just this part that\u0027s wrong, or the whole todo?",
+      "parentUuid": "cd24a5a6_8292d7a4",
       "range": {
         "startLine": 290,
         "startChar": 63,
@@ -301,6 +493,30 @@
     },
     {
       "key": {
+        "uuid": "7948e0a0_7e928ddb",
+        "filename": "runtime/stack.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-05T01:07:10Z",
+      "side": 1,
+      "message": "Wasn\u0027t sure what the right indentation was for comments overflowing (google3 style guide doesn\u0027t say), please advise in next PS",
+      "parentUuid": "8d1e2d58_b54f4848",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 321,
+        "endChar": 101
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d8435cc_7d1990ad",
         "filename": "runtime/thread.cc",
         "patchSetId": 6
@@ -312,6 +528,30 @@
       "writtenOn": "2015-05-07T01:00:18Z",
       "side": 1,
       "message": "Separate cleanup. And it was put that way because it seems to be the style here...",
+      "range": {
+        "startLine": 2361,
+        "startChar": 6,
+        "endLine": 2361,
+        "endChar": 39
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d338121_16640aca",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2361,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-05T01:07:10Z",
+      "side": 1,
+      "message": "Ok, well it\u0027s either that or we delete this function altogether because it\u0027s unused.",
+      "parentUuid": "4d8435cc_7d1990ad",
       "range": {
         "startLine": 2361,
         "startChar": 6,
@@ -387,6 +627,30 @@
     },
     {
       "key": {
+        "uuid": "cd43c57f_459259a7",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2865,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-05T01:07:10Z",
+      "side": 1,
+      "message": "Well I\u0027m in the process of implementing these, so I just put the CHECK in here to quickly crash it to remind me to finish implementing them. \n\nBAD_CLASS_HARD seemed more appropriate for true unused opcodes.\n\nI can just change it to do a fall through if that\u0027s what you would rather have.",
+      "parentUuid": "cd24a5a6_24fb10bb",
+      "range": {
+        "startLine": 2865,
+        "startChar": 6,
+        "endLine": 2865,
+        "endChar": 64
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d1e2d58_b5c86828",
         "filename": "runtime/verifier/method_verifier.h",
         "patchSetId": 6
@@ -398,6 +662,30 @@
       "writtenOn": "2015-05-07T01:00:18Z",
       "side": 1,
       "message": "Please put a note here why this is necessary. This should be removed once you have verifier support.",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 73
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "395ca863_dff8f343",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-05T01:07:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d1e2d58_b5c86828",
       "range": {
         "startLine": 81,
         "startChar": 0,
