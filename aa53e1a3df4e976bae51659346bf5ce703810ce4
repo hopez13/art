@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "39b828d4_1c637993",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-05T09:39:04Z",
+      "side": 1,
+      "message": "If you change that in a later CL, please mention it in the commit message so it\u0027s obvious this is only a first part.\n\nI\u0027d prefer we do not leave a \"temp\" DEX format in the code to avoid anyone from using it while the lambda support is not complete yet (at least interpreter and verifier). But if it makes your life easier then go for it.\n\nI think we should have a flag (kEnableLambdaOpcodes?) saying whether lambda support is enabled. It would remain false until the support is complete. You would only set it to true locally (and never merge it) to continue your work. Opinions?",
+      "parentUuid": "300cbaed_39042fcf",
+      "range": {
+        "startLine": 465,
+        "startChar": 10,
+        "endLine": 465,
+        "endChar": 12
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90e3a61e_55b41ec0",
         "filename": "runtime/dex_instruction_list.h",
         "patchSetId": 4
@@ -471,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "39b828d4_3c04bd1c",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-05T09:39:04Z",
+      "side": 1,
+      "message": "I believe so. You will have a *native* object in the shadow frame which has no sense. Plus the GC will crash when visiting that pointer.",
+      "parentUuid": "90fd66eb_bcc8212a",
+      "range": {
+        "startLine": 177,
+        "startChar": 5,
+        "endLine": 177,
+        "endChar": 77
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90e3a61e_75903a1a",
         "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
         "patchSetId": 4
@@ -554,6 +602,30 @@
       "side": 1,
       "message": "Removed UPDATE_HANDLER_TABLE.\n\ncreate-lambda cannot cause a method invocation. However invoke-lambda can so I left it there.",
       "parentUuid": "30375a6d_55166cfc",
+      "range": {
+        "startLine": 2405,
+        "startChar": 4,
+        "endLine": 2405,
+        "endChar": 27
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19afe490_1b045f85",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2405,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-05T09:39:04Z",
+      "side": 1,
+      "message": "SGTM",
+      "parentUuid": "90fd66eb_1c9795c2",
       "range": {
         "startLine": 2405,
         "startChar": 4,
