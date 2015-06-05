@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9df0c22_be0519c7",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-05T00:33:28Z",
+      "side": 1,
+      "message": "These log statements are probably too spammy, you can use verbose logging like VLOG(heap) so that it only prints if the verbose flag is enabled.",
+      "range": {
+        "startLine": 131,
+        "startChar": 11,
+        "endLine": 131,
+        "endChar": 12
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19d6040d_80d636bc",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-05T00:33:28Z",
+      "side": 1,
+      "message": "The ArtMethods are no longer in java heap, mutator lock is probably not required for most of these functions.",
+      "range": {
+        "startLine": 209,
+        "startChar": 22,
+        "endLine": 209,
+        "endChar": 43
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19d6040d_4087cee9",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-05T00:33:28Z",
+      "side": 1,
+      "message": "Should be HashAllocRecordStackTraceElement to follow style guide.",
+      "range": {
+        "startLine": 274,
+        "startChar": 7,
+        "endLine": 274,
+        "endChar": 40
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19d6040d_40418eeb",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-05T00:33:28Z",
+      "side": 1,
+      "message": "Style here also.",
+      "range": {
+        "startLine": 281,
+        "startChar": 7,
+        "endLine": 281,
+        "endChar": 33
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99e914d2_bc63610c",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-05T00:33:28Z",
+      "side": 1,
+      "message": "We have something called STLDeleteValues which does this, you can call STLDeleteValues(\u0026entries_);",
+      "range": {
+        "startLine": 336,
+        "startChar": 24,
+        "endLine": 336,
+        "endChar": 25
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99e914d2_dc190dac",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-05T00:33:28Z",
+      "side": 1,
+      "message": "Can we create a SafeMap somewhere so that the run time is faster if there is a lot of entries_.",
+      "range": {
+        "startLine": 348,
+        "startChar": 24,
+        "endLine": 348,
+        "endChar": 30
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9df0c22_7ec0f1be",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-05T00:33:28Z",
+      "side": 1,
+      "message": "Things which don\u0027t modify the entries array could maybe use SHARED_LOCKS_REQUIRED?",
+      "range": {
+        "startLine": 361,
+        "startChar": 6,
+        "endLine": 361,
+        "endChar": 30
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99e914d2_5c209da3",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-05T00:33:28Z",
+      "side": 1,
+      "message": "is this supposed to be GUARDED_BY(Locks::alloc_tracker_lock_)?",
+      "range": {
+        "startLine": 403,
+        "startChar": 62,
+        "endLine": 403,
+        "endChar": 63
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19d6040d_209baa52",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-05T00:33:28Z",
+      "side": 1,
+      "message": "This may cause conflict on 64 bits if two pointers have same low 32 bits but different high 32 bits.",
+      "range": {
+        "startLine": 196,
+        "startChar": 10,
+        "endLine": 196,
+        "endChar": 31
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19d6040d_404fce0a",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-05T00:33:28Z",
+      "side": 1,
+      "message": "I think there is a race condition here since there may be objects allocated after the GC is done marking which will not be marked according to the visitor callback, see DisallowNewSystemWeaks.",
+      "range": {
+        "startLine": 408,
+        "startChar": 2,
+        "endLine": 408,
+        "endChar": 27
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9df0c22_3ea0297c",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-05T00:33:28Z",
+      "side": 1,
+      "message": "I think we should maybe move the alloc tracking logic into the Heap instead of the Runtime.",
+      "range": {
+        "startLine": 645,
+        "startChar": 7,
+        "endLine": 645,
+        "endChar": 30
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19d6040d_003b06a7",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-05T00:33:28Z",
+      "side": 1,
+      "message": "PT_GUARDED_BY seems to just be an empty macro, does the normal GUARDED_BY not work?",
+      "range": {
+        "startLine": 646,
+        "startChar": 40,
+        "endLine": 646,
+        "endChar": 59
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
