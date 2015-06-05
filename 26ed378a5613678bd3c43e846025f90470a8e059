@@ -22,6 +22,75 @@
       "revId": "26ed378a5613678bd3c43e846025f90470a8e059",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d96c6c17_812bab89",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-05T00:00:06Z",
+      "side": 1,
+      "message": "Sort...",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 15
+      },
+      "revId": "26ed378a5613678bd3c43e846025f90470a8e059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "790f0079_1190a71c",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-05T00:00:06Z",
+      "side": 1,
+      "message": "Not sure I like this. It isn\u0027t shorter, and it hides the fact that we\u0027re using a pointer again as ID.\n\nWhich brings up the point: does this work on 64-bit? This is not a Java structure, so not in the heap, so potentially not a 32-bit pointer...",
+      "range": {
+        "startLine": 147,
+        "startChar": 37,
+        "endLine": 147,
+        "endChar": 64
+      },
+      "revId": "26ed378a5613678bd3c43e846025f90470a8e059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "790f0079_d1c0cf1f",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-05T00:00:06Z",
+      "side": 1,
+      "message": "A comment to explain why this is necessary, please.",
+      "range": {
+        "startLine": 521,
+        "startChar": 21,
+        "endLine": 521,
+        "endChar": 38
+      },
+      "revId": "26ed378a5613678bd3c43e846025f90470a8e059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
