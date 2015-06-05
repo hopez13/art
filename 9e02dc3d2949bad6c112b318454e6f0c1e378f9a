@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "99e914d2_b7728f5b",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-05T22:06:06Z",
+      "side": 1,
+      "message": "I measured dex2oat building /system/framework/boot.oat and boot.art (for a Flo device), on host with -j4 which should be somewhat proportional to a real device (same flags as boot-oat-dump except with dex2oat instead of dex2oatd and with -j4 added).\n\n\n6.426s vs 6.054s on 4 threads which is a 6% slowdown.",
+      "parentUuid": "59595c72_9d504758",
+      "range": {
+        "startLine": 426,
+        "startChar": 0,
+        "endLine": 429,
+        "endChar": 2
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd24a5a6_c7a8e186",
         "filename": "compiler/dex/quick/quick_compiler.cc",
         "patchSetId": 6
