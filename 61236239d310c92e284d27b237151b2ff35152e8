@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "99e914d2_e51c6c75",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-05T06:19:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9df0c22_be0519c7",
+      "range": {
+        "startLine": 131,
+        "startChar": 11,
+        "endLine": 131,
+        "endChar": 12
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19d6040d_80d636bc",
         "filename": "runtime/debugger.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-05T00:33:28Z",
       "side": 1,
       "message": "The ArtMethods are no longer in java heap, mutator lock is probably not required for most of these functions.",
+      "range": {
+        "startLine": 209,
+        "startChar": 22,
+        "endLine": 209,
+        "endChar": 43
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9df0c22_e7cab03c",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-05T06:19:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19d6040d_80d636bc",
       "range": {
         "startLine": 209,
         "startChar": 22,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d9df0c22_07c87c42",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-05T06:19:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19d6040d_4087cee9",
+      "range": {
+        "startLine": 274,
+        "startChar": 7,
+        "endLine": 274,
+        "endChar": 40
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19d6040d_40418eeb",
         "filename": "runtime/debugger.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-06-05T00:33:28Z",
       "side": 1,
       "message": "Style here also.",
+      "range": {
+        "startLine": 281,
+        "startChar": 7,
+        "endLine": 281,
+        "endChar": 33
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19d6040d_064b1ea9",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-05T06:19:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19d6040d_40418eeb",
       "range": {
         "startLine": 281,
         "startChar": 7,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d9df0c22_27f49883",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-05T06:19:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99e914d2_bc63610c",
+      "range": {
+        "startLine": 336,
+        "startChar": 24,
+        "endLine": 336,
+        "endChar": 25
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99e914d2_dc190dac",
         "filename": "runtime/debugger.h",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2015-06-05T00:33:28Z",
       "side": 1,
       "message": "Can we create a SafeMap somewhere so that the run time is faster if there is a lot of entries_.",
+      "range": {
+        "startLine": 348,
+        "startChar": 24,
+        "endLine": 348,
+        "endChar": 30
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9df0c22_47f9a47a",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-05T06:19:04Z",
+      "side": 1,
+      "message": "Done.\nThis method is unused and now removed.",
+      "parentUuid": "99e914d2_dc190dac",
       "range": {
         "startLine": 348,
         "startChar": 24,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "19d6040d_29b7152a",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-05T06:19:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9df0c22_7ec0f1be",
+      "range": {
+        "startLine": 361,
+        "startChar": 6,
+        "endLine": 361,
+        "endChar": 30
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99e914d2_5c209da3",
         "filename": "runtime/debugger.h",
         "patchSetId": 2
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "d9df0c22_67eea0b3",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-05T06:19:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99e914d2_5c209da3",
+      "range": {
+        "startLine": 403,
+        "startChar": 62,
+        "endLine": 403,
+        "endChar": 63
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19d6040d_209baa52",
         "filename": "runtime/hprof/hprof.cc",
         "patchSetId": 2
@@ -197,6 +389,30 @@
       "writtenOn": "2015-06-05T00:33:28Z",
       "side": 1,
       "message": "This may cause conflict on 64 bits if two pointers have same low 32 bits but different high 32 bits.",
+      "range": {
+        "startLine": 196,
+        "startChar": 10,
+        "endLine": 196,
+        "endChar": 31
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99e914d2_252654c3",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-05T06:19:04Z",
+      "side": 1,
+      "message": "Yes, but many places already use PointerToLowMemUInt32() for IDs, such as for class ID and object ID.",
+      "parentUuid": "19d6040d_209baa52",
       "range": {
         "startLine": 196,
         "startChar": 10,
@@ -266,6 +482,30 @@
       "writtenOn": "2015-06-05T00:33:28Z",
       "side": 1,
       "message": "PT_GUARDED_BY seems to just be an empty macro, does the normal GUARDED_BY not work?",
+      "range": {
+        "startLine": 646,
+        "startChar": 40,
+        "endLine": 646,
+        "endChar": 59
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99e914d2_051a3876",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-05T06:19:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19d6040d_003b06a7",
       "range": {
         "startLine": 646,
         "startChar": 40,
