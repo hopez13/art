@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19afe490_fbc5eb9b",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-05T09:52:30Z",
+      "side": 1,
+      "message": "I don\u0027t think debugger.h is the right location for these classes which are related to allocation tracking for DDMS.   (They shouldn\u0027t have been placed in debugger.cc in the first place either, it\u0027s mostly related to debugging Java code with JDWP, and moving them out is on my TODO list).\n\nPlease consider moving them to a dedicated header file related to allocation tracking (or to DDMS more generally?)",
+      "range": {
+        "startLine": 203,
+        "startChar": 6,
+        "endLine": 203,
+        "endChar": 34
+      },
+      "revId": "cb3050257ba24e272c20daef18909e2e9eb6dd61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
