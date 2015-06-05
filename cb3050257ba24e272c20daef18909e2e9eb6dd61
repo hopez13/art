@@ -46,6 +46,29 @@
       "revId": "cb3050257ba24e272c20daef18909e2e9eb6dd61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9df0c22_98ba2d2d",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-06-05T17:56:59Z",
+      "side": 1,
+      "message": "Is this treat as a system weak? I think it\u0027d need GcRoot if so.",
+      "range": {
+        "startLine": 386,
+        "startChar": 22,
+        "endLine": 386,
+        "endChar": 37
+      },
+      "revId": "cb3050257ba24e272c20daef18909e2e9eb6dd61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
