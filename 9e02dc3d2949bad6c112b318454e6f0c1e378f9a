@@ -447,6 +447,30 @@
     },
     {
       "key": {
+        "uuid": "f9b130f2_dae4a1a6",
+        "filename": "runtime/stack.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-05T09:39:04Z",
+      "side": 1,
+      "message": "Andreas is right, I forgot about that. To improve interpreter performance, we\u0027d like to get rid of the extra reference array as much as possible to avoid the double-store. In this case, we\u0027d still need to know whether the shadow has a reference array or not.",
+      "parentUuid": "cd43c57f_85e10150",
+      "range": {
+        "startLine": 290,
+        "startChar": 63,
+        "endLine": 290,
+        "endChar": 79
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd24a5a6_22b8a324",
         "filename": "runtime/stack.h",
         "patchSetId": 6
@@ -564,6 +588,30 @@
     },
     {
       "key": {
+        "uuid": "f9b130f2_fae16593",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2361,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-05T09:39:04Z",
+      "side": 1,
+      "message": "If the function is unused, just remove it.",
+      "parentUuid": "2d338121_16640aca",
+      "range": {
+        "startLine": 2361,
+        "startChar": 6,
+        "endLine": 2361,
+        "endChar": 39
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d1e2d58_35dc58e5",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 6
@@ -639,6 +687,30 @@
       "side": 1,
       "message": "Well I\u0027m in the process of implementing these, so I just put the CHECK in here to quickly crash it to remind me to finish implementing them. \n\nBAD_CLASS_HARD seemed more appropriate for true unused opcodes.\n\nI can just change it to do a fall through if that\u0027s what you would rather have.",
       "parentUuid": "cd24a5a6_24fb10bb",
+      "range": {
+        "startLine": 2865,
+        "startChar": 6,
+        "endLine": 2865,
+        "endChar": 64
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9b130f2_1aee1984",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2865,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-05T09:39:04Z",
+      "side": 1,
+      "message": "Note you could replace the CHECK(false) by \n\n  UNIMPLEMENTED(FATAL) \u003c\u003c \"Implement opcodes for lambdas\"\n\nwhich I find even more explicit here.",
+      "parentUuid": "cd43c57f_459259a7",
       "range": {
         "startLine": 2865,
         "startChar": 6,
