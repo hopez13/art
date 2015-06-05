@@ -519,6 +519,30 @@
     },
     {
       "key": {
+        "uuid": "99e914d2_96ecbc41",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-05T18:01:24Z",
+      "side": 1,
+      "message": "That\u0027s ok, the latest PS supports the native ArtMethods, I just store them as non-reference vregs instead.",
+      "parentUuid": "39b828d4_3c04bd1c",
+      "range": {
+        "startLine": 177,
+        "startChar": 5,
+        "endLine": 177,
+        "endChar": 77
+      },
+      "revId": "aa53e1a3df4e976bae51659346bf5ce703810ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90e3a61e_75903a1a",
         "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
         "patchSetId": 4
