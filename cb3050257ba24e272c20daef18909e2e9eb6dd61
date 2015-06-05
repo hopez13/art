@@ -69,6 +69,30 @@
       "revId": "cb3050257ba24e272c20daef18909e2e9eb6dd61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9a690c2_d8d4a134",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-06-05T18:44:58Z",
+      "side": 1,
+      "message": "More generally, how is this read barrier safe?",
+      "parentUuid": "d9df0c22_98ba2d2d",
+      "range": {
+        "startLine": 386,
+        "startChar": 22,
+        "endLine": 386,
+        "endChar": 37
+      },
+      "revId": "cb3050257ba24e272c20daef18909e2e9eb6dd61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
