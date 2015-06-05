@@ -425,6 +425,30 @@
     },
     {
       "key": {
+        "uuid": "f9a690c2_8f12d55e",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-05T15:04:43Z",
+      "side": 1,
+      "message": "But classes and object are in the Java heap and thus in the low 4GB. Not comparable to native objects...",
+      "parentUuid": "99e914d2_252654c3",
+      "range": {
+        "startLine": 196,
+        "startChar": 10,
+        "endLine": 196,
+        "endChar": 31
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19d6040d_404fce0a",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
