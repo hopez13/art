@@ -449,6 +449,30 @@
     },
     {
       "key": {
+        "uuid": "d9ab8c9c_44134213",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-06T07:33:40Z",
+      "side": 1,
+      "message": "Done. Rewrote the code and removed AddPointerAsId().",
+      "parentUuid": "f9a690c2_8f12d55e",
+      "range": {
+        "startLine": 196,
+        "startChar": 10,
+        "endLine": 196,
+        "endChar": 31
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19d6040d_404fce0a",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
@@ -483,6 +507,30 @@
       "writtenOn": "2015-06-05T00:33:28Z",
       "side": 1,
       "message": "I think we should maybe move the alloc tracking logic into the Heap instead of the Runtime.",
+      "range": {
+        "startLine": 645,
+        "startChar": 7,
+        "endLine": 645,
+        "endChar": 30
+      },
+      "revId": "61236239d310c92e284d27b237151b2ff35152e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9ab8c9c_24103604",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-06T07:33:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9df0c22_3ea0297c",
       "range": {
         "startLine": 645,
         "startChar": 7,
