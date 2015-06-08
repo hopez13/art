@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "796b8031_60a68bcb",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-06-08T22:39:46Z",
+      "side": 1,
+      "message": "I think the way I\u0027ve implemented it is more readable and I don\u0027t think this is performance critical code needing that kind of optimization.",
+      "parentUuid": "d9d9cc70_286497c1",
+      "range": {
+        "startLine": 704,
+        "startChar": 2,
+        "endLine": 704,
+        "endChar": 3
+      },
+      "revId": "40366f1d33003d2e832b3ca47c7d4f112abb6748",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79c9c09b_533784eb",
         "filename": "runtime/dex_file_verifier.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d9d9cc70_b877b67c",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-06-08T22:39:46Z",
+      "side": 1,
+      "message": "I need to clear the entries between classes. I\u0027ll add a comment.",
+      "parentUuid": "79c9c09b_533784eb",
+      "range": {
+        "startLine": 717,
+        "startChar": 0,
+        "endLine": 717,
+        "endChar": 33
+      },
+      "revId": "40366f1d33003d2e832b3ca47c7d4f112abb6748",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ce74a2_b4492037",
         "filename": "runtime/dex_file_verifier.h",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-06-08T09:25:39Z",
       "side": 1,
       "message": "unordered_set? (if the performance is better)",
+      "range": {
+        "startLine": 130,
+        "startChar": 7,
+        "endLine": 130,
+        "endChar": 10
+      },
+      "revId": "40366f1d33003d2e832b3ca47c7d4f112abb6748",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9d9cc70_78938e2c",
+        "filename": "runtime/dex_file_verifier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-06-08T22:39:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99ce74a2_b4492037",
       "range": {
         "startLine": 130,
         "startChar": 7,
