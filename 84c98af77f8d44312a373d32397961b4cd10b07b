@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99ce74a2_3490701d",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T09:15:16Z",
+      "side": 1,
+      "message": "ComputeLineNumber ?",
+      "range": {
+        "startLine": 41,
+        "startChar": 10,
+        "endLine": 41,
+        "endChar": 20
+      },
+      "revId": "84c98af77f8d44312a373d32397961b4cd10b07b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_f481d8d6",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T09:15:16Z",
+      "side": 1,
+      "message": "GetMethod",
+      "range": {
+        "startLine": 43,
+        "startChar": 13,
+        "endLine": 43,
+        "endChar": 19
+      },
+      "revId": "84c98af77f8d44312a373d32397961b4cd10b07b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_5493ec2b",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T09:15:16Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 43,
+        "startChar": 22,
+        "endLine": 43,
+        "endChar": 23
+      },
+      "revId": "84c98af77f8d44312a373d32397961b4cd10b07b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_7496e81d",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T09:15:16Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 51,
+        "startChar": 29,
+        "endLine": 51,
+        "endChar": 72
+      },
+      "revId": "84c98af77f8d44312a373d32397961b4cd10b07b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9cfb89d_95ece488",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T09:15:16Z",
+      "side": 1,
+      "message": "Why the friend? Most things are public. You could add GetDexPc() if you need to.",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 49
+      },
+      "revId": "84c98af77f8d44312a373d32397961b4cd10b07b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_f468b8a0",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T09:15:16Z",
+      "side": 1,
+      "message": "GetStackElementAt ?",
+      "range": {
+        "startLine": 86,
+        "startChar": 32,
+        "endLine": 86,
+        "endChar": 44
+      },
+      "revId": "84c98af77f8d44312a373d32397961b4cd10b07b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9cfb89d_35fcf035",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T09:15:16Z",
+      "side": 1,
+      "message": "ditto about avoiding a friend class",
+      "range": {
+        "startLine": 100,
+        "startChar": 2,
+        "endLine": 100,
+        "endChar": 42
+      },
+      "revId": "84c98af77f8d44312a373d32397961b4cd10b07b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9cfb89d_f5143801",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T09:15:16Z",
+      "side": 1,
+      "message": "No need.",
+      "range": {
+        "startLine": 129,
+        "startChar": 2,
+        "endLine": 129,
+        "endChar": 10
+      },
+      "revId": "84c98af77f8d44312a373d32397961b4cd10b07b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79c9c09b_b31ff862",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T09:15:16Z",
+      "side": 1,
+      "message": "I think style is not to put the ldap.",
+      "range": {
+        "startLine": 158,
+        "startChar": 5,
+        "endLine": 158,
+        "endChar": 11
+      },
+      "revId": "84c98af77f8d44312a373d32397961b4cd10b07b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79c9c09b_9324fcb7",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T09:15:16Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 196,
+        "startChar": 5,
+        "endLine": 196,
+        "endChar": 10
+      },
+      "revId": "84c98af77f8d44312a373d32397961b4cd10b07b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9cfb89d_55064cd2",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1475,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T09:15:16Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1475,
+        "startChar": 5,
+        "endLine": 1475,
+        "endChar": 10
+      },
+      "revId": "84c98af77f8d44312a373d32397961b4cd10b07b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
