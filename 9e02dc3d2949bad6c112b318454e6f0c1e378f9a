@@ -519,6 +519,30 @@
     },
     {
       "key": {
+        "uuid": "79c9c09b_f352103c",
+        "filename": "runtime/stack.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-08T06:23:57Z",
+      "side": 1,
+      "message": "Not exactly. We use an extra reference array for the GC. We could remove this extra array when the GC knows which registers are references at a certain DEX pc in an interpreter frame (ShadowFrame). Only compiled methods have this information at the moment.\n\nThe GC could follow the deoptimization scheme where we run the verifier to know register types for a DEX pc. But it takes a non-trivial time...",
+      "parentUuid": "d9df0c22_f84df1bd",
+      "range": {
+        "startLine": 290,
+        "startChar": 63,
+        "endLine": 290,
+        "endChar": 79
+      },
+      "revId": "9e02dc3d2949bad6c112b318454e6f0c1e378f9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd24a5a6_22b8a324",
         "filename": "runtime/stack.h",
         "patchSetId": 6
