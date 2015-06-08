@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "79c9c09b_b3aa588c",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "On the other hand, does the order matter here? If not, maybe best to just do what you did before.",
+      "parentUuid": "b97b38ac_3e5a287c",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 310,
+        "endChar": 7
+      },
+      "revId": "843b7602c12d5410a5dcc0f0e2fc246435df0cd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9a97860_a59cdeba",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 6
@@ -882,6 +906,30 @@
       "side": 1,
       "message": "GetReversePostOrder() is read only and returns constant so it\u0027s kind of difficult to control it myself. I\u0027ll just leave it this way.",
       "parentUuid": "b9a97860_a816f377",
+      "range": {
+        "startLine": 1721,
+        "startChar": 0,
+        "endLine": 1725,
+        "endChar": 35
+      },
+      "revId": "843b7602c12d5410a5dcc0f0e2fc246435df0cd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9cfb89d_156454c1",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1725,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "What I meant was adding a method that would do the same as the HGraphVisitor when iterating over the graph, but move these two fields into local variables in that method.",
+      "parentUuid": "39d588cf_933a2ef8",
       "range": {
         "startLine": 1721,
         "startChar": 0,
