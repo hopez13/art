@@ -22,6 +22,30 @@
       "revId": "d9e230185873d9d998d77d17107029e0603e82d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "796b8031_9294c24d",
+        "filename": "test/135-MirandaDispatch/smali/b_21646347.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-08T15:29:30Z",
+      "side": 1,
+      "message": "The point here was that Main$AbstractClass.m() is Miranda. So what the verifier did was take the declaring class (the interface), then check the receiver against it. Even though the receiver is of a totally different class, this would pass, as interface checks aren\u0027t done at verification time.\n\nSo you\u0027re basically right, you\u0027ll get an error about B21646347 (it\u0027s not assignable to AbstractClass), but that is exactly what it\u0027s supposed to be testing.",
+      "parentUuid": "b9cfb89d_7596e81d",
+      "range": {
+        "startLine": 9,
+        "startChar": 26,
+        "endLine": 9,
+        "endChar": 37
+      },
+      "revId": "d9e230185873d9d998d77d17107029e0603e82d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
