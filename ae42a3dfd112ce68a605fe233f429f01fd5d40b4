@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "399bc88e_307e3627",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3773,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-08T15:52:37Z",
+      "side": 1,
+      "message": "Are we running JDWP tests with the debug build? Otherwise I\u0027d make this a CHECK at least for a while...",
+      "range": {
+        "startLine": 3773,
+        "startChar": 2,
+        "endLine": 3773,
+        "endChar": 80
+      },
+      "revId": "ae42a3dfd112ce68a605fe233f429f01fd5d40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9ab8c9c_18059d49",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-08T15:52:37Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 20
+      },
+      "revId": "ae42a3dfd112ce68a605fe233f429f01fd5d40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "796b8031_322b0e8c",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-08T15:52:37Z",
+      "side": 1,
+      "message": "unique_ptr then?",
+      "range": {
+        "startLine": 81,
+        "startChar": 68,
+        "endLine": 81,
+        "endChar": 99
+      },
+      "revId": "ae42a3dfd112ce68a605fe233f429f01fd5d40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9ab8c9c_5848c57c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2492,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-08T15:52:37Z",
+      "side": 1,
+      "message": "Should it be a unique_ptr now?",
+      "range": {
+        "startLine": 2492,
+        "startChar": 2,
+        "endLine": 2492,
+        "endChar": 13
+      },
+      "revId": "ae42a3dfd112ce68a605fe233f429f01fd5d40b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
