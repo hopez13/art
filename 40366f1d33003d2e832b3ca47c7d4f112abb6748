@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79c9c09b_533784eb",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T09:18:18Z",
+      "side": 1,
+      "message": "Why is this here? This method is just checking things.",
+      "range": {
+        "startLine": 717,
+        "startChar": 0,
+        "endLine": 717,
+        "endChar": 33
+      },
+      "revId": "40366f1d33003d2e832b3ca47c7d4f112abb6748",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
