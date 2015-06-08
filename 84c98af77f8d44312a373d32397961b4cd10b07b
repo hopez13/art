@@ -472,6 +472,29 @@
     },
     {
       "key": {
+        "uuid": "d9d9cc70_6e4e2f8d",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-08T20:30:28Z",
+      "side": 1,
+      "message": "Since this is a gc::Heap instance you should be able to drop the Runtime::Current()-\u003eGetHeap()-\u003e",
+      "range": {
+        "startLine": 172,
+        "startChar": 28,
+        "endLine": 172,
+        "endChar": 35
+      },
+      "revId": "84c98af77f8d44312a373d32397961b4cd10b07b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9cfb89d_55064cd2",
         "filename": "runtime/runtime.cc",
         "patchSetId": 6
