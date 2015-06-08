@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9cfb89d_953aa485",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2453,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T09:27:44Z",
+      "side": 1,
+      "message": "I thought we agreed this was redundant with GetDexFile ?",
+      "range": {
+        "startLine": 2453,
+        "startChar": 0,
+        "endLine": 2453,
+        "endChar": 63
+      },
+      "revId": "3bebff595b7b6973eaefdfbb9ad17e419c09d165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
