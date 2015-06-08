@@ -22,6 +22,30 @@
       "revId": "3bebff595b7b6973eaefdfbb9ad17e419c09d165",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_943aa485",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2453,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-08T09:55:49Z",
+      "side": 1,
+      "message": "We did. But after rebasing, the DexFile from GetDexFile() couldn\u0027t resolve the methods\u0027 indexes. I just submitted this PS in case this is the solution, but we need to chat about this.",
+      "parentUuid": "b9cfb89d_953aa485",
+      "range": {
+        "startLine": 2453,
+        "startChar": 0,
+        "endLine": 2453,
+        "endChar": 63
+      },
+      "revId": "3bebff595b7b6973eaefdfbb9ad17e419c09d165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
