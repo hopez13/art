@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "d9d9cc70_286497c1",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-08T20:44:35Z",
+      "side": 1,
+      "message": "As discussed in person, the fastest way is to use two iterators and the fact that the dex method indexes are sorted in increasing order. You can probably do this here.",
+      "range": {
+        "startLine": 704,
+        "startChar": 2,
+        "endLine": 704,
+        "endChar": 3
+      },
+      "revId": "40366f1d33003d2e832b3ca47c7d4f112abb6748",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79c9c09b_533784eb",
         "filename": "runtime/dex_file_verifier.cc",
         "patchSetId": 1
