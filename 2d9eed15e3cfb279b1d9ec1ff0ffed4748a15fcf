@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "59c15c6b_a9dc2956",
+        "filename": "compiler/dex/quick/mips/call_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-06-08T23:28:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d42d931_59c90ea6",
+      "range": {
+        "startLine": 346,
+        "startChar": 44,
+        "endLine": 346,
+        "endChar": 52
+      },
+      "revId": "2d9eed15e3cfb279b1d9ec1ff0ffed4748a15fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7919c071_ed0509c6",
         "filename": "runtime/arch/mips/fault_handler_mips.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-02T11:18:05Z",
       "side": 1,
       "message": "Update comment?",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 21
+      },
+      "revId": "2d9eed15e3cfb279b1d9ec1ff0ffed4748a15fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59c15c6b_89f285e3",
+        "filename": "runtime/arch/mips/fault_handler_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-06-08T23:28:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7919c071_ed0509c6",
       "range": {
         "startLine": 102,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "59c15c6b_69ef31fb",
+        "filename": "runtime/arch/mips/fault_handler_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-06-08T23:28:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7919c071_cd124d0e",
+      "range": {
+        "startLine": 105,
+        "startChar": 40,
+        "endLine": 105,
+        "endChar": 43
+      },
+      "revId": "2d9eed15e3cfb279b1d9ec1ff0ffed4748a15fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99a8345d_a7e864f0",
         "filename": "runtime/arch/mips64/fault_handler_mips64.cc",
         "patchSetId": 5
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "39c4a87c_2ddf05f8",
+        "filename": "runtime/arch/mips64/fault_handler_mips64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-06-08T23:28:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99a8345d_a7e864f0",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 21
+      },
+      "revId": "2d9eed15e3cfb279b1d9ec1ff0ffed4748a15fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9a97860_a8ffd3a1",
         "filename": "runtime/arch/mips64/fault_handler_mips64.cc",
         "patchSetId": 5
@@ -105,6 +201,30 @@
       "writtenOn": "2015-06-02T11:18:05Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 105,
+        "startChar": 40,
+        "endLine": 105,
+        "endChar": 43
+      },
+      "revId": "2d9eed15e3cfb279b1d9ec1ff0ffed4748a15fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59c15c6b_49ec6d04",
+        "filename": "runtime/arch/mips64/fault_handler_mips64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-06-08T23:28:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9a97860_a8ffd3a1",
       "range": {
         "startLine": 105,
         "startChar": 40,
