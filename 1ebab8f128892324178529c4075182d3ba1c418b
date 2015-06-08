@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "39c4a87c_1cd8f994",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-08T08:22:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39b828d4_dc7021d4",
+      "range": {
+        "startLine": 178,
+        "startChar": 8,
+        "endLine": 178,
+        "endChar": 75
+      },
+      "revId": "1ebab8f128892324178529c4075182d3ba1c418b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b97b38ac_de29b414",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-02T20:38:58Z",
       "side": 1,
       "message": "I don\u0027t think this line is necessary.",
+      "range": {
+        "startLine": 2379,
+        "startChar": 4,
+        "endLine": 2379,
+        "endChar": 23
+      },
+      "revId": "1ebab8f128892324178529c4075182d3ba1c418b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59c15c6b_bd910bd8",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2379,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-08T08:22:57Z",
+      "side": 1,
+      "message": "Removed. Thanks.",
+      "parentUuid": "b97b38ac_de29b414",
       "range": {
         "startLine": 2379,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b9a6d8d3_002648c2",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-08T08:22:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99a8345d_87b8c8b3",
+      "range": {
+        "startLine": 138,
+        "startChar": 40,
+        "endLine": 138,
+        "endChar": 60
+      },
+      "revId": "1ebab8f128892324178529c4075182d3ba1c418b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19afe490_db3d879c",
         "filename": "runtime/thread.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-06-05T07:04:54Z",
       "side": 1,
       "message": "class loading",
+      "range": {
+        "startLine": 839,
+        "startChar": 65,
+        "endLine": 839,
+        "endChar": 77
+      },
+      "revId": "1ebab8f128892324178529c4075182d3ba1c418b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59c15c6b_5da2ef32",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-08T08:22:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19afe490_db3d879c",
       "range": {
         "startLine": 839,
         "startChar": 65,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "b9a6d8d3_60106c57",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-08T08:22:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39b828d4_3c583d5b",
+      "range": {
+        "startLine": 1135,
+        "startChar": 4,
+        "endLine": 1135,
+        "endChar": 54
+      },
+      "revId": "1ebab8f128892324178529c4075182d3ba1c418b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19afe490_5bd177c4",
         "filename": "runtime/thread.h",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2015-06-05T07:04:54Z",
       "side": 1,
       "message": "line too long: move to next line.",
+      "range": {
+        "startLine": 1172,
+        "startChar": 88,
+        "endLine": 1172,
+        "endChar": 102
+      },
+      "revId": "1ebab8f128892324178529c4075182d3ba1c418b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39c4a87c_7cf815f5",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-08T08:22:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19afe490_5bd177c4",
       "range": {
         "startLine": 1172,
         "startChar": 88,
