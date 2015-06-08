@@ -1,0 +1,510 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99ce74a2_94dbc416",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "Having this DCHECK after the if here looks as if we\u0027re not sure what is going on. If you want to be on the safe side, I\u0027d just remove the DCHECK.",
+      "range": {
+        "startLine": 338,
+        "startChar": 0,
+        "endLine": 338,
+        "endChar": 39
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_74c14821",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "woot, python style :-)",
+      "range": {
+        "startLine": 429,
+        "startChar": 59,
+        "endLine": 429,
+        "endChar": 62
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9cfb89d_75db88e6",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "Isn\u0027t that GetLoopHeaderSuccessorInLoop?",
+      "range": {
+        "startLine": 522,
+        "startChar": 15,
+        "endLine": 522,
+        "endChar": 35
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79c9c09b_5392e460",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "That\u0027s redundant with the check above, I\u0027d remove.",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 536,
+        "endChar": 62
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79c9c09b_339f6869",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "false_successor_in_loop?",
+      "range": {
+        "startLine": 537,
+        "startChar": 8,
+        "endLine": 537,
+        "endChar": 73
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_54be4cb1",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "ditto for redundancy.",
+      "range": {
+        "startLine": 541,
+        "startChar": 13,
+        "endLine": 541,
+        "endChar": 73
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9cfb89d_7544a819",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "Change this to:\n\nreturn false_successor_in_loop ? h_if-\u003eIfFalseSccessor() : h_if-\u003eIfTrueSccessor();\n\n?",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 543,
+        "endChar": 31
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_f4f3189b",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 738,
+        "startChar": 0,
+        "endLine": 740,
+        "endChar": 54
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_d4f81c7a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 798,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "transforming",
+      "range": {
+        "startLine": 798,
+        "startChar": 28,
+        "endLine": 798,
+        "endChar": 41
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79c9c09b_139c6c70",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "DCHECK_EQ",
+      "range": {
+        "startLine": 864,
+        "startChar": 6,
+        "endLine": 864,
+        "endChar": 12
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9cfb89d_353e3098",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "in the",
+      "range": {
+        "startLine": 896,
+        "startChar": 73,
+        "endLine": 896,
+        "endChar": 79
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9cfb89d_153b34a8",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "have -\u003e use the ?",
+      "range": {
+        "startLine": 901,
+        "startChar": 9,
+        "endLine": 901,
+        "endChar": 13
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9cfb89d_f5c6780d",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "Would it be simpler to just DCHECK(CanAddDeoptimzationArrayLength()) ?",
+      "range": {
+        "startLine": 934,
+        "startChar": 0,
+        "endLine": 941,
+        "endChar": 5
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79c9c09b_d38cb43f",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "the array",
+      "range": {
+        "startLine": 956,
+        "startChar": 33,
+        "endLine": 956,
+        "endChar": 38
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79c9c09b_737cc098",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "Instead of creating a new one, could you just move the existing one?",
+      "range": {
+        "startLine": 977,
+        "startChar": 0,
+        "endLine": 977,
+        "endChar": 83
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_74e828a3",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "Can\u0027t that be null?",
+      "range": {
+        "startLine": 998,
+        "startChar": 19,
+        "endLine": 998,
+        "endChar": 41
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79c9c09b_5379c4a6",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "Move this to the if? And do the if test based on \u0027offset\u0027 ?",
+      "range": {
+        "startLine": 1011,
+        "startChar": 0,
+        "endLine": 1011,
+        "endChar": 63
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9cfb89d_55d88ce7",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1017,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 1016,
+        "startChar": 0,
+        "endLine": 1017,
+        "endChar": 53
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_54e52cc7",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "Move this in the if above?",
+      "range": {
+        "startLine": 1019,
+        "startChar": 6,
+        "endLine": 1019,
+        "endChar": 85
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_34e2b0c1",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "Move this to GetFoundArrayLength ?",
+      "range": {
+        "startLine": 1035,
+        "startChar": 0,
+        "endLine": 1036,
+        "endChar": 62
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_74af086c",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "Isn\u0027t the only difference with the code above just two or three variables? (roughly the first two parameters of method methods).\n\nWould it make sense to factorize the code?",
+      "range": {
+        "startLine": 1072,
+        "startChar": 0,
+        "endLine": 1094,
+        "endChar": 7
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79c9c09b_d3039414",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 3375,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-08T08:59:42Z",
+      "side": 1,
+      "message": "Ins\u0027t that in another change?",
+      "range": {
+        "startLine": 3374,
+        "startChar": 0,
+        "endLine": 3375,
+        "endChar": 62
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
