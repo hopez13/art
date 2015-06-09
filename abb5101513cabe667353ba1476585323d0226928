@@ -22,6 +22,30 @@
       "revId": "abb5101513cabe667353ba1476585323d0226928",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9d9cc70_e4ed93b5",
+        "filename": "test/137-cfi/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-06-09T00:45:30Z",
+      "side": 1,
+      "message": "I have tried to run\nART_TEST_OPTIMZING\u003dtrue mm test-art-host-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-137-cfi32 test-art-host-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-137-cfi64 test-art-target-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-137-cfi32 test-art-target-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-137-cfi64\n\nI did not know about the option before.  I take it optimizing is not one of the many nested test options.\n\nCan the optimizing compiler inline method from core.oat?\n\nIn any case it seems to work...",
+      "parentUuid": "b9d41838_41533441",
+      "range": {
+        "startLine": 140,
+        "startChar": 13,
+        "endLine": 140,
+        "endChar": 33
+      },
+      "revId": "abb5101513cabe667353ba1476585323d0226928",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
