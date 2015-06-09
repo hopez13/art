@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99ce74a2_9ddc0757",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2276,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-09T13:34:38Z",
+      "side": 1,
+      "message": "Why not reg.X()?",
+      "range": {
+        "startLine": 2276,
+        "startChar": 13,
+        "endLine": 2276,
+        "endChar": 16
+      },
+      "revId": "f14c7f9537effce84fdb0db7108428992692a861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
