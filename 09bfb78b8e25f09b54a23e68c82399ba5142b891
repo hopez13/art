@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9d41838_1e3b4b5e",
+        "filename": "test/137-cfi/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-09T00:13:00Z",
+      "side": 1,
+      "message": "This works as is because both this and line 144 are literals and must be interned to the same, but the better ways is \u0027.equals(\"true\")\u0027, or alternatively Boolean.valueOf(...) \u003d\u003d true.",
+      "range": {
+        "startLine": 140,
+        "startChar": 33,
+        "endLine": 140,
+        "endChar": 43
+      },
+      "revId": "09bfb78b8e25f09b54a23e68c82399ba5142b891",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
