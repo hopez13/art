@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d9d9cc70_9092865e",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-09T18:48:56Z",
+      "side": 1,
+      "message": "Add a comment about this.",
+      "parentUuid": "d9d9cc70_9fce19d1",
+      "range": {
+        "startLine": 75,
+        "startChar": 30,
+        "endLine": 75,
+        "endChar": 36
+      },
+      "revId": "c6af1c6cb4ed63347bab0bd82894d64dbe5f7160",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9d9cc70_1fb6a97b",
         "filename": "runtime/gc/allocation_record.h",
         "patchSetId": 9
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "d9d9cc70_5073fec5",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-09T18:48:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9d9cc70_1fb6a97b",
+      "revId": "c6af1c6cb4ed63347bab0bd82894d64dbe5f7160",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "796b8031_7868fb6d",
         "filename": "runtime/gc/allocation_record.h",
         "patchSetId": 9
@@ -53,6 +95,30 @@
       "writtenOn": "2015-06-09T17:06:30Z",
       "side": 1,
       "message": "I feel like it might be cleaner to have this be a non-static function, but it doesn\u0027t really matter that much.",
+      "range": {
+        "startLine": 194,
+        "startChar": 14,
+        "endLine": 194,
+        "endChar": 30
+      },
+      "revId": "c6af1c6cb4ed63347bab0bd82894d64dbe5f7160",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9d9cc70_701dda6d",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-09T18:48:56Z",
+      "side": 1,
+      "message": "Add a comment about this. I think it\u0027s better be static because of double-checked locking.",
+      "parentUuid": "796b8031_7868fb6d",
       "range": {
         "startLine": 194,
         "startChar": 14,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "d9d9cc70_501ade77",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-09T18:48:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "796b8031_b83b5389",
+      "range": {
+        "startLine": 255,
+        "startChar": 55,
+        "endLine": 255,
+        "endChar": 56
+      },
+      "revId": "c6af1c6cb4ed63347bab0bd82894d64dbe5f7160",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "796b8031_b8d6f3bb",
         "filename": "runtime/hprof/hprof.cc",
         "patchSetId": 9
@@ -99,6 +189,30 @@
       "writtenOn": "2015-06-09T17:06:30Z",
       "side": 1,
       "message": "CHECK_EQ is preferred since it will print the values if the check fails.",
+      "range": {
+        "startLine": 844,
+        "startChar": 10,
+        "endLine": 844,
+        "endChar": 17
+      },
+      "revId": "c6af1c6cb4ed63347bab0bd82894d64dbe5f7160",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "796b8031_de763750",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-09T18:48:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "796b8031_b8d6f3bb",
       "range": {
         "startLine": 844,
         "startChar": 10,
