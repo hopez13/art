@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79c9c09b_76a6ee0f",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-09T08:19:29Z",
+      "side": 1,
+      "message": "OK. How about making this local to this method then? And pass it to CheckClassDataItemMethod. You would not need the clearing then.",
+      "range": {
+        "startLine": 718,
+        "startChar": 0,
+        "endLine": 719,
+        "endChar": 33
+      },
+      "revId": "9c7a87c65d85a119020082378b21405b27488624",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
