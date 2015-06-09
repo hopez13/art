@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9d41838_2fa12fb2",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-09T03:27:54Z",
+      "side": 1,
+      "message": "Why was this ever made public, actually? A forward declaration, and a definition in the .cc file should have been enough.",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 30
+      },
+      "revId": "1f2d3ba6af52cf6f566deb38b7e07735c9a08fb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "796b8031_51095f9c",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-09T03:27:54Z",
+      "side": 1,
+      "message": "?!?!",
+      "range": {
+        "startLine": 117,
+        "startChar": 2,
+        "endLine": 117,
+        "endChar": 6
+      },
+      "revId": "1f2d3ba6af52cf6f566deb38b7e07735c9a08fb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
