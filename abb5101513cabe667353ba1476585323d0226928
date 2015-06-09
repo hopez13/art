@@ -70,6 +70,30 @@
       "revId": "abb5101513cabe667353ba1476585323d0226928",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "796b8031_f676c1fd",
+        "filename": "test/137-cfi/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-06-09T01:03:55Z",
+      "side": 1,
+      "message": "test-art-host-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-137-cfi32\ntest-art-host-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-137-cfi64\ntest-art-host-run-test-debug-prebuild-optimizing-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-137-cfi32\ntest-art-host-run-test-debug-prebuild-optimizing-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-137-cfi64\nNO TESTS SKIPPED\nNO TESTS FAILED\n\ntest-art-target-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-137-cfi32\ntest-art-target-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-137-cfi64\ntest-art-target-run-test-debug-prebuild-optimizing-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-137-cfi32\ntest-art-target-run-test-debug-prebuild-optimizing-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-137-cfi64\nNO TESTS SKIPPED\nNO TESTS FAILED",
+      "parentUuid": "796b8031_b68b69a2",
+      "range": {
+        "startLine": 140,
+        "startChar": 13,
+        "endLine": 140,
+        "endChar": 33
+      },
+      "revId": "abb5101513cabe667353ba1476585323d0226928",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
