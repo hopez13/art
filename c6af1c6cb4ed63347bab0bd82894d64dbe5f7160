@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9d9cc70_9fce19d1",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-09T17:06:30Z",
+      "side": 1,
+      "message": "Now that we have variable depth stack traces, it may be possible to allocate min(depth, max_depth) instead of always having max_depth frames.",
+      "range": {
+        "startLine": 75,
+        "startChar": 30,
+        "endLine": 75,
+        "endChar": 36
+      },
+      "revId": "c6af1c6cb4ed63347bab0bd82894d64dbe5f7160",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9d9cc70_1fb6a97b",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-09T17:06:30Z",
+      "side": 1,
+      "message": "Indentation seems off, should be 4 spaces.",
+      "revId": "c6af1c6cb4ed63347bab0bd82894d64dbe5f7160",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "796b8031_7868fb6d",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-09T17:06:30Z",
+      "side": 1,
+      "message": "I feel like it might be cleaner to have this be a non-static function, but it doesn\u0027t really matter that much.",
+      "range": {
+        "startLine": 194,
+        "startChar": 14,
+        "endLine": 194,
+        "endChar": 30
+      },
+      "revId": "c6af1c6cb4ed63347bab0bd82894d64dbe5f7160",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "796b8031_b83b5389",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-09T17:06:30Z",
+      "side": 1,
+      "message": "Spaces around *",
+      "range": {
+        "startLine": 255,
+        "startChar": 55,
+        "endLine": 255,
+        "endChar": 56
+      },
+      "revId": "c6af1c6cb4ed63347bab0bd82894d64dbe5f7160",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "796b8031_b8d6f3bb",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-09T17:06:30Z",
+      "side": 1,
+      "message": "CHECK_EQ is preferred since it will print the values if the check fails.",
+      "range": {
+        "startLine": 844,
+        "startChar": 10,
+        "endLine": 844,
+        "endChar": 17
+      },
+      "revId": "c6af1c6cb4ed63347bab0bd82894d64dbe5f7160",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
