@@ -93,6 +93,30 @@
       "revId": "fb6704d980d2524115d8089f420a62658990d8e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_e809fb66",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-09T20:25:39Z",
+      "side": 1,
+      "message": "Indeed, thanks. Looking at the comment, this very much smells like something Andreas added.\n\nAndreas: Should we just do the same thing for both paths?",
+      "parentUuid": "d9d9cc70_36ff4a7b",
+      "range": {
+        "startLine": 301,
+        "startChar": 0,
+        "endLine": 301,
+        "endChar": 33
+      },
+      "revId": "fb6704d980d2524115d8089f420a62658990d8e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
