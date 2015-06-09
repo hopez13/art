@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "796b8031_f5f5d6c3",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4695,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-09T06:54:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9d9cc70_c80e336d",
+      "range": {
+        "startLine": 4695,
+        "startChar": 28,
+        "endLine": 4695,
+        "endChar": 34
+      },
+      "revId": "5cbce4360b12793a952dd35cc4ba5689c5a2702d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9d41838_2d138d14",
         "filename": "runtime/gc/allocation_record.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-08T20:30:28Z",
       "side": 1,
       "message": "Not sure if these really need to be static.",
+      "range": {
+        "startLine": 32,
+        "startChar": 29,
+        "endLine": 32,
+        "endChar": 46
+      },
+      "revId": "5cbce4360b12793a952dd35cc4ba5689c5a2702d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "796b8031_15035241",
+        "filename": "runtime/gc/allocation_record.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-09T06:54:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9d41838_2d138d14",
       "range": {
         "startLine": 32,
         "startChar": 29,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b9d41838_4f7ebb27",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-09T06:54:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9d41838_8d23a167",
+      "range": {
+        "startLine": 232,
+        "startChar": 22,
+        "endLine": 232,
+        "endChar": 37
+      },
+      "revId": "5cbce4360b12793a952dd35cc4ba5689c5a2702d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "796b8031_efe42ca6",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 7
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "b9d41838_2f4a4ffc",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3669,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-09T06:54:04Z",
+      "side": 1,
+      "message": "Done. It\u0027s already cleared in the destructor.",
+      "parentUuid": "796b8031_efe42ca6",
+      "range": {
+        "startLine": 3669,
+        "startChar": 6,
+        "endLine": 3669,
+        "endChar": 28
+      },
+      "revId": "5cbce4360b12793a952dd35cc4ba5689c5a2702d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9d9cc70_1d747ff3",
         "filename": "runtime/hprof/hprof.cc",
         "patchSetId": 7
@@ -105,6 +201,30 @@
       "writtenOn": "2015-06-08T20:30:28Z",
       "side": 1,
       "message": "If we pass in custom hash and equal functions into std::unordered_map here, we could deduplicate frames and stack traces easily I think.",
+      "range": {
+        "startLine": 864,
+        "startChar": 84,
+        "endLine": 864,
+        "endChar": 91
+      },
+      "revId": "5cbce4360b12793a952dd35cc4ba5689c5a2702d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9d9cc70_7a5a5e02",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-09T06:54:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9d9cc70_1d747ff3",
       "range": {
         "startLine": 864,
         "startChar": 84,
