@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "99ce74a2_1ddfd7f7",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-09T15:04:05Z",
+      "side": 0,
+      "message": "Done in https://android-review.googlesource.com/#/c/154017/",
+      "parentUuid": "b9cfb89d_9b4e533b",
+      "range": {
+        "startLine": 1074,
+        "startChar": 0,
+        "endLine": 1078,
+        "endChar": 1
+      },
+      "revId": "c47908e8c32fd58bc4dc75998a80f706954db1dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79c9c09b_364e36ba",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-09T09:12:29Z",
       "side": 0,
       "message": "Remove this as well?",
+      "range": {
+        "startLine": 331,
+        "startChar": 2,
+        "endLine": 331,
+        "endChar": 56
+      },
+      "revId": "c47908e8c32fd58bc4dc75998a80f706954db1dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_fd9adb4c",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-09T15:04:05Z",
+      "side": 0,
+      "message": "Done in https://android-review.googlesource.com/#/c/154017/",
+      "parentUuid": "79c9c09b_364e36ba",
       "range": {
         "startLine": 331,
         "startChar": 2,
