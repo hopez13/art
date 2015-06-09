@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9cfb89d_fbaae7de",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-09T12:55:51Z",
+      "side": 1,
+      "message": "The StackedShadowFrameType is now a scoped enum class.",
+      "range": {
+        "startLine": 432,
+        "startChar": 40,
+        "endLine": 432,
+        "endChar": 62
+      },
+      "revId": "851fcd289d26027f54e303bed5b72be8b5b1b263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_fa5f816b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-09T12:55:51Z",
+      "side": 1,
+      "message": "(This is the fix of the bug)",
+      "range": {
+        "startLine": 183,
+        "startChar": 2,
+        "endLine": 183,
+        "endChar": 32
+      },
+      "revId": "851fcd289d26027f54e303bed5b72be8b5b1b263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79c9c09b_b97b5773",
+        "filename": "tools/generate-operator-out.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-09T12:55:51Z",
+      "side": 1,
+      "message": "Using a (scoped) enum class (StackedShadowFrameType) exposed an error in our tools/generate-operator-out.py script preventing from compiling this CL.\n\nIf you prefer this fix in a separate CL, the StackedShadowFrameType must be reverted to an unscoped enum (without the \u0027class\u0027 keyword).",
+      "range": {
+        "startLine": 157,
+        "startChar": 4,
+        "endLine": 163,
+        "endChar": 69
+      },
+      "revId": "851fcd289d26027f54e303bed5b72be8b5b1b263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
