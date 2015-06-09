@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d902ac8c_6996211e",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-09T22:53:02Z",
+      "side": 1,
+      "message": "Can\u0027t you do the same just by comparing the pointer in kUnsupportedOpcodes against kUnsupportedLambdaOpcodes?",
+      "range": {
+        "startLine": 475,
+        "startChar": 0,
+        "endLine": 493,
+        "endChar": 2
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5934fc65_02b0aa4d",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-09T22:53:02Z",
+      "side": 1,
+      "message": "It looks more like you\u0027d want a DCHECK here with inst-\u003eIsExperimental().",
+      "range": {
+        "startLine": 81,
+        "startChar": 61,
+        "endLine": 81,
+        "endChar": 84
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99fcb4c6_24dbb295",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-09T22:53:02Z",
+      "side": 1,
+      "message": "are",
+      "range": {
+        "startLine": 553,
+        "startChar": 39,
+        "endLine": 553,
+        "endChar": 41
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
