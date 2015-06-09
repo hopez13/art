@@ -45,6 +45,30 @@
       "revId": "1f2d3ba6af52cf6f566deb38b7e07735c9a08fb6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_7a3a51d7",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-09T07:30:16Z",
+      "side": 1,
+      "message": "Oh I missed this one in CR. Looks like the compiler accepted an implicit conversion. \n\nActually, having an \u0027enum class StackedShadowFrameType\u0027 may have detected that.",
+      "parentUuid": "796b8031_51095f9c",
+      "range": {
+        "startLine": 117,
+        "startChar": 2,
+        "endLine": 117,
+        "endChar": 6
+      },
+      "revId": "1f2d3ba6af52cf6f566deb38b7e07735c9a08fb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
