@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "79c9c09b_b9e7d7a3",
+        "filename": "test/491-current-method/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-09T14:04:01Z",
+      "side": 1,
+      "message": "The crash is happening at runtime, so yes I need the noinline. If the method is inlined in main, it will be compiled in a way that won\u0027t create the runtime crash.",
+      "parentUuid": "99ce74a2_7df24be6",
+      "range": {
+        "startLine": 23,
+        "startChar": 22,
+        "endLine": 23,
+        "endChar": 30
+      },
+      "revId": "f14c7f9537effce84fdb0db7108428992692a861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ce74a2_3decd303",
         "filename": "test/491-current-method/src/Main.java",
         "patchSetId": 3
@@ -83,6 +107,30 @@
       "writtenOn": "2015-06-09T13:59:01Z",
       "side": 1,
       "message": "overwrite",
+      "range": {
+        "startLine": 29,
+        "startChar": 48,
+        "endLine": 29,
+        "endChar": 59
+      },
+      "revId": "f14c7f9537effce84fdb0db7108428992692a861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79c9c09b_99ec1b89",
+        "filename": "test/491-current-method/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-09T14:04:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99ce74a2_3decd303",
       "range": {
         "startLine": 29,
         "startChar": 48,
