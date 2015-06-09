@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9cfb89d_49d5912c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-09T17:40:35Z",
+      "side": 1,
+      "message": "changed",
+      "range": {
+        "startLine": 11,
+        "startChar": 21,
+        "endLine": 11,
+        "endChar": 28
+      },
+      "revId": "50aec9ed3485889b9e290a802779e923c42c58e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9cfb89d_e9e21d15",
+        "filename": "test/493-checker-inline-invoke-interface/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-09T17:40:35Z",
+      "side": 1,
+      "message": "Did you mean \".*\"? This searches for \"Invoke*\"",
+      "range": {
+        "startLine": 39,
+        "startChar": 31,
+        "endLine": 39,
+        "endChar": 33
+      },
+      "revId": "50aec9ed3485889b9e290a802779e923c42c58e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
