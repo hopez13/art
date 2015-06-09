@@ -46,6 +46,30 @@
       "revId": "abb5101513cabe667353ba1476585323d0226928",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "796b8031_b68b69a2",
+        "filename": "test/137-cfi/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-09T00:47:37Z",
+      "side": 1,
+      "message": "You ran the quick test, that\u0027s what the default between prebuild and relocate is. Run \"ART_TEST_OPTIMIZING\u003dtrue test-art-host-run-test-137-cfi.\"\n\nPotentially the compiler can inline this - whether we\u0027re doing this right now is a different question... :-)",
+      "parentUuid": "d9d9cc70_e4ed93b5",
+      "range": {
+        "startLine": 140,
+        "startChar": 13,
+        "endLine": 140,
+        "endChar": 33
+      },
+      "revId": "abb5101513cabe667353ba1476585323d0226928",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
