@@ -589,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "992af412_badc8956",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T23:51:41Z",
+      "side": 1,
+      "message": "Looks like I skipped. Read it again and the asserts here are still different from what\u0027s done in CanAddDeoptimzationArrayLength() so I\u0027ll just keep it this way.",
+      "parentUuid": "99ce74a2_8ecbaf93",
+      "range": {
+        "startLine": 934,
+        "startChar": 0,
+        "endLine": 941,
+        "endChar": 5
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79c9c09b_d38cb43f",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 7
