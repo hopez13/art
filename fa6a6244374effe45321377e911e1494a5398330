@@ -48,6 +48,52 @@
     },
     {
       "key": {
+        "uuid": "79c9c09b_1c559994",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-10T08:41:52Z",
+      "side": 1,
+      "message": "Misaligned with values above.",
+      "range": {
+        "startLine": 144,
+        "startChar": 24,
+        "endLine": 144,
+        "endChar": 35
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79c9c09b_5c89d1a8",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-10T08:41:52Z",
+      "side": 1,
+      "message": "This is adding an extra call for invoking a method in the interpreter that potentially is another performance penalty.\n\nYou could force DoCall and DoLambdaCall to be inlined (using ALWAYS_INLINE) to keep the same number of function calls. It seems to me they only extract invoke arguments from the DEX instruction.",
+      "range": {
+        "startLine": 484,
+        "startChar": 5,
+        "endLine": 484,
+        "endChar": 17
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79c9c09b_9c71a95b",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 10
@@ -117,6 +163,30 @@
     },
     {
       "key": {
+        "uuid": "b9cfb89d_6993ad2c",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-10T08:41:52Z",
+      "side": 1,
+      "message": "There is a \u0027using ::art::mirror::Object;\u0027 to void the need for mirror::. I agree we should keep the mirror::Object and remove these \u0027using\u0027 declarations. That can be changed in a separate CL.",
+      "parentUuid": "79c9c09b_dc67219c",
+      "range": {
+        "startLine": 149,
+        "startChar": 2,
+        "endLine": 149,
+        "endChar": 8
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5934fc65_02b0aa4d",
         "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
         "patchSetId": 10
@@ -133,6 +203,98 @@
         "startChar": 61,
         "endLine": 81,
         "endChar": 84
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_08cd575a",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-10T08:41:52Z",
+      "side": 1,
+      "message": "Please remove this extra line",
+      "range": {
+        "startLine": 2,
+        "startChar": 1,
+        "endLine": 2,
+        "endChar": 2
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_68be0bb2",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2246,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-10T08:41:52Z",
+      "side": 1,
+      "message": "Instruction::UNUSED_F4",
+      "range": {
+        "startLine": 2246,
+        "startChar": 11,
+        "endLine": 2246,
+        "endChar": 15
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9cfb89d_493eb198",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2247,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-10T08:41:52Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2247,
+        "startChar": 11,
+        "endLine": 2247,
+        "endChar": 15
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9cfb89d_293b75a8",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2248,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-10T08:41:52Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2248,
+        "startChar": 11,
+        "endLine": 2248,
+        "endChar": 24
       },
       "revId": "fa6a6244374effe45321377e911e1494a5398330",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -186,6 +348,29 @@
     },
     {
       "key": {
+        "uuid": "79c9c09b_fc0e5dbe",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-10T08:41:52Z",
+      "side": 1,
+      "message": "Not sure this is how we handle long string in the code. I\u0027d write:\n\n  LOG(WARNING) \u003c\u003c \"blablablabla...blablablabla \"\n               \u003c\u003c \"blablablabla...blablablabla \"",
+      "range": {
+        "startLine": 552,
+        "startChar": 4,
+        "endLine": 554,
+        "endChar": 71
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ce74a2_4876afb7",
         "filename": "runtime/read_barrier-inl.h",
         "patchSetId": 10
@@ -209,6 +394,121 @@
     },
     {
       "key": {
+        "uuid": "79c9c09b_dc13a1e6",
+        "filename": "runtime/runtime_options.def",
+        "patchSetId": 10
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-10T08:41:52Z",
+      "side": 1,
+      "message": "Except the extra -X[no]experimental-opcodes option, this should be part of a separate CL (not related to new opcodes)",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 2
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9cfb89d_69416d08",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2847,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-10T08:41:52Z",
+      "side": 1,
+      "message": "Instruction::UNUSED_F4",
+      "range": {
+        "startLine": 2847,
+        "startChar": 9,
+        "endLine": 2847,
+        "endChar": 13
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_a8db0316",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2848,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-10T08:41:52Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2848,
+        "startChar": 9,
+        "endLine": 2848,
+        "endChar": 13
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_88c16724",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2849,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-10T08:41:52Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2849,
+        "startChar": 9,
+        "endLine": 2849,
+        "endChar": 22
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79c9c09b_9c1d29f4",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-10T08:41:52Z",
+      "side": 1,
+      "message": "complete",
+      "range": {
+        "startLine": 80,
+        "startChar": 33,
+        "endLine": 80,
+        "endChar": 43
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79c9c09b_5c743146",
         "filename": "test/955-lambda-smali/info.txt",
         "patchSetId": 10
@@ -225,6 +525,29 @@
         "startChar": 0,
         "endLine": 2,
         "endChar": 104
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9cfb89d_09c7990b",
+        "filename": "test/955-lambda-smali/run",
+        "patchSetId": 10
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-10T08:41:52Z",
+      "side": 1,
+      "message": "Should it be \n\n  -Xcompiler-option --runtime-arg -Xcompiler-option -Xexperimental-opcodes\n\ninstead?",
+      "range": {
+        "startLine": 18,
+        "startChar": 52,
+        "endLine": 18,
+        "endChar": 108
       },
       "revId": "fa6a6244374effe45321377e911e1494a5398330",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -357,6 +680,24 @@
       "writtenOn": "2015-06-10T07:54:20Z",
       "side": 1,
       "message": "This doesn\u0027t seem related to this change.",
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_48cb4f42",
+        "filename": "test/run-test",
+        "patchSetId": 10
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-10T08:41:52Z",
+      "side": 1,
+      "message": "Agreed, it\u0027s one of my comments on PS4",
+      "parentUuid": "b9cfb89d_29b6d5c5",
       "revId": "fa6a6244374effe45321377e911e1494a5398330",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
