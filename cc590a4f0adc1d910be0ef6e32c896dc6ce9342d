@@ -565,6 +565,30 @@
     },
     {
       "key": {
+        "uuid": "99ce74a2_8ecbaf93",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-10T17:01:26Z",
+      "side": 1,
+      "message": "Did you skip this comment?",
+      "parentUuid": "b9cfb89d_f5c6780d",
+      "range": {
+        "startLine": 934,
+        "startChar": 0,
+        "endLine": 941,
+        "endChar": 5
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79c9c09b_d38cb43f",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 7
@@ -623,6 +647,30 @@
       "side": 1,
       "message": "The uses will be on the phi which takes new_array_length as one input. It\u0027s confusing if it\u0027s moved to a non-dominating block. It\u0027s not necessary if the transformation isn\u0027t done (such as if we can prove the loop body is entered), but it\u0027s a little more code and probably won\u0027t save much.",
       "parentUuid": "79c9c09b_737cc098",
+      "range": {
+        "startLine": 977,
+        "startChar": 0,
+        "endLine": 977,
+        "endChar": 83
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9cfb89d_2f6ed5f4",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-10T17:01:26Z",
+      "side": 1,
+      "message": "Sounds good, thanks for the details.",
+      "parentUuid": "d9ab8c9c_5bef9128",
       "range": {
         "startLine": 977,
         "startChar": 0,
