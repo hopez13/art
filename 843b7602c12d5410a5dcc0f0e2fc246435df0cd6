@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "796b8031_c0e73fd1",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "Order doesn\u0027t matter with regard to correctness. There is one less test in this for loop (no header test) so it\u0027s a little better. A reverse post order traversal of loop blocks is probably useful under some other situations so it\u0027s nice to have that.",
+      "parentUuid": "79c9c09b_b3aa588c",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 310,
+        "endChar": 7
+      },
+      "revId": "843b7602c12d5410a5dcc0f0e2fc246435df0cd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9a97860_a59cdeba",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 6
@@ -930,6 +954,30 @@
       "side": 1,
       "message": "What I meant was adding a method that would do the same as the HGraphVisitor when iterating over the graph, but move these two fields into local variables in that method.",
       "parentUuid": "39d588cf_933a2ef8",
+      "range": {
+        "startLine": 1721,
+        "startChar": 0,
+        "endLine": 1725,
+        "endChar": 35
+      },
+      "revId": "843b7602c12d5410a5dcc0f0e2fc246435df0cd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f94050d5_c5dc0e58",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1725,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "Done. initial_block_size_ is still needed. I added a IsAddedBlock() method.",
+      "parentUuid": "b9cfb89d_156454c1",
       "range": {
         "startLine": 1721,
         "startChar": 0,
