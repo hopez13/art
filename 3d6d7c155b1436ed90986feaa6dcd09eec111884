@@ -45,6 +45,30 @@
       "revId": "3d6d7c155b1436ed90986feaa6dcd09eec111884",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_63be2cb2",
+        "filename": "tools/libcore_failures.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-06-10T13:03:55Z",
+      "side": 1,
+      "message": "what\u0027s the difference between host and device for these tests ? I\u0027m surprised there\u0027s a difference.",
+      "parentUuid": "b9cfb89d_c4a4e891",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 69
+      },
+      "revId": "3d6d7c155b1436ed90986feaa6dcd09eec111884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
