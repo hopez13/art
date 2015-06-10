@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d9d9cc70_d72a5686",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "Ok, I\u0027ll remove it.",
+      "parentUuid": "99ce74a2_94dbc416",
+      "range": {
+        "startLine": 338,
+        "startChar": 0,
+        "endLine": 338,
+        "endChar": 39
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ce74a2_74c14821",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-08T08:59:42Z",
       "side": 1,
       "message": "woot, python style :-)",
+      "range": {
+        "startLine": 429,
+        "startChar": 59,
+        "endLine": 429,
+        "endChar": 62
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "796b8031_d82c9927",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "Changed to \u0026\u0026. Not even aware of this C++ feature :)",
+      "parentUuid": "99ce74a2_74c14821",
       "range": {
         "startLine": 429,
         "startChar": 59,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "796b8031_f84075b4",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "Will rename.",
+      "parentUuid": "b9cfb89d_75db88e6",
+      "range": {
+        "startLine": 522,
+        "startChar": 15,
+        "endLine": 522,
+        "endChar": 35
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79c9c09b_5392e460",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2015-06-08T08:59:42Z",
       "side": 1,
       "message": "That\u0027s redundant with the check above, I\u0027d remove.",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 536,
+        "endChar": 62
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9d9cc70_97a96e6a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "The above check makes sure not both branches are in loop. This check makes sure at least one branch is in loop. So it\u0027s not redundant.",
+      "parentUuid": "79c9c09b_5392e460",
       "range": {
         "startLine": 536,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d9d9cc70_d74016eb",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "Yeah, it\u0027s redundant. Fixed.",
+      "parentUuid": "79c9c09b_339f6869",
+      "range": {
+        "startLine": 537,
+        "startChar": 8,
+        "endLine": 537,
+        "endChar": 73
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ce74a2_54be4cb1",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 7
@@ -128,6 +248,30 @@
       "writtenOn": "2015-06-08T08:59:42Z",
       "side": 1,
       "message": "ditto for redundancy.",
+      "range": {
+        "startLine": 541,
+        "startChar": 13,
+        "endLine": 541,
+        "endChar": 73
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9d9cc70_f73b128c",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "99ce74a2_54be4cb1",
       "range": {
         "startLine": 541,
         "startChar": 13,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "d9d9cc70_973a8e85",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9cfb89d_7544a819",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 543,
+        "endChar": 31
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ce74a2_f4f3189b",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 7
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "d9d9cc70_5789c6a8",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99ce74a2_f4f3189b",
+      "range": {
+        "startLine": 738,
+        "startChar": 0,
+        "endLine": 740,
+        "endChar": 54
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ce74a2_d4f81c7a",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 7
@@ -197,6 +389,30 @@
       "writtenOn": "2015-06-08T08:59:42Z",
       "side": 1,
       "message": "transforming",
+      "range": {
+        "startLine": 798,
+        "startChar": 28,
+        "endLine": 798,
+        "endChar": 41
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9d9cc70_5720a628",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 798,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99ce74a2_d4f81c7a",
       "range": {
         "startLine": 798,
         "startChar": 28,
@@ -255,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "d9ab8c9c_5b7e7127",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9cfb89d_353e3098",
+      "range": {
+        "startLine": 896,
+        "startChar": 73,
+        "endLine": 896,
+        "endChar": 79
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9cfb89d_153b34a8",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 7
@@ -266,6 +506,30 @@
       "writtenOn": "2015-06-08T08:59:42Z",
       "side": 1,
       "message": "have -\u003e use the ?",
+      "range": {
+        "startLine": 901,
+        "startChar": 9,
+        "endLine": 901,
+        "endChar": 13
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "796b8031_8cc6668a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9cfb89d_153b34a8",
       "range": {
         "startLine": 901,
         "startChar": 9,
@@ -347,6 +611,30 @@
     },
     {
       "key": {
+        "uuid": "d9ab8c9c_5bef9128",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "The uses will be on the phi which takes new_array_length as one input. It\u0027s confusing if it\u0027s moved to a non-dominating block. It\u0027s not necessary if the transformation isn\u0027t done (such as if we can prove the loop body is entered), but it\u0027s a little more code and probably won\u0027t save much.",
+      "parentUuid": "79c9c09b_737cc098",
+      "range": {
+        "startLine": 977,
+        "startChar": 0,
+        "endLine": 977,
+        "endChar": 83
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ce74a2_74e828a3",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 7
@@ -358,6 +646,30 @@
       "writtenOn": "2015-06-08T08:59:42Z",
       "side": 1,
       "message": "Can\u0027t that be null?",
+      "range": {
+        "startLine": 998,
+        "startChar": 19,
+        "endLine": 998,
+        "endChar": 41
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9d9cc70_f75f926b",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "Shouldn\u0027t at this stage since we abort the deopt-based approach if the somehow both successors are in the loop.",
+      "parentUuid": "99ce74a2_74e828a3",
       "range": {
         "startLine": 998,
         "startChar": 19,
@@ -393,6 +705,30 @@
     },
     {
       "key": {
+        "uuid": "796b8031_cc4a1e76",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "Good one. Fixed.",
+      "parentUuid": "79c9c09b_5379c4a6",
+      "range": {
+        "startLine": 1011,
+        "startChar": 0,
+        "endLine": 1011,
+        "endChar": 63
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9cfb89d_55d88ce7",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 7
@@ -404,6 +740,30 @@
       "writtenOn": "2015-06-08T08:59:42Z",
       "side": 1,
       "message": "One line?",
+      "range": {
+        "startLine": 1016,
+        "startChar": 0,
+        "endLine": 1017,
+        "endChar": 53
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9ab8c9c_260a685b",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1017,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "It\u0027s close. I renamed deoptimize to deopt.",
+      "parentUuid": "b9cfb89d_55d88ce7",
       "range": {
         "startLine": 1016,
         "startChar": 0,
@@ -439,6 +799,30 @@
     },
     {
       "key": {
+        "uuid": "796b8031_ec9efa6a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99ce74a2_54e52cc7",
+      "range": {
+        "startLine": 1019,
+        "startChar": 6,
+        "endLine": 1019,
+        "endChar": 85
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ce74a2_34e2b0c1",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 7
@@ -450,6 +834,30 @@
       "writtenOn": "2015-06-08T08:59:42Z",
       "side": 1,
       "message": "Move this to GetFoundArrayLength ?",
+      "range": {
+        "startLine": 1035,
+        "startChar": 0,
+        "endLine": 1036,
+        "endChar": 62
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9ab8c9c_e6380000",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "Actually GetFoundArrayLength() returns HArrayLength* so this isn\u0027t needed. At one point in my change, GetFoundArrayLength() returns HInstruction* but not anymore.",
+      "parentUuid": "99ce74a2_34e2b0c1",
       "range": {
         "startLine": 1035,
         "startChar": 0,
@@ -485,6 +893,30 @@
     },
     {
       "key": {
+        "uuid": "796b8031_8f5f386a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99ce74a2_74af086c",
+      "range": {
+        "startLine": 1072,
+        "startChar": 0,
+        "endLine": 1094,
+        "endChar": 7
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79c9c09b_d3039414",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -496,6 +928,30 @@
       "writtenOn": "2015-06-08T08:59:42Z",
       "side": 1,
       "message": "Ins\u0027t that in another change?",
+      "range": {
+        "startLine": 3374,
+        "startChar": 0,
+        "endLine": 3375,
+        "endChar": 62
+      },
+      "revId": "cc590a4f0adc1d910be0ef6e32c896dc6ce9342d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9d41838_dcf8397a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 3375,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-06-10T14:32:24Z",
+      "side": 1,
+      "message": "Removed from this CL.",
+      "parentUuid": "79c9c09b_d3039414",
       "range": {
         "startLine": 3374,
         "startChar": 0,
