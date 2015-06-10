@@ -239,6 +239,30 @@
     },
     {
       "key": {
+        "uuid": "b9cfb89d_a980a5cf",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-10T07:58:42Z",
+      "side": 1,
+      "message": "Good catch. Happy to see it\u0027s a hack we don\u0027t need :-)",
+      "parentUuid": "193e044a_a91e851d",
+      "range": {
+        "startLine": 657,
+        "startChar": 0,
+        "endLine": 659,
+        "endChar": 57
+      },
+      "revId": "ce47bec4c71f921c7de23326893551ed5b1377f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99fbd485_95a1262f",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 1
