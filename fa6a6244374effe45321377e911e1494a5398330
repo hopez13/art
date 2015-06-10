@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "992af412_fa13e1e5",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "(I left this in)\n\nNot sure how to split this, it\u0027s related to testing that --experimental-lambdas flag is OFF by default which is also required by this CL.\n\nI can remove this test instead but then we\u0027ll have less test coverage.",
+      "parentUuid": "79c9c09b_9c488901",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 3
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d902ac8c_6996211e",
         "filename": "compiler/dex/quick/quick_compiler.cc",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-09T22:53:02Z",
       "side": 1,
       "message": "Can\u0027t you do the same just by comparing the pointer in kUnsupportedOpcodes against kUnsupportedLambdaOpcodes?",
+      "range": {
+        "startLine": 475,
+        "startChar": 0,
+        "endLine": 493,
+        "endChar": 2
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "193e044a_1a148dcd",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "Done.\n\nUnfortunately this can\u0027t be constexpr since it relies on a lot of pointers and we can\u0027t trivially decay the other constexpr arrays into other pointers.\n\n(though it gets called at runtime so it probably doesn\u0027t matter)",
+      "parentUuid": "d902ac8c_6996211e",
       "range": {
         "startLine": 475,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b92b3816_d5b6fc2b",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79c9c09b_1c559994",
+      "range": {
+        "startLine": 144,
+        "startChar": 24,
+        "endLine": 144,
+        "endChar": 35
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79c9c09b_5c89d1a8",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 10
@@ -82,6 +154,30 @@
       "writtenOn": "2015-06-10T08:41:52Z",
       "side": 1,
       "message": "This is adding an extra call for invoking a method in the interpreter that potentially is another performance penalty.\n\nYou could force DoCall and DoLambdaCall to be inlined (using ALWAYS_INLINE) to keep the same number of function calls. It seems to me they only extract invoke arguments from the DEX instruction.",
+      "range": {
+        "startLine": 484,
+        "startChar": 5,
+        "endLine": 484,
+        "endChar": 17
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99fcb4c6_1ed8fd94",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "I added ALWAYS_INLINE to DoCallCommon to keep the same call depth as before (as you said).\n\nThat being said I\u0027m sure the bigger performance question is this IsStringClass check that every single invoke has to do.",
+      "parentUuid": "79c9c09b_5c89d1a8",
       "range": {
         "startLine": 484,
         "startChar": 5,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d902ac8c_612aad33",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79c9c09b_9c71a95b",
+      "range": {
+        "startLine": 720,
+        "startChar": 0,
+        "endLine": 720,
+        "endChar": 84
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79c9c09b_fc62dd8d",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 10
@@ -128,6 +248,30 @@
       "writtenOn": "2015-06-10T07:54:20Z",
       "side": 1,
       "message": "Do you win anything by templating?",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 52
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3937486d_562af209",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "That\u0027s the same exact pattern as the other functions in the interpreter uses.\n\nPresumably it\u0027s a little bit faster since some of the branches will have guarantee inlined. Not sure if gcc/clang does partial specialization on runtime arguments.\n\n(That being said happy to clean this up at some point in the future, but that would require a much larger interpreter refactoring that seems outside of the scope of this CL. and also the way Instruction works bugs me a lot more than how the interpreter works :))",
+      "parentUuid": "79c9c09b_fc62dd8d",
       "range": {
         "startLine": 103,
         "startChar": 0,
@@ -187,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "99fcb4c6_fe04014f",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "Apologies, was following the existing style in this file (see e.g. DoInvoke)\n\nFixed.",
+      "parentUuid": "b9cfb89d_6993ad2c",
+      "range": {
+        "startLine": 149,
+        "startChar": 2,
+        "endLine": 149,
+        "endChar": 8
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5934fc65_02b0aa4d",
         "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
         "patchSetId": 10
@@ -198,6 +366,30 @@
       "writtenOn": "2015-06-09T22:53:02Z",
       "side": 1,
       "message": "It looks more like you\u0027d want a DCHECK here with inst-\u003eIsExperimental().",
+      "range": {
+        "startLine": 81,
+        "startChar": 61,
+        "endLine": 81,
+        "endChar": 84
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1917e4d9_fb576b29",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5934fc65_02b0aa4d",
       "range": {
         "startLine": 81,
         "startChar": 61,
@@ -233,6 +425,30 @@
     },
     {
       "key": {
+        "uuid": "1917e4d9_9e33bd22",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99ce74a2_08cd575a",
+      "range": {
+        "startLine": 2,
+        "startChar": 1,
+        "endLine": 2,
+        "endChar": 2
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ce74a2_68be0bb2",
         "filename": "runtime/interpreter/interpreter_switch_impl.cc",
         "patchSetId": 10
@@ -244,6 +460,30 @@
       "writtenOn": "2015-06-10T08:41:52Z",
       "side": 1,
       "message": "Instruction::UNUSED_F4",
+      "range": {
+        "startLine": 2246,
+        "startChar": 11,
+        "endLine": 2246,
+        "endChar": 15
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "193e044a_95a2ae30",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2246,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99ce74a2_68be0bb2",
       "range": {
         "startLine": 2246,
         "startChar": 11,
@@ -348,6 +588,30 @@
     },
     {
       "key": {
+        "uuid": "99fcb4c6_337772fc",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99fcb4c6_24dbb295",
+      "range": {
+        "startLine": 553,
+        "startChar": 39,
+        "endLine": 553,
+        "endChar": 41
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79c9c09b_fc0e5dbe",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 10
@@ -371,6 +635,30 @@
     },
     {
       "key": {
+        "uuid": "3937486d_16146acd",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "google3 style guide allows either case. I changed it how you suggested however, it\u0027s fine with me since that makes it more readable.\n\n(fwiw I just used the eclipse google3 automatic formatting here).",
+      "parentUuid": "79c9c09b_fc0e5dbe",
+      "range": {
+        "startLine": 552,
+        "startChar": 4,
+        "endLine": 554,
+        "endChar": 71
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ce74a2_4876afb7",
         "filename": "runtime/read_barrier-inl.h",
         "patchSetId": 10
@@ -382,6 +670,30 @@
       "writtenOn": "2015-06-10T07:54:20Z",
       "side": 1,
       "message": "Why this change?",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 11
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3937486d_4af24214",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "Just a cleanup, will split out",
+      "parentUuid": "99ce74a2_4876afb7",
       "range": {
         "startLine": 34,
         "startChar": 2,
@@ -509,6 +821,30 @@
     },
     {
       "key": {
+        "uuid": "b92b3816_95d72432",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79c9c09b_9c1d29f4",
+      "range": {
+        "startLine": 80,
+        "startChar": 33,
+        "endLine": 80,
+        "endChar": 43
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79c9c09b_5c743146",
         "filename": "test/955-lambda-smali/info.txt",
         "patchSetId": 10
@@ -520,6 +856,30 @@
       "writtenOn": "2015-06-10T07:54:20Z",
       "side": 1,
       "message": "I\u0027d drop. This file is for explaining the test, not the testing infrastructure.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 104
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3937486d_2ab01e4e",
+        "filename": "test/955-lambda-smali/info.txt",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79c9c09b_5c743146",
       "range": {
         "startLine": 2,
         "startChar": 0,
@@ -555,6 +915,30 @@
     },
     {
       "key": {
+        "uuid": "193e044a_153bfe5d",
+        "filename": "test/955-lambda-smali/run",
+        "patchSetId": 10
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "Just to elaborate the --runtime-option is there to run dalvikvm correctly, and the --Xcompiler-option is there for dex2oat to do the prebuild correctly (otherwise quick will skip scanning opcodes and crash instead of punting to interpreter)\n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\nIf I did it as you inquired then run-test-jar would see it as\n\n  arg(-Xcompiler-option), value(--runtime-arg)\n  arg(-Xcompiler-option), value(--Xexperimental-opcodes)\n\nby adding the quotes there I\u0027m forcing it to see it as \n\n  arg(-Xcompiler-option), value(--runtime-arg -Xexperimental-opcodes)\n\nand then dex2oat will parse that as \u0027dex2oat ... --runtime-arg -Xexperimental-opcodes\u0027 and add it to its set of create java vm args.\n\n(as an aside, I didn\u0027t add a new dex2oat flag for this, since I felt it would be redundant with a runtime flag, so there\u0027s only the 1 runtime flag for this)",
+      "parentUuid": "b9cfb89d_09c7990b",
+      "range": {
+        "startLine": 18,
+        "startChar": 52,
+        "endLine": 18,
+        "endChar": 108
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79c9c09b_3c817598",
         "filename": "test/955-lambda-smali/smali/Main.smali",
         "patchSetId": 10
@@ -566,6 +950,24 @@
       "writtenOn": "2015-06-10T07:54:20Z",
       "side": 1,
       "message": "Missing copyright",
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3937486d_2a97be9c",
+        "filename": "test/955-lambda-smali/smali/Main.smali",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79c9c09b_3c817598",
       "revId": "fa6a6244374effe45321377e911e1494a5398330",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -595,6 +997,30 @@
     },
     {
       "key": {
+        "uuid": "193e044a_9574ee47",
+        "filename": "test/955-lambda-smali/smali/Main.smali",
+        "patchSetId": 10
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "dexmerger doesn\u0027t support the new opcodes right now",
+      "parentUuid": "79c9c09b_dc4e010e",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 11
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9cfb89d_49b911b6",
         "filename": "test/955-lambda-smali/smali/SanityCheck.smali",
         "patchSetId": 10
@@ -606,6 +1032,24 @@
       "writtenOn": "2015-06-10T07:54:20Z",
       "side": 1,
       "message": "Copyright",
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1917e4d9_1e032d42",
+        "filename": "test/955-lambda-smali/smali/SanityCheck.smali",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9cfb89d_49b911b6",
       "revId": "fa6a6244374effe45321377e911e1494a5398330",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -635,6 +1079,30 @@
     },
     {
       "key": {
+        "uuid": "193e044a_35816298",
+        "filename": "test/955-lambda-smali/smali/SanityCheck.smali",
+        "patchSetId": 10
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79c9c09b_1c7eb926",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 13
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ce74a2_287373c7",
         "filename": "test/955-lambda-smali/smali/TrivialHelloWorld.smali",
         "patchSetId": 10
@@ -652,6 +1120,24 @@
     },
     {
       "key": {
+        "uuid": "3937486d_8aa60a0d",
+        "filename": "test/955-lambda-smali/smali/TrivialHelloWorld.smali",
+        "patchSetId": 10
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99ce74a2_287373c7",
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ce74a2_e8033b14",
         "filename": "test/etc/default-build",
         "patchSetId": 10
@@ -663,6 +1149,24 @@
       "writtenOn": "2015-06-10T07:54:20Z",
       "side": 1,
       "message": "Do you need any of the changes in this file if you change the smali Main into a Java Main?",
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "193e044a_d5483602",
+        "filename": "test/etc/default-build",
+        "patchSetId": 10
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-10T23:30:35Z",
+      "side": 1,
+      "message": "(can\u0027t do this because dexmerger doesn\u0027t support the new opcodes)",
+      "parentUuid": "99ce74a2_e8033b14",
       "revId": "fa6a6244374effe45321377e911e1494a5398330",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
