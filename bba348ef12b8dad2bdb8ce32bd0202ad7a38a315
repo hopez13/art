@@ -16,6 +16,24 @@
       "revId": "bba348ef12b8dad2bdb8ce32bd0202ad7a38a315",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ce74a2_089b1753",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-10T09:03:56Z",
+      "side": 1,
+      "message": "I believe it is already tested as part of parsed_options_test (it calls ParsedOptions::Create that contains the code overriding verbosity locally)",
+      "parentUuid": "796b8031_1be541a0",
+      "revId": "bba348ef12b8dad2bdb8ce32bd0202ad7a38a315",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
