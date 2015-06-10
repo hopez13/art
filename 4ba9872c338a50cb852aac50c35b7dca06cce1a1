@@ -131,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "d902ac8c_7bdb83e6",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 4704,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-06-10T00:36:41Z",
+      "side": 1,
+      "message": "If surrounding the two for-loops and one LOG(INFO) below with \"if (records !\u003d nullptr) {...}\" would also work, I might do that. But, seems fine.",
+      "parentUuid": "d902ac8c_404e92ba",
+      "range": {
+        "startLine": 4704,
+        "startChar": 16,
+        "endLine": 4704,
+        "endChar": 47
+      },
+      "revId": "4ba9872c338a50cb852aac50c35b7dca06cce1a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9d41838_1d346808",
         "filename": "runtime/debugger.cc",
         "patchSetId": 10
