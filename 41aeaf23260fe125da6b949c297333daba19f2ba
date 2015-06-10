@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3937486d_1b1a532d",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-10T17:40:45Z",
+      "side": 1,
+      "message": "This can return null, currently LookupStringId crashes if you pass in a null char*, is it possible to use the string ID for an empty string in this case?",
+      "range": {
+        "startLine": 696,
+        "startChar": 46,
+        "endLine": 696,
+        "endChar": 73
+      },
+      "revId": "41aeaf23260fe125da6b949c297333daba19f2ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
