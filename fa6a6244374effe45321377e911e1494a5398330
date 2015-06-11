@@ -1093,6 +1093,30 @@
     },
     {
       "key": {
+        "uuid": "997f5421_75513a5a",
+        "filename": "test/955-lambda-smali/smali/Main.smali",
+        "patchSetId": 10
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-11T21:27:34Z",
+      "side": 1,
+      "message": "Right, eventually when jack implements these it\u0027ll be pretty easy to port the changes to dexmerger since they both use libdex (the java libdex)",
+      "parentUuid": "f98e907f_524a12d9",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 11
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9cfb89d_49b911b6",
         "filename": "test/955-lambda-smali/smali/SanityCheck.smali",
         "patchSetId": 10
