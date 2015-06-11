@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "992af412_7bd11073",
+        "filename": "runtime/native/java_lang_String.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-11T21:29:55Z",
+      "side": 1,
+      "message": "Do you need this? The Equals method already handles the null case.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 17
+      },
+      "revId": "134a71568379006825e6e5f7096ceadba93daf99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
