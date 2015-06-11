@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79254042_7ce58dc7",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-11T00:03:01Z",
+      "side": 1,
+      "message": "Align comments, please. It increases readability...",
+      "range": {
+        "startLine": 267,
+        "startChar": 30,
+        "endLine": 276,
+        "endChar": 53
+      },
+      "revId": "2610c3d7a93f0e80717244a2a9393bb0ae06a423",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9754c3f_f709b266",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-11T00:03:01Z",
+      "side": 1,
+      "message": "Can you reformulate, length and size for arrays are normally synonymous. Maybe rename the parameter if it helps...",
+      "range": {
+        "startLine": 182,
+        "startChar": 29,
+        "endLine": 182,
+        "endChar": 84
+      },
+      "revId": "2610c3d7a93f0e80717244a2a9393bb0ae06a423",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
