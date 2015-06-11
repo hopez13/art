@@ -1021,6 +1021,30 @@
     },
     {
       "key": {
+        "uuid": "198c4486_b0a9f869",
+        "filename": "test/955-lambda-smali/smali/Main.smali",
+        "patchSetId": 10
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-11T08:35:40Z",
+      "side": 1,
+      "message": "Should we?",
+      "parentUuid": "193e044a_9574ee47",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 11
+      },
+      "revId": "fa6a6244374effe45321377e911e1494a5398330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9cfb89d_49b911b6",
         "filename": "test/955-lambda-smali/smali/SanityCheck.smali",
         "patchSetId": 10
