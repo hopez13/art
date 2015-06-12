@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f98e907f_f5cbf014",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-12T13:11:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59823c52_d8cce560",
+      "range": {
+        "startLine": 313,
+        "startChar": 2,
+        "endLine": 313,
+        "endChar": 6
+      },
+      "revId": "6485626dff7097be10e57231f548c502853ec34b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79f8e0fa_9be1eb4b",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-12T13:08:17Z",
       "side": 1,
       "message": "As we discussed, this could be a problem, because we don\u0027t propagate everywhere yet.",
+      "range": {
+        "startLine": 315,
+        "startChar": 30,
+        "endLine": 315,
+        "endChar": 56
+      },
+      "revId": "6485626dff7097be10e57231f548c502853ec34b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f98e907f_95d064c3",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-12T13:11:23Z",
+      "side": 1,
+      "message": "if it\u0027s not defined, it should return nullptr. If it returns nullptr, SetClassAsTypeInfo will do nothing. Is there an issue with this behavior?",
+      "parentUuid": "79f8e0fa_9be1eb4b",
       "range": {
         "startLine": 315,
         "startChar": 30,
