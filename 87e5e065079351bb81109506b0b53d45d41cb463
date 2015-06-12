@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59095cdc_7a5859cf",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-12T15:59:00Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 77,
+        "startChar": 71,
+        "endLine": 77,
+        "endChar": 73
+      },
+      "revId": "87e5e065079351bb81109506b0b53d45d41cb463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "390ca8ed_998c5b3f",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1639,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-12T15:59:00Z",
+      "side": 1,
+      "message": "Remove default, move the LOG(FATAL) to after the switch. That way the compiler will warn on missing enum cases.\n\nSimilarly below a couple of times.",
+      "range": {
+        "startLine": 1637,
+        "startChar": 4,
+        "endLine": 1639,
+        "endChar": 20
+      },
+      "revId": "87e5e065079351bb81109506b0b53d45d41cb463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
