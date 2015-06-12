@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59e07c3c_49d832e8",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1739,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-12T16:02:46Z",
+      "side": 1,
+      "message": "I\u0027m averse to switches with default - I like the compiler complaining if you miss an enum case. But you\u0027d have to put it into its own function, as there\u0027s code after this...",
+      "range": {
+        "startLine": 1737,
+        "startChar": 4,
+        "endLine": 1739,
+        "endChar": 20
+      },
+      "revId": "afbc1fede7acfdd0b5b4bdd842f6dbdd5d651f7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79254042_463477e5",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1844,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-12T16:02:46Z",
+      "side": 1,
+      "message": "At least here you could easily rewrite this by pulling in the return.",
+      "range": {
+        "startLine": 1844,
+        "startChar": 2,
+        "endLine": 1844,
+        "endChar": 24
+      },
+      "revId": "afbc1fede7acfdd0b5b4bdd842f6dbdd5d651f7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
