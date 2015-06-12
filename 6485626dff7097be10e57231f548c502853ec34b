@@ -141,6 +141,30 @@
       "revId": "6485626dff7097be10e57231f548c502853ec34b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f98e907f_55775c4c",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-12T13:55:06Z",
+      "side": 1,
+      "message": "And that\u0027s exactly the point of the enclosing `if`. Isn\u0027t this working?",
+      "parentUuid": "f98e907f_15131414",
+      "range": {
+        "startLine": 315,
+        "startChar": 30,
+        "endLine": 315,
+        "endChar": 56
+      },
+      "revId": "6485626dff7097be10e57231f548c502853ec34b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
