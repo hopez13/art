@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59823c52_d8b6252c",
+        "filename": "test/450-checker-types/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-12T10:50:47Z",
+      "side": 1,
+      "message": "For some reason, despite having the type correct, the checkcast is not elided. (the test is failing now)",
+      "range": {
+        "startLine": 394,
+        "startChar": 2,
+        "endLine": 397,
+        "endChar": 3
+      },
+      "revId": "d4f4bc961cc87cecda1addbbdff9be06766e4336",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
