@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f98e907f_555d1cf7",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-12T12:48:07Z",
+      "side": 1,
+      "message": "The only place where \"component\" is an existing thing, is in ArraySet, and it\u0027s only a primitive type. Can we chat about this?",
+      "parentUuid": "79f8e0fa_fb358f96",
+      "range": {
+        "startLine": 311,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 3
+      },
+      "revId": "d4f4bc961cc87cecda1addbbdff9be06766e4336",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59823c52_d8b6252c",
         "filename": "test/450-checker-types/src/Main.java",
         "patchSetId": 1
