@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "59823c52_f83a0958",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1704,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-12T17:00:04Z",
+      "side": 1,
+      "message": "I think it is inherited from Dalvik. So yes, we could use the field\u0027s primitive type instead.",
+      "parentUuid": "79254042_e68023d1",
+      "range": {
+        "startLine": 1704,
+        "startChar": 2,
+        "endLine": 1704,
+        "endChar": 69
+      },
+      "revId": "afbc1fede7acfdd0b5b4bdd842f6dbdd5d651f7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59e07c3c_49d832e8",
         "filename": "runtime/debugger.cc",
         "patchSetId": 3
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "The idiom is to cover your back by returning out of all cases with a return, so that the \"implicit default\" is the exit of the switch, where you put the LOG(FATAL). That\u0027s why I said you\u0027d have to create its own function.\n\nYou\u0027d also put the VOID explicitly and have an expressive failure message.\n\nI understand why all of that is overhead here, so it\u0027s your choice, but it is easily doable for the case below...",
       "parentUuid": "79f8e0fa_befe557b",
+      "range": {
+        "startLine": 1737,
+        "startChar": 4,
+        "endLine": 1739,
+        "endChar": 20
+      },
+      "revId": "afbc1fede7acfdd0b5b4bdd842f6dbdd5d651f7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79f8e0fa_1e102956",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1739,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-12T17:00:04Z",
+      "side": 1,
+      "message": "OK, we could create a dedicated function that returns the JValue for the \"Get\" and another dedicate function that return the JdwpError for the \"Set\"",
+      "parentUuid": "59095cdc_3d7c1b98",
       "range": {
         "startLine": 1737,
         "startChar": 4,
