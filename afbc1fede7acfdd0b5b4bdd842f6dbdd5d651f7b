@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "59095cdc_3d7c1b98",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1739,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-12T16:18:18Z",
+      "side": 1,
+      "message": "The idiom is to cover your back by returning out of all cases with a return, so that the \"implicit default\" is the exit of the switch, where you put the LOG(FATAL). That\u0027s why I said you\u0027d have to create its own function.\n\nYou\u0027d also put the VOID explicitly and have an expressive failure message.\n\nI understand why all of that is overhead here, so it\u0027s your choice, but it is easily doable for the case below...",
+      "parentUuid": "79f8e0fa_befe557b",
+      "range": {
+        "startLine": 1737,
+        "startChar": 4,
+        "endLine": 1739,
+        "endChar": 20
+      },
+      "revId": "afbc1fede7acfdd0b5b4bdd842f6dbdd5d651f7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79254042_463477e5",
         "filename": "runtime/debugger.cc",
         "patchSetId": 3
