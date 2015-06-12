@@ -117,6 +117,30 @@
       "revId": "6485626dff7097be10e57231f548c502853ec34b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f98e907f_15131414",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-06-12T13:42:32Z",
+      "side": 1,
+      "message": "yep. So top will have a null reference store in the handle and this will fail. You need to test for it separately.",
+      "parentUuid": "59823c52_b8db2116",
+      "range": {
+        "startLine": 315,
+        "startChar": 30,
+        "endLine": 315,
+        "endChar": 56
+      },
+      "revId": "6485626dff7097be10e57231f548c502853ec34b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
