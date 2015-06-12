@@ -46,6 +46,30 @@
       "revId": "0e855bf23d2366776eaa4d86f22292f86890d98b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59823c52_b877a17c",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-06-12T13:55:06Z",
+      "side": 1,
+      "message": "Is there a technical reason for it, or do we just prefer for style reasons `if (ptr !\u003d nullptr)\u0027 instead of `if (ptr)\u0027?",
+      "parentUuid": "99fd94eb_5c411db6",
+      "range": {
+        "startLine": 314,
+        "startChar": 5,
+        "endLine": 314,
+        "endChar": 27
+      },
+      "revId": "0e855bf23d2366776eaa4d86f22292f86890d98b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
