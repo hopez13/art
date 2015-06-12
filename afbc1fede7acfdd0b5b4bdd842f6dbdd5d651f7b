@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "79254042_e68023d1",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1704,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-12T16:21:24Z",
+      "side": 1,
+      "message": "Is there actually a reason to do this? Why not use the primitive type directly? I don\u0027t see that it would make a difference below...",
+      "range": {
+        "startLine": 1704,
+        "startChar": 2,
+        "endLine": 1704,
+        "endChar": 69
+      },
+      "revId": "afbc1fede7acfdd0b5b4bdd842f6dbdd5d651f7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59e07c3c_49d832e8",
         "filename": "runtime/debugger.cc",
         "patchSetId": 3
