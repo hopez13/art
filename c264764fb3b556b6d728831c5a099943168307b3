@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f98e907f_151a34a0",
+        "filename": "compiler/utils/arm/assembler_thumb2.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-06-12T10:09:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b92b3816_2d3b585e",
+      "range": {
+        "startLine": 372,
+        "startChar": 64,
+        "endLine": 372,
+        "endChar": 68
+      },
+      "revId": "c264764fb3b556b6d728831c5a099943168307b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b92b3816_ad2d284b",
         "filename": "compiler/utils/arm/assembler_thumb2_test.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-11T20:54:29Z",
       "side": 1,
       "message": "Can\u0027t you find another way to do this? (My goal in the test infrastructure was to not need to rely on macros...)\n\nWhat does this actually buy you, instead of having the loop explicit at the few test sites?",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 17
+      },
+      "revId": "c264764fb3b556b6d728831c5a099943168307b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79f8e0fa_1bbe7bb0",
+        "filename": "compiler/utils/arm/assembler_thumb2_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-06-12T10:09:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b92b3816_ad2d284b",
       "range": {
         "startLine": 95,
         "startChar": 0,
