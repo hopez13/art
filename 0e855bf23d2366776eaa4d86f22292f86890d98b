@@ -70,6 +70,30 @@
       "revId": "0e855bf23d2366776eaa4d86f22292f86890d98b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79f8e0fa_db5ed36d",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-06-12T14:09:32Z",
+      "side": 1,
+      "message": "good code practices :). avoid obscure errors and adds clarity to the code. nullptr is actually typed and not implicitly convertible to integer so you can get better warnings from the compiler.",
+      "parentUuid": "59823c52_b877a17c",
+      "range": {
+        "startLine": 314,
+        "startChar": 5,
+        "endLine": 314,
+        "endChar": 27
+      },
+      "revId": "0e855bf23d2366776eaa4d86f22292f86890d98b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
