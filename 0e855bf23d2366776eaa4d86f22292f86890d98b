@@ -22,6 +22,30 @@
       "revId": "0e855bf23d2366776eaa4d86f22292f86890d98b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99fd94eb_5c411db6",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-06-12T13:42:32Z",
+      "side": 1,
+      "message": "yes, you should to compare against null.",
+      "parentUuid": "79f8e0fa_dbb9b33b",
+      "range": {
+        "startLine": 314,
+        "startChar": 5,
+        "endLine": 314,
+        "endChar": 27
+      },
+      "revId": "0e855bf23d2366776eaa4d86f22292f86890d98b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
