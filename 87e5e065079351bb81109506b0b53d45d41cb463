@@ -45,6 +45,30 @@
       "revId": "87e5e065079351bb81109506b0b53d45d41cb463",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99fd94eb_df619f08",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1639,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-06-12T16:33:41Z",
+      "side": 1,
+      "message": "Should I rewrite all the other places to use early return instead of \"break\"?",
+      "parentUuid": "390ca8ed_998c5b3f",
+      "range": {
+        "startLine": 1637,
+        "startChar": 4,
+        "endLine": 1639,
+        "endChar": 20
+      },
+      "revId": "87e5e065079351bb81109506b0b53d45d41cb463",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
