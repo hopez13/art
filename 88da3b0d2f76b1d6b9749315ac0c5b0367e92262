@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9733893_d5d79c30",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-13T13:34:43Z",
+      "side": 1,
+      "message": "Why is one method using oat_file, and the other oat_file_non_owned? If there\u0027s a specific reason, please consider renaming the methods.",
+      "range": {
+        "startLine": 843,
+        "startChar": 0,
+        "endLine": 851,
+        "endChar": 1
+      },
+      "revId": "88da3b0d2f76b1d6b9749315ac0c5b0367e92262",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "397f484e_c1e28215",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-13T13:34:43Z",
+      "side": 1,
+      "message": "So what\u0027s the difference between those two? It\u0027s a bit confusing...",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 37
+      },
+      "revId": "88da3b0d2f76b1d6b9749315ac0c5b0367e92262",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
