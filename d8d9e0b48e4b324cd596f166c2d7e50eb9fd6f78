@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "d98f0cac_01f38c9a",
+        "filename": "runtime/gc_root.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-14T21:56:18Z",
+      "side": 1,
+      "message": "We already have something called RootInfo, maybe if this was GcRootSource instead of GcRootInfo it would be less ambiguous.",
+      "range": {
+        "startLine": 134,
+        "startChar": 6,
+        "endLine": 134,
+        "endChar": 16
+      },
+      "revId": "d8d9e0b48e4b324cd596f166c2d7e50eb9fd6f78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "799460c1_9b046b4f",
         "filename": "runtime/gc_root.h",
         "patchSetId": 1
@@ -41,6 +64,29 @@
         "startChar": 0,
         "endLine": 161,
         "endChar": 2
+      },
+      "revId": "d8d9e0b48e4b324cd596f166c2d7e50eb9fd6f78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b98a589d_20a5e439",
+        "filename": "runtime/gc_root.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-14T21:56:18Z",
+      "side": 1,
+      "message": "If you passed in const GcRootInfo\u0026 then it would be less work at call sites. But either way works with me.",
+      "range": {
+        "startLine": 167,
+        "startChar": 33,
+        "endLine": 167,
+        "endChar": 43
       },
       "revId": "d8d9e0b48e4b324cd596f166c2d7e50eb9fd6f78",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
