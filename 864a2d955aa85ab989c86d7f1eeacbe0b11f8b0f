@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79bf0033_83969e9d",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3205,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-15T15:08:38Z",
+      "side": 0,
+      "message": "We must keep that here because DeoptimizationRequest::Method (which may be called in ProcessDeoptimizationRequest) uses a ScopedObjectAccessUnchecked:\n\n    ArtMethod* Method() const SHARED_LOCKS_REQUIRED(Locks::mutator_lock_) {\n    ScopedObjectAccessUnchecked soa(Thread::Current());\n    return soa.DecodeMethod(method_);\n  }\n\nScopedObjectAccessUnchecked creates a ScopedThreadStateChange for the kRunnable state. Since we are not kRunnable, it will try to TransitionFromSuspendedToRunnable and fail a debug check:\n\nart F 119285 119287 art/runtime/base/mutex.h:356] Check failed: !IsSharedHeld(self) mutator lock level\u003d51 owner\u003d119287 state\u003d-1 num_pending_writers\u003d0 num_pending_readers\u003d0",
+      "range": {
+        "startLine": 3205,
+        "startChar": 2,
+        "endLine": 3205,
+        "endChar": 64
+      },
+      "revId": "864a2d955aa85ab989c86d7f1eeacbe0b11f8b0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
