@@ -22,6 +22,30 @@
       "revId": "864a2d955aa85ab989c86d7f1eeacbe0b11f8b0f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39b10858_3430bea3",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3205,
+      "author": {
+        "id": 1039961
+      },
+      "writtenOn": "2015-06-15T16:31:23Z",
+      "side": 0,
+      "message": "Hi Sebastien, Yes, this is a bug. Thanks!",
+      "parentUuid": "79bf0033_83969e9d",
+      "range": {
+        "startLine": 3205,
+        "startChar": 2,
+        "endLine": 3205,
+        "endChar": 64
+      },
+      "revId": "864a2d955aa85ab989c86d7f1eeacbe0b11f8b0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
