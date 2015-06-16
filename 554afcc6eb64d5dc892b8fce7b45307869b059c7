@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "195444e3_33c8f295",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-16T15:17:37Z",
+      "side": 1,
+      "message": "Yes, thank you for having changed it to num_inputs :-). Changing it to number_of_inputs, I think, makes it clearer what it is. In general, I avoid abbreviations.\n\nstring_init is fine, because the methods are called \u003cinit\u003e, not \u003cinitialize\u003e. I would also have changed num_regs to number_of_vregs.",
+      "parentUuid": "b98a589d_b1edc888",
+      "range": {
+        "startLine": 498,
+        "startChar": 34,
+        "endLine": 498,
+        "endChar": 44
+      },
+      "revId": "554afcc6eb64d5dc892b8fce7b45307869b059c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9733893_b53ea0ea",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 11
@@ -166,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "397f484e_07d63abd",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-16T15:17:37Z",
+      "side": 1,
+      "message": "Yes, I agree it should be a verifier check. The line is a bit blur between what the interpreter should DCHECK when it comes to things the verifier should have done, so it\u0027s up to you.",
+      "parentUuid": "5965dcc2_a3874819",
+      "range": {
+        "startLine": 738,
+        "startChar": 0,
+        "endLine": 739,
+        "endChar": 36
+      },
+      "revId": "554afcc6eb64d5dc892b8fce7b45307869b059c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79bf0033_c3389600",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 11
@@ -213,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "397f484e_27db3ee7",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-16T15:17:37Z",
+      "side": 1,
+      "message": "It\u0027s mostly a nit, since the method returns bool. You could also name it ValidateLambdaTargetOrThrow, or IsValidLambdaTargetOrThrow. Maybe the former is better, as you can still return false and not throw.",
+      "parentUuid": "597cfc56_6c6a8414",
+      "range": {
+        "startLine": 114,
+        "startChar": 19,
+        "endLine": 114,
+        "endChar": 39
+      },
+      "revId": "554afcc6eb64d5dc892b8fce7b45307869b059c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "397f484e_a12bbeba",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 11
@@ -248,6 +320,30 @@
       "side": 1,
       "message": "I am happy to of course change this comment, please help me understand the code better so that I can write the most accurate comments.\n\nCan you elaborate why this extra detail is necessary?\n\nAre there cases when we *don\u0027t* throw the exception in the way you described (by putting it in the thread tls)? Creating an exception too should be quite common, we only want to throw preallocated exceptions in the rare case (eg OOM).",
       "parentUuid": "397f484e_a12bbeba",
+      "range": {
+        "startLine": 135,
+        "startChar": 38,
+        "endLine": 135,
+        "endChar": 44
+      },
+      "revId": "554afcc6eb64d5dc892b8fce7b45307869b059c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79bf0033_8986bdeb",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-16T15:17:37Z",
+      "side": 1,
+      "message": "It\u0027s just that the \"throws\" in my opinion implies that you won\u0027t return from this method. I know some ART methods do not follow this rule but I find it confusing.",
+      "parentUuid": "594a3c43_1502f6c6",
       "range": {
         "startLine": 135,
         "startChar": 38,
@@ -448,6 +544,54 @@
     },
     {
       "key": {
+        "uuid": "195444e3_93043e4f",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-16T15:17:37Z",
+      "side": 1,
+      "message": "I see. Talk about confusing :-) The compiler code (both driver/quick/optimizing) AFAIK exclusively talk about method_index.",
+      "parentUuid": "b98a589d_b1cce85f",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 84
+      },
+      "revId": "554afcc6eb64d5dc892b8fce7b45307869b059c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "799460c1_a19ada4b",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-16T15:17:37Z",
+      "side": 1,
+      "message": "My point is that the other dex file, when doing the invoke-lambda, if it only has the method index of where that lambda was defined it is not enough. That method index is irrelevant for the other dex file.",
+      "parentUuid": "597cfc56_7f9f8867",
+      "range": {
+        "startLine": 146,
+        "startChar": 65,
+        "endLine": 146,
+        "endChar": 84
+      },
+      "revId": "554afcc6eb64d5dc892b8fce7b45307869b059c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "799460c1_3b643714",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 11
@@ -623,6 +767,30 @@
       "side": 1,
       "message": "The full explanation is in the docs, there are pictures of diagrams. \n\nI can make it slightly more detailed without getting very specific:\n\n \u0027this should be a closure that also captures the variables instead of just an ArtMethod\u0027",
       "parentUuid": "397f484e_21208ed1",
+      "range": {
+        "startLine": 191,
+        "startChar": 28,
+        "endLine": 191,
+        "endChar": 47
+      },
+      "revId": "554afcc6eb64d5dc892b8fce7b45307869b059c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79bf0033_498de502",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-16T15:17:37Z",
+      "side": 1,
+      "message": "I see. Maybe to make things clearer for the reader, add something like: \"introduce a closure abstraction that will contain the captured variables\".",
+      "parentUuid": "796d40b3_99047b4f",
       "range": {
         "startLine": 191,
         "startChar": 28,
