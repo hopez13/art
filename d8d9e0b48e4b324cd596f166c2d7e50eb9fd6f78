@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "796d40b3_6758dacf",
+        "filename": "runtime/gc_root.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-06-16T00:12:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d98f0cac_01f38c9a",
+      "range": {
+        "startLine": 134,
+        "startChar": 6,
+        "endLine": 134,
+        "endChar": 16
+      },
+      "revId": "d8d9e0b48e4b324cd596f166c2d7e50eb9fd6f78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "799460c1_9b046b4f",
         "filename": "runtime/gc_root.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-13T13:42:25Z",
       "side": 1,
       "message": "No need?",
+      "range": {
+        "startLine": 136,
+        "startChar": 2,
+        "endLine": 136,
+        "endChar": 10
+      },
+      "revId": "d8d9e0b48e4b324cd596f166c2d7e50eb9fd6f78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "796d40b3_2777c24d",
+        "filename": "runtime/gc_root.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-06-16T00:12:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "799460c1_9b046b4f",
       "range": {
         "startLine": 136,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "594a3c43_86e23a96",
+        "filename": "runtime/gc_root.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-06-16T00:12:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9733893_f5dc9857",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 2
+      },
+      "revId": "d8d9e0b48e4b324cd596f166c2d7e50eb9fd6f78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b98a589d_20a5e439",
         "filename": "runtime/gc_root.h",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-06-14T21:56:18Z",
       "side": 1,
       "message": "If you passed in const GcRootInfo\u0026 then it would be less work at call sites. But either way works with me.",
+      "range": {
+        "startLine": 167,
+        "startChar": 33,
+        "endLine": 167,
+        "endChar": 43
+      },
+      "revId": "d8d9e0b48e4b324cd596f166c2d7e50eb9fd6f78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5965dcc2_293079a3",
+        "filename": "runtime/gc_root.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-06-16T00:12:07Z",
+      "side": 1,
+      "message": "True. I thought passing a nullptr might be a bit cheaper for the common empty case than stack-allocating/initializing an empty GcRootInfo and passing its pointer. But I could go with either way, too.",
+      "parentUuid": "b98a589d_20a5e439",
       "range": {
         "startLine": 167,
         "startChar": 33,
