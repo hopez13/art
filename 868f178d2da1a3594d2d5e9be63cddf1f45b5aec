@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "39b10858_0009f034",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-17T18:21:30Z",
+      "side": 1,
+      "message": "Not necessarily, it can be something convertible to T (typically signed/unsigned mismatch or widening numerics)",
+      "parentUuid": "397f484e_957354c5",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 108,
+        "endChar": 8
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79bf0033_f77bc871",
         "filename": "cmdline/cmdline_parser_test.cc",
         "patchSetId": 12
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b99c18d9_aaf27610",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-17T18:21:30Z",
+      "side": 1,
+      "message": "No reason",
+      "parentUuid": "79bf0033_f77bc871",
+      "range": {
+        "startLine": 109,
+        "startChar": 4,
+        "endLine": 109,
+        "endChar": 5
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79bf0033_3796001d",
         "filename": "cmdline/cmdline_parser_test.cc",
         "patchSetId": 12
@@ -59,6 +107,30 @@
       "writtenOn": "2015-06-17T16:47:37Z",
       "side": 1,
       "message": "Could you put the start/end braces in the macro instead?",
+      "range": {
+        "startLine": 540,
+        "startChar": 2,
+        "endLine": 540,
+        "endChar": 3
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19b8c43c_97ec0306",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-17T18:21:30Z",
+      "side": 1,
+      "message": "Ok, I\u0027ll get rid of the {}s here. The other tests introduced the same local variable over and over again so they needed the {}.",
+      "parentUuid": "79bf0033_3796001d",
       "range": {
         "startLine": 540,
         "startChar": 2,
