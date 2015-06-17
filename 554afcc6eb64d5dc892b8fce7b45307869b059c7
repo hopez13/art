@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "39b10858_20107456",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-17T18:21:30Z",
+      "side": 1,
+      "message": "invoke-lambda doesn\u0027t take a method ID, create-lambda takes the method ID.\n\ninvoke-lambda only takes the closure and the registers.\n\nDid you take a look at the opcode definitions in the doc? There are smali examples too.",
+      "parentUuid": "799460c1_cfbb8d13",
+      "range": {
+        "startLine": 458,
+        "startChar": 0,
+        "endLine": 458,
+        "endChar": 76
+      },
+      "revId": "554afcc6eb64d5dc892b8fce7b45307869b059c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "397f484e_411d9296",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 11
