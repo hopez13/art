@@ -164,6 +164,374 @@
       "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e00c6ef_dbc6938a",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-17T20:48:05Z",
+      "side": 1,
+      "message": "For consistency, shouldn\u0027t you name this HasVarArgs35c?",
+      "range": {
+        "startLine": 449,
+        "startChar": 25,
+        "endLine": 449,
+        "endChar": 35
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fef4b642_3f0e876d",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-17T20:48:05Z",
+      "side": 1,
+      "message": "Where is there no vA and vB?",
+      "range": {
+        "startLine": 463,
+        "startChar": 7,
+        "endLine": 463,
+        "endChar": 12
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fef4b642_5f094b63",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-17T20:48:05Z",
+      "side": 1,
+      "message": "I don\u0027t understand: vB is not mentioned line 463.",
+      "range": {
+        "startLine": 465,
+        "startChar": 10,
+        "endLine": 465,
+        "endChar": 12
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bef6be49_9dd0033f",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-17T20:48:05Z",
+      "side": 1,
+      "message": "But what is it? You haven\u0027t said what vC is in this comment.",
+      "range": {
+        "startLine": 467,
+        "startChar": 6,
+        "endLine": 467,
+        "endChar": 8
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e114241_5a095563",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-17T20:48:05Z",
+      "side": 1,
+      "message": "Maybe add an example as well. Even though I understand where you\u0027re going to, all the comments above confused me a lot :-)",
+      "range": {
+        "startLine": 470,
+        "startChar": 0,
+        "endLine": 477,
+        "endChar": 34
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bef6be49_5de4bb21",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-17T20:48:05Z",
+      "side": 1,
+      "message": "Rename these to GetAllArgs35c?",
+      "range": {
+        "startLine": 394,
+        "startChar": 7,
+        "endLine": 395,
+        "endChar": 17
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fef4b642_1f13c397",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-17T20:48:05Z",
+      "side": 1,
+      "message": "Why do you need this now? I haven\u0027t seen any user of it.",
+      "range": {
+        "startLine": 551,
+        "startChar": 10,
+        "endLine": 551,
+        "endChar": 16
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e00c6ef_9bd00b3f",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-17T20:48:05Z",
+      "side": 1,
+      "message": "Indentation is off.",
+      "range": {
+        "startLine": 485,
+        "startChar": 32,
+        "endLine": 491,
+        "endChar": 55
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e00c6ef_7bdf7f4d",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-17T20:48:05Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 495,
+        "startChar": 24,
+        "endLine": 501,
+        "endChar": 27
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e057a00_7cdf794d",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-17T20:48:05Z",
+      "side": 1,
+      "message": "slots -\u003e slot",
+      "range": {
+        "startLine": 629,
+        "startChar": 74,
+        "endLine": 629,
+        "endChar": 79
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e057a00_dcc68d8a",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-17T20:48:05Z",
+      "side": 1,
+      "message": "should the \u0027,\u0027 be an \u0027and\u0027 ?",
+      "range": {
+        "startLine": 110,
+        "startChar": 21,
+        "endLine": 110,
+        "endChar": 22
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e057a00_9cd0053f",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-17T20:48:05Z",
+      "side": 1,
+      "message": "Please consider my suggestion in a former comment.",
+      "range": {
+        "startLine": 192,
+        "startChar": 33,
+        "endLine": 192,
+        "endChar": 47
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e114241_1a13dd97",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-17T20:48:05Z",
+      "side": 1,
+      "message": "Missing \u0027.\u0027",
+      "range": {
+        "startLine": 78,
+        "startChar": 52,
+        "endLine": 78,
+        "endChar": 56
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e00c6ef_5be4c321",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-17T20:48:05Z",
+      "side": 1,
+      "message": "Their -\u003e The ?",
+      "range": {
+        "startLine": 734,
+        "startChar": 66,
+        "endLine": 734,
+        "endChar": 71
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fef4b642_fff7ffcb",
+        "filename": "test/955-lambda-smali/smali/SanityCheck.smali",
+        "patchSetId": 12
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-17T20:48:05Z",
+      "side": 1,
+      "message": "I cannot parse this comment.",
+      "range": {
+        "startLine": 26,
+        "startChar": 38,
+        "endLine": 26,
+        "endChar": 93
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e114241_faf709cc",
+        "filename": "test/955-lambda-smali/smali/TrivialHelloWorld.smali",
+        "patchSetId": 12
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-17T20:48:05Z",
+      "side": 1,
+      "message": "do we have such a thing? Are you introducing it?",
+      "range": {
+        "startLine": 47,
+        "startChar": 35,
+        "endLine": 47,
+        "endChar": 63
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
