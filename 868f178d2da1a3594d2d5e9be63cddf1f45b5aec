@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "39b10858_2037d4ec",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-17T18:27:21Z",
+      "side": 1,
+      "message": "Although looking at the existing test cases ...\n\nUsuallyEquals (the one where the types matter) is implemented for the same type for all overloads except string+char*. \n\nSo while there aren\u0027t any \u0027expected default key value\u0027 that check strings against const char*s now, there could be in the future.\n\nAnd the \u0027expected (non-default) key-value\u0027 definitely make use of this, because I just put in a c-string as the expected to compare against an std::string value.\n------\nSo I guess I can just specify the type explicitly for now.",
+      "parentUuid": "39b10858_0009f034",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 108,
+        "endChar": 8
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79bf0033_f77bc871",
         "filename": "cmdline/cmdline_parser_test.cc",
         "patchSetId": 12
