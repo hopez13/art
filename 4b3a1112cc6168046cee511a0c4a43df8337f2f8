@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99203484_ea5e636d",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-17T23:52:15Z",
+      "side": 1,
+      "message": "There\u0027s no mirror:Class on the right side. I\u0027m inclined to ask for the full type here.",
+      "range": {
+        "startLine": 286,
+        "startChar": 2,
+        "endLine": 286,
+        "endChar": 6
+      },
+      "revId": "4b3a1112cc6168046cee511a0c4a43df8337f2f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f92f706e_b0cbfe15",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-17T23:52:15Z",
+      "side": 1,
+      "message": "3?",
+      "range": {
+        "startLine": 322,
+        "startChar": 19,
+        "endLine": 322,
+        "endChar": 20
+      },
+      "revId": "4b3a1112cc6168046cee511a0c4a43df8337f2f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
