@@ -22,6 +22,30 @@
       "revId": "1b90c4afc29d1a5f9d947b2b4083967405b44342",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "397f484e_ca7d37e1",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1222,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-17T14:57:14Z",
+      "side": 1,
+      "message": "Because it is always there. `table` has `size+1` entries [1]. Similarly, the data structure of a SparseSwitch has `size*2` actual entries.\n\n[1] https://source.android.com/devices/tech/dalvik/dalvik-bytecode.html#packed-switch",
+      "parentUuid": "799460c1_0472bc5d",
+      "range": {
+        "startLine": 1222,
+        "startChar": 25,
+        "endLine": 1222,
+        "endChar": 45
+      },
+      "revId": "1b90c4afc29d1a5f9d947b2b4083967405b44342",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
