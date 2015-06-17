@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "195444e3_d3188605",
+        "filename": "test/137-cfi/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-06-17T09:01:58Z",
+      "side": 1,
+      "message": "This is a SIGTERM, not a SIGKILL, so if the process is stopped the delivery is delayed until it\u0027s resumed. Given the unreliable order of signal delivery, we could have ended up in a stopped state and ignoring the SIGTERM.",
+      "range": {
+        "startLine": 107,
+        "startChar": 10,
+        "endLine": 107,
+        "endChar": 22
+      },
+      "revId": "a70e5b92a629ca4028d10c9320f9d25f2832a1ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
