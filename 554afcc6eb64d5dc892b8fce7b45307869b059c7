@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "799460c1_cfbb8d13",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-17T16:47:37Z",
+      "side": 1,
+      "message": "But why do we need a new format? What\u0027s different between invoke-lambda/invoke-lambda-range and invoke-virtual/invoke-virtual-range ?",
+      "parentUuid": "597cfc56_4c6dc029",
+      "range": {
+        "startLine": 458,
+        "startChar": 0,
+        "endLine": 458,
+        "endChar": 76
+      },
+      "revId": "554afcc6eb64d5dc892b8fce7b45307869b059c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "397f484e_411d9296",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 11
