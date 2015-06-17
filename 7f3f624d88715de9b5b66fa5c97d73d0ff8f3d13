@@ -22,6 +22,30 @@
       "revId": "7f3f624d88715de9b5b66fa5c97d73d0ff8f3d13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99203484_471db06d",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-06-17T21:36:44Z",
+      "side": 1,
+      "message": "const field?  I was not aware that is possible.\nDoes it work in all compilers?",
+      "parentUuid": "192d2477_2b5b25ce",
+      "range": {
+        "startLine": 313,
+        "startChar": 42,
+        "endLine": 313,
+        "endChar": 55
+      },
+      "revId": "7f3f624d88715de9b5b66fa5c97d73d0ff8f3d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
