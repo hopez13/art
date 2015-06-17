@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "397f484e_f55ca050",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1215,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-17T16:20:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "195444e3_b69cd0f0",
+      "range": {
+        "startLine": 1215,
+        "startChar": 63,
+        "endLine": 1215,
+        "endChar": 70
+      },
+      "revId": "990681070fe64f53fca2c8da3d0e84a80fc158b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "799460c1_e4187005",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-17T15:27:00Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1235,
+        "startChar": 0,
+        "endLine": 1235,
+        "endChar": 42
+      },
+      "revId": "990681070fe64f53fca2c8da3d0e84a80fc158b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79bf0033_57c8dc43",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1235,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-17T16:20:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "799460c1_e4187005",
       "range": {
         "startLine": 1235,
         "startChar": 0,
@@ -82,6 +130,30 @@
       "writtenOn": "2015-06-17T15:27:00Z",
       "side": 1,
       "message": "Really?",
+      "range": {
+        "startLine": 1,
+        "startChar": 1,
+        "endLine": 2,
+        "endChar": 36
+      },
+      "revId": "990681070fe64f53fca2c8da3d0e84a80fc158b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "195444e3_3689c0aa",
+        "filename": "test/501-regression-packed-switch/info.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-17T16:20:02Z",
+      "side": 1,
+      "message": "Oops, I\u0027ve changed the original info.txt file instead of the copy",
+      "parentUuid": "397f484e_f5c02072",
       "range": {
         "startLine": 1,
         "startChar": 1,
