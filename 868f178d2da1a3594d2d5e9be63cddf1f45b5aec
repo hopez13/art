@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "5e6dc2eb_7dd193f6",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39b10858_2037d4ec",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 108,
+        "endChar": 8
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79bf0033_f77bc871",
         "filename": "cmdline/cmdline_parser_test.cc",
         "patchSetId": 12
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "No reason",
       "parentUuid": "79bf0033_f77bc871",
+      "range": {
+        "startLine": 109,
+        "startChar": 4,
+        "endLine": 109,
+        "endChar": 5
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e6dc2eb_1dd657f0",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b99c18d9_aaf27610",
       "range": {
         "startLine": 109,
         "startChar": 4,
@@ -167,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "1e67ca0f_9bc7cfa5",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19b8c43c_97ec0306",
+      "range": {
+        "startLine": 540,
+        "startChar": 2,
+        "endLine": 540,
+        "endChar": 3
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7e00c6ef_dbc6938a",
         "filename": "runtime/dex_instruction-inl.h",
         "patchSetId": 12
@@ -178,6 +250,30 @@
       "writtenOn": "2015-06-17T20:48:05Z",
       "side": 1,
       "message": "For consistency, shouldn\u0027t you name this HasVarArgs35c?",
+      "range": {
+        "startLine": 449,
+        "startChar": 25,
+        "endLine": 449,
+        "endChar": 35
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e7adaa8_947564f5",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e00c6ef_dbc6938a",
       "range": {
         "startLine": 449,
         "startChar": 25,
@@ -213,6 +309,30 @@
     },
     {
       "key": {
+        "uuid": "3e700ec3_5cb6112f",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "Yeah, that was me writing the specification without realizing that the names already had a clear-cut convention in the existing art code.\n\nSee line 484 for how I\u0027m going to fix this up once I\u0027m doing verifier support.",
+      "parentUuid": "fef4b642_3f0e876d",
+      "range": {
+        "startLine": 463,
+        "startChar": 7,
+        "endLine": 463,
+        "endChar": 12
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fef4b642_5f094b63",
         "filename": "runtime/dex_instruction-inl.h",
         "patchSetId": 12
@@ -224,6 +344,30 @@
       "writtenOn": "2015-06-17T20:48:05Z",
       "side": 1,
       "message": "I don\u0027t understand: vB is not mentioned line 463.",
+      "range": {
+        "startLine": 465,
+        "startChar": 10,
+        "endLine": 465,
+        "endChar": 12
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e9c462a_fe4b5d77",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "vB is documented on line 467.\n\nline 463 is the mnemonic (what you would write in smali or see in dex-dump)\n\nvB is what you get if you use the VRegB_25x() function to raw-decode the instruction.\n\n(it\u0027s pretty standard for most of the invokes, since they have variable arguments, one of the half-words is used to transparently encode the # of args)\n\n(added a comment that it\u0027s \u0027implicit\u0027)",
+      "parentUuid": "fef4b642_5f094b63",
       "range": {
         "startLine": 465,
         "startChar": 10,
@@ -259,6 +403,30 @@
     },
     {
       "key": {
+        "uuid": "7e9c462a_be45d565",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "The semantic meaning of vC is up to the instruction that uses this format. I added a comment.",
+      "parentUuid": "bef6be49_9dd0033f",
+      "range": {
+        "startLine": 467,
+        "startChar": 6,
+        "endLine": 467,
+        "endChar": 8
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e114241_5a095563",
         "filename": "runtime/dex_instruction-inl.h",
         "patchSetId": 12
@@ -270,6 +438,30 @@
       "writtenOn": "2015-06-17T20:48:05Z",
       "side": 1,
       "message": "Maybe add an example as well. Even though I understand where you\u0027re going to, all the comments above confused me a lot :-)",
+      "range": {
+        "startLine": 470,
+        "startChar": 0,
+        "endLine": 477,
+        "endChar": 34
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e700ec3_5c04d14e",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "Not sure how it can get more explicit than this (it\u0027s already far more documented than the other opcodes in this file) diagram?\n\nIf you have a specific example you have in mind, I can add it into the comments.",
+      "parentUuid": "5e114241_5a095563",
       "range": {
         "startLine": 470,
         "startChar": 0,
@@ -305,6 +497,30 @@
     },
     {
       "key": {
+        "uuid": "5e6dc2eb_5d3b6ffc",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "Originally my new function was named was \u0027GetVarArgs25x\u0027\n\nHowever shertz asked me to do some renaming there and we ended up with \u0027GetAllArgs35x\u0027\n\nThe semantic meaning is slightly different because for 25x \u0027vC\u0027 is not a variable-arg (its always there), whereas for 35c it is a var-arg (not always there)\n\nSo what I can do here is rename it to GetVarArgs35c if you want.\n\nAnother thing we can do is combine the two functions and switch on the opcode to determine how to do the decoding (leave the name as GetVarArgs or GetAllArgs), but I wasn\u0027t sure if we wanted to take extra branches in existing code.\n\n(I left a TODO here until I can get your feedback, this might have to go into another CL)",
+      "parentUuid": "bef6be49_5de4bb21",
+      "range": {
+        "startLine": 394,
+        "startChar": 7,
+        "endLine": 395,
+        "endChar": 17
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fef4b642_1f13c397",
         "filename": "runtime/dex_instruction.h",
         "patchSetId": 12
@@ -316,6 +532,30 @@
       "writtenOn": "2015-06-17T20:48:05Z",
       "side": 1,
       "message": "Why do you need this now? I haven\u0027t seen any user of it.",
+      "range": {
+        "startLine": 551,
+        "startChar": 10,
+        "endLine": 551,
+        "endChar": 16
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e9c462a_9e76d9b6",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "Thanks, this slipped through. I was using this originally but then saw the rest of the code using a \u0027Fetch16\u0027 style (even though personally I found it more confusing, and we don\u0027t need it anymore since we\u0027re always little-endian).",
+      "parentUuid": "fef4b642_1f13c397",
       "range": {
         "startLine": 551,
         "startChar": 10,
@@ -351,6 +591,30 @@
     },
     {
       "key": {
+        "uuid": "1e67ca0f_bb4173b9",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e00c6ef_9bd00b3f",
+      "range": {
+        "startLine": 485,
+        "startChar": 32,
+        "endLine": 491,
+        "endChar": 55
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7e00c6ef_7bdf7f4d",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 12
@@ -362,6 +626,30 @@
       "writtenOn": "2015-06-17T20:48:05Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 495,
+        "startChar": 24,
+        "endLine": 501,
+        "endChar": 27
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e700ec3_5ca051ae",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e00c6ef_7bdf7f4d",
       "range": {
         "startLine": 495,
         "startChar": 24,
@@ -397,6 +685,30 @@
     },
     {
       "key": {
+        "uuid": "9e7adaa8_3761f207",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e057a00_7cdf794d",
+      "range": {
+        "startLine": 629,
+        "startChar": 74,
+        "endLine": 629,
+        "endChar": 79
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e057a00_dcc68d8a",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 12
@@ -408,6 +720,30 @@
       "writtenOn": "2015-06-17T20:48:05Z",
       "side": 1,
       "message": "should the \u0027,\u0027 be an \u0027and\u0027 ?",
+      "range": {
+        "startLine": 110,
+        "startChar": 21,
+        "endLine": 110,
+        "endChar": 22
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e67ca0f_9b582fcf",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e057a00_dcc68d8a",
       "range": {
         "startLine": 110,
         "startChar": 21,
@@ -443,6 +779,30 @@
     },
     {
       "key": {
+        "uuid": "9e7adaa8_57526e3e",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e057a00_9cd0053f",
+      "range": {
+        "startLine": 192,
+        "startChar": 33,
+        "endLine": 192,
+        "endChar": 47
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e114241_1a13dd97",
         "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
         "patchSetId": 12
@@ -454,6 +814,30 @@
       "writtenOn": "2015-06-17T20:48:05Z",
       "side": 1,
       "message": "Missing \u0027.\u0027",
+      "range": {
+        "startLine": 78,
+        "startChar": 52,
+        "endLine": 78,
+        "endChar": 56
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e9c462a_fe935d2a",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e114241_1a13dd97",
       "range": {
         "startLine": 78,
         "startChar": 52,
@@ -489,6 +873,30 @@
     },
     {
       "key": {
+        "uuid": "3e700ec3_9c9d8970",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e00c6ef_5be4c321",
+      "range": {
+        "startLine": 734,
+        "startChar": 66,
+        "endLine": 734,
+        "endChar": 71
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fef4b642_fff7ffcb",
         "filename": "test/955-lambda-smali/smali/SanityCheck.smali",
         "patchSetId": 12
@@ -512,6 +920,30 @@
     },
     {
       "key": {
+        "uuid": "5e6dc2eb_3d26bbc1",
+        "filename": "test/955-lambda-smali/smali/SanityCheck.smali",
+        "patchSetId": 12
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fef4b642_fff7ffcb",
+      "range": {
+        "startLine": 26,
+        "startChar": 38,
+        "endLine": 26,
+        "endChar": 93
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e114241_faf709cc",
         "filename": "test/955-lambda-smali/smali/TrivialHelloWorld.smali",
         "patchSetId": 12
@@ -523,6 +955,30 @@
       "writtenOn": "2015-06-17T20:48:05Z",
       "side": 1,
       "message": "do we have such a thing? Are you introducing it?",
+      "range": {
+        "startLine": 47,
+        "startChar": 35,
+        "endLine": 47,
+        "endChar": 63
+      },
+      "revId": "868f178d2da1a3594d2d5e9be63cddf1f45b5aec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e67ca0f_dbf8e7f5",
+        "filename": "test/955-lambda-smali/smali/TrivialHelloWorld.smali",
+        "patchSetId": 12
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "No, it\u0027s just a placeholder signature (hence the TODO) because I didn\u0027t want to do the \u0027\\ClosureType;\u0027 right off the bat. We\u0027re not even using the 0th parameter for anything right now because liberate-variable isn\u0027t implemented.",
+      "parentUuid": "5e114241_faf709cc",
       "range": {
         "startLine": 47,
         "startChar": 35,
