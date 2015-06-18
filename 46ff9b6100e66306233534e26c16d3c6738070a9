@@ -70,6 +70,30 @@
       "revId": "46ff9b6100e66306233534e26c16d3c6738070a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ed222e8_12ff2ce0",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1466,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-18T17:27:31Z",
+      "side": 0,
+      "message": "The cluttering was about this cc file, not having to add log statements.\n\nAs discussed, if we want to wan about those things, I think a separate tool should do it.",
+      "parentUuid": "be7b1eac_b59d00b7",
+      "range": {
+        "startLine": 1466,
+        "startChar": 6,
+        "endLine": 1466,
+        "endChar": 51
+      },
+      "revId": "46ff9b6100e66306233534e26c16d3c6738070a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
