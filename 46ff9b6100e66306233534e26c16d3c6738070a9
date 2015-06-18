@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ed222e8_52dcd48f",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1466,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-18T17:12:54Z",
+      "side": 0,
+      "message": "What about emitting a warning (using LOG(WARNING)?) instead?",
+      "range": {
+        "startLine": 1466,
+        "startChar": 6,
+        "endLine": 1466,
+        "endChar": 51
+      },
+      "revId": "46ff9b6100e66306233534e26c16d3c6738070a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
