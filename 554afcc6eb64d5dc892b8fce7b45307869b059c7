@@ -286,6 +286,30 @@
     },
     {
       "key": {
+        "uuid": "3e700ec3_3c61dd07",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "(The existing TODO is a marker that the existing code as-is is insufficient, as you pointed out)\n\nOk so basically the idea here is that when I implement verifier support I will have a good idea of what specific exception to raise (this is a bit muddy for me since there\u0027s nothing about that in the JLS since it\u0027s more of a bytecode specification, so we\u0027ll have to find something most consistent).\n\nThen in this code if \"do_assignability_check\" is true (i.e. soft fail, let interpreter do on-the-fly verification) then it will raise an exception here.\n\nOtherwise if do_assignability_check is false (e.g. preverified) then leave the DCHECK in there just for safety purposes.",
+      "parentUuid": "397f484e_07d63abd",
+      "range": {
+        "startLine": 738,
+        "startChar": 0,
+        "endLine": 739,
+        "endChar": 36
+      },
+      "revId": "554afcc6eb64d5dc892b8fce7b45307869b059c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79bf0033_c3389600",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 11
@@ -345,6 +369,30 @@
       "side": 1,
       "message": "It\u0027s mostly a nit, since the method returns bool. You could also name it ValidateLambdaTargetOrThrow, or IsValidLambdaTargetOrThrow. Maybe the former is better, as you can still return false and not throw.",
       "parentUuid": "597cfc56_6c6a8414",
+      "range": {
+        "startLine": 114,
+        "startChar": 19,
+        "endLine": 114,
+        "endChar": 39
+      },
+      "revId": "554afcc6eb64d5dc892b8fce7b45307869b059c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e700ec3_5c3b71fc",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "397f484e_27db3ee7",
       "range": {
         "startLine": 114,
         "startChar": 19,
@@ -887,6 +935,30 @@
       "side": 1,
       "message": "I see. Maybe to make things clearer for the reader, add something like: \"introduce a closure abstraction that will contain the captured variables\".",
       "parentUuid": "796d40b3_99047b4f",
+      "range": {
+        "startLine": 191,
+        "startChar": 28,
+        "endLine": 191,
+        "endChar": 47
+      },
+      "revId": "554afcc6eb64d5dc892b8fce7b45307869b059c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e700ec3_3c3a3df6",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-18T17:06:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79bf0033_498de502",
       "range": {
         "startLine": 191,
         "startChar": 28,
