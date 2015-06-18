@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "be7b1eac_d53afcd3",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-18T11:33:29Z",
+      "side": 1,
+      "message": "Actually removed the dash.",
+      "parentUuid": "5ed222e8_52fe147e",
+      "range": {
+        "startLine": 773,
+        "startChar": 16,
+        "endLine": 773,
+        "endChar": 17
+      },
+      "revId": "0848b57741b10916e954f27ab929ef8d0bebbf0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ed222e8_72031817",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9ecf3a47_0ca4f78f",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-18T11:33:29Z",
+      "side": 1,
+      "message": "Keeping it this way for consistency. Is a dash required?",
+      "parentUuid": "5ed222e8_72031817",
+      "range": {
+        "startLine": 776,
+        "startChar": 40,
+        "endLine": 776,
+        "endChar": 41
+      },
+      "revId": "0848b57741b10916e954f27ab929ef8d0bebbf0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ecf3a47_2cf45381",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 3
@@ -59,6 +107,24 @@
       "writtenOn": "2015-06-18T11:07:43Z",
       "side": 1,
       "message": "Shouldn\u0027t you\n\n  return false;\n\nhere?",
+      "revId": "0848b57741b10916e954f27ab929ef8d0bebbf0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e7526b8_93e25cc0",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-18T11:33:29Z",
+      "side": 1,
+      "message": "Good catch! Since it\u0027s dead code afterwards, it doesn\u0027t affect the code generated. But still we should be consistent and return false.",
+      "parentUuid": "9ecf3a47_2cf45381",
       "revId": "0848b57741b10916e954f27ab929ef8d0bebbf0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
