@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e67ca0f_217d3466",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1358,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-18T18:22:26Z",
+      "side": 1,
+      "message": "Why is that not just RESTORE_REFS_AND_ARGS like arm64? The important one, rax, is not gonna be restored and be preserved...",
+      "range": {
+        "startLine": 1338,
+        "startChar": 0,
+        "endLine": 1358,
+        "endChar": 11
+      },
+      "revId": "6d07c478f541dfb1ffdedbedac034778d72c586b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
