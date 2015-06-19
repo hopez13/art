@@ -34,6 +34,24 @@
       "revId": "52ea33b10370d60d4ce877aec529626537b7813b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e6dc2eb_b42bc00b",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-19T00:33:52Z",
+      "side": 1,
+      "message": "Discussed with Mathieu offline, where he pointed out this kind of pattern is somewhat fragile (using mirror pointers directly).\n\nI suppose that using a handle in this kind of code adds indirection cost, so is there anything else we can do in general? Not sure if always using raw mirror pointers is safe.",
+      "parentUuid": "9e7adaa8_09e619d7",
+      "revId": "52ea33b10370d60d4ce877aec529626537b7813b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
