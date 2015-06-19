@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1e67ca0f_8d88e727",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-06-19T19:47:55Z",
+      "side": 1,
+      "message": "(I saw a missing-poisoning-code crash in java.util.concurrent.ConcurrentHashMap.tabAt during a volantis boot.)\n\nI think this needs unpoisoning/poisoning code.\n\nAn easy way may be to poison both \u0027expected\u0027 and \u0027value\u0027 first and do the following unchanged?\n\nSimilarly, in the else block below.\n\nAnd similarly, for the other architectures.",
+      "range": {
+        "startLine": 899,
+        "startChar": 2,
+        "endLine": 899,
+        "endChar": 4
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e700ec3_b8e3b09c",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 3
