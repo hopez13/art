@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9ecf3a47_8fc779a5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-19T15:46:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ecf3a47_cfbd8125",
+      "range": {
+        "startLine": 628,
+        "startChar": 0,
+        "endLine": 628,
+        "endChar": 72
+      },
+      "revId": "7a0ec61a3707d8c67761a78b83b8031fcbe0815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dec53225_d43af4d3",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-19T15:32:57Z",
       "side": 1,
       "message": "I would move this after the DCHECK from line 633 (i.e., abort in case of error before making any change in the graph).",
+      "range": {
+        "startLine": 631,
+        "startChar": 4,
+        "endLine": 631,
+        "endChar": 58
+      },
+      "revId": "7a0ec61a3707d8c67761a78b83b8031fcbe0815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e7526b8_d66be214",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-19T15:46:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dec53225_d43af4d3",
       "range": {
         "startLine": 631,
         "startChar": 4,
