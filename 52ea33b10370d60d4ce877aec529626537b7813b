@@ -16,6 +16,24 @@
       "revId": "52ea33b10370d60d4ce877aec529626537b7813b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e7adaa8_09e619d7",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-19T00:12:36Z",
+      "side": 1,
+      "message": "component_class is possibly dangling pointer after Array::Alloc.",
+      "parentUuid": "5e6dc2eb_34d010c2",
+      "revId": "52ea33b10370d60d4ce877aec529626537b7813b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
