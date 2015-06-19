@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e9c462a_e15890cf",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2015-06-19T20:58:58Z",
+      "side": 1,
+      "message": "It is this block that hides the art test modules from \"make checkbuild\".",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 5
+      },
+      "revId": "720ec517c08f067679dd98f6378a06198ae872f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e700ec3_d6d9959a",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2015-06-19T20:58:58Z",
+      "side": 1,
+      "message": "This change itself looks fine to me, but it doesn\u0027t help to make checkbuild cover the art test modules.",
+      "range": {
+        "startLine": 391,
+        "startChar": 0,
+        "endLine": 391,
+        "endChar": 60
+      },
+      "revId": "720ec517c08f067679dd98f6378a06198ae872f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
