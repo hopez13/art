@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "be7b1eac_58ef017f",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1341,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e700ec3_22c76f88",
+      "range": {
+        "startLine": 1341,
+        "startChar": 28,
+        "endLine": 1341,
+        "endChar": 29
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e6dc2eb_94423cf1",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-19T00:27:49Z",
       "side": 1,
       "message": "missing a space.",
+      "range": {
+        "startLine": 1383,
+        "startChar": 28,
+        "endLine": 1383,
+        "endChar": 29
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be7b1eac_78f43d54",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e6dc2eb_94423cf1",
       "range": {
         "startLine": 1383,
         "startChar": 28,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "be7b1eac_b8f97546",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2980,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "This method is part of the LocationsBuilderARM class: it computes the locations (\"in register\", \"in stack\", \"as a constant\", etc.) of the inputs and output of the `instruction`.  The code generation for this type of instruction is done in InstructionCodeGeneratorARM::HandleFieldSet.",
+      "parentUuid": "5e6dc2eb_4e13b396",
+      "range": {
+        "startLine": 2980,
+        "startChar": 26,
+        "endLine": 2980,
+        "endChar": 40
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e6dc2eb_3437b0a1",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-06-19T00:27:49Z",
       "side": 1,
       "message": "missing a space.",
+      "range": {
+        "startLine": 3548,
+        "startChar": 71,
+        "endLine": 3548,
+        "endChar": 72
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ed222e8_f5e5b2ca",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3548,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e6dc2eb_3437b0a1",
       "range": {
         "startLine": 3548,
         "startChar": 71,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "be7b1eac_18e98977",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1605,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e7adaa8_e9e87da3",
+      "range": {
+        "startLine": 1605,
+        "startChar": 28,
+        "endLine": 1605,
+        "endChar": 29
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7e9c462a_e7418db8",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2015-06-19T00:27:49Z",
       "side": 1,
       "message": "Missing a space.",
+      "range": {
+        "startLine": 2162,
+        "startChar": 28,
+        "endLine": 2162,
+        "endChar": 29
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e7526b8_f604decb",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2162,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e9c462a_e7418db8",
       "range": {
         "startLine": 2162,
         "startChar": 28,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "9ecf3a47_cf3021a7",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2238,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e7adaa8_8988e9f9",
+      "range": {
+        "startLine": 2238,
+        "startChar": 28,
+        "endLine": 2238,
+        "endChar": 29
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7e9c462a_07bef920",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -174,6 +342,30 @@
       "writtenOn": "2015-06-19T00:27:49Z",
       "side": 1,
       "message": "missing a space.",
+      "range": {
+        "startLine": 2366,
+        "startChar": 28,
+        "endLine": 2366,
+        "endChar": 29
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be7b1eac_d80231c7",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2366,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e9c462a_07bef920",
       "range": {
         "startLine": 2366,
         "startChar": 28,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "7e7526b8_9611ea0c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2398,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e9c462a_27bbf530",
+      "range": {
+        "startLine": 2398,
+        "startChar": 30,
+        "endLine": 2398,
+        "endChar": 31
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e7adaa8_4982d1d9",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -220,6 +436,30 @@
       "writtenOn": "2015-06-19T00:27:49Z",
       "side": 1,
       "message": "missing a space.",
+      "range": {
+        "startLine": 2450,
+        "startChar": 28,
+        "endLine": 2450,
+        "endChar": 29
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dec53225_d1a6860f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2450,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e7adaa8_4982d1d9",
       "range": {
         "startLine": 2450,
         "startChar": 28,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "dec53225_f1a382fc",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2454,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e9c462a_a79865cb",
+      "range": {
+        "startLine": 2454,
+        "startChar": 28,
+        "endLine": 2454,
+        "endChar": 29
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7e9c462a_7504484f",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
@@ -266,6 +530,30 @@
       "writtenOn": "2015-06-19T00:27:49Z",
       "side": 1,
       "message": "Is this a comment or commented-out code? Use a sentence or remove?",
+      "range": {
+        "startLine": 1286,
+        "startChar": 2,
+        "endLine": 1286,
+        "endChar": 31
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e7526b8_76420ef4",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1286,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "This is a comment.  You can find similar comments in art::InstructionCodeGenerator.*::VisitInvokeVirtual methods in other back ends.  I added it to this file for the sake of uniformity.",
+      "parentUuid": "7e9c462a_7504484f",
       "range": {
         "startLine": 1286,
         "startChar": 2,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "dec53225_91a0fef1",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1290,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e9c462a_47316179",
+      "range": {
+        "startLine": 1290,
+        "startChar": 28,
+        "endLine": 1290,
+        "endChar": 29
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e6dc2eb_6ecc775e",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
@@ -312,6 +624,30 @@
       "writtenOn": "2015-06-19T00:27:49Z",
       "side": 1,
       "message": "(side comment) Is indentation off?",
+      "range": {
+        "startLine": 1329,
+        "startChar": 2,
+        "endLine": 1329,
+        "endChar": 4
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ed222e8_95e226c0",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1329,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Indeed!  Done.",
+      "parentUuid": "5e6dc2eb_6ecc775e",
       "range": {
         "startLine": 1329,
         "startChar": 2,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "dec53225_b19dfab6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1330,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e7adaa8_89fa296e",
+      "range": {
+        "startLine": 1330,
+        "startChar": 28,
+        "endLine": 1330,
+        "endChar": 29
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e7adaa8_a990451f",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
@@ -358,6 +718,30 @@
       "writtenOn": "2015-06-19T00:27:49Z",
       "side": 1,
       "message": "missing a space.",
+      "range": {
+        "startLine": 3860,
+        "startChar": 75,
+        "endLine": 3860,
+        "endChar": 76
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ed222e8_b5df2af5",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3860,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e7adaa8_a990451f",
       "range": {
         "startLine": 3860,
         "startChar": 75,
@@ -393,6 +777,30 @@
     },
     {
       "key": {
+        "uuid": "dec53225_717d52de",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3880,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e7adaa8_c98d8104",
+      "range": {
+        "startLine": 3880,
+        "startChar": 75,
+        "endLine": 3880,
+        "endChar": 76
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e6dc2eb_94cb1c15",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 1
@@ -404,6 +812,30 @@
       "writtenOn": "2015-06-19T00:27:49Z",
       "side": 1,
       "message": "Missing space here (lint error).",
+      "range": {
+        "startLine": 1400,
+        "startChar": 28,
+        "endLine": 1400,
+        "endChar": 29
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dec53225_d16be614",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1400,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e6dc2eb_94cb1c15",
       "range": {
         "startLine": 1400,
         "startChar": 28,
@@ -439,6 +871,30 @@
     },
     {
       "key": {
+        "uuid": "dec53225_91755ef5",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1440,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e6dc2eb_b4e3c09c",
+      "range": {
+        "startLine": 1440,
+        "startChar": 28,
+        "endLine": 1440,
+        "endChar": 29
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e700ec3_4e92cfab",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 1
@@ -450,6 +906,30 @@
       "writtenOn": "2015-06-19T00:27:49Z",
       "side": 1,
       "message": "This will become movw after a rebase.",
+      "range": {
+        "startLine": 3330,
+        "startChar": 14,
+        "endLine": 3330,
+        "endChar": 15
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ecf3a47_af27d567",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3330,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "I intend to land https://android-review.googlesource.com/#/c/155056 before this CL, so that we actually use a `movl` (and not a `movw`) here.",
+      "parentUuid": "3e700ec3_4e92cfab",
       "range": {
         "startLine": 3330,
         "startChar": 14,
@@ -485,6 +965,30 @@
     },
     {
       "key": {
+        "uuid": "9ecf3a47_4f62f190",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3708,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e9c462a_c7a011f3",
+      "range": {
+        "startLine": 3708,
+        "startChar": 75,
+        "endLine": 3708,
+        "endChar": 76
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7e9c462a_e79d0db6",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 1
@@ -496,6 +1000,30 @@
       "writtenOn": "2015-06-19T00:27:49Z",
       "side": 1,
       "message": "missing a space.",
+      "range": {
+        "startLine": 3728,
+        "startChar": 75,
+        "endLine": 3728,
+        "endChar": 76
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ecf3a47_6f67ad9f",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3728,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e9c462a_e79d0db6",
       "range": {
         "startLine": 3728,
         "startChar": 75,
@@ -531,6 +1059,30 @@
     },
     {
       "key": {
+        "uuid": "be7b1eac_f8ffed29",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1893,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Yes; sorry for that.  I\u0027ll address this in another CL.  Change reverted.",
+      "parentUuid": "1e67ca0f_4d77397f",
+      "range": {
+        "startLine": 1893,
+        "startChar": 6,
+        "endLine": 1893,
+        "endChar": 8
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e700ec3_a8d9239b",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 1
@@ -542,6 +1094,30 @@
       "writtenOn": "2015-06-19T00:27:49Z",
       "side": 1,
       "message": "typo: poisoning",
+      "range": {
+        "startLine": 737,
+        "startChar": 60,
+        "endLine": 737,
+        "endChar": 67
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be7b1eac_98fcb937",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-19T12:20:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e700ec3_a8d9239b",
       "range": {
         "startLine": 737,
         "startChar": 60,
