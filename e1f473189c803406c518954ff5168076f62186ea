@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e700ec3_b8e3b09c",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-06-19T19:02:05Z",
+      "side": 1,
+      "message": "I see that if poisoning is enabled, we won\u0027t invoke quick as a fallback. Does it mean that we will fall back to baseline or interpreter instead?\n\nOn a related note, it seems on an eng build (on device) with poisoning is enabled, JIT is not disabled and causes crashes (as poisoning no longer forces interpret mode).\n\nAn alternative is to use userdebug. But would it be less confusing and safer if JIT/Quick is disabled when poisoning is enabled?\n\nI\u0027m not sure what would be the best way, maybe \"if (kPoisonHeapReference) { return nullptr;} \" in QuickCompiler::Compile() would be the most reassuring? Open to ideas.",
+      "range": {
+        "startLine": 643,
+        "startChar": 7,
+        "endLine": 643,
+        "endChar": 28
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e6dc2eb_014b49db",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-06-19T19:02:05Z",
+      "side": 1,
+      "message": "The way I test (ART_TEST_OPTIMIZING\u003dtrue ART_USE_OPTIMIZING_COMPILER\u003dtrue ART_HEAP_POISONING\u003dtrue), the following test fail in addition. Do they for you?\n\nFAILING TESTS\ntest-art-host-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-496-checker-inlining-and-class-loader32\ntest-art-host-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-496-checker-inlining-and-class-loader64\ntest-art-host-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-501-null-constant-dce32\ntest-art-host-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-501-null-constant-dce64\ntest-art-host-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-501-regression-packed-switch32\ntest-art-host-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-501-regression-packed-switch64\ntest-art-host-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-503-dead-instructions32\ntest-art-host-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-503-dead-instructions64\ntest-art-host-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-504-regression-baseline-entry32\ntest-art-host-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-504-regression-baseline-entry64\ntest-art-host-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-505-simplifier-type-propagation32\ntest-art-host-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-505-simplifier-type-propagation64\ntest-art-host-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-955-lambda-smali32\ntest-art-host-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-955-lambda-smali64\n\nIt might make sense to disable all default tests (or disable quick) if poisoning is enabled?",
+      "range": {
+        "startLine": 461,
+        "startChar": 0,
+        "endLine": 461,
+        "endChar": 48
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
