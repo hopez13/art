@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5e6dc2eb_a49f0b3b",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-19T18:01:51Z",
+      "side": 1,
+      "message": "I initially left it singular because once I can get the closure to only use 1 vreg I would just update the implementation of this function.\n\nI can rename it to plural now, and rename it to singular back later in a future CL (once only 1 vreg is used again).\n\nSound good?",
+      "parentUuid": "5e6dc2eb_c19d516f",
+      "range": {
+        "startLine": 136,
+        "startChar": 41,
+        "endLine": 136,
+        "endChar": 45
+      },
+      "revId": "b26503c5d6a0c2aa74e894b209955bfa141e1940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e7adaa8_bb4408ca",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-19T15:14:15Z",
       "side": 1,
       "message": "Plural, maybe?",
+      "range": {
+        "startLine": 191,
+        "startChar": 46,
+        "endLine": 191,
+        "endChar": 50
+      },
+      "revId": "b26503c5d6a0c2aa74e894b209955bfa141e1940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e67ca0f_643c8f81",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-19T18:01:51Z",
+      "side": 1,
+      "message": "See 136",
+      "parentUuid": "9e7adaa8_bb4408ca",
       "range": {
         "startLine": 191,
         "startChar": 46,
@@ -82,6 +130,30 @@
       "writtenOn": "2015-06-19T15:14:15Z",
       "side": 1,
       "message": "Indentation.",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 45
+      },
+      "revId": "b26503c5d6a0c2aa74e894b209955bfa141e1940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e6dc2eb_64a9f365",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-19T18:01:51Z",
+      "side": 1,
+      "message": "Should this be 4 spaces in? I wasn\u0027t super too, I thought it might be like templates where it\u0027s acceptable not to indent 4 spaces when overflowing",
+      "parentUuid": "9e7adaa8_5b361474",
       "range": {
         "startLine": 193,
         "startChar": 0,
@@ -163,6 +235,30 @@
     },
     {
       "key": {
+        "uuid": "1e67ca0f_4445cbe7",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-19T18:01:51Z",
+      "side": 1,
+      "message": "Do you want me to change this? It didn\u0027t seem like the exact exception mattered here (other than that some kind of an exception happened)",
+      "parentUuid": "3e700ec3_e528a110",
+      "range": {
+        "startLine": 524,
+        "startChar": 7,
+        "endLine": 524,
+        "endChar": 39
+      },
+      "revId": "b26503c5d6a0c2aa74e894b209955bfa141e1940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e67ca0f_2ecd18d5",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 1
@@ -174,6 +270,30 @@
       "writtenOn": "2015-06-19T15:14:15Z",
       "side": 1,
       "message": "Goes after...",
+      "range": {
+        "startLine": 669,
+        "startChar": 9,
+        "endLine": 669,
+        "endChar": 52
+      },
+      "revId": "b26503c5d6a0c2aa74e894b209955bfa141e1940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e9c462a_53827f52",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-19T18:01:51Z",
+      "side": 1,
+      "message": "This is exactly like the rest of the interpreter code that was written before me, if I change this then it\u0027s consistent with the older code.\n\nLet me know if you want me to refactor all of the above (I can fix the attribute placement, and use less macros too) in this same CL. It didn\u0027t personally bother me enough to clean up just yet.\n\n(To be honest I\u0027m not super sure why all of these get specialized, some of these functions are never even used in a different translation unit. But just keeping in with the style.).",
+      "parentUuid": "1e67ca0f_2ecd18d5",
       "range": {
         "startLine": 669,
         "startChar": 9,
@@ -209,6 +329,30 @@
     },
     {
       "key": {
+        "uuid": "5e6dc2eb_c4b79fc2",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-19T18:01:51Z",
+      "side": 1,
+      "message": "Following same style as above. See line 669",
+      "parentUuid": "1e67ca0f_eed6406a",
+      "range": {
+        "startLine": 673,
+        "startChar": 0,
+        "endLine": 674,
+        "endChar": 50
+      },
+      "revId": "b26503c5d6a0c2aa74e894b209955bfa141e1940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e700ec3_85376571",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 1
@@ -220,6 +364,30 @@
       "writtenOn": "2015-06-19T15:14:15Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 683,
+        "startChar": 0,
+        "endLine": 684,
+        "endChar": 54
+      },
+      "revId": "b26503c5d6a0c2aa74e894b209955bfa141e1940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e67ca0f_e455ff96",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-19T18:01:51Z",
+      "side": 1,
+      "message": "Following same style as above. See line 669",
+      "parentUuid": "3e700ec3_85376571",
       "range": {
         "startLine": 683,
         "startChar": 0,
