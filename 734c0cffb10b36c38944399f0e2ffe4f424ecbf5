@@ -16,6 +16,24 @@
       "revId": "734c0cffb10b36c38944399f0e2ffe4f424ecbf5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e7526b8_f90e0f39",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 933,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-06-19T21:29:02Z",
+      "side": 1,
+      "message": "Thanks for the suggestion. \n\nI\u0027m still thinking what\u0027s the best name/way for this (see also the hack in patchoat).\n\nImplicit checks can\u0027t work without sigchain so having 2 of them seems a bit redundant. Anyhow I like it more than the global is-dex2oat.",
+      "parentUuid": "1e67ca0f_53634c0e",
+      "revId": "734c0cffb10b36c38944399f0e2ffe4f424ecbf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
