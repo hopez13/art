@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5ed222e8_95c9c649",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1023201
+      },
+      "writtenOn": "2015-06-19T10:27:34Z",
+      "side": 1,
+      "message": "HOST ?",
+      "range": {
+        "startLine": 93,
+        "startChar": 99,
+        "endLine": 93,
+        "endChar": 100
+      },
+      "revId": "a8c5d2431dfdd0d6e25886a0ba5ce4f751f90b8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be7b1eac_f8bccdb8",
         "filename": "test/023-many-interfaces/build",
         "patchSetId": 7
@@ -64,6 +87,29 @@
         "startChar": 2,
         "endLine": 28,
         "endChar": 38
+      },
+      "revId": "a8c5d2431dfdd0d6e25886a0ba5ce4f751f90b8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be7b1eac_58c62111",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1023201
+      },
+      "writtenOn": "2015-06-19T10:27:34Z",
+      "side": 1,
+      "message": "No need to abspath that?",
+      "range": {
+        "startLine": 65,
+        "startChar": 18,
+        "endLine": 65,
+        "endChar": 40
       },
       "revId": "a8c5d2431dfdd0d6e25886a0ba5ce4f751f90b8a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
