@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9ecf3a47_cfbd8125",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-19T15:42:04Z",
+      "side": 1,
+      "message": "Add a comment that this preserves the indicies, and that it will find the first such edge if there is more than one between them.",
+      "range": {
+        "startLine": 628,
+        "startChar": 0,
+        "endLine": 628,
+        "endChar": 72
+      },
+      "revId": "7a0ec61a3707d8c67761a78b83b8031fcbe0815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dec53225_d43af4d3",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
