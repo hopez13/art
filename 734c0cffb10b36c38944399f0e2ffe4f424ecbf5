@@ -34,6 +34,24 @@
       "revId": "734c0cffb10b36c38944399f0e2ffe4f424ecbf5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e7adaa8_aafa706d",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 933,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-19T22:29:47Z",
+      "side": 1,
+      "message": "If implicit checks rely on signal chain then perhaps we can get away with just 1 option?\n\n  -Xnoimplicit-checks\n\nAre signal chains used for anything besides implicit checks?",
+      "parentUuid": "7e7526b8_f90e0f39",
+      "revId": "734c0cffb10b36c38944399f0e2ffe4f424ecbf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
