@@ -49,6 +49,52 @@
     },
     {
       "key": {
+        "uuid": "9efbba85_cc6ccffd",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:26:40Z",
+      "side": 1,
+      "message": "const ArtMethod\u0026",
+      "range": {
+        "startLine": 137,
+        "startChar": 46,
+        "endLine": 137,
+        "endChar": 62
+      },
+      "revId": "b26503c5d6a0c2aa74e894b209955bfa141e1940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ecf3a47_95ec6605",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:26:40Z",
+      "side": 1,
+      "message": "-\u003e Reads (to make it consistent with \"Validates\")",
+      "range": {
+        "startLine": 186,
+        "startChar": 3,
+        "endLine": 186,
+        "endChar": 7
+      },
+      "revId": "b26503c5d6a0c2aa74e894b209955bfa141e1940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e7adaa8_bb4408ca",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 1
