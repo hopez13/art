@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ef6069f_d4e9f2f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-22T20:19:33Z",
+      "side": 1,
+      "message": "Seems a lot slower for small strings, is the plan to add an intrinsic to avoid the JNI overhead?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 45
+      },
+      "revId": "5be971690838e2cb6841f6a88d69dbebb2739b2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ef6069f_74d91e65",
+        "filename": "runtime/native/java_lang_String.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-22T20:19:33Z",
+      "side": 1,
+      "message": "I think there is a missing instance check? The old code returned false if the object wasn\u0027t a string instance.",
+      "range": {
+        "startLine": 49,
+        "startChar": 49,
+        "endLine": 49,
+        "endChar": 55
+      },
+      "revId": "5be971690838e2cb6841f6a88d69dbebb2739b2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
