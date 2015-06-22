@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "beecfece_4d3a99f6",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-22T10:08:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dec53225_b44ba8a6",
+      "range": {
+        "startLine": 328,
+        "startChar": 34,
+        "endLine": 328,
+        "endChar": 48
+      },
+      "revId": "46ce9a6a695595d92bf34204264dce8ffe88248d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be7b1eac_5b837bdf",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "9ecf3a47_f204e0cb",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-22T10:08:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be7b1eac_1b7d0366",
+      "range": {
+        "startLine": 356,
+        "startChar": 34,
+        "endLine": 356,
+        "endChar": 48
+      },
+      "revId": "46ce9a6a695595d92bf34204264dce8ffe88248d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be7b1eac_7b88b7f8",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -82,6 +130,30 @@
       "writtenOn": "2015-06-22T09:43:20Z",
       "side": 1,
       "message": "Likewise, maybe introduce a HGraph::GetTrueConstant method?",
+      "range": {
+        "startLine": 357,
+        "startChar": 31,
+        "endLine": 357,
+        "endChar": 60
+      },
+      "revId": "46ce9a6a695595d92bf34204264dce8ffe88248d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ecf3a47_7219d035",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-22T10:08:34Z",
+      "side": 1,
+      "message": "That could be a separate CL. I\u0027m slightly reluctant to do that because people tend to forget that we treat bool as int with [0,1] range, which makes comparisons/casts to other int-compatible types valid, and naming those constants would only encourage that thinking.",
+      "parentUuid": "be7b1eac_7b88b7f8",
       "range": {
         "startLine": 357,
         "startChar": 31,
