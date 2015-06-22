@@ -2,6 +2,420 @@
   "comments": [
     {
       "key": {
+        "uuid": "9ecf3a47_35133298",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2741,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:48:11Z",
+      "side": 1,
+      "message": "I\u0027d remove the notion of Quick here. It\u0027s just an entry point. The fact that it\u0027s being called quick is because we had portable entrypoints too.",
+      "range": {
+        "startLine": 2741,
+        "startChar": 45,
+        "endLine": 2741,
+        "endChar": 50
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e7526b8_fc5b5dc9",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2762,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:48:11Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2762,
+        "startChar": 45,
+        "endLine": 2762,
+        "endChar": 50
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ecf3a47_d5f74ecc",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3020,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:48:11Z",
+      "side": 1,
+      "message": "Isn\u0027t that just for the negation of null?",
+      "range": {
+        "startLine": 3018,
+        "startChar": 0,
+        "endLine": 3020,
+        "endChar": 53
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ecf3a47_9501c63a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3480,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:48:11Z",
+      "side": 1,
+      "message": "I don\u0027t see the use of this in the codegen implementation below (line 3572).",
+      "range": {
+        "startLine": 3479,
+        "startChar": 0,
+        "endLine": 3480,
+        "endChar": 55
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e7526b8_9c5829cf",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3497,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:48:11Z",
+      "side": 1,
+      "message": "ditto. It looks like this is just for the \u0027null\u0027 case, where we don\u0027t need a write barrier.",
+      "range": {
+        "startLine": 3496,
+        "startChar": 0,
+        "endLine": 3497,
+        "endChar": 55
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ecf3a47_152716ef",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:48:11Z",
+      "side": 1,
+      "message": "You can \u0027Release\u0027 registers. Maybe that makes it easier to read than a block + comment?",
+      "range": {
+        "startLine": 1286,
+        "startChar": 0,
+        "endLine": 1288,
+        "endChar": 75
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e7526b8_1cbad95e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2591,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:48:11Z",
+      "side": 1,
+      "message": "ditto: drop?",
+      "range": {
+        "startLine": 2591,
+        "startChar": 45,
+        "endLine": 2591,
+        "endChar": 50
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9efbba85_ac934364",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2616,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:48:11Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2616,
+        "startChar": 45,
+        "endLine": 2616,
+        "endChar": 50
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e7526b8_3cbf954f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2979,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:48:11Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2979,
+        "startChar": 45,
+        "endLine": 2979,
+        "endChar": 50
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e7526b8_dca30136",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3001,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:48:11Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3001,
+        "startChar": 45,
+        "endLine": 3001,
+        "endChar": 50
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e7526b8_fca03d2b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3422,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:48:11Z",
+      "side": 1,
+      "message": "Same comment for the null case.",
+      "range": {
+        "startLine": 3419,
+        "startChar": 0,
+        "endLine": 3422,
+        "endChar": 3
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9efbba85_ec9d4b6f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3763,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:48:11Z",
+      "side": 1,
+      "message": "unused?",
+      "range": {
+        "startLine": 3763,
+        "startChar": 0,
+        "endLine": 3763,
+        "endChar": 55
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dec53225_f7aa9258",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3789,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:48:11Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3786,
+        "startChar": 0,
+        "endLine": 3789,
+        "endChar": 5
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "beecfece_6d72f590",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3037,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:48:11Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3037,
+        "startChar": 45,
+        "endLine": 3037,
+        "endChar": 50
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9efbba85_cc9a0f75",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3061,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:48:11Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3061,
+        "startChar": 45,
+        "endLine": 3061,
+        "endChar": 50
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e7526b8_bcaac505",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3279,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:48:11Z",
+      "side": 1,
+      "message": "Just for null?",
+      "range": {
+        "startLine": 3278,
+        "startChar": 0,
+        "endLine": 3279,
+        "endChar": 53
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9efbba85_2c89132e",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3612,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:48:11Z",
+      "side": 1,
+      "message": "Unused?",
+      "range": {
+        "startLine": 3612,
+        "startChar": 1,
+        "endLine": 3612,
+        "endChar": 55
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9efbba85_0c8ed735",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3633,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:48:11Z",
+      "side": 1,
+      "message": "Just for null?",
+      "range": {
+        "startLine": 3632,
+        "startChar": 0,
+        "endLine": 3633,
+        "endChar": 55
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e67ca0f_8d88e727",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 3
@@ -41,6 +455,53 @@
         "startChar": 7,
         "endLine": 643,
         "endChar": 28
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ecf3a47_f51daa97",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:48:11Z",
+      "side": 1,
+      "message": "Yeah, I agree maybe doing the poisoning check in the QuickCompiler:: method is nicer.",
+      "parentUuid": "3e700ec3_b8e3b09c",
+      "range": {
+        "startLine": 643,
+        "startChar": 7,
+        "endLine": 643,
+        "endChar": 28
+      },
+      "revId": "e1f473189c803406c518954ff5168076f62186ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e7526b8_fc891da9",
+        "filename": "compiler/utils/arm/assembler_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-22T14:48:11Z",
+      "side": 1,
+      "message": "Since the assembler already doe these kinds of checks, consider doing the kPoison check in its methods rather than in the code generator?",
+      "range": {
+        "startLine": 537,
+        "startChar": 6,
+        "endLine": 537,
+        "endChar": 27
       },
       "revId": "e1f473189c803406c518954ff5168076f62186ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
