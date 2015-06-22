@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9e7adaa8_0f636fbd",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-22T22:42:40Z",
+      "side": 1,
+      "message": "I guess that seems OK since there is no way to turn off the verification or valgrind after they have been enabled.",
+      "parentUuid": "5efea270_c7e81ca4",
+      "range": {
+        "startLine": 521,
+        "startChar": 21,
+        "endLine": 521,
+        "endChar": 52
+      },
+      "revId": "433187910c137ee8f609f92ff772d780da50dc00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e7adaa8_cf9fb73a",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-22T20:31:10Z",
       "side": 1,
       "message": "If this is referring to some checked-in/existing code, refer to that more concretely?",
+      "range": {
+        "startLine": 3710,
+        "startChar": 12,
+        "endLine": 3710,
+        "endChar": 41
+      },
+      "revId": "433187910c137ee8f609f92ff772d780da50dc00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ef6069f_7f93b7df",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3710,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-22T22:42:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e7adaa8_cf9fb73a",
       "range": {
         "startLine": 3710,
         "startChar": 12,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9e7adaa8_f56cc0fc",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3771,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-22T22:42:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ef6069f_f41a2e9d",
+      "range": {
+        "startLine": 3771,
+        "startChar": 37,
+        "endLine": 3771,
+        "endChar": 41
+      },
+      "revId": "433187910c137ee8f609f92ff772d780da50dc00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e2782f4_be11b15e",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2015-06-22T20:31:10Z",
       "side": 1,
       "message": "\"Stack trace hashes\"?",
+      "range": {
+        "startLine": 1234,
+        "startChar": 5,
+        "endLine": 1234,
+        "endChar": 17
+      },
+      "revId": "433187910c137ee8f609f92ff772d780da50dc00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e2782f4_67616507",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-22T22:42:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e2782f4_be11b15e",
       "range": {
         "startLine": 1234,
         "startChar": 5,
