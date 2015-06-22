@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5e2782f4_ea4b5ca5",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-22T23:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e700ec3_27d0d86f",
+      "revId": "4e4703a40d003984acf4610a8b13ac1d35ca854b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "597cfc56_051e34ee",
         "filename": "runtime/gc/allocation_record.h",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2015-06-21T21:37:34Z",
       "side": 1,
       "message": "Maybe worth having this not be a pointer? No need to worry about deleting then.",
+      "range": {
+        "startLine": 286,
+        "startChar": 23,
+        "endLine": 286,
+        "endChar": 24
+      },
+      "revId": "4e4703a40d003984acf4610a8b13ac1d35ca854b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ef6069f_7a93c5df",
+        "filename": "runtime/gc/allocation_record.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-22T23:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "597cfc56_051e34ee",
       "range": {
         "startLine": 286,
         "startChar": 23,
