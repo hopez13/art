@@ -93,6 +93,30 @@
       "revId": "5be971690838e2cb6841f6a88d69dbebb2739b2e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e2acebf_23cbe616",
+        "filename": "runtime/native/java_lang_String.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-23T01:12:04Z",
+      "side": 1,
+      "message": "Nope, that\u0027s not the case. A down_cast doesn\u0027t equal that. You\u0027ll have to do what Mathieu suggested here and add a type check.",
+      "parentUuid": "5e2782f4_c07917a8",
+      "range": {
+        "startLine": 49,
+        "startChar": 49,
+        "endLine": 49,
+        "endChar": 55
+      },
+      "revId": "5be971690838e2cb6841f6a88d69dbebb2739b2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
