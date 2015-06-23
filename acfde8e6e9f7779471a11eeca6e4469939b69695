@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ecce27c_429ef2e8",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-23T17:38:23Z",
+      "side": 1,
+      "message": "It wouldn\u0027t hurt to check for null and do AssertPendingException then return.",
+      "range": {
+        "startLine": 50,
+        "startChar": 31,
+        "endLine": 50,
+        "endChar": 40
+      },
+      "revId": "acfde8e6e9f7779471a11eeca6e4469939b69695",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
