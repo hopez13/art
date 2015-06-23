@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7e7526b8_8750d6ac",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-23T08:27:33Z",
+      "side": 1,
+      "message": "For the host, it just needs to be non-empty arg so I kept the same convention than lines above.\n\nHere is the doc for intermediates-dir-for:\n\n# $(1): target class, like \"APPS\"\n# $(2): target name, like \"NotePad\"\n# $(3): if non-empty, this is a HOST target.\n# $(4): if non-empty, force the intermediates to be COMMON\n# $(5): if non-empty, force the intermedistes to be for the 2nd arch\ndefine intermediates-dir-for",
+      "parentUuid": "5ed222e8_95c9c649",
+      "range": {
+        "startLine": 93,
+        "startChar": 99,
+        "endLine": 93,
+        "endChar": 100
+      },
+      "revId": "a8c5d2431dfdd0d6e25886a0ba5ce4f751f90b8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be7b1eac_f8bccdb8",
         "filename": "test/023-many-interfaces/build",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-19T09:20:41Z",
       "side": 1,
       "message": "Nit: If dx requires more memory, where it is change ?",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 38
+      },
+      "revId": "a8c5d2431dfdd0d6e25886a0ba5ce4f751f90b8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ecf3a47_75677a9f",
+        "filename": "test/023-many-interfaces/build",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-23T08:27:33Z",
+      "side": 1,
+      "message": "The default-build script pass -JXmx256m to dx. Here I believe we need more memory to compile the generated java files so we remove the limit.\n\nThe comment is not accurate enough, I\u0027ll update it.",
+      "parentUuid": "be7b1eac_f8bccdb8",
       "range": {
         "startLine": 28,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "dec53225_f768521a",
+        "filename": "test/126-miranda-multidex/build",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-23T08:27:33Z",
+      "side": 1,
+      "message": "Yes, it\u0027s a stale comment. Thanks.",
+      "parentUuid": "9ecf3a47_0f72a98f",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 11
+      },
+      "revId": "a8c5d2431dfdd0d6e25886a0ba5ce4f751f90b8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be7b1eac_f8e5adca",
         "filename": "test/303-verification-stress/build",
         "patchSetId": 7
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "7e7526b8_a75872ce",
+        "filename": "test/303-verification-stress/build",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-23T08:27:33Z",
+      "side": 1,
+      "message": "Same comment than for the 023-many-interfaces test.",
+      "parentUuid": "be7b1eac_f8e5adca",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 38
+      },
+      "revId": "a8c5d2431dfdd0d6e25886a0ba5ce4f751f90b8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be7b1eac_58c62111",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 7
@@ -105,6 +201,30 @@
       "writtenOn": "2015-06-19T10:27:34Z",
       "side": 1,
       "message": "No need to abspath that?",
+      "range": {
+        "startLine": 65,
+        "startChar": 18,
+        "endLine": 65,
+        "endChar": 40
+      },
+      "revId": "a8c5d2431dfdd0d6e25886a0ba5ce4f751f90b8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9efbba85_2c375373",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-23T08:27:33Z",
+      "side": 1,
+      "message": "HOST_JACK_CLASSPATH is defined with absolute path already.",
+      "parentUuid": "be7b1eac_58c62111",
       "range": {
         "startLine": 65,
         "startChar": 18,
