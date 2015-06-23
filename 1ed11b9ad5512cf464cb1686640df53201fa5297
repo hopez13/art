@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e0fe678_23aacade",
+        "filename": "runtime/gc/allocation_record.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-06-23T17:39:40Z",
+      "side": 1,
+      "message": "Does this mean that some of the entries_ are strong GC roots and others are weak GC roots and that the strong/weak boundary changes dynamically (as we add more alloc records), correct? \nMaybe leave a comment about this where entries_ is declared?\n\nAnd I assume that works in terms of GC correctness.",
+      "range": {
+        "startLine": 97,
+        "startChar": 5,
+        "endLine": 97,
+        "endChar": 74
+      },
+      "revId": "1ed11b9ad5512cf464cb1686640df53201fa5297",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de1a92b3_6f8dc187",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1484,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-06-23T17:39:40Z",
+      "side": 1,
+      "message": "Side note: I guess another reason it\u0027s safe for now is that we only read those GcRoots in AllocRecordObjectMap during a pause for hprof dumping (no read barrier triggers for those GcRoots). Thus, we don\u0027t need to temporarily disable new alloc records here for concurrent reference processing.",
+      "range": {
+        "startLine": 1484,
+        "startChar": 5,
+        "endLine": 1484,
+        "endChar": 23
+      },
+      "revId": "1ed11b9ad5512cf464cb1686640df53201fa5297",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
