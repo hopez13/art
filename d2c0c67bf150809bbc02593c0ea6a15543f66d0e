@@ -22,6 +22,30 @@
       "revId": "d2c0c67bf150809bbc02593c0ea6a15543f66d0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ea26abf_00f52680",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-24T11:28:00Z",
+      "side": 1,
+      "message": "I would argue that they are not related. The 800-smali/PackedSwitch actually produces a block ending in a Goto and linked to another block. I will fix it though.",
+      "parentUuid": "deab729c_1e634dbe",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 3
+      },
+      "revId": "d2c0c67bf150809bbc02593c0ea6a15543f66d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
