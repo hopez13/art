@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "3e9bae8e_21326efb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-06-24T10:39:07Z",
+      "side": 1,
+      "message": "builders? do we have more than one?",
+      "range": {
+        "startLine": 12,
+        "startChar": 14,
+        "endLine": 12,
+        "endChar": 22
+      },
+      "revId": "1425d41af7b70914157a1f7120fc372a20136ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de761212_0627bac0",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 2
@@ -41,6 +64,30 @@
         "startChar": 10,
         "endLine": 31,
         "endChar": 15
+      },
+      "revId": "1425d41af7b70914157a1f7120fc372a20136ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de761212_266d96ad",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-06-24T10:39:07Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "de761212_0627bac0",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 78
       },
       "revId": "1425d41af7b70914157a1f7120fc372a20136ed4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
