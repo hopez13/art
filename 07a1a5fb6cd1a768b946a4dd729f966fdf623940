@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "deab729c_1e9eadb1",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1734,
+      "author": {
+        "id": 1062659
+      },
+      "writtenOn": "2015-06-24T14:39:37Z",
+      "side": 1,
+      "message": "Very specific reason: We got carried away counting :)\nChanged to 8 jint args.",
+      "parentUuid": "fe23d6e9_27a01aae",
+      "range": {
+        "startLine": 1734,
+        "startChar": 2,
+        "endLine": 1734,
+        "endChar": 87
+      },
+      "revId": "07a1a5fb6cd1a768b946a4dd729f966fdf623940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7e0fe678_03322e30",
         "filename": "compiler/jni/jni_compiler_test.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-23T16:44:42Z",
       "side": 1,
       "message": "Leave space around +.",
+      "range": {
+        "startLine": 1735,
+        "startChar": 23,
+        "endLine": 1735,
+        "endChar": 28
+      },
+      "revId": "07a1a5fb6cd1a768b946a4dd729f966fdf623940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9eb57afa_1c4235bd",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1735,
+      "author": {
+        "id": 1062659
+      },
+      "writtenOn": "2015-06-24T14:39:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e0fe678_03322e30",
       "range": {
         "startLine": 1735,
         "startChar": 23,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "de761212_c6c762a4",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1738,
+      "author": {
+        "id": 1062659
+      },
+      "writtenOn": "2015-06-24T14:39:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de1a92b3_ccc4c3a2",
+      "range": {
+        "startLine": 1738,
+        "startChar": 21,
+        "endLine": 1738,
+        "endChar": 31
+      },
+      "revId": "07a1a5fb6cd1a768b946a4dd729f966fdf623940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de1a92b3_8cbacb29",
         "filename": "compiler/jni/jni_compiler_test.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-06-23T16:44:42Z",
       "side": 1,
       "message": "Lines too long.",
+      "range": {
+        "startLine": 1741,
+        "startChar": 1,
+        "endLine": 1743,
+        "endChar": 117
+      },
+      "revId": "07a1a5fb6cd1a768b946a4dd729f966fdf623940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e9bae8e_0199aaff",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1743,
+      "author": {
+        "id": 1062659
+      },
+      "writtenOn": "2015-06-24T14:39:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de1a92b3_8cbacb29",
       "range": {
         "startLine": 1741,
         "startChar": 1,
