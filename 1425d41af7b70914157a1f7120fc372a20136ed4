@@ -234,6 +234,30 @@
       "revId": "1425d41af7b70914157a1f7120fc372a20136ed4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de761212_a658a607",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-24T10:45:49Z",
+      "side": 1,
+      "message": "I see. Please add this as a comment.\n\nAlso, maybe graph_in_bad_state_ is better revealing? Could we be in bad state if we cannot build SSA?",
+      "parentUuid": "deab729c_9e875d18",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 30
+      },
+      "revId": "1425d41af7b70914157a1f7120fc372a20136ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
