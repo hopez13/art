@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "befddec1_85b82236",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1775,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-24T17:57:17Z",
+      "side": 1,
+      "message": "Don\u0027t think so. UndefinedType and ConflictType are not a category2 type, so they fail in line 1771. Same for the non-wide.",
+      "parentUuid": "de761212_49aaa58d",
+      "range": {
+        "startLine": 1775,
+        "startChar": 25,
+        "endLine": 1775,
+        "endChar": 82
+      },
+      "revId": "70ef689e240f2864eb379d93bb6fb418ee46531a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ea26abf_832140d9",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-24T17:44:38Z",
       "side": 1,
       "message": "I think this should be checked before reg_type.IsUninitializedTypes() but in practice I guess an uninitialized type is never undefined or conflict.",
+      "range": {
+        "startLine": 1799,
+        "startChar": 0,
+        "endLine": 1802,
+        "endChar": 86
+      },
+      "revId": "70ef689e240f2864eb379d93bb6fb418ee46531a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e098aaf_684bc3db",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1802,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-24T17:57:17Z",
+      "side": 1,
+      "message": "Sure, I can reorder that to be at the top-level. It is correct as-is, but maybe not the best order.",
+      "parentUuid": "1ea26abf_832140d9",
       "range": {
         "startLine": 1799,
         "startChar": 0,
