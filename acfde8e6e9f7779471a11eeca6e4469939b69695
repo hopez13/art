@@ -22,6 +22,30 @@
       "revId": "acfde8e6e9f7779471a11eeca6e4469939b69695",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de761212_46d612f1",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-24T09:02:54Z",
+      "side": 1,
+      "message": "Good point. Done.",
+      "parentUuid": "5ecce27c_429ef2e8",
+      "range": {
+        "startLine": 50,
+        "startChar": 31,
+        "endLine": 50,
+        "endChar": 40
+      },
+      "revId": "acfde8e6e9f7779471a11eeca6e4469939b69695",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
