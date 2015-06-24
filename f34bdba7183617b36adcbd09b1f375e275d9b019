@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "de761212_a91dd998",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-06-24T16:46:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e701a1a_eddfddf3",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 10,
+        "endChar": 8
+      },
+      "revId": "f34bdba7183617b36adcbd09b1f375e275d9b019",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bea6bed3_667ac49d",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-24T15:13:32Z",
       "side": 1,
       "message": "Comment please.",
+      "range": {
+        "startLine": 1071,
+        "startChar": 4,
+        "endLine": 1071,
+        "endChar": 78
+      },
+      "revId": "f34bdba7183617b36adcbd09b1f375e275d9b019",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "deab729c_6163d00f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1071,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-06-24T16:46:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bea6bed3_667ac49d",
       "range": {
         "startLine": 1071,
         "startChar": 4,
@@ -107,6 +155,30 @@
       "side": 1,
       "message": "Yeah, I guess it\u0027s fine. I thought we could abuse the fault handler, but then we still theoretically support no implicit checks at all.\n\nI just dislike C++ forcing us to make all this visible in a pretty central header. You\u0027re gonna force everyone to recompile the world. :-)",
       "parentUuid": "de761212_465b727e",
+      "range": {
+        "startLine": 714,
+        "startChar": 2,
+        "endLine": 717,
+        "endChar": 26
+      },
+      "revId": "f34bdba7183617b36adcbd09b1f375e275d9b019",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de761212_c91a159e",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-06-24T16:46:24Z",
+      "side": 1,
+      "message": "i know...",
+      "parentUuid": "9e701a1a_2df49553",
       "range": {
         "startLine": 714,
         "startChar": 2,
