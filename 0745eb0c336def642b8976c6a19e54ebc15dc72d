@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9eb57afa_bce8e174",
+        "filename": "test/516-dead-move-result/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-06-24T12:50:48Z",
+      "side": 1,
+      "message": "Use:\n// Workaround for b/18051191.\nclass InnerClass {}\n\nthis way we don\u0027t need to have a golden output.",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 32
+      },
+      "revId": "0745eb0c336def642b8976c6a19e54ebc15dc72d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
