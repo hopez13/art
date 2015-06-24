@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1ea26abf_c0205ea7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-24T10:41:09Z",
+      "side": 1,
+      "message": "GraphBuilder, SsaBuilder",
+      "parentUuid": "3e9bae8e_21326efb",
+      "range": {
+        "startLine": 12,
+        "startChar": 14,
+        "endLine": 12,
+        "endChar": 22
+      },
+      "revId": "1425d41af7b70914157a1f7120fc372a20136ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de761212_0627bac0",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 2
@@ -95,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3e9bae8e_6191965b",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-24T10:41:09Z",
+      "side": 1,
+      "message": "It actually complains about not ending with a control flow instruction (line 93), everything else is skipped because all the lists are empty.\n\nBuilder currently creates a block after every branch, regardless of whether it can fall through or not which is why these blocks can exist. I can change it, and that would also get rid of some dead code, but we would have to be more clever in the presence of try/catch:\n\n  try_start:\n    nop\n  jump_here:\n    ... code ...\n  try_end:\n\nis valid code and and will produce an empty block like this one... If we opt for simplicity in the Builder, then we should just let these blocks pass the GraphChecker.",
+      "parentUuid": "deab729c_de8de539",
+      "range": {
+        "startLine": 31,
+        "startChar": 10,
+        "endLine": 31,
+        "endChar": 15
+      },
+      "revId": "1425d41af7b70914157a1f7120fc372a20136ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de761212_262cb6a0",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 2
@@ -118,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "deab729c_7e7db192",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-24T10:41:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de761212_262cb6a0",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 50
+      },
+      "revId": "1425d41af7b70914157a1f7120fc372a20136ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9eb57afa_9c608505",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 2
@@ -129,6 +201,30 @@
       "writtenOn": "2015-06-24T08:42:09Z",
       "side": 1,
       "message": "Why do you need this? Do we crash if we just attempt to dump the graph?",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 30
+      },
+      "revId": "1425d41af7b70914157a1f7120fc372a20136ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "deab729c_9e875d18",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-24T10:41:09Z",
+      "side": 1,
+      "message": "Dumping the graph is fine but it won\u0027t validate. If you look below at how Builder is run, if it finds a problem, it stops whatever it was doing and passes on to Quick. If we try to validate the graph in that state the compiler will crash instead.",
+      "parentUuid": "9eb57afa_9c608505",
       "range": {
         "startLine": 182,
         "startChar": 0,
