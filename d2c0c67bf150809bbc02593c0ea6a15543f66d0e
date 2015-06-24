@@ -46,6 +46,30 @@
       "revId": "d2c0c67bf150809bbc02593c0ea6a15543f66d0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e9bae8e_21b5ceb9",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-24T11:39:49Z",
+      "side": 1,
+      "message": "I don\u0027t follow. Maybe the test case is not relevant anymore, but isn\u0027t the bug about having empty blocks?",
+      "parentUuid": "1ea26abf_00f52680",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 3
+      },
+      "revId": "d2c0c67bf150809bbc02593c0ea6a15543f66d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
