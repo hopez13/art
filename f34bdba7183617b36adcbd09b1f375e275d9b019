@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e701a1a_eddfddf3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-24T15:13:32Z",
+      "side": 1,
+      "message": "Line break looks a bit funky. Either one paragraph, or an empty line, maybe?",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 10,
+        "endChar": 8
+      },
+      "revId": "f34bdba7183617b36adcbd09b1f375e275d9b019",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bea6bed3_667ac49d",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1071,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-24T15:13:32Z",
+      "side": 1,
+      "message": "Comment please.",
+      "range": {
+        "startLine": 1071,
+        "startChar": 4,
+        "endLine": 1071,
+        "endChar": 78
+      },
+      "revId": "f34bdba7183617b36adcbd09b1f375e275d9b019",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fea4b6cc_45669ece",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-24T15:13:32Z",
+      "side": 1,
+      "message": "Is this really necessary? I only see the DCHECK in Start() using it, and I think we can find something else for it. (This \u003d\u003d discussion comment.)",
+      "range": {
+        "startLine": 714,
+        "startChar": 2,
+        "endLine": 717,
+        "endChar": 26
+      },
+      "revId": "f34bdba7183617b36adcbd09b1f375e275d9b019",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
