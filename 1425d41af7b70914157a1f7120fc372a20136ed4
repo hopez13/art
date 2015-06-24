@@ -258,6 +258,30 @@
       "revId": "1425d41af7b70914157a1f7120fc372a20136ed4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9eb57afa_1cc7d535",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-06-24T10:52:40Z",
+      "side": 1,
+      "message": "Good point, TryBuildingSsa will only fail for non-natural loops...",
+      "parentUuid": "de761212_a658a607",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 30
+      },
+      "revId": "1425d41af7b70914157a1f7120fc372a20136ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
