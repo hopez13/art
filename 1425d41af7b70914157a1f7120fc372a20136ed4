@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "1ea26abf_e0d002f6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-06-24T11:14:02Z",
+      "side": 1,
+      "message": "ah... off course :)",
+      "parentUuid": "1ea26abf_c0205ea7",
+      "range": {
+        "startLine": 12,
+        "startChar": 14,
+        "endLine": 12,
+        "endChar": 22
+      },
+      "revId": "1425d41af7b70914157a1f7120fc372a20136ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de761212_0627bac0",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 2
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "It actually complains about not ending with a control flow instruction (line 93), everything else is skipped because all the lists are empty.\n\nBuilder currently creates a block after every branch, regardless of whether it can fall through or not which is why these blocks can exist. I can change it, and that would also get rid of some dead code, but we would have to be more clever in the presence of try/catch:\n\n  try_start:\n    nop\n  jump_here:\n    ... code ...\n  try_end:\n\nis valid code and and will produce an empty block like this one... If we opt for simplicity in the Builder, then we should just let these blocks pass the GraphChecker.",
       "parentUuid": "deab729c_de8de539",
+      "range": {
+        "startLine": 31,
+        "startChar": 10,
+        "endLine": 31,
+        "endChar": 15
+      },
+      "revId": "1425d41af7b70914157a1f7120fc372a20136ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e9bae8e_21e02eb7",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-06-24T11:14:02Z",
+      "side": 1,
+      "message": "thanks for the explanations. Then could you rephrase the comment? The way I interpret it is that it can only happens for SWITCH (but maybe it\u0027s just my language skill:P)",
+      "parentUuid": "3e9bae8e_6191965b",
       "range": {
         "startLine": 31,
         "startChar": 10,
