@@ -96,6 +96,23 @@
     },
     {
       "key": {
+        "uuid": "befddec1_28914323",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-24T18:30:25Z",
+      "side": 1,
+      "message": "Should this just be a CHECK? That might be better than running through a long time just to realize sigchains are disabled and crash in a mysterious way.",
+      "revId": "f34bdba7183617b36adcbd09b1f375e275d9b019",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fea4b6cc_45669ece",
         "filename": "runtime/runtime.h",
         "patchSetId": 2
