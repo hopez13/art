@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5e0f82b1_5e69d51b",
+        "filename": "runtime/gc/allocation_record.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-24T21:31:42Z",
+      "side": 1,
+      "message": "Addressed in CL 156415.",
+      "parentUuid": "7e0fe678_23aacade",
+      "range": {
+        "startLine": 97,
+        "startChar": 5,
+        "endLine": 97,
+        "endChar": 74
+      },
+      "revId": "1ed11b9ad5512cf464cb1686640df53201fa5297",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de1a92b3_6f8dc187",
         "filename": "runtime/runtime.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-23T17:39:40Z",
       "side": 1,
       "message": "Side note: I guess another reason it\u0027s safe for now is that we only read those GcRoots in AllocRecordObjectMap during a pause for hprof dumping (no read barrier triggers for those GcRoots). Thus, we don\u0027t need to temporarily disable new alloc records here for concurrent reference processing.",
+      "range": {
+        "startLine": 1484,
+        "startChar": 5,
+        "endLine": 1484,
+        "endChar": 23
+      },
+      "revId": "1ed11b9ad5512cf464cb1686640df53201fa5297",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "befddec1_f9b53f21",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1484,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-24T21:31:42Z",
+      "side": 1,
+      "message": "Fixed this TODO in CL 156415.",
+      "parentUuid": "de1a92b3_6f8dc187",
       "range": {
         "startLine": 1484,
         "startChar": 5,
