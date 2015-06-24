@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de761212_0627bac0",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-24T08:42:09Z",
+      "side": 1,
+      "message": "This is b/19084197. Could we fix it instead?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 78
+      },
+      "revId": "1425d41af7b70914157a1f7120fc372a20136ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "deab729c_de8de539",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-24T08:42:09Z",
+      "side": 1,
+      "message": "empty and unconnected.\n\nIsn\u0027t just the problem that they are unconnected?",
+      "range": {
+        "startLine": 31,
+        "startChar": 10,
+        "endLine": 31,
+        "endChar": 15
+      },
+      "revId": "1425d41af7b70914157a1f7120fc372a20136ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de761212_262cb6a0",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-24T08:42:09Z",
+      "side": 1,
+      "message": "indentation is off.",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 50
+      },
+      "revId": "1425d41af7b70914157a1f7120fc372a20136ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9eb57afa_9c608505",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-24T08:42:09Z",
+      "side": 1,
+      "message": "Why do you need this? Do we crash if we just attempt to dump the graph?",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 30
+      },
+      "revId": "1425d41af7b70914157a1f7120fc372a20136ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
