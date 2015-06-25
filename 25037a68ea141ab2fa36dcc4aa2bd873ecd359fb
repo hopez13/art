@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "3e0c8eed_19ab2b5f",
+        "filename": "build/Android.executable.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-06-25T11:04:12Z",
+      "side": 1,
+      "message": "PS12 changes this to apply only to shared libs. static libs are sensitive to order and should not have defaults.",
+      "parentUuid": "deab729c_216dc8f6",
+      "range": {
+        "startLine": 102,
+        "startChar": 2,
+        "endLine": 113,
+        "endChar": 9
+      },
+      "revId": "25037a68ea141ab2fa36dcc4aa2bd873ecd359fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de761212_e9fef1a4",
         "filename": "sigchainlib/Android.mk",
         "patchSetId": 10
