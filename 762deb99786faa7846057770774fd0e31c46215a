@@ -34,6 +34,29 @@
       "revId": "762deb99786faa7846057770774fd0e31c46215a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e8c2a86_d0db5c97",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-25T09:24:16Z",
+      "side": 1,
+      "message": "What about the -pic versions?  (Should we care about them?)",
+      "range": {
+        "startLine": 710,
+        "startChar": 26,
+        "endLine": 710,
+        "endChar": 34
+      },
+      "revId": "762deb99786faa7846057770774fd0e31c46215a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
