@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9efd7aeb_852b4834",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-06-25T15:53:20Z",
+      "side": 1,
+      "message": "seems a bit of a wart, why not the boot image too? Why not use CompilerDriver::IsImage()?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 58
+      },
+      "revId": "335005e2b3a179f26b7a8ae64ca60a1406b669bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "feecb63d_0818eb00",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-06-25T15:53:20Z",
+      "side": 1,
+      "message": "seems a bit of a wart",
+      "range": {
+        "startLine": 709,
+        "startChar": 0,
+        "endLine": 712,
+        "endChar": 1
+      },
+      "revId": "335005e2b3a179f26b7a8ae64ca60a1406b669bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
