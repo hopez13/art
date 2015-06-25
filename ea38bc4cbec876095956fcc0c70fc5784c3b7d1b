@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "3e6e4e7b_2ce13b94",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-06-25T16:58:49Z",
+      "side": 1,
+      "message": "nit : This isn\u0027t compliant with the style guide (or git commit message guidelines). A single line summary must be followed by a blank line.",
+      "revId": "ea38bc4cbec876095956fcc0c70fc5784c3b7d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e6e4e7b_293ccd9b",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 1
