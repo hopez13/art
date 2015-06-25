@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "3e6e4e7b_293ccd9b",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-25T09:39:24Z",
+      "side": 1,
+      "message": "It should be set to DexFile::kDexNoIndex to catch errors. \n\nBesides, StringDataByIdx(signature_idx) would then have returned null when opcode \u003d\u003d DBG_START_LOCAL",
+      "range": {
+        "startLine": 874,
+        "startChar": 29,
+        "endLine": 874,
+        "endChar": 30
+      },
+      "revId": "ea38bc4cbec876095956fcc0c70fc5784c3b7d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e856e59_51121463",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 1
