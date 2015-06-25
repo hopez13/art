@@ -22,6 +22,30 @@
       "revId": "d78fe17f3b413116e86307002accca69feaf2a85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9efd7aeb_76299012",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-25T20:22:24Z",
+      "side": 1,
+      "message": "I think it\u0027s trivial as this is only printed once per hprof-dump. It also helps to know how many objects are live in the AllocRecordMap.",
+      "parentUuid": "1eea6a20_54ae0c6f",
+      "range": {
+        "startLine": 857,
+        "startChar": 4,
+        "endLine": 857,
+        "endChar": 85
+      },
+      "revId": "d78fe17f3b413116e86307002accca69feaf2a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
