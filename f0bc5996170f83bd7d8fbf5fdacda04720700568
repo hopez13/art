@@ -46,6 +46,30 @@
       "revId": "f0bc5996170f83bd7d8fbf5fdacda04720700568",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1eea6a20_1a1e6d1e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-25T17:22:56Z",
+      "side": 1,
+      "message": "Yes, code of preloaded classes will run with access checks in the interpreter.\n\n(Note: there is no \"over and over\". The decision does never change.)",
+      "parentUuid": "beeebe34_d13cf485",
+      "range": {
+        "startLine": 10,
+        "startChar": 26,
+        "endLine": 10,
+        "endChar": 58
+      },
+      "revId": "f0bc5996170f83bd7d8fbf5fdacda04720700568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
