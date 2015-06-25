@@ -34,6 +34,24 @@
       "revId": "c46dc48fa654d986bb86ab22e8654783e4bca42a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1eea6a20_9d91d425",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-06-25T20:31:04Z",
+      "side": 1,
+      "message": "It\u0027s just a style and consistency thing.\n\nThere are 3 [no]options (4 if we count an ignored one), 1 [no]-option, 1 DisabledOption, \n\nRight now this doesn\u0027t match any of those styles, it\u0027s disabled-option which is just introducing yet another type of name.\n\nSo I would just prefer we stick to an existing naming convention instead of introducing a new one (and the [no]option is the most popular right now).\n\nIf you really prefer \u0027disable\u0027 more, then how about \u0027-XXDisableSigChain\u0027 which will make it more consistent with the other disable?",
+      "parentUuid": "3e0c8eed_79ca273e",
+      "revId": "c46dc48fa654d986bb86ab22e8654783e4bca42a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
