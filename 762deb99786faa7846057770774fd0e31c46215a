@@ -57,6 +57,30 @@
       "revId": "762deb99786faa7846057770774fd0e31c46215a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe8e767f_0fe465a3",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-25T09:30:01Z",
+      "side": 1,
+      "message": "I was tempted to only test against core-optimizing.art, but since long term core-optimizing.art is going to be core.art, I added core.art to not bitrot this code.\n\nI think having one configuration doing these checks is good enough.",
+      "parentUuid": "1e8c2a86_d0db5c97",
+      "range": {
+        "startLine": 710,
+        "startChar": 26,
+        "endLine": 710,
+        "endChar": 34
+      },
+      "revId": "762deb99786faa7846057770774fd0e31c46215a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
