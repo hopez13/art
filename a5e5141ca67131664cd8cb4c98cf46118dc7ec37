@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "fe8e767f_8fb9356c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1103,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-06-25T10:25:40Z",
+      "side": 1,
+      "message": "Yes. Left over from an initial patch.",
+      "parentUuid": "3e6e4e7b_c913b118",
+      "range": {
+        "startLine": 1103,
+        "startChar": 14,
+        "endLine": 1103,
+        "endChar": 26
+      },
+      "revId": "a5e5141ca67131664cd8cb4c98cf46118dc7ec37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e856e59_515c54fb",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 3
@@ -151,6 +175,30 @@
       "writtenOn": "2015-06-25T10:16:13Z",
       "side": 1,
       "message": "Not really?",
+      "range": {
+        "startLine": 1120,
+        "startChar": 14,
+        "endLine": 1120,
+        "endChar": 26
+      },
+      "revId": "a5e5141ca67131664cd8cb4c98cf46118dc7ec37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e856e59_113fac93",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-06-25T10:25:40Z",
+      "side": 1,
+      "message": "Ditto",
+      "parentUuid": "3e6e4e7b_e918f534",
       "range": {
         "startLine": 1120,
         "startChar": 14,
