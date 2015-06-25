@@ -16,6 +16,24 @@
       "revId": "c46dc48fa654d986bb86ab22e8654783e4bca42a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e0c8eed_79ca273e",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-06-25T11:03:17Z",
+      "side": 1,
+      "message": "I see a mix of [no] and [disable] (e.g. DisableExplicitGC or NoDexFileFallback) and looking in the Ignore section, historically we used more [disable].\n\nFor me, disable is more revealing but I can change if you think strongly (don\u0027t really care).",
+      "parentUuid": "de02928c_89ea7d22",
+      "revId": "c46dc48fa654d986bb86ab22e8654783e4bca42a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
