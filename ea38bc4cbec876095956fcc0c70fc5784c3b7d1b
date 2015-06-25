@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "beeebe34_ecedd383",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-06-25T17:30:14Z",
+      "side": 1,
+      "message": "blank line added.",
+      "parentUuid": "3e6e4e7b_2ce13b94",
+      "revId": "ea38bc4cbec876095956fcc0c70fc5784c3b7d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e6e4e7b_293ccd9b",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "beeebe34_6ce1c393",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-06-25T17:30:14Z",
+      "side": 1,
+      "message": "I agree that would be a better initial value indeed, and one that can simplify some code in the long run\n\n(note that due to the double-if that would not have helped in the original problem)",
+      "parentUuid": "3e6e4e7b_293ccd9b",
+      "range": {
+        "startLine": 874,
+        "startChar": 29,
+        "endLine": 874,
+        "endChar": 30
+      },
+      "revId": "ea38bc4cbec876095956fcc0c70fc5784c3b7d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e856e59_51121463",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 1
@@ -53,6 +95,30 @@
       "writtenOn": "2015-06-25T08:18:18Z",
       "side": 1,
       "message": "Nit: All of that on a new line?",
+      "range": {
+        "startLine": 909,
+        "startChar": 41,
+        "endLine": 911,
+        "endChar": 49
+      },
+      "revId": "ea38bc4cbec876095956fcc0c70fc5784c3b7d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "beeebe34_0ce91f78",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 911,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-06-25T17:30:14Z",
+      "side": 1,
+      "message": "Done (I like to line up the ? : to see the two values easier, but am not very pedantic on that)",
+      "parentUuid": "3e856e59_51121463",
       "range": {
         "startLine": 909,
         "startChar": 41,
