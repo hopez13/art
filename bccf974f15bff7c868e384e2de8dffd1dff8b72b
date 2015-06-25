@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fe6116bc_9a046988",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2015-06-25T23:06:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e65c2c2_fd3ba387",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 15
+      },
+      "revId": "bccf974f15bff7c868e384e2de8dffd1dff8b72b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fe6116bc_fa9725c8",
         "filename": "compiler/driver/compiler_options.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-25T23:01:14Z",
       "side": 1,
       "message": "Typo.",
+      "range": {
+        "startLine": 40,
+        "startChar": 61,
+        "endLine": 40,
+        "endChar": 69
+      },
+      "revId": "bccf974f15bff7c868e384e2de8dffd1dff8b72b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e99fafb_ff971bc8",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2015-06-25T23:06:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe6116bc_fa9725c8",
       "range": {
         "startLine": 40,
         "startChar": 61,
