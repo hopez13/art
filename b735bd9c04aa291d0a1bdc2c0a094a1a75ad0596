@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e6e4e7b_c96731ce",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1249,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-25T08:56:29Z",
+      "side": 1,
+      "message": "Why not just removing the parameter then?",
+      "range": {
+        "startLine": 1249,
+        "startChar": 36,
+        "endLine": 1249,
+        "endChar": 70
+      },
+      "revId": "b735bd9c04aa291d0a1bdc2c0a094a1a75ad0596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
