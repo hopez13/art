@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e8c2a86_70bdd0b1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-25T08:22:29Z",
+      "side": 1,
+      "message": "Please be more specific: speedup of what? A call/field access in the interpreter?\n\nSo without this change, are we doing access checks over and over again?",
+      "range": {
+        "startLine": 10,
+        "startChar": 26,
+        "endLine": 10,
+        "endChar": 58
+      },
+      "revId": "f0bc5996170f83bd7d8fbf5fdacda04720700568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
