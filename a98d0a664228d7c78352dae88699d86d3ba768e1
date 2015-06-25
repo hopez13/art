@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "beeebe34_c3042a89",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-25T01:48:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de02928c_5af68509",
+      "range": {
+        "startLine": 173,
+        "startChar": 56,
+        "endLine": 173,
+        "endChar": 61
+      },
+      "revId": "a98d0a664228d7c78352dae88699d86d3ba768e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "befddec1_d955e3cc",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-24T22:07:29Z",
       "side": 1,
       "message": "Can you add LOCKS_EXCLUDED(alloc_tracker_lock_) since these functions acquire alloc_tracker_lock_.",
+      "range": {
+        "startLine": 714,
+        "startChar": 86,
+        "endLine": 714,
+        "endChar": 88
+      },
+      "revId": "a98d0a664228d7c78352dae88699d86d3ba768e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "def37219_e44fae35",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-25T01:48:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "befddec1_d955e3cc",
       "range": {
         "startLine": 714,
         "startChar": 86,
