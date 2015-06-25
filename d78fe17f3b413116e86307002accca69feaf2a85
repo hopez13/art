@@ -46,6 +46,30 @@
       "revId": "d78fe17f3b413116e86307002accca69feaf2a85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "feecb63d_59d00371",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-25T20:45:37Z",
+      "side": 1,
+      "message": "But it is logspam (you already know you\u0027re doing an hprof, it\u0027s not happening randomly), and we get a lot of flak for it.",
+      "parentUuid": "9efd7aeb_76299012",
+      "range": {
+        "startLine": 857,
+        "startChar": 4,
+        "endLine": 857,
+        "endChar": 85
+      },
+      "revId": "d78fe17f3b413116e86307002accca69feaf2a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
