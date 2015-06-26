@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "de8ff2ab_180dbd3e",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-26T05:52:59Z",
+      "side": 1,
+      "message": "Should this be CompareExchangeWeakSequentiallyConsistent() or CompareExchangeWeakRelease() as the lock release is removed?",
+      "range": {
+        "startLine": 130,
+        "startChar": 45,
+        "endLine": 130,
+        "endChar": 71
+      },
+      "revId": "ca76479d632c321bea77d10c88da571fab4c6439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de8ff2ab_b83a09f7",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-26T05:52:59Z",
+      "side": 1,
+      "message": "I think it\u0027s cleaner to use a while loop here (also consistent with rest of the code).",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 63
+      },
+      "revId": "ca76479d632c321bea77d10c88da571fab4c6439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be731e93_fb03a77a",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-26T05:52:59Z",
+      "side": 1,
+      "message": "Are these redundant (same as the outer if check)?",
+      "range": {
+        "startLine": 166,
+        "startChar": 6,
+        "endLine": 168,
+        "endChar": 61
+      },
+      "revId": "ca76479d632c321bea77d10c88da571fab4c6439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e65c2c2_a361088d",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-26T05:52:59Z",
+      "side": 1,
+      "message": "Should this be CompareExchangeWeakAcquire() as the lock acquire is removed?",
+      "range": {
+        "startLine": 173,
+        "startChar": 56,
+        "endLine": 173,
+        "endChar": 82
+      },
+      "revId": "ca76479d632c321bea77d10c88da571fab4c6439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be731e93_3e4c2d90",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-26T05:52:59Z",
+      "side": 1,
+      "message": "I don\u0027t understand how this lock acquire (and the one above with timeout) can succeed, given that mutator threads do not actually release the mutator_lock_ on suspend. Could you elaborate on this?",
+      "range": {
+        "startLine": 471,
+        "startChar": 24,
+        "endLine": 471,
+        "endChar": 37
+      },
+      "revId": "ca76479d632c321bea77d10c88da571fab4c6439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eda409cd_41d689ed",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 2
@@ -42,6 +157,29 @@
         "startChar": 37,
         "endLine": 537,
         "endChar": 52
+      },
+      "revId": "ca76479d632c321bea77d10c88da571fab4c6439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e99fafb_25125462",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-26T05:52:59Z",
+      "side": 1,
+      "message": "The body of this function doesn\u0027t seem to have changed  anything significant. Maybe just inline this function as before?",
+      "range": {
+        "startLine": 582,
+        "startChar": 2,
+        "endLine": 582,
+        "endChar": 32
       },
       "revId": "ca76479d632c321bea77d10c88da571fab4c6439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
