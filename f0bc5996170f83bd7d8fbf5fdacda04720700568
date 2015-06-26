@@ -70,6 +70,29 @@
       "revId": "f0bc5996170f83bd7d8fbf5fdacda04720700568",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e7f2e4e_01f46a80",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1980,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-26T07:49:42Z",
+      "side": 1,
+      "message": "Why do we have per-method \"pre-verified\" flags? Isn\u0027t the one on the class good enough?",
+      "range": {
+        "startLine": 1978,
+        "startChar": 0,
+        "endLine": 1980,
+        "endChar": 32
+      },
+      "revId": "f0bc5996170f83bd7d8fbf5fdacda04720700568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
