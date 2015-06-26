@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f3f4f142_5f1cab25",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-26T19:46:01Z",
+      "side": 1,
+      "message": "These don\u0027t need a scoped object reference since they have an internal lock which has exclusion with root marking.",
+      "parentUuid": "b31fd953_35bfd0ff",
+      "range": {
+        "startLine": 530,
+        "startChar": 4,
+        "endLine": 530,
+        "endChar": 5
+      },
+      "revId": "73f693518ad9f4b43d1349ca659d09859a95ea26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53369ddf_52ba740f",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-26T19:35:46Z",
       "side": 1,
       "message": "Should we have an SOA here, too?",
+      "range": {
+        "startLine": 542,
+        "startChar": 4,
+        "endLine": 542,
+        "endChar": 5
+      },
+      "revId": "73f693518ad9f4b43d1349ca659d09859a95ea26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9333b5f4_6c07db55",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-26T19:46:01Z",
+      "side": 1,
+      "message": "Same",
+      "parentUuid": "53369ddf_52ba740f",
       "range": {
         "startLine": 542,
         "startChar": 4,
