@@ -46,6 +46,30 @@
       "revId": "8d1a8c00b89775a251ac5e26a557f81ac1491a44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "934c958c_44562e2f",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-26T19:57:35Z",
+      "side": 0,
+      "message": "Even then, mark it as LOCKS_EXCLUDED now?",
+      "parentUuid": "336209ef_49bac10f",
+      "range": {
+        "startLine": 558,
+        "startChar": 6,
+        "endLine": 558,
+        "endChar": 27
+      },
+      "revId": "8d1a8c00b89775a251ac5e26a557f81ac1491a44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
