@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93a1f560_c26566c2",
+        "filename": "runtime/gc/allocation_record.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-06-26T23:53:11Z",
+      "side": 1,
+      "message": "I think there is an invariant that IsMarkedCallback() won\u0027t get nullptr passed to it (see MarkSweep, SemiSpace or ConcurrentCopying) . It seems that this CL breaks that if we ever collect class objects. Before this CL, it was fine as we delete the entry if the object gets collected and the GcRoot becomes nullptr. It isn\u0027t the case any more as we now keep nullptr GcRoots around.\n\nBesides, there\u0027s no point in calling callback if old_object is nullptr (for performance reason).\n\nHow about not calling \u0027callback\u0027 if old_object is null?",
+      "range": {
+        "startLine": 110,
+        "startChar": 40,
+        "endLine": 110,
+        "endChar": 50
+      },
+      "revId": "42c3c33df8b6eefc4ba532f1981282510f109928",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "934c958c_98d9259a",
+        "filename": "runtime/gc/allocation_record.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-06-26T23:53:11Z",
+      "side": 1,
+      "message": "Same here.\n\nNot sure why it isn\u0027t already causing an error as old_object can actually be nullptr here (as we do collect those objects unlike class objects)?",
+      "range": {
+        "startLine": 132,
+        "startChar": 33,
+        "endLine": 132,
+        "endChar": 41
+      },
+      "revId": "42c3c33df8b6eefc4ba532f1981282510f109928",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
