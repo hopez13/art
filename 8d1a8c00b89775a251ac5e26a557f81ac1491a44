@@ -94,6 +94,30 @@
       "revId": "8d1a8c00b89775a251ac5e26a557f81ac1491a44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "138ee5ef_60b5721d",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-06-26T20:08:21Z",
+      "side": 0,
+      "message": "The lock could be already held, either way, I don\u0027t think annotations work here since it is a function declaration.",
+      "parentUuid": "336209ef_8942f95b",
+      "range": {
+        "startLine": 558,
+        "startChar": 6,
+        "endLine": 558,
+        "endChar": 27
+      },
+      "revId": "8d1a8c00b89775a251ac5e26a557f81ac1491a44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
