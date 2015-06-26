@@ -70,6 +70,30 @@
       "revId": "8d1a8c00b89775a251ac5e26a557f81ac1491a44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "336209ef_8942f95b",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-26T19:58:17Z",
+      "side": 0,
+      "message": "(Or are you allowed to do it with the lock already held?)",
+      "parentUuid": "934c958c_44562e2f",
+      "range": {
+        "startLine": 558,
+        "startChar": 6,
+        "endLine": 558,
+        "endChar": 27
+      },
+      "revId": "8d1a8c00b89775a251ac5e26a557f81ac1491a44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
