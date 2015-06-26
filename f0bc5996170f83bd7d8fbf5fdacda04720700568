@@ -93,6 +93,30 @@
       "revId": "f0bc5996170f83bd7d8fbf5fdacda04720700568",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe6116bc_0bee4d7f",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1980,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-06-26T15:45:23Z",
+      "side": 1,
+      "message": "In theory it would, yes, as we do not track on a per-method basis (which we could).\n\nHowever, it\u0027s slightly cheaper to check, and we had free bits. That\u0027s my guess.",
+      "parentUuid": "3e7f2e4e_01f46a80",
+      "range": {
+        "startLine": 1978,
+        "startChar": 0,
+        "endLine": 1980,
+        "endChar": 32
+      },
+      "revId": "f0bc5996170f83bd7d8fbf5fdacda04720700568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
