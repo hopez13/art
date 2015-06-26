@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "138ee5ef_232e941c",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-26T22:19:46Z",
+      "side": 1,
+      "message": "Add comment about \"mutator_lock_ is never truly held by any mutator threads\".",
+      "revId": "ca76479d632c321bea77d10c88da571fab4c6439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de8ff2ab_180dbd3e",
         "filename": "runtime/thread-inl.h",
         "patchSetId": 2
@@ -105,6 +122,30 @@
       "writtenOn": "2015-06-26T05:52:59Z",
       "side": 1,
       "message": "I don\u0027t understand how this lock acquire (and the one above with timeout) can succeed, given that mutator threads do not actually release the mutator_lock_ on suspend. Could you elaborate on this?",
+      "range": {
+        "startLine": 471,
+        "startChar": 24,
+        "endLine": 471,
+        "endChar": 37
+      },
+      "revId": "ca76479d632c321bea77d10c88da571fab4c6439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "934c958c_ead843e8",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-26T22:19:46Z",
+      "side": 1,
+      "message": "I think I understand it now: the mutator_lock_ is never actually held by any mutator threads. When a thread starts, it will call TransitionFromSuspendedToRunnable(), which only registers but not acquires the mutator_lock_.\n\nThere should be a comment about this on the declaration of mutator_lock_.",
+      "parentUuid": "be731e93_3e4c2d90",
       "range": {
         "startLine": 471,
         "startChar": 24,
