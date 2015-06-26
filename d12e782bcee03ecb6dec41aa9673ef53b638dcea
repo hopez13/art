@@ -94,6 +94,30 @@
       "revId": "d12e782bcee03ecb6dec41aa9673ef53b638dcea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe8836a6_8274fcae",
+        "filename": "test/003-omnibus-opcodes/src/UnresTest2.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-26T15:43:33Z",
+      "side": 1,
+      "message": "Then maybe add that as a comment. And check that it\u0027s either null or ClassNotFoundException?",
+      "parentUuid": "9e99fafb_a592e4ab",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 30
+      },
+      "revId": "d12e782bcee03ecb6dec41aa9673ef53b638dcea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
