@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "934c958c_fe6ec128",
+        "filename": "runtime/gc/allocation_record.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-27T03:08:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93a1f560_c26566c2",
+      "range": {
+        "startLine": 110,
+        "startChar": 40,
+        "endLine": 110,
+        "endChar": 50
+      },
+      "revId": "42c3c33df8b6eefc4ba532f1981282510f109928",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "934c958c_98d9259a",
         "filename": "runtime/gc/allocation_record.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-26T23:53:11Z",
       "side": 1,
       "message": "Same here.\n\nNot sure why it isn\u0027t already causing an error as old_object can actually be nullptr here (as we do collect those objects unlike class objects)?",
+      "range": {
+        "startLine": 132,
+        "startChar": 33,
+        "endLine": 132,
+        "endChar": 41
+      },
+      "revId": "42c3c33df8b6eefc4ba532f1981282510f109928",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "138ee5ef_b4a098aa",
+        "filename": "runtime/gc/allocation_record.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-27T03:08:47Z",
+      "side": 1,
+      "message": "Good find! Fixed in CL 156975. Not sure why the DCHECK() for nullptr was not fired, either.",
+      "parentUuid": "934c958c_98d9259a",
       "range": {
         "startLine": 132,
         "startChar": 33,
