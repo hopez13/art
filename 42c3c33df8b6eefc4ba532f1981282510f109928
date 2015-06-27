@@ -93,6 +93,29 @@
       "revId": "42c3c33df8b6eefc4ba532f1981282510f109928",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73a3a180_c3747648",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3720,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-06-27T17:09:40Z",
+      "side": 1,
+      "message": "Can we see the value of this change in the middle of a GC and end up with mismatched allow/disallow calls? Is it safe?",
+      "range": {
+        "startLine": 3720,
+        "startChar": 6,
+        "endLine": 3720,
+        "endChar": 28
+      },
+      "revId": "42c3c33df8b6eefc4ba532f1981282510f109928",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
