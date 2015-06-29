@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "934c958c_a41837a4",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-29T23:37:22Z",
+      "side": 1,
+      "message": "Is this part necessary for correctness (i.e. a thread will pass the barrier in a bounded time), or it\u0027s just for performance (i.e. a thread will pass the barrier sooner)?",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 3
+      },
+      "revId": "efdda7569c16e3ecb1d511a123672f668c63c61b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "132185e2_88b91738",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-29T23:37:22Z",
+      "side": 1,
+      "message": "AtomicSetFlag() does the same thing.",
+      "range": {
+        "startLine": 803,
+        "startChar": 4,
+        "endLine": 803,
+        "endChar": 73
+      },
+      "revId": "efdda7569c16e3ecb1d511a123672f668c63c61b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "332a09c0_bd21b7d9",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-29T23:37:22Z",
+      "side": 1,
+      "message": "I think this part is the inner if check of a double-checked locking. All the callers to this function except SuspendAllInternal() would first check the kActiveSuspendBarrier flag without holding the thread_suspend_count_lock_. The race is that the suspender thread calling SuspendAllInternal() and the \"this\" thread could execute this function simultaneous, because SuspendAllInternal() would install the pass barrier for all non-ignored threads.\n\nProbably it\u0027s more intuitive to comment about this double-checked locking?",
+      "range": {
+        "startLine": 817,
+        "startChar": 0,
+        "endLine": 822,
+        "endChar": 5
+      },
+      "revId": "efdda7569c16e3ecb1d511a123672f668c63c61b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53277df4_33dcda56",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-29T23:37:22Z",
+      "side": 1,
+      "message": "However, I don\u0027t think this is possible. Have you verified this can ever happen?\n\nThe check point function is only installed for runnable threads, and the thread requesting a check point would only execute the check point function for threads without the function installed. See Thread::RequestCheckpoint() and its callers.\n\nBesides, the old CHECK(found_checkpoint) is not failing. So maybe change this to a CHECK?",
+      "range": {
+        "startLine": 850,
+        "startChar": 0,
+        "endLine": 855,
+        "endChar": 5
+      },
+      "revId": "efdda7569c16e3ecb1d511a123672f668c63c61b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73f6419f_aed857e7",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 974,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-29T23:37:22Z",
+      "side": 1,
+      "message": "Same here. For correctness or performance?",
+      "range": {
+        "startLine": 970,
+        "startChar": 0,
+        "endLine": 974,
+        "endChar": 5
+      },
+      "revId": "efdda7569c16e3ecb1d511a123672f668c63c61b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53277df4_0a67db48",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-29T23:37:22Z",
+      "side": 1,
+      "message": "two spaces",
+      "range": {
+        "startLine": 543,
+        "startChar": 8,
+        "endLine": 543,
+        "endChar": 12
+      },
+      "revId": "efdda7569c16e3ecb1d511a123672f668c63c61b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "934c958c_c1c685aa",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 997,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-29T23:37:22Z",
+      "side": 1,
+      "message": "These are the same as the code below, after the else block. Are these redundant?",
+      "range": {
+        "startLine": 986,
+        "startChar": 0,
+        "endLine": 997,
+        "endChar": 9
+      },
+      "revId": "efdda7569c16e3ecb1d511a123672f668c63c61b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
