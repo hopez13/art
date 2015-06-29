@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3b791b3_4af6538c",
+        "filename": "runtime/dex_instruction_list.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-29T21:04:56Z",
+      "side": 1,
+      "message": "So isn\u0027t it a bug in ART that this was kFieldRef, and not kFieldOFfset? A quickened field get should just contain the offset of the field.\n\nSame goes for a vtable offset and quicked invoke opcodes.",
+      "range": {
+        "startLine": 262,
+        "startChar": 58,
+        "endLine": 262,
+        "endChar": 72
+      },
+      "revId": "06470843bc54a3d5bf25635fc60bd9656125fb7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
