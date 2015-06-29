@@ -22,6 +22,30 @@
       "revId": "aae4334a3f5215edbfe90ab00f8e1e9ade542007",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "133a65f6_60ee723c",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1039961
+      },
+      "writtenOn": "2015-06-29T11:16:40Z",
+      "side": 0,
+      "message": "Yes, these should be kept.",
+      "parentUuid": "fe6116bc_5a4f31b4",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 7
+      },
+      "revId": "aae4334a3f5215edbfe90ab00f8e1e9ade542007",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
