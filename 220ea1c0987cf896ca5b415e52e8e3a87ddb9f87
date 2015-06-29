@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b367d930_d5cf3c9d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 1696,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-29T07:17:49Z",
+      "side": 1,
+      "message": "We discussed about this in the team. We think we should avoid doing this here, and we have a suggestion: how about adding a new node in your case, eg HLoadConstantFromConstantPool and change all users of the original constant to that that node instead?\n\nYou would end up with something like:\ni0 \u003d HComputeBaseMethodAddress();\ni1 \u003d HLoadConstantFromConstantPool(i1)\ni2 \u003d HAdd(i42, i1)\n\nWDYT?",
+      "range": {
+        "startLine": 1691,
+        "startChar": 0,
+        "endLine": 1696,
+        "endChar": 44
+      },
+      "revId": "220ea1c0987cf896ca5b415e52e8e3a87ddb9f87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
