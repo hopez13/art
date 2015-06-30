@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b388b937_8d64a119",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-30T15:43:50Z",
+      "side": 1,
+      "message": "Because we agreed to move it from art::OptimizingCompiler::Compile to art::QuickCompiler::Compile (see the comments of PS3). :)\n(I removed the comment though, which is irrelevant here.)",
+      "parentUuid": "b367d930_d865b1c2",
+      "range": {
+        "startLine": 656,
+        "startChar": 0,
+        "endLine": 662,
+        "endChar": 3
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3a99960_0b32a11c",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-30T11:44:17Z",
       "side": 1,
       "message": "Add a DCHECK that the type is PrimNot?",
+      "range": {
+        "startLine": 3104,
+        "startChar": 0,
+        "endLine": 3104,
+        "endChar": 57
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3a6b1c2_af931960",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3104,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-30T15:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3a99960_0b32a11c",
       "range": {
         "startLine": 3104,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b388b937_ed6b65e4",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4229,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-30T15:43:50Z",
+      "side": 1,
+      "message": "Agreed.  I copied and pasted this comment from the other code generator for uniformity reasons.  I made this less ambiguous in PS7.",
+      "parentUuid": "d3ae0d65_0cbf1bff",
+      "range": {
+        "startLine": 4229,
+        "startChar": 0,
+        "endLine": 4229,
+        "endChar": 56
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3a99960_2b375d0d",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2015-06-30T11:44:17Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1624,
+        "startChar": 0,
+        "endLine": 1624,
+        "endChar": 56
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93973554_cc04ef4c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1624,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-30T15:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3a99960_2b375d0d",
       "range": {
         "startLine": 1624,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "7392c167_4b28e5be",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3487,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-30T15:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3a99960_cb4b297c",
+      "range": {
+        "startLine": 3487,
+        "startChar": 0,
+        "endLine": 3487,
+        "endChar": 57
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3a99960_eb486581",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 5
@@ -128,6 +248,30 @@
       "writtenOn": "2015-06-30T11:44:17Z",
       "side": 1,
       "message": "Isn\u0027t it a bug if PrimNot \u0026\u0026 zero ? The constant should be a NullConstant, so line 3894 would crash.",
+      "range": {
+        "startLine": 3896,
+        "startChar": 12,
+        "endLine": 3896,
+        "endChar": 68
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7392c167_0b07bd55",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3896,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-30T15:43:50Z",
+      "side": 1,
+      "message": "Done (here and in line 3915).",
+      "parentUuid": "b3a99960_eb486581",
       "range": {
         "startLine": 3896,
         "startChar": 12,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "d38d2d46_4ead53a6",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3359,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-30T15:43:50Z",
+      "side": 1,
+      "message": "CodeGenerator::GetInt32ValueOf accepts HIntConstant and HNullConstant objects, so this should be fine.",
+      "parentUuid": "f3b791b3_aaf02f07",
+      "range": {
+        "startLine": 3359,
+        "startChar": 0,
+        "endLine": 3359,
+        "endChar": 64
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3ae0d65_ccc8239b",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 5
@@ -174,6 +342,30 @@
       "writtenOn": "2015-06-30T11:44:17Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 3746,
+        "startChar": 0,
+        "endLine": 3746,
+        "endChar": 68
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3a6b1c2_8f101557",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3746,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-30T15:43:50Z",
+      "side": 1,
+      "message": "Likewise.",
+      "parentUuid": "d3ae0d65_ccc8239b",
       "range": {
         "startLine": 3746,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "93973554_2c33b332",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3767,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-30T15:43:50Z",
+      "side": 1,
+      "message": "Likewise.",
+      "parentUuid": "13b505ac_ce37b7e9",
+      "range": {
+        "startLine": 3767,
+        "startChar": 0,
+        "endLine": 3767,
+        "endChar": 68
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13b505ac_ee34fbe6",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 5
@@ -220,6 +436,30 @@
       "writtenOn": "2015-06-30T11:44:17Z",
       "side": 1,
       "message": "Consistency: do like in the other backends.\n\nNote that I don\u0027t have a strong preference. I\u0027ll leave it to your preference whether to use a block or calling explictly Release.",
+      "range": {
+        "startLine": 795,
+        "startChar": 0,
+        "endLine": 797,
+        "endChar": 40
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93973554_4c28ffbe",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-30T15:43:50Z",
+      "side": 1,
+      "message": "I think the block approach is more concise, especially when dealing with several temporaries, so I went for this one.  I converted the remaining use of Release to this scope-based implicit release.",
+      "parentUuid": "13b505ac_ee34fbe6",
       "range": {
         "startLine": 795,
         "startChar": 0,
