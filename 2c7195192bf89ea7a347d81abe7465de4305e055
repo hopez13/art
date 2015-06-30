@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3a6f9d3_805c98c3",
+        "filename": "runtime/thread.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-30T23:17:38Z",
+      "side": 1,
+      "message": "I think this should not be changed to ReadFlag(), because it could break atomicity of reading the field tls32_.state_and_flags. It used to be one load of tls32_.state_and_flags, now it\u0027s possibly two loads.",
+      "range": {
+        "startLine": 224,
+        "startChar": 59,
+        "endLine": 224,
+        "endChar": 67
+      },
+      "revId": "2c7195192bf89ea7a347d81abe7465de4305e055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
