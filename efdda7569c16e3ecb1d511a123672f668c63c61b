@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "133a65f6_a3b9a437",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1039961
+      },
+      "writtenOn": "2015-06-30T07:49:42Z",
+      "side": 1,
+      "message": "I think this check is necessary for SetStateUnsafe. The proposed SuspendAll mechanism works as follows:\n1) SuspendAllInternal (should*) ensure that all required threads suspended.\n2) Grabbing the mutator_lock_ exclusively ensures that only one SuspendAll would return.\n\nIn 1), the SuspendAllInternal will wait for all required threads in kRunnable to pass barrier themselves. There are three portals in ART for a thread to exit the kRunnable state: TransitionFromRunnableToSuspended, SetState and SetStateUnsafe. The pass barrier request should be checked in all these portals.\n\nThere are some unsafe thread state changes in ART. Debugger thread could be set to kRunnable when the SuspendAllInternal in GC thread sees it.\n\nHere is an execution sequence where I think the SuspendAllInternal in GC thread might starve (if the pass barrier request is not checked in SetStateUnsafe):\n\nDebugger thread SuspendAll -\u003e Debugger thread changes into kRunnable (by SetStateUnsafe) -\u003e GC thread SuspendAllInternal -\u003e Debugger thread changes back to Suspended (without passing the barrier) -\u003e GC thread starved...\n\n*Also after 1) but before 2), the Debugger thread might be in kRunnable for a short period of time (set by the SetStateUnsafe). But the proposed SuspendAll mechanism is still correct because,\n\na. SetStateUnsafe to kRunnable is always guarded by the exclusive mutator_lock_. When the SuspendAll returns (hold the mutator_lock_ exclusively), threads cannot be set to kRunnable by SetStateUnsafe.\nb. SetState cannot set the state to kRunnable.\nc. TransitionFromSuspendedToRunnable needs to wait for the suspend count -1 by ResumeAll.\n\nAfter the SuspendAll, no threads could transit to kRunnable until the ResumeAll executes.\n\nI will add a comment at the SuspendAllInternal to state that certain thread might change to kRunnable temporarily.\n\nFor SetState, if we could ensure that the original state cannot be the kRunnable in ART, no pass barrier check is needed. Currently, SetState will not be used to set the state from runnable to suspended in ART (suspended state -\u003e suspended state in all places). But maybe we could keep the check here cause the SetState definition does not forbid setting the state from runnable to suspended?",
+      "parentUuid": "934c958c_a41837a4",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 3
+      },
+      "revId": "efdda7569c16e3ecb1d511a123672f668c63c61b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "132185e2_88b91738",
         "filename": "runtime/thread.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-06-29T23:37:22Z",
       "side": 1,
       "message": "AtomicSetFlag() does the same thing.",
+      "range": {
+        "startLine": 803,
+        "startChar": 4,
+        "endLine": 803,
+        "endChar": 73
+      },
+      "revId": "efdda7569c16e3ecb1d511a123672f668c63c61b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53305d12_85846417",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1039961
+      },
+      "writtenOn": "2015-06-30T07:49:42Z",
+      "side": 1,
+      "message": "Here two flags (kSuspendRequest and kActiveSuspendBarrier) might be set simultaneously. AtomicSetFlag could only set one.",
+      "parentUuid": "132185e2_88b91738",
       "range": {
         "startLine": 803,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f3d8713c_bfec3709",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1039961
+      },
+      "writtenOn": "2015-06-30T07:49:42Z",
+      "side": 1,
+      "message": "Yes, something like the double-checked locking. For already suspended threads, the barrier could be passed by SuspendAllInternal or TransitionFromSuspendedToRunnable. First do a quick check whether the barrier has been passed.\nDone.",
+      "parentUuid": "332a09c0_bd21b7d9",
+      "range": {
+        "startLine": 817,
+        "startChar": 0,
+        "endLine": 822,
+        "endChar": 5
+      },
+      "revId": "efdda7569c16e3ecb1d511a123672f668c63c61b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53277df4_33dcda56",
         "filename": "runtime/thread.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2015-06-29T23:37:22Z",
       "side": 1,
       "message": "However, I don\u0027t think this is possible. Have you verified this can ever happen?\n\nThe check point function is only installed for runnable threads, and the thread requesting a check point would only execute the check point function for threads without the function installed. See Thread::RequestCheckpoint() and its callers.\n\nBesides, the old CHECK(found_checkpoint) is not failing. So maybe change this to a CHECK?",
+      "range": {
+        "startLine": 850,
+        "startChar": 0,
+        "endLine": 855,
+        "endChar": 5
+      },
+      "revId": "efdda7569c16e3ecb1d511a123672f668c63c61b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3dfed21_1e2e0dce",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1039961
+      },
+      "writtenOn": "2015-06-30T07:49:42Z",
+      "side": 1,
+      "message": "Yes, this is impossible.\nDone.",
+      "parentUuid": "53277df4_33dcda56",
       "range": {
         "startLine": 850,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "73a3a180_4c075355",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 974,
+      "author": {
+        "id": 1039961
+      },
+      "writtenOn": "2015-06-30T07:49:42Z",
+      "side": 1,
+      "message": "For correctness. Details are in the SetState comment.",
+      "parentUuid": "73f6419f_aed857e7",
+      "range": {
+        "startLine": 970,
+        "startChar": 0,
+        "endLine": 974,
+        "endChar": 5
+      },
+      "revId": "efdda7569c16e3ecb1d511a123672f668c63c61b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53277df4_0a67db48",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 3
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "53305d12_0578549f",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1039961
+      },
+      "writtenOn": "2015-06-30T07:49:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53277df4_0a67db48",
+      "range": {
+        "startLine": 543,
+        "startChar": 8,
+        "endLine": 543,
+        "endChar": 12
+      },
+      "revId": "efdda7569c16e3ecb1d511a123672f668c63c61b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "934c958c_c1c685aa",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 3
@@ -151,6 +295,30 @@
       "writtenOn": "2015-06-29T23:37:22Z",
       "side": 1,
       "message": "These are the same as the code below, after the else block. Are these redundant?",
+      "range": {
+        "startLine": 986,
+        "startChar": 0,
+        "endLine": 997,
+        "endChar": 9
+      },
+      "revId": "efdda7569c16e3ecb1d511a123672f668c63c61b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73a3a180_6c0c8f78",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 997,
+      "author": {
+        "id": 1039961
+      },
+      "writtenOn": "2015-06-30T07:49:42Z",
+      "side": 1,
+      "message": "Yes, Done.",
+      "parentUuid": "934c958c_c1c685aa",
       "range": {
         "startLine": 986,
         "startChar": 0,
