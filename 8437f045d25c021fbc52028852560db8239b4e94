@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3e856e59_f46c56b2",
+        "filename": "compiler/driver/compiler_driver_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-30T11:24:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e67ca0f_29cd12d5",
+      "range": {
+        "startLine": 149,
+        "startChar": 2,
+        "endLine": 149,
+        "endChar": 44
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e700ec3_22c76f88",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -1001,6 +1025,30 @@
       "side": 1,
       "message": "OK. Does the CL description have it backward? \"Use movl instead of movw\"?",
       "parentUuid": "9ecf3a47_af27d567",
+      "range": {
+        "startLine": 3330,
+        "startChar": 14,
+        "endLine": 3330,
+        "endChar": 15
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e6e4e7b_6c59730a",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3330,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-30T11:24:13Z",
+      "side": 1,
+      "message": "Indeed; sorry for the misunderstanding!  Fixed in the other CL.",
+      "parentUuid": "9e7adaa8_7183efdf",
       "range": {
         "startLine": 3330,
         "startChar": 14,
