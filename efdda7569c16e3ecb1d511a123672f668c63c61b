@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "339be98e_e7e01611",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-30T23:17:38Z",
+      "side": 1,
+      "message": "Thanks for the explanation. Yes, I agree that the check in SetStateUnsafe is necessary to avoid the starvation in your example, and the exclusive mutator_lock_ in this case guarantees the safety. It\u0027s probably not a bad idea to remove SetStateUnsafe altogether.\n\nFor SetState, I think we can just put a CHECK_NE(old_state_and_flags.state, kRunnable) instead. The use of both SetState and SetStateUnsafe should be strictly restricted, they are both somewhat unsafe.",
+      "parentUuid": "133a65f6_a3b9a437",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 3
+      },
+      "revId": "efdda7569c16e3ecb1d511a123672f668c63c61b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "132185e2_88b91738",
         "filename": "runtime/thread.cc",
         "patchSetId": 3
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Here two flags (kSuspendRequest and kActiveSuspendBarrier) might be set simultaneously. AtomicSetFlag could only set one.",
       "parentUuid": "132185e2_88b91738",
+      "range": {
+        "startLine": 803,
+        "startChar": 4,
+        "endLine": 803,
+        "endChar": 73
+      },
+      "revId": "efdda7569c16e3ecb1d511a123672f668c63c61b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5383fd1c_64f0668c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-06-30T23:17:38Z",
+      "side": 1,
+      "message": "Yes, you are right.",
+      "parentUuid": "53305d12_85846417",
       "range": {
         "startLine": 803,
         "startChar": 4,
