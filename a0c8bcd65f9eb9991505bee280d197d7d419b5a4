@@ -355,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "93973554_6c0cdb46",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3359,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-30T16:39:18Z",
+      "side": 1,
+      "message": "I\u0027ve changed the x86 code generator to use CodeGenerator::GetInt32ValueOf as well in PS7.",
+      "parentUuid": "93973554_cc778faf",
+      "range": {
+        "startLine": 3359,
+        "startChar": 0,
+        "endLine": 3359,
+        "endChar": 64
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3ae0d65_ccc8239b",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 5
