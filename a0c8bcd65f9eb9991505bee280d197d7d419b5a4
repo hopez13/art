@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b367d930_d865b1c2",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-30T11:44:17Z",
+      "side": 1,
+      "message": "Why is that not in OptimizingCompiler?",
+      "range": {
+        "startLine": 656,
+        "startChar": 0,
+        "endLine": 662,
+        "endChar": 3
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3a99960_0b32a11c",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3104,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-30T11:44:17Z",
+      "side": 1,
+      "message": "Add a DCHECK that the type is PrimNot?",
+      "range": {
+        "startLine": 3104,
+        "startChar": 0,
+        "endLine": 3104,
+        "endChar": 57
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3ae0d65_0cbf1bff",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4229,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-30T11:44:17Z",
+      "side": 1,
+      "message": "I think this comment is confusing. Don\u0027t you want to say \"We go into slow path if classes are not equal\"? You can successfully checkast with different classes.",
+      "range": {
+        "startLine": 4229,
+        "startChar": 0,
+        "endLine": 4229,
+        "endChar": 56
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3a99960_2b375d0d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1624,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-30T11:44:17Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1624,
+        "startChar": 0,
+        "endLine": 1624,
+        "endChar": 56
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3a99960_cb4b297c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3487,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-30T11:44:17Z",
+      "side": 1,
+      "message": "add a DCHECK that the type is PrimNot?",
+      "range": {
+        "startLine": 3487,
+        "startChar": 0,
+        "endLine": 3487,
+        "endChar": 57
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3a99960_eb486581",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3896,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-30T11:44:17Z",
+      "side": 1,
+      "message": "Isn\u0027t it a bug if PrimNot \u0026\u0026 zero ? The constant should be a NullConstant, so line 3894 would crash.",
+      "range": {
+        "startLine": 3896,
+        "startChar": 12,
+        "endLine": 3896,
+        "endChar": 68
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3b791b3_aaf02f07",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3359,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-30T11:44:17Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3359,
+        "startChar": 0,
+        "endLine": 3359,
+        "endChar": 64
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3ae0d65_ccc8239b",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3746,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-30T11:44:17Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3746,
+        "startChar": 0,
+        "endLine": 3746,
+        "endChar": 68
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13b505ac_ce37b7e9",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3767,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-30T11:44:17Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3767,
+        "startChar": 0,
+        "endLine": 3767,
+        "endChar": 68
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13b505ac_ee34fbe6",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-06-30T11:44:17Z",
+      "side": 1,
+      "message": "Consistency: do like in the other backends.\n\nNote that I don\u0027t have a strong preference. I\u0027ll leave it to your preference whether to use a block or calling explictly Release.",
+      "range": {
+        "startLine": 795,
+        "startChar": 0,
+        "endLine": 797,
+        "endChar": 40
+      },
+      "revId": "a0c8bcd65f9eb9991505bee280d197d7d419b5a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
