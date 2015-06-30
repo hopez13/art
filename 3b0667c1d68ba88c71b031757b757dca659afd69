@@ -22,6 +22,30 @@
       "revId": "3b0667c1d68ba88c71b031757b757dca659afd69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b367d930_583d217b",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-06-30T13:25:28Z",
+      "side": 0,
+      "message": "Because I ran into a case where this reference was initialized with a temporary (namely the call in https://android.googlesource.com/platform/art/+/master/compiler/common_compiler_test.cc#188), eventually leading to a crash.",
+      "parentUuid": "d3ae0d65_6c332f32",
+      "range": {
+        "startLine": 671,
+        "startChar": 19,
+        "endLine": 671,
+        "endChar": 20
+      },
+      "revId": "3b0667c1d68ba88c71b031757b757dca659afd69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
