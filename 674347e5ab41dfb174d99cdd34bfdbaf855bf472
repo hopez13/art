@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13b505ac_4ef6678c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-30T12:09:13Z",
+      "side": 1,
+      "message": "were",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 11
+      },
+      "revId": "674347e5ab41dfb174d99cdd34bfdbaf855bf472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3ae0d65_ac01273a",
+        "filename": "compiler/common_compiler_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-30T12:09:13Z",
+      "side": 1,
+      "message": "Why not in the header file?",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 1
+      },
+      "revId": "674347e5ab41dfb174d99cdd34bfdbaf855bf472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3ae0d65_cc2103d9",
+        "filename": "compiler/common_compiler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-30T12:09:13Z",
+      "side": 1,
+      "message": "I\u0027m not a big fan of initializing field this way. I often look for initial values in the constructor (maybe because I used to do it this way). Well, it\u0027s another question of project style.",
+      "range": {
+        "startLine": 95,
+        "startChar": 31,
+        "endLine": 95,
+        "endChar": 99
+      },
+      "revId": "674347e5ab41dfb174d99cdd34bfdbaf855bf472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3ae0d65_0c287bbd",
+        "filename": "compiler/common_compiler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-06-30T12:09:13Z",
+      "side": 1,
+      "message": "const Compiler::Kind",
+      "range": {
+        "startLine": 95,
+        "startChar": 2,
+        "endLine": 95,
+        "endChar": 16
+      },
+      "revId": "674347e5ab41dfb174d99cdd34bfdbaf855bf472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
