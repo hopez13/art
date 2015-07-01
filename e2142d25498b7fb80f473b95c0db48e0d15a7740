@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53c13d6b_1a435d63",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 978,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-01T08:07:06Z",
+      "side": 1,
+      "message": "Maybe also add this DCHECK to art::arm::Arm32Assembler::b?",
+      "range": {
+        "startLine": 978,
+        "startChar": 2,
+        "endLine": 978,
+        "endChar": 33
+      },
+      "revId": "e2142d25498b7fb80f473b95c0db48e0d15a7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
