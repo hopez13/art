@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7311e108_731b607a",
+        "filename": "dexdump/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-01T23:26:58Z",
+      "side": 1,
+      "message": "this is a standard Android makefile, but I am sure you guys prefer to Art-i-fy this one....",
+      "range": {
+        "startLine": 15,
+        "startChar": 7,
+        "endLine": 15,
+        "endChar": 13
+      },
+      "revId": "7b3800ceff945ddf1b1e02da0f6d08c0f49e1a3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33b12958_f110088a",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-01T23:26:58Z",
+      "side": 1,
+      "message": "Note that this file is kept as close to the original /dalvik/dexdump/DexDump.cpp as possible. Unfortunately, git does not allow a cp to preserve the diff (and it is too soon for a git mv).",
+      "range": {
+        "startLine": 2,
+        "startChar": 3,
+        "endLine": 2,
+        "endChar": 12
+      },
+      "revId": "7b3800ceff945ddf1b1e02da0f6d08c0f49e1a3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
