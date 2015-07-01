@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "53c13d6b_da9e05e6",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-01T13:40:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3cfd99d_f53d587f",
+      "range": {
+        "startLine": 348,
+        "startChar": 41,
+        "endLine": 348,
+        "endChar": 52
+      },
+      "revId": "7df1f3c88fcae105cd070b1ef51882af2fec493b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3ab6d9c_fe166105",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-01T13:31:54Z",
       "side": 1,
       "message": "Add a if (kIsDebugBuild) to make it clear this is only sanity checks?",
+      "range": {
+        "startLine": 366,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 95
+      },
+      "revId": "7df1f3c88fcae105cd070b1ef51882af2fec493b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53c13d6b_ba9351dc",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-01T13:40:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3ab6d9c_fe166105",
       "range": {
         "startLine": 366,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "13bb45f3_b89359dc",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-01T13:40:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13bb45f3_78a70145",
+      "range": {
+        "startLine": 397,
+        "startChar": 0,
+        "endLine": 400,
+        "endChar": 93
+      },
+      "revId": "7df1f3c88fcae105cd070b1ef51882af2fec493b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3ab6d9c_de1ba52d",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-07-01T13:31:54Z",
       "side": 1,
       "message": "Isn\u0027t that only used for debugging/dumping? Don\u0027t you want to make it private with friends?",
+      "range": {
+        "startLine": 1988,
+        "startChar": 2,
+        "endLine": 1988,
+        "endChar": 64
+      },
+      "revId": "7df1f3c88fcae105cd070b1ef51882af2fec493b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13a265bf_60d0726d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1988,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-01T13:40:54Z",
+      "side": 1,
+      "message": "Nope, I\u0027ll use this in SsaBuilder. Stay tuned.",
+      "parentUuid": "d3ab6d9c_de1ba52d",
       "range": {
         "startLine": 1988,
         "startChar": 2,
