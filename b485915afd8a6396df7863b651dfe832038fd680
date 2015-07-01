@@ -46,6 +46,30 @@
       "revId": "b485915afd8a6396df7863b651dfe832038fd680",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3ab6d9c_211948a8",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-01T17:22:23Z",
+      "side": 0,
+      "message": "As discussed, cross compilation makes the alignment check harder. I\u0027ll put a int alignment, and leave it for another CL.",
+      "parentUuid": "33c4c97c_02e40b59",
+      "range": {
+        "startLine": 334,
+        "startChar": 25,
+        "endLine": 334,
+        "endChar": 64
+      },
+      "revId": "b485915afd8a6396df7863b651dfe832038fd680",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
