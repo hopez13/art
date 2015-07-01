@@ -22,6 +22,30 @@
       "revId": "b485915afd8a6396df7863b651dfe832038fd680",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33c4c97c_02e40b59",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-01T16:03:37Z",
+      "side": 0,
+      "message": "No, I don\u0027t think so. See the comment on the PtrSizedFields struct. The compiler inserts padding, so you either have 28 + 3*4 \u003d 40 \u003d~ 0(8), or 28 + 4 + 3*8 \u003d 56 ~\u003d 0(8).\n\nSo it\u0027s your change that\u0027s breaking things... :-)\n\nPlease do *not* remove the check, but make it weaker. E.g., alignment by pointer-size should always be the case. We\u0027re already not very defensive here...",
+      "parentUuid": "b3cfd99d_b54120e0",
+      "range": {
+        "startLine": 334,
+        "startChar": 25,
+        "endLine": 334,
+        "endChar": 64
+      },
+      "revId": "b485915afd8a6396df7863b651dfe832038fd680",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
