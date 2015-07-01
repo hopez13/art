@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d3ab6d9c_7ed3717b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 3582,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-01T15:05:34Z",
+      "side": 1,
+      "message": "Maybe add a comment that the null case (which does not go inside the if) does not need poisoning.",
+      "range": {
+        "startLine": 3582,
+        "startChar": 0,
+        "endLine": 3582,
+        "endChar": 59
+      },
+      "revId": "9c705fa7220c004e3c71b7b86cb25605d0a4ebb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
