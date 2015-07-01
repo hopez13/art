@@ -22,6 +22,30 @@
       "revId": "e2142d25498b7fb80f473b95c0db48e0d15a7740",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5334dd65_c20ba22d",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 978,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-07-01T17:32:09Z",
+      "side": 1,
+      "message": "Arm32 doesn\u0027t use it blocks, so there wouldn\u0027t be a next_condition_ field to check.",
+      "parentUuid": "53c13d6b_1a435d63",
+      "range": {
+        "startLine": 978,
+        "startChar": 2,
+        "endLine": 978,
+        "endChar": 33
+      },
+      "revId": "e2142d25498b7fb80f473b95c0db48e0d15a7740",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
