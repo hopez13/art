@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3cfd99d_b54120e0",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-01T13:40:41Z",
+      "side": 0,
+      "message": "I guess we were just lucky before. ArtMethod being in the linear space don\u0027t get aligned with kObjectAligment anymore (it seems).",
+      "range": {
+        "startLine": 334,
+        "startChar": 25,
+        "endLine": 334,
+        "endChar": 64
+      },
+      "revId": "b485915afd8a6396df7863b651dfe832038fd680",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
