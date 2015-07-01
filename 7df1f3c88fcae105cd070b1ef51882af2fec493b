@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "d3ab6d9c_be6a1966",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-01T13:59:43Z",
+      "side": 1,
+      "message": "what does better means here?",
+      "range": {
+        "startLine": 10,
+        "startChar": 46,
+        "endLine": 11,
+        "endChar": 7
+      },
+      "revId": "7df1f3c88fcae105cd070b1ef51882af2fec493b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3cfd99d_f53d587f",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 1
@@ -42,6 +65,29 @@
         "startChar": 41,
         "endLine": 348,
         "endChar": 52
+      },
+      "revId": "7df1f3c88fcae105cd070b1ef51882af2fec493b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3cfd99d_f599d8ff",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-01T13:59:43Z",
+      "side": 1,
+      "message": "what\u0027s the GetNext()? and GetNext()-\u003eGetNext()? add DCHECKs as comments.",
+      "range": {
+        "startLine": 353,
+        "startChar": 27,
+        "endLine": 353,
+        "endChar": 61
       },
       "revId": "7df1f3c88fcae105cd070b1ef51882af2fec493b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -136,6 +182,52 @@
         "startChar": 0,
         "endLine": 400,
         "endChar": 93
+      },
+      "revId": "7df1f3c88fcae105cd070b1ef51882af2fec493b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13bb45f3_981bf5fc",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-01T13:59:43Z",
+      "side": 1,
+      "message": "document (including why parameters are needed)",
+      "range": {
+        "startLine": 104,
+        "startChar": 7,
+        "endLine": 104,
+        "endChar": 27
+      },
+      "revId": "7df1f3c88fcae105cd070b1ef51882af2fec493b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13a265bf_40c7aea6",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1960,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-01T13:59:43Z",
+      "side": 1,
+      "message": "it can\u0027t technically throw, so add a comment to say this is to avoid code motion.",
+      "range": {
+        "startLine": 1960,
+        "startChar": 7,
+        "endLine": 1960,
+        "endChar": 15
       },
       "revId": "7df1f3c88fcae105cd070b1ef51882af2fec493b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
