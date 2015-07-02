@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f3ba3136_32ea8e9e",
+        "filename": "dexdump/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-02T02:11:33Z",
+      "side": 1,
+      "message": "You may want to look into oatdump or dex2oat or dalvikvm, and see how we generally try to set up things.\n\nThe main thing is that we really like our selection of CFLAGS etc, which are quite a bit stronger than most of the rest of the tree, and automatically set up if you reuse our functions...\n\nBut I\u0027d be fine if that was done in a follow-up.",
+      "parentUuid": "7311e108_731b607a",
+      "range": {
+        "startLine": 15,
+        "startChar": 7,
+        "endLine": 15,
+        "endChar": 13
+      },
+      "revId": "7b3800ceff945ddf1b1e02da0f6d08c0f49e1a3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33b12958_f110088a",
         "filename": "dexdump/dexdump.cc",
         "patchSetId": 1
@@ -41,6 +65,52 @@
         "startChar": 3,
         "endLine": 2,
         "endChar": 12
+      },
+      "revId": "7b3800ceff945ddf1b1e02da0f6d08c0f49e1a3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d31c4d21_f9ce3326",
+        "filename": "dexdump/dexdump_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-02T02:11:33Z",
+      "side": 1,
+      "message": "I guess somebody fixed the linter for this (and below)? Not too long ago (maybe half a year) I think it would have complained on this.",
+      "range": {
+        "startLine": 64,
+        "startChar": 20,
+        "endLine": 64,
+        "endChar": 22
+      },
+      "revId": "7b3800ceff945ddf1b1e02da0f6d08c0f49e1a3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33b12958_34943e11",
+        "filename": "dexdump/dexdump_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-02T02:11:33Z",
+      "side": 1,
+      "message": "I think this should be on the previous line, it keeps the Exec call together and better readable IMHO. It\u0027s pretty common for us to break CHECKs and LOGs before the \u003c\u003c.",
+      "range": {
+        "startLine": 81,
+        "startChar": 11,
+        "endLine": 81,
+        "endChar": 23
       },
       "revId": "7b3800ceff945ddf1b1e02da0f6d08c0f49e1a3e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
