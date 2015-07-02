@@ -215,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "13d1858c_eb1dad69",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-02T21:17:58Z",
+      "side": 1,
+      "message": "They way to do this is to do the copy verbatim initially and upload to gerrit. You then do your local changes and upload to gerrit again. This way, we can compare in gerrit the differences between the Patch Set 1 and Patch Set 2.\n\nHope this helps?",
+      "parentUuid": "53093ddc_9a7f2dd6",
+      "range": {
+        "startLine": 2,
+        "startChar": 3,
+        "endLine": 2,
+        "endChar": 12
+      },
+      "revId": "7b3800ceff945ddf1b1e02da0f6d08c0f49e1a3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3ba3136_929d3a44",
         "filename": "dexdump/dexdump_test.cc",
         "patchSetId": 1
