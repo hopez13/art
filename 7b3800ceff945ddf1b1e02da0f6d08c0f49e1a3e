@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "53093ddc_5a9bd5c0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-02T18:12:07Z",
+      "side": 1,
+      "message": "What Brian said :-)\n\nBit more elaborate: I am talking about the information in dex files that have an optimized header (followed by data appended to the data section). The current parser/verifier does not recognize such files. I talked with Brian about this, and we decided it was not worth the effort to extend libart for this.",
+      "parentUuid": "d31c4d21_b9a83bea",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 35
+      },
+      "revId": "7b3800ceff945ddf1b1e02da0f6d08c0f49e1a3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7311e108_731b607a",
         "filename": "dexdump/Android.mk",
         "patchSetId": 1
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "53ae9dfa_92f09c5e",
+        "filename": "dexdump/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-02T18:12:07Z",
+      "side": 1,
+      "message": "Ok, I would prefer the gradual step of keeping the migration as close to the original as possible, followed by Art-i-fication steps once we are happy.\n\nI added a TODO in this file to make sure it is done",
+      "parentUuid": "f3ba3136_32ea8e9e",
+      "range": {
+        "startLine": 15,
+        "startChar": 7,
+        "endLine": 15,
+        "endChar": 13
+      },
+      "revId": "7b3800ceff945ddf1b1e02da0f6d08c0f49e1a3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33b12958_f110088a",
         "filename": "dexdump/dexdump.cc",
         "patchSetId": 1
@@ -131,6 +179,30 @@
       "side": 1,
       "message": "Maybe a PS1 with the original version and a PS2 for your changed version might help the review?",
       "parentUuid": "33b12958_f110088a",
+      "range": {
+        "startLine": 2,
+        "startChar": 3,
+        "endLine": 2,
+        "endChar": 12
+      },
+      "revId": "7b3800ceff945ddf1b1e02da0f6d08c0f49e1a3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53093ddc_9a7f2dd6",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-02T18:12:07Z",
+      "side": 1,
+      "message": "Sorry, I am new to this nomenclature. Would you mind explaining how to do this (and yes, anything that diffs with the old would really be helpful to see what I changed/added).",
+      "parentUuid": "b317d9fa_d52cdcd3",
       "range": {
         "startLine": 2,
         "startChar": 3,
@@ -246,6 +318,30 @@
       "writtenOn": "2015-07-02T08:32:08Z",
       "side": 1,
       "message": "IS this file a copy too?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 11
+      },
+      "revId": "7b3800ceff945ddf1b1e02da0f6d08c0f49e1a3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73f801fb_5b53e3af",
+        "filename": "dexdump/tests/run-all-tests",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-02T18:12:07Z",
+      "side": 1,
+      "message": "It was inspired on an existing file, but has lots of changes. \nIf you answer the PS1,2 question elsewhere, happy to link this to any original too.",
+      "parentUuid": "13b8a53c_302288dd",
       "range": {
         "startLine": 1,
         "startChar": 0,
