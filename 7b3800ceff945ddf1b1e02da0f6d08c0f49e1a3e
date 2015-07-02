@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b317d9fa_9532642c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-02T08:32:08Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 35
+      },
+      "revId": "7b3800ceff945ddf1b1e02da0f6d08c0f49e1a3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7311e108_731b607a",
         "filename": "dexdump/Android.mk",
         "patchSetId": 1
@@ -60,6 +83,30 @@
       "writtenOn": "2015-07-01T23:26:58Z",
       "side": 1,
       "message": "Note that this file is kept as close to the original /dalvik/dexdump/DexDump.cpp as possible. Unfortunately, git does not allow a cp to preserve the diff (and it is too soon for a git mv).",
+      "range": {
+        "startLine": 2,
+        "startChar": 3,
+        "endLine": 2,
+        "endChar": 12
+      },
+      "revId": "7b3800ceff945ddf1b1e02da0f6d08c0f49e1a3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b317d9fa_d52cdcd3",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-02T08:32:08Z",
+      "side": 1,
+      "message": "Maybe a PS1 with the original version and a PS2 for your changed version might help the review?",
+      "parentUuid": "33b12958_f110088a",
       "range": {
         "startLine": 2,
         "startChar": 3,
@@ -157,6 +204,29 @@
         "startChar": 11,
         "endLine": 81,
         "endChar": 23
+      },
+      "revId": "7b3800ceff945ddf1b1e02da0f6d08c0f49e1a3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13b8a53c_302288dd",
+        "filename": "dexdump/tests/run-all-tests",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-02T08:32:08Z",
+      "side": 1,
+      "message": "IS this file a copy too?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 11
       },
       "revId": "7b3800ceff945ddf1b1e02da0f6d08c0f49e1a3e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
