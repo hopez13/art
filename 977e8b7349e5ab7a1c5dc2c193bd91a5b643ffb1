@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "931655ff_5a43d561",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-03T14:06:40Z",
+      "side": 1,
+      "message": "This is not ideal, but it has been working for me to get started with the tests.\nOther suggestions:\n- We could instead filter on tests called `\\d+-checker-(arm|arm64|mips64|x86|x86_64)-.*` in `run-test` and only run the checker part if it matches the arch.\n- Could some logic in checker handle that? Something like a `CHECK-\u003cARCH\u003e` line? But that would mean passing arch information to `checker.py`.",
+      "revId": "977e8b7349e5ab7a1c5dc2c193bd91a5b643ffb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
