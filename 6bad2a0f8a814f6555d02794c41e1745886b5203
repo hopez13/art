@@ -22,6 +22,30 @@
       "revId": "6bad2a0f8a814f6555d02794c41e1745886b5203",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f356b1ec_1275aa41",
+        "filename": "test/800-smali/smali/b_22244733.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-06T22:19:33Z",
+      "side": 1,
+      "message": "This is not a soft-verification error. You return the first parameter. That\u0027s perfectly fine.",
+      "parentUuid": "18f28255_80065658",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 23
+      },
+      "revId": "6bad2a0f8a814f6555d02794c41e1745886b5203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
