@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "b317d9fa_bb7f8f5e",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-06T09:08:10Z",
+      "side": 1,
+      "message": "Add a comment on why you need to iterate over all blocks, and not just the pcs covered by the try items.",
+      "range": {
+        "startLine": 330,
+        "startChar": 0,
+        "endLine": 333,
+        "endChar": 67
+      },
+      "revId": "79b9299fde0c3552f596a124c9bbfa53122828a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b317d9fa_9b8453e8",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-06T09:08:10Z",
+      "side": 1,
+      "message": "-\u003e at ?",
+      "range": {
+        "startLine": 339,
+        "startChar": 50,
+        "endLine": 339,
+        "endChar": 52
+      },
+      "revId": "79b9299fde0c3552f596a124c9bbfa53122828a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b317d9fa_fb79077a",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-06T09:08:10Z",
+      "side": 1,
+      "message": "* -\u003e \u0026 ?",
+      "range": {
+        "startLine": 349,
+        "startChar": 5,
+        "endLine": 349,
+        "endChar": 27
+      },
+      "revId": "79b9299fde0c3552f596a124c9bbfa53122828a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13d1858c_2b750542",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
@@ -13,6 +82,52 @@
       "writtenOn": "2015-07-03T11:30:24Z",
       "side": 1,
       "message": "This successor bit, just like the predecessors above, isn\u0027t new, just less indented...",
+      "revId": "79b9299fde0c3552f596a124c9bbfa53122828a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b317d9fa_db7ecb5f",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-06T09:08:10Z",
+      "side": 1,
+      "message": "It -\u003e The block ?",
+      "range": {
+        "startLine": 573,
+        "startChar": 53,
+        "endLine": 573,
+        "endChar": 55
+      },
+      "revId": "79b9299fde0c3552f596a124c9bbfa53122828a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13b8a53c_16aadc5c",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-06T09:08:10Z",
+      "side": 1,
+      "message": "its -\u003e it is",
+      "range": {
+        "startLine": 574,
+        "startChar": 38,
+        "endLine": 574,
+        "endChar": 41
+      },
       "revId": "79b9299fde0c3552f596a124c9bbfa53122828a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
