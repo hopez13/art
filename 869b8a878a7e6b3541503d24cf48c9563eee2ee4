@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f356b1ec_72b436bb",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-06T21:36:22Z",
+      "side": 1,
+      "message": "1) Yes. Just like the imdgdiag and oatdump things you probably copied. :-)\n2) If you check Android.oat.mk, you can check what the core.oat files depend on. It\u0027s HOST_CORE_DEX_LOCATIONS for the host, and TARGET_CORE_DEX_FILES for the target. It seems simpler to just rely on the compiled core images, so it\u0027s in line with imgdiag and oatdump...",
+      "parentUuid": "135425e3_d3208660",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 32
+      },
+      "revId": "869b8a878a7e6b3541503d24cf48c9563eee2ee4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8f4ce42_1fc3c37f",
         "filename": "build/Android.gtest.mk",
         "patchSetId": 1
