@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13d1858c_31945211",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1799,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-06T17:25:43Z",
+      "side": 1,
+      "message": "I was wondering whether I could use a CSET instruction here, but I\u0027m not sure we\u0027ll have the same semantics as GenerateFPJumps regarding the gt-/lt-bias.  What do you think?",
+      "range": {
+        "startLine": 1787,
+        "startChar": 0,
+        "endLine": 1799,
+        "endChar": 27
+      },
+      "revId": "79df97db48044db8e7bc350a1b5a5f3ebd255a92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
