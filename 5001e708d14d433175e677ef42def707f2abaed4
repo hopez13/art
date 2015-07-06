@@ -118,6 +118,30 @@
       "revId": "5001e708d14d433175e677ef42def707f2abaed4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "534a1d43_d5a22e86",
+        "filename": "dex2oat/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-06T22:16:22Z",
+      "side": 1,
+      "message": "Do we? I don\u0027t think you want to push this setup to *anyone* to actually use it (do you?), and then the first-boot overhead is not important anyways.\n\nOtherwise I really want a big graphical warning to the user to not complain about performance. I do *not* want ART to be blamed (which is what people always do).",
+      "parentUuid": "f356b1ec_7212760d",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 55
+      },
+      "revId": "5001e708d14d433175e677ef42def707f2abaed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
