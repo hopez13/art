@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8f4ce42_5fb94b17",
+        "filename": "dex2oat/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-06T21:24:56Z",
+      "side": 1,
+      "message": "Would it make sense to enable PREOPT instead, so boot image and apps are compiled on host?",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 55
+      },
+      "revId": "5001e708d14d433175e677ef42def707f2abaed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
