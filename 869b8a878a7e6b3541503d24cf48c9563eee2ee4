@@ -93,6 +93,30 @@
       "revId": "869b8a878a7e6b3541503d24cf48c9563eee2ee4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "736d61b3_79f79f4f",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-06T21:38:34Z",
+      "side": 1,
+      "message": "Don\u0027t remember why, but there was a reason to just simply state the module.\n\n(In the end it\u0027s the same, as we compile everything and then sync...)",
+      "parentUuid": "f8f4ce42_1fc3c37f",
+      "range": {
+        "startLine": 99,
+        "startChar": 38,
+        "endLine": 99,
+        "endChar": 46
+      },
+      "revId": "869b8a878a7e6b3541503d24cf48c9563eee2ee4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
