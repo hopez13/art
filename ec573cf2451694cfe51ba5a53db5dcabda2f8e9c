@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "13b8a53c_5653c4af",
+        "filename": "test/462-checker-inlining-across-dex-files/main.jpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-06T12:48:02Z",
+      "side": 1,
+      "message": "It indicates the multidex partitioning. Here we force \u0027Main\u0027 and \u0027AAA\u0027 classes to be in the main DEX file (classes.dex) while other classes go to classes2.dex.",
+      "parentUuid": "13b8a53c_567c642b",
+      "revId": "ec573cf2451694cfe51ba5a53db5dcabda2f8e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13b8a53c_b64790f3",
         "filename": "test/etc/default-build",
         "patchSetId": 12
@@ -30,6 +48,30 @@
       "writtenOn": "2015-07-06T11:36:02Z",
       "side": 1,
       "message": "compiler -\u003e compile",
+      "range": {
+        "startLine": 50,
+        "startChar": 39,
+        "endLine": 50,
+        "endChar": 47
+      },
+      "revId": "ec573cf2451694cfe51ba5a53db5dcabda2f8e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93abb5ef_d2798471",
+        "filename": "test/etc/default-build",
+        "patchSetId": 12
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-06T12:48:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13b8a53c_b64790f3",
       "range": {
         "startLine": 50,
         "startChar": 39,
@@ -76,6 +118,54 @@
       "writtenOn": "2015-07-06T11:36:02Z",
       "side": 1,
       "message": "same DEX -\u003e the same DEX",
+      "range": {
+        "startLine": 606,
+        "startChar": 39,
+        "endLine": 606,
+        "endChar": 47
+      },
+      "revId": "ec573cf2451694cfe51ba5a53db5dcabda2f8e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "931655ff_7dea0bed",
+        "filename": "test/run-test",
+        "patchSetId": 12
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-06T12:48:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "931655ff_7a9e91b2",
+      "range": {
+        "startLine": 606,
+        "startChar": 84,
+        "endLine": 606,
+        "endChar": 91
+      },
+      "revId": "ec573cf2451694cfe51ba5a53db5dcabda2f8e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93abb5ef_125cacf8",
+        "filename": "test/run-test",
+        "patchSetId": 12
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-06T12:48:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13d1858c_8e387f5f",
       "range": {
         "startLine": 606,
         "startChar": 39,
