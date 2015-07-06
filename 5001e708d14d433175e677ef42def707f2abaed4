@@ -94,6 +94,30 @@
       "revId": "5001e708d14d433175e677ef42def707f2abaed4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f356b1ec_7212760d",
+        "filename": "dex2oat/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1005967
+      },
+      "writtenOn": "2015-07-06T22:11:19Z",
+      "side": 1,
+      "message": "Then, I guess, we\u0027d better go ahead with this change.\n\nIt would be interesting to sanitize dex2oat, and I\u0027ll try to get back to it later, but for now we need to do something about more than 30 minutes startup times.",
+      "parentUuid": "f356b1ec_d2a24286",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 55
+      },
+      "revId": "5001e708d14d433175e677ef42def707f2abaed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
