@@ -142,6 +142,30 @@
       "revId": "5001e708d14d433175e677ef42def707f2abaed4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "534a1d43_957fc65e",
+        "filename": "dex2oat/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1005967
+      },
+      "writtenOn": "2015-07-06T22:25:50Z",
+      "side": 1,
+      "message": "This setup could be used to reproduce ASan reports, and it would be good if it could be brought up in reasonable time.",
+      "parentUuid": "534a1d43_d5a22e86",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 55
+      },
+      "revId": "5001e708d14d433175e677ef42def707f2abaed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
