@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "931655ff_dd151f78",
+        "filename": "test/462-checker-inlining-across-dex-files/main.jpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-06T13:08:25Z",
+      "side": 1,
+      "message": "That\u0027s kind of obscure, and unfortunate we need a Jack specific file every time we need to do this. Why isnt\u0027 the directory structure (src and src-multidex) good enough?",
+      "parentUuid": "13b8a53c_5653c4af",
+      "revId": "ec573cf2451694cfe51ba5a53db5dcabda2f8e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13b8a53c_b64790f3",
         "filename": "test/etc/default-build",
         "patchSetId": 12
