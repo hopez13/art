@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "534a1d43_b256a0d3",
+        "filename": "compiler/driver/compiler_driver_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-07-06T19:19:21Z",
+      "side": 1,
+      "message": "That works for now.\n\nWe would need to guard against the read barrier config separately in case heap poisoning isn\u0027t enabled. I think the test isn\u0027t failing in art-read-barrier on master-art-host because it currently enables heap poisoning as well.",
+      "parentUuid": "3e856e59_f46c56b2",
+      "range": {
+        "startLine": 149,
+        "startChar": 2,
+        "endLine": 149,
+        "endChar": 44
+      },
+      "revId": "8437f045d25c021fbc52028852560db8239b4e94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e700ec3_22c76f88",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
