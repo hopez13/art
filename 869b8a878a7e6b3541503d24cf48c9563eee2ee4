@@ -22,6 +22,53 @@
       "revId": "869b8a878a7e6b3541503d24cf48c9563eee2ee4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8fb8a32_7eb41123",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-06T21:35:31Z",
+      "side": 1,
+      "message": "I guess that would be:\n$(HOST_OUT_JAVA_LIBRARIES)/core-libart-hostdex.jar for the host\n$(TARGET_OUT_JAVA_LIBRARIES)/core-libart.jar for the target\n\n?",
+      "parentUuid": "135425e3_d3208660",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 32
+      },
+      "revId": "869b8a878a7e6b3541503d24cf48c9563eee2ee4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8f4ce42_1fc3c37f",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-06T21:35:31Z",
+      "side": 1,
+      "message": "$(TARGET_OUT_EXECUTABLES)/dexdump2?",
+      "range": {
+        "startLine": 99,
+        "startChar": 38,
+        "endLine": 99,
+        "endChar": 46
+      },
+      "revId": "869b8a878a7e6b3541503d24cf48c9563eee2ee4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
