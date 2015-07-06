@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "13b8a53c_f62d981f",
+        "filename": "test/462-checker-inlining-across-dex-files/main.jpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-06T13:12:10Z",
+      "side": 1,
+      "message": "Because there is a cross reference between Main and OtherDex classes (they both reference each other).\n\nThis works with javac using \"-implicit:none\" command-line option. We cannot do this for Jack using source files.\n\nI can also disable this test for Jack and keep using javac+dx. Or, compile them with javac to get classes, then use jill+jack to compile.",
+      "parentUuid": "931655ff_dd151f78",
+      "revId": "ec573cf2451694cfe51ba5a53db5dcabda2f8e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13b8a53c_b64790f3",
         "filename": "test/etc/default-build",
         "patchSetId": 12
