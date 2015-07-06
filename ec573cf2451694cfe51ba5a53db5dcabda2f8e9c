@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "93abb5ef_12430c15",
+        "filename": "test/462-checker-inlining-across-dex-files/main.jpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-06T13:16:30Z",
+      "side": 1,
+      "message": "I\u0027d go with disabling jack when there is a src-multidex directory. Otherwise, you\u0027ll have to do that extra work and if you don\u0027t you\u0027d get surprising outcome.",
+      "parentUuid": "13b8a53c_f62d981f",
+      "revId": "ec573cf2451694cfe51ba5a53db5dcabda2f8e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13b8a53c_b64790f3",
         "filename": "test/etc/default-build",
         "patchSetId": 12
