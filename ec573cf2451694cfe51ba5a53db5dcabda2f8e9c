@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13b8a53c_567c642b",
+        "filename": "test/462-checker-inlining-across-dex-files/main.jpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-06T11:36:02Z",
+      "side": 1,
+      "message": "What is this file for?",
+      "revId": "ec573cf2451694cfe51ba5a53db5dcabda2f8e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13b8a53c_b64790f3",
+        "filename": "test/etc/default-build",
+        "patchSetId": 12
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-06T11:36:02Z",
+      "side": 1,
+      "message": "compiler -\u003e compile",
+      "range": {
+        "startLine": 50,
+        "startChar": 39,
+        "endLine": 50,
+        "endChar": 47
+      },
+      "revId": "ec573cf2451694cfe51ba5a53db5dcabda2f8e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "931655ff_7a9e91b2",
+        "filename": "test/run-test",
+        "patchSetId": 12
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-06T11:36:02Z",
+      "side": 1,
+      "message": "depends -\u003e depend",
+      "range": {
+        "startLine": 606,
+        "startChar": 84,
+        "endLine": 606,
+        "endChar": 91
+      },
+      "revId": "ec573cf2451694cfe51ba5a53db5dcabda2f8e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13d1858c_8e387f5f",
+        "filename": "test/run-test",
+        "patchSetId": 12
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-06T11:36:02Z",
+      "side": 1,
+      "message": "same DEX -\u003e the same DEX",
+      "range": {
+        "startLine": 606,
+        "startChar": 39,
+        "endLine": 606,
+        "endChar": 47
+      },
+      "revId": "ec573cf2451694cfe51ba5a53db5dcabda2f8e9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
