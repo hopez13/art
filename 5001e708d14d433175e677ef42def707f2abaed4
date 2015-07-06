@@ -46,6 +46,30 @@
       "revId": "5001e708d14d433175e677ef42def707f2abaed4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f356b1ec_d2a24286",
+        "filename": "dex2oat/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-06T21:30:52Z",
+      "side": 1,
+      "message": "This wouldn\u0027t solve the issue for \"older\" devices. Only shamu and flounder have enough /system space to actually preopt enough of the apps.",
+      "parentUuid": "f356b1ec_9298ba54",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 55
+      },
+      "revId": "5001e708d14d433175e677ef42def707f2abaed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
