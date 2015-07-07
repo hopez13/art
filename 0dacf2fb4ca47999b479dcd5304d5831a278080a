@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "d829ca86_ce1c83f3",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-07T14:28:13Z",
+      "side": 1,
+      "message": "Why `hi` and `hs` and not `gt` and `ge`?",
+      "revId": "0dacf2fb4ca47999b479dcd5304d5831a278080a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8f4ce42_1f6f4377",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
