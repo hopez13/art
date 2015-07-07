@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1840c241_f073a05d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-07T13:02:39Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 9,
+        "startChar": 1,
+        "endLine": 9,
+        "endChar": 79
+      },
+      "revId": "608e709c29131674b047b73dcf9c4f38a34c9ce3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1840c241_d0709c53",
+        "filename": "test/510-checker-arm64-caller-callee/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-07T13:02:39Z",
+      "side": 1,
+      "message": "throw?",
+      "range": {
+        "startLine": 28,
+        "startChar": 12,
+        "endLine": 28,
+        "endChar": 21
+      },
+      "revId": "608e709c29131674b047b73dcf9c4f38a34c9ce3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1840c241_f05cc0c3",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-07T13:02:39Z",
+      "side": 1,
+      "message": "Remove (496-checker-inlining-and-class-loader should be working on 32-bit MIPS now).",
+      "range": {
+        "startLine": 427,
+        "startChar": 0,
+        "endLine": 439,
+        "endChar": 52
+      },
+      "revId": "608e709c29131674b047b73dcf9c4f38a34c9ce3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
