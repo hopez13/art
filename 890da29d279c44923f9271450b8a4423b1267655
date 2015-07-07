@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f356b1ec_f54650f4",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4137,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-07T00:41:27Z",
+      "side": 1,
+      "message": "Technically this doesn\u0027t work, as SetRegisterTypes doesn\u0027t accept Conflict. And I think is not what we want, we should propagate the given insn_type (so assume that it may be fine at runtime). However, I need to think more about this, and we\u0027ve been wrong for a couple of years already...",
+      "range": {
+        "startLine": 4137,
+        "startChar": 51,
+        "endLine": 4137,
+        "endChar": 72
+      },
+      "revId": "890da29d279c44923f9271450b8a4423b1267655",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
