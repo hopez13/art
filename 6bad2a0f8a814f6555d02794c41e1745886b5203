@@ -70,6 +70,30 @@
       "revId": "6bad2a0f8a814f6555d02794c41e1745886b5203",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f80dae2c_1af63989",
+        "filename": "test/800-smali/smali/b_22244733.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-07T15:05:14Z",
+      "side": 1,
+      "message": "This isn\u0027t smali being nice, this is dex spec. Parameters are right-aligned in the registers. I left it with a \"local\" register as that was the setup in the broken up. I can do p0 if that helps you...\n\nAnd yes, this is a \"special\" method pattern. A simple return, has a dedicated code generation path in Quick.",
+      "parentUuid": "18f28255_c0569ea1",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 23
+      },
+      "revId": "6bad2a0f8a814f6555d02794c41e1745886b5203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
