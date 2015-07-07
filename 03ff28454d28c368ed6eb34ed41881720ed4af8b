@@ -71,6 +71,29 @@
     },
     {
       "key": {
+        "uuid": "f8f4ce42_9f1913a9",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-07T13:10:36Z",
+      "side": 1,
+      "message": "DCHECK_EQ",
+      "range": {
+        "startLine": 220,
+        "startChar": 6,
+        "endLine": 220,
+        "endChar": 12
+      },
+      "revId": "03ff28454d28c368ed6eb34ed41881720ed4af8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d829ca86_ae6db7fb",
         "filename": "runtime/stack.cc",
         "patchSetId": 2
@@ -87,6 +110,98 @@
         "startChar": 0,
         "endLine": 481,
         "endChar": 32
+      },
+      "revId": "03ff28454d28c368ed6eb34ed41881720ed4af8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18f28255_40bcce57",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-07T13:10:36Z",
+      "side": 1,
+      "message": "Yeah, the ShadowFrame must exist here so it\u0027s more a CHECK(shadow_frame !\u003d nullptr) (and you can remove the if statement)",
+      "range": {
+        "startLine": 481,
+        "startChar": 2,
+        "endLine": 481,
+        "endChar": 32
+      },
+      "revId": "03ff28454d28c368ed6eb34ed41881720ed4af8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8fb8a32_7e06515b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-07T13:10:36Z",
+      "side": 1,
+      "message": "Also add DISALLOW_COPY_AND_ASSIGN(FrameIdToShadowFrame)",
+      "range": {
+        "startLine": 242,
+        "startChar": 1,
+        "endLine": 242,
+        "endChar": 8
+      },
+      "revId": "03ff28454d28c368ed6eb34ed41881720ed4af8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18f28255_a31964a8",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-07T13:10:36Z",
+      "side": 1,
+      "message": "const size_t",
+      "range": {
+        "startLine": 243,
+        "startChar": 2,
+        "endLine": 243,
+        "endChar": 8
+      },
+      "revId": "03ff28454d28c368ed6eb34ed41881720ed4af8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8f4ce42_9fdeb3ce",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-07T13:10:36Z",
+      "side": 1,
+      "message": "ShadowFrame* const",
+      "range": {
+        "startLine": 244,
+        "startChar": 2,
+        "endLine": 244,
+        "endChar": 14
       },
       "revId": "03ff28454d28c368ed6eb34ed41881720ed4af8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -140,6 +255,29 @@
     },
     {
       "key": {
+        "uuid": "d829ca86_cefda332",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-07T13:10:36Z",
+      "side": 1,
+      "message": "It\u0027s more \"GetOrCreateDebuggerShadowFrameForFrameId\" since you may create the frame if requested.\n\nWhy not having two distinct methods and remove the bool search_only flag? You would have:\n\n  * FindDebuggerShadowFrameForFrameId: for finding the frame\n  * GetOrCreateDebuggerShadowFrameForFrameId: for finding or creating the frame, using FindDebuggerShadowFrameForFrameId",
+      "range": {
+        "startLine": 822,
+        "startChar": 15,
+        "endLine": 822,
+        "endChar": 47
+      },
+      "revId": "03ff28454d28c368ed6eb34ed41881720ed4af8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d8fb8a32_7e39b100",
         "filename": "runtime/thread.h",
         "patchSetId": 2
@@ -156,6 +294,29 @@
         "startChar": 21,
         "endLine": 1238,
         "endChar": 26
+      },
+      "revId": "03ff28454d28c368ed6eb34ed41881720ed4af8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8fb8a32_9e9c7d70",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-07T13:10:36Z",
+      "side": 1,
+      "message": "We must CHECK this is null when the thread exits, to be sure we do not leave any shadow frame there.",
+      "range": {
+        "startLine": 1241,
+        "startChar": 26,
+        "endLine": 1241,
+        "endChar": 50
       },
       "revId": "03ff28454d28c368ed6eb34ed41881720ed4af8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
