@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d829ca86_b16d1afc",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-07T17:28:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d829ca86_ce1c83f3",
+      "revId": "0dacf2fb4ca47999b479dcd5304d5831a278080a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d829ca86_ee485fe1",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2015-07-07T14:32:24Z",
       "side": 1,
       "message": "Misnamed. `on_NaN_label? `on_vs_label`?",
+      "range": {
+        "startLine": 1035,
+        "startChar": 57,
+        "endLine": 1035,
+        "endChar": 68
+      },
+      "revId": "0dacf2fb4ca47999b479dcd5304d5831a278080a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8f4ce42_9fc23395",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-07T17:28:36Z",
+      "side": 1,
+      "message": "Could you elaborate?  We may branch to `true_label` or `false_label` on a VS condition, depending on `cond`.",
+      "parentUuid": "d829ca86_ee485fe1",
       "range": {
         "startLine": 1035,
         "startChar": 57,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "f8f4ce42_5fadcbf5",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1287,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-07T17:28:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8f4ce42_1f6f4377",
+      "range": {
+        "startLine": 1287,
+        "startChar": 24,
+        "endLine": 1287,
+        "endChar": 33
+      },
+      "revId": "0dacf2fb4ca47999b479dcd5304d5831a278080a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8f4ce42_bf7df729",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
@@ -76,6 +142,30 @@
       "writtenOn": "2015-07-07T14:09:00Z",
       "side": 1,
       "message": "f -\u003e F",
+      "range": {
+        "startLine": 1311,
+        "startChar": 5,
+        "endLine": 1311,
+        "endChar": 6
+      },
+      "revId": "0dacf2fb4ca47999b479dcd5304d5831a278080a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8f4ce42_3fb20756",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1311,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-07T17:28:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8f4ce42_bf7df729",
       "range": {
         "startLine": 1311,
         "startChar": 5,
