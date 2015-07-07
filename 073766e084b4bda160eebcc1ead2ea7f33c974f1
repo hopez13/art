@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8fb8a32_defd6532",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1660,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-07-07T13:49:07Z",
+      "side": 1,
+      "message": "This seems pretty architecture independent. Should we move it out of here?",
+      "revId": "073766e084b4bda160eebcc1ead2ea7f33c974f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8f4ce42_3f39e78f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1782,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-07-07T13:49:07Z",
+      "side": 1,
+      "message": "I have read this correctly this should be:\n\n__ Cset(res, cond);\nif (gt_bias \u0026\u0026 ((cond \u003d\u003d GT) || (cond \u003d\u003d GE))) || (!gt_bias \u0026\u0026 (cond \u003d\u003d NE)) {\n__ Csinc(res, res, wzr, InvertCondition(vs));\n} else if (gt_bias \u0026\u0026 ((cond \u003d\u003d LT) || (cond \u003d\u003d LE))) || (!gt_bias \u0026\u0026 (cond \u003d\u003d EQ)) {\n__ Csel(res, wzr, res, vs);\n}",
+      "revId": "073766e084b4bda160eebcc1ead2ea7f33c974f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
