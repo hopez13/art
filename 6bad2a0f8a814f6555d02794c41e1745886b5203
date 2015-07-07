@@ -94,6 +94,30 @@
       "revId": "6bad2a0f8a814f6555d02794c41e1745886b5203",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1840c241_1062a436",
+        "filename": "test/800-smali/smali/b_22244733.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-07T15:13:24Z",
+      "side": 1,
+      "message": "Nice in the sense .registers 2 force 2 registers. Yes, I know, that\u0027s probably obvious to you, but it wasn\u0027t to me at first. (the .registers directive could just be used as a hint).",
+      "parentUuid": "f80dae2c_1af63989",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 23
+      },
+      "revId": "6bad2a0f8a814f6555d02794c41e1745886b5203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
