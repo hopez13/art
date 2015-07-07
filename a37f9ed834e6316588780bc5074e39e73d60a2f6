@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8fb8a32_de92055e",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-07T09:50:01Z",
+      "side": 1,
+      "message": "Given the size of the generated code, would it make sense instead to specialize the code of System.arrayCopyChar and just take the hit for the static call at the call site?",
+      "range": {
+        "startLine": 1023,
+        "startChar": 0,
+        "endLine": 1023,
+        "endChar": 75
+      },
+      "revId": "a37f9ed834e6316588780bc5074e39e73d60a2f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
