@@ -22,6 +22,30 @@
       "revId": "a37f9ed834e6316588780bc5074e39e73d60a2f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3260d9c_a6c90622",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-07-07T13:55:15Z",
+      "side": 1,
+      "message": "It is a good question.  I guess that this is not invoked too often, but those invokes happen to be in important places like StringBuilder, which usually have 0 as the src/dest position.  We found that it was a performance benefit.",
+      "parentUuid": "d8fb8a32_de92055e",
+      "range": {
+        "startLine": 1023,
+        "startChar": 0,
+        "endLine": 1023,
+        "endChar": 75
+      },
+      "revId": "a37f9ed834e6316588780bc5074e39e73d60a2f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
