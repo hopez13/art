@@ -22,6 +22,30 @@
       "revId": "38ba3fedc6f7cbeefdcf64775f34aa61a85b9563",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "135425e3_482db5cc",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-08T21:18:45Z",
+      "side": 1,
+      "message": "Seems to still work for me, I get \"TEST TIMED OUT\".",
+      "parentUuid": "1859a245_28ce6b27",
+      "range": {
+        "startLine": 465,
+        "startChar": 6,
+        "endLine": 467,
+        "endChar": 8
+      },
+      "revId": "38ba3fedc6f7cbeefdcf64775f34aa61a85b9563",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
