@@ -22,6 +22,30 @@
       "revId": "f4bf96a0580ed2f0d6573a4f9da1938460bca602",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "135425e3_e2ebe873",
+        "filename": "runtime/gc/allocation_record.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-08T20:04:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1840c241_76b20889",
+      "range": {
+        "startLine": 36,
+        "startChar": 58,
+        "endLine": 36,
+        "endChar": 67
+      },
+      "revId": "f4bf96a0580ed2f0d6573a4f9da1938460bca602",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
