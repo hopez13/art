@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d829ca86_b1563aa0",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-08T14:53:02Z",
+      "side": 1,
+      "message": "Changed to `ge` and `gt` in PS5 and merged with ARM64Condition.",
+      "parentUuid": "d829ca86_2e4307e9",
+      "revId": "073766e084b4bda160eebcc1ead2ea7f33c974f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d8fb8a32_defd6532",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "d8fb8a32_c156a4a1",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1660,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-08T14:53:02Z",
+      "side": 1,
+      "message": "Yeah, but we only use this routine in the ARM64 code generator to encode 0.0 as an immediate in an FCMP instruction, so I\u0027d prefer to leave it here.",
+      "parentUuid": "d8fb8a32_defd6532",
+      "revId": "073766e084b4bda160eebcc1ead2ea7f33c974f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d829ca86_4e653397",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2015-07-07T14:16:32Z",
       "side": 1,
       "message": "What about `if (Primitive::IsFloatingPointType(type) ...` instead of the switch?",
+      "revId": "073766e084b4bda160eebcc1ead2ea7f33c974f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8f4ce42_422f3417",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1767,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-08T14:53:02Z",
+      "side": 1,
+      "message": "Thanks; this is indeed better.  Done here and in other places.",
+      "parentUuid": "d829ca86_4e653397",
       "revId": "073766e084b4bda160eebcc1ead2ea7f33c974f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -88,6 +142,24 @@
     },
     {
       "key": {
+        "uuid": "1840c241_537f16d6",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1782,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-08T14:53:02Z",
+      "side": 1,
+      "message": "Thanks Serban and Alexandre; I\u0027ve written a CSET-based implementation based on your suggestions in PS5.",
+      "parentUuid": "d8fb8a32_be7df929",
+      "revId": "073766e084b4bda160eebcc1ead2ea7f33c974f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1840c241_10ed043d",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -123,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "f8f4ce42_c2290417",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2111,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-08T14:53:02Z",
+      "side": 1,
+      "message": "I\u0027ve rewritten this part in PS5 (GenerateFPJumps is no more) and hopefully this should be less confusing.",
+      "parentUuid": "d829ca86_1152aee0",
+      "revId": "073766e084b4bda160eebcc1ead2ea7f33c974f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18f28255_86dd4e54",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -146,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "1840c241_d61f748c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2119,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-08T14:53:02Z",
+      "side": 1,
+      "message": "Likewise, this is no longer applicable, as GenerateFPJumps has been removed in PS5.",
+      "parentUuid": "18f28255_86dd4e54",
+      "range": {
+        "startLine": 2119,
+        "startChar": 17,
+        "endLine": 2119,
+        "endChar": 28
+      },
+      "revId": "073766e084b4bda160eebcc1ead2ea7f33c974f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d829ca86_6e60ef88",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -157,6 +271,24 @@
       "writtenOn": "2015-07-07T14:16:32Z",
       "side": 1,
       "message": "Ditto.",
+      "revId": "073766e084b4bda160eebcc1ead2ea7f33c974f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8f4ce42_02d24c77",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2178,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-08T14:53:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d829ca86_6e60ef88",
       "revId": "073766e084b4bda160eebcc1ead2ea7f33c974f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
