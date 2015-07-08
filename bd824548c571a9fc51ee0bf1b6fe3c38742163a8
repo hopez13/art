@@ -407,6 +407,29 @@
       "revId": "bd824548c571a9fc51ee0bf1b6fe3c38742163a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "782e1e92_6b2581b8",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-08T14:56:20Z",
+      "side": 1,
+      "message": "This is really hurting benchmarks for long strings. Either use the return_false and return_true labels as suggested by Roland, or (since you\u0027ve already used SUBS instead of CMP here)  you can go really tricky: change all the \"CMP ...\" above to \"SUBS out, ...\" as well, change the exit sequence to\n\n  // Calculate \"out \u003d (out \u003d\u003d 0) ? 1 : 0\" using RSB+ADC.\n  is_zero:\n    RSB temp, out, #0\n    ADC out, out, temp\n  // End of code.\n  end:\n\nand change all the \"ITcc+MOV out, #0+Bcc end\" sequences to \"Bcc is_zero\" or \"Bcc end\" as needed. Use Location::kNoOutputOverlap for \"out\" to avoid ugly surprises.",
+      "range": {
+        "startLine": 938,
+        "startChar": 0,
+        "endLine": 939,
+        "endChar": 31
+      },
+      "revId": "bd824548c571a9fc51ee0bf1b6fe3c38742163a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
