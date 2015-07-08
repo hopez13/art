@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d8fb8a32_a1b278ce",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-08T08:34:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1840c241_f06de02c",
+      "range": {
+        "startLine": 498,
+        "startChar": 15,
+        "endLine": 498,
+        "endChar": 44
+      },
+      "revId": "80791054279e813358e24d6dbb552647fa267525",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d829ca86_2eb2e755",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-08T08:13:56Z",
       "side": 1,
       "message": "You need to call ClassLinker::IsQuickToInterpreterBridge in case the entrypoint comes from the image. So this should be\n\n  Runtime::Current()-\u003eGetClassLinker()-\u003eIsQuickToInterpreterBridge(new_shadow_frame-\u003eGetMethod()-\u003eGetEntryPointFromQuickCompiledCode())",
+      "range": {
+        "startLine": 504,
+        "startChar": 9,
+        "endLine": 505,
+        "endChar": 46
+      },
+      "revId": "80791054279e813358e24d6dbb552647fa267525",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8f4ce42_e27be89b",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-08T08:34:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d829ca86_2eb2e755",
       "range": {
         "startLine": 504,
         "startChar": 9,
