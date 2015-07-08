@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1840c241_73533ae8",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4858,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-08T08:36:52Z",
+      "side": 1,
+      "message": "Why would a record be null? Please add a comment.",
+      "range": {
+        "startLine": 4856,
+        "startChar": 0,
+        "endLine": 4858,
+        "endChar": 34
+      },
+      "revId": "da1474d9fe2d5ff47aa2d76b56957a55bdfe5979",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8f4ce42_6201180f",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4910,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-08T08:36:52Z",
+      "side": 1,
+      "message": "ditto. Also please consider adding a helper in AllocRecord that returns the descriptor or \"null\" if the klass is null.",
+      "range": {
+        "startLine": 4909,
+        "startChar": 0,
+        "endLine": 4910,
+        "endChar": 97
+      },
+      "revId": "da1474d9fe2d5ff47aa2d76b56957a55bdfe5979",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
