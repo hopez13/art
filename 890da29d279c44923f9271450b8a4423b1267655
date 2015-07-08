@@ -45,6 +45,30 @@
       "revId": "890da29d279c44923f9271450b8a4423b1267655",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "534a1d43_ad3d5699",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4137,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-08T21:03:57Z",
+      "side": 1,
+      "message": "I hope I can remove the if in the near future.\n\nAs it currently is, this is basically similar to the \"can we move conflicts around?\" question.\n\nAnd as commented, I do not think Conflict is the right type to push in the end.\n\nThis will stay on my todo list for the near future (by next week), just need some more time to think about it. So I\u0027d prefer to not have a follow-up for comments right now.",
+      "parentUuid": "18f28255_a9438561",
+      "range": {
+        "startLine": 4136,
+        "startChar": 7,
+        "endLine": 4137,
+        "endChar": 74
+      },
+      "revId": "890da29d279c44923f9271450b8a4423b1267655",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
