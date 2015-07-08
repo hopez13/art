@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1840c241_f06de02c",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-08T08:13:56Z",
+      "side": 1,
+      "message": "nit: ArtMethod is a native object, you could save it to a local to avoid all these \"new_shadow_frame-\u003eGetMethod()\" expressions.",
+      "range": {
+        "startLine": 498,
+        "startChar": 15,
+        "endLine": 498,
+        "endChar": 44
+      },
+      "revId": "80791054279e813358e24d6dbb552647fa267525",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d829ca86_2eb2e755",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-08T08:13:56Z",
+      "side": 1,
+      "message": "You need to call ClassLinker::IsQuickToInterpreterBridge in case the entrypoint comes from the image. So this should be\n\n  Runtime::Current()-\u003eGetClassLinker()-\u003eIsQuickToInterpreterBridge(new_shadow_frame-\u003eGetMethod()-\u003eGetEntryPointFromQuickCompiledCode())",
+      "range": {
+        "startLine": 504,
+        "startChar": 9,
+        "endLine": 505,
+        "endChar": 46
+      },
+      "revId": "80791054279e813358e24d6dbb552647fa267525",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
