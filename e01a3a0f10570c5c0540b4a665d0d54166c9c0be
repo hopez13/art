@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "736d61b3_8b8898a8",
+        "filename": "compiler/dex/quick/x86/int_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1338,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-08T00:13:51Z",
+      "side": 1,
+      "message": "Side note: this could be optimized by not allocating temps. OpRev is actually unary, so it first copies over. If we instead loading from the dalvik frame into the result registers directly...\n\nHowever, don\u0027t think that\u0027s really worth it for a function that isn\u0027t terribly common.",
+      "range": {
+        "startLine": 1337,
+        "startChar": 4,
+        "endLine": 1338,
+        "endChar": 55
+      },
+      "revId": "e01a3a0f10570c5c0540b4a665d0d54166c9c0be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
