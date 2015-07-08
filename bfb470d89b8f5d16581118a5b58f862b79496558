@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "18f28255_26344267",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-08T17:07:18Z",
+      "side": 1,
+      "message": "I\u0027m thinking about instantiating this lazily. Maybe this optimization should come in an upcoming CL?",
+      "parentUuid": "782e1e92_4b908551",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 5
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "782e1e92_cb92355e",
         "filename": "compiler/optimizing/context.h",
         "patchSetId": 4
@@ -105,6 +129,30 @@
       "writtenOn": "2015-07-08T14:58:57Z",
       "side": 1,
       "message": "who is `ni`? i think you want `property`",
+      "range": {
+        "startLine": 46,
+        "startChar": 11,
+        "endLine": 46,
+        "endChar": 13
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1840c241_16f61c89",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-08T17:07:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "782e1e92_cb92355e",
       "range": {
         "startLine": 46,
         "startChar": 11,
@@ -140,6 +188,30 @@
     },
     {
       "key": {
+        "uuid": "f8f4ce42_a5ce0aa0",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-08T17:07:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8f4ce42_6296b8a0",
+      "range": {
+        "startLine": 54,
+        "startChar": 11,
+        "endLine": 54,
+        "endChar": 13
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18f28255_e659bad1",
         "filename": "compiler/optimizing/context.h",
         "patchSetId": 4
@@ -163,6 +235,30 @@
     },
     {
       "key": {
+        "uuid": "f8f4ce42_65e2421a",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-08T17:07:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18f28255_e659bad1",
+      "range": {
+        "startLine": 59,
+        "startChar": 39,
+        "endLine": 59,
+        "endChar": 42
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1840c241_d60c1445",
         "filename": "compiler/optimizing/context.h",
         "patchSetId": 4
@@ -174,6 +270,30 @@
       "writtenOn": "2015-07-08T14:58:57Z",
       "side": 1,
       "message": "resize will not give you the exact requested size. check the implementation.",
+      "range": {
+        "startLine": 109,
+        "startChar": 6,
+        "endLine": 109,
+        "endChar": 34
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "782e1e92_ebea919b",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-08T17:07:18Z",
+      "side": 1,
+      "message": "I know, it\u0027ll be bigger. Is that an issue?",
+      "parentUuid": "1840c241_d60c1445",
       "range": {
         "startLine": 109,
         "startChar": 6,
@@ -232,6 +352,30 @@
     },
     {
       "key": {
+        "uuid": "f8f4ce42_25155a78",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-08T17:07:18Z",
+      "side": 1,
+      "message": "It was about making the interface lighter since I was seeing the HContext in the context of a traversal, working on the current block. That might not be relevant.",
+      "parentUuid": "f8f4ce42_c2c584a0",
+      "range": {
+        "startLine": 118,
+        "startChar": 6,
+        "endLine": 118,
+        "endChar": 16
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1840c241_d63534e3",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 4
@@ -243,6 +387,30 @@
       "writtenOn": "2015-07-08T14:58:57Z",
       "side": 1,
       "message": "IsStatic()",
+      "range": {
+        "startLine": 347,
+        "startChar": 44,
+        "endLine": 347,
+        "endChar": 70
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8f4ce42_a5004a36",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-08T17:07:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1840c241_d63534e3",
       "range": {
         "startLine": 347,
         "startChar": 44,
@@ -278,6 +446,30 @@
     },
     {
       "key": {
+        "uuid": "782e1e92_0b527de0",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-08T17:07:18Z",
+      "side": 1,
+      "message": "At the moment we\u0027re inspecting a.foo(), a is marked as can be null. After this call, a is marked as cannot be null, and a.bar() has the correct info.\n\nThe fact is that I have a deeply dynamic vision of it, used during a traversal, while you\u0027re seeing as a static storage for properties.",
+      "parentUuid": "d829ca86_345a3851",
+      "range": {
+        "startLine": 348,
+        "startChar": 4,
+        "endLine": 348,
+        "endChar": 47
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1840c241_96168c4f",
         "filename": "compiler/optimizing/reference_type_propagation.h",
         "patchSetId": 4
@@ -301,6 +493,30 @@
     },
     {
       "key": {
+        "uuid": "1840c241_566f04a8",
+        "filename": "compiler/optimizing/reference_type_propagation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-08T17:07:18Z",
+      "side": 1,
+      "message": "No. The default value is the monoidal 0 wrt Merge. If you do not respect this, merging blocks is not a sound mathematical operation.",
+      "parentUuid": "1840c241_96168c4f",
+      "range": {
+        "startLine": 30,
+        "startChar": 43,
+        "endLine": 30,
+        "endChar": 48
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d829ca86_342918c2",
         "filename": "compiler/optimizing/reference_type_propagation.h",
         "patchSetId": 4
@@ -312,6 +528,30 @@
       "writtenOn": "2015-07-08T14:58:57Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 6
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8f4ce42_455a9e51",
+        "filename": "compiler/optimizing/reference_type_propagation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-08T17:07:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d829ca86_342918c2",
       "range": {
         "startLine": 35,
         "startChar": 2,
