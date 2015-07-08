@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "f8f4ce42_62d358ff",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-08T09:01:28Z",
+      "side": 1,
+      "message": "I didn\u0027t see that on VS we could also jump to `true_label`. I still find slightly annoying confusing that we don\u0027t jump to `false_label` when no NaN is involved and the condition evaluates to false.",
+      "parentUuid": "f8f4ce42_9fc23395",
+      "range": {
+        "startLine": 1035,
+        "startChar": 57,
+        "endLine": 1035,
+        "endChar": 68
+      },
+      "revId": "0dacf2fb4ca47999b479dcd5304d5831a278080a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8f4ce42_1f6f4377",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
