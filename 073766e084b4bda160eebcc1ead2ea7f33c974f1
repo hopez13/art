@@ -123,6 +123,29 @@
     },
     {
       "key": {
+        "uuid": "18f28255_86dd4e54",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2119,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-08T09:05:46Z",
+      "side": 1,
+      "message": "Do we need to check that it is not null?",
+      "range": {
+        "startLine": 2119,
+        "startChar": 17,
+        "endLine": 2119,
+        "endChar": 28
+      },
+      "revId": "073766e084b4bda160eebcc1ead2ea7f33c974f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d829ca86_6e60ef88",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
