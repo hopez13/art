@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18f28255_e91f4d8c",
+        "filename": "test/522-checker-regression-monitor-exit/smali/Test.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-08T18:34:25Z",
+      "side": 1,
+      "message": "Monitor -\u003e monitor",
+      "range": {
+        "startLine": 28,
+        "startChar": 22,
+        "endLine": 28,
+        "endChar": 38
+      },
+      "revId": "56506aff735e000ebcd53315050dcb45e7c0abaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "782e1e92_cb1c75f3",
+        "filename": "test/522-checker-regression-monitor-exit/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-08T18:34:25Z",
+      "side": 1,
+      "message": "Could we actually invoke the code and have runtime errors?",
+      "range": {
+        "startLine": 22,
+        "startChar": 41,
+        "endLine": 22,
+        "endChar": 43
+      },
+      "revId": "56506aff735e000ebcd53315050dcb45e7c0abaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
