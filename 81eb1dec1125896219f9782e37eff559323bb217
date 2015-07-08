@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f356b1ec_e4bea000",
+        "filename": "dexlist/dexlist.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-08T00:12:15Z",
+      "side": 1,
+      "message": "I am using the same trick as before\n\nPS1: original DexFile.cpp (does not compile in Art)\nPS2: the new dexfile.cc   (its replacement)",
+      "range": {
+        "startLine": 2,
+        "startChar": 3,
+        "endLine": 2,
+        "endChar": 12
+      },
+      "revId": "81eb1dec1125896219f9782e37eff559323bb217",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
