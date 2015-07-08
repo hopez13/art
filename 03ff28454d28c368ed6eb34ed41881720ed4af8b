@@ -141,6 +141,30 @@
     },
     {
       "key": {
+        "uuid": "f8f4ce42_6586c2f2",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-08T20:55:49Z",
+      "side": 1,
+      "message": "I actually liked Sebastien\u0027s other suggestion of creating the deopt frame and eagerly fetch the values of vregs :-) Any reason you preferred to do it the other way?",
+      "parentUuid": "534a1d43_ef311619",
+      "range": {
+        "startLine": 240,
+        "startChar": 12,
+        "endLine": 240,
+        "endChar": 61
+      },
+      "revId": "03ff28454d28c368ed6eb34ed41881720ed4af8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d829ca86_ae6db7fb",
         "filename": "runtime/stack.cc",
         "patchSetId": 2
