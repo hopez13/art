@@ -1,0 +1,326 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "782e1e92_eb0f3137",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-08T14:58:57Z",
+      "side": 1,
+      "message": "Explain what the HContext is in the commit comments and how it is gonna be used.",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d829ca86_f4f030dc",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-08T14:58:57Z",
+      "side": 1,
+      "message": "style:\n/*\n * docs...\n */\n\nhere, and everywhere else.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 2
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "782e1e92_4b2ac588",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-08T14:58:57Z",
+      "side": 1,
+      "message": "this imply that nit HContext will traverse the graph for me which is not and should not be the case. It might be just a limitation of my language skills, but I\u0027d rephrase this.",
+      "range": {
+        "startLine": 10,
+        "startChar": 52,
+        "endLine": 10,
+        "endChar": 79
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "782e1e92_4b908551",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-08T14:58:57Z",
+      "side": 1,
+      "message": "We should not eagerly allocate stuff. What if we decide to skip blocks?\n\nWe need a lazy solution for this and only when needed.",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 5
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "782e1e92_cb92355e",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-08T14:58:57Z",
+      "side": 1,
+      "message": "who is `ni`? i think you want `property`",
+      "range": {
+        "startLine": 46,
+        "startChar": 11,
+        "endLine": 46,
+        "endChar": 13
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8f4ce42_6296b8a0",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-08T14:58:57Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 54,
+        "startChar": 11,
+        "endLine": 54,
+        "endChar": 13
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18f28255_e659bad1",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-08T14:58:57Z",
+      "side": 1,
+      "message": "what does res stand for? Maybe use old_value?",
+      "range": {
+        "startLine": 59,
+        "startChar": 39,
+        "endLine": 59,
+        "endChar": 42
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1840c241_d60c1445",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-08T14:58:57Z",
+      "side": 1,
+      "message": "resize will not give you the exact requested size. check the implementation.",
+      "range": {
+        "startLine": 109,
+        "startChar": 6,
+        "endLine": 109,
+        "endChar": 34
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d829ca86_1415fc77",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-08T14:58:57Z",
+      "side": 1,
+      "message": "see my comment in the ctor of this function about wasting space for this.",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 7
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8f4ce42_c2c584a0",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-08T14:58:57Z",
+      "side": 1,
+      "message": "What\u0027s the rationale for storing the current block?\n\nI don\u0027t think it\u0027s ok to hold the state here. I can see a lot of confusion from this and imo is better to pass it as an argument when you set/get properties.",
+      "range": {
+        "startLine": 118,
+        "startChar": 6,
+        "endLine": 118,
+        "endChar": 16
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1840c241_d63534e3",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-08T14:58:57Z",
+      "side": 1,
+      "message": "IsStatic()",
+      "range": {
+        "startLine": 347,
+        "startChar": 44,
+        "endLine": 347,
+        "endChar": 70
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d829ca86_345a3851",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-08T14:58:57Z",
+      "side": 1,
+      "message": "Hmm, is this correct?\n\na.foo() -\u003e a can be null at this point\na.bar() -\u003e a cannot be null at this point\n\nyet after this call the context will think that a cannot be null during the entire block.",
+      "range": {
+        "startLine": 348,
+        "startChar": 4,
+        "endLine": 348,
+        "endChar": 47
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1840c241_96168c4f",
+        "filename": "compiler/optimizing/reference_type_propagation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-08T14:58:57Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be true? the default value should be the safe value.",
+      "range": {
+        "startLine": 30,
+        "startChar": 43,
+        "endLine": 30,
+        "endChar": 48
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d829ca86_342918c2",
+        "filename": "compiler/optimizing/reference_type_propagation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-08T14:58:57Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 6
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
