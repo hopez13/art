@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8f4ce42_42bcd457",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-08T13:08:07Z",
+      "side": 1,
+      "message": "Long line: it should be 70 characters long.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 122
+      },
+      "revId": "e6c72032b19eaaaf78db521847a3bc0d2382324a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d829ca86_91c21e95",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-08T13:08:07Z",
+      "side": 1,
+      "message": "Remove: this has no sense in the commit message as PS1 and PS2 are only visible in Gerrit.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 43
+      },
+      "revId": "e6c72032b19eaaaf78db521847a3bc0d2382324a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8f4ce42_62b7d877",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 993,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-08T13:08:07Z",
+      "side": 1,
+      "message": "Remove trailing spaces",
+      "range": {
+        "startLine": 993,
+        "startChar": 47,
+        "endLine": 993,
+        "endChar": 49
+      },
+      "revId": "e6c72032b19eaaaf78db521847a3bc0d2382324a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "782e1e92_4bb9a517",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 993,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-08T13:08:07Z",
+      "side": 1,
+      "message": "kObjectAlignment ? Do we always align on 8 bytes even on 32-bit target?",
+      "range": {
+        "startLine": 993,
+        "startChar": 29,
+        "endLine": 993,
+        "endChar": 45
+      },
+      "revId": "e6c72032b19eaaaf78db521847a3bc0d2382324a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
