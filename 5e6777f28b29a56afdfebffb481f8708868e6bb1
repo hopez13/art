@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "782e1e92_6bf7c188",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-08T15:32:26Z",
+      "side": 1,
+      "message": "modifies?",
+      "range": {
+        "startLine": 10,
+        "startChar": 28,
+        "endLine": 10,
+        "endChar": 36
+      },
+      "revId": "5e6777f28b29a56afdfebffb481f8708868e6bb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18f28255_e6ce5ad3",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-08T15:32:26Z",
+      "side": 1,
+      "message": "Nit: use `?:\u0027.",
+      "range": {
+        "startLine": 275,
+        "startChar": 2,
+        "endLine": 275,
+        "endChar": 25
+      },
+      "revId": "5e6777f28b29a56afdfebffb481f8708868e6bb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d829ca86_b47868a0",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-08T15:32:26Z",
+      "side": 1,
+      "message": "Maybe introduce\n\n  size_t exit_block_id \u003d num_blocks - 1;\n\n(and move these comments closer to the beginning of the loop)?",
+      "range": {
+        "startLine": 363,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 61
+      },
+      "revId": "5e6777f28b29a56afdfebffb481f8708868e6bb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8f4ce42_e5ed3204",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
