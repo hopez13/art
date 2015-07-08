@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f80dae2c_2310b555",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4858,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-08T18:38:06Z",
+      "side": 1,
+      "message": "Done. It cannot be null currently, but could be null in the future if we implement class unloading.",
+      "parentUuid": "1840c241_73533ae8",
+      "range": {
+        "startLine": 4856,
+        "startChar": 0,
+        "endLine": 4858,
+        "endChar": 34
+      },
+      "revId": "da1474d9fe2d5ff47aa2d76b56957a55bdfe5979",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8f4ce42_6201180f",
         "filename": "runtime/debugger.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-08T08:36:52Z",
       "side": 1,
       "message": "ditto. Also please consider adding a helper in AllocRecord that returns the descriptor or \"null\" if the klass is null.",
+      "range": {
+        "startLine": 4909,
+        "startChar": 0,
+        "endLine": 4910,
+        "endChar": 97
+      },
+      "revId": "da1474d9fe2d5ff47aa2d76b56957a55bdfe5979",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "135425e3_e194c996",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4910,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-08T18:38:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8f4ce42_6201180f",
       "range": {
         "startLine": 4909,
         "startChar": 0,
