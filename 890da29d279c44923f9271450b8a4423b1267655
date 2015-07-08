@@ -22,6 +22,29 @@
       "revId": "890da29d279c44923f9271450b8a4423b1267655",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18f28255_a9438561",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4137,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-08T20:59:08Z",
+      "side": 1,
+      "message": "Could you please add comments around the if to explain why you need to do that conditionally?",
+      "range": {
+        "startLine": 4136,
+        "startChar": 7,
+        "endLine": 4137,
+        "endChar": 74
+      },
+      "revId": "890da29d279c44923f9271450b8a4423b1267655",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
