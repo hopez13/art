@@ -364,6 +364,23 @@
     },
     {
       "key": {
+        "uuid": "f8f4ce42_e5c41286",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-08T15:15:48Z",
+      "side": 1,
+      "message": "We should not enter the body of the loop if the length is 0.\n\nWe won\u0027t hit this bug as long as all the zero-length strings point to the same interned \"\" because of the reference equality check above. So we should make sure we have a test that checks the result of\n\n  new String().equals(\"\")",
+      "revId": "bd824548c571a9fc51ee0bf1b6fe3c38742163a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18f28255_e3f64cce",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 4
