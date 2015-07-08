@@ -22,6 +22,30 @@
       "revId": "2aaafd38c33e42b1ab30e1f7dc63c2ffffa62e4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f356b1ec_87f4f1fc",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2015-07-08T21:35:18Z",
+      "side": 1,
+      "message": "Rebased.\nAlso fixed reference of possibly nonexistent envrionmental variable ANDROID_HOST_OUT in art/test/dexdump/run-all-tests.",
+      "parentUuid": "534a1d43_8d2b320f",
+      "range": {
+        "startLine": 243,
+        "startChar": 76,
+        "endLine": 243,
+        "endChar": 77
+      },
+      "revId": "2aaafd38c33e42b1ab30e1f7dc63c2ffffa62e4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
