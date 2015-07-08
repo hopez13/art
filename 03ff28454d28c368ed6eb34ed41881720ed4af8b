@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "534a1d43_ef311619",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-07-08T18:21:49Z",
+      "side": 1,
+      "message": "Very good point! I\u0027ll try this approach:\nHave a CreateDebuggerShadowFrame() that returns a ShadowFrame that has another uint32_t array at the end that keeps track of which values are set. Debugger shadow frame will have a special dex_pc of 0xffffffff. A ShadowFrame::SetVRegForDebugger() will do regular SetVReg() plus setting a flag in the new array at the end. So later when we initialize deoptimized shadow frame here we check if the value has been set first.\n\nAnother thing is GetVRegFromOptimizedCode() also needs to check the debugger shadow frame first if one is available before it visits the real optimized stack frame to get values.",
+      "parentUuid": "d8fb8a32_c140e408",
+      "range": {
+        "startLine": 240,
+        "startChar": 12,
+        "endLine": 240,
+        "endChar": 61
+      },
+      "revId": "03ff28454d28c368ed6eb34ed41881720ed4af8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d829ca86_ae6db7fb",
         "filename": "runtime/stack.cc",
         "patchSetId": 2
