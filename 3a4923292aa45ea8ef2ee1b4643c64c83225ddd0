@@ -22,6 +22,30 @@
       "revId": "3a4923292aa45ea8ef2ee1b4643c64c83225ddd0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "782e1e92_2e5ae750",
+        "filename": "test/522-checker-regression-monitor-exit/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-09T10:34:08Z",
+      "side": 1,
+      "message": "Because it\u0027s not easy to timeout a normal Thread. Plus I wouldn\u0027t say it\u0027s \"sophisticated\". I\u0027d need to create a Runnable class nonetheless, so instead of creating two Thread objects, I just create one ExecutorService.",
+      "parentUuid": "782e1e92_4e553321",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 19
+      },
+      "revId": "3a4923292aa45ea8ef2ee1b4643c64c83225ddd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
