@@ -496,6 +496,30 @@
     },
     {
       "key": {
+        "uuid": "98a11261_b042e0bd",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-07-09T21:46:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8f4ce42_9fdeb3ce",
+      "range": {
+        "startLine": 244,
+        "startChar": 2,
+        "endLine": 244,
+        "endChar": 14
+      },
+      "revId": "03ff28454d28c368ed6eb34ed41881720ed4af8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18f28255_a026fa44",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
