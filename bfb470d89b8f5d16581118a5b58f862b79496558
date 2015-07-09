@@ -118,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "d829ca86_b703ca42",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-09T08:54:02Z",
+      "side": 1,
+      "message": "Let\u0027s try to have it in this CL. Note that blocks may be delete along the way, which leaves you gaps in your storage (i.e. we might have graphs with non contiguos block ids) I can think of worst cases where we waste a lot.",
+      "parentUuid": "18f28255_26344267",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 5
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "782e1e92_cb92355e",
         "filename": "compiler/optimizing/context.h",
         "patchSetId": 4
@@ -306,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "782e1e92_0b903d9e",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-09T08:54:02Z",
+      "side": 1,
+      "message": "it is, cause the logic doesn\u0027t work as you want. Below you only initialize up to `idx+1` so the rest of the position up to the real size are not initialized",
+      "parentUuid": "782e1e92_ebea919b",
+      "range": {
+        "startLine": 109,
+        "startChar": 6,
+        "endLine": 109,
+        "endChar": 34
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d829ca86_1415fc77",
         "filename": "compiler/optimizing/context.h",
         "patchSetId": 4
@@ -470,6 +518,30 @@
     },
     {
       "key": {
+        "uuid": "d829ca86_97e7ae22",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-09T08:54:02Z",
+      "side": 1,
+      "message": "As we discuss, if you go with the current approach you need to document it much better as it was not clear from the context. \nOne thing to think about: how does this work with the fix point iteration?",
+      "parentUuid": "782e1e92_0b527de0",
+      "range": {
+        "startLine": 348,
+        "startChar": 4,
+        "endLine": 348,
+        "endChar": 47
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1840c241_96168c4f",
         "filename": "compiler/optimizing/reference_type_propagation.h",
         "patchSetId": 4
@@ -505,6 +577,30 @@
       "side": 1,
       "message": "No. The default value is the monoidal 0 wrt Merge. If you do not respect this, merging blocks is not a sound mathematical operation.",
       "parentUuid": "1840c241_96168c4f",
+      "range": {
+        "startLine": 30,
+        "startChar": 43,
+        "endLine": 30,
+        "endChar": 48
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "782e1e92_ab9ec9ae",
+        "filename": "compiler/optimizing/reference_type_propagation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-09T08:54:02Z",
+      "side": 1,
+      "message": "What I think I\u0027m missing from the big picture is:\n- i would have imagine that Zero is the default value for what we don\u0027t know so it must be conservative. Am I\u0027m wrong....?\n- where is Zero actually used? I don\u0027t see anything. No use \u003d\u003d No Need usually.\n- to complement this: I don\u0027t see a few methods from HContext being used. Why have them?",
+      "parentUuid": "1840c241_566f04a8",
       "range": {
         "startLine": 30,
         "startChar": 43,
