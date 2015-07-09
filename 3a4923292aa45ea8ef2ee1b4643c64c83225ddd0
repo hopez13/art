@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "782e1e92_4e553321",
+        "filename": "test/522-checker-regression-monitor-exit/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-09T10:28:45Z",
+      "side": 1,
+      "message": "Do you need to go that sophisticated? Why isn\u0027t it enough to have two threads, one run first and then run the second and sere that it\u0027s blocked?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 19
+      },
+      "revId": "3a4923292aa45ea8ef2ee1b4643c64c83225ddd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
