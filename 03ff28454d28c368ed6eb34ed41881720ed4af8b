@@ -165,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "731ba15b_57563ca1",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-07-09T17:55:46Z",
+      "side": 1,
+      "message": "1) creating the deopt frame requires verifier, class loading and may set thread local. I\u0027m not sure if jdwp thread is a java thread and can do all of those. Class loading is done at a different time from the real deoptimization time from a different thread. And I\u0027m a little uncomfortable about the possibility of accidentally setting jdwp thread\u0027s thread local which should be done on the visited thread.\n\n2) since class loading can fail (especially if it\u0027s done from a different thread at a different time) so initializing the deopt frame can fail. Then it\u0027s not able to signal it\u0027s uninitialized values. I plan some change on GetVRegFromOptimizedCode() side also to get the set values first before visiting the compiled frame so it\u0027s good to be able to make the distinction.",
+      "parentUuid": "f8f4ce42_6586c2f2",
+      "range": {
+        "startLine": 240,
+        "startChar": 12,
+        "endLine": 240,
+        "endChar": 61
+      },
+      "revId": "03ff28454d28c368ed6eb34ed41881720ed4af8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d829ca86_ae6db7fb",
         "filename": "runtime/stack.cc",
         "patchSetId": 2
