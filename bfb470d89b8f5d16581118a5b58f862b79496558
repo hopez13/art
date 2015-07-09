@@ -142,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "18f28255_694e9d11",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-09T11:28:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d829ca86_b703ca42",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 5
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "782e1e92_cb92355e",
         "filename": "compiler/optimizing/context.h",
         "patchSetId": 4
@@ -354,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "1840c241_b903c342",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-09T11:28:01Z",
+      "side": 1,
+      "message": "Oh right, GrowableArray has some unusual instantiation semantics.",
+      "parentUuid": "782e1e92_0b903d9e",
+      "range": {
+        "startLine": 109,
+        "startChar": 6,
+        "endLine": 109,
+        "endChar": 34
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d829ca86_1415fc77",
         "filename": "compiler/optimizing/context.h",
         "patchSetId": 4
@@ -365,6 +413,30 @@
       "writtenOn": "2015-07-08T14:58:57Z",
       "side": 1,
       "message": "see my comment in the ctor of this function about wasting space for this.",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 7
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "782e1e92_8e6afbdf",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-09T11:28:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d829ca86_1415fc77",
       "range": {
         "startLine": 111,
         "startChar": 0,
@@ -542,6 +614,30 @@
     },
     {
       "key": {
+        "uuid": "1867e20f_f8c4d185",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-09T11:28:01Z",
+      "side": 1,
+      "message": "During fix point iteration, since a loop is one of its own predecessor, so, by calling StartBlock() over and over again on the same block, it will work as expected.",
+      "parentUuid": "d829ca86_97e7ae22",
+      "range": {
+        "startLine": 348,
+        "startChar": 4,
+        "endLine": 348,
+        "endChar": 47
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1840c241_96168c4f",
         "filename": "compiler/optimizing/reference_type_propagation.h",
         "patchSetId": 4
@@ -601,6 +697,30 @@
       "side": 1,
       "message": "What I think I\u0027m missing from the big picture is:\n- i would have imagine that Zero is the default value for what we don\u0027t know so it must be conservative. Am I\u0027m wrong....?\n- where is Zero actually used? I don\u0027t see anything. No use \u003d\u003d No Need usually.\n- to complement this: I don\u0027t see a few methods from HContext being used. Why have them?",
       "parentUuid": "1840c241_566f04a8",
+      "range": {
+        "startLine": 30,
+        "startChar": 43,
+        "endLine": 30,
+        "endChar": 48
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18f28255_49bcf957",
+        "filename": "compiler/optimizing/reference_type_propagation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-09T11:28:01Z",
+      "side": 1,
+      "message": "\u003e i would have imagine that Zero is the default value for what we don\u0027t know so it must be conservative. Am I\u0027m wrong....?\n\nYes. Zero is not a convenient default value. It is, as its name indicates, a Zero. It\u0027s called few times in the Context and guarantees that the datastructure and its operations are sound.\n\nSome methods of the HContext are not used because they are not useful with a property beeing a boolean, but will be useful in other cases. MergeProperty() and SetProperty() are, in this case, strictly equivalent. I",
+      "parentUuid": "782e1e92_ab9ec9ae",
       "range": {
         "startLine": 30,
         "startChar": 43,
