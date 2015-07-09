@@ -213,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "387026c3_3c90fd9e",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-07-09T18:20:15Z",
+      "side": 1,
+      "message": "Probably not. Cutting the dependency on verifier would be great. Actually what\u0027s the reason we need to run verifier for deoptimization? Quick?",
+      "parentUuid": "18f28255_d4e41cd1",
+      "range": {
+        "startLine": 240,
+        "startChar": 12,
+        "endLine": 240,
+        "endChar": 61
+      },
+      "revId": "03ff28454d28c368ed6eb34ed41881720ed4af8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d829ca86_ae6db7fb",
         "filename": "runtime/stack.cc",
         "patchSetId": 2
