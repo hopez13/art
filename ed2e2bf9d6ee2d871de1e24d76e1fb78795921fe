@@ -253,6 +253,29 @@
       "revId": "ed2e2bf9d6ee2d871de1e24d76e1fb78795921fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18f28255_f4a160f8",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-10T11:24:47Z",
+      "side": 1,
+      "message": "Requires Location::kNoOutputOverlap for \"out\".",
+      "range": {
+        "startLine": 939,
+        "startChar": 0,
+        "endLine": 941,
+        "endChar": 36
+      },
+      "revId": "ed2e2bf9d6ee2d871de1e24d76e1fb78795921fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
