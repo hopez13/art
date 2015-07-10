@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d829ca86_8253eae6",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3754,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-10T09:06:29Z",
+      "side": 1,
+      "message": "Maybe add a comment that the HSuspendCheck output location is handled specifically by the register allocator? (I.e. we\u0027ll either get a register or nothing; but not a stack slot.)",
+      "range": {
+        "startLine": 3754,
+        "startChar": 2,
+        "endLine": 3754,
+        "endChar": 36
+      },
+      "revId": "caa5a4d8d20b38037f1fa6e31ca21d0f644b8829",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "782e1e92_b19f5864",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3761,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-10T09:06:29Z",
+      "side": 1,
+      "message": "BTW, does this work as expected with baseline as well?  (Are we sure to get a register or nothing?)",
+      "range": {
+        "startLine": 3761,
+        "startChar": 6,
+        "endLine": 3761,
+        "endChar": 19
+      },
+      "revId": "caa5a4d8d20b38037f1fa6e31ca21d0f644b8829",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d829ca86_c267b2ca",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3718,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-10T09:06:29Z",
+      "side": 1,
+      "message": "rather than void?",
+      "range": {
+        "startLine": 3718,
+        "startChar": 63,
+        "endLine": 3718,
+        "endChar": 81
+      },
+      "revId": "caa5a4d8d20b38037f1fa6e31ca21d0f644b8829",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1867e20f_98c595a1",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-10T09:06:29Z",
+      "side": 1,
+      "message": "not to require?",
+      "range": {
+        "startLine": 586,
+        "startChar": 39,
+        "endLine": 586,
+        "endChar": 50
+      },
+      "revId": "caa5a4d8d20b38037f1fa6e31ca21d0f644b8829",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
