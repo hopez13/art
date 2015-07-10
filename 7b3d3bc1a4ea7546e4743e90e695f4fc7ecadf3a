@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "78753eb8_93fa5c37",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-10T16:35:27Z",
+      "side": 0,
+      "message": "Can we leave the check, just weaken it?\n\n quick_code !\u003d nullptr || HasVmap\n\nIt is not totally gratuitous, as the JNI compiler does not push a Vmap...",
+      "range": {
+        "startLine": 377,
+        "startChar": 6,
+        "endLine": 377,
+        "endChar": 35
+      },
+      "revId": "7b3d3bc1a4ea7546e4743e90e695f4fc7ecadf3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
