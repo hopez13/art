@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "18f28255_1420442b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3754,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-10T10:59:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d829ca86_8253eae6",
+      "range": {
+        "startLine": 3754,
+        "startChar": 2,
+        "endLine": 3754,
+        "endChar": 36
+      },
+      "revId": "caa5a4d8d20b38037f1fa6e31ca21d0f644b8829",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "782e1e92_b19f5864",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-10T09:06:29Z",
       "side": 1,
       "message": "BTW, does this work as expected with baseline as well?  (Are we sure to get a register or nothing?)",
+      "range": {
+        "startLine": 3761,
+        "startChar": 6,
+        "endLine": 3761,
+        "endChar": 19
+      },
+      "revId": "caa5a4d8d20b38037f1fa6e31ca21d0f644b8829",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "782e1e92_f194c014",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3761,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-10T10:59:29Z",
+      "side": 1,
+      "message": "Yes, and the suspend check is at the back edge in baseline.",
+      "parentUuid": "782e1e92_b19f5864",
       "range": {
         "startLine": 3761,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1867e20f_db2227dd",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3718,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-10T10:59:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d829ca86_c267b2ca",
+      "range": {
+        "startLine": 3718,
+        "startChar": 63,
+        "endLine": 3718,
+        "endChar": 81
+      },
+      "revId": "caa5a4d8d20b38037f1fa6e31ca21d0f644b8829",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1867e20f_98c595a1",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-07-10T09:06:29Z",
       "side": 1,
       "message": "not to require?",
+      "range": {
+        "startLine": 586,
+        "startChar": 39,
+        "endLine": 586,
+        "endChar": 50
+      },
+      "revId": "caa5a4d8d20b38037f1fa6e31ca21d0f644b8829",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "782e1e92_b18e3801",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-10T10:59:29Z",
+      "side": 1,
+      "message": "At this point, it\u0027s not requiring. We\u0027re just making it not get a register. Would:\n\n\".. to not get ...\" work better for you?",
+      "parentUuid": "1867e20f_98c595a1",
       "range": {
         "startLine": 586,
         "startChar": 39,
