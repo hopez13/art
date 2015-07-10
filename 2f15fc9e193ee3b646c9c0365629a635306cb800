@@ -140,6 +140,30 @@
       "revId": "2f15fc9e193ee3b646c9c0365629a635306cb800",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "58d23ae8_72b79877",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-10T16:58:54Z",
+      "side": 1,
+      "message": "I was the one who refactored and removed the extern C for the other compilers. Just didn\u0027t go the extra mile, I guess.",
+      "parentUuid": "183a82f6_807bb66f",
+      "range": {
+        "startLine": 678,
+        "startChar": 2,
+        "endLine": 684,
+        "endChar": 61
+      },
+      "revId": "2f15fc9e193ee3b646c9c0365629a635306cb800",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
