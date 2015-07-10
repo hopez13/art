@@ -25,6 +25,76 @@
     },
     {
       "key": {
+        "uuid": "1840c241_e4e762d3",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-10T11:17:58Z",
+      "side": 1,
+      "message": "There is a trade-off between how much do we gain by forcing CBZ and how much do we lose by placing this restriction on the register allocation. I\u0027d expect a negligible difference.",
+      "parentUuid": "1867e20f_5bb4d722",
+      "range": {
+        "startLine": 866,
+        "startChar": 3,
+        "endLine": 866,
+        "endChar": 86
+      },
+      "revId": "ed2e2bf9d6ee2d871de1e24d76e1fb78795921fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1867e20f_9bd10f43",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-10T11:17:58Z",
+      "side": 1,
+      "message": "Uint32Value()",
+      "range": {
+        "startLine": 890,
+        "startChar": 62,
+        "endLine": 890,
+        "endChar": 74
+      },
+      "revId": "ed2e2bf9d6ee2d871de1e24d76e1fb78795921fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d829ca86_823f6a76",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-10T11:17:58Z",
+      "side": 1,
+      "message": "__ CompareAndBranchIfZero(arg, \u0026return_false)",
+      "range": {
+        "startLine": 898,
+        "startChar": 0,
+        "endLine": 899,
+        "endChar": 26
+      },
+      "revId": "ed2e2bf9d6ee2d871de1e24d76e1fb78795921fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d829ca86_020a5ad8",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 5
@@ -156,6 +226,29 @@
         "startChar": 71,
         "endLine": 935,
         "endChar": 79
+      },
+      "revId": "ed2e2bf9d6ee2d871de1e24d76e1fb78795921fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1867e20f_fb604b05",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-10T11:17:58Z",
+      "side": 1,
+      "message": "LS (you still need to compare the first 2 characters if EQ)\n\nAnd since you don\u0027t need to compare during the first iteration, you can move this to the end of the loop, avoiding one unconditional branch.",
+      "range": {
+        "startLine": 938,
+        "startChar": 21,
+        "endLine": 938,
+        "endChar": 23
       },
       "revId": "ed2e2bf9d6ee2d871de1e24d76e1fb78795921fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
