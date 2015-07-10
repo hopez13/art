@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "3833c621_41a252ba",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3493,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-10T14:19:10Z",
+      "side": 1,
+      "message": "Yes, I was mainly thinking about the exception flow. Maybe we can be more precise here. Anyway, I\u0027ll have to update return_pc for threads suspended on a suspend check (not in the interpreter) so they are deoptimized.\n\nBy the way, in the CL for tests (https://android-review.googlesource.com/#/c/158452), I no longer use breakpoint for suspension so I don\u0027t think interpreter is executed.",
+      "parentUuid": "98cf5247_2c38d3f9",
+      "range": {
+        "startLine": 3491,
+        "startChar": 0,
+        "endLine": 3493,
+        "endChar": 3
+      },
+      "revId": "eaf917a0284eb139cdfeea41eb28621839d1c83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d829ca86_025dbabd",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 4
@@ -707,6 +731,30 @@
     },
     {
       "key": {
+        "uuid": "d8438a7f_de9c8571",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-10T14:19:10Z",
+      "side": 1,
+      "message": "Wow, so we have a bug in StackVisitor::SetVReg! ShadowFrame::SetVReg considers the value to be a primitive (like an int), not a reference. I fyou look at the code, it even clears the reference array slot to not disturb GC.\n\nSo the StackVisitor::SetVReg should call ShadowFrame::SetVRegReference when kind \u003d\u003d kReferenceVReg, otherwise call ShadowFrame::SetVReg. I think this can be part of a separate CL.",
+      "parentUuid": "78ca9e3a_0b105d87",
+      "range": {
+        "startLine": 216,
+        "startChar": 4,
+        "endLine": 216,
+        "endChar": 11
+      },
+      "revId": "eaf917a0284eb139cdfeea41eb28621839d1c83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "782e1e92_11386cf9",
         "filename": "runtime/stack.h",
         "patchSetId": 4
@@ -789,6 +837,30 @@
       "side": 1,
       "message": "Looks like the statement isn\u0027t accurate. So we do need to visit the roots. @shertz, is that the case?",
       "parentUuid": "18f28255_74ad50f6",
+      "range": {
+        "startLine": 2535,
+        "startChar": 40,
+        "endLine": 2535,
+        "endChar": 43
+      },
+      "revId": "eaf917a0284eb139cdfeea41eb28621839d1c83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78a37e80_2338eaf9",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2535,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-10T14:19:10Z",
+      "side": 1,
+      "message": "We need to visit these roots. I think it comes from the fact that we incorrectly use ShadowFrame::SetVReg even when we do write a reference value.",
+      "parentUuid": "78ca9e3a_4b06655b",
       "range": {
         "startLine": 2535,
         "startChar": 40,
