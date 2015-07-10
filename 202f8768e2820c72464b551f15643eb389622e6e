@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1867e20f_b8f1790d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-10T08:00:19Z",
+      "side": 1,
+      "message": "Change LOG(INFO) To VLOG(threads)? (to not hardcode that a VLOP goes to INFO).",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 25
+      },
+      "revId": "202f8768e2820c72464b551f15643eb389622e6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18f28255_74655097",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-10T08:00:19Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 578,
+        "startChar": 0,
+        "endLine": 584,
+        "endChar": 26
+      },
+      "revId": "202f8768e2820c72464b551f15643eb389622e6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
