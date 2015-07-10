@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "d8438a7f_1e0b8d60",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-10T13:26:46Z",
+      "side": 1,
+      "message": "You can know it depending on whether you found a frame in the frame_id_to_shadow_frame list or whether you just created here.",
+      "range": {
+        "startLine": 233,
+        "startChar": 12,
+        "endLine": 233,
+        "endChar": 40
+      },
+      "revId": "eaf917a0284eb139cdfeea41eb28621839d1c83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d829ca86_e2598ed1",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 4
@@ -59,6 +82,30 @@
       "writtenOn": "2015-07-10T11:09:34Z",
       "side": 1,
       "message": "Why can\u0027t you just check  whether a value is already there?",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 9
+      },
+      "revId": "eaf917a0284eb139cdfeea41eb28621839d1c83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8438a7f_3e06495a",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-10T13:26:46Z",
+      "side": 1,
+      "message": "I don\u0027t think we can use any magic number for vregs as an int could be any 32-bit value.\n\nThat\u0027s why I was thinking about initializing earlier (when the debugger needs to create the frame to set a value) so we don\u0027t have to think about that here.",
+      "parentUuid": "d829ca86_e2598ed1",
       "range": {
         "startLine": 233,
         "startChar": 0,
@@ -94,6 +141,52 @@
     },
     {
       "key": {
+        "uuid": "1840c241_64a7f2c9",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-10T13:26:46Z",
+      "side": 1,
+      "message": "Using CHECK is safer here.",
+      "range": {
+        "startLine": 487,
+        "startChar": 2,
+        "endLine": 487,
+        "endChar": 8
+      },
+      "revId": "eaf917a0284eb139cdfeea41eb28621839d1c83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d829ca86_c2b572ba",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-10T13:26:46Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 583,
+        "startChar": 2,
+        "endLine": 583,
+        "endChar": 8
+      },
+      "revId": "eaf917a0284eb139cdfeea41eb28621839d1c83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "782e1e92_f15de0f6",
         "filename": "runtime/stack.h",
         "patchSetId": 4
@@ -110,6 +203,190 @@
         "startChar": 0,
         "endLine": 46,
         "endChar": 58
+      },
+      "revId": "eaf917a0284eb139cdfeea41eb28621839d1c83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18f28255_741b102e",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-10T13:26:46Z",
+      "side": 1,
+      "message": "constexpr",
+      "range": {
+        "startLine": 46,
+        "startChar": 7,
+        "endLine": 46,
+        "endChar": 12
+      },
+      "revId": "eaf917a0284eb139cdfeea41eb28621839d1c83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18f28255_3425886e",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-10T13:26:46Z",
+      "side": 1,
+      "message": "Since you introduce a new layout, you should describe it here.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 95
+      },
+      "revId": "eaf917a0284eb139cdfeea41eb28621839d1c83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18f28255_94169406",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-10T13:26:46Z",
+      "side": 1,
+      "message": "No need to change line here.",
+      "range": {
+        "startLine": 87,
+        "startChar": 61,
+        "endLine": 88,
+        "endChar": 59
+      },
+      "revId": "eaf917a0284eb139cdfeea41eb28621839d1c83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3833c621_01eb2aef",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-10T13:26:46Z",
+      "side": 1,
+      "message": "You could use less memory using a bitset. \n\nAnyhow, I find it weird to allocate extra memory for this purpose when we\u0027ll only use it as part of deoptimization (to initialize the ShadowFrame), not execution. Can\u0027t we move that to the FrameIdToShadowFrame struct?",
+      "range": {
+        "startLine": 91,
+        "startChar": 59,
+        "endLine": 91,
+        "endChar": 83
+      },
+      "revId": "eaf917a0284eb139cdfeea41eb28621839d1c83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d829ca86_22a79698",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-10T13:26:46Z",
+      "side": 1,
+      "message": "Or you could use DexFile::kDexNoIndex",
+      "range": {
+        "startLine": 92,
+        "startChar": 67,
+        "endLine": 92,
+        "endChar": 89
+      },
+      "revId": "eaf917a0284eb139cdfeea41eb28621839d1c83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1867e20f_d8fa2dea",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-10T13:26:46Z",
+      "side": 1,
+      "message": "This needs a comment: \"Indicates whether this frame has been created by the debugger to change the value of a DEX register\"",
+      "range": {
+        "startLine": 140,
+        "startChar": 7,
+        "endLine": 140,
+        "endChar": 22
+      },
+      "revId": "eaf917a0284eb139cdfeea41eb28621839d1c83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18f28255_346fc877",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-10T13:26:46Z",
+      "side": 1,
+      "message": "If the value is a reference, it must be stored in the reference array of the shadow frame by using SetVRegReference. So you need to make a distinction between primitive 32-bit values and reference here. \n\nThe debugger will call StackVisitor::SetVReg passing a VRegKind of kReferenceVReg. So you need to pass that information to all calls (including SetVRegFromOptimizedCode) until here.",
+      "range": {
+        "startLine": 216,
+        "startChar": 4,
+        "endLine": 216,
+        "endChar": 11
+      },
+      "revId": "eaf917a0284eb139cdfeea41eb28621839d1c83f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "782e1e92_11386cf9",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-07-10T13:26:46Z",
+      "side": 1,
+      "message": "Bad name. I\u0027d prefer something like \"GetUpdatedVregsSet\" with a comment describing how it is used \"Returns the set of DEX registers that have been updated by the debugger\"",
+      "range": {
+        "startLine": 345,
+        "startChar": 14,
+        "endLine": 345,
+        "endChar": 34
       },
       "revId": "eaf917a0284eb139cdfeea41eb28621839d1c83f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
