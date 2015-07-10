@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8438a7f_1e442dff",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-10T17:32:14Z",
+      "side": 1,
+      "message": "Could you expand on the \"writes reorder\" ? Is that clang/gcc doing optimizations?",
+      "range": {
+        "startLine": 835,
+        "startChar": 78,
+        "endLine": 835,
+        "endChar": 92
+      },
+      "revId": "b7db14ffcad6edf2c3524ec1c38ceefb0fbda73d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3833c621_a1919e23",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-10T17:32:14Z",
+      "side": 1,
+      "message": "its -\u003e it is",
+      "range": {
+        "startLine": 836,
+        "startChar": 19,
+        "endLine": 836,
+        "endChar": 22
+      },
+      "revId": "b7db14ffcad6edf2c3524ec1c38ceefb0fbda73d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
