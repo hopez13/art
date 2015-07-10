@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1867e20f_1b297fc1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-10T11:14:29Z",
+      "side": 1,
+      "message": "mention when",
+      "range": {
+        "startLine": 7,
+        "startChar": 20,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "cc310c7eff76b7c1f536a4972abddb11c7a29f06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18f28255_34b7c846",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-10T11:14:29Z",
+      "side": 1,
+      "message": "the DHECK_LT is useless since code_offset \u003e 0 always.\n\nInstead of checking for code_offset !\u003d 0, it should be enough to have DCHECK_LE().\n\nsame below.",
+      "range": {
+        "startLine": 418,
+        "startChar": 6,
+        "endLine": 421,
+        "endChar": 7
+      },
+      "revId": "cc310c7eff76b7c1f536a4972abddb11c7a29f06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d829ca86_c25692a1",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-10T11:14:29Z",
+      "side": 1,
+      "message": "it gets more clear if you put these two under the same if",
+      "range": {
+        "startLine": 694,
+        "startChar": 5,
+        "endLine": 697,
+        "endChar": 94
+      },
+      "revId": "cc310c7eff76b7c1f536a4972abddb11c7a29f06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
