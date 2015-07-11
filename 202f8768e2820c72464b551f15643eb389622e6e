@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "78753eb8_9ce4a9d0",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-11T04:12:11Z",
+      "side": 1,
+      "message": "Can\u0027t do this for calls, as VLOG is an if () macro. But in the end it goes to a LogMessage with INFO.\n\nFixed the half of it that\u0027s doable.",
+      "parentUuid": "1867e20f_b8f1790d",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 25
+      },
+      "revId": "202f8768e2820c72464b551f15643eb389622e6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18f28255_74655097",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
