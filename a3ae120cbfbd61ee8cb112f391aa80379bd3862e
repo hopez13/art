@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "58d23ae8_5b35cf65",
+        "filename": "test/004-JniTest/jni_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-11T01:52:04Z",
+      "side": 1,
+      "message": "Please be more explicit here. Don\u0027t rely on the exception being propagated.",
+      "range": {
+        "startLine": 631,
+        "startChar": 2,
+        "endLine": 631,
+        "endChar": 34
+      },
+      "revId": "a3ae120cbfbd61ee8cb112f391aa80379bd3862e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "78753eb8_7ca74dc9",
         "filename": "test/004-JniTest/src/Main.java",
         "patchSetId": 1
