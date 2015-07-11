@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "18dc42fc_7f651b97",
+        "filename": "test/004-JniTest/jni_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-11T02:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58d23ae8_5b35cf65",
+      "range": {
+        "startLine": 631,
+        "startChar": 2,
+        "endLine": 631,
+        "endChar": 34
+      },
+      "revId": "a3ae120cbfbd61ee8cb112f391aa80379bd3862e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "78753eb8_7ca74dc9",
         "filename": "test/004-JniTest/src/Main.java",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-11T01:49:07Z",
       "side": 1,
       "message": "-2. This shouldn\u0027t be changed.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 3
+      },
+      "revId": "a3ae120cbfbd61ee8cb112f391aa80379bd3862e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78753eb8_1c065928",
+        "filename": "test/004-JniTest/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-11T02:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78753eb8_7ca74dc9",
       "range": {
         "startLine": 1,
         "startChar": 0,
