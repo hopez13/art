@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "18d6020d_c043de12",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T13:52:44Z",
+      "side": 1,
+      "message": "OK, now I get it. Yeah, more comments could help.",
+      "parentUuid": "f8d84e3c_1f160308",
+      "range": {
+        "startLine": 285,
+        "startChar": 0,
+        "endLine": 292,
+        "endChar": 7
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18d6020d_409d0e40",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 7
@@ -308,6 +332,54 @@
     },
     {
       "key": {
+        "uuid": "18d6020d_40c98e1d",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T13:52:44Z",
+      "side": 1,
+      "message": "Sure, just do it after dominator/rpo computation.",
+      "parentUuid": "38cf4674_e17d4629",
+      "range": {
+        "startLine": 356,
+        "startChar": 1,
+        "endLine": 362,
+        "endChar": 32
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38cf4674_017b0a34",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T13:52:44Z",
+      "side": 1,
+      "message": "It just feels like you\u0027re piggy backing on this visit for doing extra, required, stuff. Seems cleaner to do it in a separate phase. I really don\u0027t mind another block visit.",
+      "parentUuid": "18d6020d_c0911e23",
+      "range": {
+        "startLine": 356,
+        "startChar": 1,
+        "endLine": 362,
+        "endChar": 32
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d8df0a22_de8e6502",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 7
@@ -343,6 +415,30 @@
       "side": 1,
       "message": "Done, but I thought we agreed longer than 10-character type was a good candidate...",
       "parentUuid": "d8df0a22_de8e6502",
+      "range": {
+        "startLine": 584,
+        "startChar": 6,
+        "endLine": 584,
+        "endChar": 10
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38cf4674_6143f6e7",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T13:52:44Z",
+      "side": 1,
+      "message": "Where?",
+      "parentUuid": "f8d84e3c_5fe7aba7",
       "range": {
         "startLine": 584,
         "startChar": 6,
