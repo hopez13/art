@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f8d84e3c_1f160308",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-13T13:47:01Z",
+      "side": 1,
+      "message": "Hmm, kingdom for pictures. I\u0027m using the SplitBefore method which will\n\n * create `new_block` and move all instructions from `block` to it\n * link `block` and `new_block` with a Goto\n\nAfter that, I change the normal-flow edges to point to `new_block`, hence leaving `block` with the exceptional ones.\n\nWould you prefer I\u0027d add a thorough comment or rather rewrite it using more low-level operations?",
+      "parentUuid": "18d6020d_a0ea5a9a",
+      "range": {
+        "startLine": 285,
+        "startChar": 0,
+        "endLine": 292,
+        "endChar": 7
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18d6020d_409d0e40",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-13T13:01:56Z",
       "side": 1,
       "message": "Porbably related to my comment above, but it would seem logical to at lease DCHECK the code below.",
+      "range": {
+        "startLine": 1131,
+        "startChar": 0,
+        "endLine": 1131,
+        "endChar": 26
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8df0a22_1ec44d08",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-13T13:47:01Z",
+      "side": 1,
+      "message": "Yeah, this seems dangerous... Removed.",
+      "parentUuid": "18d6020d_409d0e40",
       "range": {
         "startLine": 1131,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "18d6020d_2053aae8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-13T13:47:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8d84e3c_df401b09",
+      "range": {
+        "startLine": 852,
+        "startChar": 16,
+        "endLine": 852,
+        "endChar": 36
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98e912d2_fc5329ae",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2015-07-13T13:01:56Z",
       "side": 1,
       "message": "Please add a comment what this iterator iterates over.",
+      "range": {
+        "startLine": 2029,
+        "startChar": 0,
+        "endLine": 2029,
+        "endChar": 54
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8d84e3c_bf06f7d2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2029,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-13T13:47:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98e912d2_fc5329ae",
       "range": {
         "startLine": 2029,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "98e912d2_fc7409f6",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-13T13:47:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98e912d2_9cfa25e9",
+      "range": {
+        "startLine": 354,
+        "startChar": 50,
+        "endLine": 354,
+        "endChar": 55
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18d6020d_a0ab3a5f",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 7
@@ -128,6 +248,30 @@
       "writtenOn": "2015-07-13T13:01:56Z",
       "side": 1,
       "message": "Could this be done earlier, eg in the SimplifyCatchBlocks phase?",
+      "range": {
+        "startLine": 356,
+        "startChar": 1,
+        "endLine": 362,
+        "endChar": 32
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18d6020d_c0911e23",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-13T13:47:01Z",
+      "side": 1,
+      "message": "It could but it would need to find a predecessor that is not a back edge. Here, it is always the first one.",
+      "parentUuid": "18d6020d_a0ab3a5f",
       "range": {
         "startLine": 356,
         "startChar": 1,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "f8d84e3c_5fe7aba7",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-13T13:47:01Z",
+      "side": 1,
+      "message": "Done, but I thought we agreed longer than 10-character type was a good candidate...",
+      "parentUuid": "d8df0a22_de8e6502",
+      "range": {
+        "startLine": 584,
+        "startChar": 6,
+        "endLine": 584,
+        "endChar": 10
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8d84e3c_1fc44308",
         "filename": "compiler/optimizing/ssa_builder.h",
         "patchSetId": 7
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "d8df0a22_be435913",
+        "filename": "compiler/optimizing/ssa_builder.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-13T13:47:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8d84e3c_1fc44308",
+      "range": {
+        "startLine": 62,
+        "startChar": 4,
+        "endLine": 62,
+        "endChar": 8
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8d84e3c_5fcecb27",
         "filename": "compiler/optimizing/ssa_builder.h",
         "patchSetId": 7
@@ -197,6 +389,30 @@
       "writtenOn": "2015-07-13T13:01:56Z",
       "side": 1,
       "message": "Is collected the right word? Maybe:\n\n\"We record an an incoming input of a catch phi at throwing instructions. We must therefore eagerly create the catch phis. Unused phis will be removed in the dead phi analysis\".\n\n?",
+      "range": {
+        "startLine": 70,
+        "startChar": 45,
+        "endLine": 70,
+        "endChar": 54
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18d6020d_008ce607",
+        "filename": "compiler/optimizing/ssa_builder.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-13T13:47:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8d84e3c_5fcecb27",
       "range": {
         "startLine": 70,
         "startChar": 45,
