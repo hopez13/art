@@ -70,6 +70,52 @@
       "revId": "f075879649686e59b7a9065c5a061dbfdcdfbecc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8d84e3c_ff74fff5",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-13T17:36:23Z",
+      "side": 1,
+      "message": "Should not be done for the dex-to-dex\u0027d methods. There\u0027s no code to target with a PC-relative call.",
+      "range": {
+        "startLine": 397,
+        "startChar": 0,
+        "endLine": 407,
+        "endChar": 7
+      },
+      "revId": "f075879649686e59b7a9065c5a061dbfdcdfbecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18d6020d_2091eaa6",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-13T17:36:23Z",
+      "side": 1,
+      "message": "This is wrong for Thumb2 for dex-to-dex\u0027d methods (quick_code_offset\u003d0, thumb_offset\u003d1).",
+      "range": {
+        "startLine": 420,
+        "startChar": 6,
+        "endLine": 420,
+        "endChar": 62
+      },
+      "revId": "f075879649686e59b7a9065c5a061dbfdcdfbecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
