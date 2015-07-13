@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18d6020d_a0ea5a9a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T13:01:56Z",
+      "side": 1,
+      "message": "I don\u0027t understand why this would make the new predecessor non-exceptional?",
+      "range": {
+        "startLine": 285,
+        "startChar": 0,
+        "endLine": 292,
+        "endChar": 7
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18d6020d_409d0e40",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T13:01:56Z",
+      "side": 1,
+      "message": "Porbably related to my comment above, but it would seem logical to at lease DCHECK the code below.",
+      "range": {
+        "startLine": 1131,
+        "startChar": 0,
+        "endLine": 1131,
+        "endChar": 26
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8d84e3c_df401b09",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T13:01:56Z",
+      "side": 1,
+      "message": "ComputeTryEntryOfSuccessors?",
+      "range": {
+        "startLine": 852,
+        "startChar": 16,
+        "endLine": 852,
+        "endChar": 36
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98e912d2_fc5329ae",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2029,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T13:01:56Z",
+      "side": 1,
+      "message": "Please add a comment what this iterator iterates over.",
+      "range": {
+        "startLine": 2029,
+        "startChar": 0,
+        "endLine": 2029,
+        "endChar": 54
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98e912d2_9cfa25e9",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T13:01:56Z",
+      "side": 1,
+      "message": "avoids",
+      "range": {
+        "startLine": 354,
+        "startChar": 50,
+        "endLine": 354,
+        "endChar": 55
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18d6020d_a0ab3a5f",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T13:01:56Z",
+      "side": 1,
+      "message": "Could this be done earlier, eg in the SimplifyCatchBlocks phase?",
+      "range": {
+        "startLine": 356,
+        "startChar": 1,
+        "endLine": 362,
+        "endChar": 32
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8df0a22_de8e6502",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T13:01:56Z",
+      "side": 1,
+      "message": "Replace please.",
+      "range": {
+        "startLine": 584,
+        "startChar": 6,
+        "endLine": 584,
+        "endChar": 10
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8d84e3c_1fc44308",
+        "filename": "compiler/optimizing/ssa_builder.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T13:01:56Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 62,
+        "startChar": 4,
+        "endLine": 62,
+        "endChar": 8
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8d84e3c_5fcecb27",
+        "filename": "compiler/optimizing/ssa_builder.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T13:01:56Z",
+      "side": 1,
+      "message": "Is collected the right word? Maybe:\n\n\"We record an an incoming input of a catch phi at throwing instructions. We must therefore eagerly create the catch phis. Unused phis will be removed in the dead phi analysis\".\n\n?",
+      "range": {
+        "startLine": 70,
+        "startChar": 45,
+        "endLine": 70,
+        "endChar": 54
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
