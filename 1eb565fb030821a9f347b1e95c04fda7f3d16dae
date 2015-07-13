@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "18d6020d_a01fbae5",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-13T15:58:27Z",
+      "side": 1,
+      "message": "Did we agreed on this? It\u0027s giving the feeling that you can randomly write-access blocks, which is completely wrong since it expects a topological traversal to have a sound MergeBlocks operation.",
+      "parentUuid": "18d6020d_6043f2e7",
+      "range": {
+        "startLine": 39,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 2
+      },
+      "revId": "1eb565fb030821a9f347b1e95c04fda7f3d16dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98e912d2_bfbef3ab",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-13T15:13:47Z",
       "side": 1,
       "message": "I still think this doesn\u0027t work. When you process the worklist you will be left with the context set to the last block (as you do this in VisitBasiBlock) and thus you might have wrong information in the context.",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 17
+      },
+      "revId": "1eb565fb030821a9f347b1e95c04fda7f3d16dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38cf4674_01c30a9b",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-13T15:58:27Z",
+      "side": 1,
+      "message": "That\u0027s why the Worklist does not access the context anymore",
+      "parentUuid": "98e912d2_bfbef3ab",
       "range": {
         "startLine": 66,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "38cf4674_4196f29f",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-13T15:58:27Z",
+      "side": 1,
+      "message": "Oh okay, then I did a mistake (cf my previous comment) I will move this back into the instruction simplifier",
+      "parentUuid": "d8df0a22_9ea5bd3f",
+      "range": {
+        "startLine": 281,
+        "startChar": 17,
+        "endLine": 281,
+        "endChar": 38
+      },
+      "revId": "1eb565fb030821a9f347b1e95c04fda7f3d16dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8d84e3c_3f1107de",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 5
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "98e912d2_ff3ddb97",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-13T15:58:27Z",
+      "side": 1,
+      "message": "I need some more testing before addressing this comment. I\u0027m really surprised.",
+      "parentUuid": "f8d84e3c_3f1107de",
+      "range": {
+        "startLine": 295,
+        "startChar": 17,
+        "endLine": 295,
+        "endChar": 25
+      },
+      "revId": "1eb565fb030821a9f347b1e95c04fda7f3d16dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8d84e3c_7f346f68",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 5
@@ -105,6 +201,30 @@
       "writtenOn": "2015-07-13T15:13:47Z",
       "side": 1,
       "message": "shouldn\u0027t this be merge? I\u0027m surprized that I don\u0027t see any Context::Merge in this algorithm...",
+      "range": {
+        "startLine": 311,
+        "startChar": 17,
+        "endLine": 311,
+        "endChar": 21
+      },
+      "revId": "1eb565fb030821a9f347b1e95c04fda7f3d16dae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8d84e3c_fff15f0c",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-13T15:58:27Z",
+      "side": 1,
+      "message": "NullInfo::Merge being defined in terms of ||, this is strictly equivalent. If you prefer, I can write it like this:\n\n    for (size_t i \u003d 0; i \u003c phi-\u003eInputCount(); i++) {\n        ctx_.MergeProperty(ctx, ctx_.GetProperty(phi-\u003eInputAt(i)));\n    }\n    phi-\u003eSetCanBeNull(ctx_.GetProperty(phi));\n\nbut that would reduce the performances.",
+      "parentUuid": "f8d84e3c_7f346f68",
       "range": {
         "startLine": 311,
         "startChar": 17,

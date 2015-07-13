@@ -22,6 +22,30 @@
       "revId": "d4e2738fa7a062fee6beb88204c7420e64e5d9a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8df0a22_1e352d67",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-13T15:58:27Z",
+      "side": 0,
+      "message": "I moved them to the reference type propagation where (if I\u0027m correct), thanks to the context, nullability detection is stricter and more accurate",
+      "parentUuid": "d8df0a22_1e49ad07",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 60
+      },
+      "revId": "d4e2738fa7a062fee6beb88204c7420e64e5d9a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
