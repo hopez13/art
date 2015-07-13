@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d8df0a22_bea8b963",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-13T12:43:14Z",
+      "side": 1,
+      "message": "I\u0027d rather clean up the other uses.",
+      "parentUuid": "d8df0a22_1ef7ed88",
+      "range": {
+        "startLine": 890,
+        "startChar": 2,
+        "endLine": 890,
+        "endChar": 76
+      },
+      "revId": "49a63e058b095d42f866f6143efcce748b0e6df9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98e912d2_3c583100",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 6
