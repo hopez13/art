@@ -402,6 +402,30 @@
     },
     {
       "key": {
+        "uuid": "1867e20f_58985d51",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-13T15:58:27Z",
+      "side": 1,
+      "message": "Actually, no. GrowableArray has a notion of \"used\" and \"preallocated\". Resize() reallocates the underlying container without changing the number of \"used\" cells, and Size() will return the number of used cells, not the size of the underlying container.",
+      "parentUuid": "1840c241_b903c342",
+      "range": {
+        "startLine": 109,
+        "startChar": 6,
+        "endLine": 109,
+        "endChar": 34
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d829ca86_1415fc77",
         "filename": "compiler/optimizing/context.h",
         "patchSetId": 4
@@ -745,6 +769,30 @@
       "side": 1,
       "message": "So right now you return Zero when you don\u0027t find the property in the context. I\u0027m concerned that if that doesn\u0027t get updated this acts as an optimistic algorithm but which is not correct.\n\nWhat happens for parameters? If you just use their values you will assume they cannot be null.\n\ne.g.\n\nvoid foo(Object a, Object b, boolean c) {\n  Object x \u003d null;\n  if (c) {\n    x \u003d a;\n  } else {\n    x \u003d b;\n  }\n  // I didn\u0027t run, but I think you will consider x to be not null here because of that.\n  x.foo();\n}",
       "parentUuid": "18f28255_49bcf957",
+      "range": {
+        "startLine": 30,
+        "startChar": 43,
+        "endLine": 30,
+        "endChar": 48
+      },
+      "revId": "bfb470d89b8f5d16581118a5b58f862b79496558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38cf4674_e19e26b0",
+        "filename": "compiler/optimizing/reference_type_propagation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-07-13T15:58:27Z",
+      "side": 1,
+      "message": "ParameterValue is an instruction. Then, it will be handled correctly by\n\n\n    void RTPVisitor::VisitInstruction(HInstruction* instr) OVERRIDE {\n      if (instr-\u003eGetType() \u003d\u003d Primitive::kPrimNot) {\n        ctx_.SetProperty(instr, instr-\u003eCanBeNull());\n      }\n    }",
+      "parentUuid": "98e912d2_1f81a7d8",
       "range": {
         "startLine": 30,
         "startChar": 43,
