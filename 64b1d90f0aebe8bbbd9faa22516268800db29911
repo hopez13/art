@@ -22,6 +22,30 @@
       "revId": "64b1d90f0aebe8bbbd9faa22516268800db29911",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "987af2a8_e6298016",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-13T18:20:51Z",
+      "side": 1,
+      "message": "Agreed. That\u0027s something that should probably go into memtool.h.",
+      "parentUuid": "f8d84e3c_7f62af37",
+      "range": {
+        "startLine": 357,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 6
+      },
+      "revId": "64b1d90f0aebe8bbbd9faa22516268800db29911",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
