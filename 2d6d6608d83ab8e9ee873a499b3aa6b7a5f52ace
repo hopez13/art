@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "d8df0a22_1e60cd87",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-13T17:11:39Z",
+      "side": 1,
+      "message": "Maybe explain why you start at 1 (instead of 0)?",
+      "range": {
+        "startLine": 140,
+        "startChar": 18,
+        "endLine": 140,
+        "endChar": 19
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8df0a22_3e658998",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-13T17:11:39Z",
+      "side": 1,
+      "message": "with instruction?",
+      "range": {
+        "startLine": 143,
+        "startChar": 38,
+        "endLine": 143,
+        "endChar": 42
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8d84e3c_7fc1cfc4",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-13T17:11:39Z",
+      "side": 1,
+      "message": "Use\n\n  try_boundary-\u003eDebugName()\n\nfor consistency reasons?",
+      "range": {
+        "startLine": 150,
+        "startChar": 59,
+        "endLine": 150,
+        "endChar": 70
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8df0a22_9e73fd5e",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-13T17:11:39Z",
+      "side": 1,
+      "message": "a TryBoundary instruction?",
+      "range": {
+        "startLine": 370,
+        "startChar": 35,
+        "endLine": 370,
+        "endChar": 48
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18d6020d_a0ea5a9a",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 7
@@ -113,6 +205,29 @@
         "startChar": 0,
         "endLine": 1131,
         "endChar": 26
+      },
+      "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98e912d2_df19ff80",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-13T17:11:39Z",
+      "side": 1,
+      "message": "Document this as you did for IsExceptionalSuccessor?",
+      "range": {
+        "startLine": 735,
+        "startChar": 2,
+        "endLine": 735,
+        "endChar": 50
       },
       "revId": "2d6d6608d83ab8e9ee873a499b3aa6b7a5f52ace",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
