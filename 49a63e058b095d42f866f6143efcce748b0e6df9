@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98e912d2_3c583100",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-13T12:07:24Z",
+      "side": 1,
+      "message": "IsAligned\u003c4\u003e(kObjectAlignment) is constexpr, so this could be static_assert.\n\n(On the other hand, value_offset isn\u0027t constexpr and though we could constexpr-ify the class MemberOffset, I\u0027m not sure the macro OFFSETOF_MEMBER can be a constexpr. Anyway, such refactoring should not be a part of this CL.)",
+      "range": {
+        "startLine": 924,
+        "startChar": 2,
+        "endLine": 924,
+        "endChar": 40
+      },
+      "revId": "49a63e058b095d42f866f6143efcce748b0e6df9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8d84e3c_1f98c350",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-13T12:07:24Z",
+      "side": 1,
+      "message": "Merge with the ADD above?",
+      "range": {
+        "startLine": 932,
+        "startChar": 2,
+        "endLine": 932,
+        "endChar": 42
+      },
+      "revId": "49a63e058b095d42f866f6143efcce748b0e6df9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38cf4674_8180fad2",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-13T12:07:24Z",
+      "side": 1,
+      "message": "Move this 2 instructions up for better instruction scheduling. Here it\u0027s causing a stall with the dependent CMP below; the execution between LDR and CMP above will be essentially free.",
+      "range": {
+        "startLine": 943,
+        "startChar": 2,
+        "endLine": 943,
+        "endChar": 57
+      },
+      "revId": "49a63e058b095d42f866f6143efcce748b0e6df9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18d6020d_60069229",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-13T12:07:24Z",
+      "side": 1,
+      "message": "HS (i.e. CS) is the correct condition, though I guess the allocation of a String with 2GiB data would fail, so PL is essentially the same.",
+      "range": {
+        "startLine": 945,
+        "startChar": 14,
+        "endLine": 945,
+        "endChar": 16
+      },
+      "revId": "49a63e058b095d42f866f6143efcce748b0e6df9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
