@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98975254_6c25bb6d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-13T20:33:27Z",
+      "side": 1,
+      "message": "Change this to CHECK_GT(cur_val, 0u) \u003c\u003c \u003c\u003c \"Unexpected value for PassActiveSuspendBarriers()\";?",
+      "range": {
+        "startLine": 859,
+        "startChar": 14,
+        "endLine": 859,
+        "endChar": 19
+      },
+      "revId": "7f1162846f3d4c169153dd3ce9b1631b25384a6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
