@@ -117,6 +117,29 @@
     },
     {
       "key": {
+        "uuid": "18d6020d_200c8ac7",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-13T17:11:39Z",
+      "side": 1,
+      "message": "Maybe document this DCHECK?",
+      "range": {
+        "startLine": 290,
+        "startChar": 6,
+        "endLine": 290,
+        "endChar": 69
+      },
+      "revId": "a21ae3730ca029d7912e5b05257a3789a370393b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8d84e3c_3f3ae755",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 9
@@ -133,6 +156,29 @@
         "startChar": 10,
         "endLine": 1157,
         "endChar": 12
+      },
+      "revId": "a21ae3730ca029d7912e5b05257a3789a370393b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18d6020d_e029c216",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-13T17:11:39Z",
+      "side": 1,
+      "message": "Could you provide more details on this?  I\u0027m not sure to understand where this set is.",
+      "range": {
+        "startLine": 1211,
+        "startChar": 5,
+        "endLine": 1211,
+        "endChar": 43
       },
       "revId": "a21ae3730ca029d7912e5b05257a3789a370393b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -202,6 +248,52 @@
         "startChar": 0,
         "endLine": 142,
         "endChar": 32
+      },
+      "revId": "a21ae3730ca029d7912e5b05257a3789a370393b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38cf4674_8415687a",
+        "filename": "test/510-checker-try-catch/smali/SsaBuilder.smali",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-13T17:11:39Z",
+      "side": 1,
+      "message": "in?",
+      "range": {
+        "startLine": 20,
+        "startChar": 8,
+        "endLine": 20,
+        "endChar": 12
+      },
+      "revId": "a21ae3730ca029d7912e5b05257a3789a370393b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8df0a22_3e0ca9ae",
+        "filename": "test/510-checker-try-catch/smali/SsaBuilder.smali",
+        "patchSetId": 9
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-13T17:11:39Z",
+      "side": 1,
+      "message": "Do we have a way to test that?",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 57
       },
       "revId": "a21ae3730ca029d7912e5b05257a3789a370393b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
