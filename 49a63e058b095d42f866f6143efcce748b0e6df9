@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "d8df0a22_1ef7ed88",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-13T12:17:01Z",
+      "side": 1,
+      "message": "Nit: we use Int32Value() (and int32_t) in other places for member offsets in this file; maybe use it instead of Uint32Value() (and uint32_t)?",
+      "range": {
+        "startLine": 890,
+        "startChar": 2,
+        "endLine": 890,
+        "endChar": 76
+      },
+      "revId": "49a63e058b095d42f866f6143efcce748b0e6df9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98e912d2_3c583100",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 6
