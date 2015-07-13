@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8df0a22_de5665a1",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T15:12:47Z",
+      "side": 1,
+      "message": "Do you think there\u0027s anything worth checking for the first successor? Can it be a catch block?\n\nIn any case, please add a comment on why you\u0027re starting at 1.",
+      "range": {
+        "startLine": 140,
+        "startChar": 2,
+        "endLine": 140,
+        "endChar": 19
+      },
+      "revId": "a21ae3730ca029d7912e5b05257a3789a370393b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98e912d2_3f2ae387",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T15:12:47Z",
+      "side": 1,
+      "message": "Please explain why it is fine to not count exceptional successors (eg they are synthesized/artificial edges).",
+      "range": {
+        "startLine": 328,
+        "startChar": 0,
+        "endLine": 328,
+        "endChar": 46
+      },
+      "revId": "a21ae3730ca029d7912e5b05257a3789a370393b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98e912d2_5f1faf60",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T15:12:47Z",
+      "side": 1,
+      "message": "drop the \u0027saved_\u0027 ?",
+      "range": {
+        "startLine": 351,
+        "startChar": 16,
+        "endLine": 351,
+        "endChar": 22
+      },
+      "revId": "a21ae3730ca029d7912e5b05257a3789a370393b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38cf4674_410c32af",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T15:12:47Z",
+      "side": 1,
+      "message": "else if ?",
+      "range": {
+        "startLine": 398,
+        "startChar": 0,
+        "endLine": 399,
+        "endChar": 44
+      },
+      "revId": "a21ae3730ca029d7912e5b05257a3789a370393b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98e912d2_bf3513e4",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T15:12:47Z",
+      "side": 1,
+      "message": "Don\u0027t negate the condition, and add a comment in the if block why catch phis are handled specially?",
+      "range": {
+        "startLine": 568,
+        "startChar": 0,
+        "endLine": 568,
+        "endChar": 27
+      },
+      "revId": "a21ae3730ca029d7912e5b05257a3789a370393b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8d84e3c_3f3ae755",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1157,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T15:12:47Z",
+      "side": 1,
+      "message": "Isn\u0027t that an \u0027\u0026\u0026\u0027 ?",
+      "range": {
+        "startLine": 1157,
+        "startChar": 10,
+        "endLine": 1157,
+        "endChar": 12
+      },
+      "revId": "a21ae3730ca029d7912e5b05257a3789a370393b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98e912d2_1ff7e788",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T15:12:47Z",
+      "side": 1,
+      "message": "Most instructions can throw, but not all blocks are in try, so it seems more natural to me to test the other way around. But your call.",
+      "range": {
+        "startLine": 570,
+        "startChar": 7,
+        "endLine": 570,
+        "endChar": 68
+      },
+      "revId": "a21ae3730ca029d7912e5b05257a3789a370393b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8df0a22_feac0127",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T15:12:47Z",
+      "side": 1,
+      "message": "This looks odd. You\u0027re removing the phi because one of these edges may not have a value for it, right? And therefore, if the catch was to use that phi, the verified would have rejected it?\n\nPlease add a comment. We\u0027re probably saving a few bytes, not having to add inputs of phis that are unused, but we could also just delegate the removal of the phi to the dead phi analysis....",
+      "range": {
+        "startLine": 577,
+        "startChar": 0,
+        "endLine": 581,
+        "endChar": 44
+      },
+      "revId": "a21ae3730ca029d7912e5b05257a3789a370393b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18d6020d_60bcd258",
+        "filename": "compiler/optimizing/ssa_phi_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T15:12:47Z",
+      "side": 1,
+      "message": "I\u0027d do the IsCatchPhi check in the if. StriclyDominates is not cheap.",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 32
+      },
+      "revId": "a21ae3730ca029d7912e5b05257a3789a370393b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
