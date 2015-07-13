@@ -22,6 +22,30 @@
       "revId": "f075879649686e59b7a9065c5a061dbfdcdfbecc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18d6020d_00114607",
+        "filename": "compiler/dex/dex_to_dex_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-13T14:28:10Z",
+      "side": 1,
+      "message": "See CompiledCode::CodeDelta compiled_method.cc:74:\n\n   case kThumb2: {\n      // +1 to set the low-order bit so a BLX will switch to Thumb mode\n      return 1;",
+      "parentUuid": "38cf4674_811b9afa",
+      "range": {
+        "startLine": 342,
+        "startChar": 59,
+        "endLine": 342,
+        "endChar": 78
+      },
+      "revId": "f075879649686e59b7a9065c5a061dbfdcdfbecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
