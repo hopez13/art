@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18dc42fc_ffed8b03",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-13T18:28:46Z",
+      "side": 1,
+      "message": "Line is a bit too long",
+      "range": {
+        "startLine": 42,
+        "startChar": 98,
+        "endLine": 42,
+        "endChar": 99
+      },
+      "revId": "e172e56547314bf1d930ad5bf7d9f613ea4d0abe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "58d23ae8_e1465025",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-13T18:28:46Z",
+      "side": 1,
+      "message": "Thread::Current might be slow, maybe worth passing the Thread* as an argument?",
+      "range": {
+        "startLine": 509,
+        "startChar": 17,
+        "endLine": 509,
+        "endChar": 34
+      },
+      "revId": "e172e56547314bf1d930ad5bf7d9f613ea4d0abe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78753eb8_2233f022",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1020,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-13T18:28:46Z",
+      "side": 1,
+      "message": "CHECK_EQ?",
+      "range": {
+        "startLine": 1020,
+        "startChar": 13,
+        "endLine": 1020,
+        "endChar": 15
+      },
+      "revId": "e172e56547314bf1d930ad5bf7d9f613ea4d0abe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78753eb8_42386cfa",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1040,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-13T18:28:46Z",
+      "side": 1,
+      "message": "CHECK_EQ",
+      "range": {
+        "startLine": 1040,
+        "startChar": 13,
+        "endLine": 1040,
+        "endChar": 15
+      },
+      "revId": "e172e56547314bf1d930ad5bf7d9f613ea4d0abe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38d586cf_3a89e574",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1055,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-13T18:28:46Z",
+      "side": 1,
+      "message": "Same",
+      "range": {
+        "startLine": 1055,
+        "startChar": 13,
+        "endLine": 1055,
+        "endChar": 15
+      },
+      "revId": "e172e56547314bf1d930ad5bf7d9f613ea4d0abe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18dc42fc_ca7a472f",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-13T18:28:46Z",
+      "side": 1,
+      "message": "Maybe worth using accounting::ObjectStack",
+      "range": {
+        "startLine": 181,
+        "startChar": 14,
+        "endLine": 181,
+        "endChar": 53
+      },
+      "revId": "e172e56547314bf1d930ad5bf7d9f613ea4d0abe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
