@@ -22,6 +22,30 @@
       "revId": "c767ba25cfb45b0995bc84140f26758413a414a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "187d22ed_4b10d988",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-13T23:01:50Z",
+      "side": 1,
+      "message": "I\u0027ve added logics to handle this case by unlock, sleep and lock, in patch set #7.",
+      "parentUuid": "9833d2f4_efd17d73",
+      "range": {
+        "startLine": 547,
+        "startChar": 11,
+        "endLine": 547,
+        "endChar": 35
+      },
+      "revId": "c767ba25cfb45b0995bc84140f26758413a414a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
