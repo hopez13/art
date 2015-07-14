@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "389bc68e_21c94e49",
+        "filename": "disassembler/disassembler_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-14T10:34:15Z",
+      "side": 1,
+      "message": "Done. I wasn\u0027t aware of the distinction between the two adverbs until today.",
+      "parentUuid": "b8a6d6d3_9db083fd",
+      "range": {
+        "startLine": 97,
+        "startChar": 10,
+        "endLine": 97,
+        "endChar": 22
+      },
+      "revId": "257a6acd3498ca25c69b8ac2840d653b3047d40f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "389bc68e_c11e2264",
         "filename": "test/524-checker-caller-callee-regs/src/Main.java",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-14T10:05:29Z",
       "side": 1,
       "message": "Nit: indentation is off.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 2
+      },
+      "revId": "257a6acd3498ca25c69b8ac2840d653b3047d40f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8a6d6d3_7d7ff78a",
+        "filename": "test/524-checker-caller-callee-regs/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-14T10:34:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "389bc68e_c11e2264",
       "range": {
         "startLine": 2,
         "startChar": 0,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "389bc68e_41e572c9",
+        "filename": "test/524-checker-caller-callee-regs/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-14T10:34:15Z",
+      "side": 1,
+      "message": "Done.\n\nI we have tests for all archs we could do something like\n\n/// CHECK-START:  ...\n/// CHECK-DAG:    ...\n/// CHECK-arm:    \u003ccheck the line of interest\u003e\n/// CHECK-arm64:  \u003ccheck the same line for arm64\u003e\n/// CHECK-mips64:\n/// CHECK-x86:\n/// CHECK-x86_64:\n/// CHECK:         ...\n\nto avoid having to copy paste the full block for every arch.\n\nThe issue with that is that it sometimes does not work nicely if we don\u0027t list all archs. Ideally we could express the test with\n\n/// CHECK-START:   \u003cblock for all archs\u003e\n...\n/// CHECK-arm:     \u003cspecial case for arm\u003e\n/// CHECK-x86:     \u003cspecial case for x86\u003e\n/// CHECK-others:  \u003cdefault case\u003e\n\nBut supporting such behaviours would require more logic in the checker. I stuck with the current solution because it has a minimal impact on the existing code. We can improve this arch-specific tests later if we need to.",
+      "parentUuid": "18a282bf_40a0ceaa",
+      "revId": "257a6acd3498ca25c69b8ac2840d653b3047d40f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8a4cecc_5f4aeb78",
         "filename": "test/run-test",
         "patchSetId": 7
@@ -76,6 +142,30 @@
       "writtenOn": "2015-07-14T10:05:29Z",
       "side": 1,
       "message": "Nit: indentation is off.",
+      "range": {
+        "startLine": 641,
+        "startChar": 0,
+        "endLine": 641,
+        "endChar": 1
+      },
+      "revId": "257a6acd3498ca25c69b8ac2840d653b3047d40f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d88d4a46_6e6f6f76",
+        "filename": "test/run-test",
+        "patchSetId": 7
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-14T10:34:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8a4cecc_5f4aeb78",
       "range": {
         "startLine": 641,
         "startChar": 0,
@@ -105,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "18a282bf_002526b8",
+        "filename": "tools/checker/README",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-14T10:34:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18a282bf_008be629",
+      "revId": "257a6acd3498ca25c69b8ac2840d653b3047d40f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8a6d6d3_fd8ae723",
         "filename": "tools/checker/checker.py",
         "patchSetId": 7
@@ -116,6 +224,30 @@
       "writtenOn": "2015-07-14T10:05:29Z",
       "side": 1,
       "message": "Is this actually used in this file?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 55
+      },
+      "revId": "257a6acd3498ca25c69b8ac2840d653b3047d40f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "389bc68e_01988a50",
+        "filename": "tools/checker/checker.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-14T10:34:15Z",
+      "side": 1,
+      "message": "Yes, just below when defining the `--arch` command-line argument.",
+      "parentUuid": "b8a6d6d3_fd8ae723",
       "range": {
         "startLine": 20,
         "startChar": 0,
