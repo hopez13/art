@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18a282bf_63619c07",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-14T15:38:23Z",
+      "side": 1,
+      "message": "Could you also do:\n\nif (graph_-\u003eInSsaForm()) {\n  DCHECK(predecessor is not in the exceptions successors);\n  return false;\n}\nreturn !IsFirstIndexOfPredecessor(predecessor, idx);",
+      "range": {
+        "startLine": 1168,
+        "startChar": 0,
+        "endLine": 1168,
+        "endChar": 56
+      },
+      "revId": "eb557293d7483268514af38af4117d05300c1606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
