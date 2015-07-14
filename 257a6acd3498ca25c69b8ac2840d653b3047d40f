@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8a6d6d3_9db083fd",
+        "filename": "disassembler/disassembler_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-14T10:05:29Z",
+      "side": 1,
+      "message": "Nit: purposely?",
+      "range": {
+        "startLine": 97,
+        "startChar": 10,
+        "endLine": 97,
+        "endChar": 22
+      },
+      "revId": "257a6acd3498ca25c69b8ac2840d653b3047d40f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "389bc68e_c11e2264",
+        "filename": "test/524-checker-caller-callee-regs/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-14T10:05:29Z",
+      "side": 1,
+      "message": "Nit: indentation is off.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 2
+      },
+      "revId": "257a6acd3498ca25c69b8ac2840d653b3047d40f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18a282bf_40a0ceaa",
+        "filename": "test/524-checker-caller-callee-regs/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-14T10:05:29Z",
+      "side": 1,
+      "message": "Maybe add a\n\n  TODO: Exercise other architectures as well.\n\n?  We\u0027ll take care of it.",
+      "revId": "257a6acd3498ca25c69b8ac2840d653b3047d40f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8a4cecc_5f4aeb78",
+        "filename": "test/run-test",
+        "patchSetId": 7
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-14T10:05:29Z",
+      "side": 1,
+      "message": "Nit: indentation is off.",
+      "range": {
+        "startLine": 641,
+        "startChar": 0,
+        "endLine": 641,
+        "endChar": 1
+      },
+      "revId": "257a6acd3498ca25c69b8ac2840d653b3047d40f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18a282bf_008be629",
+        "filename": "tools/checker/README",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-14T10:05:29Z",
+      "side": 1,
+      "message": "Please insert a blank line between the previous paragraph and the code example.",
+      "revId": "257a6acd3498ca25c69b8ac2840d653b3047d40f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8a6d6d3_fd8ae723",
+        "filename": "tools/checker/checker.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-14T10:05:29Z",
+      "side": 1,
+      "message": "Is this actually used in this file?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 55
+      },
+      "revId": "257a6acd3498ca25c69b8ac2840d653b3047d40f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
