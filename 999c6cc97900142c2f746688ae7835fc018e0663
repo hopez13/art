@@ -151,6 +151,29 @@
     },
     {
       "key": {
+        "uuid": "f8a4cecc_7fa5af03",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-14T16:24:09Z",
+      "side": 1,
+      "message": "Nit: remove parens.",
+      "range": {
+        "startLine": 702,
+        "startChar": 18,
+        "endLine": 702,
+        "endChar": 31
+      },
+      "revId": "999c6cc97900142c2f746688ae7835fc018e0663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "389bc68e_0439b801",
         "filename": "runtime/oat_file-inl.h",
         "patchSetId": 3
