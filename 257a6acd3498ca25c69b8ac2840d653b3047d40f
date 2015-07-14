@@ -131,6 +131,24 @@
     },
     {
       "key": {
+        "uuid": "b8a6d6d3_9d0ac328",
+        "filename": "test/524-checker-caller-callee-regs/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-14T10:36:51Z",
+      "side": 1,
+      "message": "Agreed, we can add syntactic sugar for these new constructs later.",
+      "parentUuid": "389bc68e_41e572c9",
+      "revId": "257a6acd3498ca25c69b8ac2840d653b3047d40f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8a4cecc_5f4aeb78",
         "filename": "test/run-test",
         "patchSetId": 7
@@ -248,6 +266,30 @@
       "side": 1,
       "message": "Yes, just below when defining the `--arch` command-line argument.",
       "parentUuid": "b8a6d6d3_fd8ae723",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 55
+      },
+      "revId": "257a6acd3498ca25c69b8ac2840d653b3047d40f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "389bc68e_e19c8646",
+        "filename": "tools/checker/checker.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-14T10:36:51Z",
+      "side": 1,
+      "message": "Sorry, I read this one too fast. :)",
+      "parentUuid": "389bc68e_01988a50",
       "range": {
         "startLine": 20,
         "startChar": 0,
