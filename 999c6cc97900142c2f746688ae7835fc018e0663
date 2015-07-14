@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "f8a4cecc_e2b80817",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-14T17:37:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18a282bf_4379f8a2",
+      "range": {
+        "startLine": 30,
+        "startChar": 6,
+        "endLine": 30,
+        "endChar": 27
+      },
+      "revId": "999c6cc97900142c2f746688ae7835fc018e0663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8a4cecc_c2bd0405",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-14T17:37:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d88d4a46_d18e4602",
+      "range": {
+        "startLine": 30,
+        "startChar": 31,
+        "endLine": 30,
+        "endChar": 51
+      },
+      "revId": "999c6cc97900142c2f746688ae7835fc018e0663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "389bc68e_842388e1",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2015-07-14T16:01:53Z",
       "side": 1,
       "message": "You need to ReverseSpace() unconditionally. Adding the method header could otherwise push the the pending thunk beyond the reach of relative calls (thumb2/arm64). I think passing the same parameters should be OK as the dex-to-dex\u0027d methods don\u0027t have any LinkerPatches. However, you\u0027ll need to fix the expectation that \"compiled_method-\u003eGetQuickCode() !\u003d nullptr\" in ArmBaseRelativePatcher::ReserveSpaceInternal().",
+      "range": {
+        "startLine": 539,
+        "startChar": 0,
+        "endLine": 542,
+        "endChar": 5
+      },
+      "revId": "999c6cc97900142c2f746688ae7835fc018e0663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d88d4a46_f13d0298",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-14T17:37:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "389bc68e_842388e1",
       "range": {
         "startLine": 539,
         "startChar": 0,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "f8a4cecc_3f516759",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-14T17:37:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8a4cecc_9f051384",
+      "range": {
+        "startLine": 627,
+        "startChar": 10,
+        "endLine": 627,
+        "endChar": 15
+      },
+      "revId": "999c6cc97900142c2f746688ae7835fc018e0663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18a282bf_c332a81d",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 3
@@ -105,6 +201,24 @@
       "writtenOn": "2015-07-14T16:01:53Z",
       "side": 1,
       "message": "UNREACHABLE();",
+      "revId": "999c6cc97900142c2f746688ae7835fc018e0663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8a4cecc_5f542b49",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-14T17:37:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18a282bf_c332a81d",
       "revId": "999c6cc97900142c2f746688ae7835fc018e0663",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -151,6 +265,24 @@
     },
     {
       "key": {
+        "uuid": "f8a4cecc_1f4ea3b9",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-14T17:37:38Z",
+      "side": 1,
+      "message": "The existing entry point works fine (be it null or the itnerpreter bridge), so I prefered not changing it.",
+      "parentUuid": "389bc68e_c459905d",
+      "revId": "999c6cc97900142c2f746688ae7835fc018e0663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8a4cecc_7fa5af03",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 3
@@ -185,6 +317,30 @@
       "writtenOn": "2015-07-14T17:35:08Z",
       "side": 1,
       "message": "Actually, this should be invalid. Use\n\n  wrapped \u003d ArrayRef\u003cconst uint8_t\u003e(*quick_code);\n\nI guess I should add more \"explicit\" qualifiers and fix the compile errors that come up.",
+      "parentUuid": "f8a4cecc_7fa5af03",
+      "range": {
+        "startLine": 702,
+        "startChar": 18,
+        "endLine": 702,
+        "endChar": 31
+      },
+      "revId": "999c6cc97900142c2f746688ae7835fc018e0663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "389bc68e_e4293494",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-14T17:37:38Z",
+      "side": 1,
+      "message": "Done",
       "parentUuid": "f8a4cecc_7fa5af03",
       "range": {
         "startLine": 702,
