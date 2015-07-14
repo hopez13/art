@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d88d4a46_2ead67f7",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-14T12:45:45Z",
+      "side": 1,
+      "message": "Then you could still check that in SSAChecker.",
+      "parentUuid": "18a282bf_80101658",
+      "range": {
+        "startLine": 140,
+        "startChar": 2,
+        "endLine": 140,
+        "endChar": 19
+      },
+      "revId": "a21ae3730ca029d7912e5b05257a3789a370393b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98e912d2_3f2ae387",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 9
@@ -507,6 +531,30 @@
       "side": 1,
       "message": "Are you sure? That would mean giving up on elimination of redundant catch phis altogether, unless we do it as part of some later try-catch simplification pass where we extract the candidate out of the try.",
       "parentUuid": "18d6020d_60bcd258",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 32
+      },
+      "revId": "a21ae3730ca029d7912e5b05257a3789a370393b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d88d4a46_0ea8abe6",
+        "filename": "compiler/optimizing/ssa_phi_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-14T12:45:45Z",
+      "side": 1,
+      "message": "I meant:\n\nif (phi-\u003eIsCatchPhi() \u0026\u0026 !StricltyDominates()) { ... }",
+      "parentUuid": "389bc68e_a178be6b",
       "range": {
         "startLine": 141,
         "startChar": 0,
