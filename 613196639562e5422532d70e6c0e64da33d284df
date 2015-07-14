@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d88d4a46_512976c0",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-14T14:34:07Z",
+      "side": 1,
+      "message": "I have been doing that below (starting line 373). But you\u0027re right - it makes sense to move that outside to make more explicit. (Done that)",
+      "parentUuid": "18a282bf_80d816e7",
+      "range": {
+        "startLine": 336,
+        "startChar": 2,
+        "endLine": 337,
+        "endChar": 61
+      },
+      "revId": "613196639562e5422532d70e6c0e64da33d284df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8a4cecc_7f95af0d",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-14T12:45:45Z",
       "side": 1,
       "message": "Number -\u003e The number",
+      "range": {
+        "startLine": 591,
+        "startChar": 7,
+        "endLine": 591,
+        "endChar": 13
+      },
+      "revId": "613196639562e5422532d70e6c0e64da33d284df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "389bc68e_412a120c",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-14T14:34:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8a4cecc_7f95af0d",
       "range": {
         "startLine": 591,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "18a282bf_c015fec9",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-14T14:34:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8a6d6d3_7d5ed7f3",
+      "range": {
+        "startLine": 592,
+        "startChar": 61,
+        "endLine": 592,
+        "endChar": 64
+      },
+      "revId": "613196639562e5422532d70e6c0e64da33d284df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "389bc68e_613076a2",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 10
@@ -82,6 +154,30 @@
       "writtenOn": "2015-07-14T12:45:45Z",
       "side": 1,
       "message": "Why?",
+      "range": {
+        "startLine": 1163,
+        "startChar": 59,
+        "endLine": 1164,
+        "endChar": 28
+      },
+      "revId": "613196639562e5422532d70e6c0e64da33d284df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8a6d6d3_9d240373",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1164,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-14T14:34:07Z",
+      "side": 1,
+      "message": "Example code:\n\n  :initial_block\n  \u003csome instructions\u003e\n  \n  # fallthrough into the catch block\n  # try entry here\n\n  :catch_all\n  :try_start\n    \u003cmore instructions\u003e\n  :try_end\n  .catchall { :try_start .. :try_end }, :catch_all\n\nBefore catch blocks are simplified, the catch block is both the TryBoundary\u0027s normal successor and an exception handler of the try. Therefore, it appears in the list of this block\u0027s predecessors twice.",
+      "parentUuid": "389bc68e_613076a2",
       "range": {
         "startLine": 1163,
         "startChar": 59,
@@ -140,6 +236,54 @@
     },
     {
       "key": {
+        "uuid": "d88d4a46_d1eac6e9",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-14T14:34:07Z",
+      "side": 1,
+      "message": "I meant \"we will consider the first occurrence to be the normal edge and a second occurrence (if it is also an exception handler) to be the exceptional edge\".",
+      "parentUuid": "d88d4a46_0e7a6be6",
+      "range": {
+        "startLine": 1165,
+        "startChar": 28,
+        "endLine": 1165,
+        "endChar": 31
+      },
+      "revId": "613196639562e5422532d70e6c0e64da33d284df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "389bc68e_618cf6ba",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-14T14:34:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "389bc68e_a1479ef1",
+      "range": {
+        "startLine": 1165,
+        "startChar": 66,
+        "endLine": 1165,
+        "endChar": 75
+      },
+      "revId": "613196639562e5422532d70e6c0e64da33d284df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18a282bf_e0f12263",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 10
@@ -151,6 +295,30 @@
       "writtenOn": "2015-07-14T12:45:45Z",
       "side": 1,
       "message": "I don\u0027t understand the last part of this sentence.",
+      "range": {
+        "startLine": 1165,
+        "startChar": 44,
+        "endLine": 1166,
+        "endChar": 24
+      },
+      "revId": "613196639562e5422532d70e6c0e64da33d284df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d88d4a46_71159277",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1166,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-14T14:34:07Z",
+      "side": 1,
+      "message": "explained above",
+      "parentUuid": "18a282bf_e0f12263",
       "range": {
         "startLine": 1165,
         "startChar": 44,
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "18a282bf_805db6bf",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1170,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-14T14:34:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8a4cecc_1f8c6307",
+      "range": {
+        "startLine": 1170,
+        "startChar": 7,
+        "endLine": 1170,
+        "endChar": 10
+      },
+      "revId": "613196639562e5422532d70e6c0e64da33d284df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18a282bf_40e20e9d",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 10
@@ -197,6 +389,30 @@
       "writtenOn": "2015-07-14T12:45:45Z",
       "side": 1,
       "message": "Why this change? Drop the const if it makes you do this.",
+      "range": {
+        "startLine": 2012,
+        "startChar": 9,
+        "endLine": 2012,
+        "endChar": 42
+      },
+      "revId": "613196639562e5422532d70e6c0e64da33d284df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8a4cecc_1f3ea393",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 2012,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-14T14:34:07Z",
+      "side": 1,
+      "message": "Not ideal, i know. It\u0027s about being able to call HasExceptionHandler from const methods, in this particular case from a DCHECK in IsExceptionalPredecessor. HasExceptionHandler gets a const-friendly interface and hides the fact that the successors are stored as non-const.\n\nI\u0027d love to change GrowableArray::Contains to take \"const T\" but that doesn\u0027t seem to work when T is a pointer type.",
+      "parentUuid": "18a282bf_40e20e9d",
       "range": {
         "startLine": 2012,
         "startChar": 9,
