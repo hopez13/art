@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "389bc68e_842388e1",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-14T16:01:53Z",
+      "side": 1,
+      "message": "You need to ReverseSpace() unconditionally. Adding the method header could otherwise push the the pending thunk beyond the reach of relative calls (thumb2/arm64). I think passing the same parameters should be OK as the dex-to-dex\u0027d methods don\u0027t have any LinkerPatches. However, you\u0027ll need to fix the expectation that \"compiled_method-\u003eGetQuickCode() !\u003d nullptr\" in ArmBaseRelativePatcher::ReserveSpaceInternal().",
+      "range": {
+        "startLine": 539,
+        "startChar": 0,
+        "endLine": 542,
+        "endChar": 5
+      },
+      "revId": "999c6cc97900142c2f746688ae7835fc018e0663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8a4cecc_9f051384",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-14T16:01:53Z",
+      "side": 1,
+      "message": "INTERNAL_FATAL",
+      "range": {
+        "startLine": 627,
+        "startChar": 10,
+        "endLine": 627,
+        "endChar": 15
+      },
+      "revId": "999c6cc97900142c2f746688ae7835fc018e0663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18a282bf_c332a81d",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-14T16:01:53Z",
+      "side": 1,
+      "message": "UNREACHABLE();",
+      "revId": "999c6cc97900142c2f746688ae7835fc018e0663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "389bc68e_04509831",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-14T16:01:53Z",
+      "side": 1,
+      "message": "Style: Don\u0027t use \"else\", just put it on a new line.",
+      "range": {
+        "startLine": 633,
+        "startChar": 5,
+        "endLine": 633,
+        "endChar": 11
+      },
+      "revId": "999c6cc97900142c2f746688ae7835fc018e0663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "389bc68e_c459905d",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-14T16:01:53Z",
+      "side": 1,
+      "message": "else set to nullptr? Or is that unnecessary?",
+      "revId": "999c6cc97900142c2f746688ae7835fc018e0663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "389bc68e_0439b801",
+        "filename": "runtime/oat_file-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-14T16:01:53Z",
+      "side": 1,
+      "message": "Nice catch! (ODR violation, no diagnostic required)",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 6
+      },
+      "revId": "999c6cc97900142c2f746688ae7835fc018e0663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

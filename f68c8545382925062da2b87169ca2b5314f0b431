@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "389bc68e_8464a819",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-14T16:01:53Z",
+      "side": 0,
+      "message": "This was odd, given that InitCodeMethodVisitor used to assert that it\u0027s not nullptr.",
+      "range": {
+        "startLine": 692,
+        "startChar": 10,
+        "endLine": 692,
+        "endChar": 31
+      },
+      "revId": "f68c8545382925062da2b87169ca2b5314f0b431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
