@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "389bc68e_c4d750e8",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-14T17:55:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d88d4a46_11ed2e88",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 34
+      },
+      "revId": "b5276fc0615365b78c4f2f7c16e38c34c197fafc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "389bc68e_24303cef",
         "filename": "compiler/linker/arm/relative_patcher_arm_base.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-14T17:46:06Z",
       "side": 1,
       "message": "This bit can be reverted thanks to the changes in CompiledCode.",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 48
+      },
+      "revId": "b5276fc0615365b78c4f2f7c16e38c34c197fafc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8a6d6d3_40eb30ef",
+        "filename": "compiler/linker/arm/relative_patcher_arm_base.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-14T17:55:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "389bc68e_24303cef",
       "range": {
         "startLine": 87,
         "startChar": 0,
