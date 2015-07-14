@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8a4cecc_5f442b1b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-14T13:11:24Z",
+      "side": 1,
+      "message": "Who needs this and could we move it to nodes.cc?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 39
+      },
+      "revId": "7fe628bd391f49e521a20302f5c1e8a61d44ceae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8a6d6d3_ddc84b1d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3815,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-14T13:11:24Z",
+      "side": 1,
+      "message": "Why does it need it now?",
+      "range": {
+        "startLine": 3815,
+        "startChar": 48,
+        "endLine": 3815,
+        "endChar": 93
+      },
+      "revId": "7fe628bd391f49e521a20302f5c1e8a61d44ceae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8a4cecc_dfc83b1d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 4065,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-14T13:11:24Z",
+      "side": 1,
+      "message": "This sounds like an artifact of the RTP implementation wanting a bottom type for its fixed point calculation. Could we avoid leaking the implementation to nodes.h?",
+      "range": {
+        "startLine": 4058,
+        "startChar": 0,
+        "endLine": 4065,
+        "endChar": 2
+      },
+      "revId": "7fe628bd391f49e521a20302f5c1e8a61d44ceae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d88d4a46_f1cee2a0",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-14T13:11:24Z",
+      "side": 1,
+      "message": "missing 2 space indent.",
+      "range": {
+        "startLine": 289,
+        "startChar": 0,
+        "endLine": 289,
+        "endChar": 6
+      },
+      "revId": "7fe628bd391f49e521a20302f5c1e8a61d44ceae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8a6d6d3_3de28f9c",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-14T13:11:24Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 297,
+        "startChar": 0,
+        "endLine": 297,
+        "endChar": 6
+      },
+      "revId": "7fe628bd391f49e521a20302f5c1e8a61d44ceae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
