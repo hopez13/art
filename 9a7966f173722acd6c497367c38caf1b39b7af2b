@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "18a282bf_a337a40b",
+        "filename": "disassembler/disassembler_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-14T15:49:45Z",
+      "side": 1,
+      "message": "For example in test 521, the arm disassembler gives:\n\n    0x00000060: f8d9e1cc  ldr.w   lr, [r9, #460]  ; pAputObject\n\nand the arm64 disassembler gives:\n\n    0x00000098: f9417a7e\tldr lr, [tr, #752] (pAputObject)\n\nand we would fail to match\n\n    /// CHECK:          pAputObject\n\nat test/521-checker-array-set-null/src/Main.java:31",
+      "parentUuid": "389bc68e_816eda26",
+      "range": {
+        "startLine": 100,
+        "startChar": 23,
+        "endLine": 100,
+        "endChar": 25
+      },
+      "revId": "9a7966f173722acd6c497367c38caf1b39b7af2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8a6d6d3_3d43afc5",
         "filename": "test/run-test",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-14T15:06:04Z",
       "side": 1,
       "message": "Do we need this?",
+      "range": {
+        "startLine": 637,
+        "startChar": 0,
+        "endLine": 637,
+        "endChar": 22
+      },
+      "revId": "9a7966f173722acd6c497367c38caf1b39b7af2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d88d4a46_31fcea68",
+        "filename": "test/run-test",
+        "patchSetId": 8
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-14T15:49:45Z",
+      "side": 1,
+      "message": "Yes.\nThis size seems to be sufficient. Otherwise I have hit situations where only part of the .cfg file was retrieved and we would fail checker tests.",
+      "parentUuid": "b8a6d6d3_3d43afc5",
       "range": {
         "startLine": 637,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "389bc68e_84fa68b1",
+        "filename": "test/run-test",
+        "patchSetId": 8
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-14T15:49:45Z",
+      "side": 1,
+      "message": "This was mistakenly left over after the rebase on top of the jack-and-jill changes.",
+      "parentUuid": "f8a4cecc_ff341f6c",
+      "range": {
+        "startLine": 639,
+        "startChar": 0,
+        "endLine": 639,
+        "endChar": 39
+      },
+      "revId": "9a7966f173722acd6c497367c38caf1b39b7af2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18a282bf_a3c20479",
         "filename": "test/run-test",
         "patchSetId": 8
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "b8a6d6d3_5dcf9bcf",
+        "filename": "test/run-test",
+        "patchSetId": 8
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-14T15:49:45Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "18a282bf_a3c20479",
+      "range": {
+        "startLine": 663,
+        "startChar": 0,
+        "endLine": 663,
+        "endChar": 59
+      },
+      "revId": "9a7966f173722acd6c497367c38caf1b39b7af2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d88d4a46_91383edb",
         "filename": "tools/checker/file_format/checker/parser.py",
         "patchSetId": 8
@@ -105,6 +201,30 @@
       "writtenOn": "2015-07-14T15:06:04Z",
       "side": 1,
       "message": "Remove this? It should be set by the command line logic.",
+      "range": {
+        "startLine": 170,
+        "startChar": 62,
+        "endLine": 170,
+        "endChar": 66
+      },
+      "revId": "9a7966f173722acd6c497367c38caf1b39b7af2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8a4cecc_bfe7b75e",
+        "filename": "tools/checker/file_format/checker/parser.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-14T15:49:45Z",
+      "side": 1,
+      "message": "The argument is not always provided, for example when running tests.",
+      "parentUuid": "d88d4a46_91383edb",
       "range": {
         "startLine": 170,
         "startChar": 62,
