@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "f8a4cecc_3f7967a4",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-14T15:32:15Z",
+      "side": 1,
+      "message": "Thank you! That seems to be the reason for the compilation crashes.",
+      "parentUuid": "f8d84e3c_ff74fff5",
+      "range": {
+        "startLine": 397,
+        "startChar": 0,
+        "endLine": 407,
+        "endChar": 7
+      },
+      "revId": "f075879649686e59b7a9065c5a061dbfdcdfbecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18d6020d_2091eaa6",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 2
@@ -107,6 +131,30 @@
       "writtenOn": "2015-07-13T17:36:23Z",
       "side": 1,
       "message": "This is wrong for Thumb2 for dex-to-dex\u0027d methods (quick_code_offset\u003d0, thumb_offset\u003d1).",
+      "range": {
+        "startLine": 420,
+        "startChar": 6,
+        "endLine": 420,
+        "endChar": 62
+      },
+      "revId": "f075879649686e59b7a9065c5a061dbfdcdfbecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18a282bf_40332efe",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-14T15:32:15Z",
+      "side": 1,
+      "message": "Yes, that\u0027s why I am now using kArm as an instruction set to ensure we\u0027re not going into the thumb code delta workaround.",
+      "parentUuid": "18d6020d_2091eaa6",
       "range": {
         "startLine": 420,
         "startChar": 6,
