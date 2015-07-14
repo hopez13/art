@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "b8a6d6d3_7d47f721",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-14T14:34:07Z",
+      "side": 1,
+      "message": "I do - I test that catch blocks are not normal successors. I can add a SSAChecker::VisitTryBoundary and test it in the opposite direction too, if you want.",
+      "parentUuid": "d88d4a46_2ead67f7",
+      "range": {
+        "startLine": 140,
+        "startChar": 2,
+        "endLine": 140,
+        "endChar": 19
+      },
+      "revId": "a21ae3730ca029d7912e5b05257a3789a370393b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "98e912d2_3f2ae387",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 9
@@ -567,6 +591,30 @@
     },
     {
       "key": {
+        "uuid": "389bc68e_c142a2e3",
+        "filename": "compiler/optimizing/ssa_phi_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-14T14:34:07Z",
+      "side": 1,
+      "message": "Ah, ok. Done",
+      "parentUuid": "d88d4a46_0ea8abe6",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 32
+      },
+      "revId": "a21ae3730ca029d7912e5b05257a3789a370393b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38cf4674_8415687a",
         "filename": "test/510-checker-try-catch/smali/SsaBuilder.smali",
         "patchSetId": 9
@@ -673,6 +721,30 @@
       "side": 1,
       "message": "This sounds like a good idea!",
       "parentUuid": "f8a4cecc_dfd27bfa",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 57
+      },
+      "revId": "a21ae3730ca029d7912e5b05257a3789a370393b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d88d4a46_d16d66fb",
+        "filename": "test/510-checker-try-catch/smali/SsaBuilder.smali",
+        "patchSetId": 9
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-14T14:34:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d88d4a46_11dd2e52",
       "range": {
         "startLine": 60,
         "startChar": 0,
