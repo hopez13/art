@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f8a4cecc_a214407c",
+        "filename": "compiler/linker/arm/relative_patcher_arm_base.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-14T17:57:56Z",
+      "side": 0,
+      "message": "Nit: This meaningless DCHECK can also be re-added.",
+      "range": {
+        "startLine": 87,
+        "startChar": 2,
+        "endLine": 87,
+        "endChar": 53
+      },
+      "revId": "f68c8545382925062da2b87169ca2b5314f0b431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "389bc68e_8464a819",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 3
