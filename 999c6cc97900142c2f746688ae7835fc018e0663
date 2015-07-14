@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "18a282bf_4379f8a2",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-14T16:22:20Z",
+      "side": 1,
+      "message": "Get rid of the always true \"quick_code !\u003d nullptr\". And since SetCode() is used only from the constructor, you can just move the code there.",
+      "range": {
+        "startLine": 30,
+        "startChar": 6,
+        "endLine": 30,
+        "endChar": 27
+      },
+      "revId": "999c6cc97900142c2f746688ae7835fc018e0663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d88d4a46_d18e4602",
+        "filename": "compiler/compiled_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-14T16:22:20Z",
+      "side": 1,
+      "message": "Maybe it would be easier to remove this condition and simply allow quick_code_-\u003eempty() \u003d\u003d true.",
+      "range": {
+        "startLine": 30,
+        "startChar": 31,
+        "endLine": 30,
+        "endChar": 51
+      },
+      "revId": "999c6cc97900142c2f746688ae7835fc018e0663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "389bc68e_842388e1",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 3
