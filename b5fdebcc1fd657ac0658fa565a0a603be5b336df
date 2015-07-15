@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3837466d_44e800f1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-15T18:53:00Z",
+      "side": 1,
+      "message": "That approach doesn\u0027t seem to always work:\n\n  A \u003d create-lambda\n  B \u003d [mem]copy A (e.g. via a return or a field store)\n  X \u003d box A // write box into A\u0027s stack slot\n  Y \u003d box B // write box into B\u0027s stack slot\n  assert (X \u003d\u003d Y) // fails\n\nLet me know if you want to talk about this and we can set something up (or just use a few mins in Monday\u0027s meeting). It\u0027s certainly possible there\u0027s even a better way to do this.\n\nFWIW we are kind of tied by spec for object referential equality so we have to do it *somehow*.",
+      "parentUuid": "18f0c2db_50bf8ca9",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 44
+      },
+      "revId": "b5fdebcc1fd657ac0658fa565a0a603be5b336df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3837466d_a1cd3e2b",
         "filename": "runtime/lambda/box_table.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-15T15:21:56Z",
       "side": 1,
       "message": "What other errors do you expect? Otherwise, check for OOM explicitly (there is an Assert..., I believe)?",
+      "range": {
+        "startLine": 64,
+        "startChar": 7,
+        "endLine": 64,
+        "endChar": 18
+      },
+      "revId": "b5fdebcc1fd657ac0658fa565a0a603be5b336df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8404ed5_bf8f9780",
+        "filename": "runtime/lambda/box_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-15T18:53:00Z",
+      "side": 1,
+      "message": "So this is the same exact code I had in a previous CL, I just moved it here and added the extra map code :).\n\nIf you want I can clean up CreateFromArtMethod to have documented as \"if this returns null there\u0027s always an OOM exception\" and then it would be a sane invariant to check.",
+      "parentUuid": "3837466d_a1cd3e2b",
       "range": {
         "startLine": 64,
         "startChar": 7,
@@ -117,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "f8404ed5_3f9ce7b5",
+        "filename": "runtime/lambda/box_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-15T18:53:00Z",
+      "side": 1,
+      "message": "Thanks, I didn\u0027t think Hash_Set::Erase preserves the order of the elements (C++11\u0027s unordered_set doesn\u0027t, only C++14) as described\n\n(the only example in hash_set_test erased every element so that wasn\u0027t clear either)",
+      "parentUuid": "187d22ed_5c8b3d76",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 147,
+        "endChar": 39
+      },
+      "revId": "b5fdebcc1fd657ac0658fa565a0a603be5b336df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8404ed5_bfb0f7fc",
         "filename": "runtime/lambda/box_table.h",
         "patchSetId": 1
@@ -128,6 +200,30 @@
       "writtenOn": "2015-07-15T15:21:56Z",
       "side": 1,
       "message": "Unusual to add this comment. You did not add it to Object...",
+      "range": {
+        "startLine": 28,
+        "startChar": 18,
+        "endLine": 28,
+        "endChar": 40
+      },
+      "revId": "b5fdebcc1fd657ac0658fa565a0a603be5b336df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3837466d_842048d5",
+        "filename": "runtime/lambda/box_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-15T18:53:00Z",
+      "side": 1,
+      "message": "Must have forgot.\n\nI\u0027ve seen this style before \"//forward declaration\" so I was just copying that.\n\nAnyway, in the new world hopefully we can just use _fwd.h to get around this boilerplate.",
+      "parentUuid": "f8404ed5_bfb0f7fc",
       "range": {
         "startLine": 28,
         "startChar": 18,
@@ -163,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "5834fa65_a2b1be52",
+        "filename": "runtime/lambda/box_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-15T18:53:00Z",
+      "side": 1,
+      "message": "Thanks.. looks like I\u0027m also missing GUARDED_BY for the map_",
+      "parentUuid": "3837466d_21e28e9c",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 51,
+        "endChar": 50
+      },
+      "revId": "b5fdebcc1fd657ac0658fa565a0a603be5b336df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5834fa65_827cba95",
         "filename": "runtime/lambda/box_table.h",
         "patchSetId": 1
@@ -174,6 +294,30 @@
       "writtenOn": "2015-07-15T15:21:56Z",
       "side": 1,
       "message": "Stale comment? Otherwise a TODO maybe?",
+      "range": {
+        "startLine": 61,
+        "startChar": 2,
+        "endLine": 61,
+        "endChar": 53
+      },
+      "revId": "b5fdebcc1fd657ac0658fa565a0a603be5b336df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5834fa65_62bc1626",
+        "filename": "runtime/lambda/box_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-15T18:53:00Z",
+      "side": 1,
+      "message": "Thanks, I meant to delete RegisterBoxedLambda and must have forgot.",
+      "parentUuid": "5834fa65_827cba95",
       "range": {
         "startLine": 61,
         "startChar": 2,
@@ -209,6 +353,30 @@
     },
     {
       "key": {
+        "uuid": "3837466d_446b20e6",
+        "filename": "runtime/lambda/box_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-15T18:53:00Z",
+      "side": 1,
+      "message": "I blame lint",
+      "parentUuid": "183e024a_20792aa4",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 0
+      },
+      "revId": "b5fdebcc1fd657ac0658fa565a0a603be5b336df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "183e024a_e0fb4289",
         "filename": "runtime/lambda/box_table.h",
         "patchSetId": 1
@@ -220,6 +388,30 @@
       "writtenOn": "2015-07-15T15:21:56Z",
       "side": 1,
       "message": "Maybe a short explanation of why you set it to half the regular value?",
+      "range": {
+        "startLine": 91,
+        "startChar": 2,
+        "endLine": 91,
+        "endChar": 55
+      },
+      "revId": "b5fdebcc1fd657ac0658fa565a0a603be5b336df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8404ed5_df905ba5",
+        "filename": "runtime/lambda/box_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-15T18:53:00Z",
+      "side": 1,
+      "message": "It\u0027s just an arbitrary value, I figured setting it to the min load factor would be too aggressive if something immediately starts erasing elements.\n\nWe could also move this into hash_set if it makes more sense to put it there (like e.g. MaybeShrink())",
+      "parentUuid": "183e024a_e0fb4289",
       "range": {
         "startLine": 91,
         "startChar": 2,
