@@ -62,6 +62,24 @@
       "revId": "b8b7410cf79c6c94dd3ee48452878c82a5b2d283",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "183e024a_467566ee",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-15T23:31:34Z",
+      "side": 1,
+      "message": "You are right of course, and that would save 4 bits.\nBut I just kept it since it makes the code more regular.\n\nIf we need the extra bits, I will cleanup. Deal? :-)",
+      "parentUuid": "f8404ed5_281d8f93",
+      "revId": "b8b7410cf79c6c94dd3ee48452878c82a5b2d283",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
