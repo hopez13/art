@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "985112ab_dc0b8daf",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-15T13:45:33Z",
+      "side": 1,
+      "message": "Not the ideal way but I don\u0027t want to generalize the prefix handling yet. I\u0027m happy to get suggestions.",
+      "range": {
+        "startLine": 400,
+        "startChar": 7,
+        "endLine": 400,
+        "endChar": 37
+      },
+      "revId": "3eb05779d5c2b71df11fc7380a1e0b26384296bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "985112ab_fc10c9db",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-15T13:45:33Z",
+      "side": 1,
+      "message": "I\u0027ll follow up in another CL. Right now it makes my life easier when merging with the other CL. Same for the other TODO.",
+      "range": {
+        "startLine": 285,
+        "startChar": 10,
+        "endLine": 287,
+        "endChar": 64
+      },
+      "revId": "3eb05779d5c2b71df11fc7380a1e0b26384296bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
