@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "38e906fb_3143f0c5",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-15T14:44:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18f0c2db_f0fb2089",
+      "range": {
+        "startLine": 142,
+        "startChar": 50,
+        "endLine": 142,
+        "endChar": 61
+      },
+      "revId": "eb557293d7483268514af38af4117d05300c1606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d8470aeb_9e841d18",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-15T10:14:13Z",
       "side": 1,
       "message": "-\u003e, therefore we only test normal flow successors in SsaChecker.",
+      "range": {
+        "startLine": 143,
+        "startChar": 23,
+        "endLine": 143,
+        "endChar": 72
+      },
+      "revId": "eb557293d7483268514af38af4117d05300c1606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18f0c2db_b08a3871",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-15T14:44:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8470aeb_9e841d18",
       "range": {
         "startLine": 143,
         "startChar": 23,
@@ -119,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "b8fdf6c1_45cfcacf",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-15T14:44:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18f0c2db_1076a4b4",
+      "range": {
+        "startLine": 1168,
+        "startChar": 0,
+        "endLine": 1168,
+        "endChar": 56
+      },
+      "revId": "eb557293d7483268514af38af4117d05300c1606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "985112ab_3c17114e",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 11
@@ -130,6 +202,30 @@
       "writtenOn": "2015-07-15T10:14:13Z",
       "side": 1,
       "message": "Add comments here why you need to do this before TransformToSSA.",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 33
+      },
+      "revId": "eb557293d7483268514af38af4117d05300c1606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8470aeb_be055983",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-15T14:44:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "985112ab_3c17114e",
       "range": {
         "startLine": 186,
         "startChar": 0,
@@ -165,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "18f0c2db_b3a12285",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-15T14:44:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "985112ab_9c1e6563",
+      "range": {
+        "startLine": 740,
+        "startChar": 7,
+        "endLine": 740,
+        "endChar": 31
+      },
+      "revId": "eb557293d7483268514af38af4117d05300c1606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18f0c2db_500d4c3d",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 11
@@ -188,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "985112ab_3c9cf1b5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-15T14:44:55Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "18f0c2db_500d4c3d",
+      "range": {
+        "startLine": 743,
+        "startChar": 7,
+        "endLine": 743,
+        "endChar": 29
+      },
+      "revId": "eb557293d7483268514af38af4117d05300c1606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38e906fb_713978dd",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 11
@@ -199,6 +343,30 @@
       "writtenOn": "2015-07-15T10:14:13Z",
       "side": 1,
       "message": "This needs comments. Should you DCHECK that idx 0 is a normal flow successor?",
+      "range": {
+        "startLine": 745,
+        "startChar": 36,
+        "endLine": 745,
+        "endChar": 46
+      },
+      "revId": "eb557293d7483268514af38af4117d05300c1606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8470aeb_7ef831f1",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-15T14:44:55Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "38e906fb_713978dd",
       "range": {
         "startLine": 745,
         "startChar": 36,
