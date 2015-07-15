@@ -45,6 +45,23 @@
       "revId": "b8b7410cf79c6c94dd3ee48452878c82a5b2d283",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8404ed5_281d8f93",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-07-15T23:27:10Z",
+      "side": 1,
+      "message": "The void type doesn\u0027t need to be part of this.",
+      "revId": "b8b7410cf79c6c94dd3ee48452878c82a5b2d283",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
