@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "78f7fee1_865eec41",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-15T15:06:37Z",
+      "side": 1,
+      "message": "I don\u0027t know why this is done for the conflict type. But this isn\u0027t necessary, you have \"undefined.\"",
+      "range": {
+        "startLine": 593,
+        "startChar": 4,
+        "endLine": 596,
+        "endChar": 25
+      },
+      "revId": "fadb5cd81ece6c56bb3debd73944ba7ed73c8672",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
