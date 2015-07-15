@@ -116,6 +116,24 @@
       "revId": "b8b7410cf79c6c94dd3ee48452878c82a5b2d283",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3837466d_2aeb43f0",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-15T23:47:02Z",
+      "side": 1,
+      "message": "That is a good point. Probably not.\n\n(note that the early bail-out is already a lot less useful since we need a write/read of every kind; in fact, I would vote to remove the optimization altogether",
+      "parentUuid": "183e024a_89ee21fe",
+      "revId": "b8b7410cf79c6c94dd3ee48452878c82a5b2d283",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
