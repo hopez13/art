@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8470aeb_61641019",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-15T16:51:07Z",
+      "side": 1,
+      "message": "Late comment: maybe hoist the upper bound value:\n\n  for (size_t i \u003d 0, e \u003d block-\u003eNumberOfNormalSuccessors(); i \u003c e; ++i) {\n  // ...\n\n?",
+      "range": {
+        "startLine": 256,
+        "startChar": 4,
+        "endLine": 256,
+        "endChar": 68
+      },
+      "revId": "ffee3d33f3ea39aa6031c3d2ff29c4806c8dcc51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8470aeb_c15e4443",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-15T16:51:07Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 266,
+        "startChar": 4,
+        "endLine": 266,
+        "endChar": 96
+      },
+      "revId": "ffee3d33f3ea39aa6031c3d2ff29c4806c8dcc51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
