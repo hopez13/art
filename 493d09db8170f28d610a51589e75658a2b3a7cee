@@ -118,6 +118,30 @@
       "revId": "493d09db8170f28d610a51589e75658a2b3a7cee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f80beea6_079d566a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-15T10:55:10Z",
+      "side": 1,
+      "message": "Okay, don\u0027t know about that. But I guess my point is that something with write and read (or set/get to stay in HIR terms) reflects the actual side effect at each place better (a write and a read create a true dependence, but I find it confusing to use the depends term for the read).",
+      "parentUuid": "d8470aeb_5eebf5a0",
+      "range": {
+        "startLine": 7,
+        "startChar": 49,
+        "endLine": 7,
+        "endChar": 56
+      },
+      "revId": "493d09db8170f28d610a51589e75658a2b3a7cee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
