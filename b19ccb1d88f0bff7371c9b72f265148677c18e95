@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "183e024a_03c9901e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-07-15T21:08:31Z",
+      "side": 1,
+      "message": "Is this true? Runnable threads no longer hold the shared mutator lock?",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 11,
+        "endChar": 27
+      },
+      "revId": "b19ccb1d88f0bff7371c9b72f265148677c18e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3837466d_e7dcb657",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-07-15T21:08:31Z",
+      "side": 1,
+      "message": "I think this corresponds to the old ReferenceProcessor::PreserveSoftReferenceCallback() and it didn\u0027t have a CAS. So, it seems ok (i.e., preserving the old behavior). And the new comment sounds valid.\n\nWe could have retained DCHECK(new_obj !\u003d nullptr) from PreserveSoftReferenceCallback()?",
+      "range": {
+        "startLine": 76,
+        "startChar": 24,
+        "endLine": 76,
+        "endChar": 41
+      },
+      "revId": "b19ccb1d88f0bff7371c9b72f265148677c18e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8404ed5_8561260a",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-07-15T21:08:31Z",
+      "side": 1,
+      "message": "So I didn\u0027t follow the JNI CL, but is this supposed to have about the same latency as before? Is there a chance that the worst case latency could be longer?",
+      "range": {
+        "startLine": 384,
+        "startChar": 2,
+        "endLine": 384,
+        "endChar": 20
+      },
+      "revId": "b19ccb1d88f0bff7371c9b72f265148677c18e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
