@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8fdf6c1_e597d621",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-15T10:32:28Z",
+      "side": 1,
+      "message": "Could we avoid using this terminology for side effects? def-use already applies for SSA and I find it confusing if we add another use of it.",
+      "range": {
+        "startLine": 7,
+        "startChar": 49,
+        "endLine": 7,
+        "endChar": 56
+      },
+      "revId": "493d09db8170f28d610a51589e75658a2b3a7cee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
