@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "389bc68e_615ab6c7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-15T14:01:12Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "f8a4cecc_5f442b1b",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 39
+      },
+      "revId": "7fe628bd391f49e521a20302f5c1e8a61d44ceae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8a6d6d3_ddc84b1d",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-14T13:11:24Z",
       "side": 1,
       "message": "Why does it need it now?",
+      "range": {
+        "startLine": 3815,
+        "startChar": 48,
+        "endLine": 3815,
+        "endChar": 93
+      },
+      "revId": "7fe628bd391f49e521a20302f5c1e8a61d44ceae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "389bc68e_2154ae96",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3815,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-15T14:01:12Z",
+      "side": 1,
+      "message": "fixed in ps2",
+      "parentUuid": "b8a6d6d3_ddc84b1d",
       "range": {
         "startLine": 3815,
         "startChar": 48,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f8a4cecc_5ffe6b2e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 4065,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-15T14:01:12Z",
+      "side": 1,
+      "message": "It\u0027s an artifact of using HBoundType for a) bound nulls b) bound reference type. We could get around this by injecting an exact java.lang.Object type as the bound type for a).",
+      "parentUuid": "f8a4cecc_dfc83b1d",
+      "range": {
+        "startLine": 4058,
+        "startChar": 0,
+        "endLine": 4065,
+        "endChar": 2
+      },
+      "revId": "7fe628bd391f49e521a20302f5c1e8a61d44ceae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d88d4a46_f1cee2a0",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "f8a4cecc_bfe697a9",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-15T14:01:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d88d4a46_f1cee2a0",
+      "range": {
+        "startLine": 289,
+        "startChar": 0,
+        "endLine": 289,
+        "endChar": 6
+      },
+      "revId": "7fe628bd391f49e521a20302f5c1e8a61d44ceae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8a6d6d3_3de28f9c",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2015-07-14T13:11:24Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 297,
+        "startChar": 0,
+        "endLine": 297,
+        "endChar": 6
+      },
+      "revId": "7fe628bd391f49e521a20302f5c1e8a61d44ceae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8a4cecc_9febd371",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-15T14:01:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8a6d6d3_3de28f9c",
       "range": {
         "startLine": 297,
         "startChar": 0,
