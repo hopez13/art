@@ -80,6 +80,24 @@
       "revId": "b8b7410cf79c6c94dd3ee48452878c82a5b2d283",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5834fa65_8807fbcf",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-07-15T23:43:14Z",
+      "side": 1,
+      "message": "Maybe adding a DCHECK just in case somewhere we try to set that flag.",
+      "parentUuid": "183e024a_467566ee",
+      "revId": "b8b7410cf79c6c94dd3ee48452878c82a5b2d283",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
