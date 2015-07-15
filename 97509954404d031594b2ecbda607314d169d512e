@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f8404ed5_e58032d7",
+        "filename": "runtime/gc/collector/concurrent_copying.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-15T21:51:56Z",
+      "side": 1,
+      "message": "Its not required, but done.",
+      "parentUuid": "183e024a_6395fc0d",
+      "range": {
+        "startLine": 124,
+        "startChar": 7,
+        "endLine": 124,
+        "endChar": 23
+      },
+      "revId": "97509954404d031594b2ecbda607314d169d512e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8404ed5_228ff0ff",
         "filename": "runtime/gc/collector/garbage_collector.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-15T20:55:46Z",
       "side": 1,
       "message": "at compile time?",
+      "range": {
+        "startLine": 184,
+        "startChar": 60,
+        "endLine": 184,
+        "endChar": 72
+      },
+      "revId": "97509954404d031594b2ecbda607314d169d512e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "183e024a_a31544ca",
+        "filename": "runtime/gc/collector/garbage_collector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-15T21:51:56Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "f8404ed5_228ff0ff",
       "range": {
         "startLine": 184,
         "startChar": 60,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3837466d_677f468b",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-15T21:51:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3837466d_242dbc49",
+      "range": {
+        "startLine": 145,
+        "startChar": 11,
+        "endLine": 145,
+        "endChar": 14
+      },
+      "revId": "97509954404d031594b2ecbda607314d169d512e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "78f7fee1_5b78bee7",
         "filename": "runtime/gc/collector/mark_sweep.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-07-15T20:55:46Z",
       "side": 1,
       "message": "Would it make sense to move these to the header file for potential inlining?",
+      "range": {
+        "startLine": 501,
+        "startChar": 0,
+        "endLine": 508,
+        "endChar": 1
+      },
+      "revId": "97509954404d031594b2ecbda607314d169d512e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5834fa65_05ad14f6",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-15T21:51:56Z",
+      "side": 1,
+      "message": "Moved MarkObject, it isn\u0027t hot though, since the one with the holder and offset is normally used.",
+      "parentUuid": "78f7fee1_5b78bee7",
       "range": {
         "startLine": 501,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "5834fa65_c505ec82",
+        "filename": "runtime/gc/collector/mark_sweep.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-15T21:51:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78f7fee1_0f50c831",
+      "range": {
+        "startLine": 208,
+        "startChar": 13,
+        "endLine": 208,
+        "endChar": 17
+      },
+      "revId": "97509954404d031594b2ecbda607314d169d512e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "183e024a_23b614c6",
         "filename": "runtime/gc/reference_queue.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2015-07-15T20:55:46Z",
       "side": 1,
       "message": "It looks like this used to be an IsHeapReferenceMarkedCallback call but now it\u0027s MarkHeapReference call. Did this preserve the behavior?",
+      "range": {
+        "startLine": 191,
+        "startChar": 15,
+        "endLine": 191,
+        "endChar": 32
+      },
+      "revId": "97509954404d031594b2ecbda607314d169d512e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78f7fee1_7bdc9587",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-15T21:51:56Z",
+      "side": 1,
+      "message": "The new behavior is correct, the old callback was an IsMarked callback which performed marking. The behavior should be a conditional mark if the SoftReference is supposed to be preserved.",
+      "parentUuid": "183e024a_23b614c6",
       "range": {
         "startLine": 191,
         "startChar": 15,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "5834fa65_65bc2026",
+        "filename": "runtime/gc/reference_queue.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-15T21:51:56Z",
+      "side": 1,
+      "message": "Was considering that, but it seems like the current approach is OK for now. Maybe I will change it if I add more unit tests.",
+      "parentUuid": "5834fa65_65474022",
+      "range": {
+        "startLine": 72,
+        "startChar": 45,
+        "endLine": 72,
+        "endChar": 61
+      },
+      "revId": "97509954404d031594b2ecbda607314d169d512e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5834fa65_05c9941e",
         "filename": "runtime/gc/reference_queue.h",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2015-07-15T20:55:46Z",
       "side": 1,
       "message": "An alternative would be to declare IsMarkedHeapReferenceVisitor.",
+      "range": {
+        "startLine": 84,
+        "startChar": 39,
+        "endLine": 84,
+        "endChar": 55
+      },
+      "revId": "97509954404d031594b2ecbda607314d169d512e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "183e024a_63497ce3",
+        "filename": "runtime/gc/reference_queue.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-15T21:51:56Z",
+      "side": 1,
+      "message": "Same",
+      "parentUuid": "5834fa65_05c9941e",
       "range": {
         "startLine": 84,
         "startChar": 39,
