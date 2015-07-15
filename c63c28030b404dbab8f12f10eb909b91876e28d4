@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "985112ab_bc0a4128",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-15T10:08:15Z",
+      "side": 1,
+      "message": "Maybe we could drop the `const\u0027 on art::HInstruction::side_effects_ to make instruction modifications (such as this one) easier (we don\u0027t have `const\u0027 qualifiers on other fields of art::HInstruction).   Nicolas, what do you think?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 43
+      },
+      "revId": "c63c28030b404dbab8f12f10eb909b91876e28d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "985112ab_7c0d993d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 4424,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-15T10:08:15Z",
+      "side": 1,
+      "message": "What about nesting these instructions in an arm64 namespace?",
+      "range": {
+        "startLine": 4424,
+        "startChar": 3,
+        "endLine": 4424,
+        "endChar": 31
+      },
+      "revId": "c63c28030b404dbab8f12f10eb909b91876e28d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18f0c2db_b005981c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 4428,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-15T10:08:15Z",
+      "side": 1,
+      "message": "Stray character?",
+      "range": {
+        "startLine": 4428,
+        "startChar": 49,
+        "endLine": 4428,
+        "endChar": 50
+      },
+      "revId": "c63c28030b404dbab8f12f10eb909b91876e28d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
