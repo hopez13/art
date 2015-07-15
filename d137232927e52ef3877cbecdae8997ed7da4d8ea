@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "183e024a_03e3d055",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-15T21:45:43Z",
+      "side": 1,
+      "message": "Slightly rephrased, also point towards the DCHECK on entry now.",
+      "parentUuid": "d88d4a46_ae5957d2",
+      "range": {
+        "startLine": 696,
+        "startChar": 64,
+        "endLine": 696,
+        "endChar": 91
+      },
+      "revId": "d137232927e52ef3877cbecdae8997ed7da4d8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8a4cecc_5f0d4b3d",
         "filename": "runtime/verifier/reg_type.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-14T10:58:59Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 698,
+        "startChar": 55,
+        "endLine": 698,
+        "endChar": 91
+      },
+      "revId": "d137232927e52ef3877cbecdae8997ed7da4d8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5834fa65_25c618ac",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-15T21:45:43Z",
+      "side": 1,
+      "message": "Whole comment removed. We decided to not go there, as it isn\u0027t necessary to enforce that stronger constraint.",
+      "parentUuid": "f8a4cecc_5f0d4b3d",
       "range": {
         "startLine": 698,
         "startChar": 55,
