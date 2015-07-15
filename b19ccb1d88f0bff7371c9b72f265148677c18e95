@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "78f7fee1_fb05251b",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-15T21:52:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3837466d_e7dcb657",
+      "range": {
+        "startLine": 76,
+        "startChar": 24,
+        "endLine": 76,
+        "endChar": 41
+      },
+      "revId": "b19ccb1d88f0bff7371c9b72f265148677c18e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8404ed5_8561260a",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 3
