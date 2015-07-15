@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "78f7fee1_1b07e68e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-07-15T20:55:46Z",
+      "side": 0,
+      "message": "I assume this was dead code.",
+      "range": {
+        "startLine": 735,
+        "startChar": 14,
+        "endLine": 735,
+        "endChar": 26
+      },
+      "revId": "c6f3439b67962584cfb764133e192c3317f0e1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5834fa65_c56e4c79",
+        "filename": "runtime/gc/collector/mark_sweep.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-07-15T20:55:46Z",
+      "side": 0,
+      "message": "This was dead code?",
+      "range": {
+        "startLine": 223,
+        "startChar": 14,
+        "endLine": 223,
+        "endChar": 36
+      },
+      "revId": "c6f3439b67962584cfb764133e192c3317f0e1fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
