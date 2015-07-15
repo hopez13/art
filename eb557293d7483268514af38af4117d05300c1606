@@ -22,6 +22,30 @@
       "revId": "eb557293d7483268514af38af4117d05300c1606",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38e906fb_f1b3283a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-15T04:29:20Z",
+      "side": 1,
+      "message": "I\u0027m not so sure that\u0027s worthwhile because (a) this function is used only by the catch block simplification pass (so not InSsaForm), and (b) if I start differentiating between non-SSA/SSA then I might as well start the function with:\n\n  if (graph_-\u003eInSsaForm()) {\n    DCHECK(everything)\n    return IsCatchBlock();\n  }\n\nbecause only catch blocks have exceptional predecessors after simplification.",
+      "parentUuid": "18a282bf_63619c07",
+      "range": {
+        "startLine": 1168,
+        "startChar": 0,
+        "endLine": 1168,
+        "endChar": 56
+      },
+      "revId": "eb557293d7483268514af38af4117d05300c1606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
