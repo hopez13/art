@@ -98,6 +98,24 @@
       "revId": "b8b7410cf79c6c94dd3ee48452878c82a5b2d283",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "183e024a_89ee21fe",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-07-15T23:44:39Z",
+      "side": 1,
+      "message": "Actually will DoesAll() ever happen if we keep it in?",
+      "parentUuid": "5834fa65_8807fbcf",
+      "revId": "b8b7410cf79c6c94dd3ee48452878c82a5b2d283",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
