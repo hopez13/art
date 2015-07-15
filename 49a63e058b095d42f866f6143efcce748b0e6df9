@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "3837466d_27eb7ef0",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-07-15T21:56:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98e912d2_3c583100",
+      "range": {
+        "startLine": 924,
+        "startChar": 2,
+        "endLine": 924,
+        "endChar": 40
+      },
+      "revId": "49a63e058b095d42f866f6143efcce748b0e6df9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8d84e3c_1f98c350",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 6
@@ -83,6 +107,30 @@
       "writtenOn": "2015-07-13T12:07:24Z",
       "side": 1,
       "message": "Merge with the ADD above?",
+      "range": {
+        "startLine": 932,
+        "startChar": 2,
+        "endLine": 932,
+        "endChar": 42
+      },
+      "revId": "49a63e058b095d42f866f6143efcce748b0e6df9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78753eb8_a7c5d2a0",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-07-15T21:56:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8d84e3c_1f98c350",
       "range": {
         "startLine": 932,
         "startChar": 2,
@@ -118,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "58d23ae8_a16da8fb",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-07-15T21:56:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38cf4674_8180fad2",
+      "range": {
+        "startLine": 943,
+        "startChar": 2,
+        "endLine": 943,
+        "endChar": 57
+      },
+      "revId": "49a63e058b095d42f866f6143efcce748b0e6df9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18d6020d_60069229",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 6
@@ -129,6 +201,30 @@
       "writtenOn": "2015-07-13T12:07:24Z",
       "side": 1,
       "message": "HS (i.e. CS) is the correct condition, though I guess the allocation of a String with 2GiB data would fail, so PL is essentially the same.",
+      "range": {
+        "startLine": 945,
+        "startChar": 14,
+        "endLine": 945,
+        "endChar": 16
+      },
+      "revId": "49a63e058b095d42f866f6143efcce748b0e6df9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18dc42fc_6aed5b87",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-07-15T21:56:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18d6020d_60069229",
       "range": {
         "startLine": 945,
         "startChar": 14,
