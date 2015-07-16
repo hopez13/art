@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "f8404ed5_b3003074",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-07-16T20:07:48Z",
+      "side": 1,
+      "message": "I didn\u0027t mean to commit this, sorry about that!",
+      "parentUuid": "b8fdf6c1_cb6e29ab",
+      "range": {
+        "startLine": 262,
+        "startChar": 3,
+        "endLine": 262,
+        "endChar": 5
+      },
+      "revId": "6f6a37ac106afc4d38950cc394268b29dea12f6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "985112ab_02342e18",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 7
@@ -82,6 +106,30 @@
       "writtenOn": "2015-07-16T12:51:45Z",
       "side": 1,
       "message": "Nit: I just discovered DCHECK_ALIGNED thanks to Mathieu; use it here as well?",
+      "range": {
+        "startLine": 945,
+        "startChar": 2,
+        "endLine": 945,
+        "endChar": 36
+      },
+      "revId": "6f6a37ac106afc4d38950cc394268b29dea12f6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5834fa65_964abc76",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-07-16T20:07:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "985112ab_02342e18",
       "range": {
         "startLine": 945,
         "startChar": 2,
