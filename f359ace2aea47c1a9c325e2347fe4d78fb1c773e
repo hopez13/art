@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8fdf6c1_6b23b5e2",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-16T10:26:30Z",
+      "side": 1,
+      "message": "Looks like you\u0027re fixing a bug here. Make that in another CL?",
+      "range": {
+        "startLine": 451,
+        "startChar": 0,
+        "endLine": 457,
+        "endChar": 16
+      },
+      "revId": "f359ace2aea47c1a9c325e2347fe4d78fb1c773e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8470aeb_c13de47b",
+        "filename": "runtime/thread.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-16T10:26:30Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 829,
+        "startChar": 0,
+        "endLine": 830,
+        "endChar": 50
+      },
+      "revId": "f359ace2aea47c1a9c325e2347fe4d78fb1c773e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
