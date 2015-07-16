@@ -189,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "5834fa65_050c34ad",
+        "filename": "runtime/lambda/box_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-16T20:41:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8404ed5_3f9ce7b5",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 147,
+        "endChar": 39
+      },
+      "revId": "b5fdebcc1fd657ac0658fa565a0a603be5b336df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8404ed5_bfb0f7fc",
         "filename": "runtime/lambda/box_table.h",
         "patchSetId": 1
@@ -224,6 +248,30 @@
       "side": 1,
       "message": "Must have forgot.\n\nI\u0027ve seen this style before \"//forward declaration\" so I was just copying that.\n\nAnyway, in the new world hopefully we can just use _fwd.h to get around this boilerplate.",
       "parentUuid": "f8404ed5_bfb0f7fc",
+      "range": {
+        "startLine": 28,
+        "startChar": 18,
+        "endLine": 28,
+        "endChar": 40
+      },
+      "revId": "b5fdebcc1fd657ac0658fa565a0a603be5b336df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3837466d_c789722e",
+        "filename": "runtime/lambda/box_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-16T20:41:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3837466d_842048d5",
       "range": {
         "startLine": 28,
         "startChar": 18,
@@ -283,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "183e024a_e30b4caf",
+        "filename": "runtime/lambda/box_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-16T20:41:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5834fa65_a2b1be52",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 51,
+        "endChar": 50
+      },
+      "revId": "b5fdebcc1fd657ac0658fa565a0a603be5b336df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5834fa65_827cba95",
         "filename": "runtime/lambda/box_table.h",
         "patchSetId": 1
@@ -330,6 +402,30 @@
     },
     {
       "key": {
+        "uuid": "f8404ed5_c57f2e5a",
+        "filename": "runtime/lambda/box_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-16T20:41:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5834fa65_62bc1626",
+      "range": {
+        "startLine": 61,
+        "startChar": 2,
+        "endLine": 61,
+        "endChar": 53
+      },
+      "revId": "b5fdebcc1fd657ac0658fa565a0a603be5b336df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "183e024a_20792aa4",
         "filename": "runtime/lambda/box_table.h",
         "patchSetId": 1
@@ -365,6 +461,30 @@
       "side": 1,
       "message": "I blame lint",
       "parentUuid": "183e024a_20792aa4",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 0
+      },
+      "revId": "b5fdebcc1fd657ac0658fa565a0a603be5b336df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "183e024a_031190dd",
+        "filename": "runtime/lambda/box_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-16T20:41:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3837466d_446b20e6",
       "range": {
         "startLine": 69,
         "startChar": 0,
