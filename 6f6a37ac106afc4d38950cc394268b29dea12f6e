@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8fdf6c1_0b8c4107",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-16T12:51:45Z",
+      "side": 1,
+      "message": "Nice!",
+      "range": {
+        "startLine": 21,
+        "startChar": 35,
+        "endLine": 21,
+        "endChar": 40
+      },
+      "revId": "6f6a37ac106afc4d38950cc394268b29dea12f6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8fdf6c1_cb6e29ab",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-16T12:51:45Z",
+      "side": 1,
+      "message": "I also like to have `-O0\u0027 in debug mode as it make debugging easier, but does everybody in the teem agree?  It would probably slow the tests down a lot.",
+      "range": {
+        "startLine": 262,
+        "startChar": 3,
+        "endLine": 262,
+        "endChar": 5
+      },
+      "revId": "6f6a37ac106afc4d38950cc394268b29dea12f6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "985112ab_02342e18",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-16T12:51:45Z",
+      "side": 1,
+      "message": "Nit: I just discovered DCHECK_ALIGNED thanks to Mathieu; use it here as well?",
+      "range": {
+        "startLine": 945,
+        "startChar": 2,
+        "endLine": 945,
+        "endChar": 36
+      },
+      "revId": "6f6a37ac106afc4d38950cc394268b29dea12f6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
