@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "985112ab_3f7b8335",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-16T10:13:39Z",
+      "side": 1,
+      "message": "Done (here and in ELEMENT_BIT_OFFSET_FROM).",
+      "parentUuid": "985112ab_ff6e7baa",
+      "range": {
+        "startLine": 876,
+        "startChar": 28,
+        "endLine": 876,
+        "endChar": 35
+      },
+      "revId": "7f5f40a5e1d78cf305650c8b9115ca1d3b7c7677",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18f0c2db_b6847017",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 876,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-16T10:13:39Z",
+      "side": 1,
+      "message": "Done (here and in ELEMENT_BIT_OFFSET_FROM).",
+      "parentUuid": "b8fdf6c1_4846bfd5",
+      "range": {
+        "startLine": 876,
+        "startChar": 23,
+        "endLine": 876,
+        "endChar": 27
+      },
+      "revId": "7f5f40a5e1d78cf305650c8b9115ca1d3b7c7677",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "985112ab_9f73b791",
         "filename": "runtime/stack_map.h",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-07-16T08:08:26Z",
       "side": 1,
       "message": "Move this closer to ELEMENT_OFFSET_FROM?",
+      "range": {
+        "startLine": 1164,
+        "startChar": 0,
+        "endLine": 1164,
+        "endChar": 88
+      },
+      "revId": "7f5f40a5e1d78cf305650c8b9115ca1d3b7c7677",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8fdf6c1_68573b50",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1164,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-16T10:13:39Z",
+      "side": 1,
+      "message": "I\u0027ve put them both near the top of the file.",
+      "parentUuid": "985112ab_9f73b791",
       "range": {
         "startLine": 1164,
         "startChar": 0,
