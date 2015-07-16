@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "982af212_57474e21",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-16T17:57:32Z",
+      "side": 1,
+      "message": "yes Sir!",
+      "parentUuid": "18f0c2db_f62438be",
+      "range": {
+        "startLine": 15,
+        "startChar": 13,
+        "endLine": 15,
+        "endChar": 60
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "985112ab_a27a1a6b",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "183e024a_cf242974",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1169,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-16T17:57:32Z",
+      "side": 1,
+      "message": "That\u0027s what I was implying with the points-to comment. I have hopefully made that a bit more clear. I am giving the improvement some thought!",
+      "parentUuid": "d8470aeb_c1d2c4c8",
+      "range": {
+        "startLine": 1158,
+        "startChar": 0,
+        "endLine": 1169,
+        "endChar": 75
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18f0c2db_f68af823",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -82,6 +130,30 @@
       "writtenOn": "2015-07-16T09:43:25Z",
       "side": 1,
       "message": "Nit: I\u0027d drop \u0027This\u0027 or \u0027ThisType\u0027. \u0027Of\u0027 is already telling enough.",
+      "range": {
+        "startLine": 1188,
+        "startChar": 33,
+        "endLine": 1188,
+        "endChar": 41
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "982af212_f7c8da1c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-16T17:57:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18f0c2db_f68af823",
       "range": {
         "startLine": 1188,
         "startChar": 33,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "183e024a_6f339db0",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1210,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-16T17:57:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "985112ab_bf6eb377",
+      "range": {
+        "startLine": 1210,
+        "startChar": 7,
+        "endLine": 1210,
+        "endChar": 16
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38e906fb_347e3e25",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -128,6 +224,30 @@
       "writtenOn": "2015-07-16T09:43:25Z",
       "side": 1,
       "message": "DoesAnyRead?",
+      "range": {
+        "startLine": 1215,
+        "startChar": 7,
+        "endLine": 1215,
+        "endChar": 15
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8404ed5_391ddf93",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1215,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-16T17:57:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38e906fb_347e3e25",
       "range": {
         "startLine": 1215,
         "startChar": 7,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "3837466d_90a3a238",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-16T17:57:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "985112ab_5f744f46",
+      "range": {
+        "startLine": 1220,
+        "startChar": 7,
+        "endLine": 1220,
+        "endChar": 15
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8fdf6c1_88615734",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -174,6 +318,30 @@
       "writtenOn": "2015-07-16T09:43:25Z",
       "side": 1,
       "message": "DoesReadAndWrite?",
+      "range": {
+        "startLine": 1225,
+        "startChar": 7,
+        "endLine": 1225,
+        "endChar": 14
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8404ed5_591a239d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-16T17:57:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8fdf6c1_88615734",
       "range": {
         "startLine": 1225,
         "startChar": 7,
@@ -209,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "5834fa65_765db8bc",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-16T17:57:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38e906fb_77c2882b",
+      "range": {
+        "startLine": 1261,
+        "startChar": 53,
+        "endLine": 1261,
+        "endChar": 56
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38e906fb_147b3a35",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -220,6 +412,30 @@
       "writtenOn": "2015-07-16T09:43:25Z",
       "side": 1,
       "message": "DoesAnyWrite?",
+      "range": {
+        "startLine": 1537,
+        "startChar": 7,
+        "endLine": 1537,
+        "endChar": 16
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8404ed5_f938d7ff",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1537,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-16T17:57:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38e906fb_147b3a35",
       "range": {
         "startLine": 1537,
         "startChar": 7,
