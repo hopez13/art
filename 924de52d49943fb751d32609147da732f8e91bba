@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "18f0c2db_f62438be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-16T15:36:45Z",
+      "side": 1,
+      "message": "make sure you rebase after that one is submitted and remove this comment:)",
+      "range": {
+        "startLine": 15,
+        "startChar": 13,
+        "endLine": 15,
+        "endChar": 60
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "985112ab_a27a1a6b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1160,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-16T15:36:45Z",
+      "side": 1,
+      "message": "nit: I don\u0027t think we use \u003cp\u003e in the comments.",
+      "range": {
+        "startLine": 1160,
+        "startChar": 2,
+        "endLine": 1160,
+        "endChar": 6
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d8470aeb_c1d2c4c8",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -133,6 +179,29 @@
         "startChar": 7,
         "endLine": 1225,
         "endChar": 14
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38e906fb_77c2882b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-16T15:36:45Z",
+      "side": 1,
+      "message": "offset",
+      "range": {
+        "startLine": 1261,
+        "startChar": 53,
+        "endLine": 1261,
+        "endChar": 56
       },
       "revId": "924de52d49943fb751d32609147da732f8e91bba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
