@@ -134,6 +134,24 @@
       "revId": "b8b7410cf79c6c94dd3ee48452878c82a5b2d283",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8d41638_10f8ea3d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-16T02:58:06Z",
+      "side": 1,
+      "message": "Actually you convinced me already that I should add the CHECK and remove the V from the bits. Coming up....",
+      "parentUuid": "5834fa65_8807fbcf",
+      "revId": "b8b7410cf79c6c94dd3ee48452878c82a5b2d283",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
