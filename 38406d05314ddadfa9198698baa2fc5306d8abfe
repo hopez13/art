@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18f0c2db_99b07ffd",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-16T18:05:08Z",
+      "side": 1,
+      "message": "Note that we could again update users of parent dominated by the null check. Are we doing this somewhere? If yes, please add a comment.",
+      "range": {
+        "startLine": 451,
+        "startChar": 0,
+        "endLine": 451,
+        "endChar": 44
+      },
+      "revId": "38406d05314ddadfa9198698baa2fc5306d8abfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "985112ab_222a8a0b",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-16T18:05:08Z",
+      "side": 1,
+      "message": "Sorry, I fail to see why the algorithm depends on which block users are.",
+      "range": {
+        "startLine": 502,
+        "startChar": 0,
+        "endLine": 505,
+        "endChar": 49
+      },
+      "revId": "38406d05314ddadfa9198698baa2fc5306d8abfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "985112ab_821d9eee",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-16T18:05:08Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 547,
+        "startChar": 80,
+        "endLine": 547,
+        "endChar": 84
+      },
+      "revId": "38406d05314ddadfa9198698baa2fc5306d8abfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
