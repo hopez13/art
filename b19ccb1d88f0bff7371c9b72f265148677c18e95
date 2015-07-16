@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "183e024a_4976d9b5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-07-16T00:25:48Z",
+      "side": 1,
+      "message": "Hm, I have an impression that it could be potentially leaky/error-prone.\n\nWhat happens if a mutator thread calls Locks::mutator_lock_-\u003eSharedUnlock(self) and then Locks::mutator_lock_-\u003eSharedLock(self) when it pretends to hold the shared mutator lock? Does it actually hold the lock now?\n\nIs there a way to avoid the need to pretend?",
+      "parentUuid": "3837466d_c75e5243",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 11,
+        "endChar": 27
+      },
+      "revId": "b19ccb1d88f0bff7371c9b72f265148677c18e95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3837466d_e7dcb657",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 3
