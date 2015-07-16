@@ -354,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "3837466d_f0dd4e8a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-16T20:57:39Z",
+      "side": 1,
+      "message": "On second thought, write and read is too weak, since it means we do every possible type of access pattern (and is used for the bail-out only). So I guess DoesAll with DoesNothing seems nice and symmetric.",
+      "parentUuid": "f8404ed5_591a239d",
+      "range": {
+        "startLine": 1225,
+        "startChar": 7,
+        "endLine": 1225,
+        "endChar": 14
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38e906fb_77c2882b",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
