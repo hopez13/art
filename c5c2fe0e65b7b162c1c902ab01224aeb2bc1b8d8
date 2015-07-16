@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58823a52_5210d456",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 1233,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-16T21:17:04Z",
+      "side": 1,
+      "message": "Just talked a bit with Calin offline, and it is not clear yet when e.g. primitive J-D mixes will be resolved. To get the code in to avoid bit-rot this is a temporary fall back to the 2-bit (depends/changes) test. Once we are type clean, we can use the new code!",
+      "range": {
+        "startLine": 1233,
+        "startChar": 13,
+        "endLine": 1233,
+        "endChar": 16
+      },
+      "revId": "c5c2fe0e65b7b162c1c902ab01224aeb2bc1b8d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
