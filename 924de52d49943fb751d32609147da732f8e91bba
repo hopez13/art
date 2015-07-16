@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8470aeb_c1d2c4c8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1169,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-16T09:43:25Z",
+      "side": 1,
+      "message": "There could also be reference type disambiguation when the reference types are unrelated. Maybe worth mentioning it and thinking about how this would fit with the current design.",
+      "range": {
+        "startLine": 1158,
+        "startChar": 0,
+        "endLine": 1169,
+        "endChar": 75
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18f0c2db_f68af823",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1188,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-16T09:43:25Z",
+      "side": 1,
+      "message": "Nit: I\u0027d drop \u0027This\u0027 or \u0027ThisType\u0027. \u0027Of\u0027 is already telling enough.",
+      "range": {
+        "startLine": 1188,
+        "startChar": 33,
+        "endLine": 1188,
+        "endChar": 41
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "985112ab_bf6eb377",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1210,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-16T09:43:25Z",
+      "side": 1,
+      "message": "DoesAnyWrite?",
+      "range": {
+        "startLine": 1210,
+        "startChar": 7,
+        "endLine": 1210,
+        "endChar": 16
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38e906fb_347e3e25",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1215,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-16T09:43:25Z",
+      "side": 1,
+      "message": "DoesAnyRead?",
+      "range": {
+        "startLine": 1215,
+        "startChar": 7,
+        "endLine": 1215,
+        "endChar": 15
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "985112ab_5f744f46",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1220,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-16T09:43:25Z",
+      "side": 1,
+      "message": "DoesNothing?",
+      "range": {
+        "startLine": 1220,
+        "startChar": 7,
+        "endLine": 1220,
+        "endChar": 15
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8fdf6c1_88615734",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-16T09:43:25Z",
+      "side": 1,
+      "message": "DoesReadAndWrite?",
+      "range": {
+        "startLine": 1225,
+        "startChar": 7,
+        "endLine": 1225,
+        "endChar": 14
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38e906fb_147b3a35",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1537,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-16T09:43:25Z",
+      "side": 1,
+      "message": "DoesAnyWrite?",
+      "range": {
+        "startLine": 1537,
+        "startChar": 7,
+        "endLine": 1537,
+        "endChar": 16
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "985112ab_1f7ec724",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 3945,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-16T09:43:25Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 3945,
+        "startChar": 64,
+        "endLine": 3945,
+        "endChar": 104
+      },
+      "revId": "924de52d49943fb751d32609147da732f8e91bba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
