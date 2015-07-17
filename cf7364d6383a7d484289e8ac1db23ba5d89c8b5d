@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f88e8e7f_a41e9862",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-17T22:27:25Z",
+      "side": 1,
+      "message": "Please either rename this (if you\u0027d want to keep the checks in after a fix), or put it into its own CL (so after fixing you can properly revert it).",
+      "range": {
+        "startLine": 449,
+        "startChar": 0,
+        "endLine": 466,
+        "endChar": 1
+      },
+      "revId": "cf7364d6383a7d484289e8ac1db23ba5d89c8b5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
