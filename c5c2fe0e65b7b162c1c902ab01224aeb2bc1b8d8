@@ -22,6 +22,30 @@
       "revId": "c5c2fe0e65b7b162c1c902ab01224aeb2bc1b8d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18d1a28c_08ee47ff",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 1233,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-17T09:06:05Z",
+      "side": 1,
+      "message": "How about just submitting the renaming then, if you want to submit it now? (not a big fan of submitting #if 0..)\n\nFixing the primitive problem should I think be trivial after Calin\u0027s CLs by just getting the parameters right.",
+      "parentUuid": "58823a52_5210d456",
+      "range": {
+        "startLine": 1233,
+        "startChar": 13,
+        "endLine": 1233,
+        "endChar": 16
+      },
+      "revId": "c5c2fe0e65b7b162c1c902ab01224aeb2bc1b8d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
