@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "38dae6a9_698f05ff",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4089,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-17T17:18:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "985112ab_22892aaa",
+      "range": {
+        "startLine": 4089,
+        "startChar": 0,
+        "endLine": 4089,
+        "endChar": 63
+      },
+      "revId": "03957647a33022451e5e283bccb7236811c140fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8fdf6c1_6b6e152a",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-16T17:54:23Z",
       "side": 1,
       "message": "As discussed, we should probably come up with a better name for this. upper_bound_ comes to mind.",
+      "range": {
+        "startLine": 4097,
+        "startChar": 0,
+        "endLine": 4097,
+        "endChar": 38
+      },
+      "revId": "03957647a33022451e5e283bccb7236811c140fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "58aebafa_d2f5047d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4097,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-17T17:18:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8fdf6c1_6b6e152a",
       "range": {
         "startLine": 4097,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "18d1a28c_28d86be5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4101,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-17T17:18:30Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "d8470aeb_04d3daff",
+      "range": {
+        "startLine": 4101,
+        "startChar": 0,
+        "endLine": 4101,
+        "endChar": 32
+      },
+      "revId": "03957647a33022451e5e283bccb7236811c140fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d8470aeb_c4dc120d",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2015-07-16T17:54:23Z",
       "side": 1,
       "message": "Checks -\u003e Check",
+      "range": {
+        "startLine": 104,
+        "startChar": 3,
+        "endLine": 104,
+        "endChar": 9
+      },
+      "revId": "03957647a33022451e5e283bccb7236811c140fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8d3ee93_47b30ed5",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-17T17:18:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8470aeb_c4dc120d",
       "range": {
         "startLine": 104,
         "startChar": 3,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "58d79a7e_6a3377fe",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-17T17:18:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8fdf6c1_4b6b5918",
+      "range": {
+        "startLine": 105,
+        "startChar": 62,
+        "endLine": 106,
+        "endChar": 28
+      },
+      "revId": "03957647a33022451e5e283bccb7236811c140fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38e906fb_173e9c93",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2015-07-16T17:54:23Z",
       "side": 1,
       "message": "You should probably add more comments around the load_class parameter.\n\nI would restructure the code with:\n\nif (!user-\u003eIsBoundType()) {\n  return true;\n}\n\n...",
+      "range": {
+        "startLine": 116,
+        "startChar": 10,
+        "endLine": 116,
+        "endChar": 31
+      },
+      "revId": "03957647a33022451e5e283bccb7236811c140fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b89c16d9_ed7ae56b",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-17T17:18:30Z",
+      "side": 1,
+      "message": "obsolete. i passed the RTI along for clearer code.",
+      "parentUuid": "38e906fb_173e9c93",
       "range": {
         "startLine": 116,
         "startChar": 10,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "b817b6fa_155bf402",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-17T17:18:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18f0c2db_b932231c",
+      "range": {
+        "startLine": 243,
+        "startChar": 13,
+        "endLine": 243,
+        "endChar": 67
+      },
+      "revId": "03957647a33022451e5e283bccb7236811c140fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18f0c2db_99375f0c",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 4
@@ -174,6 +342,30 @@
       "writtenOn": "2015-07-16T17:54:23Z",
       "side": 1,
       "message": "Inline this in the call to CreateBoundType?",
+      "range": {
+        "startLine": 244,
+        "startChar": 10,
+        "endLine": 244,
+        "endChar": 41
+      },
+      "revId": "03957647a33022451e5e283bccb7236811c140fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38dae6a9_e973f58f",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-17T17:18:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18f0c2db_99375f0c",
       "range": {
         "startLine": 244,
         "startChar": 10,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "f8ba0e36_4fb32dd5",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-17T17:18:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8470aeb_64c2de2b",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 338,
+        "endChar": 40
+      },
+      "revId": "03957647a33022451e5e283bccb7236811c140fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38e906fb_f7c31800",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 4
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "b89c16d9_0d92d126",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-17T17:18:30Z",
+      "side": 1,
+      "message": "i forgot to extend the check to BoundTypes.",
+      "parentUuid": "38e906fb_f7c31800",
+      "range": {
+        "startLine": 483,
+        "startChar": 2,
+        "endLine": 483,
+        "endChar": 23
+      },
+      "revId": "03957647a33022451e5e283bccb7236811c140fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8fdf6c1_0b7561ef",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 4
@@ -243,6 +483,30 @@
       "writtenOn": "2015-07-16T17:54:23Z",
       "side": 1,
       "message": "Can\u0027t happen...",
+      "range": {
+        "startLine": 490,
+        "startChar": 0,
+        "endLine": 490,
+        "endChar": 36
+      },
+      "revId": "03957647a33022451e5e283bccb7236811c140fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "58d79a7e_4a3033f0",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-17T17:18:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8fdf6c1_0b7561ef",
       "range": {
         "startLine": 490,
         "startChar": 0,
