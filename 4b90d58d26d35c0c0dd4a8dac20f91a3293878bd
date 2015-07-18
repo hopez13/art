@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "188c4286_578c3b08",
+        "filename": "runtime/lambda/box_table.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-18T01:53:42Z",
+      "side": 1,
+      "message": "Why not map_.Erase(map_iterator)?",
+      "range": {
+        "startLine": 171,
+        "startChar": 32,
+        "endLine": 171,
+        "endChar": 50
+      },
+      "revId": "4b90d58d26d35c0c0dd4a8dac20f91a3293878bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "787a9e34_25470271",
+        "filename": "runtime/lambda/box_table.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-18T01:53:42Z",
+      "side": 1,
+      "message": "CHECK_EQ",
+      "range": {
+        "startLine": 204,
+        "startChar": 2,
+        "endLine": 204,
+        "endChar": 7
+      },
+      "revId": "4b90d58d26d35c0c0dd4a8dac20f91a3293878bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
