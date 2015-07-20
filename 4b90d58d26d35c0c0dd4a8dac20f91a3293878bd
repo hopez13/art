@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "786d3eb3_5343a4c3",
+        "filename": "runtime/base/hash_set.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-20T20:50:58Z",
+      "side": 1,
+      "message": "Inconsistent. You access the field directly just above. Change one or the other.",
+      "range": {
+        "startLine": 382,
+        "startChar": 17,
+        "endLine": 382,
+        "endChar": 29
+      },
+      "revId": "4b90d58d26d35c0c0dd4a8dac20f91a3293878bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "188c4286_578c3b08",
         "filename": "runtime/lambda/box_table.cc",
         "patchSetId": 3
@@ -41,6 +64,52 @@
         "startChar": 2,
         "endLine": 204,
         "endChar": 7
+      },
+      "revId": "4b90d58d26d35c0c0dd4a8dac20f91a3293878bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d83d4aa0_2e5a47c6",
+        "filename": "test/955-lambda-smali/smali/BoxUnbox.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-20T20:50:58Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 161,
+        "startChar": 13,
+        "endLine": 161,
+        "endChar": 15
+      },
+      "revId": "4b90d58d26d35c0c0dd4a8dac20f91a3293878bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "383666c8_89ddf98b",
+        "filename": "test/955-lambda-smali/smali/BoxUnbox.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-20T20:50:58Z",
+      "side": 1,
+      "message": "Period.",
+      "range": {
+        "startLine": 161,
+        "startChar": 91,
+        "endLine": 161,
+        "endChar": 92
       },
       "revId": "4b90d58d26d35c0c0dd4a8dac20f91a3293878bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
