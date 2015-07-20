@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0d0ec228_d78c1cc0",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1236,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-20T23:41:43Z",
+      "side": 1,
+      "message": "Actually you convinced me already :-)\n\nFor example\n\nfor (i ..) {\n      a[i] \u003d mVolatile;\n      b[i] \u003d mNormal\n}\n\nshould not lift the mNormal out of the loop (which would be done with a \"does mNormal depend on anything in the loop\" query), since it could break the happens-before from another thread the writes mNormal and then mVolatile, to the read of of mVolatile and then read of mNormal",
+      "parentUuid": "185442e3_d932671d",
+      "range": {
+        "startLine": 1236,
+        "startChar": 10,
+        "endLine": 1236,
+        "endChar": 20
+      },
+      "revId": "483bc4f851044639c32f0527056783c76f79de02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "78429e31_eeb67f47",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
