@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "185442e3_d932671d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1236,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-20T23:10:09Z",
+      "side": 1,
+      "message": "It suffices for the cases where side effects is used (only potential write-read dependences)\n\nSince a volatile read basically invalidates the \"cache\", we know that any prior write has a potential dependence with anything after at or after the volatile read. Likewise, since a volatile write flushes the \"cache\", we know that any subsequent read may depend on anything at or before that write.\n\nIf the fact that others may start using this in the wrong way worries you, I am happy to make this an All() instead in both cases. It won\u0027t have a very adverse affect.",
+      "parentUuid": "383666c8_4fd22147",
+      "range": {
+        "startLine": 1236,
+        "startChar": 10,
+        "endLine": 1236,
+        "endChar": 20
+      },
+      "revId": "483bc4f851044639c32f0527056783c76f79de02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "78429e31_eeb67f47",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
