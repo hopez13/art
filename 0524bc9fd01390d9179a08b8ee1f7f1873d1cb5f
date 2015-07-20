@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "38b10658_11a2ecfc",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-20T14:17:58Z",
+      "side": 1,
+      "message": "we -\u003e upper_bound",
+      "range": {
+        "startLine": 139,
+        "startChar": 16,
+        "endLine": 139,
+        "endChar": 18
+      },
+      "revId": "0524bc9fd01390d9179a08b8ee1f7f1873d1cb5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18b8c23c_d0617c33",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-20T14:17:58Z",
+      "side": 1,
+      "message": "drop \u0027just\u0027",
+      "range": {
+        "startLine": 139,
+        "startChar": 45,
+        "endLine": 139,
+        "endChar": 49
+      },
+      "revId": "0524bc9fd01390d9179a08b8ee1f7f1873d1cb5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8ba0e36_7247f66f",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-20T14:17:58Z",
+      "side": 1,
+      "message": "bound type but that needs -\u003e bounded type. However, we would also need to update the instructions that use the HBoundType and have access to the work list.",
+      "range": {
+        "startLine": 139,
+        "startChar": 69,
+        "endLine": 140,
+        "endChar": 15
+      },
+      "revId": "0524bc9fd01390d9179a08b8ee1f7f1873d1cb5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18b8c23c_30572851",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-20T14:17:58Z",
+      "side": 1,
+      "message": "Please add comments around the break.",
+      "range": {
+        "startLine": 192,
+        "startChar": 10,
+        "endLine": 192,
+        "endChar": 15
+      },
+      "revId": "0524bc9fd01390d9179a08b8ee1f7f1873d1cb5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38b10658_519c74b6",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-20T14:17:58Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 256,
+        "startChar": 10,
+        "endLine": 256,
+        "endChar": 15
+      },
+      "revId": "0524bc9fd01390d9179a08b8ee1f7f1873d1cb5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38dae6a9_ac2e2bca",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-07-20T14:17:58Z",
+      "side": 1,
+      "message": "I think the DCHECK line 486 make this if useless.",
+      "range": {
+        "startLine": 485,
+        "startChar": 0,
+        "endLine": 487,
+        "endChar": 3
+      },
+      "revId": "0524bc9fd01390d9179a08b8ee1f7f1873d1cb5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
