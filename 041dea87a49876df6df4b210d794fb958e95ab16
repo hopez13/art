@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "f8d3ee93_67f572f8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1160,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-20T14:04:22Z",
+      "side": 1,
+      "message": "nit: empty line will do fine here. we don\u0027t generate any sort of docs which would make use of \u003cp\u003e",
+      "range": {
+        "startLine": 1160,
+        "startChar": 3,
+        "endLine": 1160,
+        "endChar": 6
+      },
+      "revId": "041dea87a49876df6df4b210d794fb958e95ab16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38dae6a9_0cf777cb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1206,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-20T14:04:22Z",
+      "side": 1,
+      "message": "potentially this could lead up to mallformed SideEffects wrt Int/Float alias. right?",
+      "range": {
+        "startLine": 1206,
+        "startChar": 14,
+        "endLine": 1206,
+        "endChar": 19
+      },
+      "revId": "041dea87a49876df6df4b210d794fb958e95ab16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "987f5221_9594e6c5",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 10
@@ -18,6 +64,98 @@
         "startChar": 10,
         "endLine": 1263,
         "endChar": 11
+      },
+      "revId": "041dea87a49876df6df4b210d794fb958e95ab16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18d1a28c_0ba92167",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1264,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-20T14:04:22Z",
+      "side": 1,
+      "message": "Could we have this fix up in the constructor? Since this is needed for correctness, it feels safer to be at the place when we actually construct the SideEffect (see the union comment).",
+      "range": {
+        "startLine": 1264,
+        "startChar": 18,
+        "endLine": 1264,
+        "endChar": 26
+      },
+      "revId": "041dea87a49876df6df4b210d794fb958e95ab16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18d1a28c_6b8ffdfe",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1280,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-20T14:04:22Z",
+      "side": 1,
+      "message": "How about naming the other one TypeFlagFixup (or something simillar) and leave this as TypeFlag. Having `2` suffix is a bit ugly :).\n\nAlternatively, you could consider making this a static creator function `SideEffect CreateFromType(...)`. Since it seems that you only use it when creating side effects.",
+      "range": {
+        "startLine": 1280,
+        "startChar": 18,
+        "endLine": 1280,
+        "endChar": 27
+      },
+      "revId": "041dea87a49876df6df4b210d794fb958e95ab16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38b10658_b19040a4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1290,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-20T14:04:22Z",
+      "side": 1,
+      "message": "add a DCHECK here for checking Int/Float, Long/Double dependencies.",
+      "range": {
+        "startLine": 1290,
+        "startChar": 11,
+        "endLine": 1290,
+        "endChar": 22
+      },
+      "revId": "041dea87a49876df6df4b210d794fb958e95ab16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18d1a28c_ab69f5a5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 3964,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-20T14:04:22Z",
+      "side": 1,
+      "message": "line too long",
+      "range": {
+        "startLine": 3964,
+        "startChar": 91,
+        "endLine": 3964,
+        "endChar": 104
       },
       "revId": "041dea87a49876df6df4b210d794fb958e95ab16",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
