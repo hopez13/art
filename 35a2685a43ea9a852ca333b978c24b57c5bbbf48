@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9872f28f_77440a6a",
+        "filename": "runtime/arch/x86/asm_support_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-20T20:37:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "188c4286_174eb30f",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 32
+      },
+      "revId": "35a2685a43ea9a852ca333b978c24b57c5bbbf48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "987f5221_e1a1ecb5",
         "filename": "runtime/arch/x86/asm_support_x86.S",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-18T04:19:40Z",
       "side": 1,
       "message": "Use the size define for the refs-and-args frame (+4). Otherwise people may miss an update necessary here.",
+      "range": {
+        "startLine": 208,
+        "startChar": 12,
+        "endLine": 208,
+        "endChar": 14
+      },
+      "revId": "35a2685a43ea9a852ca333b978c24b57c5bbbf48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b83896b1_d032421d",
+        "filename": "runtime/arch/x86/asm_support_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-20T20:37:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "987f5221_e1a1ecb5",
       "range": {
         "startLine": 208,
         "startChar": 12,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "78429e31_ebc031c4",
+        "filename": "runtime/arch/x86/asm_support_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-20T20:37:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8709650_3604194a",
+      "range": {
+        "startLine": 214,
+        "startChar": 16,
+        "endLine": 214,
+        "endChar": 31
+      },
+      "revId": "35a2685a43ea9a852ca333b978c24b57c5bbbf48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "386e667b_78e84da3",
         "filename": "runtime/arch/x86/asm_support_x86.S",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "b83896b1_f0373e0a",
+        "filename": "runtime/arch/x86/asm_support_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-20T20:37:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "386e667b_78e84da3",
+      "range": {
+        "startLine": 219,
+        "startChar": 30,
+        "endLine": 219,
+        "endChar": 32
+      },
+      "revId": "35a2685a43ea9a852ca333b978c24b57c5bbbf48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "58823a52_ec2487be",
         "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2015-07-18T04:19:40Z",
       "side": 1,
       "message": "ATTRIBUTE_UNUSED instead",
+      "range": {
+        "startLine": 563,
+        "startChar": 2,
+        "endLine": 563,
+        "endChar": 14
+      },
+      "revId": "35a2685a43ea9a852ca333b978c24b57c5bbbf48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d83d4aa0_ce38e38e",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-20T20:37:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58823a52_ec2487be",
       "range": {
         "startLine": 563,
         "startChar": 2,
