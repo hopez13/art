@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b8eed634_26f7dccb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1160,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-20T16:04:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8d3ee93_67f572f8",
+      "range": {
+        "startLine": 1160,
+        "startChar": 3,
+        "endLine": 1160,
+        "endChar": 6
+      },
+      "revId": "041dea87a49876df6df4b210d794fb958e95ab16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38dae6a9_0cf777cb",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-20T14:04:22Z",
       "side": 1,
       "message": "potentially this could lead up to mallformed SideEffects wrt Int/Float alias. right?",
+      "range": {
+        "startLine": 1206,
+        "startChar": 14,
+        "endLine": 1206,
+        "endChar": 19
+      },
+      "revId": "041dea87a49876df6df4b210d794fb958e95ab16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8884ea6_ff6e3f78",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1206,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-20T16:04:01Z",
+      "side": 1,
+      "message": "Not really. You can only construct side effects through the public methods. And anything with an I or F (or J and D) gets automatically the conservative other one attached to it.",
+      "parentUuid": "38dae6a9_0cf777cb",
       "range": {
         "startLine": 1206,
         "startChar": 14,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "d8f38a19_848fcafd",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1264,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-20T16:04:01Z",
+      "side": 1,
+      "message": "Well, there is no other way to construct the value then through this method. The code I have now has the advantage that once you fix the aliasing problem, we only have to remove this method, the rest stays the same!",
+      "parentUuid": "18d1a28c_0ba92167",
+      "range": {
+        "startLine": 1264,
+        "startChar": 18,
+        "endLine": 1264,
+        "endChar": 26
+      },
+      "revId": "041dea87a49876df6df4b210d794fb958e95ab16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18d1a28c_6b8ffdfe",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 10
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "d81c6a21_fc2e2119",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1280,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-20T16:04:01Z",
+      "side": 1,
+      "message": "Ok, again the idea was to minimize name changes later, but I will use something with AddAlias to the other method.",
+      "parentUuid": "18d1a28c_6b8ffdfe",
+      "range": {
+        "startLine": 1280,
+        "startChar": 18,
+        "endLine": 1280,
+        "endChar": 27
+      },
+      "revId": "041dea87a49876df6df4b210d794fb958e95ab16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38b10658_b19040a4",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 10
@@ -128,6 +224,30 @@
       "writtenOn": "2015-07-20T14:04:22Z",
       "side": 1,
       "message": "add a DCHECK here for checking Int/Float, Long/Double dependencies.",
+      "range": {
+        "startLine": 1290,
+        "startChar": 11,
+        "endLine": 1290,
+        "endChar": 22
+      },
+      "revId": "041dea87a49876df6df4b210d794fb958e95ab16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18ea8220_a6393263",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1290,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-20T16:04:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38b10658_b19040a4",
       "range": {
         "startLine": 1290,
         "startChar": 11,
