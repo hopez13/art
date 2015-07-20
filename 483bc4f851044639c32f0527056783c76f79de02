@@ -69,6 +69,30 @@
       "revId": "483bc4f851044639c32f0527056783c76f79de02",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "185442e3_394a9378",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4277,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-20T23:11:25Z",
+      "side": 1,
+      "message": "monitor operations are handled by the MonitorOperation instruction",
+      "parentUuid": "78429e31_eeb67f47",
+      "range": {
+        "startLine": 4277,
+        "startChar": 10,
+        "endLine": 4277,
+        "endChar": 29
+      },
+      "revId": "483bc4f851044639c32f0527056783c76f79de02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
