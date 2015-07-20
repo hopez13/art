@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "f8568eec_127f6a8b",
+        "filename": "runtime/lambda/box_table.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-20T22:17:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "787a9e34_25470271",
+      "range": {
+        "startLine": 204,
+        "startChar": 2,
+        "endLine": 204,
+        "endChar": 7
+      },
+      "revId": "4b90d58d26d35c0c0dd4a8dac20f91a3293878bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d83d4aa0_2e5a47c6",
         "filename": "test/955-lambda-smali/smali/BoxUnbox.smali",
         "patchSetId": 3
@@ -134,6 +158,54 @@
         "startChar": 91,
         "endLine": 161,
         "endChar": 92
+      },
+      "revId": "4b90d58d26d35c0c0dd4a8dac20f91a3293878bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d11fe41_1ab4fdeb",
+        "filename": "test/955-lambda-smali/smali/BoxUnbox.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-20T22:17:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "383666c8_89ddf98b",
+      "range": {
+        "startLine": 161,
+        "startChar": 91,
+        "endLine": 161,
+        "endChar": 92
+      },
+      "revId": "4b90d58d26d35c0c0dd4a8dac20f91a3293878bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8568eec_d2840219",
+        "filename": "test/955-lambda-smali/smali/BoxUnbox.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-20T22:17:57Z",
+      "side": 1,
+      "message": "Not sure what you wanted me to remove here so I just added some more periods.",
+      "parentUuid": "d83d4aa0_2e5a47c6",
+      "range": {
+        "startLine": 161,
+        "startChar": 13,
+        "endLine": 161,
+        "endChar": 15
       },
       "revId": "4b90d58d26d35c0c0dd4a8dac20f91a3293878bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
