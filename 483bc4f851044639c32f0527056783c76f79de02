@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "383666c8_4fd22147",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1236,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2015-07-20T22:46:24Z",
+      "side": 1,
+      "message": "This seems surprisingly permissive.\n\nIf I have tmp1 \u003d x; tmp2 \u003d v; tmp3 \u003d x;\n\nwhere only v is volatile, is this enough to prevent the last load from reusing tmp1?",
+      "range": {
+        "startLine": 1236,
+        "startChar": 10,
+        "endLine": 1236,
+        "endChar": 20
+      },
+      "revId": "483bc4f851044639c32f0527056783c76f79de02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78429e31_eeb67f47",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4277,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2015-07-20T22:46:24Z",
+      "side": 1,
+      "message": "This handles monitor entry/exit?",
+      "range": {
+        "startLine": 4277,
+        "startChar": 10,
+        "endLine": 4277,
+        "endChar": 29
+      },
+      "revId": "483bc4f851044639c32f0527056783c76f79de02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
