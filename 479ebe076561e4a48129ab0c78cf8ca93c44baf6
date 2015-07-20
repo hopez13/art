@@ -22,6 +22,30 @@
       "revId": "479ebe076561e4a48129ab0c78cf8ca93c44baf6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78f8defa_affbc170",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-20T15:25:49Z",
+      "side": 0,
+      "message": "Yeah, sorry, it isn\u0027t super visible in the code, but I prefer this solution which makes sure that when one changes, both locations are implicitly updated.",
+      "parentUuid": "38b10658_71b09879",
+      "range": {
+        "startLine": 384,
+        "startChar": 27,
+        "endLine": 384,
+        "endChar": 29
+      },
+      "revId": "479ebe076561e4a48129ab0c78cf8ca93c44baf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
