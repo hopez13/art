@@ -210,6 +210,30 @@
       "revId": "4b90d58d26d35c0c0dd4a8dac20f91a3293878bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d0ec228_9776a4b0",
+        "filename": "test/955-lambda-smali/smali/BoxUnbox.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-20T22:32:02Z",
+      "side": 1,
+      "message": "\"Force a GC so we can be sure.\" The \"to\" doesn\u0027t make sense. But your new sentences are fine, too.",
+      "parentUuid": "f8568eec_d2840219",
+      "range": {
+        "startLine": 161,
+        "startChar": 13,
+        "endLine": 161,
+        "endChar": 15
+      },
+      "revId": "4b90d58d26d35c0c0dd4a8dac20f91a3293878bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
