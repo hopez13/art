@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "989912fc_dc4c2d48",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1206,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-20T16:37:19Z",
+      "side": 1,
+      "message": "Indeed. Thanks.",
+      "parentUuid": "f8884ea6_ff6e3f78",
+      "range": {
+        "startLine": 1206,
+        "startChar": 14,
+        "endLine": 1206,
+        "endChar": 19
+      },
+      "revId": "041dea87a49876df6df4b210d794fb958e95ab16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "987f5221_9594e6c5",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 10
@@ -201,6 +225,30 @@
       "side": 1,
       "message": "Ok, again the idea was to minimize name changes later, but I will use something with AddAlias to the other method.",
       "parentUuid": "18d1a28c_6b8ffdfe",
+      "range": {
+        "startLine": 1280,
+        "startChar": 18,
+        "endLine": 1280,
+        "endChar": 27
+      },
+      "revId": "041dea87a49876df6df4b210d794fb958e95ab16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "58d79a7e_ca88a373",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1280,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-20T16:37:19Z",
+      "side": 1,
+      "message": "I see. My main concern is that it will take a bit to fix this, as it\u0027s not trivial after more thinking and having a \u00272\u0027 suffix around for a longer time might obscure the initial justification.",
+      "parentUuid": "d81c6a21_fc2e2119",
       "range": {
         "startLine": 1280,
         "startChar": 18,
