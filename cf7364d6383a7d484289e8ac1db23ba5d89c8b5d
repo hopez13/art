@@ -22,6 +22,30 @@
       "revId": "cf7364d6383a7d484289e8ac1db23ba5d89c8b5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8884ea6_9f1533fd",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-07-20T15:19:17Z",
+      "side": 1,
+      "message": "I don\u0027t want to keep the checks in after a fix. They access internal implementation details they ought not to be accessing.\n\nIf I put it into another commit, to properly revert the diagnostics code, both that commit and f16d5727 should be reverted.\n\nI\u0027ll move the diagnostics info into its own CL.",
+      "parentUuid": "f88e8e7f_a41e9862",
+      "range": {
+        "startLine": 449,
+        "startChar": 0,
+        "endLine": 466,
+        "endChar": 1
+      },
+      "revId": "cf7364d6383a7d484289e8ac1db23ba5d89c8b5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
