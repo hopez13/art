@@ -261,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "d8f38a19_a44da614",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1280,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-20T16:40:03Z",
+      "side": 1,
+      "message": "Fair enough, although I fully trust you to fix this asap!! :-) :-)\n\nI have made the naming more clear. Also, I decided against the DCHECK in the constructor, as it would be rather elaborate (every four access type needs to check that when I is set, F is set, same for D and J and other way around). Basically it would test what is in the method above.",
+      "parentUuid": "58d79a7e_ca88a373",
+      "range": {
+        "startLine": 1280,
+        "startChar": 18,
+        "endLine": 1280,
+        "endChar": 27
+      },
+      "revId": "041dea87a49876df6df4b210d794fb958e95ab16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38b10658_b19040a4",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 10
