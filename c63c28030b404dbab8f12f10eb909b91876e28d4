@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "38b10658_115aecc5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 4424,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-20T08:08:22Z",
+      "side": 1,
+      "message": "Done.\nIt requires duplicating a few of the macros. Have a look in the updated patch set and let me know what you think.",
+      "parentUuid": "985112ab_7c0d993d",
+      "range": {
+        "startLine": 4424,
+        "startChar": 3,
+        "endLine": 4424,
+        "endChar": 31
+      },
+      "revId": "c63c28030b404dbab8f12f10eb909b91876e28d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18f0c2db_b005981c",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
