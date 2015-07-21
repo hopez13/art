@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d849ecc_05e114b8",
+        "filename": "build/Android.executable.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2015-07-21T19:07:41Z",
+      "side": 1,
+      "message": "this two variables will never evaluate to the same.",
+      "range": {
+        "startLine": 132,
+        "startChar": 5,
+        "endLine": 132,
+        "endChar": 66
+      },
+      "revId": "0ae736ece68b3d91fa75ac2bdaac72f95dd7e904",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
