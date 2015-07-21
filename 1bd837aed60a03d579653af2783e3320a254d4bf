@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ed296e86_4e91b359",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1675,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-21T13:34:49Z",
+      "side": 1,
+      "message": "i prefer to have the shorter version in front, especially since it\u0027s one character long.",
+      "parentUuid": "8d19d274_33612804",
+      "range": {
+        "startLine": 1675,
+        "startChar": 21,
+        "endLine": 1675,
+        "endChar": 82
+      },
+      "revId": "1bd837aed60a03d579653af2783e3320a254d4bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4deb5a63_213d4eea",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-21T11:26:02Z",
       "side": 1,
       "message": "Nit: a.",
+      "range": {
+        "startLine": 4051,
+        "startChar": 16,
+        "endLine": 4051,
+        "endChar": 18
+      },
+      "revId": "1bd837aed60a03d579653af2783e3320a254d4bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d432251_0fb4c5eb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 4051,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-21T13:34:49Z",
+      "side": 1,
+      "message": "H is a vowel sound so `an` is correct here. I guess it depends if you wanna skip the \u0027H\u0027 :)",
+      "parentUuid": "4deb5a63_213d4eea",
       "range": {
         "startLine": 4051,
         "startChar": 16,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "2d8e26f0_c076beb1",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-21T13:34:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d8e26f0_403dcee8",
+      "revId": "1bd837aed60a03d579653af2783e3320a254d4bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad33f6f3_0cb4d7eb",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 8
@@ -76,6 +142,30 @@
       "writtenOn": "2015-07-21T11:26:02Z",
       "side": 1,
       "message": "Nit: add parentheses.",
+      "range": {
+        "startLine": 585,
+        "startChar": 25,
+        "endLine": 585,
+        "endChar": 42
+      },
+      "revId": "1bd837aed60a03d579653af2783e3320a254d4bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d432251_2faf899b",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-21T13:34:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad33f6f3_0cb4d7eb",
       "range": {
         "startLine": 585,
         "startChar": 25,
