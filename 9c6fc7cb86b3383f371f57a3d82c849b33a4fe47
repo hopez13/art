@@ -143,6 +143,98 @@
     },
     {
       "key": {
+        "uuid": "0ddfa2f3_b8715dd2",
+        "filename": "runtime/monitor.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-22T18:53:21Z",
+      "side": 1,
+      "message": "Explain why it\u0027s necessary. Ditto for the ones below.",
+      "range": {
+        "startLine": 67,
+        "startChar": 44,
+        "endLine": 67,
+        "endChar": 69
+      },
+      "revId": "9c6fc7cb86b3383f371f57a3d82c849b33a4fe47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed808ec6_5fea876c",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-22T18:53:21Z",
+      "side": 1,
+      "message": "Explain why. Also in the next line.",
+      "range": {
+        "startLine": 175,
+        "startChar": 6,
+        "endLine": 175,
+        "endChar": 31
+      },
+      "revId": "9c6fc7cb86b3383f371f57a3d82c849b33a4fe47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4dd51ace_84b50b6e",
+        "filename": "runtime/profiler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-22T18:53:21Z",
+      "side": 1,
+      "message": "Explain why.",
+      "range": {
+        "startLine": 194,
+        "startChar": 6,
+        "endLine": 194,
+        "endChar": 31
+      },
+      "revId": "9c6fc7cb86b3383f371f57a3d82c849b33a4fe47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ddc66fc_39e81327",
+        "filename": "runtime/signal_catcher.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-22T18:53:21Z",
+      "side": 1,
+      "message": "Explain why.",
+      "range": {
+        "startLine": 43,
+        "startChar": 30,
+        "endLine": 43,
+        "endChar": 55
+      },
+      "revId": "9c6fc7cb86b3383f371f57a3d82c849b33a4fe47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4dd51ace_90b8ed14",
         "filename": "runtime/thread.h",
         "patchSetId": 4
