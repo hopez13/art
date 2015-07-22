@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d335a20_e13e0692",
+        "filename": "compiler/optimizing/licm_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-07-22T18:34:22Z",
+      "side": 1,
+      "message": "should these be EXPECTs or ASSERTs ? If the initial condition to PerformLICM didn\u0027t hold, then there\u0027s no point proceeding is there ?",
+      "range": {
+        "startLine": 113,
+        "startChar": 2,
+        "endLine": 113,
+        "endChar": 11
+      },
+      "revId": "8f08f9e84b0b784fff8a636989bdb24bfaf93bbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
