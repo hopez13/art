@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cdc02a18_50d932a3",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-22T01:04:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ddfa2f3_4f9c2df5",
+      "range": {
+        "startLine": 756,
+        "startChar": 0,
+        "endLine": 756,
+        "endChar": 6
+      },
+      "revId": "3535782740dcd38d330cce2522853a7d50601c78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4dd51ace_e67ae430",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-22T00:19:34Z",
       "side": 1,
       "message": "I\u0027d somehow prefer to annotate this, but I guess the thread pool isn\u0027t annotated to pass this to the Run() method of the closure?\n\nAt least annotate ForAll().",
+      "range": {
+        "startLine": 1575,
+        "startChar": 35,
+        "endLine": 1575,
+        "endChar": 39
+      },
+      "revId": "3535782740dcd38d330cce2522853a7d50601c78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d7552bb_f644de1e",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1575,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-22T01:04:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4dd51ace_e67ae430",
       "range": {
         "startLine": 1575,
         "startChar": 35,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ad7a16a8_17b95636",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-22T01:04:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d7552bb_562832ba",
+      "range": {
+        "startLine": 215,
+        "startChar": 2,
+        "endLine": 215,
+        "endChar": 5
+      },
+      "revId": "3535782740dcd38d330cce2522853a7d50601c78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd7bcaab_f877ed45",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2015-07-22T00:19:34Z",
       "side": 1,
       "message": "Indent.",
+      "range": {
+        "startLine": 301,
+        "startChar": 2,
+        "endLine": 301,
+        "endChar": 4
+      },
+      "revId": "3535782740dcd38d330cce2522853a7d50601c78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd7bcaab_b8a095eb",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-22T01:04:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd7bcaab_f877ed45",
       "range": {
         "startLine": 301,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "edc5ee24_f1af0265",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-22T01:04:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad7a16a8_f7fa9a37",
+      "range": {
+        "startLine": 306,
+        "startChar": 2,
+        "endLine": 306,
+        "endChar": 4
+      },
+      "revId": "3535782740dcd38d330cce2522853a7d50601c78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "edc5ee24_0e870b66",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2015-07-22T00:19:34Z",
       "side": 1,
       "message": "Indent.",
+      "range": {
+        "startLine": 313,
+        "startChar": 2,
+        "endLine": 313,
+        "endChar": 4
+      },
+      "revId": "3535782740dcd38d330cce2522853a7d50601c78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ddfa2f3_4f642d3e",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-22T01:04:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edc5ee24_0e870b66",
       "range": {
         "startLine": 313,
         "startChar": 2,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "ed808ec6_f9e053b6",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-22T01:04:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd7bcaab_b881759c",
+      "range": {
+        "startLine": 319,
+        "startChar": 2,
+        "endLine": 319,
+        "endChar": 4
+      },
+      "revId": "3535782740dcd38d330cce2522853a7d50601c78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ddc66fc_b025f834",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 3
@@ -174,6 +342,30 @@
       "writtenOn": "2015-07-22T00:19:34Z",
       "side": 1,
       "message": "Indent.",
+      "range": {
+        "startLine": 324,
+        "startChar": 2,
+        "endLine": 324,
+        "endChar": 4
+      },
+      "revId": "3535782740dcd38d330cce2522853a7d50601c78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdc02a18_d0cc42e1",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-22T01:04:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ddc66fc_b025f834",
       "range": {
         "startLine": 324,
         "startChar": 2,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "2ddc66fc_13616e03",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-22T01:04:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edc5ee24_ce702302",
+      "range": {
+        "startLine": 334,
+        "startChar": 2,
+        "endLine": 334,
+        "endChar": 4
+      },
+      "revId": "3535782740dcd38d330cce2522853a7d50601c78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdc02a18_70aa2e8c",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 3
@@ -220,6 +436,30 @@
       "writtenOn": "2015-07-22T00:19:34Z",
       "side": 1,
       "message": "Indent.",
+      "range": {
+        "startLine": 340,
+        "startChar": 2,
+        "endLine": 340,
+        "endChar": 4
+      },
+      "revId": "3535782740dcd38d330cce2522853a7d50601c78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ddc66fc_3366f21c",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-22T01:04:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdc02a18_70aa2e8c",
       "range": {
         "startLine": 340,
         "startChar": 2,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "4dd51ace_fa1b58a7",
+        "filename": "runtime/trace.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-22T01:04:15Z",
+      "side": 1,
+      "message": "Maybe we should change all of them to dereference.",
+      "parentUuid": "ad7a16a8_37e81227",
+      "range": {
+        "startLine": 138,
+        "startChar": 53,
+        "endLine": 138,
+        "endChar": 55
+      },
+      "revId": "3535782740dcd38d330cce2522853a7d50601c78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad7a16a8_37bed21f",
         "filename": "runtime/trace.h",
         "patchSetId": 3
@@ -266,6 +530,30 @@
       "writtenOn": "2015-07-22T00:27:59Z",
       "side": 1,
       "message": "Is this necessary?",
+      "range": {
+        "startLine": 189,
+        "startChar": 6,
+        "endLine": 189,
+        "endChar": 31
+      },
+      "revId": "3535782740dcd38d330cce2522853a7d50601c78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed808ec6_994b5f7d",
+        "filename": "runtime/trace.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-22T01:04:15Z",
+      "side": 1,
+      "message": "Added comment.",
+      "parentUuid": "ad7a16a8_37bed21f",
       "range": {
         "startLine": 189,
         "startChar": 6,
