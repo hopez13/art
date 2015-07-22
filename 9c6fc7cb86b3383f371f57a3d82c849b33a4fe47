@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "ed808ec6_dfe3f7c0",
+        "filename": "runtime/base/mutex_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-22T18:34:11Z",
+      "side": 1,
+      "message": "Yuck.",
+      "range": {
+        "startLine": 104,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 3
+      },
+      "revId": "9c6fc7cb86b3383f371f57a3d82c849b33a4fe47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad7a16a8_68af8bec",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-22T18:34:11Z",
+      "side": 1,
+      "message": "Indent.",
+      "range": {
+        "startLine": 277,
+        "startChar": 62,
+        "endLine": 277,
+        "endChar": 86
+      },
+      "revId": "9c6fc7cb86b3383f371f57a3d82c849b33a4fe47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d7552bb_07b046c5",
+        "filename": "runtime/gc/space/space.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-22T18:34:11Z",
+      "side": 1,
+      "message": "Remove newline.",
+      "range": {
+        "startLine": 425,
+        "startChar": 6,
+        "endLine": 425,
+        "endChar": 41
+      },
+      "revId": "9c6fc7cb86b3383f371f57a3d82c849b33a4fe47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4dd51ace_90b8ed14",
         "filename": "runtime/thread.h",
         "patchSetId": 4
