@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "adfbf684_8f675915",
+        "filename": "test/525-checker-arrays-and-fields/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-23T23:17:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d2402f2_4a21d3a1",
+      "range": {
+        "startLine": 87,
+        "startChar": 28,
+        "endLine": 87,
+        "endChar": 41
+      },
+      "revId": "8a16d1cb0627d18ebb775f32d6c65a8bfddd4472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed1a4eb3_4631d273",
         "filename": "test/525-checker-arrays-and-fields/src/Main.java",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "writtenOn": "2015-07-23T23:06:17Z",
       "side": 1,
       "message": "Just trying to understand this better, why isn\u0027t there 3 StaticFieldGet checks here?\n\nIsn\u0027t it doing an sget for sArrZ.length, for sArrZ[i], and again for sZ?",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 20
+      },
+      "revId": "8a16d1cb0627d18ebb775f32d6c65a8bfddd4472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed1a4eb3_46ff12db",
+        "filename": "test/525-checker-arrays-and-fields/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-23T23:17:45Z",
+      "side": 1,
+      "message": "The two sArrZ get fields that were there originally have been optimized into one by GVN  by the time LICM runs.",
+      "parentUuid": "ed1a4eb3_4631d273",
       "range": {
         "startLine": 95,
         "startChar": 0,
@@ -113,6 +161,24 @@
     },
     {
       "key": {
+        "uuid": "8df6329c_ce120389",
+        "filename": "test/525-checker-arrays-and-fields/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-23T23:17:45Z",
+      "side": 1,
+      "message": "note that in this group, hoisting is not allowed (without splitting on the index, which we don\u0027t do)",
+      "parentUuid": "8d0f1278_a6f408c5",
+      "revId": "8a16d1cb0627d18ebb775f32d6c65a8bfddd4472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad14d688_27a5b4ba",
         "filename": "test/525-checker-arrays-and-fields/src/Main.java",
         "patchSetId": 1
@@ -130,6 +196,24 @@
     },
     {
       "key": {
+        "uuid": "0d2402f2_aa04cfce",
+        "filename": "test/525-checker-arrays-and-fields/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-23T23:17:45Z",
+      "side": 1,
+      "message": "Well, we don\u0027t hoist it. If we ever optimize this to split at index 20 (when we really run out of other stuff to do :-), this test will break.",
+      "parentUuid": "ad14d688_27a5b4ba",
+      "revId": "8a16d1cb0627d18ebb775f32d6c65a8bfddd4472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adfbf684_8ff119d5",
         "filename": "test/525-checker-arrays-and-fields/src/Main.java",
         "patchSetId": 1
@@ -141,6 +225,24 @@
       "writtenOn": "2015-07-23T23:06:17Z",
       "side": 1,
       "message": "Does it make sense to check the cast and addition also get hoisted out?",
+      "revId": "8a16d1cb0627d18ebb775f32d6c65a8bfddd4472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed1a4eb3_2664963d",
+        "filename": "test/525-checker-arrays-and-fields/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-23T23:17:45Z",
+      "side": 1,
+      "message": "cast cannot be hoisted out (nor the reference!)",
+      "parentUuid": "adfbf684_8ff119d5",
       "revId": "8a16d1cb0627d18ebb775f32d6c65a8bfddd4472",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
