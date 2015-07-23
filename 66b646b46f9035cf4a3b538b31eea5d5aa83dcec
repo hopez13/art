@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad4db6b0_3c113114",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-23T08:53:31Z",
+      "side": 1,
+      "message": "This change looks like an alignment padding fix as as well, (not related to read barrier).  Also move this to another CL?",
+      "range": {
+        "startLine": 1226,
+        "startChar": 0,
+        "endLine": 1227,
+        "endChar": 28
+      },
+      "revId": "66b646b46f9035cf4a3b538b31eea5d5aa83dcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
