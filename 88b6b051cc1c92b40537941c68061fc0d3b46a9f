@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4dd51ace_94d9b4a6",
+        "filename": "runtime/base/hash_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-23T17:53:32Z",
+      "side": 1,
+      "message": "One thing I never quite understood, if the data isn\u0027t owned how is it supposed to handle a resize safely?\n\nIt looks like that Resize will allocate and deallocate the storage regardless.\n\nIs the intention here for a hashset of pointers, where removing an item from the hashset will also delete the pointer?",
+      "revId": "88b6b051cc1c92b40537941c68061fc0d3b46a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4dd51ace_542cac1c",
+        "filename": "runtime/base/hash_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-23T17:53:32Z",
+      "side": 1,
+      "message": "minor: shouldn\u0027t deallocate work with a nullptr? if it\u0027s just delete or free then it ignores nullptr",
+      "revId": "88b6b051cc1c92b40537941c68061fc0d3b46a9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
