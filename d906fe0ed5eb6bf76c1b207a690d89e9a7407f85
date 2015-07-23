@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "edc5ee24_b8b2b67c",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1146,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-23T06:03:49Z",
+      "side": 1,
+      "message": "Can you please put that into a separate CL, as it\u0027s not read-barrier related?",
+      "range": {
+        "startLine": 1131,
+        "startChar": 4,
+        "endLine": 1146,
+        "endChar": 29
+      },
+      "revId": "d906fe0ed5eb6bf76c1b207a690d89e9a7407f85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
