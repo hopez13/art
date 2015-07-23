@@ -46,6 +46,121 @@
       "revId": "8a16d1cb0627d18ebb775f32d6c65a8bfddd4472",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d2402f2_4a21d3a1",
+        "filename": "test/525-checker-arrays-and-fields/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-23T23:06:17Z",
+      "side": 1,
+      "message": "Thanks, I took a look, learned something new about art today!",
+      "parentUuid": "ed1a4eb3_66716e55",
+      "range": {
+        "startLine": 87,
+        "startChar": 28,
+        "endLine": 87,
+        "endChar": 41
+      },
+      "revId": "8a16d1cb0627d18ebb775f32d6c65a8bfddd4472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed1a4eb3_4631d273",
+        "filename": "test/525-checker-arrays-and-fields/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-23T23:06:17Z",
+      "side": 1,
+      "message": "Just trying to understand this better, why isn\u0027t there 3 StaticFieldGet checks here?\n\nIsn\u0027t it doing an sget for sArrZ.length, for sArrZ[i], and again for sZ?",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 20
+      },
+      "revId": "8a16d1cb0627d18ebb775f32d6c65a8bfddd4472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d0f1278_a6f408c5",
+        "filename": "test/525-checker-arrays-and-fields/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-23T23:06:17Z",
+      "side": 1,
+      "message": "Does it make sense to check the negation also gets hoisted out?",
+      "revId": "8a16d1cb0627d18ebb775f32d6c65a8bfddd4472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad14d688_27a5b4ba",
+        "filename": "test/525-checker-arrays-and-fields/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-23T23:06:17Z",
+      "side": 1,
+      "message": "Without having read the optimization code, doesn\u0027t this need to do a loop split or similar to handle crossing over 20? Not sure if the tests reflect this?",
+      "revId": "8a16d1cb0627d18ebb775f32d6c65a8bfddd4472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adfbf684_8ff119d5",
+        "filename": "test/525-checker-arrays-and-fields/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-23T23:06:17Z",
+      "side": 1,
+      "message": "Does it make sense to check the cast and addition also get hoisted out?",
+      "revId": "8a16d1cb0627d18ebb775f32d6c65a8bfddd4472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed1a4eb3_66e32e4d",
+        "filename": "test/525-checker-arrays-and-fields/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-23T23:06:17Z",
+      "side": 1,
+      "message": "Does it make sense to check the \u003d\u003d, and ?: are also hoisted out?",
+      "revId": "8a16d1cb0627d18ebb775f32d6c65a8bfddd4472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
