@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d538656_5b66b71c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-23T16:18:19Z",
+      "side": 1,
+      "message": "as Andreas mentioned, it\u0027s either correct or not :)",
+      "range": {
+        "startLine": 7,
+        "startChar": 22,
+        "endLine": 7,
+        "endChar": 37
+      },
+      "revId": "3de2b794a88bb51cf495a2e9dac6a718fe8f9576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d335a20_047a1897",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-23T16:18:19Z",
+      "side": 1,
+      "message": "I don\u0027t see an immediate gain for this and we are more verbose. What\u0027s the actual benefit? equal instructions returned and HIntConstant before as well based on the previous implementation of the static evaluation?",
+      "range": {
+        "startLine": 9,
+        "startChar": 7,
+        "endLine": 9,
+        "endChar": 15
+      },
+      "revId": "3de2b794a88bb51cf495a2e9dac6a718fe8f9576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d48f2a1_db3c934c",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-23T16:18:19Z",
+      "side": 1,
+      "message": "how about shift which can be \"long \u003c\u003c int\"",
+      "range": {
+        "startLine": 1016,
+        "startChar": 5,
+        "endLine": 1016,
+        "endChar": 66
+      },
+      "revId": "3de2b794a88bb51cf495a2e9dac6a718fe8f9576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd3e6aec_5dffdbda",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2052,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-23T16:18:19Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 2052,
+        "startChar": 2,
+        "endLine": 2052,
+        "endChar": 21
+      },
+      "revId": "3de2b794a88bb51cf495a2e9dac6a718fe8f9576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d335a20_c4983087",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2063,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-23T16:18:19Z",
+      "side": 1,
+      "message": "DCHECK, otherwise we get might get a sigsegv which is less readable.",
+      "range": {
+        "startLine": 2063,
+        "startChar": 11,
+        "endLine": 2063,
+        "endChar": 33
+      },
+      "revId": "3de2b794a88bb51cf495a2e9dac6a718fe8f9576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d538656_9b67af15",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2261,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-23T16:18:19Z",
+      "side": 1,
+      "message": "why not HConstant  then?",
+      "range": {
+        "startLine": 2261,
+        "startChar": 30,
+        "endLine": 2261,
+        "endChar": 42
+      },
+      "revId": "3de2b794a88bb51cf495a2e9dac6a718fe8f9576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
