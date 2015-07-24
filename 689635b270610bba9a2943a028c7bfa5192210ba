@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "6d83be1d_be3271f5",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-24T18:22:44Z",
+      "side": 1,
+      "message": "Why are these all blank definitions? Wouldn\u0027t it be easier if the original visitor had blank definitions?",
+      "revId": "689635b270610bba9a2943a028c7bfa5192210ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8dee45_8821eba4",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-24T18:22:44Z",
+      "side": 1,
+      "message": "Why do these require extra if checks, doesn\u0027t the name imply its already not null?",
+      "range": {
+        "startLine": 115,
+        "startChar": 25,
+        "endLine": 115,
+        "endChar": 40
+      },
+      "revId": "689635b270610bba9a2943a028c7bfa5192210ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d9d1a6f_147d1add",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
