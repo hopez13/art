@@ -308,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "8dbd52cc_13960ca5",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1127,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-24T05:48:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d3de2ed_df90fb22",
+      "range": {
+        "startLine": 1127,
+        "startChar": 9,
+        "endLine": 1127,
+        "endChar": 24
+      },
+      "revId": "8bb8e62e45cbae867b8cca94be3256a1a558e8b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d301e13_e2c3a629",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 4
