@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "cd882a39_b044561e",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-07-24T15:52:25Z",
+      "side": 1,
+      "message": "This could be replaced by a DCHECK of the types at the beginning of the method:\n\nDCHECK(type \u003d\u003d Primitive::kPrimInt || type \u003d\u003d Primitive::kPrimLong);\n\nThen we can call Clz in a single line at the end of the method.",
+      "range": {
+        "startLine": 269,
+        "startChar": 2,
+        "endLine": 277,
+        "endChar": 3
+      },
+      "revId": "4dc8afa6f3b6d15a5062a48c71d0fd0119cf5ea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0da5e2c6_3fe847ec",
         "filename": "test/082-inline-execute/src/Main.java",
         "patchSetId": 1
