@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad14d688_0adfdf51",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-24T00:18:10Z",
+      "side": 1,
+      "message": "Did not look at this file closely enough, none of these changes were modeling out-parameters.\n\nWe can just replace it with one of:\n\n  addressof_iter(it); // a new helper that does \u0026*it, cleaner\n  std::addressof(*it); // slightly more complicated but 1 less helper",
+      "revId": "8f0ca7335dbb49416ffed16b861a3289945bccdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
