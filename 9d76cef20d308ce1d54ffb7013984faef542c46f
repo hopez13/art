@@ -22,6 +22,30 @@
       "revId": "9d76cef20d308ce1d54ffb7013984faef542c46f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edab2e9c_9e8abd23",
+        "filename": "test/442-checker-constant-folding/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-24T11:59:19Z",
+      "side": 1,
+      "message": "This is to handle cases like `(var | -1) + 1`.\nI think at the time I immplemented this constant folding was only ran before simplification. Now we have multiple occurrences of both, so having that in the simplifier would probably yield equivalent results.",
+      "parentUuid": "cda66ad5_3d160f7f",
+      "range": {
+        "startLine": 318,
+        "startChar": 20,
+        "endLine": 318,
+        "endChar": 29
+      },
+      "revId": "9d76cef20d308ce1d54ffb7013984faef542c46f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
