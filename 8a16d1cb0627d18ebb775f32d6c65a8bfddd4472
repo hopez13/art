@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "4d86fa2e_2f272dbb",
+        "filename": "test/525-checker-arrays-and-fields/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-24T16:08:52Z",
+      "side": 1,
+      "message": "Thanks for the feedback. \n\nI actually used CHECK on purpose because it was not clear from the doc if using\n\nCHECK-DAG( \u003cx\u003e )\nCHECK-DAG( \u003cx\u003e )\n\nwhere the pattern \u003cx\u003e is the same really checks if two *different* matches occur, or, since the order does not matter, it could match the same pattern. This is why I used CHECK in my before patterns. Can you please confirm or deny if this is the case?\n\nI could, for sure, use CHECK-DAG in the cases where the patterns are not the same to ensure order does not matter.",
+      "parentUuid": "cda66ad5_9dd88367",
+      "range": {
+        "startLine": 296,
+        "startChar": 6,
+        "endLine": 296,
+        "endChar": 11
+      },
+      "revId": "8a16d1cb0627d18ebb775f32d6c65a8bfddd4472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d0f1278_a6f408c5",
         "filename": "test/525-checker-arrays-and-fields/src/Main.java",
         "patchSetId": 1
