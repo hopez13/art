@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "edab2e9c_3e94c914",
+        "filename": "test/525-checker-arrays-and-fields/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-24T16:13:39Z",
+      "side": 1,
+      "message": "Ah, good point. I should state that explicitly in the readme. Yes, each line is matched at most once, so doing DAG twice does guarantee two occurrences.",
+      "parentUuid": "4d86fa2e_2f272dbb",
+      "range": {
+        "startLine": 296,
+        "startChar": 6,
+        "endLine": 296,
+        "endChar": 11
+      },
+      "revId": "8a16d1cb0627d18ebb775f32d6c65a8bfddd4472",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d0f1278_a6f408c5",
         "filename": "test/525-checker-arrays-and-fields/src/Main.java",
         "patchSetId": 1
