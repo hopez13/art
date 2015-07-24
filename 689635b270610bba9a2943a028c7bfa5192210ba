@@ -102,6 +102,30 @@
     },
     {
       "key": {
+        "uuid": "6d83be1d_7ee9d972",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-24T18:38:58Z",
+      "side": 1,
+      "message": "What\u0027s supposed to be the practical difference between VisitRootIfNonNull and VisitRoot then, if both of them would need checking?\n\nI would\u0027ve imagined that the visitor class does its own non-null filtering before invoking this method?\n\nWouldn\u0027t it be (less code) anyway to just do that (and rename to VisitRootNonNull as you said),similar to removing all the blank defs?",
+      "parentUuid": "0da7a2c0_f2a0a6ec",
+      "range": {
+        "startLine": 115,
+        "startChar": 25,
+        "endLine": 115,
+        "endChar": 40
+      },
+      "revId": "689635b270610bba9a2943a028c7bfa5192210ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d9d1a6f_147d1add",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
