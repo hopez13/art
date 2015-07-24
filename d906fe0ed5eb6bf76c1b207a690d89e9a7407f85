@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6d83be1d_adea49e4",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1146,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-24T05:48:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edc5ee24_b8b2b67c",
+      "range": {
+        "startLine": 1131,
+        "startChar": 4,
+        "endLine": 1146,
+        "endChar": 29
+      },
+      "revId": "d906fe0ed5eb6bf76c1b207a690d89e9a7407f85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed432e7f_fe0ea1ec",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-23T08:53:31Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 1775,
+        "startChar": 0,
+        "endLine": 1776,
+        "endChar": 28
+      },
+      "revId": "d906fe0ed5eb6bf76c1b207a690d89e9a7407f85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dbd52cc_339b08ce",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 1776,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-24T05:48:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed432e7f_fe0ea1ec",
       "range": {
         "startLine": 1775,
         "startChar": 0,
