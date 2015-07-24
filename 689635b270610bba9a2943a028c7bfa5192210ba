@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "2da466b9_d68474ae",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-24T18:40:22Z",
+      "side": 1,
+      "message": "The way I\u0027ve seen that solved that in the past is to have two classes\n\none is the pure virtual interface, (e.g. IFoo)\none has default implementations that are blank (e.g. FooDefault)\n\nclasses that want to have their own behavior only implement IFoo\n\nclasses that don\u0027t care can implement FooDefault",
+      "parentUuid": "6d9ade79_c6a5a236",
+      "revId": "689635b270610bba9a2943a028c7bfa5192210ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed8dee45_8821eba4",
         "filename": "runtime/gc/accounting/mod_union_table.cc",
         "patchSetId": 1
