@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cda66ad5_3d160f7f",
+        "filename": "test/442-checker-constant-folding/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-24T11:54:17Z",
+      "side": 1,
+      "message": "why is this happening in constant folding and not in instruction simplifier? same as with the other ops which don\u0027t really fold constants?",
+      "range": {
+        "startLine": 318,
+        "startChar": 20,
+        "endLine": 318,
+        "endChar": 29
+      },
+      "revId": "9d76cef20d308ce1d54ffb7013984faef542c46f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
