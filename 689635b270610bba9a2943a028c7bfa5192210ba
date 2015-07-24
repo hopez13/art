@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "6d9ade79_c6a5a236",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-24T18:37:46Z",
+      "side": 1,
+      "message": "I am not sure that I agree. Blank definitions are sometimes bad, as you might forget to override them.",
+      "parentUuid": "6d83be1d_be3271f5",
+      "revId": "689635b270610bba9a2943a028c7bfa5192210ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed8dee45_8821eba4",
         "filename": "runtime/gc/accounting/mod_union_table.cc",
         "patchSetId": 1
