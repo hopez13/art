@@ -22,6 +22,30 @@
       "revId": "da7c650022a974be10e2f00fa07d5109e3d8826f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad977653_153ef6e9",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-24T18:58:33Z",
+      "side": 1,
+      "message": "Ill try cleaning up some NO_THREAD_SAFETY_ANALYSIS in another CL.",
+      "parentUuid": "6d83be1d_9e1e8df0",
+      "range": {
+        "startLine": 452,
+        "startChar": 44,
+        "endLine": 452,
+        "endChar": 69
+      },
+      "revId": "da7c650022a974be10e2f00fa07d5109e3d8826f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
