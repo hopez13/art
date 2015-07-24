@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "adce96a1_f4d9d86d",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1057,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-24T09:46:44Z",
+      "side": 1,
+      "message": "Can you add these as well?\n\nGiven the partial deprecation of IT in ARMv8, I think the Long version should be\n\n    clz result, high_reg      # requires different registers\n    cbne high_reg, end\n    clz result, low_reg\n    add result, #32\n  end:",
+      "range": {
+        "startLine": 1056,
+        "startChar": 0,
+        "endLine": 1057,
+        "endChar": 49
+      },
+      "revId": "4dc8afa6f3b6d15a5062a48c71d0fd0119cf5ea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0da5e2c6_3fe847ec",
+        "filename": "test/082-inline-execute/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-24T09:46:44Z",
+      "side": 1,
+      "message": "Please add tests for integers of the form (0xffffffff \u003e\u003e\u003e i) and ((1 \u003c\u003c i) + 1). Similar for long below.\n\nNote that the four individual Asserts outside the loop will then be covered inside the loop. (The MIN_VALUE is already covered.)",
+      "revId": "4dc8afa6f3b6d15a5062a48c71d0fd0119cf5ea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
