@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0da7a2c0_38104dde",
+        "filename": "runtime/base/out.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-25T01:13:11Z",
+      "side": 1,
+      "message": "This is technically a functional change. Sometimes null means you don\u0027t care for the side effect.",
+      "range": {
+        "startLine": 184,
+        "startChar": 2,
+        "endLine": 187,
+        "endChar": 3
+      },
+      "revId": "12765cfff927cadebdf64a8dc8997339669dab5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
