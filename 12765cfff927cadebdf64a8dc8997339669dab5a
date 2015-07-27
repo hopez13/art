@@ -22,6 +22,30 @@
       "revId": "12765cfff927cadebdf64a8dc8997339669dab5a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdfd8ac1_a5d31e4a",
+        "filename": "runtime/base/out.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-27T18:23:15Z",
+      "side": 1,
+      "message": "Agreed, I imagine might want something like optional\u003cout\u003cT\u003e\u003e for that kind of use case.\n\nThe main idea is to relieve the callee from having to null-check every pointer before assigning into it (see line 132 \"non-null non-const\").\n\n(optional is already in C++ technical fundamentals, but we probably want to roll our own until it makes it into std)",
+      "parentUuid": "0da7a2c0_38104dde",
+      "range": {
+        "startLine": 184,
+        "startChar": 2,
+        "endLine": 187,
+        "endChar": 3
+      },
+      "revId": "12765cfff927cadebdf64a8dc8997339669dab5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
