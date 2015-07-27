@@ -46,6 +46,30 @@
       "revId": "9d76cef20d308ce1d54ffb7013984faef542c46f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adb5b6f9_9cbd2524",
+        "filename": "test/442-checker-constant-folding/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-27T10:51:56Z",
+      "side": 1,
+      "message": "I think the rationale was: \"graph simplifications producing a constant should be implemented in the constant folding pass; graph simplifications not producing constants should be implemented in the instruction simplifier\".  I\u0027ll add a word on this in a comment (maybe in another CL, as it seems a bit off-topic here.)",
+      "parentUuid": "edab2e9c_9e8abd23",
+      "range": {
+        "startLine": 318,
+        "startChar": 20,
+        "endLine": 318,
+        "endChar": 29
+      },
+      "revId": "9d76cef20d308ce1d54ffb7013984faef542c46f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
