@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2dbb86f3_d8528db7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-27T17:15:22Z",
+      "side": 1,
+      "message": "Fair enough. :)  Corrected in PS6. ;)",
+      "parentUuid": "6dd2dee8_d81b05a8",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 37
+      },
+      "revId": "7d50262a78d376ca22c3001c1d5ed4d3a44a9292",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4dd51ace_4e90a2a5",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-22T16:10:46Z",
       "side": 1,
       "message": "Why was this left unimplemented? Now the sub-classes have a lot of duplicated code. Maybe you can shift the implementation burden to Compute()? Similar for the other superclasses.",
+      "range": {
+        "startLine": 2329,
+        "startChar": 2,
+        "endLine": 2330,
+        "endChar": 76
+      },
+      "revId": "7d50262a78d376ca22c3001c1d5ed4d3a44a9292",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6dc1fe6b_1aa11def",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2330,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-27T17:15:22Z",
+      "side": 1,
+      "message": "Compute is a template method; it cannot be made virtual.",
+      "parentUuid": "4dd51ace_4e90a2a5",
       "range": {
         "startLine": 2329,
         "startChar": 2,
