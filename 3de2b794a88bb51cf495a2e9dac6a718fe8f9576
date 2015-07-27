@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "6dc1fe6b_fa7c29e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-27T17:15:22Z",
+      "side": 1,
+      "message": "Could you rephrase your last sentence?  I had a hard time parsing it. :)\n\nThe benefit is that we can properly process operations with different signatures regarding inputs and output, e.g.:\n\n- arithmetic operations: (T, T) → T\n- condition (including merged compare \u0026 condition) : (T, T) → bool (\"converted\" to int).\n- comparisons: (T, T) → int\n\nSo I separated the dispatch part (Evaluate) from the computation part (Compute*), much like the Visitor design pattern does.  Sometimes the latter is the same for all cases; sometimes we have various cases (e.g. ComputeIntegral vs ComputeFP).  See also https://android-review.googlesource.com/#/c/161016 for more examples.",
+      "parentUuid": "4d335a20_047a1897",
+      "range": {
+        "startLine": 9,
+        "startChar": 7,
+        "endLine": 9,
+        "endChar": 15
+      },
+      "revId": "3de2b794a88bb51cf495a2e9dac6a718fe8f9576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d48f2a1_db3c934c",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 3
@@ -59,6 +83,30 @@
       "writtenOn": "2015-07-23T16:18:19Z",
       "side": 1,
       "message": "how about shift which can be \"long \u003c\u003c int\"",
+      "range": {
+        "startLine": 1016,
+        "startChar": 5,
+        "endLine": 1016,
+        "endChar": 66
+      },
+      "revId": "3de2b794a88bb51cf495a2e9dac6a718fe8f9576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adce96a1_545f6cbc",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-27T17:15:22Z",
+      "side": 1,
+      "message": "Can this actually happen?  Dex instructions such as shl-int or shl-long expect either two ints or two longs.  Also, the code generators seem to handle only (int, int) and (long, long) cases; e.g. see art::arm::InstructionCodeGeneratorARM::HandleShift.\n\n(And currently the worst case is, this doesn\u0027t get optimized by constant folding.)",
+      "parentUuid": "8d48f2a1_db3c934c",
       "range": {
         "startLine": 1016,
         "startChar": 5,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "2dbb86f3_9836559c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2052,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-27T17:15:22Z",
+      "side": 1,
+      "message": "Note: this was present in the initial code (see Base set, line 2679); I just moved it higher for dependency reasons.\n\nThis is required by art::HGraph::GetNullConstant, which instantiates an art::HNullConstant (the ctor of which is private).",
+      "parentUuid": "cd3e6aec_5dffdbda",
+      "range": {
+        "startLine": 2052,
+        "startChar": 2,
+        "endLine": 2052,
+        "endChar": 21
+      },
+      "revId": "3de2b794a88bb51cf495a2e9dac6a718fe8f9576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d335a20_c4983087",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "2dbb86f3_782ca14a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2063,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-27T17:15:22Z",
+      "side": 1,
+      "message": "Note: this was present in the initial code (see Base set, line 2690); I just moved it higher for dependency reasons.\n\nI\u0027ve added DCHECKs, here and in other HConstant subclasses.",
+      "parentUuid": "4d335a20_c4983087",
+      "range": {
+        "startLine": 2063,
+        "startChar": 11,
+        "endLine": 2063,
+        "endChar": 33
+      },
+      "revId": "3de2b794a88bb51cf495a2e9dac6a718fe8f9576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d538656_9b67af15",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -128,6 +224,30 @@
       "writtenOn": "2015-07-23T16:18:19Z",
       "side": 1,
       "message": "why not HConstant  then?",
+      "range": {
+        "startLine": 2261,
+        "startChar": 30,
+        "endLine": 2261,
+        "endChar": 42
+      },
+      "revId": "3de2b794a88bb51cf495a2e9dac6a718fe8f9576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dbec2e2_37263869",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2261,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-27T17:15:22Z",
+      "side": 1,
+      "message": "Because:\n1. I\u0027m using overloading to select the right method here (see TryStaticEvaluation methods);\n2. We need the exact type of the concrete classes to be able to call x-\u003eGetValue().",
+      "parentUuid": "2d538656_9b67af15",
       "range": {
         "startLine": 2261,
         "startChar": 30,
