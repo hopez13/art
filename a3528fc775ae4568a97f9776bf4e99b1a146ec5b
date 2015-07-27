@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0d4162d7_3fe5c712",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-27T18:45:38Z",
+      "side": 1,
+      "message": "I think the position of the padding can be anywhere, and MIPS ABI doesn\u0027t require arguments be placed on the stack. I just saw in other places of this file that the padding is never at 0($sp), so I just placed it here.\n\nAdd a comment about this.",
+      "parentUuid": "6dc1fe6b_ba1471d2",
+      "range": {
+        "startLine": 655,
+        "startChar": 38,
+        "endLine": 655,
+        "endChar": 63
+      },
+      "revId": "a3528fc775ae4568a97f9776bf4e99b1a146ec5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adce96a1_346bd093",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-27T13:06:32Z",
       "side": 1,
       "message": "# use branch delay slot to reserve argument slots before the call to artReadBarrierSlow here",
+      "range": {
+        "startLine": 668,
+        "startChar": 36,
+        "endLine": 668,
+        "endChar": 73
+      },
+      "revId": "a3528fc775ae4568a97f9776bf4e99b1a146ec5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d37da6b_a1853e15",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-27T18:45:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adce96a1_346bd093",
       "range": {
         "startLine": 668,
         "startChar": 36,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "adfcd6c5_444fce8a",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-27T18:45:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dbec2e2_575e4cf9",
+      "revId": "a3528fc775ae4568a97f9776bf4e99b1a146ec5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adce96a1_1468d492",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 9
@@ -76,6 +142,30 @@
       "writtenOn": "2015-07-27T13:06:32Z",
       "side": 1,
       "message": "Why not\n\n  .ifnc \\rDest, $v0\n      move \\rDest, $v0\n  .endif\n\nhere?",
+      "range": {
+        "startLine": 671,
+        "startChar": 4,
+        "endLine": 671,
+        "endChar": 20
+      },
+      "revId": "a3528fc775ae4568a97f9776bf4e99b1a146ec5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdfd8ac1_25c72e3a",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-27T18:45:38Z",
+      "side": 1,
+      "message": "Because the READ_BARRIER macro is already tightly coupled with art_quick_aput_obj, and $v0 is not used as a dest for any heap load in art_quick_aput_obj.\nAdded a comment.",
+      "parentUuid": "adce96a1_1468d492",
       "range": {
         "startLine": 671,
         "startChar": 4,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "ad5136aa_fc2c49cf",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-27T18:45:38Z",
+      "side": 1,
+      "message": "Similar to above comment. Added a comment.",
+      "parentUuid": "adce96a1_f45318eb",
+      "range": {
+        "startLine": 673,
+        "startChar": 70,
+        "endLine": 673,
+        "endChar": 90
+      },
+      "revId": "a3528fc775ae4568a97f9776bf4e99b1a146ec5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6dc1fe6b_fa31c978",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 9
@@ -122,6 +236,30 @@
       "writtenOn": "2015-07-27T13:06:32Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 918,
+        "startChar": 38,
+        "endLine": 918,
+        "endChar": 63
+      },
+      "revId": "a3528fc775ae4568a97f9776bf4e99b1a146ec5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "adfcd6c5_2416127f",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-27T18:45:38Z",
+      "side": 1,
+      "message": "Added a comment.",
+      "parentUuid": "6dc1fe6b_fa31c978",
       "range": {
         "startLine": 918,
         "startChar": 38,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "adfcd6c5_641c0aa1",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-27T18:45:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dbec2e2_d7c7fc0b",
+      "range": {
+        "startLine": 1186,
+        "startChar": 4,
+        "endLine": 1186,
+        "endChar": 6
+      },
+      "revId": "a3528fc775ae4568a97f9776bf4e99b1a146ec5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0dbec2e2_97d184cb",
         "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
         "patchSetId": 9
@@ -168,6 +330,30 @@
       "writtenOn": "2015-07-27T13:06:32Z",
       "side": 1,
       "message": "Is this really needed?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 19
+      },
+      "revId": "a3528fc775ae4568a97f9776bf4e99b1a146ec5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d86fa2e_359f7b43",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-27T18:45:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dbec2e2_97d184cb",
       "range": {
         "startLine": 25,
         "startChar": 0,
