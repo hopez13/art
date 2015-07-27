@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0dbec2e2_f78560e6",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-27T10:30:07Z",
+      "side": 1,
+      "message": "Please add a comment here explaining what could have went wrong before, and what this actually tests. Also, add the bug number.\n\nI would move this test in a separate regression test (the bug number also gives context)m but I don\u0027t mind if you want to keep it here.",
+      "range": {
+        "startLine": 1116,
+        "startChar": 7,
+        "endLine": 1116,
+        "endChar": 28
+      },
+      "revId": "65f161589c4671c04a4c535d9d0c52aa3a2a4301",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
