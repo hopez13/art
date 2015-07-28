@@ -22,6 +22,30 @@
       "revId": "fcdd17a6f6316bc8278ba4f8aed1d5c3ceffc63a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd8aea9e_bdde7f52",
+        "filename": "test/482-checker-loop-back-edge-use/src/Main.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-28T08:25:43Z",
+      "side": 1,
+      "message": "The difference is only revealed by this CL, in that the CFG is now generated on target instead of on host. The live ranges slightly differ.\n\nI`ll extract the related changes in a separate commit.",
+      "parentUuid": "8db0f20a_9b7beb66",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "fcdd17a6f6316bc8278ba4f8aed1d5c3ceffc63a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
