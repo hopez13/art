@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6dae5efb_387b9137",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-28T23:28:58Z",
+      "side": 1,
+      "message": "No.",
+      "range": {
+        "startLine": 80,
+        "startChar": 15,
+        "endLine": 80,
+        "endChar": 20
+      },
+      "revId": "abd22ef77ba64705218dfcf3dfed4eb93b02ea99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d06c2cf_1dcaf3c2",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-28T23:28:58Z",
+      "side": 1,
+      "message": "Please don\u0027t leave unaligned cruft comments around. Either properly comment this, or remove. Obviously I prefer the former.",
+      "range": {
+        "startLine": 545,
+        "startChar": 3,
+        "endLine": 545,
+        "endChar": 18
+      },
+      "revId": "abd22ef77ba64705218dfcf3dfed4eb93b02ea99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
