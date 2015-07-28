@@ -142,6 +142,24 @@
       "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad9936fb_9c37059c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3327,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-28T16:47:37Z",
+      "side": 1,
+      "message": "There should be tests and code for that in the VIXL simulator that can serve as examples. I\u0027ll try to find exacly where and send you the details.",
+      "parentUuid": "6d657ec3_daa8a563",
+      "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
