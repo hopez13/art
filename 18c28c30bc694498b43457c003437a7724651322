@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d7fda4c_81e5da14",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 1756,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-28T09:00:56Z",
+      "side": 1,
+      "message": "art_quick_read_barrier_slow",
+      "range": {
+        "startLine": 1756,
+        "startChar": 13,
+        "endLine": 1756,
+        "endChar": 36
+      },
+      "revId": "18c28c30bc694498b43457c003437a7724651322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d68ba9e_9900fb3f",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 1806,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-28T09:00:56Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1806,
+        "startChar": 13,
+        "endLine": 1806,
+        "endChar": 43
+      },
+      "revId": "18c28c30bc694498b43457c003437a7724651322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d68ba9e_19eeabfb",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-28T09:00:56Z",
+      "side": 1,
+      "message": "By the way, wwhy is `ref` not used?  (Do we plan to use it later?)  It would be a good idea to add a comment about this.",
+      "range": {
+        "startLine": 560,
+        "startChar": 46,
+        "endLine": 560,
+        "endChar": 82
+      },
+      "revId": "18c28c30bc694498b43457c003437a7724651322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
