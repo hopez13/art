@@ -88,6 +88,24 @@
       "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d7fda4c_21fece2d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3327,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-28T16:36:32Z",
+      "side": 1,
+      "message": "I think that is incorrect and that the issue can happen for a single operation.\nIf 80bit FP is enabled, the operation can happen with more precision, and when rounded back to 64bit FP the value can be different. I think we have seen this issue in real-world examples when working on the VIXL simulator.",
+      "parentUuid": "cd174afa_953c2481",
+      "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
