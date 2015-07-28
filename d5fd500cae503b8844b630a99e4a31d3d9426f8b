@@ -160,6 +160,42 @@
       "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1696fe_57ce0ea5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3327,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-28T16:58:11Z",
+      "side": 1,
+      "message": "Alex: really? If things are stored into doubles, shouldn\u0027t things be correctly rounded for a *single* operation?\n\nMark: I added you to the bug to chime in on that... :-)",
+      "parentUuid": "4d7fda4c_21fece2d",
+      "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed1c0e21_d9d1b7ca",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3327,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-28T16:58:11Z",
+      "side": 1,
+      "message": "vmarko: No, you don\u0027t need to know how the target would evaluate it. You just need to follow IEEE-754, as that is what Java mandates...",
+      "parentUuid": "6d657ec3_daa8a563",
+      "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
