@@ -250,6 +250,42 @@
       "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6dae5efb_b5d94a6f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3327,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-28T18:16:36Z",
+      "side": 1,
+      "message": "AFAIK the JLS provides clear guidance. Expression evaluation doesn\u0027t apply here, as long as the folding takes both precedence and order specified in the JLS into account (both of which are above the ComputeFP).\n\nI did not want to intimate that we can rely on C++11 guarantees. I just wanted to state that it doesn\u0027t matter what the target does. The target must be doing it as defined by the JLS (which is double precision, not 80b, with defined rounding mode), or we\u0027re doing things wrong...",
+      "parentUuid": "4d68ba9e_9910fb11",
+      "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2db8e63c_33bd72b1",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3327,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-28T18:16:36Z",
+      "side": 1,
+      "message": "A library would make all this definite. But honestly we\u0027d have to change the interpreter then, too. Instead we may check for the compiler support. Googling gives, for example:\n http://stackoverflow.com/questions/5777484/how-to-check-if-c-compiler-uses-ieee-754-floating-point-standard\nhboehm, danalbert and srhines may have opinions.",
+      "parentUuid": "6dae5efb_12caecc2",
+      "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
