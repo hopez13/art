@@ -196,6 +196,24 @@
       "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed1c0e21_19296f3a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3327,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-07-28T17:10:09Z",
+      "side": 1,
+      "message": "The existing x86 compilers will use XMM instructions to compute this, which will be IEEE compliant. I can\u0027t see a modern compiler using the 80 bit FP instructions.  I am okay with it as it is.",
+      "parentUuid": "ed1c0e21_d9d1b7ca",
+      "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
