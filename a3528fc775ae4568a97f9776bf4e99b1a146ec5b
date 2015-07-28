@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "cd8aea9e_5dd1fb44",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-28T09:00:56Z",
+      "side": 1,
+      "message": "Alright; thanks for the explanation (and for adding the comment)!",
+      "parentUuid": "0d4162d7_3fe5c712",
+      "range": {
+        "startLine": 655,
+        "startChar": 38,
+        "endLine": 655,
+        "endChar": 63
+      },
+      "revId": "a3528fc775ae4568a97f9776bf4e99b1a146ec5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adce96a1_346bd093",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 9
