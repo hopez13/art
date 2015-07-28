@@ -70,6 +70,24 @@
       "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd174afa_953c2481",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3327,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-28T16:03:39Z",
+      "side": 1,
+      "message": "I don\u0027t think this really matters. It seems rather unlikely that there will be code produced that doesn\u0027t use intermediates. For some reason, multiple operations would have to line up somewhere. I don\u0027t think the driver for the constant folding looks that way. (I\u0027d contend that any inliner/unroller that produces such code is a bit insane.)",
+      "parentUuid": "0d8962a8_ff0f1f6a",
+      "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
