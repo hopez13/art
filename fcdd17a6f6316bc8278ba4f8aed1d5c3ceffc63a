@@ -46,6 +46,30 @@
       "revId": "fcdd17a6f6316bc8278ba4f8aed1d5c3ceffc63a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d657ec3_9ad9cd6f",
+        "filename": "test/482-checker-loop-back-edge-use/src/Main.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-28T09:05:24Z",
+      "side": 1,
+      "message": "Alright.  It makes sense. :)\n\nDo you plan to have different CHECK stanzas for the various back ends?",
+      "parentUuid": "cd8aea9e_bdde7f52",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "fcdd17a6f6316bc8278ba4f8aed1d5c3ceffc63a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
