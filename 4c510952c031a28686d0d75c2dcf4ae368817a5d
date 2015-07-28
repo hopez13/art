@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "4db19a56_f45d9677",
+        "filename": "compiler/dex/dex_to_dex_compiler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-28T18:51:54Z",
+      "side": 1,
+      "message": "nit: Why not enum class?",
+      "range": {
+        "startLine": 32,
+        "startChar": 5,
+        "endLine": 32,
+        "endChar": 29
+      },
+      "revId": "4c510952c031a28686d0d75c2dcf4ae368817a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed432e7f_3e38098c",
         "filename": "compiler/dex/dex_to_dex_compiler.h",
         "patchSetId": 1
@@ -18,6 +41,29 @@
         "startChar": 42,
         "endLine": 33,
         "endChar": 45
+      },
+      "revId": "4c510952c031a28686d0d75c2dcf4ae368817a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dbb223c_757520bd",
+        "filename": "compiler/dex/dex_to_dex_compiler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-28T18:51:54Z",
+      "side": 1,
+      "message": "nit: Dex to be consistent with rest of \u0027dex\u0027 usage?",
+      "range": {
+        "startLine": 39,
+        "startChar": 26,
+        "endLine": 39,
+        "endChar": 29
       },
       "revId": "4c510952c031a28686d0d75c2dcf4ae368817a5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -88,6 +134,47 @@
         "endLine": 2136,
         "endChar": 78
       },
+      "revId": "4c510952c031a28686d0d75c2dcf4ae368817a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed1c0e21_5c78f5e5",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2136,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-28T18:51:54Z",
+      "side": 1,
+      "message": "2135/2136 would probably fit on one line if 2133 broke after \u003d",
+      "parentUuid": "cd3e6aec_ddddabdb",
+      "range": {
+        "startLine": 2135,
+        "startChar": 21,
+        "endLine": 2136,
+        "endChar": 78
+      },
+      "revId": "4c510952c031a28686d0d75c2dcf4ae368817a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6dae5efb_d5204ea1",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2385,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-28T18:51:54Z",
+      "side": 1,
+      "message": "nit: Would\u0027ve been nice to add some comments if this got moved around anyway :). Wishful thinking.",
       "revId": "4c510952c031a28686d0d75c2dcf4ae368817a5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
