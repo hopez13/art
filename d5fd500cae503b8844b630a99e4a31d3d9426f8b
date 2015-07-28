@@ -34,6 +34,24 @@
       "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d8962a8_ff0f1f6a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3327,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-28T10:21:18Z",
+      "side": 1,
+      "message": "I meant, do we pay attention that we compile with gcc/clang flags disabling (not enabling?) 80bit float in the C++ compiled code? Otherwise the `ComputeFP` functions could operate with a higher precision than what should happen, and we could get \u0027wrong\u0027 results out of constant propagation.",
+      "parentUuid": "2d862697_60fff29f",
+      "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
