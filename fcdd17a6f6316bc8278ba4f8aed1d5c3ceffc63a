@@ -70,6 +70,30 @@
       "revId": "fcdd17a6f6316bc8278ba4f8aed1d5c3ceffc63a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d862697_e00a225d",
+        "filename": "test/482-checker-loop-back-edge-use/src/Main.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-28T09:13:23Z",
+      "side": 1,
+      "message": "With the current changes we would first need to have one test per arch:\n\n    CHECK-START-X86: void Main ...\n    CHECK:        ParameterValue liveness:2 ranges:{[2,222222)} ...\n\n    CHECK-START-ARM: void Main ...\n    CHECK:        ParameterValue liveness:2 ranges:{[2,444444)} ...\n\n    ...\n\n\nAs discussed before, eventually we would like to be able to do something like\n\n    CHECK-START: void Main ...\n    CHECK-default:        ParameterValue liveness:2 ranges:{[2,222222)} ...\n    CHECK-ARM:            ParameterValue liveness:2 ranges:{[2,444444)} ...",
+      "parentUuid": "6d657ec3_9ad9cd6f",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "fcdd17a6f6316bc8278ba4f8aed1d5c3ceffc63a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
