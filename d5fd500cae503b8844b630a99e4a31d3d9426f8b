@@ -124,6 +124,24 @@
       "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d657ec3_daa8a563",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3327,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-28T16:42:07Z",
+      "side": 1,
+      "message": "This is a tricky issue when cross-compiling. The compiler must know how to evaluate the FP expression exactly as the target would evaluate it if we actually emitted the code for it.",
+      "parentUuid": "2d862697_a053baeb",
+      "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
