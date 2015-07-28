@@ -232,6 +232,24 @@
       "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6dae5efb_12caecc2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3327,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-07-28T17:32:39Z",
+      "side": 1,
+      "message": "This is theoretically true, but in practice is probably irrelevant.  If you really want to do this portably, you should be using a software IEEE-754 implementation that does what Java wants.  Then it doesn\u0027t matter on what machine this is executed on.  I have seen this on other compilers I have worked on.",
+      "parentUuid": "4d68ba9e_9910fb11",
+      "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
