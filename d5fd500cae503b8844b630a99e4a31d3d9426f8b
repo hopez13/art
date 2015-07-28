@@ -16,6 +16,24 @@
       "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d862697_60fff29f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3327,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-28T09:47:48Z",
+      "side": 1,
+      "message": "I thought all our operations in x86/x86-64 were only 32- or 64-bit; is there any place where we use 80-bit operations?",
+      "parentUuid": "2d3aa6f6_c36ae8de",
+      "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
