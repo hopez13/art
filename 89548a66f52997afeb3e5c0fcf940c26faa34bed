@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8d9472c2_bbf4c77f",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-07-28T16:31:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0da7a2c0_63e30a4d",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 23
+      },
+      "revId": "89548a66f52997afeb3e5c0fcf940c26faa34bed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8db0f20a_bb1467d2",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 1
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "cd73ca92_f5ee58ab",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-07-28T16:31:07Z",
+      "side": 1,
+      "message": "Good suggestion.\n\nI spent some time on this and found it requires substantial changes to support nested pass observation (\"inliner\" is currently being observed, but PassScopes are needed in the loop below..).\n\nWould such changes be better off in a separate patch?\n\nIf you think this patch stands as is, I can upload minor changes to address the other comments.",
+      "parentUuid": "8db0f20a_bb1467d2",
+      "revId": "89548a66f52997afeb3e5c0fcf940c26faa34bed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0da5e2c6_821c9ca1",
         "filename": "test/441-checker-inliner/src/Main.java",
         "patchSetId": 1
@@ -53,6 +95,30 @@
       "writtenOn": "2015-07-27T17:04:09Z",
       "side": 1,
       "message": "Call it from `main`?",
+      "range": {
+        "startLine": 168,
+        "startChar": 21,
+        "endLine": 168,
+        "endChar": 30
+      },
+      "revId": "89548a66f52997afeb3e5c0fcf940c26faa34bed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8faeab_5e265569",
+        "filename": "test/441-checker-inliner/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-07-28T16:31:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0da5e2c6_821c9ca1",
       "range": {
         "startLine": 168,
         "startChar": 21,
