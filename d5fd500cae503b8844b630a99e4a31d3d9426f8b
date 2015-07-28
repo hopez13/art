@@ -214,6 +214,24 @@
       "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d68ba9e_9910fb11",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3327,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-28T17:27:55Z",
+      "side": 1,
+      "message": "Reading the Wiki, it seems to me that IEEE-754 compliance is not enough to guarantee the very same results. See \"Expression evaluation\" and \"Reproducibility\" at\n\n    https://en.wikipedia.org/wiki/IEEE_floating_point#Expression_evaluation\n\nAnd even if Java mandates a specific behavior, is there any guarantee for C++11 compilers? The C++ standard provides for a lot of implementation-defined behavior.",
+      "parentUuid": "ed1c0e21_19296f3a",
+      "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
