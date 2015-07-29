@@ -262,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "4d7fda4c_e40a345d",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-29T13:20:18Z",
+      "side": 1,
+      "message": "I disagree here. You will need to have something like:\n\nHInliner::Run() {\n  // inliner\n  // type propagation\n  // fold\n}\n\nAnd you end up with a pass that does much more then it should do. \n\nIt\u0027s similar with the fact that we want to run instruction simplifier after various passes. We don\u0027t really want to code that in the pass that enables more simplification.",
+      "parentUuid": "4d68ba9e_59cd83c7",
+      "range": {
+        "startLine": 413,
+        "startChar": 0,
+        "endLine": 413,
+        "endChar": 67
+      },
+      "revId": "f5c8a10b6fcdea636d46a81a5c19b7d8154617ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad9936fb_5f7acf98",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 2
