@@ -304,6 +304,24 @@
       "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d657ec3_7af5d943",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3327,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-29T08:52:06Z",
+      "side": 1,
+      "message": "I talked with Jacob and dug a little in VIXL. So we have seen issues like Hans explains in the VIXL simulator, in a similar context where we do *one* operation at a time.\nCustom code has been implemented to handle the simulation of FP operations. Correctness is checked in the tests by validating an execution trace of the simulator against real hardware, so we are confident in the results.\n\nSome pointers:\n\n- simulation\nvixl/src/vixl/a64/simulator-a64.cc: `Simulator::VisitFPDataProcessing2Source`\n- simulation helpers declaration:\nvixl/src/vixl/a64/simulator-a64.h: look for `#define NEON_FP3SAME_LIST(V)`\n- simulation helpers implementation:\nvixl/src/vixl/a64/logic-a64.cc: look for `LogicVRegister Simulator::FN`\n\n- tests\nvixl/test/test-simulator-a64.cc: look for `DEFINE_TEST_FP(fadd, 2Op, Basic)`",
+      "parentUuid": "4db19a56_bad9356f",
+      "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
