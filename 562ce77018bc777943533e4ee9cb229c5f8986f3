@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "8d9472c2_1b2cdb49",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-29T11:20:04Z",
+      "side": 1,
+      "message": "Add a comment similar to the one from line 238 to explain why you\u0027re forcing (R0, R1) as input location.",
+      "range": {
+        "startLine": 262,
+        "startChar": 2,
+        "endLine": 262,
+        "endChar": 64
+      },
+      "revId": "562ce77018bc777943533e4ee9cb229c5f8986f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d8962a8_bf159700",
         "filename": "disassembler/disassembler_arm.cc",
         "patchSetId": 2
