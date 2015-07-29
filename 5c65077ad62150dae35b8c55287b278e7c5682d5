@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d7fda4c_6430e4ee",
+        "filename": "compiler/dex/quick/mir_to_lir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-29T17:01:50Z",
+      "side": 1,
+      "message": "Document these routines?",
+      "range": {
+        "startLine": 1176,
+        "startChar": 0,
+        "endLine": 1179,
+        "endChar": 81
+      },
+      "revId": "5c65077ad62150dae35b8c55287b278e7c5682d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d68ba9e_9c3d49ef",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-29T17:01:50Z",
+      "side": 1,
+      "message": "Use\n\n  DCHECK_ALIGNED(displacement, 4);\n\ninstead?",
+      "range": {
+        "startLine": 777,
+        "startChar": 2,
+        "endLine": 777,
+        "endChar": 37
+      },
+      "revId": "5c65077ad62150dae35b8c55287b278e7c5682d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d68ba9e_bc420d64",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-29T17:01:50Z",
+      "side": 1,
+      "message": "Don\u0027t forget to remove dead code when/if this is no longer WIP. :)",
+      "range": {
+        "startLine": 790,
+        "startChar": 4,
+        "endLine": 797,
+        "endChar": 6
+      },
+      "revId": "5c65077ad62150dae35b8c55287b278e7c5682d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d8962a8_1faa03d0",
+        "filename": "compiler/dex/quick/x86/utility_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-29T17:01:50Z",
+      "side": 1,
+      "message": "Nit: indentation is off.",
+      "range": {
+        "startLine": 800,
+        "startChar": 0,
+        "endLine": 800,
+        "endChar": 19
+      },
+      "revId": "5c65077ad62150dae35b8c55287b278e7c5682d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d862697_8313208d",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-29T17:01:50Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 566,
+        "startChar": 2,
+        "endLine": 566,
+        "endChar": 89
+      },
+      "revId": "5c65077ad62150dae35b8c55287b278e7c5682d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
