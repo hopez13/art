@@ -412,6 +412,30 @@
       "revId": "f5c8a10b6fcdea636d46a81a5c19b7d8154617ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d9472c2_fb19ef0a",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-07-29T13:33:55Z",
+      "side": 1,
+      "message": "Even if it\u0027s a good idea - it\u0027s too late to change the order of passes. I\u0027d strongly prefer a change that only changes behaviour when inlining is disabled.",
+      "parentUuid": "4d7fda4c_44ebe0ea",
+      "range": {
+        "startLine": 428,
+        "startChar": 6,
+        "endLine": 428,
+        "endChar": 11
+      },
+      "revId": "f5c8a10b6fcdea636d46a81a5c19b7d8154617ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
