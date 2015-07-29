@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea24f4a5_f62cc04b",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-29T17:54:18Z",
+      "side": 1,
+      "message": "You probably want to add a clean statement here for your two new variables...",
+      "range": {
+        "startLine": 587,
+        "startChar": 0,
+        "endLine": 587,
+        "endChar": 16
+      },
+      "revId": "e3ec1985065517d077cde647f5b257449dd7c11e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
