@@ -394,6 +394,24 @@
       "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d9472c2_fbbd6f22",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3327,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-07-29T15:22:26Z",
+      "side": 1,
+      "message": "They could be converted to 80bit after being loaded, the operation done with extra precision, and then converted to a 64bit \u0027wrong\u0027 result to be stored in memory.",
+      "parentUuid": "8d9472c2_bbb3e756",
+      "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
