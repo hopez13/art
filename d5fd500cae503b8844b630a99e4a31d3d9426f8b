@@ -376,6 +376,24 @@
       "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d9472c2_bbb3e756",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3327,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-29T15:12:55Z",
+      "side": 1,
+      "message": "I thought it would force the compiler to place or move the qualified FP values in a stack slot, thus rounding them to 32- or 64-bit values.",
+      "parentUuid": "2d862697_c3b7e821",
+      "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
