@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d862697_a3b2e432",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-29T15:06:34Z",
+      "side": 1,
+      "message": "exiting",
+      "range": {
+        "startLine": 92,
+        "startChar": 66,
+        "endLine": 92,
+        "endChar": 74
+      },
+      "revId": "1afc35c62c3ac30f2960188cd80897789bb8aeab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d68ba9e_dcbc2109",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-29T15:06:34Z",
+      "side": 1,
+      "message": "\"Unexpected instruction %s:%d jumping to the exit block.\"?",
+      "range": {
+        "startLine": 111,
+        "startChar": 32,
+        "endLine": 111,
+        "endChar": 78
+      },
+      "revId": "1afc35c62c3ac30f2960188cd80897789bb8aeab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8faeab_e185c014",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-29T15:06:34Z",
+      "side": 1,
+      "message": "Nit: put this on a single line?",
+      "range": {
+        "startLine": 365,
+        "startChar": 30,
+        "endLine": 366,
+        "endChar": 47
+      },
+      "revId": "1afc35c62c3ac30f2960188cd80897789bb8aeab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d657ec3_bdde8b52",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-29T15:06:34Z",
+      "side": 1,
+      "message": "Maybe list the block ids of these (unexpected) exceptional predecessors in the error message?",
+      "revId": "1afc35c62c3ac30f2960188cd80897789bb8aeab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d9472c2_7beb1f19",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1239,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-29T15:06:34Z",
+      "side": 1,
+      "message": "Is is a prerequisite of this method that `*this` and `other` have the same number of exception handlers?  Is so, maybe document that in compiler/optimizing/nodes.hh?",
+      "range": {
+        "startLine": 1239,
+        "startChar": 4,
+        "endLine": 1239,
+        "endChar": 24
+      },
+      "revId": "1afc35c62c3ac30f2960188cd80897789bb8aeab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
