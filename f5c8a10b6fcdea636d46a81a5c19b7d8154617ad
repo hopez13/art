@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8d9472c2_3b8d17ba",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-29T13:12:15Z",
+      "side": 1,
+      "message": "pitfalls of copy pasting... thanks.",
+      "parentUuid": "cd73ca92_35a61042",
+      "range": {
+        "startLine": 54,
+        "startChar": 15,
+        "endLine": 54,
+        "endChar": 18
+      },
+      "revId": "f5c8a10b6fcdea636d46a81a5c19b7d8154617ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d8962a8_bf6bd765",
         "filename": "compiler/driver/compiler_options.h",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2d862697_80a156f1",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-29T13:12:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d8962a8_bf6bd765",
+      "range": {
+        "startLine": 55,
+        "startChar": 15,
+        "endLine": 55,
+        "endChar": 18
+      },
+      "revId": "f5c8a10b6fcdea636d46a81a5c19b7d8154617ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d8962a8_df709b54",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2015-07-29T13:00:54Z",
       "side": 1,
       "message": "Nit: rename as type_propagation1?",
+      "range": {
+        "startLine": 405,
+        "startChar": 4,
+        "endLine": 405,
+        "endChar": 20
+      },
+      "revId": "f5c8a10b6fcdea636d46a81a5c19b7d8154617ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d9472c2_1b905bd3",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-29T13:12:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d8962a8_df709b54",
       "range": {
         "startLine": 405,
         "startChar": 4,
@@ -118,6 +190,54 @@
     },
     {
       "key": {
+        "uuid": "6d657ec3_fa94899a",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-29T13:12:15Z",
+      "side": 1,
+      "message": "It\u0027s better here. Having them in the inliner will add to obfuscation and will mix different concerns.\n\nNote that this is not to cover the inlined function. This is to cover the effects of the inlined function on the rest of the graph.",
+      "parentUuid": "cd8aea9e_9dae23ee",
+      "range": {
+        "startLine": 413,
+        "startChar": 0,
+        "endLine": 413,
+        "endChar": 67
+      },
+      "revId": "f5c8a10b6fcdea636d46a81a5c19b7d8154617ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d862697_40a74e05",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-29T13:12:15Z",
+      "side": 1,
+      "message": "yea, I agree. Didn\u0027t see an easy way out until we have a proper pass manager and dependencies between passes.",
+      "parentUuid": "4d68ba9e_19c30ba0",
+      "range": {
+        "startLine": 413,
+        "startChar": 0,
+        "endLine": 413,
+        "endChar": 67
+      },
+      "revId": "f5c8a10b6fcdea636d46a81a5c19b7d8154617ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad9936fb_5f7acf98",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 2
@@ -129,6 +249,24 @@
       "writtenOn": "2015-07-29T13:00:54Z",
       "side": 1,
       "message": "Pass \"reference_type_propagation_after_inlining\" as third argument?",
+      "revId": "f5c8a10b6fcdea636d46a81a5c19b7d8154617ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d8962a8_7f822fa1",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-29T13:12:15Z",
+      "side": 1,
+      "message": "that\u0027s done in a different CL which was temporary reverted.",
+      "parentUuid": "ad9936fb_5f7acf98",
       "revId": "f5c8a10b6fcdea636d46a81a5c19b7d8154617ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -158,6 +296,30 @@
     },
     {
       "key": {
+        "uuid": "6d657ec3_9a954d9a",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-29T13:12:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd8aea9e_9dff03dd",
+      "range": {
+        "startLine": 426,
+        "startChar": 19,
+        "endLine": 426,
+        "endChar": 27
+      },
+      "revId": "f5c8a10b6fcdea636d46a81a5c19b7d8154617ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d657ec3_5acd75c7",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 2
@@ -169,6 +331,30 @@
       "writtenOn": "2015-07-29T13:03:30Z",
       "side": 1,
       "message": "is it ok to move this constant folding pass ahead of the boolean simplification ?",
+      "range": {
+        "startLine": 428,
+        "startChar": 6,
+        "endLine": 428,
+        "endChar": 11
+      },
+      "revId": "f5c8a10b6fcdea636d46a81a5c19b7d8154617ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d7fda4c_44ebe0ea",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-29T13:12:15Z",
+      "side": 1,
+      "message": "yes, they should have been the other way around anyway. Boolean simplification can get more out of constant folding than the other way around.",
+      "parentUuid": "6d657ec3_5acd75c7",
       "range": {
         "startLine": 428,
         "startChar": 6,
