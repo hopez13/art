@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4d7fda4c_44ba00ba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-29T18:43:59Z",
+      "side": 1,
+      "message": "Sorry for the bad wording.\n\nI missed that actually for HEqual we returned either an int32 or an int64.",
+      "parentUuid": "6dc1fe6b_fa7c29e2",
+      "range": {
+        "startLine": 9,
+        "startChar": 7,
+        "endLine": 9,
+        "endChar": 15
+      },
+      "revId": "3de2b794a88bb51cf495a2e9dac6a718fe8f9576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d48f2a1_db3c934c",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 3
@@ -107,6 +131,30 @@
       "side": 1,
       "message": "Can this actually happen?  Dex instructions such as shl-int or shl-long expect either two ints or two longs.  Also, the code generators seem to handle only (int, int) and (long, long) cases; e.g. see art::arm::InstructionCodeGeneratorARM::HandleShift.\n\n(And currently the worst case is, this doesn\u0027t get optimized by constant folding.)",
       "parentUuid": "8d48f2a1_db3c934c",
+      "range": {
+        "startLine": 1016,
+        "startChar": 5,
+        "endLine": 1016,
+        "endChar": 66
+      },
+      "revId": "3de2b794a88bb51cf495a2e9dac6a718fe8f9576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d8962a8_3f6ee722",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-29T18:43:59Z",
+      "side": 1,
+      "message": "during codegen, for long, the second argument gets a register so maybe this is why is not immediately clear that you can have a HLongConstant \u003c\u003c HIntConstatn.\n\ntry a simple example:\n  public static void main(String[] args) {\n    long x \u003d 23l \u003c\u003c args.length;\n    System.out.println(x);\n  }",
+      "parentUuid": "adce96a1_545f6cbc",
       "range": {
         "startLine": 1016,
         "startChar": 5,
@@ -166,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "4d7fda4c_64c70439",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2052,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-29T18:43:59Z",
+      "side": 1,
+      "message": "thanks. I forgot about it.",
+      "parentUuid": "2dbb86f3_9836559c",
+      "range": {
+        "startLine": 2052,
+        "startChar": 2,
+        "endLine": 2052,
+        "endChar": 21
+      },
+      "revId": "3de2b794a88bb51cf495a2e9dac6a718fe8f9576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d335a20_c4983087",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -213,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "6d657ec3_1d993789",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2063,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-29T18:43:59Z",
+      "side": 1,
+      "message": "thanks, \n\nSometime when stuff gets moved is harder to see what changed and what not.",
+      "parentUuid": "2dbb86f3_782ca14a",
+      "range": {
+        "startLine": 2063,
+        "startChar": 11,
+        "endLine": 2063,
+        "endChar": 33
+      },
+      "revId": "3de2b794a88bb51cf495a2e9dac6a718fe8f9576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d538656_9b67af15",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -248,6 +344,30 @@
       "side": 1,
       "message": "Because:\n1. I\u0027m using overloading to select the right method here (see TryStaticEvaluation methods);\n2. We need the exact type of the concrete classes to be able to call x-\u003eGetValue().",
       "parentUuid": "2d538656_9b67af15",
+      "range": {
+        "startLine": 2261,
+        "startChar": 30,
+        "endLine": 2261,
+        "endChar": 42
+      },
+      "revId": "3de2b794a88bb51cf495a2e9dac6a718fe8f9576",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d657ec3_3d96fb57",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2261,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-29T18:43:59Z",
+      "side": 1,
+      "message": "I think an HIntConstant here with and if IsIntConstant would save lines when we invokes this. But I dont\u0027 mind if you want to keep it like this.",
+      "parentUuid": "0dbec2e2_37263869",
       "range": {
         "startLine": 2261,
         "startChar": 30,
