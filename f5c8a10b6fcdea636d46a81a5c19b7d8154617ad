@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "cd8aea9e_9dae23ee",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-07-29T13:09:10Z",
+      "side": 1,
+      "message": "How about you run the two passes inside the inliner instead?",
+      "parentUuid": "4d68ba9e_19c30ba0",
+      "range": {
+        "startLine": 413,
+        "startChar": 0,
+        "endLine": 413,
+        "endChar": 67
+      },
+      "revId": "f5c8a10b6fcdea636d46a81a5c19b7d8154617ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad9936fb_5f7acf98",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 2
