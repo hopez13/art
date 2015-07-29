@@ -340,6 +340,24 @@
       "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd73ca92_d514fcd3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3327,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-29T13:45:18Z",
+      "side": 1,
+      "message": "What about using `volatile` on the operands and the result of an FP operation evaluated at compile time, to force the compiler to move them to memory?",
+      "parentUuid": "ad9936fb_ff0f1b6a",
+      "revId": "d5fd500cae503b8844b630a99e4a31d3d9426f8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
