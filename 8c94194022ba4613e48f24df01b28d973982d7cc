@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cd73ca92_152cb449",
+        "filename": "compiler/jni/quick/mips/calling_convention_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-07-29T13:06:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd8aea9e_5d265b69",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 2
+      },
+      "revId": "8c94194022ba4613e48f24df01b28d973982d7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd73ca92_d5e31c93",
         "filename": "compiler/jni/quick/mips/calling_convention_mips.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-29T10:16:20Z",
       "side": 1,
       "message": "Maybe turn this into a `for` loop?",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 21
+      },
+      "revId": "8c94194022ba4613e48f24df01b28d973982d7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd73ca92_9566049d",
+        "filename": "compiler/jni/quick/mips/calling_convention_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-07-29T13:06:01Z",
+      "side": 1,
+      "message": "Done. This was copied from ARM.",
+      "parentUuid": "cd73ca92_d5e31c93",
       "range": {
         "startLine": 108,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ed8faeab_5e52d563",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-07-29T13:06:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd8aea9e_7d231758",
+      "range": {
+        "startLine": 386,
+        "startChar": 21,
+        "endLine": 386,
+        "endChar": 43
+      },
+      "revId": "8c94194022ba4613e48f24df01b28d973982d7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd8aea9e_9d66239d",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2015-07-29T10:16:20Z",
       "side": 1,
       "message": "Likewise, maybe introduce ConvertFRegToReg?",
+      "range": {
+        "startLine": 394,
+        "startChar": 18,
+        "endLine": 394,
+        "endChar": 39
+      },
+      "revId": "8c94194022ba4613e48f24df01b28d973982d7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d7fda4c_21c32ea0",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-07-29T13:06:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd8aea9e_9d66239d",
       "range": {
         "startLine": 394,
         "startChar": 18,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "cd73ca92_b56b0066",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-07-29T13:06:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d8962a8_dfe33b93",
+      "range": {
+        "startLine": 582,
+        "startChar": 69,
+        "endLine": 582,
+        "endChar": 70
+      },
+      "revId": "8c94194022ba4613e48f24df01b28d973982d7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd73ca92_b515c000",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2015-07-29T10:16:20Z",
       "side": 1,
       "message": "Could we use a character literal (« \u0027J ») here (and elsewhere)?",
+      "range": {
+        "startLine": 586,
+        "startChar": 15,
+        "endLine": 586,
+        "endChar": 17
+      },
+      "revId": "8c94194022ba4613e48f24df01b28d973982d7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd73ca92_f5757841",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-07-29T13:06:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd73ca92_b515c000",
       "range": {
         "startLine": 586,
         "startChar": 15,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "8d9472c2_db70b354",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-07-29T13:06:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d862697_6040d2b8",
+      "range": {
+        "startLine": 689,
+        "startChar": 34,
+        "endLine": 689,
+        "endChar": 78
+      },
+      "revId": "8c94194022ba4613e48f24df01b28d973982d7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d8962a8_1ffe832d",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 3
@@ -174,6 +342,30 @@
       "writtenOn": "2015-07-29T10:16:20Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 690,
+        "startChar": 34,
+        "endLine": 690,
+        "endChar": 83
+      },
+      "revId": "8c94194022ba4613e48f24df01b28d973982d7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd73ca92_3578d037",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-07-29T13:06:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d8962a8_1ffe832d",
       "range": {
         "startLine": 690,
         "startChar": 34,
@@ -225,6 +417,54 @@
         "startChar": 61,
         "endLine": 497,
         "endChar": 68
+      },
+      "revId": "8c94194022ba4613e48f24df01b28d973982d7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d7fda4c_c1b36256",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-07-29T13:06:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d657ec3_ba6bf165",
+      "range": {
+        "startLine": 497,
+        "startChar": 61,
+        "endLine": 497,
+        "endChar": 68
+      },
+      "revId": "8c94194022ba4613e48f24df01b28d973982d7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad9936fb_df37bf08",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-07-29T13:06:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d862697_a0d81aa2",
+      "range": {
+        "startLine": 497,
+        "startChar": 29,
+        "endLine": 497,
+        "endChar": 36
       },
       "revId": "8c94194022ba4613e48f24df01b28d973982d7cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
