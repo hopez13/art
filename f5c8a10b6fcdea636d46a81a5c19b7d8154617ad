@@ -436,6 +436,30 @@
       "revId": "f5c8a10b6fcdea636d46a81a5c19b7d8154617ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d68ba9e_f98bb76e",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-07-29T13:59:38Z",
+      "side": 1,
+      "message": "we discussed offline. for minimal changes I will keep the same order in this CL.",
+      "parentUuid": "8d9472c2_fb19ef0a",
+      "range": {
+        "startLine": 428,
+        "startChar": 6,
+        "endLine": 428,
+        "endChar": 11
+      },
+      "revId": "f5c8a10b6fcdea636d46a81a5c19b7d8154617ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
