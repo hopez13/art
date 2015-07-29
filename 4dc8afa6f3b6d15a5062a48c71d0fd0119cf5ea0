@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "adb5b6f9_3fff23a1",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1057,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-07-29T09:21:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adce96a1_f4d9d86d",
+      "range": {
+        "startLine": 1056,
+        "startChar": 0,
+        "endLine": 1057,
+        "endChar": 49
+      },
+      "revId": "4dc8afa6f3b6d15a5062a48c71d0fd0119cf5ea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd882a39_b044561e",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "cda66ad5_ddb96b69",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-07-29T09:21:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd882a39_b044561e",
+      "range": {
+        "startLine": 269,
+        "startChar": 2,
+        "endLine": 277,
+        "endChar": 3
+      },
+      "revId": "4dc8afa6f3b6d15a5062a48c71d0fd0119cf5ea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0da5e2c6_3fe847ec",
         "filename": "test/082-inline-execute/src/Main.java",
         "patchSetId": 1
@@ -59,6 +107,24 @@
       "writtenOn": "2015-07-24T09:46:44Z",
       "side": 1,
       "message": "Please add tests for integers of the form (0xffffffff \u003e\u003e\u003e i) and ((1 \u003c\u003c i) + 1). Similar for long below.\n\nNote that the four individual Asserts outside the loop will then be covered inside the loop. (The MIN_VALUE is already covered.)",
+      "revId": "4dc8afa6f3b6d15a5062a48c71d0fd0119cf5ea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0dbec2e2_5702ccc2",
+        "filename": "test/082-inline-execute/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-07-29T09:21:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0da5e2c6_3fe847ec",
       "revId": "4dc8afa6f3b6d15a5062a48c71d0fd0119cf5ea0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
