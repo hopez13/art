@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "cd73ca92_35a61042",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-07-29T13:03:30Z",
+      "side": 1,
+      "message": "size_t",
+      "range": {
+        "startLine": 54,
+        "startChar": 15,
+        "endLine": 54,
+        "endChar": 18
+      },
+      "revId": "f5c8a10b6fcdea636d46a81a5c19b7d8154617ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d8962a8_bf6bd765",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-07-29T13:03:30Z",
+      "side": 1,
+      "message": "size_t",
+      "range": {
+        "startLine": 55,
+        "startChar": 15,
+        "endLine": 55,
+        "endChar": 18
+      },
+      "revId": "f5c8a10b6fcdea636d46a81a5c19b7d8154617ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d8962a8_df709b54",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 2
@@ -81,6 +127,29 @@
         "startChar": 19,
         "endLine": 426,
         "endChar": 27
+      },
+      "revId": "f5c8a10b6fcdea636d46a81a5c19b7d8154617ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d657ec3_5acd75c7",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2015-07-29T13:03:30Z",
+      "side": 1,
+      "message": "is it ok to move this constant folding pass ahead of the boolean simplification ?",
+      "range": {
+        "startLine": 428,
+        "startChar": 6,
+        "endLine": 428,
+        "endChar": 11
       },
       "revId": "f5c8a10b6fcdea636d46a81a5c19b7d8154617ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
