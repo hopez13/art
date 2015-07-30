@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d7fda4c_24717c04",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1461,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-30T09:54:27Z",
+      "side": 1,
+      "message": "This is now 0. Please remove the op3 and the always-true-if below.",
+      "range": {
+        "startLine": 1461,
+        "startChar": 27,
+        "endLine": 1461,
+        "endChar": 43
+      },
+      "revId": "4933c0f581ab5e08383a22e6c1f3640b99eaa40d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
