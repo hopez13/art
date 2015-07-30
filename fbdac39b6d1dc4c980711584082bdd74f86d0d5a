@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa33dcf3_0fda895d",
+        "filename": "disassembler/disassembler_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-07-30T20:55:35Z",
+      "side": 1,
+      "message": "Is that correct? Isn\u0027t it a \"w\" because of the 0x66? I think you should do something like on line 1124, maybe?",
+      "range": {
+        "startLine": 1121,
+        "startChar": 15,
+        "endLine": 1121,
+        "endChar": 20
+      },
+      "revId": "fbdac39b6d1dc4c980711584082bdd74f86d0d5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
