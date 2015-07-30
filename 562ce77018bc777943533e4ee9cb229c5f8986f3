@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0d8962a8_3f8d07ba",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-07-30T09:36:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd73ca92_55262c69",
+      "range": {
+        "startLine": 241,
+        "startChar": 7,
+        "endLine": 241,
+        "endChar": 11
+      },
+      "revId": "562ce77018bc777943533e4ee9cb229c5f8986f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d9472c2_1b2cdb49",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 2
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "ed8faeab_c190c459",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1459,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-07-30T09:36:36Z",
+      "side": 1,
+      "message": "Good catch, it should be 0xf0f0 - I\u0027m masking for 1111----1000---- in the second halfword.\n\nAs for op3 !\u003d 0, none where op2 \u003d\u003d 0b0101011 (specifically, bits[5:4] in the first halfword \u003d\u003d 0b11 for clz only). Other encodings in the same space are UNDEFINED (ARM ARM v7-A/R, encoding Table A6-27 Miscellaneous operations).",
+      "parentUuid": "0d8962a8_bf159700",
+      "range": {
+        "startLine": 1459,
+        "startChar": 23,
+        "endLine": 1459,
+        "endChar": 29
+      },
+      "revId": "562ce77018bc777943533e4ee9cb229c5f8986f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d9472c2_1b7bfb36",
         "filename": "test/082-inline-execute/src/Main.java",
         "patchSetId": 2
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "0d8962a8_1f9043d3",
+        "filename": "test/082-inline-execute/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1049,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-07-30T09:36:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d9472c2_1b7bfb36",
+      "range": {
+        "startLine": 1049,
+        "startChar": 66,
+        "endLine": 1049,
+        "endChar": 67
+      },
+      "revId": "562ce77018bc777943533e4ee9cb229c5f8986f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d657ec3_1aa93d13",
         "filename": "test/082-inline-execute/src/Main.java",
         "patchSetId": 2
@@ -105,6 +177,24 @@
       "writtenOn": "2015-07-29T11:15:42Z",
       "side": 1,
       "message": "This isn\u0027t actually testing numberOfLeadingZeros(0). Please add that back outside the loop.\n(Sorry for misleading you in my comment on PS1.)",
+      "revId": "562ce77018bc777943533e4ee9cb229c5f8986f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd73ca92_d52b1c04",
+        "filename": "test/082-inline-execute/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-07-30T09:36:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d657ec3_1aa93d13",
       "revId": "562ce77018bc777943533e4ee9cb229c5f8986f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
