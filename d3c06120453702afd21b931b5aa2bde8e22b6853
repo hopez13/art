@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d862697_c3a0c823",
+        "filename": "test/415-optimizing-arith-neg/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-30T11:47:46Z",
+      "side": 1,
+      "message": "\"test\" - the decision to compile is not taken based on the presence of the \"$opt$\" marker. What we do is _test_ that the compiler has decided to actually compile the method.",
+      "range": {
+        "startLine": 17,
+        "startChar": 62,
+        "endLine": 17,
+        "endChar": 68
+      },
+      "revId": "d3c06120453702afd21b931b5aa2bde8e22b6853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd8aea9e_40783038",
+        "filename": "test/415-optimizing-arith-neg/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-07-30T11:47:46Z",
+      "side": 1,
+      "message": "\"test that it does not inline it\"",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 32
+      },
+      "revId": "d3c06120453702afd21b931b5aa2bde8e22b6853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
