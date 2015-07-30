@@ -22,6 +22,30 @@
       "revId": "3247ce5195f4233c484254b41a1fcc6cd1e6db0a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "caf6504b_b149a884",
+        "filename": "runtime/gc/accounting/remembered_set.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-07-30T01:00:59Z",
+      "side": 0,
+      "message": "It used to only be a check and didn\u0027t do any marking.",
+      "parentUuid": "2a0b6c19_acaefb15",
+      "range": {
+        "startLine": 91,
+        "startChar": 8,
+        "endLine": 91,
+        "endChar": 25
+      },
+      "revId": "3247ce5195f4233c484254b41a1fcc6cd1e6db0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
