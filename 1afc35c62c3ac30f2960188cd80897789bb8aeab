@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "4d7fda4c_a7666e9c",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-30T16:42:35Z",
+      "side": 1,
+      "message": "I used to limit myself to 80 characters when I started to work on ART (and GraphChecker was my first piece of code), so it might explain your confusion. :)",
+      "parentUuid": "ed8faeab_6419be86",
+      "range": {
+        "startLine": 365,
+        "startChar": 30,
+        "endLine": 366,
+        "endChar": 47
+      },
+      "revId": "1afc35c62c3ac30f2960188cd80897789bb8aeab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d657ec3_bdde8b52",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 3
@@ -213,6 +237,30 @@
       "side": 1,
       "message": "Nope, but there is a test at the beginning of the method. If the code reaches the loop, it has the same number of handlers.",
       "parentUuid": "8d9472c2_7beb1f19",
+      "range": {
+        "startLine": 1239,
+        "startChar": 4,
+        "endLine": 1239,
+        "endChar": 24
+      },
+      "revId": "1afc35c62c3ac30f2960188cd80897789bb8aeab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd8aea9e_03d9d269",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1239,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-07-30T16:42:35Z",
+      "side": 1,
+      "message": "Oh right!",
+      "parentUuid": "cd73ca92_b83cd580",
       "range": {
         "startLine": 1239,
         "startChar": 4,
