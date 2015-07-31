@@ -1,0 +1,180 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca2490af_c15c52c8",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-31T00:13:11Z",
+      "side": 1,
+      "message": "Isn\u0027t this just checking if the instruction is outside of the \u0027loop\u0027?",
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea523422_6ceb4f6f",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-31T00:13:11Z",
+      "side": 1,
+      "message": "Aren\u0027t SCCs pretty common as well? Would it perhaps make sense to factor it out into a separate algorithm?",
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa33dcf3_32eb689e",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-31T00:13:11Z",
+      "side": 1,
+      "message": "minor: doing 2 O(logn) lookups here which could be avoided by first constructing state_, df_ and then moving it into the map\n\ne.g. \n\n  map_[id] \u003d NodeInfo{kOnStack, df};\n\n(I also noticed an access on 112 but it\u0027s probably not worth it)",
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca4d7087_ab400db9",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-31T00:13:11Z",
+      "side": 1,
+      "message": "nit: looking up the map element twice",
+      "range": {
+        "startLine": 145,
+        "startChar": 13,
+        "endLine": 145,
+        "endChar": 21
+      },
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca2490af_1cc1a177",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-31T00:13:11Z",
+      "side": 1,
+      "message": "nit: kDone?",
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a2e188f_11b3cc07",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-31T00:13:11Z",
+      "side": 1,
+      "message": "What is the point of having a nop?",
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca4d7087_cb45891b",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-31T00:13:11Z",
+      "side": 1,
+      "message": "nit: I think Nicolas would prefer slightly longer variable names\n\n(class, op, info_a, info_b, instruction, etc)",
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a5f2428_ed03c1c5",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-31T00:13:11Z",
+      "side": 1,
+      "message": "SCC \u003d Strongly Connected Component?",
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a6260ef_12bd1221",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-31T00:13:11Z",
+      "side": 1,
+      "message": "nit: I think Nicolas would prefer df to be spelled out to whatever it stands for (descendant-first count?)",
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a59ac45_8ef55f48",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-07-31T00:13:11Z",
+      "side": 1,
+      "message": "minor: not sure if this should be std::map or std::unordered_map, especially since the key is so nicely hashable",
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
