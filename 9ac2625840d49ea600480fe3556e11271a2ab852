@@ -49,6 +49,98 @@
     },
     {
       "key": {
+        "uuid": "aa33dcf3_1bc1a777",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-31T19:47:41Z",
+      "side": 1,
+      "message": "nit: here, the intrinsic name is Equals, so it should read as\n\nEquals must not be ....",
+      "range": {
+        "startLine": 96,
+        "startChar": 54,
+        "endLine": 96,
+        "endChar": 60
+      },
+      "revId": "9ac2625840d49ea600480fe3556e11271a2ab852",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa33dcf3_fbc5bb83",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-31T19:47:41Z",
+      "side": 1,
+      "message": "reviewers nit: when comment is used on stand alone line, it must end with period",
+      "range": {
+        "startLine": 591,
+        "startChar": 39,
+        "endLine": 591,
+        "endChar": 48
+      },
+      "revId": "9ac2625840d49ea600480fe3556e11271a2ab852",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca2490af_b9ccdaab",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-31T19:47:41Z",
+      "side": 1,
+      "message": "period at end",
+      "range": {
+        "startLine": 955,
+        "startChar": 46,
+        "endLine": 955,
+        "endChar": 52
+      },
+      "revId": "9ac2625840d49ea600480fe3556e11271a2ab852",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a6260ef_127aad30",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-31T19:47:41Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 959,
+        "startChar": 55,
+        "endLine": 959,
+        "endChar": 62
+      },
+      "revId": "9ac2625840d49ea600480fe3556e11271a2ab852",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d657ec3_803f9a8d",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
@@ -106,6 +198,30 @@
       "writtenOn": "2015-07-31T08:47:44Z",
       "side": 1,
       "message": "out_esi (or simply `out`?)",
+      "range": {
+        "startLine": 971,
+        "startChar": 11,
+        "endLine": 971,
+        "endChar": 18
+      },
+      "revId": "9ac2625840d49ea600480fe3556e11271a2ab852",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea523422_15d73ef0",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-31T19:47:41Z",
+      "side": 1,
+      "message": "or just esi, reads nicer below",
+      "parentUuid": "4d68ba9e_7f16a756",
       "range": {
         "startLine": 971,
         "startChar": 11,
