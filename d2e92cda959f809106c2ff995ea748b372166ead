@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ed8faeab_44a76205",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-07-31T13:38:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd73ca92_38ca85c3",
+      "range": {
+        "startLine": 493,
+        "startChar": 0,
+        "endLine": 494,
+        "endChar": 23
+      },
+      "revId": "d2e92cda959f809106c2ff995ea748b372166ead",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d8962a8_82ca3caf",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-30T19:55:16Z",
       "side": 1,
       "message": "\"20+16\" since the $fp is 16 bytes below the $sp on entry.",
+      "range": {
+        "startLine": 575,
+        "startChar": 15,
+        "endLine": 575,
+        "endChar": 17
+      },
+      "revId": "d2e92cda959f809106c2ff995ea748b372166ead",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d862697_66a46a00",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-07-31T13:38:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d8962a8_82ca3caf",
       "range": {
         "startLine": 575,
         "startChar": 15,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "cd8aea9e_43783a38",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-07-31T13:38:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d8962a8_a27ca0e1",
+      "range": {
+        "startLine": 606,
+        "startChar": 32,
+        "endLine": 606,
+        "endChar": 85
+      },
+      "revId": "d2e92cda959f809106c2ff995ea748b372166ead",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d9472c2_210faa3c",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 5
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "0d8962a8_457d9e8e",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-07-31T13:38:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d9472c2_210faa3c",
+      "range": {
+        "startLine": 703,
+        "startChar": 10,
+        "endLine": 703,
+        "endChar": 18
+      },
+      "revId": "d2e92cda959f809106c2ff995ea748b372166ead",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d9472c2_211c0aa0",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 5
@@ -105,6 +201,30 @@
       "writtenOn": "2015-07-30T19:55:16Z",
       "side": 1,
       "message": "The comment looks wrong (i.e. 4 !\u003d 2) and therefore it should be expanded with a proper explanation. (2 arguments passed in 4 registers?)",
+      "range": {
+        "startLine": 145,
+        "startChar": 26,
+        "endLine": 145,
+        "endChar": 79
+      },
+      "revId": "d2e92cda959f809106c2ff995ea748b372166ead",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d68ba9e_ff8477e8",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-07-31T13:38:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d9472c2_211c0aa0",
       "range": {
         "startLine": 145,
         "startChar": 26,
