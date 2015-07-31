@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "aa33dcf3_f5eeeaf9",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-31T02:24:53Z",
+      "side": 1,
+      "message": "It is! And that is precisely loop invariant :-)",
+      "parentUuid": "ca2490af_c15c52c8",
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea523422_6ceb4f6f",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "ea295486_17c17e77",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-31T02:24:53Z",
+      "side": 1,
+      "message": "I generally agree with factoring out what can be shared, but the actual Tarjan code is so small, that it is probably not worth it.",
+      "parentUuid": "ea523422_6ceb4f6f",
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa33dcf3_32eb689e",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2015-07-31T00:13:11Z",
       "side": 1,
       "message": "minor: doing 2 O(logn) lookups here which could be avoided by first constructing state_, df_ and then moving it into the map\n\ne.g. \n\n  map_[id] \u003d NodeInfo{kOnStack, df};\n\n(I also noticed an access on 112 but it\u0027s probably not worth it)",
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa33dcf3_d5ebeee7",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-31T02:24:53Z",
+      "side": 1,
+      "message": "Ok, will change",
+      "parentUuid": "aa33dcf3_32eb689e",
       "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -76,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "ca2490af_4723d2dd",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-31T02:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca4d7087_ab400db9",
+      "range": {
+        "startLine": 145,
+        "startChar": 13,
+        "endLine": 145,
+        "endChar": 21
+      },
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca2490af_1cc1a177",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 2
@@ -87,6 +165,24 @@
       "writtenOn": "2015-07-31T00:13:11Z",
       "side": 1,
       "message": "nit: kDone?",
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a2e188f_94e56a16",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-31T02:24:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca2490af_1cc1a177",
       "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
