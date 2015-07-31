@@ -22,6 +22,30 @@
       "revId": "502a4aee63c62042c46b546861813cd3668b5a5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a2e188f_dfb8abc0",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-31T18:16:58Z",
+      "side": 1,
+      "message": "This is the transfer over * (so think derived, not basic).\nSo if we have x * y\n  where x is classified linear as a_ * i + b_\n  and y is classified as invariant, just itself,\nwe get a new linear expression\n   (a_ * y) * i + (b_ * y)\n\nPerhaps naming the parameters x and y instead of a and b would be a bit more clear to see the difference between top and sub expressions better (as I realized writing down the explanation :-)",
+      "parentUuid": "ca2490af_a23dc446",
+      "range": {
+        "startLine": 297,
+        "startChar": 10,
+        "endLine": 297,
+        "endChar": 17
+      },
+      "revId": "502a4aee63c62042c46b546861813cd3668b5a5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
