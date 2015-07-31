@@ -127,6 +127,24 @@
     },
     {
       "key": {
+        "uuid": "aa33dcf3_66b93266",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-31T23:07:19Z",
+      "side": 1,
+      "message": "well, we will only call the method for data that is actually used; since this is a locally used method, I still prefer the loop based reasoning over bringing dom relations into the implementation",
+      "parentUuid": "ea295486_5d54c7a3",
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea523422_6ceb4f6f",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 2
@@ -448,6 +466,29 @@
       "side": 1,
       "message": "Good suggestion.",
       "parentUuid": "2a59ac45_8ef55f48",
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a2e188f_e5007abb",
+        "filename": "compiler/optimizing/induction_var_analysis_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-31T23:07:19Z",
+      "side": 1,
+      "message": "I am working on my own TODO using regexp to make sure we accept any phi, not just 165 \n(the constant ids are under my control, but I suspect the phi number heavily depends on the SSA builder)",
+      "range": {
+        "startLine": 400,
+        "startChar": 22,
+        "endLine": 400,
+        "endChar": 23
+      },
       "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
