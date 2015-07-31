@@ -109,6 +109,24 @@
     },
     {
       "key": {
+        "uuid": "ea295486_5d54c7a3",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-07-31T22:57:19Z",
+      "side": 1,
+      "message": "if () {\n  def1;\n} else {\n  loop1;\n}\n\nIsLoopInvariant(loop1, def1) should return false. It\u0027s true def1 shouldn\u0027t be used in loop1. But that\u0027s what I said just in case, it\u0027s not obvious in the api just by this function alone.",
+      "parentUuid": "ea295486_1d8cff3d",
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea523422_6ceb4f6f",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 2
