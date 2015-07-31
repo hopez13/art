@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "0a5ce834_9b66bbc7",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-07-31T19:19:53Z",
+      "side": 1,
+      "message": "wrt the environment, I was just being very conservative here (it was inspired on what I saw in licm); if you can give me some more background on when it is set, I may be able to remove (or refine) it.\n\nas for dominating, since it is SSA, both tests yield the same result, yes",
+      "parentUuid": "aa33dcf3_6006ba94",
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea523422_6ceb4f6f",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 2
