@@ -145,6 +145,24 @@
     },
     {
       "key": {
+        "uuid": "8a2e188f_259c42f0",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-07-31T23:27:07Z",
+      "side": 1,
+      "message": "It\u0027s fine. They are doing the same thing as long as instruction is a use in loop.",
+      "parentUuid": "aa33dcf3_66b93266",
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea523422_6ceb4f6f",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 2
