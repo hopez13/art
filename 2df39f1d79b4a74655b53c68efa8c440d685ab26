@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a2e188f_913d7c47",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-31T01:18:45Z",
+      "side": 1,
+      "message": "Worth adding a comment that accesses to increment_counter_ and the samples[dex_method_index] below are racy, that we could lose some increment. But it\u0027s OK since the counters here can be imprecise.",
+      "range": {
+        "startLine": 94,
+        "startChar": 4,
+        "endLine": 94,
+        "endChar": 22
+      },
+      "revId": "2df39f1d79b4a74655b53c68efa8c440d685ab26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea523422_8ca1ebf1",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-31T01:18:45Z",
+      "side": 1,
+      "message": "Better to have something like:\n\nconst size_t kMaxCount \u003d (1u \u003c\u003c kBitsPerByte * sizeof(samples[0])) - 1;\nsample_count +\u003d sample_count \u003c kMaxCount;",
+      "range": {
+        "startLine": 107,
+        "startChar": 4,
+        "endLine": 107,
+        "endChar": 83
+      },
+      "revId": "2df39f1d79b4a74655b53c68efa8c440d685ab26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a59ac45_d1c2d679",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-07-31T01:18:45Z",
+      "side": 1,
+      "message": "For the racy counter increment, two threads could both try to compile the same method. Is it safe?",
+      "range": {
+        "startLine": 121,
+        "startChar": 6,
+        "endLine": 121,
+        "endChar": 52
+      },
+      "revId": "2df39f1d79b4a74655b53c68efa8c440d685ab26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
