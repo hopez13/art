@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "6a5f2428_d029b439",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-07-31T12:53:03Z",
+      "side": 1,
+      "message": "Agree.",
+      "parentUuid": "cd73ca92_9bb2b333",
+      "range": {
+        "startLine": 995,
+        "startChar": 15,
+        "endLine": 995,
+        "endChar": 18
+      },
+      "revId": "9ac2625840d49ea600480fe3556e11271a2ab852",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed8faeab_04e8fa26",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
@@ -133,6 +157,29 @@
         "startChar": 15,
         "endLine": 1006,
         "endChar": 18
+      },
+      "revId": "9ac2625840d49ea600480fe3556e11271a2ab852",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a6260ef_039142d8",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1010,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-07-31T12:53:03Z",
+      "side": 1,
+      "message": "could use jecxz if support for near branches added.",
+      "range": {
+        "startLine": 1009,
+        "startChar": 2,
+        "endLine": 1010,
+        "endChar": 29
       },
       "revId": "9ac2625840d49ea600480fe3556e11271a2ab852",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -157,6 +204,23 @@
         "endLine": 1018,
         "endChar": 91
       },
+      "revId": "9ac2625840d49ea600480fe3556e11271a2ab852",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa33dcf3_558c9e10",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1618,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-07-31T12:53:03Z",
+      "side": 1,
+      "message": "Use same code for 64 bit?",
       "revId": "9ac2625840d49ea600480fe3556e11271a2ab852",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
