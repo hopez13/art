@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "aa33dcf3_9b3d9747",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-07-31T21:30:44Z",
+      "side": 1,
+      "message": "env is for those nodes whose NeedsEnvironment() return true. It\u0027s for cases where we need the vreg\u0027s to reg\u0027s mapping, like for gc maps/debugging/deoptimization. I don\u0027t see the check is needed here.\n\nAs for loop invariant test, the dominator test is more robust just in case the passed-in instruction is in an unrelated branch.",
+      "parentUuid": "0a5ce834_9b66bbc7",
+      "revId": "b5888a4136980c0cbc12297b2cc3238340a8830f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea523422_6ceb4f6f",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 2
