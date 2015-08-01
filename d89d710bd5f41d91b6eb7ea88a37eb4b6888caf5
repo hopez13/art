@@ -22,6 +22,30 @@
       "revId": "d89d710bd5f41d91b6eb7ea88a37eb4b6888caf5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eaf154a3_eededffd",
+        "filename": "compiler/optimizing/induction_var_analysis_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-01T00:18:11Z",
+      "side": 1,
+      "message": "that seems like it could be better off replacing every character that actually needs escaping after the fact with its escaped version. \n\n(it doesn\u0027t seem like there\u0027s any non-escaped usage of these special characters is there?)",
+      "parentUuid": "aa33dcf3_e15cec00",
+      "range": {
+        "startLine": 403,
+        "startChar": 5,
+        "endLine": 403,
+        "endChar": 7
+      },
+      "revId": "d89d710bd5f41d91b6eb7ea88a37eb4b6888caf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
