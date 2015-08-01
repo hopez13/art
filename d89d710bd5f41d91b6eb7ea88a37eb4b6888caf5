@@ -142,6 +142,30 @@
       "revId": "d89d710bd5f41d91b6eb7ea88a37eb4b6888caf5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a5f2428_999ec76c",
+        "filename": "compiler/optimizing/induction_var_analysis_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-01T00:44:17Z",
+      "side": 1,
+      "message": "I believe only having to escape \\\\d+ would be ideal but that seems like a lot of work so it\u0027s probably not worth it. If we were doing this in every single optimizing test then it probably is worth it.\n\nIt\u0027s common in a few places (such as vim) to flip around their regex escapes so that things like () etc are regular literals.\n\n--- \nAs a less interesting alternative (and this is more of thinking out loud than asking for any changes),\n\nUsing [x] instead of \\\\x should be slightly more readable because I think we as programmers are trained a little bit better to handle open/close pairs\n\n  [)][)][)] is slightly more readable than\n  \\\\)\\\\)\\\\)\n\nand also because we can ignore every other character instead of every 2/3 characters",
+      "parentUuid": "aa33dcf3_2138b487",
+      "range": {
+        "startLine": 403,
+        "startChar": 5,
+        "endLine": 403,
+        "endChar": 7
+      },
+      "revId": "d89d710bd5f41d91b6eb7ea88a37eb4b6888caf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
