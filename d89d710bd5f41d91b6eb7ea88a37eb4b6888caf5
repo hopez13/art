@@ -70,6 +70,30 @@
       "revId": "d89d710bd5f41d91b6eb7ea88a37eb4b6888caf5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a6260ef_0b9b9449",
+        "filename": "compiler/optimizing/induction_var_analysis_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-01T00:31:41Z",
+      "side": 1,
+      "message": "Ah, I think I know what you meant\n(build the regexp string using replacements).\n\nUnfortunately we use + as literal, and also as reg exp in d+\n\n(there are ways around that, but seems this is easiest way)",
+      "parentUuid": "eaf154a3_eededffd",
+      "range": {
+        "startLine": 403,
+        "startChar": 5,
+        "endLine": 403,
+        "endChar": 7
+      },
+      "revId": "d89d710bd5f41d91b6eb7ea88a37eb4b6888caf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
