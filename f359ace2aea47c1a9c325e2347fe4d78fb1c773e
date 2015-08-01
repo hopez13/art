@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2a59ac45_3d87c31f",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-08-01T00:37:38Z",
+      "side": 1,
+      "message": "Done. CL 162478.",
+      "parentUuid": "b8fdf6c1_6b23b5e2",
+      "range": {
+        "startLine": 451,
+        "startChar": 0,
+        "endLine": 457,
+        "endChar": 16
+      },
+      "revId": "f359ace2aea47c1a9c325e2347fe4d78fb1c773e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d8470aeb_c13de47b",
         "filename": "runtime/thread.h",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-16T10:26:30Z",
       "side": 1,
       "message": "One line?",
+      "range": {
+        "startLine": 829,
+        "startChar": 0,
+        "endLine": 830,
+        "endChar": 50
+      },
+      "revId": "f359ace2aea47c1a9c325e2347fe4d78fb1c773e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_016a5ede",
+        "filename": "runtime/thread.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-08-01T00:37:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8470aeb_c13de47b",
       "range": {
         "startLine": 829,
         "startChar": 0,
