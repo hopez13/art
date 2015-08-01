@@ -94,6 +94,30 @@
       "revId": "d89d710bd5f41d91b6eb7ea88a37eb4b6888caf5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_6128fa88",
+        "filename": "compiler/optimizing/induction_var_analysis_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-01T00:35:36Z",
+      "side": 1,
+      "message": "It looks like it\u0027s trying to express these literal characters:\n\n  (:)*+\n\nhowever since in regex grammar they are special (denoting a capture group, a wildcard, and so on..) they need to be escaped with a \\, but then C++ makes us escape with \\\\\n\nSo usages instead end up looking like:\n\n  \\\\(\n  \\\\:\n  \\\\)\n  \\\\*\n  \\\\+\n\nThe only situation here which wants to use a non-literal is \u0027\\d+\u0027 as that is truly trying to match any digit\n\nI don\u0027t see any capture groups or wild cards used here, so I was just musing the following characters could get \\\\ substituted after-the-fact (with a string replace):\n\n  (:)*  \n\n(but not + since there\u0027s another + which is used without \\\\)\n\ne.g.\n\n  \"((2:Constant) * i + ...\".replace(r\"\\\\(|\\\\:\\\\)\\\\*\", \"\\\\$1\") ,\n   // replace with actual regex method there\n\n(or alternatively just use [:], [(], [+], [*], thats slightly more readable than \\\\: , \\\\(, etc IMHO).",
+      "parentUuid": "4a6260ef_2b22d8a8",
+      "range": {
+        "startLine": 403,
+        "startChar": 5,
+        "endLine": 403,
+        "endChar": 7
+      },
+      "revId": "d89d710bd5f41d91b6eb7ea88a37eb4b6888caf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
