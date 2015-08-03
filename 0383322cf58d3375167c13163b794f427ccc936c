@@ -46,6 +46,30 @@
       "revId": "0383322cf58d3375167c13163b794f427ccc936c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a536c56_7b045b21",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-03T15:04:14Z",
+      "side": 1,
+      "message": "All the other lines are documented, so it looks strange. Please put a minimal comment in.",
+      "parentUuid": "6d657ec3_c32c3cd0",
+      "range": {
+        "startLine": 735,
+        "startChar": 2,
+        "endLine": 735,
+        "endChar": 45
+      },
+      "revId": "0383322cf58d3375167c13163b794f427ccc936c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
