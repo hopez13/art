@@ -22,6 +22,30 @@
       "revId": "3536fe01767285186d27b551a3eea19998a17f5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a536c56_3b3f83e6",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-03T14:15:19Z",
+      "side": 1,
+      "message": "Happy to chat more about this, but it is the standard algorithm for finding induction after the SSA form is found.",
+      "parentUuid": "2d862697_69e19d8f",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 66
+      },
+      "revId": "3536fe01767285186d27b551a3eea19998a17f5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
