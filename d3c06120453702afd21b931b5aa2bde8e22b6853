@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4a2a60c0_69d2e500",
+        "filename": "test/415-optimizing-arith-neg/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T14:26:57Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/#/c/162333/ (here and in other tests).",
+      "parentUuid": "2d862697_c3a0c823",
+      "range": {
+        "startLine": 17,
+        "startChar": 62,
+        "endLine": 17,
+        "endChar": 68
+      },
+      "revId": "d3c06120453702afd21b931b5aa2bde8e22b6853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd8aea9e_40783038",
         "filename": "test/415-optimizing-arith-neg/src/Main.java",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-30T11:47:46Z",
       "side": 1,
       "message": "\"test that it does not inline it\"",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 32
+      },
+      "revId": "d3c06120453702afd21b931b5aa2bde8e22b6853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad9936fb_303610ed",
+        "filename": "test/415-optimizing-arith-neg/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T14:26:57Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "cd8aea9e_40783038",
       "range": {
         "startLine": 19,
         "startChar": 3,
