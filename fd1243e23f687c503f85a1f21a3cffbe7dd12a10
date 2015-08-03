@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a0b0862_95664419",
+        "filename": "compiler/optimizing/induction_var_analysis_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-03T19:06:03Z",
+      "side": 1,
+      "message": "PTAL\n\nI was hoping to do this through smaller incremental CLs, but while waiting for the +2, here is the code that adds wrap-around induction (with 1st and 2nd order unit test).\n\nNext: periodic, monotonic....",
+      "range": {
+        "startLine": 386,
+        "startChar": 7,
+        "endLine": 386,
+        "endChar": 31
+      },
+      "revId": "fd1243e23f687c503f85a1f21a3cffbe7dd12a10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
