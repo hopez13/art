@@ -1,0 +1,497 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a61b821_b9c1d798",
+        "filename": "tools/ahat/src/ahat/AhatHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "I presume we need a com.android.tools... package for this..",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 17,
+        "endChar": 12
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a5c2064_5ce7d158",
+        "filename": "tools/ahat/src/ahat/AhatHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "What exception are we catching here?  java.lang.Exception seems too broad, probably should be IOException",
+      "range": {
+        "startLine": 55,
+        "startChar": 13,
+        "endLine": 55,
+        "endChar": 24
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa667c34_7ad5712e",
+        "filename": "tools/ahat/src/ahat/AhatSnapshot.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "Can we separate out the imported classes. Rather than using the wildcard here",
+      "range": {
+        "startLine": 19,
+        "startChar": 38,
+        "endLine": 19,
+        "endChar": 39
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a5c2064_3fb2cf35",
+        "filename": "tools/ahat/src/ahat/AhatSnapshot.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "null parent I assume.  I would comment this.",
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea6cf416_f0e52015",
+        "filename": "tools/ahat/src/ahat/AhatSnapshot.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "I am not sure what the google comment convention is for recursion, but I would comment the recursion here",
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa667c34_1a2efdc5",
+        "filename": "tools/ahat/src/ahat/BitmapHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "replace wildcards with actual references.",
+      "range": {
+        "startLine": 26,
+        "startChar": 38,
+        "endLine": 26,
+        "endChar": 39
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a08cc62_d649f483",
+        "filename": "tools/ahat/src/ahat/BitmapHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "We dealt with query being null.  Does the algorithm below have to deal with id being left as its default value of 0?",
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca673030_38d8259f",
+        "filename": "tools/ahat/src/ahat/CompareInstance.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "You should probably implement @Override Object.equals(Object other) as part of the Comparator contract (see Comparator javadoc).",
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a0b0862_120f0abf",
+        "filename": "tools/ahat/src/ahat/CompareInstance.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "I had to scan this a few times.  Maybe replaced with \n\nComparator\u003cInstance\u003ecompare \u003d new ByTotalRetainedSize(new ById());",
+      "range": {
+        "startLine": 63,
+        "startChar": 3,
+        "endLine": 64,
+        "endChar": 47
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a61b821_dc9e416d",
+        "filename": "tools/ahat/src/ahat/DominatedList.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "It looks like this AIC(anonymous inner class) is just used to build data for the table rendering. I would refactor this.  It does not seem to be capturing any state from the call site, so you could move this out as a static final field (and comment it and it\u0027s relationship to the other AIC below). Honestly I had to scan these two implementations a few times to work out what was going on. \n\nYou may also consider creating a separate class for the AIC below.  There is a little too much content (for me) for an AIC.",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 6
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a5c2064_3f8daf3e",
+        "filename": "tools/ahat/src/ahat/DominatedList.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "I think this should be a separate class.  Maybe a static non-anonymous inner class of DominatedList which includes the static final value defined above.",
+      "range": {
+        "startLine": 100,
+        "startChar": 43,
+        "endLine": 119,
+        "endChar": 6
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa667c34_fabb41a8",
+        "filename": "tools/ahat/src/ahat/DominatedList.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "Consider a StringBuilder here?",
+      "range": {
+        "startLine": 174,
+        "startChar": 4,
+        "endLine": 174,
+        "endChar": 10
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea6cf416_50105410",
+        "filename": "tools/ahat/src/ahat/HtmlWriter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "why not public void print(String format, Object...args)?",
+      "range": {
+        "startLine": 52,
+        "startChar": 34,
+        "endLine": 52,
+        "endChar": 62
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca673030_bb69cfeb",
+        "filename": "tools/ahat/src/ahat/HtmlWriter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "System.arraycopy()?",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 5
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca673030_3ba49fbe",
+        "filename": "tools/ahat/src/ahat/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "is this used below?",
+      "range": {
+        "startLine": 23,
+        "startChar": 28,
+        "endLine": 23,
+        "endChar": 37
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a61b821_3c55b5d1",
+        "filename": "tools/ahat/src/ahat/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "Again I think we should use explicit class names not wildcards.",
+      "range": {
+        "startLine": 29,
+        "startChar": 29,
+        "endLine": 29,
+        "endChar": 31
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a536c56_de6635c8",
+        "filename": "tools/ahat/src/ahat/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "Why is this H (upper case) elp?",
+      "range": {
+        "startLine": 33,
+        "startChar": 21,
+        "endLine": 33,
+        "endChar": 25
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea6cf416_f059a0d5",
+        "filename": "tools/ahat/src/ahat/ObjectHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "This note applies across this whole app.   There are a lot of embedded html tags in text strewn through here.  I have to believe that there is a Google preferred way of generating html.  I know there are external tools (rendersnake, jatl, ecj) that make this easier to write and to maintain.",
+      "range": {
+        "startLine": 76,
+        "startChar": 24,
+        "endLine": 76,
+        "endChar": 73
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a01803c_57098435",
+        "filename": "tools/ahat/src/ahat/RootsHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "I prefer using the interface/abstraction \u0027Set\u003cInstance\u003e rootset \u003d new HashSet\u003cInstance\u003e();\u0027 rather than the concrete type \u0027HashSet rootset \u003d ...\u0027",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 11
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a0b0862_353f98e6",
+        "filename": "tools/ahat/src/ahat/Site.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "Again I think you may need to implement equals(Object other) too (as part of the Comparator contract).",
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea6cf416_f087e096",
+        "filename": "tools/ahat/src/ahat/SiteHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "is this \nComparator\u003cSite.ObjectsInfo\u003e compare \u003d \n   new  ObjectsInfoByHeapName(new ObjectsInfoBySize(new ObjectInfoByClassName(null))));?",
+      "range": {
+        "startLine": 94,
+        "startChar": 3,
+        "endLine": 97,
+        "endChar": 49
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca673030_5b099b35",
+        "filename": "tools/ahat/src/ahat/SiteHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "are we sure that classObj is not null?",
+      "range": {
+        "startLine": 143,
+        "startChar": 18,
+        "endLine": 143,
+        "endChar": 26
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca673030_9b0a1328",
+        "filename": "tools/ahat/src/ahat/SiteHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-03T19:26:16Z",
+      "side": 1,
+      "message": "Again I think we need to implement \u0027equals(Object other)\u0027",
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
