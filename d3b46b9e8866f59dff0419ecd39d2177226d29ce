@@ -22,6 +22,30 @@
       "revId": "d3b46b9e8866f59dff0419ecd39d2177226d29ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a2724f5_ca9e636d",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-08-03T12:45:22Z",
+      "side": 1,
+      "message": "Changed it. Code is more readable now, but it is a little bit slower because of an extra branch.",
+      "parentUuid": "0d8962a8_a5ef4aaa",
+      "range": {
+        "startLine": 497,
+        "startChar": 0,
+        "endLine": 501,
+        "endChar": 5
+      },
+      "revId": "d3b46b9e8866f59dff0419ecd39d2177226d29ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
