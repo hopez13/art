@@ -1,0 +1,1359 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d657ec3_a353c8eb",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Nit: sort this list of #include directives.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 17
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a2724f5_2a9e1f45",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Maybe say\n\n  This class is intended to be used as a base class for\n  concrete context-based optimizations.\n\ninstead?",
+      "range": {
+        "startLine": 39,
+        "startChar": 3,
+        "endLine": 39,
+        "endChar": 59
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a21ace2_28dbcb65",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "merges",
+      "range": {
+        "startLine": 44,
+        "startChar": 22,
+        "endLine": 44,
+        "endChar": 28
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d9472c2_e485d014",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Are there cases where we inherit from something else than HGraphVisitor?",
+      "range": {
+        "startLine": 47,
+        "startChar": 35,
+        "endLine": 47,
+        "endChar": 42
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a2724f5_6aa81760",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Move to line 47.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 1
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d7fda4c_6aeeeb2a",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "OVERRIDE",
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8faeab_87b08c76",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Already provided by HGraphVisitor.",
+      "range": {
+        "startLine": 80,
+        "startChar": 2,
+        "endLine": 80,
+        "endChar": 45
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8faeab_a79bc8fc",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "`instr`",
+      "range": {
+        "startLine": 88,
+        "startChar": 22,
+        "endLine": 88,
+        "endChar": 27
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8faeab_e795d0c6",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Nit: break line after `\u003d`.",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 56
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2a60c0_698145d8",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "given `instr`",
+      "range": {
+        "startLine": 101,
+        "startChar": 54,
+        "endLine": 101,
+        "endChar": 65
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d862697_c968e914",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 102,
+        "startChar": 61,
+        "endLine": 102,
+        "endChar": 63
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad9936fb_50455c17",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 109,
+        "startChar": 54,
+        "endLine": 109,
+        "endChar": 65
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a2724f5_4aad536e",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 110,
+        "startChar": 61,
+        "endLine": 110,
+        "endChar": 63
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d9472c2_048b9c29",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Nit: break line after `\u003d`.",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 50
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad9936fb_d0c7ac0b",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Already provided by HGraphVisitor.",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 3
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d7fda4c_4af1270a",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Nit: 1-space indentation.",
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8faeab_8787ac96",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "preds.IsEmpty()",
+      "range": {
+        "startLine": 152,
+        "startChar": 8,
+        "endLine": 152,
+        "endChar": 25
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d657ec3_e34dc045",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Hoist preds.Size():\n\n  for (size_t i \u003d 0, e \u003d preds.Size(); i \u003c e; ++i) {  // ...",
+      "range": {
+        "startLine": 158,
+        "startChar": 4,
+        "endLine": 158,
+        "endChar": 45
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d7fda4c_cab37756",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Turn into a\n\n  void VisitPhi(HPhi* phi) OVERRIDE\n\nmethod.",
+      "range": {
+        "startLine": 175,
+        "startChar": 2,
+        "endLine": 175,
+        "endChar": 27
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8faeab_a70ae8ad",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Likewise, hoist phi-\u003eInputCount().",
+      "range": {
+        "startLine": 177,
+        "startChar": 4,
+        "endLine": 177,
+        "endChar": 50
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d9472c2_447da48e",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "HGraphVisitor::VisitPhi?",
+      "range": {
+        "startLine": 181,
+        "startChar": 4,
+        "endLine": 181,
+        "endChar": 12
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d862697_e95dad77",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Already provided by HGraphVisitor.",
+      "range": {
+        "startLine": 194,
+        "startChar": 2,
+        "endLine": 194,
+        "endChar": 17
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad9936fb_9091a427",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Nit: add a blank line before line 201.",
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d7fda4c_0abe3f1e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1246,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "DCHECK this to prevent the use of this method on blocks which do not have an HIf as predecessor?",
+      "range": {
+        "startLine": 1239,
+        "startChar": 0,
+        "endLine": 1246,
+        "endChar": 31
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad9936fb_50d47cb6",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 1251,
+        "startChar": 0,
+        "endLine": 1258,
+        "endChar": 32
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8faeab_e714f0d3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "IsTrueBranchOfIfInstruction?",
+      "range": {
+        "startLine": 862,
+        "startChar": 7,
+        "endLine": 862,
+        "endChar": 19
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2a60c0_498601f2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "IsFalseBranchOfIfInstruction?",
+      "range": {
+        "startLine": 863,
+        "startChar": 7,
+        "endLine": 863,
+        "endChar": 20
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8faeab_c70ff4bc",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Please document these methods.",
+      "range": {
+        "startLine": 862,
+        "startChar": 0,
+        "endLine": 863,
+        "endChar": 29
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2a60c0_095a49ff",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Maybe add\n\n  DCHECK(block-\u003eGetSinglePredecessor()-\u003eGetLastInstruction()-\u003eIsIf());\n\nto make debugging easier?",
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a21ace2_28290bbe",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "What about long constants?",
+      "range": {
+        "startLine": 70,
+        "startChar": 30,
+        "endLine": 70,
+        "endChar": 43
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2a60c0_694f853d",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Replace with a switch on condition.GetCondition().",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 5
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d657ec3_e3e30093",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Replace with\n\n else {\n   DCHECK(block-\u003eIsFalseBranch())\n   // ...\n\n?",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 108,
+        "endChar": 38
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a2724f5_ea940719",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Likewise, use a switch.",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 4
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad9936fb_700fb8e9",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "estimate",
+      "range": {
+        "startLine": 129,
+        "startChar": 38,
+        "endLine": 129,
+        "endChar": 44
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a21ace2_082ec7c5",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Nit: put on a single line.",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 22
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2a60c0_495441d2",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Replace with\n\n  !block-\u003eGetPredecessors().Empty()\n      \u0026\u0026 block-\u003eGetSinglePredecessor()-\u003eGetLastInstruction()-\u003eIsIf()\n\n? (Or better, wrap this logic in a method of HBasicBlock.)",
+      "range": {
+        "startLine": 136,
+        "startChar": 13,
+        "endLine": 136,
+        "endChar": 60
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d7fda4c_2ac303a0",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Add preprocessor header guards.",
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8faeab_071abcfe",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Nit: sort this list of #include directives.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 25
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2a60c0_a99a1d42",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "class?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 6
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a21ace2_c8e5cf15",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Turn `Range` into a template:\n\n  template \u003ctypename T\u003e\n  class Range\n\nand introduce an alias for 32- and 64-bit integer ranges:\n\n  typedef Range\u003cint32_t\u003e IntRange;\n  typedef Range\u003cint64_t\u003e LongRange;\n\n?",
+      "range": {
+        "startLine": 23,
+        "startChar": 7,
+        "endLine": 23,
+        "endChar": 12
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d9472c2_647aa099",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "std::numeric_limits\u003cint\u003e::min() (Maybe introduce a static min() routine?)",
+      "range": {
+        "startLine": 25,
+        "startChar": 17,
+        "endLine": 25,
+        "endChar": 24
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8faeab_271fb8ee",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "std::numeric_limits\u003cint\u003e::max() (Maybe introduce a static max() routine?)",
+      "range": {
+        "startLine": 25,
+        "startChar": 26,
+        "endLine": 25,
+        "endChar": 33
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8faeab_471cc4f7",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Why `ni`?  Maybe use `rhs`?",
+      "range": {
+        "startLine": 28,
+        "startChar": 31,
+        "endLine": 28,
+        "endChar": 33
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d862697_4955b949",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Prefer and Equals method.",
+      "range": {
+        "startLine": 28,
+        "startChar": 7,
+        "endLine": 28,
+        "endChar": 17
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad9936fb_d0eecc7d",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "This may be dangerous, as `int` may not be able to represent all `long` values.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 3
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a2724f5_eabb67a8",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "const",
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d862697_d4b79c21",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "std::numeric_limits\u003cint\u003e::max()",
+      "range": {
+        "startLine": 61,
+        "startChar": 40,
+        "endLine": 61,
+        "endChar": 47
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d862697_b4b21833",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Where is this used?",
+      "range": {
+        "startLine": 61,
+        "startChar": 15,
+        "endLine": 61,
+        "endChar": 22
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8faeab_e72b1004",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "std::numeric_limits\u003cint\u003e::min()",
+      "range": {
+        "startLine": 61,
+        "startChar": 49,
+        "endLine": 61,
+        "endChar": 56
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8faeab_a731087a",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Where is this used?",
+      "range": {
+        "startLine": 63,
+        "startChar": 7,
+        "endLine": 63,
+        "endChar": 17
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d7fda4c_4ac04791",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "std::numeric_limits\u003cint\u003e::max()",
+      "range": {
+        "startLine": 64,
+        "startChar": 16,
+        "endLine": 64,
+        "endChar": 23
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8faeab_c736146f",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "std::numeric_limits\u003cint\u003e::min()",
+      "range": {
+        "startLine": 65,
+        "startChar": 16,
+        "endLine": 65,
+        "endChar": 23
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d862697_f4bca008",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "OVERRIDE",
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d9472c2_c4fff472",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "kRangePropagationName?",
+      "range": {
+        "startLine": 99,
+        "startChar": 31,
+        "endLine": 99,
+        "endChar": 51
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d657ec3_63f8d03f",
+        "filename": "runtime/safe_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Please document this new method.",
+      "range": {
+        "startLine": 89,
+        "startChar": 2,
+        "endLine": 89,
+        "endChar": 57
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a2724f5_0a719b87",
+        "filename": "runtime/safe_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 123,
+        "startChar": 2,
+        "endLine": 123,
+        "endChar": 58
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a21ace2_a81cdba0",
+        "filename": "test/524-checker-range-propagation/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Please decompose this in multiple sub-tests.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 3
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d862697_f4602002",
+        "filename": "test/524-checker-range-propagation/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 3
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d657ec3_e31a202f",
+        "filename": "test/524-checker-range-propagation/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Nit: indentation.",
+      "range": {
+        "startLine": 120,
+        "startChar": 12,
+        "endLine": 120,
+        "endChar": 17
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d862697_1466641b",
+        "filename": "test/524-checker-range-propagation/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 129,
+        "startChar": 2,
+        "endLine": 129,
+        "endChar": 18
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a21ace2_881917b1",
+        "filename": "test/524-checker-range-propagation/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-03T17:08:15Z",
+      "side": 1,
+      "message": "Please call the above routines from main().",
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
