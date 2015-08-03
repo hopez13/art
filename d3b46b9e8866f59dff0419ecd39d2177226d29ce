@@ -70,6 +70,30 @@
       "revId": "d3b46b9e8866f59dff0419ecd39d2177226d29ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d862697_f42100d5",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-08-03T16:41:13Z",
+      "side": 1,
+      "message": "The second alternative has other issue, because we have to increment the arg pointer at two places: in the macro and in the case when argument is not passed via register. But I will try to do it in the better way.",
+      "parentUuid": "6a2724f5_aa368feb",
+      "range": {
+        "startLine": 497,
+        "startChar": 0,
+        "endLine": 501,
+        "endChar": 5
+      },
+      "revId": "d3b46b9e8866f59dff0419ecd39d2177226d29ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
