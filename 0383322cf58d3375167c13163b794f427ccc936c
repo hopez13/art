@@ -22,6 +22,30 @@
       "revId": "0383322cf58d3375167c13163b794f427ccc936c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d657ec3_c32c3cd0",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1056068
+      },
+      "writtenOn": "2015-08-03T07:38:16Z",
+      "side": 1,
+      "message": "\"Load 64-bit value kPrimIntMax to out\" - the code is self-commented, isn\u0027t it?\nBTW, in code_generator_x86_64.cc there are no comments for the same code processing float-to-int/double-to-long instructions.",
+      "parentUuid": "6a5f2428_30bed04f",
+      "range": {
+        "startLine": 735,
+        "startChar": 2,
+        "endLine": 735,
+        "endChar": 45
+      },
+      "revId": "0383322cf58d3375167c13163b794f427ccc936c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
