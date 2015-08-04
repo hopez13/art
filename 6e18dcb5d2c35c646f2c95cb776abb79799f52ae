@@ -46,6 +46,30 @@
       "revId": "6e18dcb5d2c35c646f2c95cb776abb79799f52ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca157084_fff83f3f",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T21:47:02Z",
+      "side": 1,
+      "message": "Ah yes, forgot that we try to find one this way.",
+      "parentUuid": "eadf9421_33c21a00",
+      "range": {
+        "startLine": 41,
+        "startChar": 44,
+        "endLine": 41,
+        "endChar": 63
+      },
+      "revId": "6e18dcb5d2c35c646f2c95cb776abb79799f52ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
