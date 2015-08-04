@@ -25,6 +25,46 @@
     },
     {
       "key": {
+        "uuid": "ed8faeab_67a46000",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "Nit: Typically we stick with 80-char width for comments.",
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8faeab_07955c94",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "an",
+      "range": {
+        "startLine": 26,
+        "startChar": 70,
+        "endLine": 26,
+        "endChar": 71
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a2724f5_2a9e1f45",
         "filename": "compiler/optimizing/context.h",
         "patchSetId": 2
@@ -117,6 +157,75 @@
     },
     {
       "key": {
+        "uuid": "6a2724f5_8ad2abca",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "Why not use HInstruction*?",
+      "range": {
+        "startLine": 52,
+        "startChar": 18,
+        "endLine": 52,
+        "endChar": 31
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea1a34b3_06051a4e",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "Please use ArenaSafeMap. It\u0027s a bit of a hassle but you\u0027ll get better performance, won\u0027t need the destructor and the memory management will be consistent with other parts of ART.",
+      "range": {
+        "startLine": 52,
+        "startChar": 10,
+        "endLine": 52,
+        "endChar": 17
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a2724f5_eadfe7d0",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "Why not use HBasicBlock*?",
+      "range": {
+        "startLine": 53,
+        "startChar": 18,
+        "endLine": 53,
+        "endChar": 25
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d7fda4c_6aeeeb2a",
         "filename": "compiler/optimizing/context.h",
         "patchSetId": 2
@@ -128,6 +237,29 @@
       "writtenOn": "2015-08-03T17:08:15Z",
       "side": 1,
       "message": "OVERRIDE",
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a2724f5_ca3f838c",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "also virtual if this class is to be inherited from",
+      "range": {
+        "startLine": 70,
+        "startChar": 3,
+        "endLine": 70,
+        "endChar": 22
+      },
       "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -150,6 +282,29 @@
         "startChar": 2,
         "endLine": 80,
         "endChar": 45
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea1a34b3_c6e5c215",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "these",
+      "range": {
+        "startLine": 83,
+        "startChar": 14,
+        "endLine": 83,
+        "endChar": 19
       },
       "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -318,6 +473,75 @@
     },
     {
       "key": {
+        "uuid": "ad9936fb_101af4fe",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "Please add some comments around this. One has to look into the C++ reference to find out that `old_value.second` is false if the `instr_id` slot was already filled and the insertion failed.",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 28
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a2724f5_6acc9730",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "BlockProperties? You do use it on 159",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 26
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d657ec3_8382449e",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "Nit: Rewrite either using the ternary operator or if/else.",
+      "range": {
+        "startLine": 126,
+        "startChar": 4,
+        "endLine": 126,
+        "endChar": 6
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad9936fb_d0c7ac0b",
         "filename": "compiler/optimizing/context.h",
         "patchSetId": 2
@@ -404,6 +628,29 @@
     },
     {
       "key": {
+        "uuid": "4a2a60c0_89fbd93a",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "block_id",
+      "range": {
+        "startLine": 168,
+        "startChar": 31,
+        "endLine": 168,
+        "endChar": 36
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d7fda4c_cab37756",
         "filename": "compiler/optimizing/context.h",
         "patchSetId": 2
@@ -473,6 +720,52 @@
     },
     {
       "key": {
+        "uuid": "6a2724f5_aad5efb6",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "Use a pointer for non-const as per our C++ style guide.",
+      "range": {
+        "startLine": 184,
+        "startChar": 32,
+        "endLine": 184,
+        "endChar": 49
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad9936fb_501c7cf7",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "Isn\u0027t this your BlockProperties typedef?",
+      "range": {
+        "startLine": 184,
+        "startChar": 2,
+        "endLine": 184,
+        "endChar": 18
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d862697_e95dad77",
         "filename": "compiler/optimizing/context.h",
         "patchSetId": 2
@@ -489,6 +782,29 @@
         "startChar": 2,
         "endLine": 194,
         "endChar": 17
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8faeab_c781b452",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "current_block_id_ or store the actual block pointer",
+      "range": {
+        "startLine": 195,
+        "startChar": 9,
+        "endLine": 195,
+        "endChar": 19
       },
       "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -582,6 +898,29 @@
     },
     {
       "key": {
+        "uuid": "4d7fda4c_15d9046a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "Hmm, this is a property very specific to your ranges analysis. How about you just make it a static function in the ranges.cc?",
+      "range": {
+        "startLine": 862,
+        "startChar": 7,
+        "endLine": 862,
+        "endChar": 19
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a2a60c0_498601f2",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -621,6 +960,98 @@
         "startChar": 0,
         "endLine": 863,
         "endChar": 29
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d657ec3_c3b99c69",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "This is, presumably, called quite often. Consider optimizing the number of comparisons?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 52
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad9936fb_10311475",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "You don\u0027t need to construct a new range, just return either a or b.",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 28
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a2724f5_8a5f4bbb",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "As discussed, please make the Range class immutable.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 39
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a2724f5_6ae5b798",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "Would it be worth making this UNLIKELY?",
+      "range": {
+        "startLine": 36,
+        "startChar": 6,
+        "endLine": 36,
+        "endChar": 16
       },
       "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -668,6 +1099,29 @@
     },
     {
       "key": {
+        "uuid": "4a2a60c0_e98a559f",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "Please use condition-\u003eGetConstantRight rather than relying on the constant being the second input.",
+      "range": {
+        "startLine": 70,
+        "startChar": 18,
+        "endLine": 70,
+        "endChar": 27
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a2a60c0_694f853d",
         "filename": "compiler/optimizing/ranges.cc",
         "patchSetId": 2
@@ -684,6 +1138,52 @@
         "startChar": 0,
         "endLine": 96,
         "endChar": 5
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad9936fb_70525864",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "Please add a comment why you\u0027re doing this? I\u0027m not entirely sure what the purpose is - can we talk about this offline?",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 57
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d657ec3_23c338a0",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "This looks like something you could do separately, once the analysis is finished (including fix-point in the future).",
+      "range": {
+        "startLine": 102,
+        "startChar": 6,
+        "endLine": 106,
+        "endChar": 7
       },
       "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -806,6 +1306,30 @@
     },
     {
       "key": {
+        "uuid": "6d657ec3_63cd30c8",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "Careful with GetSinglePredecessor - it DCHECKs that there is precisely one predecessor, so the first condition would have to be block-\u003eGetPredecessors().Size() \u003d\u003d 1 (which you could add to HBasicBlock as HasSinglePredecessor()).",
+      "parentUuid": "4a2a60c0_495441d2",
+      "range": {
+        "startLine": 136,
+        "startChar": 13,
+        "endLine": 136,
+        "endChar": 60
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d7fda4c_2ac303a0",
         "filename": "compiler/optimizing/ranges.h",
         "patchSetId": 2
@@ -885,6 +1409,30 @@
         "startChar": 7,
         "endLine": 23,
         "endChar": 12
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d862697_74941016",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "How about some explanation how this behaves? For example, that Merge does a union of the ranges, etc.",
+      "parentUuid": "4a2a60c0_a99a1d42",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 6
       },
       "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -1007,6 +1555,29 @@
     },
     {
       "key": {
+        "uuid": "ea1a34b3_c6fae2ac",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "Comments, please. \"Narrow\" can be a noun here and it\u0027s not clear what this does. Maybe consider \"ReduceUpperBound\"?",
+      "range": {
+        "startLine": 49,
+        "startChar": 7,
+        "endLine": 49,
+        "endChar": 23
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a2724f5_eabb67a8",
         "filename": "compiler/optimizing/ranges.h",
         "patchSetId": 2
@@ -1104,6 +1675,30 @@
       "writtenOn": "2015-08-03T17:08:15Z",
       "side": 1,
       "message": "Where is this used?",
+      "range": {
+        "startLine": 63,
+        "startChar": 7,
+        "endLine": 63,
+        "endChar": 17
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad9936fb_f02bc803",
+        "filename": "compiler/optimizing/ranges.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-04T11:43:14Z",
+      "side": 1,
+      "message": "It\u0027s used in NarrowUpperBound",
+      "parentUuid": "ed8faeab_a731087a",
       "range": {
         "startLine": 63,
         "startChar": 7,
