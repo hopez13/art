@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eadf9421_f3a192a9",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3491,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-08-04T21:38:37Z",
+      "side": 1,
+      "message": "So I should just remove this?",
+      "parentUuid": "ad9936fb_108cb486",
+      "range": {
+        "startLine": 3486,
+        "startChar": 2,
+        "endLine": 3491,
+        "endChar": 3
+      },
+      "revId": "2b2aa603b084a2d55e2d89e297128e1a79463c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d7fda4c_d5907c59",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-04T10:55:18Z",
       "side": 1,
       "message": "I think\n\n  updated_vreg_flags !\u003d nullptr \n\nis enough (and you no longer need \u0027new_frame_is_debugger_frame\u0027)",
+      "range": {
+        "startLine": 238,
+        "startChar": 12,
+        "endLine": 238,
+        "endChar": 39
+      },
+      "revId": "2b2aa603b084a2d55e2d89e297128e1a79463c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ad60c0d_342928be",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-08-04T21:38:37Z",
+      "side": 1,
+      "message": "Done. I removed updated_vreg_flags.",
+      "parentUuid": "4d7fda4c_d5907c59",
       "range": {
         "startLine": 238,
         "startChar": 12,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8a0ff877_ec26df68",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-08-04T21:38:37Z",
+      "side": 1,
+      "message": "Very good catches. Done.",
+      "parentUuid": "ea1a34b3_e6c55e32",
+      "range": {
+        "startLine": 279,
+        "startChar": 6,
+        "endLine": 279,
+        "endChar": 41
+      },
+      "revId": "2b2aa603b084a2d55e2d89e297128e1a79463c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d862697_14e90474",
         "filename": "runtime/thread.cc",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2015-08-04T10:55:18Z",
       "side": 1,
       "message": "delete[] because FrameIdToShadowFrame is allocated using \"new uint8_t[...]\". So this must be\n\n  delete[] reinterpret_cast\u003cuint8_t*\u003e(head)\n\nThough I think it\u0027s nicer to have a function doing this like DeleteFrameIdToShadowFrame(FrameIdToShadowFrame*).",
+      "range": {
+        "startLine": 325,
+        "startChar": 4,
+        "endLine": 325,
+        "endChar": 10
+      },
+      "revId": "2b2aa603b084a2d55e2d89e297128e1a79463c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ad9483e_2e10f70f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-08-04T21:38:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d862697_14e90474",
       "range": {
         "startLine": 325,
         "startChar": 4,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "eadf9421_13dc3e04",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-08-04T21:38:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d7fda4c_3599a889",
+      "range": {
+        "startLine": 334,
+        "startChar": 6,
+        "endLine": 334,
+        "endChar": 12
+      },
+      "revId": "2b2aa603b084a2d55e2d89e297128e1a79463c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed8faeab_72ffc09f",
         "filename": "runtime/thread.cc",
         "patchSetId": 6
@@ -128,6 +248,30 @@
       "writtenOn": "2015-08-04T10:55:18Z",
       "side": 1,
       "message": "It\u0027s worth adding a message when that happens to give more context. At least adding something like \"Not all deoptimized frames have been consumed by the debugger\"",
+      "range": {
+        "startLine": 1668,
+        "startChar": 52,
+        "endLine": 1668,
+        "endChar": 53
+      },
+      "revId": "2b2aa603b084a2d55e2d89e297128e1a79463c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca157084_df6623c8",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1668,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-08-04T21:38:37Z",
+      "side": 1,
+      "message": "Added: // All debugger shadow frames should have been consumed by deoptimization.",
+      "parentUuid": "ed8faeab_72ffc09f",
       "range": {
         "startLine": 1668,
         "startChar": 52,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "4acfc072_568cf210",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2709,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-08-04T21:38:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea1a34b3_26f13691",
+      "range": {
+        "startLine": 2709,
+        "startChar": 30,
+        "endLine": 2709,
+        "endChar": 42
+      },
+      "revId": "2b2aa603b084a2d55e2d89e297128e1a79463c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d7fda4c_f5858014",
         "filename": "runtime/thread.h",
         "patchSetId": 6
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "4acfc072_fbcfaf9e",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-08-04T21:38:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d7fda4c_f5858014",
+      "range": {
+        "startLine": 844,
+        "startChar": 71,
+        "endLine": 844,
+        "endChar": 72
+      },
+      "revId": "2b2aa603b084a2d55e2d89e297128e1a79463c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a2a60c0_e9b1b57b",
         "filename": "runtime/thread.h",
         "patchSetId": 6
@@ -197,6 +389,30 @@
       "writtenOn": "2015-08-04T10:55:18Z",
       "side": 1,
       "message": "\"Remove and delete\"",
+      "range": {
+        "startLine": 858,
+        "startChar": 5,
+        "endLine": 858,
+        "endChar": 11
+      },
+      "revId": "2b2aa603b084a2d55e2d89e297128e1a79463c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eadf9421_d3e1f6ba",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-08-04T21:38:37Z",
+      "side": 1,
+      "message": "Changed to \"Delete the entry that maps from frame_id to shadow_frame\".",
+      "parentUuid": "4a2a60c0_e9b1b57b",
       "range": {
         "startLine": 858,
         "startChar": 5,
