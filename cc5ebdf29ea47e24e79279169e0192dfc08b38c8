@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eadf9421_de457a1b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3995,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T23:57:40Z",
+      "side": 1,
+      "message": "Did you consider making it a field to the ClassLoader java class instead?",
+      "range": {
+        "startLine": 3988,
+        "startChar": 1,
+        "endLine": 3995,
+        "endChar": 21
+      },
+      "revId": "cc5ebdf29ea47e24e79279169e0192dfc08b38c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cadad034_72e57e98",
+        "filename": "runtime/class_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T23:57:40Z",
+      "side": 1,
+      "message": "nad -\u003e and",
+      "range": {
+        "startLine": 105,
+        "startChar": 70,
+        "endLine": 105,
+        "endChar": 73
+      },
+      "revId": "cc5ebdf29ea47e24e79279169e0192dfc08b38c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa14bc88_3015dd00",
+        "filename": "runtime/class_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T23:57:40Z",
+      "side": 1,
+      "message": "Why do we have a vector of sets and not just one set?",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 32
+      },
+      "revId": "cc5ebdf29ea47e24e79279169e0192dfc08b38c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
