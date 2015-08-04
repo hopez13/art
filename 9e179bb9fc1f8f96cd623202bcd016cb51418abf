@@ -25,6 +25,46 @@
     },
     {
       "key": {
+        "uuid": "4acfc072_aa587384",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-04T12:52:18Z",
+      "side": 1,
+      "message": "testl ecx,ecx is smaller.",
+      "revId": "9e179bb9fc1f8f96cd623202bcd016cb51418abf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aae91cd1_65605c01",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-04T12:52:18Z",
+      "side": 1,
+      "message": "Don\u0027t you need to add 3?",
+      "range": {
+        "startLine": 936,
+        "startChar": 15,
+        "endLine": 936,
+        "endChar": 29
+      },
+      "revId": "9e179bb9fc1f8f96cd623202bcd016cb51418abf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a2a60c0_c9231157",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 1
