@@ -22,6 +22,30 @@
       "revId": "4e2cb098017bf073335ebb02b1bc0a36828cd720",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca157084_9a8dd9bb",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-04T23:51:52Z",
+      "side": 1,
+      "message": "I guess what it really means is that you are not allowed to transition to suspended from runnable. I\u0027ll add a comment. I agree that we may want to change the name in the future.",
+      "parentUuid": "aae91cd1_76d2d000",
+      "range": {
+        "startLine": 682,
+        "startChar": 9,
+        "endLine": 682,
+        "endChar": 41
+      },
+      "revId": "4e2cb098017bf073335ebb02b1bc0a36828cd720",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
