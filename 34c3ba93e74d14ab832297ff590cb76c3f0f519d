@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "0ad9483e_53924461",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T16:26:40Z",
+      "side": 1,
+      "message": "Please add comments about this. A link to the JLS might do.",
+      "range": {
+        "startLine": 1225,
+        "startChar": 11,
+        "endLine": 1226,
+        "endChar": 15
+      },
+      "revId": "34c3ba93e74d14ab832297ff590cb76c3f0f519d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a0ff877_c9879597",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4023,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T16:26:40Z",
+      "side": 1,
+      "message": "What\u0027s the rational for this? This could implicitly call the \u003cclinit\u003e method which is a regular Java method and therefore coud read things.",
+      "range": {
+        "startLine": 4023,
+        "startChar": 0,
+        "endLine": 4023,
+        "endChar": 74
+      },
+      "revId": "34c3ba93e74d14ab832297ff590cb76c3f0f519d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2df2a655_c0fe9ea3",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
