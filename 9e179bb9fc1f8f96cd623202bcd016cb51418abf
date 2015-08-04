@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "aa14bc88_e170a1cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-04T17:23:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad9936fb_b0d860a2",
+      "range": {
+        "startLine": 9,
+        "startChar": 1,
+        "endLine": 9,
+        "endChar": 4
+      },
+      "revId": "9e179bb9fc1f8f96cd623202bcd016cb51418abf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4acfc072_aa587384",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 1
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "ca157084_19f61b89",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-04T17:23:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4acfc072_aa587384",
+      "revId": "9e179bb9fc1f8f96cd623202bcd016cb51418abf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aae91cd1_65605c01",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 1
@@ -53,6 +95,30 @@
       "writtenOn": "2015-08-04T12:52:18Z",
       "side": 1,
       "message": "Don\u0027t you need to add 3?",
+      "range": {
+        "startLine": 936,
+        "startChar": 15,
+        "endLine": 936,
+        "endChar": 29
+      },
+      "revId": "9e179bb9fc1f8f96cd623202bcd016cb51418abf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6acc847d_d697241b",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-04T17:23:20Z",
+      "side": 1,
+      "message": "Done. I thought that objects were 4-byte aligned, so in order to determine if an additional 4-character comparison was necessary (only for the case where the length ends in 11), adding 1 was sufficient. This is not the case though, so adding 3 is the correct approach.",
+      "parentUuid": "aae91cd1_65605c01",
       "range": {
         "startLine": 936,
         "startChar": 15,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "ca157084_59ea5368",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-04T17:23:20Z",
+      "side": 1,
+      "message": "The test on lines 950-951 was to determine if an additional 2 character comparison was necessary, in which case the result of adding 1 to the length would result in the length ending in either 10 or 11. This is no longer necessary since objects are 8-byte aligned and I can compare the whole string using repe_cmpsq.",
+      "parentUuid": "4a2a60c0_c9231157",
+      "range": {
+        "startLine": 936,
+        "startChar": 0,
+        "endLine": 937,
+        "endChar": 20
+      },
+      "revId": "9e179bb9fc1f8f96cd623202bcd016cb51418abf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d7fda4c_952d1496",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 1
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "0ad9483e_b348f032",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 942,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-04T17:23:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d7fda4c_952d1496",
+      "range": {
+        "startLine": 941,
+        "startChar": 0,
+        "endLine": 942,
+        "endChar": 91
+      },
+      "revId": "9e179bb9fc1f8f96cd623202bcd016cb51418abf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a2a60c0_4932817b",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 1
@@ -122,6 +236,30 @@
       "writtenOn": "2015-08-04T13:22:26Z",
       "side": 1,
       "message": "Given kObjectAlignment\u003d\u003d8, you can go to the very end and avoid the tail comparison below.\n\nIf we remove the hash code, value_offset will no longer be 8-byte aligned and we will need an extra head comparison.",
+      "range": {
+        "startLine": 945,
+        "startChar": 2,
+        "endLine": 945,
+        "endChar": 18
+      },
+      "revId": "9e179bb9fc1f8f96cd623202bcd016cb51418abf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4acfc072_d019eaaf",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-04T17:23:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a2a60c0_4932817b",
       "range": {
         "startLine": 945,
         "startChar": 2,
