@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2ad60c0d_8f64a13d",
+        "filename": "runtime/barrier.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-04T22:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4acfc072_50715a86",
+      "range": {
+        "startLine": 54,
+        "startChar": 59,
+        "endLine": 54,
+        "endChar": 60
+      },
+      "revId": "90443477f9a0061581c420775ce3b7eeae7468bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6acc847d_16d34c7f",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-04T20:46:21Z",
       "side": 1,
       "message": "I assume this makes the assert statically checked in addition to dynamically?",
+      "range": {
+        "startLine": 232,
+        "startChar": 47,
+        "endLine": 232,
+        "endChar": 64
+      },
+      "revId": "90443477f9a0061581c420775ce3b7eeae7468bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ad60c0d_9ac13d7a",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-04T22:40:24Z",
+      "side": 1,
+      "message": "Yes, that is a static check.",
+      "parentUuid": "6acc847d_16d34c7f",
       "range": {
         "startLine": 232,
         "startChar": 47,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6acc847d_d7339efa",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-04T22:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eadf9421_b8e449cc",
+      "range": {
+        "startLine": 335,
+        "startChar": 47,
+        "endLine": 335,
+        "endChar": 48
+      },
+      "revId": "90443477f9a0061581c420775ce3b7eeae7468bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a0ff877_ec309ff0",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2015-08-04T20:46:21Z",
       "side": 1,
       "message": "Same.",
+      "range": {
+        "startLine": 340,
+        "startChar": 44,
+        "endLine": 340,
+        "endChar": 45
+      },
+      "revId": "90443477f9a0061581c420775ce3b7eeae7468bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa14bc88_ba66ce18",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-04T22:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a0ff877_ec309ff0",
       "range": {
         "startLine": 340,
         "startChar": 44,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "6acc847d_172ee68f",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-04T22:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6acc847d_b6c1c098",
+      "range": {
+        "startLine": 343,
+        "startChar": 50,
+        "endLine": 343,
+        "endChar": 51
+      },
+      "revId": "90443477f9a0061581c420775ce3b7eeae7468bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6acc847d_d6be441b",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 6
@@ -128,6 +248,30 @@
       "writtenOn": "2015-08-04T20:46:21Z",
       "side": 1,
       "message": "Same.",
+      "range": {
+        "startLine": 348,
+        "startChar": 47,
+        "endLine": 348,
+        "endChar": 48
+      },
+      "revId": "90443477f9a0061581c420775ce3b7eeae7468bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4acfc072_4adb6264",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-04T22:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6acc847d_d6be441b",
       "range": {
         "startLine": 348,
         "startChar": 47,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "4acfc072_6ae0260a",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-04T22:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eadf9421_98f06d8b",
+      "range": {
+        "startLine": 354,
+        "startChar": 44,
+        "endLine": 354,
+        "endChar": 45
+      },
+      "revId": "90443477f9a0061581c420775ce3b7eeae7468bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aae91cd1_f07a6895",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 6
@@ -174,6 +342,30 @@
       "writtenOn": "2015-08-04T20:46:21Z",
       "side": 1,
       "message": "Same.",
+      "range": {
+        "startLine": 360,
+        "startChar": 44,
+        "endLine": 360,
+        "endChar": 45
+      },
+      "revId": "90443477f9a0061581c420775ce3b7eeae7468bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a0ff877_f7a4e802",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-04T22:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aae91cd1_f07a6895",
       "range": {
         "startLine": 360,
         "startChar": 44,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "4acfc072_caee92fa",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-04T22:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a0ff877_8c33ebfb",
+      "range": {
+        "startLine": 364,
+        "startChar": 41,
+        "endLine": 364,
+        "endChar": 42
+      },
+      "revId": "90443477f9a0061581c420775ce3b7eeae7468bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aae91cd1_70fbb8ee",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 6
@@ -220,6 +436,30 @@
       "writtenOn": "2015-08-04T20:46:21Z",
       "side": 1,
       "message": "misaligned",
+      "range": {
+        "startLine": 887,
+        "startChar": 90,
+        "endLine": 887,
+        "endChar": 91
+      },
+      "revId": "90443477f9a0061581c420775ce3b7eeae7468bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca157084_1ab72926",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-04T22:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aae91cd1_70fbb8ee",
       "range": {
         "startLine": 887,
         "startChar": 90,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "cadad034_57b95465",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-04T22:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ad60c0d_f4dee0fd",
+      "range": {
+        "startLine": 900,
+        "startChar": 90,
+        "endLine": 900,
+        "endChar": 91
+      },
+      "revId": "90443477f9a0061581c420775ce3b7eeae7468bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aae91cd1_90004475",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 6
@@ -266,6 +530,30 @@
       "writtenOn": "2015-08-04T20:46:21Z",
       "side": 1,
       "message": "same",
+      "range": {
+        "startLine": 914,
+        "startChar": 92,
+        "endLine": 914,
+        "endChar": 93
+      },
+      "revId": "90443477f9a0061581c420775ce3b7eeae7468bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ad9483e_74cc8e30",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-04T22:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aae91cd1_90004475",
       "range": {
         "startLine": 914,
         "startChar": 92,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "0ad9483e_b4d536b7",
+        "filename": "runtime/jdwp/jdwp.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-04T22:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4acfc072_7b047f21",
+      "range": {
+        "startLine": 133,
+        "startChar": 38,
+        "endLine": 133,
+        "endChar": 63
+      },
+      "revId": "90443477f9a0061581c420775ce3b7eeae7468bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a0ff877_b769d0eb",
         "filename": "runtime/thread.h",
         "patchSetId": 6
@@ -312,6 +624,30 @@
       "writtenOn": "2015-08-04T20:46:21Z",
       "side": 1,
       "message": "BTW, why do we need a \u0027*\u0027 after the \u0027!\u0027?",
+      "range": {
+        "startLine": 454,
+        "startChar": 31,
+        "endLine": 454,
+        "endChar": 32
+      },
+      "revId": "90443477f9a0061581c420775ce3b7eeae7468bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ad60c0d_7a39d9fc",
+        "filename": "runtime/thread.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-04T22:40:24Z",
+      "side": 1,
+      "message": "That is required otherwise the analysis thinks it is a bool. It seems to only be required for member locks.",
+      "parentUuid": "8a0ff877_b769d0eb",
       "range": {
         "startLine": 454,
         "startChar": 31,
