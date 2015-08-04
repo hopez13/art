@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eadf9421_1b0b74dc",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T22:58:11Z",
+      "side": 1,
+      "message": "Could you do this in the InlineInto instead? Returning the return instruction from InlineInto is pretty weird.",
+      "range": {
+        "startLine": 453,
+        "startChar": 0,
+        "endLine": 477,
+        "endChar": 3
+      },
+      "revId": "2e76830f0b3f23825677436c0633714402715099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
