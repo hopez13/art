@@ -1,0 +1,395 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cadad034_31c8584d",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T18:53:51Z",
+      "side": 1,
+      "message": "Nit: MethodLoadType -\u003e MethodLoadKind? (\"type\" is too overloaded\n).\n\nmethod_load_type -\u003e method_load_kind",
+      "range": {
+        "startLine": 956,
+        "startChar": 27,
+        "endLine": 956,
+        "endChar": 58
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4acfc072_109fd26a",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T18:53:51Z",
+      "side": 1,
+      "message": "Can this be a kConstant instead?",
+      "range": {
+        "startLine": 970,
+        "startChar": 29,
+        "endLine": 970,
+        "endChar": 55
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ad9483e_7333c8af",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 978,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T18:53:51Z",
+      "side": 1,
+      "message": "DexCacheArraysLayout.",
+      "range": {
+        "startLine": 978,
+        "startChar": 8,
+        "endLine": 978,
+        "endChar": 12
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ad60c0d_89f0218b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T18:53:51Z",
+      "side": 1,
+      "message": "ditto for a kStatic.",
+      "range": {
+        "startLine": 987,
+        "startChar": 27,
+        "endLine": 987,
+        "endChar": 53
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6acc847d_56f0745b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 993,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T18:53:51Z",
+      "side": 1,
+      "message": "Maybe add somewhere that this is multidex and we currently only recognize multidex for the image.",
+      "range": {
+        "startLine": 992,
+        "startChar": 19,
+        "endLine": 993,
+        "endChar": 61
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ad60c0d_495459a4",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 4508,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T18:53:51Z",
+      "side": 1,
+      "message": "This comparison looks brittle, and assumes an implementation optimization that pointers are the same. How about a IsSameDexFile method in DexFile?",
+      "range": {
+        "startLine": 4508,
+        "startChar": 10,
+        "endLine": 4508,
+        "endChar": 73
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ad60c0d_69a83d60",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T18:53:51Z",
+      "side": 1,
+      "message": "Could you introduce a typedef instead?",
+      "range": {
+        "startLine": 334,
+        "startChar": 2,
+        "endLine": 334,
+        "endChar": 96
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa14bc88_2192b960",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T18:53:51Z",
+      "side": 1,
+      "message": "Since other backends have the same struct, please move this to code_generator.h, and I wouldn\u0027t worry about the private.\n\nAlso RelativeCallPatchData -\u003e RelativeCallInfo ?",
+      "range": {
+        "startLine": 340,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 4
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eadf9421_18929d2a",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T18:53:51Z",
+      "side": 1,
+      "message": "Please avoid \"data\" in comments.",
+      "range": {
+        "startLine": 356,
+        "startChar": 18,
+        "endLine": 356,
+        "endChar": 22
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aae91cd1_10e6f420",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T18:53:51Z",
+      "side": 1,
+      "message": "ArenaDeque",
+      "range": {
+        "startLine": 360,
+        "startChar": 11,
+        "endLine": 360,
+        "endChar": 21
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cadad034_f17990ea",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T18:53:51Z",
+      "side": 1,
+      "message": "typedef?",
+      "range": {
+        "startLine": 366,
+        "startChar": 0,
+        "endLine": 369,
+        "endChar": 69
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa14bc88_c4c5b384",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T18:53:51Z",
+      "side": 1,
+      "message": "PcRelativeDexCacheAccessInfo ?",
+      "range": {
+        "startLine": 377,
+        "startChar": 9,
+        "endLine": 377,
+        "endChar": 32
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aae91cd1_306690a0",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T18:53:51Z",
+      "side": 1,
+      "message": "const DexFile\u0026 ?",
+      "range": {
+        "startLine": 378,
+        "startChar": 28,
+        "endLine": 378,
+        "endChar": 42
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eadf9421_3323fab0",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 2857,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T18:53:51Z",
+      "side": 1,
+      "message": "Type -\u003e Kind ?",
+      "range": {
+        "startLine": 2857,
+        "startChar": 23,
+        "endLine": 2857,
+        "endChar": 27
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4acfc072_dbc2eb79",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 2870,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T18:53:51Z",
+      "side": 1,
+      "message": "kCallDirectWithFixup?",
+      "range": {
+        "startLine": 2870,
+        "startChar": 4,
+        "endLine": 2870,
+        "endChar": 20
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a0ff877_2c6637a0",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 2871,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T18:53:51Z",
+      "side": 1,
+      "message": "kCallDirect?",
+      "range": {
+        "startLine": 2871,
+        "startChar": 4,
+        "endLine": 2871,
+        "endChar": 15
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ad60c0d_b497f854",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 2872,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-04T18:53:51Z",
+      "side": 1,
+      "message": "kCallArtMethod?",
+      "range": {
+        "startLine": 2872,
+        "startChar": 4,
+        "endLine": 2872,
+        "endChar": 15
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
