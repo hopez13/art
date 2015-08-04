@@ -22,6 +22,30 @@
       "revId": "6e18dcb5d2c35c646f2c95cb776abb79799f52ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eadf9421_33c21a00",
+        "filename": "compiler/optimizing/parallel_move_resolver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-04T19:14:07Z",
+      "side": 1,
+      "message": "The free register is most probably one of the outputs of the parallel move (from ScratchRegisterScope).  If we move the stack/stack early, we can use an output before the final value is put into it.",
+      "parentUuid": "aae91cd1_f040a8ba",
+      "range": {
+        "startLine": 41,
+        "startChar": 44,
+        "endLine": 41,
+        "endChar": 63
+      },
+      "revId": "6e18dcb5d2c35c646f2c95cb776abb79799f52ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
