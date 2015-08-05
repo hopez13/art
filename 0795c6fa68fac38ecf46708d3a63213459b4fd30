@@ -22,6 +22,30 @@
       "revId": "0795c6fa68fac38ecf46708d3a63213459b4fd30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed8faeab_3262987f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 2078,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-05T09:57:15Z",
+      "side": 1,
+      "message": "I initially wanted to type this newly created constant as a primitive Boolean value for better type checking, but this didn\u0027t play well with the rest of the compiler, where Boolean constants are actually implemented as integers.\n\nI scrapped the comment in PS8.",
+      "parentUuid": "aae91cd1_a3d179cb",
+      "range": {
+        "startLine": 2077,
+        "startChar": 0,
+        "endLine": 2078,
+        "endChar": 55
+      },
+      "revId": "0795c6fa68fac38ecf46708d3a63213459b4fd30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
