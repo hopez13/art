@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ad9483e_8849f609",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-05T00:12:50Z",
+      "side": 1,
+      "message": "What\u0027s with the \u0026\u0026 and std::move? Can\u0027t we just copy const\u0026 strings?",
+      "range": {
+        "startLine": 37,
+        "startChar": 29,
+        "endLine": 40,
+        "endChar": 54
+      },
+      "revId": "e4dc7e702321b33eb23649f0c273a487117e544f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
