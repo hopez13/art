@@ -16,6 +16,24 @@
       "revId": "ca0daf2072054e44fec50899cce0059774df106e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa14bc88_f6ee9ef9",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-05T03:04:32Z",
+      "side": 1,
+      "message": "Done, but the correct constant in this case is kOutputOverlap because we want the liveness of the input and output registers to overlap, in which case the input registers cannot be clobbered.",
+      "parentUuid": "ca157084_19545ba3",
+      "revId": "ca0daf2072054e44fec50899cce0059774df106e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
