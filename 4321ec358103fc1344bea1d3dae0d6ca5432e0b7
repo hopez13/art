@@ -1,0 +1,320 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d657ec3_4e785338",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-05T15:47:21Z",
+      "side": 1,
+      "message": "As already mentioned offline, I\u0027d prefer if you used HInstruction* instead, and HBasicBlock* for the typedef below.",
+      "range": {
+        "startLine": 53,
+        "startChar": 23,
+        "endLine": 53,
+        "endChar": 36
+      },
+      "revId": "4321ec358103fc1344bea1d3dae0d6ca5432e0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a2724f5_add509b7",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-05T15:47:21Z",
+      "side": 1,
+      "message": "Nit: Use // comments in C++",
+      "range": {
+        "startLine": 87,
+        "startChar": 2,
+        "endLine": 89,
+        "endChar": 5
+      },
+      "revId": "4321ec358103fc1344bea1d3dae0d6ca5432e0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad9936fb_96cefca2",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-05T15:47:21Z",
+      "side": 1,
+      "message": "Why is this not private?",
+      "range": {
+        "startLine": 110,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 55
+      },
+      "revId": "4321ec358103fc1344bea1d3dae0d6ca5432e0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad9936fb_f6bca008",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-05T15:47:21Z",
+      "side": 1,
+      "message": "already existed",
+      "range": {
+        "startLine": 116,
+        "startChar": 36,
+        "endLine": 116,
+        "endChar": 56
+      },
+      "revId": "4321ec358103fc1344bea1d3dae0d6ca5432e0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2a60c0_cc231f57",
+        "filename": "compiler/optimizing/context.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-05T15:47:21Z",
+      "side": 1,
+      "message": "Nit: I\u0027d put this inside the if.",
+      "range": {
+        "startLine": 116,
+        "startChar": 4,
+        "endLine": 116,
+        "endChar": 6
+      },
+      "revId": "4321ec358103fc1344bea1d3dae0d6ca5432e0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d7fda4c_500c7a45",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-05T15:47:21Z",
+      "side": 1,
+      "message": "Nit: no need for the variables if you only use the values once",
+      "range": {
+        "startLine": 44,
+        "startChar": 8,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "4321ec358103fc1344bea1d3dae0d6ca5432e0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d7fda4c_90160254",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-05T15:47:21Z",
+      "side": 1,
+      "message": "Can you please explain this in more detail? When would an input overflow?",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 75
+      },
+      "revId": "4321ec358103fc1344bea1d3dae0d6ca5432e0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a2724f5_0df0955a",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-05T15:47:21Z",
+      "side": 1,
+      "message": "If this comparison is useful, maybe you should do static_cast\u003cU\u003e(min())?",
+      "range": {
+        "startLine": 58,
+        "startChar": 20,
+        "endLine": 58,
+        "endChar": 25
+      },
+      "revId": "4321ec358103fc1344bea1d3dae0d6ca5432e0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2a60c0_8c76474b",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-05T15:47:21Z",
+      "side": 1,
+      "message": "No need to special case this. If you store the min,max values as they are, they will return false for IsValid",
+      "range": {
+        "startLine": 61,
+        "startChar": 6,
+        "endLine": 61,
+        "endChar": 24
+      },
+      "revId": "4321ec358103fc1344bea1d3dae0d6ca5432e0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d7fda4c_b02146a8",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-05T15:47:21Z",
+      "side": 1,
+      "message": "As discussed, please make Range immutable.",
+      "range": {
+        "startLine": 101,
+        "startChar": 2,
+        "endLine": 101,
+        "endChar": 3
+      },
+      "revId": "4321ec358103fc1344bea1d3dae0d6ca5432e0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a2724f5_8dfbe53a",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-05T15:47:21Z",
+      "side": 1,
+      "message": "How about you have just one method called IsIfBranch that you\u0027d use on line 252 and then test if you\u0027re in true or false branch inside HandleComingFromIf? No need to duplicate the code.",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 68
+      },
+      "revId": "4321ec358103fc1344bea1d3dae0d6ca5432e0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d7fda4c_f004ae21",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-05T15:47:21Z",
+      "side": 1,
+      "message": "Create a new const range instead?",
+      "range": {
+        "startLine": 199,
+        "startChar": 16,
+        "endLine": 200,
+        "endChar": 46
+      },
+      "revId": "4321ec358103fc1344bea1d3dae0d6ca5432e0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea1a34b3_69766181",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-05T15:47:21Z",
+      "side": 1,
+      "message": "How about you make this more symmetric by only testing for !IsValid in each branch? It would make things more obvious and you wouldn\u0027t need that awkward \u0027return\u0027 on line 204.",
+      "revId": "4321ec358103fc1344bea1d3dae0d6ca5432e0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d7fda4c_303616ed",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-05T15:47:21Z",
+      "side": 1,
+      "message": "Please make this the case kCondEQ and explain why you cannot narrow the range.",
+      "range": {
+        "startLine": 237,
+        "startChar": 6,
+        "endLine": 237,
+        "endChar": 13
+      },
+      "revId": "4321ec358103fc1344bea1d3dae0d6ca5432e0b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
