@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa14bc88_b62386dc",
+        "filename": "compiler/optimizing/instruction_simplifier_arch.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-05T00:59:43Z",
+      "side": 1,
+      "message": "I don\u0027t see the value of this class. You\u0027re already switching over the instruction_set in arch specific optimizations of optimizing_compiler.cc. So I\u0027d drop this class.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 2
+      },
+      "revId": "05184e4fd07d43c4acd8476262dd543f00e791b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ad9483e_28770af8",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-05T00:59:43Z",
+      "side": 1,
+      "message": "If we need to do this, maybe we should drop the const. Sorry for the back and forth.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 43
+      },
+      "revId": "05184e4fd07d43c4acd8476262dd543f00e791b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca157084_ae0a1627",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-05T00:59:43Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 10
+      },
+      "revId": "05184e4fd07d43c4acd8476262dd543f00e791b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4acfc072_ad7b2864",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 4701,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-05T00:59:43Z",
+      "side": 1,
+      "message": "Hmmm, I was out for a while, but why is that not in a separate file?",
+      "range": {
+        "startLine": 4676,
+        "startChar": 0,
+        "endLine": 4701,
+        "endChar": 21
+      },
+      "revId": "05184e4fd07d43c4acd8476262dd543f00e791b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
