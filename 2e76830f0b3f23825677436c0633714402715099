@@ -22,6 +22,30 @@
       "revId": "2e76830f0b3f23825677436c0633714402715099",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d7fda4c_f5b82035",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-05T11:19:27Z",
+      "side": 1,
+      "message": "I considered that option too. \n\nThe main reason I ended up doing it here is because of the `handles_`. I\u0027d like to keep their scope as small as possible. It makes it easier to reason about their correctness. It also keeps the signature easier and separate the concerns better (to create RTIs we need reference to handles and class linker, passing them around to the graph seems more weird to me and everything becomes pretty ugly). Going a step forward, if we go more precise and merge the phi\u0027s inputs (see TODO) we need to share stuff (i.e. merging) between reference type propagation and nodes, that\u0027s again something that I\u0027d rather not do.\n\nThat said, having the instruction properly typed at their place of creation does sound cleaner, but in practice it will get messier.\n\nLet me know what you think.",
+      "parentUuid": "eadf9421_1b0b74dc",
+      "range": {
+        "startLine": 453,
+        "startChar": 0,
+        "endLine": 477,
+        "endChar": 3
+      },
+      "revId": "2e76830f0b3f23825677436c0633714402715099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
