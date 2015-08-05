@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "6acc847d_09532a68",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1478,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-05T01:18:49Z",
+      "side": 1,
+      "message": "Could be a private class, so move to the end?",
+      "range": {
+        "startLine": 1465,
+        "startChar": 0,
+        "endLine": 1478,
+        "endChar": 4
+      },
+      "revId": "8b39d31aaf3276b932711a3d6661170719dc8868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4acfc072_0d5df4c1",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-05T01:18:49Z",
+      "side": 1,
+      "message": "Does this require an image version bump? Probably not as you change the Java side, but just to be safe, maybe?",
+      "range": {
+        "startLine": 144,
+        "startChar": 41,
+        "endLine": 144,
+        "endChar": 43
+      },
+      "revId": "8b39d31aaf3276b932711a3d6661170719dc8868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6acc847d_696af60a",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
