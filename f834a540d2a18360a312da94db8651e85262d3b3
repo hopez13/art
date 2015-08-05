@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "0aa5c8c6_1fdc6303",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-08-05T21:42:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad9936fb_0bef29a9",
+      "range": {
+        "startLine": 280,
+        "startChar": 54,
+        "endLine": 280,
+        "endChar": 62
+      },
+      "revId": "f834a540d2a18360a312da94db8651e85262d3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2aafec90_b8d299ca",
         "filename": "runtime/stack.cc",
         "patchSetId": 7
@@ -59,6 +83,30 @@
       "writtenOn": "2015-08-05T12:40:43Z",
       "side": 1,
       "message": "2 comments here for discussion:\n\n\n1) Why not doing the same for Quick? As long as Optimizing compiler can fallback to Quick, we must support it too. Besides, the code seems compatible with both compilers IMO.\n\n\n2) Shouldn\u0027t we ensure this is only used by the debugger? I mean it only works iff the debugger ensures we do trigger a deopt (by installing instrumentation exit stub on each method\u0027s return pc). What if, in the future, some other part of the runtime starts using SetVReg? It would also need to ensure deopt happens, consequently would need to update instrumentation too.\n\nAs an example, see run-test 455-set-vreg (set_vreg_jni.cc) which calls StackVisitor::SetVReg.",
+      "range": {
+        "startLine": 497,
+        "startChar": 2,
+        "endLine": 507,
+        "endChar": 14
+      },
+      "revId": "f834a540d2a18360a312da94db8651e85262d3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0aa5c8c6_3fdf27fc",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-08-05T21:42:38Z",
+      "side": 1,
+      "message": "For 1), do you mean we also use deoptimization for quick\u0027s set-local-value?\n\nFor 2), I think it should only be from debugger. Changing local value is a very special operation.",
+      "parentUuid": "2aafec90_b8d299ca",
       "range": {
         "startLine": 497,
         "startChar": 2,
