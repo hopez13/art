@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "ca157084_9955eb4e",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-05T01:36:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca157084_79146fd3",
+      "range": {
+        "startLine": 29,
+        "startChar": 46,
+        "endLine": 29,
+        "endChar": 50
+      },
+      "revId": "45e9eb4d7e8979b1eb50c10be68eaf493fc57578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cadad034_f15c30c8",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-05T01:36:36Z",
+      "side": 1,
+      "message": "Cross compilation",
+      "parentUuid": "2ad60c0d_691afd2f",
+      "range": {
+        "startLine": 29,
+        "startChar": 31,
+        "endLine": 29,
+        "endChar": 39
+      },
+      "revId": "45e9eb4d7e8979b1eb50c10be68eaf493fc57578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ad9483e_93bdac23",
         "filename": "runtime/length_prefixed_array.h",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-08-04T17:58:59Z",
       "side": 1,
       "message": "This seems like an anti-pattern, why isn\u0027t the element size part of the template?",
+      "range": {
+        "startLine": 31,
+        "startChar": 20,
+        "endLine": 31,
+        "endChar": 53
+      },
+      "revId": "45e9eb4d7e8979b1eb50c10be68eaf493fc57578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ad9483e_f37998ea",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-05T01:36:36Z",
+      "side": 1,
+      "message": "Its variable sized for cross compilation, too many if statements to do the other way.",
+      "parentUuid": "0ad9483e_93bdac23",
       "range": {
         "startLine": 31,
         "startChar": 20,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "aae91cd1_b09aa042",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-05T01:36:36Z",
+      "side": 1,
+      "message": "Cross compilation",
+      "parentUuid": "6acc847d_d6f1e40c",
+      "range": {
+        "startLine": 36,
+        "startChar": 20,
+        "endLine": 36,
+        "endChar": 25
+      },
+      "revId": "45e9eb4d7e8979b1eb50c10be68eaf493fc57578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ad9483e_339780a3",
         "filename": "runtime/length_prefixed_array.h",
         "patchSetId": 1
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "ca157084_d94f63b6",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-05T01:36:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ad9483e_339780a3",
+      "range": {
+        "startLine": 46,
+        "startChar": 11,
+        "endLine": 46,
+        "endChar": 41
+      },
+      "revId": "45e9eb4d7e8979b1eb50c10be68eaf493fc57578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cadad034_51c7a40e",
         "filename": "runtime/length_prefixed_array.h",
         "patchSetId": 1
@@ -128,6 +248,24 @@
       "writtenOn": "2015-08-04T17:58:59Z",
       "side": 1,
       "message": "Can\u0027t this just use in-place new?",
+      "revId": "45e9eb4d7e8979b1eb50c10be68eaf493fc57578",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ad60c0d_a979653d",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-05T01:36:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cadad034_51c7a40e",
       "revId": "45e9eb4d7e8979b1eb50c10be68eaf493fc57578",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
