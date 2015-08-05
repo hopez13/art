@@ -2163,6 +2163,30 @@
     },
     {
       "key": {
+        "uuid": "ad9936fb_cb154100",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-05T11:04:36Z",
+      "side": 1,
+      "message": "UNLIKELY is a macro that translates to a hint for the CPU branch predictor that it should prioritize the false branch.\n\nIt would be just a small performance optimization but I\u0027d argue that dead code is pretty rare and therefore this might be a good candidate for using it.\n\nBut no pressure, it\u0027s just a suggestion that has nothing to do with the correctness of your solution.",
+      "parentUuid": "6d657ec3_03639434",
+      "range": {
+        "startLine": 36,
+        "startChar": 6,
+        "endLine": 36,
+        "endChar": 16
+      },
+      "revId": "1521d54ebc88b59321602a9136d9680b20c847ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a2a60c0_095a49ff",
         "filename": "compiler/optimizing/ranges.cc",
         "patchSetId": 2
