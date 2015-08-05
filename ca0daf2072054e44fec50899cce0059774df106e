@@ -70,6 +70,24 @@
       "revId": "ca0daf2072054e44fec50899cce0059774df106e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2a60c0_6cd2f300",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-05T12:50:06Z",
+      "side": 1,
+      "message": "Maybe introduce a verb in the name:\n\n* kMakeInputAndOutputLivenessOverlap\n* kForceInputAndOutputLivenessToOverlap\n\nOr perhaps something like:\n\n* kDoNotClobberInputWithOutput\n\n?\n\nAlso, Mark is right, we should document the definition of art::Location::OutputOverlap in compiler/optimizing/locations.h.",
+      "parentUuid": "aae91cd1_66c77f0f",
+      "revId": "ca0daf2072054e44fec50899cce0059774df106e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
