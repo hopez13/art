@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4a2a60c0_6c0af35d",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3491,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-08-05T12:40:43Z",
+      "side": 1,
+      "message": "No actually. The instrumentation exit stub will use that to trigger the deopt.",
+      "parentUuid": "eadf9421_f3a192a9",
+      "range": {
+        "startLine": 3486,
+        "startChar": 2,
+        "endLine": 3491,
+        "endChar": 3
+      },
+      "revId": "2b2aa603b084a2d55e2d89e297128e1a79463c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d7fda4c_d5907c59",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 6
@@ -272,6 +296,30 @@
       "side": 1,
       "message": "Added: // All debugger shadow frames should have been consumed by deoptimization.",
       "parentUuid": "ed8faeab_72ffc09f",
+      "range": {
+        "startLine": 1668,
+        "startChar": 52,
+        "endLine": 1668,
+        "endChar": 53
+      },
+      "revId": "2b2aa603b084a2d55e2d89e297128e1a79463c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea1a34b3_09440d71",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1668,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-08-05T12:40:43Z",
+      "side": 1,
+      "message": "I was more thinking about a message to be displayed in the abort message. Something like\n\n  CHECK(tlsPtr_.frame_id_to_shadow_frame \u003d\u003d nullptr) \u003c\u003c \"All debugger shadow frames should have been consumed by deoptimization\"",
+      "parentUuid": "ca157084_df6623c8",
       "range": {
         "startLine": 1668,
         "startChar": 52,
