@@ -34,6 +34,24 @@
       "revId": "ca0daf2072054e44fec50899cce0059774df106e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eadf9421_b400cd74",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-05T12:05:35Z",
+      "side": 1,
+      "message": "Makes sense.  Can someone document this in locations.h, so that it i obvious?  I have been looking into code gen/RA for months, and I still get confused.",
+      "parentUuid": "aa14bc88_f6ee9ef9",
+      "revId": "ca0daf2072054e44fec50899cce0059774df106e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
