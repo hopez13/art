@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ac4207d_3fd04f42",
+        "filename": "runtime/gc/accounting/remembered_set.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-05T23:23:35Z",
+      "side": 1,
+      "message": "Like a comment for another CL, could this be MarkHeapReference(root) instead (and share the code with operator() at line 70?",
+      "range": {
+        "startLine": 100,
+        "startChar": 31,
+        "endLine": 100,
+        "endChar": 41
+      },
+      "revId": "39089124ceac46a45f17b8261a09b88a9606bb97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
