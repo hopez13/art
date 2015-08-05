@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eaab149c_2478369c",
+        "filename": "runtime/lambda/box_table.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-05T23:09:58Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/#/c/158971/ had changed it such that the CC collector now uses a thread-local flag to control whether system weaks are allowed to be accessed during the system sweep.\n\nSo, this should be changed to something like:\n\n  while (UNLIKELY((!kUseReadBarrier \u0026\u0026 !allow_new_weaks_) ||\n                  (kUseReadBarrier \u0026\u0026 !self-\u003eGetWeakRefAccessEnabled()))) {\n    new_weaks_condition_.WaitHoldingLocks(self);\n  }\n\nlike the other system weak cases like montior_list.\n\nBy default, I\u0027ll go and make this change if no one does it sooner. I don\u0027t think it\u0027s a major issue now as the issue is limited to the cases with lambda and the CC collector enabled.",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 3
+      },
+      "revId": "e2facc5b18cd756a8b5500fb3d90da69c9ee0fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
