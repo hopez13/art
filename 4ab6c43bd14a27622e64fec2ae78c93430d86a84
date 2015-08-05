@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa14bc88_769e2e46",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-05T01:47:30Z",
+      "side": 1,
+      "message": "More considerations:\n\n1) Put the size into the constructor, store as a field\n2) Put the size into a template, then cast to the correct template from where it\u0027s being used",
+      "range": {
+        "startLine": 33,
+        "startChar": 22,
+        "endLine": 33,
+        "endChar": 53
+      },
+      "revId": "4ab6c43bd14a27622e64fec2ae78c93430d86a84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
