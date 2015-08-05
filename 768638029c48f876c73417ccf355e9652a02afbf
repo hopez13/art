@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "cac3b058_495b715b",
+        "filename": "tools/ahat/src/ahat/AhatHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-05T23:19:42Z",
+      "side": 1,
+      "message": "For debugging purposes, I would like to see stack traces for exceptions in the handlers, which the HttpServer does not report. Sometimes these are IOExceptions, but more often they are NullPointerExceptions. Presumably there could be other kinds of exceptions I would like to see a stack trace for rather than just having the page hang or fail to load.\n\n1. Is general Exception catchall appropriate for this use case?\n2. Should I add IOException, NullPointerException, and others to a multicatch as I see them arise?\n3. Or should I not print the stack traces at all in the checked in code, and only modify the code locally or use a debugger (?) to see the stack traces?",
+      "parentUuid": "0a0b0862_d52d6c94",
+      "range": {
+        "startLine": 55,
+        "startChar": 13,
+        "endLine": 55,
+        "endChar": 24
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa667c34_7ad5712e",
         "filename": "tools/ahat/src/ahat/AhatSnapshot.java",
         "patchSetId": 2
@@ -302,6 +326,30 @@
     },
     {
       "key": {
+        "uuid": "caa650d5_a3ac3e73",
+        "filename": "tools/ahat/src/ahat/DominatedList.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-05T23:19:42Z",
+      "side": 1,
+      "message": "My goal is to share code for producing tables that contain heap numbers. What changes between each table, currently, is the description of what the heap values mean, how to get the heap values, and how to render any additional columns in the table.\n\nI\u0027m not terribly happy with the approach I\u0027m using, where I provide an implementation of a configuration interface to configure the table. Is there a better way? Is there a more canonical way for doing this kind of thing in Java?\n\nFor example, would it be better to have HeapTable be an abstract base class that I subclass for each instance of the table I want to render? Does that violate \"inheritance vs. composition\" arguments?\n\nI really just want a nice way to pass functions (or rather, a list of functions) as arguments. Can I use lambdas for that?",
+      "parentUuid": "8a61b821_dc9e416d",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 6
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a5c2064_3f8daf3e",
         "filename": "tools/ahat/src/ahat/DominatedList.java",
         "patchSetId": 2
@@ -407,6 +455,30 @@
       "side": 1,
       "message": "if arg1 is special, give it a special name?",
       "parentUuid": "ea6cf416_50105410",
+      "range": {
+        "startLine": 52,
+        "startChar": 34,
+        "endLine": 52,
+        "endChar": 62
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2aa28cbf_80a8160f",
+        "filename": "tools/ahat/src/ahat/HtmlWriter.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-05T23:19:42Z",
+      "side": 1,
+      "message": "arg1 is not special. Is the comment not clear?\n\n\"\nThe format string itself will not be sanitized. To ensure an unsanitized string is not accidentally passed as the format string, this requires at least one format argument. To print an already sanitized string, use:\n  print(\"%R\", str);\nTo print a string that needs to be sanitized, use:\n  print(\"%s\", str);\n\"\n\nI separate arg1 so you\u0027ll get a compiler error if you do something like \u0027html.print(instance.toString())\u0027. This is dangerous, because instance.toString() may not have been sanitized. Requiring the user explicitly put \"%R\" as the first object makes it harder to make that mistake (I hope), and easier to grep for \"%R\" for potential problems later on.",
+      "parentUuid": "2a536c56_7e2d6917",
       "range": {
         "startLine": 52,
         "startChar": 34,
@@ -594,6 +666,30 @@
       "side": 1,
       "message": "google preferred !\u003d android preferred... we aren\u0027t going to use GWT :)\n\nI\u0027m fine with something quick and dirty to keep this easy to work on without needing to learn some third party toolkit that is just wrapping text generation.",
       "parentUuid": "ea6cf416_f059a0d5",
+      "range": {
+        "startLine": 76,
+        "startChar": 24,
+        "endLine": 76,
+        "endChar": 73
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ac9b89e_33bc08a1",
+        "filename": "tools/ahat/src/ahat/ObjectHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-05T23:19:42Z",
+      "side": 1,
+      "message": "The recommendations I\u0027ve seen are GWT, Closure Templates, jslayout, and GXP. The first three of those generate JavaScript code, but it is important to me that javascript not be required to view the heap dump.\n\nGXP may work, but I agree with Brian. I think it will add more complexity than it is worth.",
+      "parentUuid": "ca673030_7b4f373d",
       "range": {
         "startLine": 76,
         "startChar": 24,
