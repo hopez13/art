@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6acc847d_696af60a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2353,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-05T01:14:11Z",
+      "side": 1,
+      "message": "Could roll that into AllocArtFieldArray? At least have a !\u003d 0 DCHECK there else? Same for the other allocs.",
+      "range": {
+        "startLine": 2353,
+        "startChar": 8,
+        "endLine": 2353,
+        "endChar": 35
+      },
+      "revId": "8b39d31aaf3276b932711a3d6661170719dc8868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eadf9421_1917fc7c",
+        "filename": "runtime/linear_alloc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-05T01:14:11Z",
+      "side": 1,
+      "message": "\"an\"",
+      "range": {
+        "startLine": 36,
+        "startChar": 16,
+        "endLine": 36,
+        "endChar": 17
+      },
+      "revId": "8b39d31aaf3276b932711a3d6661170719dc8868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
