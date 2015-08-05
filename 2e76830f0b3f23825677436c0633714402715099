@@ -46,6 +46,30 @@
       "revId": "2e76830f0b3f23825677436c0633714402715099",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cadad034_090eccec",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-05T11:22:20Z",
+      "side": 1,
+      "message": "I see. It\u0027s fine to keep it this way.",
+      "parentUuid": "4d7fda4c_f5b82035",
+      "range": {
+        "startLine": 453,
+        "startChar": 0,
+        "endLine": 477,
+        "endChar": 3
+      },
+      "revId": "2e76830f0b3f23825677436c0633714402715099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
