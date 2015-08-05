@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d657ec3_0e7c9b5c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-05T12:51:33Z",
+      "side": 1,
+      "message": "IMO this is a bit overkill (takes a long time to read the function name).\n\nMy preference is to go for simpler name and have a (maybe default) argument controlling the insertion.\n\n// Document that this will also remove \"initial\" (which i think it\u0027s a fair assumption when reading replace \nReplaceInstruction(HInstruction* initial, HInstruction* replacement, bool insert_if_not_present \u003d false).",
+      "range": {
+        "startLine": 802,
+        "startChar": 7,
+        "endLine": 802,
+        "endChar": 47
+      },
+      "revId": "f5fd126a954fe49cb07b61ce76f1b9cda837e97c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
