@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d7fda4c_d5815c52",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-08-05T12:14:15Z",
+      "side": 1,
+      "message": "As discussed offline, using a foreach implies this line must separate jack files with a \u0027:\u0027 to create a proper classpath. This is working because there is only core-libart in the classpath right now. This can be fixed in a follow-up CL.",
+      "range": {
+        "startLine": 94,
+        "startChar": 38,
+        "endLine": 94,
+        "endChar": 106
+      },
+      "revId": "0de3448095b18ca43f11bf52ee6b2bb4120e7a0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d7fda4c_f5866067",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-08-05T12:14:15Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 96,
+        "startChar": 38,
+        "endLine": 96,
+        "endChar": 108
+      },
+      "revId": "0de3448095b18ca43f11bf52ee6b2bb4120e7a0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
