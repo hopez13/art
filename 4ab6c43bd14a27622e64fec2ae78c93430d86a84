@@ -22,6 +22,30 @@
       "revId": "4ab6c43bd14a27622e64fec2ae78c93430d86a84",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6acc847d_4c8700f0",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-05T02:58:25Z",
+      "side": 1,
+      "message": "Since the current code seems to work fine, worth putting that in a separate CL?",
+      "parentUuid": "aa14bc88_769e2e46",
+      "range": {
+        "startLine": 33,
+        "startChar": 22,
+        "endLine": 33,
+        "endChar": 53
+      },
+      "revId": "4ab6c43bd14a27622e64fec2ae78c93430d86a84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
