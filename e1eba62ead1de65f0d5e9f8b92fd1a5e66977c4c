@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ea307480_96388cfb",
+        "filename": "disassembler/disassembler_arm64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-08-06T13:08:18Z",
+      "side": 1,
+      "message": "I think we could follow the same syntax as other arch and just do `\" ; %s\", ...`.",
+      "parentUuid": "ea307480_566af4df",
+      "range": {
+        "startLine": 100,
+        "startChar": 20,
+        "endLine": 100,
+        "endChar": 27
+      },
+      "revId": "e1eba62ead1de65f0d5e9f8b92fd1a5e66977c4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa583ce6_441d6e9a",
         "filename": "tools/checker/match/file.py",
         "patchSetId": 14
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-06T12:43:52Z",
       "side": 1,
       "message": "We should run the test if testArch is None, shouldn\u0027t we? So that platform agnostic tests are run everywhere.",
+      "range": {
+        "startLine": 155,
+        "startChar": 7,
+        "endLine": 155,
+        "endChar": 38
+      },
+      "revId": "e1eba62ead1de65f0d5e9f8b92fd1a5e66977c4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a348466_82503a2d",
+        "filename": "tools/checker/match/file.py",
+        "patchSetId": 14
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-08-06T13:08:18Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "aa583ce6_441d6e9a",
       "range": {
         "startLine": 155,
         "startChar": 7,
