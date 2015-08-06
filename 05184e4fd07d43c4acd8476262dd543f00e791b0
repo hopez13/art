@@ -115,6 +115,30 @@
       "revId": "05184e4fd07d43c4acd8476262dd543f00e791b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea1cf420_df8a376b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 4701,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-06T22:14:16Z",
+      "side": 1,
+      "message": "OK, here\u0027s what I\u0027m suggesting: instead of having iarc-specific instructions in this file, just have nodes.h include nodes_arm64.h, nodes_x86.h, etc.\n\nRoland, WDYT?",
+      "parentUuid": "8af7f8e0_83d93e6b",
+      "range": {
+        "startLine": 4676,
+        "startChar": 0,
+        "endLine": 4701,
+        "endChar": 21
+      },
+      "revId": "05184e4fd07d43c4acd8476262dd543f00e791b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
