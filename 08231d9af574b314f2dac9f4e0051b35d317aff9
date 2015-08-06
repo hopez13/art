@@ -22,6 +22,30 @@
       "revId": "08231d9af574b314f2dac9f4e0051b35d317aff9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa583ce6_0431b6f2",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-06T17:19:44Z",
+      "side": 1,
+      "message": "Yes, the spec says that:\n\n\"For both integer and floating-point subtraction, it is always the case that a-b produces the same result as a+(-b)\"",
+      "parentUuid": "6a09e4dc_3d47fbd4",
+      "range": {
+        "startLine": 451,
+        "startChar": 0,
+        "endLine": 478,
+        "endChar": 3
+      },
+      "revId": "08231d9af574b314f2dac9f4e0051b35d317aff9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
