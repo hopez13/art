@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "aa583ce6_c43e3ee8",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-08-06T16:01:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ae980f9_f1a328b6",
+      "revId": "1be3b203eb647cbc0b8a0de97c24ba9c294c1ff9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cafd70c1_45b90ac2",
         "filename": "runtime/safe_map.h",
         "patchSetId": 9
@@ -59,6 +77,24 @@
     },
     {
       "key": {
+        "uuid": "8af7f8e0_633762ea",
+        "filename": "runtime/safe_map.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-08-06T16:01:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cafd70c1_45b90ac2",
+      "revId": "1be3b203eb647cbc0b8a0de97c24ba9c294c1ff9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8af7f8e0_23184a81",
         "filename": "runtime/safe_map.h",
         "patchSetId": 9
@@ -70,6 +106,30 @@
       "writtenOn": "2015-08-06T13:44:35Z",
       "side": 1,
       "message": "whether",
+      "range": {
+        "startLine": 125,
+        "startChar": 89,
+        "endLine": 125,
+        "endChar": 95
+      },
+      "revId": "1be3b203eb647cbc0b8a0de97c24ba9c294c1ff9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a37c06b_817efa89",
+        "filename": "runtime/safe_map.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-08-06T16:01:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8af7f8e0_23184a81",
       "range": {
         "startLine": 125,
         "startChar": 89,
@@ -105,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "4ae980f9_f18c4843",
+        "filename": "test/524-checker-range-propagation/src/Main.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-08-06T16:01:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8af7f8e0_e32232ab",
+      "range": {
+        "startLine": 192,
+        "startChar": 14,
+        "endLine": 192,
+        "endChar": 35
+      },
+      "revId": "1be3b203eb647cbc0b8a0de97c24ba9c294c1ff9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cafd70c1_c5f5fa7c",
         "filename": "test/524-checker-range-propagation/src/Main.java",
         "patchSetId": 9
@@ -116,6 +200,24 @@
       "writtenOn": "2015-08-06T13:44:35Z",
       "side": 1,
       "message": "indentation",
+      "revId": "1be3b203eb647cbc0b8a0de97c24ba9c294c1ff9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a348466_62817606",
+        "filename": "test/524-checker-range-propagation/src/Main.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1068522
+      },
+      "writtenOn": "2015-08-06T16:01:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cafd70c1_c5f5fa7c",
       "revId": "1be3b203eb647cbc0b8a0de97c24ba9c294c1ff9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
