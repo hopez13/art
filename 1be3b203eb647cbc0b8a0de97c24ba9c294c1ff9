@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "aafcbcc5_44e22ec0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-06T13:49:15Z",
+      "side": 1,
+      "message": "Be more explicit about what this CL does.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 65
+      },
+      "revId": "1be3b203eb647cbc0b8a0de97c24ba9c294c1ff9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ae980f9_f1a328b6",
         "filename": "compiler/optimizing/ranges.cc",
         "patchSetId": 9
