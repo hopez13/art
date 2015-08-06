@@ -46,6 +46,23 @@
       "revId": "7b926cdacc2b67241bc9cb5f2d4b04b13ca79d0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea307480_364ad878",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 930,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-06T13:44:35Z",
+      "side": 0,
+      "message": "I don\u0027t think you need to remove these. Just replace \"arg ? 0 : 1\" with a boolean FieldGet. That said, your range analysis will presumably take care of that in the future too. But we should keep these tests until then.",
+      "revId": "7b926cdacc2b67241bc9cb5f2d4b04b13ca79d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
