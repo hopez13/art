@@ -22,6 +22,30 @@
       "revId": "39089124ceac46a45f17b8261a09b88a9606bb97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa7f5c20_ccf98f91",
+        "filename": "runtime/gc/accounting/remembered_set.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-06T00:24:35Z",
+      "side": 1,
+      "message": "I think heap references aren\u0027t compatible due to heap poisoning. CompressedReference doesn\u0027t have heap poisioning. Any ideas?",
+      "parentUuid": "4ac4207d_3fd04f42",
+      "range": {
+        "startLine": 100,
+        "startChar": 31,
+        "endLine": 100,
+        "endChar": 41
+      },
+      "revId": "39089124ceac46a45f17b8261a09b88a9606bb97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
