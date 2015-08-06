@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "6a6ba46a_8a384bfb",
+        "filename": "tools/ahat/src/ahat/AhatHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-08-06T00:16:23Z",
+      "side": 1,
+      "message": "I\u0027d just catch RuntimeException then with a comment that otherwise they are swallowed and not reported.",
+      "parentUuid": "cac3b058_495b715b",
+      "range": {
+        "startLine": 55,
+        "startChar": 13,
+        "endLine": 55,
+        "endChar": 24
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa667c34_7ad5712e",
         "filename": "tools/ahat/src/ahat/AhatSnapshot.java",
         "patchSetId": 2
