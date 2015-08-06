@@ -46,6 +46,30 @@
       "revId": "d3b26fbeb9c7b27d0879e07607cff79dd3a59389",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ae6442a_923dfcea",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-06T11:18:15Z",
+      "side": 1,
+      "message": "What I meant is that the function can be simplified. When you rewrite the function as one line, you get:\n\n  bool Contains(T val) const {\n    return IsValid() \u0026\u0026 min_value \u003c\u003d val \u0026\u0026 val \u003c\u003d max_value;\n  }\n\nwhich, when you inline, gives you:\n\n  bool Contains(T val) const {\n    return min_value \u003c\u003d max_value \u0026\u0026 min_value \u003c\u003d val \u0026\u0026 val \u003c\u003d max_value;\n  }\n\nBut the first comparison is redundant...",
+      "parentUuid": "4a37c06b_41147275",
+      "range": {
+        "startLine": 84,
+        "startChar": 11,
+        "endLine": 84,
+        "endChar": 49
+      },
+      "revId": "d3b26fbeb9c7b27d0879e07607cff79dd3a59389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
