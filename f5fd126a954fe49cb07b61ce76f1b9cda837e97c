@@ -22,6 +22,30 @@
       "revId": "f5fd126a954fe49cb07b61ce76f1b9cda837e97c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2a60c0_ccc2ff27",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-06T15:06:04Z",
+      "side": 1,
+      "message": "I have moved and extended this change elsewhere (https://android-review.googlesource.com/#/c/163503) as it was a bit out of the scope of this CL.",
+      "parentUuid": "6d657ec3_0e7c9b5c",
+      "range": {
+        "startLine": 802,
+        "startChar": 7,
+        "endLine": 802,
+        "endChar": 47
+      },
+      "revId": "f5fd126a954fe49cb07b61ce76f1b9cda837e97c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
