@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a3e0c4a_0092e660",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-08-06T12:48:26Z",
+      "side": 1,
+      "message": "Actually, you need to do the same in StackVisitor::GetVReg too.",
+      "range": {
+        "startLine": 441,
+        "startChar": 4,
+        "endLine": 441,
+        "endChar": 33
+      },
+      "revId": "f39287679e938489f3ca93d967457e8bea3d811e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
