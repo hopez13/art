@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ae980f9_71f4d8c4",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-06T10:59:00Z",
+      "side": 1,
+      "message": "Nit: this implies IsValid, right? You could just DCHECK(IsValid() || !result)",
+      "range": {
+        "startLine": 84,
+        "startChar": 11,
+        "endLine": 84,
+        "endChar": 49
+      },
+      "revId": "d3b26fbeb9c7b27d0879e07607cff79dd3a59389",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
