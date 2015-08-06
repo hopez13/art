@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "0abea8e2_466a1c8e",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-06T22:59:11Z",
+      "side": 1,
+      "message": "We can ignore native roots here as objects pointed to by them are reachable from other paths, correct?",
+      "range": {
+        "startLine": 889,
+        "startChar": 5,
+        "endLine": 889,
+        "endChar": 31
+      },
+      "revId": "da7c650022a974be10e2f00fa07d5109e3d8826f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ac9b89e_487b4b9b",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-06T22:59:11Z",
+      "side": 1,
+      "message": "Can you clarify this? What\u0027s \u0027other logic\u0027 referring to?",
+      "range": {
+        "startLine": 1192,
+        "startChar": 0,
+        "endLine": 1193,
+        "endChar": 22
+      },
+      "revId": "da7c650022a974be10e2f00fa07d5109e3d8826f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a0c20ee_ad0e35bf",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-06T22:59:11Z",
+      "side": 1,
+      "message": "I assume some other code updates class roots? Mention that other code here?",
+      "range": {
+        "startLine": 184,
+        "startChar": 7,
+        "endLine": 184,
+        "endChar": 66
+      },
+      "revId": "da7c650022a974be10e2f00fa07d5109e3d8826f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d83be1d_9e1e8df0",
         "filename": "runtime/art_method.h",
         "patchSetId": 2
@@ -42,6 +111,98 @@
         "startChar": 44,
         "endLine": 452,
         "endChar": 69
+      },
+      "revId": "da7c650022a974be10e2f00fa07d5109e3d8826f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2abb6cf3_c2d613f2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2796,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-06T22:59:11Z",
+      "side": 1,
+      "message": "I don\u0027t know if the length prefix array CL addresses it or not, but with this change GC visits native roots without taking the classlinker_classes_lock_ (it used to in VisitClassRoots()), would there be race conditions between GC visiting method native roots vs a mutator doing LinkInterfaceMethods and calling this function to update the virtual methods array, etc.?",
+      "range": {
+        "startLine": 2795,
+        "startChar": 0,
+        "endLine": 2796,
+        "endChar": 40
+      },
+      "revId": "da7c650022a974be10e2f00fa07d5109e3d8826f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0abea8e2_c632acab",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-06T22:59:11Z",
+      "side": 1,
+      "message": "As currently kCheckLocks \u003d\u003d kDebugLocking \u003d\u003d kIsDebugBuild, would it make sense to merge the first two at least? Low priority, I suppose.",
+      "range": {
+        "startLine": 669,
+        "startChar": 10,
+        "endLine": 669,
+        "endChar": 21
+      },
+      "revId": "da7c650022a974be10e2f00fa07d5109e3d8826f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ab8cc3c_19c96fcd",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1791,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-06T22:59:11Z",
+      "side": 1,
+      "message": "It may be best if we comment to clarify that these are for method/field native roots. It might not be obvious what root these are based on the function names. Changing the name to indicate that may be harder, I assume.",
+      "range": {
+        "startLine": 1791,
+        "startChar": 7,
+        "endLine": 1791,
+        "endChar": 25
+      },
+      "revId": "da7c650022a974be10e2f00fa07d5109e3d8826f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a06a8cf_00fbacef",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-06T22:59:11Z",
+      "side": 1,
+      "message": "Is this for the CC collector? If so, GetDeclaringClass() has a read barrier and it was ok? Reordering is harmless though.",
+      "range": {
+        "startLine": 821,
+        "startChar": 6,
+        "endLine": 821,
+        "endChar": 66
       },
       "revId": "da7c650022a974be10e2f00fa07d5109e3d8826f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
