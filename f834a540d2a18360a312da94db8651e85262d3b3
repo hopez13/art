@@ -116,6 +116,30 @@
       "revId": "f834a540d2a18360a312da94db8651e85262d3b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a3e0c4a_807ef689",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-08-06T12:52:27Z",
+      "side": 1,
+      "message": "Re 1): Yes, Quick is in the same boat IMO. Especially for constant propagation (though we could disable it when --debuggable flag is passed)\n\nRe 2): So I would add dedicated SetVReg methods to StackVisitor, only meant to be used by the debugger (say StackVisitor::SetVReg[Pair]FromDebugger. And it would deopt for Quick and Optimizing.",
+      "parentUuid": "0aa5c8c6_3fdf27fc",
+      "range": {
+        "startLine": 497,
+        "startChar": 2,
+        "endLine": 507,
+        "endChar": 14
+      },
+      "revId": "f834a540d2a18360a312da94db8651e85262d3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
