@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a37c06b_c12722e7",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-06T10:59:00Z",
+      "side": 1,
+      "message": "GetAlwaysTrueConditions",
+      "range": {
+        "startLine": 118,
+        "startChar": 38,
+        "endLine": 118,
+        "endChar": 54
+      },
+      "revId": "0dd1e7ea0a1dde439980aa01bb0cf7ecfd9bbd5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a348466_2217ee7c",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-06T10:59:00Z",
+      "side": 1,
+      "message": "HCondition? Will you ever use it for anything else?",
+      "range": {
+        "startLine": 131,
+        "startChar": 16,
+        "endLine": 131,
+        "endChar": 28
+      },
+      "revId": "0dd1e7ea0a1dde439980aa01bb0cf7ecfd9bbd5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ae6442a_12710cd2",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-06T10:59:00Z",
+      "side": 1,
+      "message": "No need for these to be members of RangeVisitor",
+      "range": {
+        "startLine": 135,
+        "startChar": 5,
+        "endLine": 135,
+        "endChar": 17
+      },
+      "revId": "0dd1e7ea0a1dde439980aa01bb0cf7ecfd9bbd5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aafcbcc5_842706e8",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-06T10:59:00Z",
+      "side": 1,
+      "message": "Could you rather override HandlePhi? It\u0027s not obvious from here when the original HandlePhi function is invoked and thus whether it might overwrite the property.",
+      "range": {
+        "startLine": 243,
+        "startChar": 6,
+        "endLine": 243,
+        "endChar": 53
+      },
+      "revId": "0dd1e7ea0a1dde439980aa01bb0cf7ecfd9bbd5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
