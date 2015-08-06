@@ -140,6 +140,30 @@
       "revId": "f834a540d2a18360a312da94db8651e85262d3b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea1cf420_9ca28d81",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-08-06T18:53:43Z",
+      "side": 1,
+      "message": "I added a separate SetVReg[Pair]FromDebugger as suggested. The getter is still shared and always checks debugger shadow frame first.",
+      "parentUuid": "2a3e0c4a_807ef689",
+      "range": {
+        "startLine": 497,
+        "startChar": 2,
+        "endLine": 507,
+        "endChar": 14
+      },
+      "revId": "f834a540d2a18360a312da94db8651e85262d3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
