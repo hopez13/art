@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a348466_821a7aa2",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2779,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-06T10:45:39Z",
+      "side": 1,
+      "message": "you don\u0027t need to add this if you have no code in between.\n\n(same in all the other cases)",
+      "range": {
+        "startLine": 2779,
+        "startChar": 6,
+        "endLine": 2779,
+        "endChar": 26
+      },
+      "revId": "8569bec624dc364ff68af9a39faf0f812fe2a579",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
