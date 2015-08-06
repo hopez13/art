@@ -22,6 +22,30 @@
       "revId": "9d463e58d316841d3dc55add6a27168c2bcffcb9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aafcbcc5_c4df3e4e",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-08-06T08:44:13Z",
+      "side": 1,
+      "message": "Ok.\nDoes that mean the existing code was incorrectly skipping this by marking a few slow paths with `kNoCall`?",
+      "parentUuid": "0ad9483e_2be62421",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 63
+      },
+      "revId": "9d463e58d316841d3dc55add6a27168c2bcffcb9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
