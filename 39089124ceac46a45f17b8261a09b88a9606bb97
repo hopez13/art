@@ -46,6 +46,30 @@
       "revId": "39089124ceac46a45f17b8261a09b88a9606bb97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eaa1540d_3159ea88",
+        "filename": "runtime/gc/accounting/remembered_set.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-06T19:06:49Z",
+      "side": 1,
+      "message": "You\u0027re right. It may make sense to add MarkCompressedReference() to the garbage collectors?",
+      "parentUuid": "aa7f5c20_ccf98f91",
+      "range": {
+        "startLine": 100,
+        "startChar": 31,
+        "endLine": 100,
+        "endChar": 41
+      },
+      "revId": "39089124ceac46a45f17b8261a09b88a9606bb97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
