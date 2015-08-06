@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "aa583ce6_c4ff1ea3",
+        "filename": "compiler/optimizing/ranges.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-06T11:18:15Z",
+      "side": 1,
+      "message": "static bool IsBranchOfIfInstruction(HBasicBlock* block)",
+      "parentUuid": "4a37c06b_015bca5c",
+      "range": {
+        "startLine": 135,
+        "startChar": 5,
+        "endLine": 135,
+        "endChar": 17
+      },
+      "revId": "0dd1e7ea0a1dde439980aa01bb0cf7ecfd9bbd5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aafcbcc5_842706e8",
         "filename": "compiler/optimizing/ranges.cc",
         "patchSetId": 8
