@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a74cf78b_04127693",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-07T09:49:10Z",
+      "side": 1,
+      "message": "Would adding two local named constants for these -1s be too much? Just so we limit the number of magic numbers floating around the code.",
+      "range": {
+        "startLine": 566,
+        "startChar": 29,
+        "endLine": 566,
+        "endChar": 31
+      },
+      "revId": "e27527f7c7277ad916a81242f473c3f411664f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
