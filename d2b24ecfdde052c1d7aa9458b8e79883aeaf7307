@@ -22,6 +22,30 @@
       "revId": "d2b24ecfdde052c1d7aa9458b8e79883aeaf7307",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27400742_30d24845",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 988,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-07T09:05:54Z",
+      "side": 1,
+      "message": "I\u0027ve decided to use the same approach as in optimizing_compiler.cc, where kSpaceFilterOptimizingThreshold is defined in OptimizingCompiler::TryCompile.",
+      "parentUuid": "8719b374_13d74c35",
+      "range": {
+        "startLine": 987,
+        "startChar": 6,
+        "endLine": 988,
+        "endChar": 62
+      },
+      "revId": "d2b24ecfdde052c1d7aa9458b8e79883aeaf7307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
