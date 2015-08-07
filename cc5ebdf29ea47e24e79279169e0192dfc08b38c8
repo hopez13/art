@@ -211,6 +211,30 @@
     },
     {
       "key": {
+        "uuid": "270ba719_9b136f63",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3995,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-07T02:19:37Z",
+      "side": 1,
+      "message": "Also, if we special case the null boot class loader (and have its ClassTable directly pointed to by the ClassLinker) and we add a field to ClassLoader that points to its ClassTable, can we avoid this map altogether?",
+      "parentUuid": "ea26b49b_e98bd125",
+      "range": {
+        "startLine": 3988,
+        "startChar": 1,
+        "endLine": 3995,
+        "endChar": 21
+      },
+      "revId": "cc5ebdf29ea47e24e79279169e0192dfc08b38c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "270ba719_f84391c6",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
