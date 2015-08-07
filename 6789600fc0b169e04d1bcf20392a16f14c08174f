@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "27b567ac_48941f9a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1345,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-07T23:09:57Z",
+      "side": 1,
+      "message": "Technically no since we only add class loaders to the array when we allocate their class table. I\u0027ll add the null check however to make it clearer.",
+      "parentUuid": "ea26b49b_8fc17dfd",
+      "range": {
+        "startLine": 1345,
+        "startChar": 11,
+        "endLine": 1345,
+        "endChar": 22
+      },
+      "revId": "6789600fc0b169e04d1bcf20392a16f14c08174f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a3068cc_cde45d9f",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-07T17:46:06Z",
       "side": 1,
       "message": "null check class_table?",
+      "range": {
+        "startLine": 1469,
+        "startChar": 11,
+        "endLine": 1469,
+        "endChar": 22
+      },
+      "revId": "6789600fc0b169e04d1bcf20392a16f14c08174f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27b567ac_6899e3d0",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1469,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-07T23:09:57Z",
+      "side": 1,
+      "message": "Delete handles null",
+      "parentUuid": "0a3068cc_cde45d9f",
       "range": {
         "startLine": 1469,
         "startChar": 11,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "273ac7f6_20a2aa83",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2911,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-07T23:09:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "070ea328_5a9951d0",
+      "range": {
+        "startLine": 2911,
+        "startChar": 4,
+        "endLine": 2911,
+        "endChar": 15
+      },
+      "revId": "6789600fc0b169e04d1bcf20392a16f14c08174f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea26b49b_4fe0658d",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "67303f13_22746e74",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5668,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-07T23:09:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea26b49b_4fe0658d",
+      "range": {
+        "startLine": 5668,
+        "startChar": 24,
+        "endLine": 5668,
+        "endChar": 39
+      },
+      "revId": "6789600fc0b169e04d1bcf20392a16f14c08174f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "070ea328_7a7f75d4",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2015-08-07T17:46:06Z",
       "side": 1,
       "message": "null check class table?",
+      "range": {
+        "startLine": 5676,
+        "startChar": 24,
+        "endLine": 5676,
+        "endChar": 39
+      },
+      "revId": "6789600fc0b169e04d1bcf20392a16f14c08174f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47bedb91_e9a7153e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5676,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-07T23:09:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "070ea328_7a7f75d4",
       "range": {
         "startLine": 5676,
         "startChar": 24,
