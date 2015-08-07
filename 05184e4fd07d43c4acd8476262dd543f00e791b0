@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4787bbd1_014d8a93",
+        "filename": "compiler/optimizing/instruction_simplifier_arch.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-08-07T17:21:34Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "aa14bc88_b62386dc",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 2
+      },
+      "revId": "05184e4fd07d43c4acd8476262dd543f00e791b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ad9483e_28770af8",
         "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-05T00:59:43Z",
       "side": 1,
       "message": "If we need to do this, maybe we should drop the const. Sorry for the back and forth.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 43
+      },
+      "revId": "05184e4fd07d43c4acd8476262dd543f00e791b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27400742_50414c61",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-08-07T17:21:34Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "0ad9483e_28770af8",
       "range": {
         "startLine": 24,
         "startChar": 0,
