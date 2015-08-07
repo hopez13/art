@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "8719b374_13298cbd",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-07T10:03:33Z",
+      "side": 1,
+      "message": "Add an extra: \"Intended to be use for developement/experimental purposes:",
+      "range": {
+        "startLine": 285,
+        "startChar": 42,
+        "endLine": 285,
+        "endChar": 66
+      },
+      "revId": "e27527f7c7277ad916a81242f473c3f411664f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0791430d_df1d3b9c",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-07T10:03:33Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 291,
+        "startChar": 49,
+        "endLine": 291,
+        "endChar": 55
+      },
+      "revId": "e27527f7c7277ad916a81242f473c3f411664f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a74cf78b_04127693",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 2
@@ -18,6 +64,29 @@
         "startChar": 29,
         "endLine": 566,
         "endChar": 31
+      },
+      "revId": "e27527f7c7277ad916a81242f473c3f411664f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67367fe0_f2f608ca",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 999,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-07T10:03:33Z",
+      "side": 1,
+      "message": "add a TODO, that we should rethink the compiler filter. In this case: we mostly save time, which is orthogonal to space.",
+      "range": {
+        "startLine": 999,
+        "startChar": 3,
+        "endLine": 999,
+        "endChar": 35
       },
       "revId": "e27527f7c7277ad916a81242f473c3f411664f97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
