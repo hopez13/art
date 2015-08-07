@@ -2,6 +2,144 @@
   "comments": [
     {
       "key": {
+        "uuid": "0a3068cc_47d68e70",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-07T01:27:08Z",
+      "side": 1,
+      "message": "Is the reason we reinsert here is because the class loader may have moved?",
+      "range": {
+        "startLine": 1277,
+        "startChar": 1,
+        "endLine": 1279,
+        "endChar": 5
+      },
+      "revId": "cc5ebdf29ea47e24e79279169e0192dfc08b38c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7f64b4b_7d66574a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1286,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-07T01:27:08Z",
+      "side": 1,
+      "message": "What\u0027s this mean?\n\nNote the CC collector (or SS/GSS) does not currently use kVisitRootFlagNewRoots.",
+      "range": {
+        "startLine": 1285,
+        "startChar": 0,
+        "endLine": 1286,
+        "endChar": 33
+      },
+      "revId": "cc5ebdf29ea47e24e79279169e0192dfc08b38c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7f64b4b_5d6b9b10",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1338,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-07T01:27:08Z",
+      "side": 1,
+      "message": "On what condition does this return false (meaning exit)?",
+      "range": {
+        "startLine": 1338,
+        "startChar": 9,
+        "endLine": 1338,
+        "endChar": 27
+      },
+      "revId": "cc5ebdf29ea47e24e79279169e0192dfc08b38c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67111f42_3ab7c142",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1351,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-07T01:27:08Z",
+      "side": 1,
+      "message": "When is self null? At shutdown time?",
+      "range": {
+        "startLine": 1351,
+        "startChar": 6,
+        "endLine": 1351,
+        "endChar": 21
+      },
+      "revId": "cc5ebdf29ea47e24e79279169e0192dfc08b38c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "070ea328_77c1d0fa",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2779,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-07T01:27:08Z",
+      "side": 1,
+      "message": "Comment that this can be null for boot class loader?",
+      "range": {
+        "startLine": 2779,
+        "startChar": 29,
+        "endLine": 2779,
+        "endChar": 41
+      },
+      "revId": "cc5ebdf29ea47e24e79279169e0192dfc08b38c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "270ba719_f81cb1f8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2868,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-07T01:27:08Z",
+      "side": 1,
+      "message": "Does this mean we assume there\u0027s only one class loader (which is null) in the image?",
+      "range": {
+        "startLine": 2868,
+        "startChar": 34,
+        "endLine": 2868,
+        "endChar": 74
+      },
+      "revId": "cc5ebdf29ea47e24e79279169e0192dfc08b38c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eadf9421_de457a1b",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
@@ -42,6 +180,191 @@
         "startChar": 1,
         "endLine": 3995,
         "endChar": 21
+      },
+      "revId": "cc5ebdf29ea47e24e79279169e0192dfc08b38c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea26b49b_e98bd125",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3995,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-07T01:27:08Z",
+      "side": 1,
+      "message": "Is \"null\" class loader a valid entry in the map (and SafeMap works as expected)? Leave a comment on this somewhere?",
+      "parentUuid": "2ad60c0d_7a91d9a9",
+      "range": {
+        "startLine": 3988,
+        "startChar": 1,
+        "endLine": 3995,
+        "endChar": 21
+      },
+      "revId": "cc5ebdf29ea47e24e79279169e0192dfc08b38c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "270ba719_f84391c6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4075,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-07T01:27:08Z",
+      "side": 1,
+      "message": "Would it be possible to factor this out as a new ClassLinker::UpdateClass()?",
+      "range": {
+        "startLine": 4056,
+        "startChar": 0,
+        "endLine": 4075,
+        "endChar": 5
+      },
+      "revId": "cc5ebdf29ea47e24e79279169e0192dfc08b38c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7f64b4b_802098a4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5625,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-07T01:27:08Z",
+      "side": 1,
+      "message": "This function is REQUIRES(Locks::classlinker_classes_lock_), which requires a exclusive lock but we only have a shared lock here? Is this working as intended?",
+      "range": {
+        "startLine": 5625,
+        "startChar": 36,
+        "endLine": 5625,
+        "endChar": 52
+      },
+      "revId": "cc5ebdf29ea47e24e79279169e0192dfc08b38c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67111f42_9a880dab",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-07T01:27:08Z",
+      "side": 1,
+      "message": "I guess this is what the CC collector moving class loader objects is problematic for the SafeMap which requires the ordering to be stable?",
+      "range": {
+        "startLine": 482,
+        "startChar": 13,
+        "endLine": 482,
+        "endChar": 33
+      },
+      "revId": "cc5ebdf29ea47e24e79279169e0192dfc08b38c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "070ea328_778430ec",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-07T01:27:08Z",
+      "side": 1,
+      "message": "Would class_tables_ be a more descriptive name?",
+      "range": {
+        "startLine": 710,
+        "startChar": 24,
+        "endLine": 710,
+        "endChar": 32
+      },
+      "revId": "cc5ebdf29ea47e24e79279169e0192dfc08b38c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7f64b4b_e01abca1",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-07T01:27:08Z",
+      "side": 1,
+      "message": "I see that each class table/class loader pair can contain both zygote and non-zygote classes and this function draws the boundary by creating a new class set at zygote fork?",
+      "range": {
+        "startLine": 27,
+        "startChar": 17,
+        "endLine": 27,
+        "endChar": 31
+      },
+      "revId": "cc5ebdf29ea47e24e79279169e0192dfc08b38c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3068cc_8a3ecbe6",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-07T01:27:08Z",
+      "side": 1,
+      "message": "Name \"class_sets_\" would read better to me.",
+      "range": {
+        "startLine": 32,
+        "startChar": 29,
+        "endLine": 32,
+        "endChar": 37
+      },
+      "revId": "cc5ebdf29ea47e24e79279169e0192dfc08b38c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "270ba719_d8a44d05",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-07T01:27:08Z",
+      "side": 1,
+      "message": "Do we need to check this equality? Would turning it into an assertion like\n\nDCHECK_EQ(it-\u003eRead(), klass);\nreturn true;\n\nwork?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 33
       },
       "revId": "cc5ebdf29ea47e24e79279169e0192dfc08b38c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -155,6 +478,30 @@
       "side": 1,
       "message": "So the maximum size of that vector is 2? One for pre-zygote fork, and one for post, is that correct? How about having two ClassSet fields?",
       "parentUuid": "6acc847d_a986beee",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 32
+      },
+      "revId": "cc5ebdf29ea47e24e79279169e0192dfc08b38c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a3068cc_ea64a715",
+        "filename": "runtime/class_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-07T01:27:08Z",
+      "side": 1,
+      "message": "How about naming it \"class_sets_\"?\n\nCan you leave a comment on what\u0027s expected to do with Nicolas\u0027s comment? Maximum size is 2, one for pre-zygote and another post-zygote?",
+      "parentUuid": "aae91cd1_c3520535",
       "range": {
         "startLine": 112,
         "startChar": 2,

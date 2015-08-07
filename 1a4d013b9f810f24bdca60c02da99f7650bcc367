@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "ea26b49b_29b969c3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5597,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-07T01:27:08Z",
+      "side": 0,
+      "message": "Is this not a problem any more?",
+      "range": {
+        "startLine": 5596,
+        "startChar": 0,
+        "endLine": 5597,
+        "endChar": 98
+      },
+      "revId": "1a4d013b9f810f24bdca60c02da99f7650bcc367",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0dbb223c_436146b1",
         "filename": "runtime/class_linker.h",
         "patchSetId": 2
@@ -89,6 +112,29 @@
         "startChar": 33,
         "endLine": 579,
         "endChar": 61
+      },
+      "revId": "1a4d013b9f810f24bdca60c02da99f7650bcc367",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7242fa6_b6cac8b1",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-07T01:27:08Z",
+      "side": 0,
+      "message": "I see these are removed when copied to class_table.h. Were these not necessary/redundant?",
+      "range": {
+        "startLine": 700,
+        "startChar": 0,
+        "endLine": 705,
+        "endChar": 1
       },
       "revId": "1a4d013b9f810f24bdca60c02da99f7650bcc367",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
