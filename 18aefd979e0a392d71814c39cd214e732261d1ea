@@ -22,6 +22,30 @@
       "revId": "18aefd979e0a392d71814c39cd214e732261d1ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8719b374_5374a474",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 4844,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-08-07T17:21:34Z",
+      "side": 1,
+      "message": "Done. It requires slightly changing this define (with a cast) because the HGraphVisitor does not know that the arch-specific IRs inherit from HInstruction.\n\n    #define DECLARE_VISIT_INSTRUCTION_ARCH(arch, name, super)            \\\n        virtual void Visit##name(arch::H##name* instr) {            \\\n          VisitInstruction(reinterpret_cast\u003cHInstruction*\u003e(instr)); \\\n        }",
+      "parentUuid": "e7242fa6_b93d1b47",
+      "range": {
+        "startLine": 4840,
+        "startChar": 0,
+        "endLine": 4844,
+        "endChar": 15
+      },
+      "revId": "18aefd979e0a392d71814c39cd214e732261d1ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
