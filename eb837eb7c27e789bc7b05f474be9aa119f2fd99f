@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47333b20_d5729c05",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4056,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-08T01:55:00Z",
+      "side": 1,
+      "message": "I don\u0027t fully understand this paragraph. I\u0027ll ask you later.",
+      "range": {
+        "startLine": 4056,
+        "startChar": 4,
+        "endLine": 4056,
+        "endChar": 6
+      },
+      "revId": "eb837eb7c27e789bc7b05f474be9aa119f2fd99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87a3737f_23c6aae2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4057,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-08T01:55:00Z",
+      "side": 1,
+      "message": "Missing words/punctuations here? Should the sentence end here?",
+      "range": {
+        "startLine": 4057,
+        "startChar": 35,
+        "endLine": 4057,
+        "endChar": 36
+      },
+      "revId": "eb837eb7c27e789bc7b05f474be9aa119f2fd99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27b567ac_ab403509",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4063,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-08T01:55:00Z",
+      "side": 1,
+      "message": "(Isn\u0027t this racy with GC? If so, would this reliably prevent GC from visiting those that the comment refers to?)\n\nI think this could cause GC to miss visiting/updating class roots if the (old) class may be on the mark stack but it\u0027s not marked through yet.\n\nNote the CC collector won\u0027t visit fields of an object that\u0027s allocated during a GC (as it\u0027s in the to space and due to the to-space invariant) such as the new copy of the class allocated in line 4055. We can\u0027t rely on the new copy to make GC visit the (shared) class roots after making them unreachable from the old copy.\n\nIf the class roots are like normal fields, we would have triggered read barriers in Class::CopyOf() and we would be good. But since they are roots in shared Methods/Fields arrays, we don\u0027t trigger read barriers. As this situation is sort of like missing read barriers, I think one possible fix would be to overwrite the method/field roots in CopyOf() as in:\n\n  root_ \u003d GcRoot(root_.Read()).\n\nThis way, the new class copy is guaranteed to have to-space refs only. There may be other ways.\n\nThis could explain the from-space ref crashes with the CC collector.",
+      "range": {
+        "startLine": 4060,
+        "startChar": 0,
+        "endLine": 4063,
+        "endChar": 35
+      },
+      "revId": "eb837eb7c27e789bc7b05f474be9aa119f2fd99f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
