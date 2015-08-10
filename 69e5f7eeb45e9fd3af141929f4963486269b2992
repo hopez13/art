@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "07bea3e2_a6bfb8f7",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-10T23:13:11Z",
+      "side": 1,
+      "message": "I think that would be the ideal solution. However doing so does look like it would be pretty annoying (lots of added cases).\n\nMostly though if we are going to work-around it here we should do as small a change from current behavior as necessary (i.e. just don\u0027t let this return 0). Furthermore making this just not return 0 is a pretty trivial change so it\u0027s not like this is making him re-write a ton of stuff.",
+      "parentUuid": "07bea3e2_ab8d4187",
+      "revId": "69e5f7eeb45e9fd3af141929f4963486269b2992",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7cf2b9d_be5fbd6c",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 1
