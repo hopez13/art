@@ -239,6 +239,30 @@
     },
     {
       "key": {
+        "uuid": "c7cf2b9d_551accfb",
+        "filename": "tools/ahat/src/ahat/AhatHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-10T15:41:13Z",
+      "side": 1,
+      "message": "There\u0027s no buffering issue. The server does swallow the error messages. I switched to catching RuntimeException and added the comment noting they are swallowed and not reported otherwise.",
+      "parentUuid": "67303f13_82ec5ab8",
+      "range": {
+        "startLine": 55,
+        "startChar": 13,
+        "endLine": 55,
+        "endChar": 24
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa667c34_7ad5712e",
         "filename": "tools/ahat/src/ahat/AhatSnapshot.java",
         "patchSetId": 2
