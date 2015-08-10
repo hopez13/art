@@ -22,6 +22,30 @@
       "revId": "fcd3008faa3cadf76a12cee19137c4b0e2dfe413",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "271727da_d89dcdef",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1624,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-08-10T14:52:13Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "6782ff52_32b8b0ab",
+      "range": {
+        "startLine": 1622,
+        "startChar": 0,
+        "endLine": 1624,
+        "endChar": 72
+      },
+      "revId": "fcd3008faa3cadf76a12cee19137c4b0e2dfe413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
