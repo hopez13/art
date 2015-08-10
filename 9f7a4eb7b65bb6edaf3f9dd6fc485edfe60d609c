@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "c72bab15_55fc2c32",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1080,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-08-10T15:10:29Z",
+      "side": 1,
+      "message": "Drop. `Operand` provides an implicit constructor for readability.\n\nSame below.",
+      "range": {
+        "startLine": 1080,
+        "startChar": 15,
+        "endLine": 1080,
+        "endChar": 22
+      },
+      "revId": "9f7a4eb7b65bb6edaf3f9dd6fc485edfe60d609c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c72bab15_75f92841",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-08-10T15:10:29Z",
+      "side": 1,
+      "message": "With this, that is potentially 3 branches in 4 instructions, which can cause issue with the branch predictor.\n\nThere is work here to automatically insert NOPs in these situations, but for now you might want to add a NOP with a TODO indicating to remove it once VIXL handles that.",
+      "revId": "9f7a4eb7b65bb6edaf3f9dd6fc485edfe60d609c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c72bab15_954f243f",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -19,6 +59,40 @@
         "endLine": 1100,
         "endChar": 8
       },
+      "revId": "9f7a4eb7b65bb6edaf3f9dd6fc485edfe60d609c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "271727da_d8086dbb",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1102,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-08-10T15:10:29Z",
+      "side": 1,
+      "message": "Did you try using LDP to compare 4 chars at a time?",
+      "revId": "9f7a4eb7b65bb6edaf3f9dd6fc485edfe60d609c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47209b2d_5979c339",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1111,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-08-10T15:10:29Z",
+      "side": 1,
+      "message": "Avoid the `Cmp` by moving the `Sub(temp, temp, 4)` here and using `SetFlags`?",
       "revId": "9f7a4eb7b65bb6edaf3f9dd6fc485edfe60d609c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
