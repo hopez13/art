@@ -70,6 +70,30 @@
       "revId": "18aefd979e0a392d71814c39cd214e732261d1ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47209b2d_19282b36",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 4844,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-08-10T14:52:13Z",
+      "side": 1,
+      "message": "What previous version?\n\nThe initial version included nodes_arm64.h at the top, but that required cutting and pasting all HInstructions into a new file nodes_common.h, which was raised as an issue for rebasing.\n\nI included it at the end of the file now.",
+      "parentUuid": "a72a3712_944f243f",
+      "range": {
+        "startLine": 4840,
+        "startChar": 0,
+        "endLine": 4844,
+        "endChar": 15
+      },
+      "revId": "18aefd979e0a392d71814c39cd214e732261d1ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
