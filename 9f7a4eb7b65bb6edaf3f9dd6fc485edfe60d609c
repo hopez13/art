@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "e7750f3f_4e07d3d4",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1041,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-08-10T15:57:52Z",
+      "side": 1,
+      "message": "I think it is safe to assume that VIXL could do with just one temp register for this portion of code. (VIXL currently uses x16 and x17 for generating constants and general macroassembler stuff). \n\nThus you can remove one of the location-\u003eAddTemp(...) and use UseScratchRegisterScope scratch_scope(masm); in the CodeGenerator visitor (see the other examples in this file and code_generator_arm64.cc).",
+      "revId": "9f7a4eb7b65bb6edaf3f9dd6fc485edfe60d609c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c72bab15_55fc2c32",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -42,6 +59,29 @@
     },
     {
       "key": {
+        "uuid": "271727da_d8daad97",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-08-10T15:57:52Z",
+      "side": 1,
+      "message": "You can also move this to the top. There is no need to do the count_offset loads in this case?",
+      "range": {
+        "startLine": 1092,
+        "startChar": 0,
+        "endLine": 1094,
+        "endChar": 25
+      },
+      "revId": "9f7a4eb7b65bb6edaf3f9dd6fc485edfe60d609c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c72bab15_954f243f",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -76,6 +116,29 @@
       "writtenOn": "2015-08-10T15:10:29Z",
       "side": 1,
       "message": "Did you try using LDP to compare 4 chars at a time?",
+      "revId": "9f7a4eb7b65bb6edaf3f9dd6fc485edfe60d609c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47209b2d_b9c57fd6",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1107,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-08-10T15:57:52Z",
+      "side": 1,
+      "message": "out is a W reg here, same as temp2. Thus on each load you will be loading sizeof(uint32_t).\n\nLdr(out.X(), ...)\nLdr(temp2.X(), ...) \nWill be loading sizeof(uint64_t).\n\nFor ARM64, GP side we have X and W register views, as follows. \nx[63........w[31      0]]",
+      "range": {
+        "startLine": 1105,
+        "startChar": 0,
+        "endLine": 1107,
+        "endChar": 49
+      },
       "revId": "9f7a4eb7b65bb6edaf3f9dd6fc485edfe60d609c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
