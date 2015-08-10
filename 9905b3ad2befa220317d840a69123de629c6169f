@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7750f3f_ce6e63a9",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2003,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-10T14:40:02Z",
+      "side": 1,
+      "message": "Maybe use IsIntegralType instead (and check that `type` is not a kPrimBoolean)?",
+      "range": {
+        "startLine": 2001,
+        "startChar": 6,
+        "endLine": 2003,
+        "endChar": 36
+      },
+      "revId": "9905b3ad2befa220317d840a69123de629c6169f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6782ff52_d255a4ce",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1899,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-10T14:40:02Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 1897,
+        "startChar": 6,
+        "endLine": 1899,
+        "endChar": 36
+      },
+      "revId": "9905b3ad2befa220317d840a69123de629c6169f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
