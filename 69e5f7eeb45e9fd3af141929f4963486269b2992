@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c7cf2b9d_3e3e0d42",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-10T23:03:14Z",
+      "side": 1,
+      "message": "I don\u0027t think we should be reducing the amount of possible base addresses unless we have a very good reason. Also this could still cause issues if we ever have a device with \u003e1k pages.",
+      "revId": "69e5f7eeb45e9fd3af141929f4963486269b2992",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87c9b39e_c7450eef",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-10T23:03:14Z",
+      "side": 1,
+      "message": "This can be set by builder and there is no reason that delta\u0027s \u003c 0 are bad (other than 1 test flakiness)",
+      "revId": "69e5f7eeb45e9fd3af141929f4963486269b2992",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7cf2b9d_be5fbd6c",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-10T23:03:14Z",
+      "side": 1,
+      "message": "just put a do-while loop checking for r \u003d\u003d 0 here (and a comment explaining why) and remove line 64 above.",
+      "revId": "69e5f7eeb45e9fd3af141929f4963486269b2992",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
