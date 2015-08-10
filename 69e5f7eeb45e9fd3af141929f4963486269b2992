@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "07bea3e2_ab8d4187",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-10T23:07:44Z",
+      "side": 1,
+      "message": "Are you suggesting to change the test then?",
+      "parentUuid": "87c9b39e_c7450eef",
+      "revId": "69e5f7eeb45e9fd3af141929f4963486269b2992",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7cf2b9d_be5fbd6c",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 1
