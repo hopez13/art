@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "87c9b39e_f64b1e04",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-10T17:01:21Z",
+      "side": 1,
+      "message": "Should be deleted, too noisy and not a good check (e.g., in the same pass, it should be compared against the number of unresolved-reference types, to estimate what, e.g., a set representation would cost).",
+      "parentUuid": "87c9b39e_5631b2ef",
+      "range": {
+        "startLine": 803,
+        "startChar": 0,
+        "endLine": 808,
+        "endChar": 5
+      },
+      "revId": "c5c7f3fc810fafa455f7df85a2d90c575d94a473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07bea3e2_fa3b05f6",
         "filename": "runtime/verifier/reg_type_cache.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-10T16:48:35Z",
       "side": 1,
       "message": "famous last words",
+      "range": {
+        "startLine": 363,
+        "startChar": 38,
+        "endLine": 363,
+        "endChar": 78
+      },
+      "revId": "c5c7f3fc810fafa455f7df85a2d90c575d94a473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47c41b7d_fcb0a52b",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-10T17:01:21Z",
+      "side": 1,
+      "message": "Yeah :-).\n\nThere is some overhead to adjust for the highest-bit-set to make sure only allocated memory is compared.\n\nIn fact, with a recent change in here this should be changed anyways, because it\u0027s safer to make the final type\u0027s bitvector not expandable.",
+      "parentUuid": "07bea3e2_fa3b05f6",
       "range": {
         "startLine": 363,
         "startChar": 38,
