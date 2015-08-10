@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c7700b52_0d8c71bd",
+        "filename": "runtime/simulator/code_simulator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-10T14:31:20Z",
+      "side": 1,
+      "message": "Nit: add a blank line between lines 22 and 23.",
+      "revId": "b0ebfc25d6acfc6715e8bde756cc38d8ee4290eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c72bab15_554aec2e",
+        "filename": "runtime/simulator/code_simulator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-10T14:31:20Z",
+      "side": 1,
+      "message": "What does the « C » stand for?",
+      "range": {
+        "startLine": 31,
+        "startChar": 18,
+        "endLine": 31,
+        "endChar": 19
+      },
+      "revId": "b0ebfc25d6acfc6715e8bde756cc38d8ee4290eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7700b52_cd08a9bb",
+        "filename": "runtime/simulator/code_simulator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-10T14:31:20Z",
+      "side": 1,
+      "message": "the following methods?",
+      "range": {
+        "startLine": 23,
+        "startChar": 53,
+        "endLine": 23,
+        "endChar": 70
+      },
+      "revId": "b0ebfc25d6acfc6715e8bde756cc38d8ee4290eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c72bab15_1544741c",
+        "filename": "runtime/simulator/code_simulator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-10T14:31:20Z",
+      "side": 1,
+      "message": "Maybe use an early return instead:\n\n  if (!kCanSimulate) return;\n\n?",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 21
+      },
+      "revId": "b0ebfc25d6acfc6715e8bde756cc38d8ee4290eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "271727da_b84a59fd",
+        "filename": "runtime/simulator/code_simulator_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-10T14:31:20Z",
+      "side": 1,
+      "message": "Nit: sort these #include\u0027s by file name.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 17
+      },
+      "revId": "b0ebfc25d6acfc6715e8bde756cc38d8ee4290eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "271727da_5860dd77",
+        "filename": "runtime/simulator/code_simulator_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-10T14:31:20Z",
+      "side": 1,
+      "message": "TODO:",
+      "range": {
+        "startLine": 52,
+        "startChar": 5,
+        "endLine": 52,
+        "endChar": 9
+      },
+      "revId": "b0ebfc25d6acfc6715e8bde756cc38d8ee4290eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
