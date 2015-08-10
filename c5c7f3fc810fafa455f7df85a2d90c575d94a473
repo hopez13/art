@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87c9b39e_5631b2ef",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-08-10T16:48:35Z",
+      "side": 1,
+      "message": "\"if (false)\" if you want to keep this around?",
+      "range": {
+        "startLine": 803,
+        "startChar": 0,
+        "endLine": 808,
+        "endChar": 5
+      },
+      "revId": "c5c7f3fc810fafa455f7df85a2d90c575d94a473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07bea3e2_fa3b05f6",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-08-10T16:48:35Z",
+      "side": 1,
+      "message": "famous last words",
+      "range": {
+        "startLine": 363,
+        "startChar": 38,
+        "endLine": 363,
+        "endChar": 78
+      },
+      "revId": "c5c7f3fc810fafa455f7df85a2d90c575d94a473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
