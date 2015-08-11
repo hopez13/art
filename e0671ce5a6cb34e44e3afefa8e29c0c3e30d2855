@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7d42f30_f088c001",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-11T00:15:43Z",
+      "side": 1,
+      "message": "Could this be private?",
+      "range": {
+        "startLine": 699,
+        "startChar": 7,
+        "endLine": 699,
+        "endChar": 33
+      },
+      "revId": "e0671ce5a6cb34e44e3afefa8e29c0c3e30d2855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67e67f2a_e6a2462b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1395,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-11T00:15:43Z",
+      "side": 1,
+      "message": "We used to use a set rather than a vector. Would there be duplicates? The comment on line 1393 says something about avoiding duplicates.",
+      "range": {
+        "startLine": 1395,
+        "startChar": 4,
+        "endLine": 1395,
+        "endChar": 24
+      },
+      "revId": "e0671ce5a6cb34e44e3afefa8e29c0c3e30d2855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
