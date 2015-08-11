@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "47b17b56_34bf1ea9",
+        "filename": "tools/ahat/src/AhatSnapshot.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-11T20:11:02Z",
+      "side": 1,
+      "message": "perflib has a bug where the class of a class object is null instead of java.lang.Class. I fix this in AhatSnapshot, so I don\u0027t expect classObj to be null. Still, there are a lot of places in the code where I want to get the class name for an object, and it seems safer to handle the case where the class object is null.\n\nThe class name returned is something that will be seen in the user interface. I think \"(class.getName()\u003d\u003dNULL)\" exposes implementation details the user shouldn\u0027t be aware of. How about \"(class unknown)\" instead?",
+      "parentUuid": "e71c2f21_96070c57",
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0706a3cf_97070457",
         "filename": "tools/ahat/src/BitmapHandler.java",
         "patchSetId": 4
@@ -30,6 +48,30 @@
       "writtenOn": "2015-08-11T17:52:17Z",
       "side": 1,
       "message": "Too broad.  Given that the method itself only declares IOException then I would not broaden this catch any wider than IOException.  Unless you want a multicatch with IOException and RuntimeException(?Throwable?) as options.  have you seen other exceptions here and are protecting against them?",
+      "range": {
+        "startLine": 58,
+        "startChar": 13,
+        "endLine": 58,
+        "endChar": 29
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47b17b56_54c6223e",
+        "filename": "tools/ahat/src/BitmapHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-11T20:11:02Z",
+      "side": 1,
+      "message": "I\u0027m not protecting against exceptions. I\u0027m reporting exceptions that would otherwise not be reported. Most often these are NullPointerExceptions due to bugs in my code.\n\nIs there a better place I can put the comment below to make this more clear?",
+      "parentUuid": "0706a3cf_97070457",
       "range": {
         "startLine": 58,
         "startChar": 13,
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "67ae7ffb_9206dc91",
+        "filename": "tools/ahat/src/BitmapHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-11T20:11:02Z",
+      "side": 1,
+      "message": "Do you mean that I should add \"\u003chtml\u003e\" and other tags around it? I can do that.",
+      "parentUuid": "47e97bf9_c61ce02a",
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2703a7c0_9859f564",
         "filename": "tools/ahat/src/DominatedList.java",
         "patchSetId": 4
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "47b17b56_d4ab325d",
+        "filename": "tools/ahat/src/DominatedList.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-11T20:11:02Z",
+      "side": 1,
+      "message": "I expect render will only be called once for any given Instance of DominatedList. I made render non-static instead of static to make it more convenient to pass the arguments to getNumInstancesToShow and printMenu. Probably I should switch back to having render be a static method that takes the html writer, snapshot, list of instances, and query.",
+      "parentUuid": "2703a7c0_9859f564",
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0706a3cf_771870a9",
         "filename": "tools/ahat/src/DominatedList.java",
         "patchSetId": 4
@@ -87,6 +165,24 @@
       "writtenOn": "2015-08-11T17:52:17Z",
       "side": 1,
       "message": "So this is only final because of the AIC reference below. \n\nThis AIC and its \u0027setup/initialization\u0027 is a little large.  I would consider making a static inner class here and encapsulate the setup/initialization in it\u0027s constructor.",
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a716b7fe_f48d988f",
+        "filename": "tools/ahat/src/DominatedList.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-11T20:11:02Z",
+      "side": 1,
+      "message": "I\u0027ll try this.",
+      "parentUuid": "0706a3cf_771870a9",
       "revId": "18129bcd567e91370037f201b58016758a038d21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -116,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "c7172bfa_d838918a",
+        "filename": "tools/ahat/src/FieldReader.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-11T20:11:02Z",
+      "side": 1,
+      "message": "Field values in perflib are represented using Object. This will be a ClassInstance for reference fields, but it will be Integer, Long, etc. for primitive fields. If readField accepts an Object instead of a ClassInstance, it\u0027s easier to compose calls where you call readField on a field value.\n\nI\u0027m not terribly happy with the FieldReader code. I\u0027ll see if I can re-organize it to not use so many exceptions, and see if that clarifies things.",
+      "parentUuid": "e71c2f21_5670d4ca",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 5
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2703a7c0_58475d71",
         "filename": "tools/ahat/src/FieldReader.java",
         "patchSetId": 4
@@ -127,6 +247,30 @@
       "writtenOn": "2015-08-11T17:52:17Z",
       "side": 1,
       "message": "Should count++ be outside of this conditional if you want to count the actual number. Otherwise I am not sure you will ever see count \u003e1.  In which case the test (count\u003e1) below is redundant.",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 18
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "275487e3_7070b0cb",
+        "filename": "tools/ahat/src/FieldReader.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-11T20:11:02Z",
+      "side": 1,
+      "message": "Yes. Good catch. I\u0027ll fix this.",
+      "parentUuid": "2703a7c0_58475d71",
       "range": {
         "startLine": 48,
         "startChar": 8,
@@ -179,6 +323,24 @@
     },
     {
       "key": {
+        "uuid": "c7172bfa_78285d37",
+        "filename": "tools/ahat/src/HeapTable.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-11T20:11:02Z",
+      "side": 1,
+      "message": "Just the inner. I\u0027ll add a better comment in the code for this, because the code is non-trivial.",
+      "parentUuid": "c7172bfa_9559c464",
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47b17b56_31f730c8",
         "filename": "tools/ahat/src/ObjectHandler.java",
         "patchSetId": 4
@@ -225,6 +387,30 @@
     },
     {
       "key": {
+        "uuid": "07bb033c_8f83555b",
+        "filename": "tools/ahat/src/ObjectHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-11T20:11:02Z",
+      "side": 1,
+      "message": "The information printed is specific to the ObjectHandler view of data. I would rather it not be a method of html.",
+      "parentUuid": "c7172bfa_f5359800",
+      "range": {
+        "startLine": 60,
+        "startChar": 6,
+        "endLine": 60,
+        "endChar": 30
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "470c1bee_d9f09389",
         "filename": "tools/ahat/src/ObjectsHandler.java",
         "patchSetId": 4
@@ -236,6 +422,30 @@
       "writtenOn": "2015-08-11T17:52:17Z",
       "side": 1,
       "message": "Return here or protect the code below in case \u0027site\u0027 is null. Even though you handle the case where site is null here (and generate html response) you continue and try to access through site (site.getObjects()) below.",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 5
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "075783ea_ef112190",
+        "filename": "tools/ahat/src/ObjectsHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-11T20:11:02Z",
+      "side": 1,
+      "message": "Good catch. I\u0027ll fix this.",
+      "parentUuid": "470c1bee_d9f09389",
       "range": {
         "startLine": 39,
         "startChar": 4,
@@ -271,6 +481,30 @@
     },
     {
       "key": {
+        "uuid": "07bb033c_0f7005fc",
+        "filename": "tools/ahat/src/Query.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-11T20:11:02Z",
+      "side": 1,
+      "message": "I\u0027ll look into this.",
+      "parentUuid": "e71c2f21_363438e1",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 3
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7172bfa_95fd447c",
         "filename": "tools/ahat/src/Site.java",
         "patchSetId": 4
@@ -282,6 +516,30 @@
       "writtenOn": "2015-08-11T17:52:17Z",
       "side": 1,
       "message": "Looks like you want the \u0027hex\u0027 address perhaps of (Object)this?  I am not sure what this will actually yield. You might get an exception here.",
+      "range": {
+        "startLine": 150,
+        "startChar": 4,
+        "endLine": 150,
+        "endChar": 37
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27b8073d_16e93cf4",
+        "filename": "tools/ahat/src/Site.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-11T20:11:02Z",
+      "side": 1,
+      "message": "I want a unique identifier for a Site. I think the real fix is to identify a site using the id of a stack trace and a frame number from the hprof file.",
+      "parentUuid": "c7172bfa_95fd447c",
       "range": {
         "startLine": 150,
         "startChar": 4,
