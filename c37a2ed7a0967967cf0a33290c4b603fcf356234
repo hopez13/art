@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7f34f19_9eb55d1b",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-11T08:30:58Z",
+      "side": 1,
+      "message": "Why this?",
+      "range": {
+        "startLine": 1028,
+        "startChar": 46,
+        "endLine": 1028,
+        "endChar": 55
+      },
+      "revId": "c37a2ed7a0967967cf0a33290c4b603fcf356234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6782ff52_3515fa6e",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1255,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-11T08:30:58Z",
+      "side": 1,
+      "message": "also DCHECK low-\u003eHasSpillSlot?",
+      "revId": "c37a2ed7a0967967cf0a33290c4b603fcf356234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7750f3f_4ecfd3d5",
+        "filename": "test/526-long-regalloc/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-11T08:30:58Z",
+      "side": 1,
+      "message": "Hmm, so this actually doesn\u0027t crash with the current implementation, does it? The failing DCHECK is the one you\u0027re adding in this CL. But I guess we don\u0027t have any other way of triggering it.",
+      "revId": "c37a2ed7a0967967cf0a33290c4b603fcf356234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "271727da_fb40cb60",
+        "filename": "test/526-long-regalloc/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-11T08:30:58Z",
+      "side": 1,
+      "message": "Whitespace",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 2
+      },
+      "revId": "c37a2ed7a0967967cf0a33290c4b603fcf356234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
