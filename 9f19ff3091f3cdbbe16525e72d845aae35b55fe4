@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0706a3cf_176014ae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T23:11:27Z",
+      "side": 1,
+      "message": "The message is wrong, I\u0027ll update it.",
+      "parentUuid": "0706a3cf_d7d97c21",
+      "revId": "9f19ff3091f3cdbbe16525e72d845aae35b55fe4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "470c1bee_9988db01",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2015-08-11T17:57:42Z",
       "side": 1,
       "message": "Inherit.",
+      "range": {
+        "startLine": 4378,
+        "startChar": 5,
+        "endLine": 4378,
+        "endChar": 12
+      },
+      "revId": "9f19ff3091f3cdbbe16525e72d845aae35b55fe4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64e83d66_02992a4d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4378,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T23:11:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "470c1bee_9988db01",
       "range": {
         "startLine": 4378,
         "startChar": 5,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "4736dbc8_c988d179",
+        "filename": "runtime/mirror/class_loader-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T23:11:27Z",
+      "side": 1,
+      "message": "This visits instance fields of a class loader as well as its associated classes.",
+      "parentUuid": "47b17b56_117f8c87",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 63
+      },
+      "revId": "9f19ff3091f3cdbbe16525e72d845aae35b55fe4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67ae7ffb_92ab7c90",
         "filename": "runtime/mirror/class_loader-inl.h",
         "patchSetId": 2
@@ -76,6 +142,30 @@
       "writtenOn": "2015-08-11T17:57:42Z",
       "side": 1,
       "message": "I think visiting classes/class roots from a class loader means that we\u0027d need to make sure a class is always reachable from its class loader during the entire loading/linking process (or else we could miss visiting some class roots)? Is this ok?\n\nWhat happens to the classes of the null class loader?",
+      "range": {
+        "startLine": 31,
+        "startChar": 1,
+        "endLine": 31,
+        "endChar": 25
+      },
+      "revId": "9f19ff3091f3cdbbe16525e72d845aae35b55fe4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "871b735a_43e046b6",
+        "filename": "runtime/mirror/class_loader-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T23:11:27Z",
+      "side": 1,
+      "message": "Null class loader is still handled by ClassLinker::VisitClassRoots.",
+      "parentUuid": "67ae7ffb_92ab7c90",
       "range": {
         "startLine": 31,
         "startChar": 1,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "275487e3_13fcce31",
+        "filename": "runtime/mirror/class_loader-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T23:11:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2703a7c0_d81ecd67",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 3
+      },
+      "revId": "9f19ff3091f3cdbbe16525e72d845aae35b55fe4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47b17b56_3182900d",
         "filename": "runtime/read_barrier_c.h",
         "patchSetId": 2
@@ -122,6 +236,30 @@
       "writtenOn": "2015-08-11T17:57:42Z",
       "side": 1,
       "message": "Reminder to remove this before submitting.\n\nDo you mind testing device boot with libartd.so?",
+      "range": {
+        "startLine": 28,
+        "startChar": 8,
+        "endLine": 28,
+        "endChar": 28
+      },
+      "revId": "9f19ff3091f3cdbbe16525e72d845aae35b55fe4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a41eb557_d4e3fcc2",
+        "filename": "runtime/read_barrier_c.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T23:11:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47b17b56_3182900d",
       "range": {
         "startLine": 28,
         "startChar": 8,
