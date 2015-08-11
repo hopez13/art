@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0706a3cf_37cf18d7",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2917,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-11T19:05:20Z",
+      "side": 0,
+      "message": "Is there a way to preserve this CHECK_EQ in the new code?",
+      "range": {
+        "startLine": 2917,
+        "startChar": 12,
+        "endLine": 2917,
+        "endChar": 58
+      },
+      "revId": "275bc5e5f318ba6ea1bad6c89c2924d1248b7523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

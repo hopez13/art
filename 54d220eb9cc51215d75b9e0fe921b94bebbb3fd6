@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "07bb033c_ef6e6176",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-11T19:05:20Z",
+      "side": 1,
+      "message": "This used to be dirty, is it as intended?",
+      "range": {
+        "startLine": 980,
+        "startChar": 26,
+        "endLine": 980,
+        "endChar": 67
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7750f3f_91b07ef9",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 6
@@ -36,6 +59,30 @@
       "writtenOn": "2015-08-11T18:43:34Z",
       "side": 1,
       "message": "???",
+      "range": {
+        "startLine": 1206,
+        "startChar": 12,
+        "endLine": 1206,
+        "endChar": 16
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "470c1bee_9cfd697c",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1206,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-11T19:05:20Z",
+      "side": 1,
+      "message": "???",
+      "parentUuid": "e7750f3f_91b07ef9",
       "range": {
         "startLine": 1206,
         "startChar": 12,
@@ -71,6 +118,29 @@
     },
     {
       "key": {
+        "uuid": "07bb033c_0f0485cd",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-11T19:05:20Z",
+      "side": 1,
+      "message": "Is this fake in what sense?",
+      "range": {
+        "startLine": 384,
+        "startChar": 5,
+        "endLine": 384,
+        "endChar": 9
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47209b2d_5cfc5132",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 6
@@ -87,6 +157,52 @@
         "startChar": 21,
         "endLine": 4957,
         "endChar": 97
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e71c2f21_16413cbf",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2915,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-11T19:05:20Z",
+      "side": 1,
+      "message": "Having parentheses around the highlighted code may make it clearer.\n\nI assume this code does the right thing for the cases with a null field array.",
+      "range": {
+        "startLine": 2915,
+        "startChar": 35,
+        "endLine": 2915,
+        "endChar": 88
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2703a7c0_58259d5b",
+        "filename": "runtime/jit/jit_code_cache_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-11T19:05:20Z",
+      "side": 1,
+      "message": "This may not matter, but is there a more realistic value than zero for the second param (size)?",
+      "range": {
+        "startLine": 53,
+        "startChar": 69,
+        "endLine": 53,
+        "endChar": 70
       },
       "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -117,6 +233,75 @@
     },
     {
       "key": {
+        "uuid": "07bb033c_cfab9d5d",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-11T19:05:20Z",
+      "side": 1,
+      "message": "Should this take alignment into account (or is it a caller\u0027s responsibility)?",
+      "range": {
+        "startLine": 52,
+        "startChar": 11,
+        "endLine": 52,
+        "endChar": 72
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0706a3cf_3760b877",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1208,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-11T19:05:20Z",
+      "side": 1,
+      "message": "Could say length-prefixed array here as well to be clearer?",
+      "range": {
+        "startLine": 1208,
+        "startChar": 38,
+        "endLine": 1208,
+        "endChar": 56
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47b17b56_11ccacde",
+        "filename": "runtime/stride_iterator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-11T19:05:20Z",
+      "side": 1,
+      "message": "Is this cast necessary?",
+      "range": {
+        "startLine": 34,
+        "startChar": 16,
+        "endLine": 34,
+        "endChar": 44
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27eac720_60c6f23e",
         "filename": "runtime/stride_iterator.h",
         "patchSetId": 6
@@ -133,6 +318,29 @@
         "startChar": 17,
         "endLine": 56,
         "endChar": 41
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "470c1bee_79cb47b8",
+        "filename": "runtime/stride_iterator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-11T19:05:20Z",
+      "side": 1,
+      "message": "\"StrideIterator\u003cT\u003e\" instead of auto may be short enough?",
+      "range": {
+        "startLine": 57,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 8
       },
       "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
