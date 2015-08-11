@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0706a3cf_d7d97c21",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-11T17:57:42Z",
+      "side": 1,
+      "message": "It looks like classes and their class roots are also visited NOT through their class loaders (eg a class is found by GC in a handle scope). Is it the case (which seems to contradict this commit message)?",
+      "revId": "9f19ff3091f3cdbbe16525e72d845aae35b55fe4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "470c1bee_9988db01",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4378,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-11T17:57:42Z",
+      "side": 1,
+      "message": "Inherit.",
+      "range": {
+        "startLine": 4378,
+        "startChar": 5,
+        "endLine": 4378,
+        "endChar": 12
+      },
+      "revId": "9f19ff3091f3cdbbe16525e72d845aae35b55fe4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47b17b56_117f8c87",
+        "filename": "runtime/mirror/class_loader-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-11T17:57:42Z",
+      "side": 1,
+      "message": "This looks like visiting instance fields of class loader. Is this really GC roots?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 63
+      },
+      "revId": "9f19ff3091f3cdbbe16525e72d845aae35b55fe4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67ae7ffb_92ab7c90",
+        "filename": "runtime/mirror/class_loader-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-11T17:57:42Z",
+      "side": 1,
+      "message": "I think visiting classes/class roots from a class loader means that we\u0027d need to make sure a class is always reachable from its class loader during the entire loading/linking process (or else we could miss visiting some class roots)? Is this ok?\n\nWhat happens to the classes of the null class loader?",
+      "range": {
+        "startLine": 31,
+        "startChar": 1,
+        "endLine": 31,
+        "endChar": 25
+      },
+      "revId": "9f19ff3091f3cdbbe16525e72d845aae35b55fe4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2703a7c0_d81ecd67",
+        "filename": "runtime/mirror/class_loader-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-11T17:57:42Z",
+      "side": 1,
+      "message": "I think we usually don\u0027t indent for namespace scopes?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 3
+      },
+      "revId": "9f19ff3091f3cdbbe16525e72d845aae35b55fe4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47b17b56_3182900d",
+        "filename": "runtime/read_barrier_c.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-11T17:57:42Z",
+      "side": 1,
+      "message": "Reminder to remove this before submitting.\n\nDo you mind testing device boot with libartd.so?",
+      "range": {
+        "startLine": 28,
+        "startChar": 8,
+        "endLine": 28,
+        "endChar": 28
+      },
+      "revId": "9f19ff3091f3cdbbe16525e72d845aae35b55fe4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
