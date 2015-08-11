@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7750f3f_f1ab028f",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-11T18:43:34Z",
+      "side": 1,
+      "message": "Elsewhere, you\u0027re using\n\n    header_size \u003d LengthPrefixedArray\u003cArtMethod\u003e::ComputeSize(0, method_size)",
+      "range": {
+        "startLine": 976,
+        "startChar": 12,
+        "endLine": 976,
+        "endChar": 39
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7750f3f_91b07ef9",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1206,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-11T18:43:34Z",
+      "side": 1,
+      "message": "???",
+      "range": {
+        "startLine": 1206,
+        "startChar": 12,
+        "endLine": 1206,
+        "endChar": 16
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47e33b4a_e18206dd",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-11T18:43:34Z",
+      "side": 1,
+      "message": "These 2 lines should be in reverse order.",
+      "range": {
+        "startLine": 1303,
+        "startChar": 0,
+        "endLine": 1304,
+        "endChar": 55
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47209b2d_5cfc5132",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4957,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-11T18:43:34Z",
+      "side": 1,
+      "message": "Realloc() \"moves\" (memcpy) the object, so it\u0027s lifetime has started. It\u0027s evil to reinitialize it with a placement new.\n\nAnd, in the case that Realloc() just extends the allocated storage, aren\u0027t we increasing the number of methods before they have been initialized, running into another possible race?",
+      "range": {
+        "startLine": 4956,
+        "startChar": 21,
+        "endLine": 4957,
+        "endChar": 97
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c72bab15_f8abed8e",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-11T18:43:34Z",
+      "side": 1,
+      "message": "Is this correct if the last field is a 0-size array? (Correct according to C++11 rather than just the compilers we use. Is a zero-length array OK in C++11?)",
+      "range": {
+        "startLine": 52,
+        "startChar": 11,
+        "endLine": 52,
+        "endChar": 41
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27eac720_60c6f23e",
+        "filename": "runtime/stride_iterator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-11T18:43:34Z",
+      "side": 1,
+      "message": "Provide operator+\u003d as well.",
+      "range": {
+        "startLine": 56,
+        "startChar": 17,
+        "endLine": 56,
+        "endChar": 41
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
