@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "275487e3_d335e600",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-11T21:18:11Z",
+      "side": 1,
+      "message": "To actually trigger the bug :-) b/22913897 explains why, let me know if it\u0027s unclear.",
+      "parentUuid": "e7f34f19_9eb55d1b",
+      "range": {
+        "startLine": 1028,
+        "startChar": 46,
+        "endLine": 1028,
+        "endChar": 55
+      },
+      "revId": "c37a2ed7a0967967cf0a33290c4b603fcf356234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6782ff52_3515fa6e",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2015-08-11T08:30:58Z",
       "side": 1,
       "message": "also DCHECK low-\u003eHasSpillSlot?",
+      "revId": "c37a2ed7a0967967cf0a33290c4b603fcf356234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4736dbc8_898339e4",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1255,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-11T21:18:11Z",
+      "side": 1,
+      "message": "Done (had to use the parent of the interval though, because of how things work).",
+      "parentUuid": "6782ff52_3515fa6e",
       "revId": "c37a2ed7a0967967cf0a33290c4b603fcf356234",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "275487e3_531816a9",
+        "filename": "test/526-long-regalloc/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-11T21:18:11Z",
+      "side": 1,
+      "message": "It does crash with the current implementation. The allocation of the \u0027d\u0027 variable (which is the phi) will split intervals that hold the register that it allocated for \u0027d\u0027. It will split a pair register. therefore entering the isLowInterval case of TrySplitNonPairOrUnalignedPairIntervalAt, and fail the existing DCHECK there.",
+      "parentUuid": "e7750f3f_4ecfd3d5",
+      "revId": "c37a2ed7a0967967cf0a33290c4b603fcf356234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "271727da_fb40cb60",
         "filename": "test/526-long-regalloc/src/Main.java",
         "patchSetId": 3
@@ -70,6 +130,30 @@
       "writtenOn": "2015-08-11T08:30:58Z",
       "side": 1,
       "message": "Whitespace",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 2
+      },
+      "revId": "c37a2ed7a0967967cf0a33290c4b603fcf356234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c721eb86_e58216dd",
+        "filename": "test/526-long-regalloc/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-11T21:18:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "271727da_fb40cb60",
       "range": {
         "startLine": 62,
         "startChar": 0,
