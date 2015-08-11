@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47209b2d_3cfe3da1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-11T09:30:08Z",
+      "side": 1,
+      "message": "BTW, do you have benchmark numbers for this implementation as well?",
+      "revId": "a55eff40f0774aecf9d5e08f9f9e881ef1f0167e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47209b2d_dc2941c2",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-11T09:30:08Z",
+      "side": 1,
+      "message": "Are 64-bit values really needed for these offsets?  I thought you only needed to use a 64-bit value to manipulate a quadruplet of characters (four UTF-16 chars) in line 1107.",
+      "range": {
+        "startLine": 1063,
+        "startChar": 2,
+        "endLine": 1063,
+        "endChar": 96
+      },
+      "revId": "a55eff40f0774aecf9d5e08f9f9e881ef1f0167e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
