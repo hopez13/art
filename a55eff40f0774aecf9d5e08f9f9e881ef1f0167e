@@ -39,6 +39,23 @@
       "revId": "a55eff40f0774aecf9d5e08f9f9e881ef1f0167e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a72a3712_57698eeb",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-08-11T10:52:43Z",
+      "side": 1,
+      "message": "Order early-outs by chance of return?\n\ni.e. Strings that are strings and of different length are compared far more often than strings with the same reference.",
+      "revId": "a55eff40f0774aecf9d5e08f9f9e881ef1f0167e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
