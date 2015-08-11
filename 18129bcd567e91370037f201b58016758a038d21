@@ -1,0 +1,296 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e71c2f21_96070c57",
+        "filename": "tools/ahat/src/AhatSnapshot.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-11T17:52:17Z",
+      "side": 1,
+      "message": "I assume this is an \u0027expected\u0027 error (you have seen this?).  I think I would prefer \"(class.getName()\u003d\u003dNULL)\" or something more expressive than \"???\"",
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0706a3cf_97070457",
+        "filename": "tools/ahat/src/BitmapHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-11T17:52:17Z",
+      "side": 1,
+      "message": "Too broad.  Given that the method itself only declares IOException then I would not broaden this catch any wider than IOException.  Unless you want a multicatch with IOException and RuntimeException(?Throwable?) as options.  have you seen other exceptions here and are protecting against them?",
+      "range": {
+        "startLine": 58,
+        "startChar": 13,
+        "endLine": 58,
+        "endChar": 29
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47e97bf9_c61ce02a",
+        "filename": "tools/ahat/src/BitmapHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-11T17:52:17Z",
+      "side": 1,
+      "message": "is there an expectation that this should be well-formed html?",
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2703a7c0_9859f564",
+        "filename": "tools/ahat/src/DominatedList.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-11T17:52:17Z",
+      "side": 1,
+      "message": "How big do we expect this to be?  Would it be more efficient to maintain a sorted list and not sort each time we render?",
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0706a3cf_771870a9",
+        "filename": "tools/ahat/src/DominatedList.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-11T17:52:17Z",
+      "side": 1,
+      "message": "So this is only final because of the AIC reference below. \n\nThis AIC and its \u0027setup/initialization\u0027 is a little large.  I would consider making a static inner class here and encapsulate the setup/initialization in it\u0027s constructor.",
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e71c2f21_5670d4ca",
+        "filename": "tools/ahat/src/FieldReader.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-11T17:52:17Z",
+      "side": 1,
+      "message": "Remind me why readField is not declared as \u0027readField(ClassInstance inst, String fieldName)\u0027 ?",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 5
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2703a7c0_58475d71",
+        "filename": "tools/ahat/src/FieldReader.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-11T17:52:17Z",
+      "side": 1,
+      "message": "Should count++ be outside of this conditional if you want to count the actual number. Otherwise I am not sure you will ever see count \u003e1.  In which case the test (count\u003e1) below is redundant.",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 18
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0706a3cf_777350d9",
+        "filename": "tools/ahat/src/FieldReader.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-11T17:52:17Z",
+      "side": 1,
+      "message": "Similar to above note.  Why is this not \u0027readCharArrayAsString(ArrayInstance inst)\u0027",
+      "range": {
+        "startLine": 66,
+        "startChar": 3,
+        "endLine": 68,
+        "endChar": 5
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7172bfa_9559c464",
+        "filename": "tools/ahat/src/HeapTable.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-11T17:52:17Z",
+      "side": 1,
+      "message": "Is this expected to break from the outer loop or just the inner here?",
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47b17b56_31f730c8",
+        "filename": "tools/ahat/src/ObjectHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-11T17:52:17Z",
+      "side": 1,
+      "message": "Consider html.printBitmap(inst)?",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 27
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7172bfa_f5359800",
+        "filename": "tools/ahat/src/ObjectHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-11T17:52:17Z",
+      "side": 1,
+      "message": "similarly consider making this (and the three below) as methods html?",
+      "range": {
+        "startLine": 60,
+        "startChar": 6,
+        "endLine": 60,
+        "endChar": 30
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "470c1bee_d9f09389",
+        "filename": "tools/ahat/src/ObjectsHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-11T17:52:17Z",
+      "side": 1,
+      "message": "Return here or protect the code below in case \u0027site\u0027 is null. Even though you handle the case where site is null here (and generate html response) you continue and try to access through site (site.getObjects()) below.",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 5
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e71c2f21_363438e1",
+        "filename": "tools/ahat/src/Query.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-11T17:52:17Z",
+      "side": 1,
+      "message": "If this is called frequently, consider pre-splitting the uri into a parameter map in the constructor then these calls to get are just map lookups.\n\nOr maybe there are libraries already in your project which you can use.  This has some interesting options. \nhttp://stackoverflow.com/questions/13592236/parse-the-uri-string-into-name-value-collection-in-java",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 3
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7172bfa_95fd447c",
+        "filename": "tools/ahat/src/Site.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-11T17:52:17Z",
+      "side": 1,
+      "message": "Looks like you want the \u0027hex\u0027 address perhaps of (Object)this?  I am not sure what this will actually yield. You might get an exception here.",
+      "range": {
+        "startLine": 150,
+        "startChar": 4,
+        "endLine": 150,
+        "endChar": 37
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
