@@ -266,6 +266,24 @@
     },
     {
       "key": {
+        "uuid": "47e33b4a_21c22e7c",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1102,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-11T09:16:15Z",
+      "side": 1,
+      "message": "I think the 8-byte alignment issues is not ARM64-related, but pertain to String objects, which must also be properly zero-padded to avoid overruns.",
+      "parentUuid": "47e33b4a_01bbaa0e",
+      "revId": "9f7a4eb7b65bb6edaf3f9dd6fc485edfe60d609c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47209b2d_b9c57fd6",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
