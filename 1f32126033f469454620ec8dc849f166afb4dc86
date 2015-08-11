@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47e33b4a_a12e3ec6",
+        "filename": "compiler/dex/gvn_dead_code_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-11T12:39:29Z",
+      "side": 1,
+      "message": "For a narrow def, this is guaranteed to be size-1u as we\u0027re trying to kill an instruction with the destination register being overwritten by the last added instruction. For a wide def, this could be either size-1u or kNPos and we could read beyond the end of vreg_chains_.mir_data_ in IsVRegUsed() below.",
+      "range": {
+        "startLine": 743,
+        "startChar": 32,
+        "endLine": 743,
+        "endChar": 91
+      },
+      "revId": "1f32126033f469454620ec8dc849f166afb4dc86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
