@@ -22,6 +22,99 @@
       "revId": "e4dc7e702321b33eb23649f0c273a487117e544f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07edc337_5fb8ebab",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-11T19:01:13Z",
+      "side": 1,
+      "message": "Trying to save some malloc/free or atomic increment/decrement? (Depending on the std::string implementation.)",
+      "parentUuid": "0ad9483e_8849f609",
+      "range": {
+        "startLine": 37,
+        "startChar": 29,
+        "endLine": 40,
+        "endChar": 54
+      },
+      "revId": "e4dc7e702321b33eb23649f0c273a487117e544f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27eac720_00cba61c",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-11T19:01:13Z",
+      "side": 1,
+      "message": "const std::string\u0026",
+      "range": {
+        "startLine": 209,
+        "startChar": 45,
+        "endLine": 209,
+        "endChar": 56
+      },
+      "revId": "e4dc7e702321b33eb23649f0c273a487117e544f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "271727da_db0867bb",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-11T19:01:13Z",
+      "side": 1,
+      "message": "This is PrettyExpensive(TM) and shouldn\u0027t be executed in normal flow.",
+      "range": {
+        "startLine": 337,
+        "startChar": 28,
+        "endLine": 337,
+        "endChar": 72
+      },
+      "revId": "e4dc7e702321b33eb23649f0c273a487117e544f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a72a3712_f7c53a07",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-11T19:01:13Z",
+      "side": 1,
+      "message": "Too expensive.",
+      "range": {
+        "startLine": 389,
+        "startChar": 28,
+        "endLine": 389,
+        "endChar": 58
+      },
+      "revId": "e4dc7e702321b33eb23649f0c273a487117e544f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
