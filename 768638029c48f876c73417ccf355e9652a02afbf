@@ -1158,6 +1158,30 @@
     },
     {
       "key": {
+        "uuid": "67e67f2a_8ce6fbd2",
+        "filename": "tools/ahat/src/ahat/ObjectHandler.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-11T17:52:17Z",
+      "side": 1,
+      "message": "Perhaps consider creating a HTMLBuilder (wrapping a StringBuilder) which will at least allow you to encapsulate some of the nastyness ;)\nIf you use a \u0027fluent\u0027 style builder then you can probably make the code more compact.\nHTMLBuilder builder \u003d new HTMLBuilder();\nbuilder.h2(\"ArrayElements\").table().tr().td(\"text\") ...",
+      "parentUuid": "8ac9b89e_33bc08a1",
+      "range": {
+        "startLine": 76,
+        "startChar": 24,
+        "endLine": 76,
+        "endChar": 73
+      },
+      "revId": "768638029c48f876c73417ccf355e9652a02afbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a01803c_57098435",
         "filename": "tools/ahat/src/ahat/RootsHandler.java",
         "patchSetId": 2
