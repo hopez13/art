@@ -248,6 +248,24 @@
     },
     {
       "key": {
+        "uuid": "47e33b4a_01bbaa0e",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1102,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-08-11T08:37:47Z",
+      "side": 1,
+      "message": "I see questions about performance and code size for this, but I don\u0027t see the alignment issue here. The base address of LDP does not need to be 8 byte aligned.",
+      "parentUuid": "67e67f2a_55f9be40",
+      "revId": "9f7a4eb7b65bb6edaf3f9dd6fc485edfe60d609c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47209b2d_b9c57fd6",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
