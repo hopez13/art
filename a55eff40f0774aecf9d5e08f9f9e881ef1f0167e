@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "07bb033c_4fa20daf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-11T18:39:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47209b2d_3cfe3da1",
+      "revId": "a55eff40f0774aecf9d5e08f9f9e881ef1f0167e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47209b2d_dc2941c2",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2015-08-11T09:30:08Z",
       "side": 1,
       "message": "Are 64-bit values really needed for these offsets?  I thought you only needed to use a 64-bit value to manipulate a quadruplet of characters (four UTF-16 chars) in line 1107.",
+      "range": {
+        "startLine": 1063,
+        "startChar": 2,
+        "endLine": 1063,
+        "endChar": 96
+      },
+      "revId": "a55eff40f0774aecf9d5e08f9f9e881ef1f0167e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47b17b56_71c9b84e",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-11T18:39:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47209b2d_dc2941c2",
       "range": {
         "startLine": 1063,
         "startChar": 2,
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "0706a3cf_f7ebe09d",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-11T18:39:54Z",
+      "side": 1,
+      "message": "This is what I was initially doing, but this ordering resulted in 3 potential branches in 4 instructions which may cause issues with the branch predictor (see previous patch set) and so moving this check earlier seemed like a better solution than inserting NOP instructions.",
+      "parentUuid": "a72a3712_57698eeb",
+      "revId": "a55eff40f0774aecf9d5e08f9f9e881ef1f0167e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6782ff52_35dc1adb",
         "filename": "runtime/base/bit_utils.h",
         "patchSetId": 2
@@ -70,6 +130,30 @@
       "writtenOn": "2015-08-11T13:54:28Z",
       "side": 1,
       "message": "Do you ever pass a compile-time pointer to this function?",
+      "range": {
+        "startLine": 146,
+        "startChar": 7,
+        "endLine": 146,
+        "endChar": 16
+      },
+      "revId": "a55eff40f0774aecf9d5e08f9f9e881ef1f0167e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7172bfa_f56e3876",
+        "filename": "runtime/base/bit_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-11T18:39:54Z",
+      "side": 1,
+      "message": "No, I\u0027m not! Removed this change.",
+      "parentUuid": "6782ff52_35dc1adb",
       "range": {
         "startLine": 146,
         "startChar": 7,
