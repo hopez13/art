@@ -22,6 +22,30 @@
       "revId": "275bc5e5f318ba6ea1bad6c89c2924d1248b7523",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07bb033c_6f7d51d4",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2917,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T20:57:23Z",
+      "side": 0,
+      "message": "Not really, unless I add a way to subtract two iterators to get the length.",
+      "parentUuid": "0706a3cf_37cf18d7",
+      "range": {
+        "startLine": 2917,
+        "startChar": 12,
+        "endLine": 2917,
+        "endChar": 58
+      },
+      "revId": "275bc5e5f318ba6ea1bad6c89c2924d1248b7523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

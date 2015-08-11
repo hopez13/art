@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "07bb033c_8fbb555e",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T20:57:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7750f3f_f1ab028f",
+      "range": {
+        "startLine": 976,
+        "startChar": 12,
+        "endLine": 976,
+        "endChar": 39
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07bb033c_ef6e6176",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-11T19:05:20Z",
       "side": 1,
       "message": "This used to be dirty, is it as intended?",
+      "range": {
+        "startLine": 980,
+        "startChar": 26,
+        "endLine": 980,
+        "endChar": 67
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a716b7fe_b49de0f0",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T20:57:23Z",
+      "side": 1,
+      "message": "I think they are clean since we don\u0027t dirty them after loading the image.",
+      "parentUuid": "07bb033c_ef6e6176",
       "range": {
         "startLine": 980,
         "startChar": 26,
@@ -95,6 +143,54 @@
     },
     {
       "key": {
+        "uuid": "c7172bfa_d564dc3e",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1206,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T20:57:23Z",
+      "side": 1,
+      "message": "Oops I forgot to revert that change. Will fix.",
+      "parentUuid": "e7750f3f_91b07ef9",
+      "range": {
+        "startLine": 1206,
+        "startChar": 12,
+        "endLine": 1206,
+        "endChar": 16
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "275487e3_70dd10ff",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1206,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T20:57:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "470c1bee_9cfd697c",
+      "range": {
+        "startLine": 1206,
+        "startChar": 12,
+        "endLine": 1206,
+        "endChar": 16
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47e33b4a_e18206dd",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 6
@@ -106,6 +202,30 @@
       "writtenOn": "2015-08-11T18:43:34Z",
       "side": 1,
       "message": "These 2 lines should be in reverse order.",
+      "range": {
+        "startLine": 1303,
+        "startChar": 0,
+        "endLine": 1304,
+        "endChar": 55
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a716b7fe_74dfc8d1",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T20:57:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47e33b4a_e18206dd",
       "range": {
         "startLine": 1303,
         "startChar": 0,
@@ -141,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "47b17b56_f4b0f6f9",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T20:57:23Z",
+      "side": 1,
+      "message": "As in the array does not contain the actual methods, we only use it for the header and relocation address. Added comment.",
+      "parentUuid": "07bb033c_0f0485cd",
+      "range": {
+        "startLine": 384,
+        "startChar": 5,
+        "endLine": 384,
+        "endChar": 9
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47209b2d_5cfc5132",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 6
@@ -152,6 +296,30 @@
       "writtenOn": "2015-08-11T18:43:34Z",
       "side": 1,
       "message": "Realloc() \"moves\" (memcpy) the object, so it\u0027s lifetime has started. It\u0027s evil to reinitialize it with a placement new.\n\nAnd, in the case that Realloc() just extends the allocated storage, aren\u0027t we increasing the number of methods before they have been initialized, running into another possible race?",
+      "range": {
+        "startLine": 4956,
+        "startChar": 21,
+        "endLine": 4957,
+        "endChar": 97
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2703a7c0_788ce1be",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4957,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T20:57:23Z",
+      "side": 1,
+      "message": "Good point, though the current approach is safe since we use VisitRootIfNonNull and the newly allocated ArtMethods should be zeroed out. I\u0027ll change it to set the length after we initialize the methods",
+      "parentUuid": "47209b2d_5cfc5132",
       "range": {
         "startLine": 4956,
         "startChar": 21,
@@ -187,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "07bb033c_2f73490c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2915,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T20:57:23Z",
+      "side": 1,
+      "message": "Null arrays are handled by null iterators. Added parens.",
+      "parentUuid": "e71c2f21_16413cbf",
+      "range": {
+        "startLine": 2915,
+        "startChar": 35,
+        "endLine": 2915,
+        "endChar": 88
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2703a7c0_58259d5b",
         "filename": "runtime/jit/jit_code_cache_test.cc",
         "patchSetId": 6
@@ -198,6 +390,30 @@
       "writtenOn": "2015-08-11T19:05:20Z",
       "side": 1,
       "message": "This may not matter, but is there a more realistic value than zero for the second param (size)?",
+      "range": {
+        "startLine": 53,
+        "startChar": 69,
+        "endLine": 53,
+        "endChar": 70
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07bb033c_4f7a0dde",
+        "filename": "runtime/jit/jit_code_cache_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T20:57:23Z",
+      "side": 1,
+      "message": "There is a default parameter, I\u0027ll just delete the argument for this case.",
+      "parentUuid": "2703a7c0_58259d5b",
       "range": {
         "startLine": 53,
         "startChar": 69,
@@ -256,6 +472,54 @@
     },
     {
       "key": {
+        "uuid": "a747973d_2ce973f4",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T20:57:23Z",
+      "side": 1,
+      "message": "That is the caller\u0027s responsibility. Added comment.",
+      "parentUuid": "07bb033c_cfab9d5d",
+      "range": {
+        "startLine": 52,
+        "startChar": 11,
+        "endLine": 52,
+        "endChar": 72
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0706a3cf_7754f04b",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T20:57:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c72bab15_f8abed8e",
+      "range": {
+        "startLine": 52,
+        "startChar": 11,
+        "endLine": 52,
+        "endChar": 41
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0706a3cf_3760b877",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 6
@@ -267,6 +531,30 @@
       "writtenOn": "2015-08-11T19:05:20Z",
       "side": 1,
       "message": "Could say length-prefixed array here as well to be clearer?",
+      "range": {
+        "startLine": 1208,
+        "startChar": 38,
+        "endLine": 1208,
+        "endChar": 56
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a747973d_4ce6bf23",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1208,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T20:57:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0706a3cf_3760b877",
       "range": {
         "startLine": 1208,
         "startChar": 38,
@@ -302,6 +590,30 @@
     },
     {
       "key": {
+        "uuid": "075783ea_ef2841bc",
+        "filename": "runtime/stride_iterator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T20:57:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47b17b56_11ccacde",
+      "range": {
+        "startLine": 34,
+        "startChar": 16,
+        "endLine": 34,
+        "endChar": 44
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27eac720_60c6f23e",
         "filename": "runtime/stride_iterator.h",
         "patchSetId": 6
@@ -325,6 +637,30 @@
     },
     {
       "key": {
+        "uuid": "075783ea_4f186da9",
+        "filename": "runtime/stride_iterator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T20:57:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27eac720_60c6f23e",
+      "range": {
+        "startLine": 56,
+        "startChar": 17,
+        "endLine": 56,
+        "endChar": 41
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "470c1bee_79cb47b8",
         "filename": "runtime/stride_iterator.h",
         "patchSetId": 6
@@ -336,6 +672,30 @@
       "writtenOn": "2015-08-11T19:05:20Z",
       "side": 1,
       "message": "\"StrideIterator\u003cT\u003e\" instead of auto may be short enough?",
+      "range": {
+        "startLine": 57,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 8
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "275487e3_30e388c5",
+        "filename": "runtime/stride_iterator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-11T20:57:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "470c1bee_79cb47b8",
       "range": {
         "startLine": 57,
         "startChar": 4,
