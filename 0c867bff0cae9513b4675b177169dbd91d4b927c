@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "446259ef_291c2d27",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-12T17:32:26Z",
+      "side": 1,
+      "message": "Can you expand on what\u0027s the Quick way and provide a short explanation on how this is actually implemented?\n\nIt\u0027s not trivial to dig up what Quick does and as we move forward it\u0027s better to have self contain comments.",
+      "range": {
+        "startLine": 11,
+        "startChar": 36,
+        "endLine": 11,
+        "endChar": 41
+      },
+      "revId": "0c867bff0cae9513b4675b177169dbd91d4b927c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4242da6_16cf3c27",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-12T17:32:26Z",
+      "side": 1,
+      "message": "maybe at least comment on the branches? It looks like magic to me :)",
+      "range": {
+        "startLine": 970,
+        "startChar": 27,
+        "endLine": 970,
+        "endChar": 29
+      },
+      "revId": "0c867bff0cae9513b4675b177169dbd91d4b927c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
