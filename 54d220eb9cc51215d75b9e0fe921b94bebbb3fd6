@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "a47a35a8_b4fc20a8",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T10:49:16Z",
+      "side": 1,
+      "message": "I see, the code pointers point to the trampolines in the oat file, so they don\u0027t need to be updated when the image is loaded.",
+      "parentUuid": "a716b7fe_b49de0f0",
+      "range": {
+        "startLine": 980,
+        "startChar": 26,
+        "endLine": 980,
+        "endChar": 67
+      },
+      "revId": "54d220eb9cc51215d75b9e0fe921b94bebbb3fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7750f3f_91b07ef9",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 6

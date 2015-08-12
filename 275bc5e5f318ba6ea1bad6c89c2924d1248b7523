@@ -46,6 +46,30 @@
       "revId": "275bc5e5f318ba6ea1bad6c89c2924d1248b7523",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a405d5ff_3c5e9149",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2917,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T10:49:16Z",
+      "side": 0,
+      "message": "You could use the Get{I,S}FieldsPtr() instead of Get{I,S}Fields() and if it\u0027s not null, check that the Length() isn\u0027t 0.",
+      "parentUuid": "07bb033c_6f7d51d4",
+      "range": {
+        "startLine": 2917,
+        "startChar": 12,
+        "endLine": 2917,
+        "endChar": 58
+      },
+      "revId": "275bc5e5f318ba6ea1bad6c89c2924d1248b7523",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
