@@ -22,6 +22,30 @@
       "revId": "a4f6af9b1e6380b31674d7ac645b1732c846ac06",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44141933_bcb3cd80",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-12T03:22:23Z",
+      "side": 1,
+      "message": "Probably not, but deleting it would make me reindent too many lines.",
+      "parentUuid": "842e118f_8efc3ba8",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 10
+      },
+      "revId": "a4f6af9b1e6380b31674d7ac645b1732c846ac06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
