@@ -284,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "645f5d28_c481f29f",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 4508,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-12T18:41:05Z",
+      "side": 1,
+      "message": "I agree, HInliner::TryInline is not fully correct. Hence we should probably move all such code that tries to figure out if two dex files are the same in a method on DexFile. It\u0027s fine by me if the implementation there just compares pointers.",
+      "parentUuid": "a72a3712_f7fd3a7a",
+      "range": {
+        "startLine": 4508,
+        "startChar": 10,
+        "endLine": 4508,
+        "endChar": 73
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ad60c0d_69a83d60",
         "filename": "compiler/optimizing/code_generator_arm.h",
         "patchSetId": 14
