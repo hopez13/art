@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a47a35a8_543d8ce8",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-12T13:21:04Z",
+      "side": 1,
+      "message": "Why not returning `list`?  (Maybe use an std::vector instead?)\n\nOtherwise, place `list` at the end of the list of arguments.",
+      "range": {
+        "startLine": 359,
+        "startChar": 37,
+        "endLine": 359,
+        "endChar": 70
+      },
+      "revId": "a326cdb65dbf9b81c9558f65285b4a2c3b13f751",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c44d6987_c57fba84",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-12T13:21:04Z",
+      "side": 1,
+      "message": "const?",
+      "revId": "a326cdb65dbf9b81c9558f65285b4a2c3b13f751",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8400d1f0_bb15074b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1587,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-12T13:21:04Z",
+      "side": 1,
+      "message": "Could you be more specific?",
+      "range": {
+        "startLine": 1587,
+        "startChar": 56,
+        "endLine": 1587,
+        "endChar": 60
+      },
+      "revId": "a326cdb65dbf9b81c9558f65285b4a2c3b13f751",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
