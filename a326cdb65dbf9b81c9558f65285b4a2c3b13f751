@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "e4242da6_361b587a",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-08-12T13:54:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c44d6987_c57fba84",
+      "revId": "a326cdb65dbf9b81c9558f65285b4a2c3b13f751",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8400d1f0_bb15074b",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 17
@@ -53,6 +71,30 @@
       "writtenOn": "2015-08-12T13:21:04Z",
       "side": 1,
       "message": "Could you be more specific?",
+      "range": {
+        "startLine": 1587,
+        "startChar": 56,
+        "endLine": 1587,
+        "endChar": 60
+      },
+      "revId": "a326cdb65dbf9b81c9558f65285b4a2c3b13f751",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a405d5ff_5c94bd49",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1587,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-08-12T13:54:23Z",
+      "side": 1,
+      "message": "This should not have been there. This is part of an incoming commit to add this validation in more places.",
+      "parentUuid": "8400d1f0_bb15074b",
       "range": {
         "startLine": 1587,
         "startChar": 56,
