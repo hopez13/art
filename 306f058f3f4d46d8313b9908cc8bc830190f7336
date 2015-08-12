@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "045ce134_47a18e7e",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1102,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-08-12T15:20:06Z",
+      "side": 1,
+      "message": "Insert\n\n    temp1 \u003d temp1.X();\n    temp2 \u003d temp2.X();\n\n?",
+      "revId": "306f058f3f4d46d8313b9908cc8bc830190f7336",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4242da6_367fd85a",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1107,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-08-12T15:20:06Z",
+      "side": 1,
+      "message": "Why not simply have `Register out \u003d XRegisterFrom...`?",
+      "range": {
+        "startLine": 1107,
+        "startChar": 9,
+        "endLine": 1107,
+        "endChar": 16
+      },
+      "revId": "306f058f3f4d46d8313b9908cc8bc830190f7336",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
