@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "045ce134_4742ae69",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5005,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T10:49:30Z",
+      "side": 1,
+      "message": "Or not, based on the comment in the original CL, it\u0027s OK if other threads see a null (the previous value) instead of the new value.",
+      "parentUuid": "24400542_305ec849",
+      "range": {
+        "startLine": 5005,
+        "startChar": 4,
+        "endLine": 5005,
+        "endChar": 42
+      },
+      "revId": "c0fe56a4ee672bb346b124438941e753887e7416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c44d6987_a5ff1e9c",
         "filename": "runtime/length_prefixed_array.h",
         "patchSetId": 2
