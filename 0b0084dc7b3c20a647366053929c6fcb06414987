@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c42489af_1684e2e8",
+        "filename": "compiler/dex/compiler_enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T23:18:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "646d9dec_dac30580",
+      "range": {
+        "startLine": 675,
+        "startChar": 2,
+        "endLine": 675,
+        "endChar": 8
+      },
+      "revId": "0b0084dc7b3c20a647366053929c6fcb06414987",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4487b9d1_a1e61e22",
         "filename": "compiler/dex/compiler_enums.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-12T04:36:36Z",
       "side": 1,
       "message": "Maybe move this closer to optimizing, as this is an implementation detail of the compiler.",
+      "range": {
+        "startLine": 674,
+        "startChar": 0,
+        "endLine": 678,
+        "endChar": 82
+      },
+      "revId": "0b0084dc7b3c20a647366053929c6fcb06414987",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4f6494b_6607e459",
+        "filename": "compiler/dex/compiler_enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T23:18:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4487b9d1_a1e61e22",
       "range": {
         "startLine": 674,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "64367de0_d8ba05b5",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T23:18:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c492c913_bdcabf8f",
+      "range": {
+        "startLine": 47,
+        "startChar": 19,
+        "endLine": 47,
+        "endChar": 36
+      },
+      "revId": "0b0084dc7b3c20a647366053929c6fcb06414987",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24672510_d8c30d80",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-08-12T04:36:36Z",
       "side": 1,
       "message": "needs_environment_",
+      "range": {
+        "startLine": 2854,
+        "startChar": 7,
+        "endLine": 2854,
+        "endChar": 17
+      },
+      "revId": "0b0084dc7b3c20a647366053929c6fcb06414987",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4298d86_d7a53601",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2854,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T23:18:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24672510_d8c30d80",
       "range": {
         "startLine": 2854,
         "startChar": 7,
