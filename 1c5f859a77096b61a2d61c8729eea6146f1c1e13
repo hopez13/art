@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a41eb557_4e37570a",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-12T22:03:38Z",
+      "side": 1,
+      "message": "So could you make this a helper in DexFile ?",
+      "range": {
+        "startLine": 965,
+        "startChar": 15,
+        "endLine": 965,
+        "endChar": 78
+      },
+      "revId": "1c5f859a77096b61a2d61c8729eea6146f1c1e13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64111d42_293c19ea",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-12T22:03:38Z",
+      "side": 1,
+      "message": "How about we move all this logic to CodeGenerator? And just pass method_ptr/code_ptr to HInvokeStaticOrDirect. This would also nicely move all the new enums intriduced in nodes.h to CodeGenerator.\n\nCompile-time point in case: there\u0027s no need to do all this logic if the invoke is actually dead code. I know the compiler driver is also doing it, but that\u0027s also something I\u0027d like to see cleaned up.",
+      "range": {
+        "startLine": 956,
+        "startChar": 0,
+        "endLine": 1029,
+        "endChar": 3
+      },
+      "revId": "1c5f859a77096b61a2d61c8729eea6146f1c1e13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64367de0_fbaf0367",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-12T22:03:38Z",
+      "side": 1,
+      "message": "Because Label is not used by vixl, we are templatizing the CommonGetLabel method in this file. Could we do the same here?",
+      "range": {
+        "startLine": 360,
+        "startChar": 0,
+        "endLine": 368,
+        "endChar": 4
+      },
+      "revId": "1c5f859a77096b61a2d61c8729eea6146f1c1e13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
