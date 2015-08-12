@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64111d42_c9a23df7",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1376,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-12T23:42:41Z",
+      "side": 1,
+      "message": "Should that be IsInstanceConstructor?",
+      "range": {
+        "startLine": 1376,
+        "startChar": 8,
+        "endLine": 1376,
+        "endChar": 21
+      },
+      "revId": "f10b6e109bfb595b6752d1b59db680694ac1684d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
