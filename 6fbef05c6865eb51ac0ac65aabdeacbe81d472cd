@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "446259ef_a95a5dc6",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T18:59:34Z",
+      "side": 1,
+      "message": "This is wrong, app-\u003eapp call must be PC-relative. I\u0027ll remove the comment.",
+      "range": {
+        "startLine": 1003,
+        "startChar": 10,
+        "endLine": 1003,
+        "endChar": 95
+      },
+      "revId": "6fbef05c6865eb51ac0ac65aabdeacbe81d472cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
