@@ -1,0 +1,326 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64111d42_43996cfe",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T19:07:45Z",
+      "side": 1,
+      "message": "Aren\u0027t you using rep movsw?",
+      "range": {
+        "startLine": 970,
+        "startChar": 52,
+        "endLine": 970,
+        "endChar": 57
+      },
+      "revId": "8abe5348fb317295f764d73b89241f4d8878d0c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a41eb557_68f8cb70",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T19:07:45Z",
+      "side": 1,
+      "message": "Add DCHECKs for comments stating assumptions like this, here and several times below.",
+      "range": {
+        "startLine": 994,
+        "startChar": 6,
+        "endLine": 995,
+        "endChar": 45
+      },
+      "revId": "8abe5348fb317295f764d73b89241f4d8878d0c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4298d86_22079628",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T19:07:45Z",
+      "side": 1,
+      "message": "Move these checks above the comment that says everything checks out?",
+      "range": {
+        "startLine": 1083,
+        "startChar": 2,
+        "endLine": 1084,
+        "endChar": 28
+      },
+      "revId": "8abe5348fb317295f764d73b89241f4d8878d0c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a41eb557_a86ee3ef",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T19:07:45Z",
+      "side": 1,
+      "message": "Remove so lines are aligned.",
+      "range": {
+        "startLine": 899,
+        "startChar": 6,
+        "endLine": 899,
+        "endChar": 8
+      },
+      "revId": "8abe5348fb317295f764d73b89241f4d8878d0c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4298d86_021ffa93",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T19:07:45Z",
+      "side": 1,
+      "message": "Add DCHECKS to check these assumptions",
+      "range": {
+        "startLine": 902,
+        "startChar": 5,
+        "endLine": 903,
+        "endChar": 45
+      },
+      "revId": "8abe5348fb317295f764d73b89241f4d8878d0c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a41eb557_68944b4a",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T19:07:45Z",
+      "side": 1,
+      "message": "Add DCHECK?",
+      "range": {
+        "startLine": 908,
+        "startChar": 6,
+        "endLine": 908,
+        "endChar": 47
+      },
+      "revId": "8abe5348fb317295f764d73b89241f4d8878d0c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "645f5d28_a4227e2c",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T19:07:45Z",
+      "side": 1,
+      "message": "Add DCHECK?",
+      "range": {
+        "startLine": 915,
+        "startChar": 4,
+        "endLine": 915,
+        "endChar": 31
+      },
+      "revId": "8abe5348fb317295f764d73b89241f4d8878d0c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a41eb557_48898f30",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T19:07:45Z",
+      "side": 1,
+      "message": "Add DCHECK?",
+      "range": {
+        "startLine": 919,
+        "startChar": 4,
+        "endLine": 919,
+        "endChar": 43
+      },
+      "revId": "8abe5348fb317295f764d73b89241f4d8878d0c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4298d86_62591e60",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T19:07:45Z",
+      "side": 1,
+      "message": "Add DCHECK?",
+      "range": {
+        "startLine": 923,
+        "startChar": 4,
+        "endLine": 923,
+        "endChar": 45
+      },
+      "revId": "8abe5348fb317295f764d73b89241f4d8878d0c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64111d42_c381fc9f",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T19:07:45Z",
+      "side": 1,
+      "message": "I would move register assignments to the top of the method below where you assign the input registers.",
+      "range": {
+        "startLine": 968,
+        "startChar": 0,
+        "endLine": 973,
+        "endChar": 70
+      },
+      "revId": "8abe5348fb317295f764d73b89241f4d8878d0c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4298d86_828f6a38",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 988,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T19:07:45Z",
+      "side": 1,
+      "message": "const int32_t",
+      "range": {
+        "startLine": 988,
+        "startChar": 2,
+        "endLine": 988,
+        "endChar": 9
+      },
+      "revId": "8abe5348fb317295f764d73b89241f4d8878d0c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a41eb557_68268bc2",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T19:07:45Z",
+      "side": 1,
+      "message": "Move this above the comment that says everything checks out?",
+      "range": {
+        "startLine": 990,
+        "startChar": 2,
+        "endLine": 991,
+        "endChar": 41
+      },
+      "revId": "8abe5348fb317295f764d73b89241f4d8878d0c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a41eb557_88ca0747",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1543,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T19:07:45Z",
+      "side": 1,
+      "message": "If EmitUint8(0x66) always needs to be the second line, fix this too.",
+      "range": {
+        "startLine": 1542,
+        "startChar": 2,
+        "endLine": 1543,
+        "endChar": 18
+      },
+      "revId": "8abe5348fb317295f764d73b89241f4d8878d0c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4f6494b_a6b60cbf",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2107,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T19:07:45Z",
+      "side": 1,
+      "message": "If EmitUint8(0x66) always needs to be the second line, fix this too?",
+      "range": {
+        "startLine": 2106,
+        "startChar": 2,
+        "endLine": 2107,
+        "endChar": 18
+      },
+      "revId": "8abe5348fb317295f764d73b89241f4d8878d0c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
