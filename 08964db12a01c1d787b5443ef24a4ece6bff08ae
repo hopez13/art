@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e7750f3f_d1028648",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T12:05:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cadad034_31c8584d",
+      "range": {
+        "startLine": 956,
+        "startChar": 27,
+        "endLine": 956,
+        "endChar": 58
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4acfc072_109fd26a",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 14
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-04T18:53:51Z",
       "side": 1,
       "message": "Can this be a kConstant instead?",
+      "range": {
+        "startLine": 970,
+        "startChar": 29,
+        "endLine": 970,
+        "endChar": 55
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07edc337_ff029f15",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T12:05:36Z",
+      "side": 1,
+      "message": "I\u0027ll leave this as is. This should be done as part of a bigger refactoring of CompilerDriver::GetCodeAndMethodForDirectCall() in a separate CL.",
+      "parentUuid": "4acfc072_109fd26a",
       "range": {
         "startLine": 970,
         "startChar": 29,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "271727da_5b0777d4",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 978,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T12:05:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ad9483e_7333c8af",
+      "range": {
+        "startLine": 978,
+        "startChar": 8,
+        "endLine": 978,
+        "endChar": 12
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ad60c0d_89f0218b",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 14
@@ -82,6 +154,30 @@
       "writtenOn": "2015-08-04T18:53:51Z",
       "side": 1,
       "message": "ditto for a kStatic.",
+      "range": {
+        "startLine": 987,
+        "startChar": 27,
+        "endLine": 987,
+        "endChar": 53
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47e33b4a_812e9a91",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 987,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T12:05:36Z",
+      "side": 1,
+      "message": "Also left for a CompilerDriver::GetCodeAndMethodForDirectCall() refactoring CL.",
+      "parentUuid": "2ad60c0d_89f0218b",
       "range": {
         "startLine": 987,
         "startChar": 27,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "045ce134_c74d7e94",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 993,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T12:05:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6acc847d_56f0745b",
+      "range": {
+        "startLine": 992,
+        "startChar": 19,
+        "endLine": 993,
+        "endChar": 61
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ad60c0d_495459a4",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 14
@@ -128,6 +248,30 @@
       "writtenOn": "2015-08-04T18:53:51Z",
       "side": 1,
       "message": "This comparison looks brittle, and assumes an implementation optimization that pointers are the same. How about a IsSameDexFile method in DexFile?",
+      "range": {
+        "startLine": 4508,
+        "startChar": 10,
+        "endLine": 4508,
+        "endChar": 73
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a72a3712_f7fd3a7a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 4508,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T12:05:36Z",
+      "side": 1,
+      "message": "This comparison is actually correct, unlike the comparison in HInliner::TryInline(). Think about JIT when the user creates a dex file, loads it, deletes it, creates a new dex file with the same name and loads it. You get 2 different dex files with the same location (one being unlinked but still loaded).",
+      "parentUuid": "2ad60c0d_495459a4",
       "range": {
         "startLine": 4508,
         "startChar": 10,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "240ba519_78a661cb",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T12:05:36Z",
+      "side": 1,
+      "message": "I agree with our proposed style guide: \"do not use typedef in new code. Use using instead, as it fully supercedes typedef and makes the code easier to read by introducing an ‘x \u003d y’ left-to-right readability hint.\"",
+      "parentUuid": "2ad60c0d_69a83d60",
+      "range": {
+        "startLine": 334,
+        "startChar": 2,
+        "endLine": 334,
+        "endChar": 96
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa14bc88_2192b960",
         "filename": "compiler/optimizing/code_generator_arm.h",
         "patchSetId": 14
@@ -174,6 +342,30 @@
       "writtenOn": "2015-08-04T18:53:51Z",
       "side": 1,
       "message": "Since other backends have the same struct, please move this to code_generator.h, and I wouldn\u0027t worry about the private.\n\nAlso RelativeCallPatchData -\u003e RelativeCallInfo ?",
+      "range": {
+        "startLine": 340,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 4
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27eac720_400dae43",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T12:05:36Z",
+      "side": 1,
+      "message": "Not exactly, arm64 uses vixl::Label.\n\nBut have merged the rest and added a comment for arm64.",
+      "parentUuid": "aa14bc88_2192b960",
       "range": {
         "startLine": 340,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "e4242da6_966eacf0",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T12:05:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eadf9421_18929d2a",
+      "range": {
+        "startLine": 356,
+        "startChar": 18,
+        "endLine": 356,
+        "endChar": 22
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aae91cd1_10e6f420",
         "filename": "compiler/optimizing/code_generator_arm.h",
         "patchSetId": 14
@@ -220,6 +436,30 @@
       "writtenOn": "2015-08-04T18:53:51Z",
       "side": 1,
       "message": "ArenaDeque",
+      "range": {
+        "startLine": 360,
+        "startChar": 11,
+        "endLine": 360,
+        "endChar": 21
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47a35a8_941804a9",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T12:05:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aae91cd1_10e6f420",
       "range": {
         "startLine": 360,
         "startChar": 11,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "446259ef_49abe18f",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T12:05:36Z",
+      "side": 1,
+      "message": "\"using\" based on the proposed style guide.",
+      "parentUuid": "cadad034_f17990ea",
+      "range": {
+        "startLine": 366,
+        "startChar": 0,
+        "endLine": 369,
+        "endChar": 69
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa14bc88_c4c5b384",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 14
@@ -266,6 +530,30 @@
       "writtenOn": "2015-08-04T18:53:51Z",
       "side": 1,
       "message": "PcRelativeDexCacheAccessInfo ?",
+      "range": {
+        "startLine": 377,
+        "startChar": 9,
+        "endLine": 377,
+        "endChar": 32
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24400542_9047b472",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T12:05:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa14bc88_c4c5b384",
       "range": {
         "startLine": 377,
         "startChar": 9,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "e4242da6_3637d80b",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T12:05:36Z",
+      "side": 1,
+      "message": "Do you have a strong preference? And do you want to change the target_dex_file as well?",
+      "parentUuid": "aae91cd1_306690a0",
+      "range": {
+        "startLine": 378,
+        "startChar": 28,
+        "endLine": 378,
+        "endChar": 42
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eadf9421_3323fab0",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 14
@@ -312,6 +624,30 @@
       "writtenOn": "2015-08-04T18:53:51Z",
       "side": 1,
       "message": "Type -\u003e Kind ?",
+      "range": {
+        "startLine": 2857,
+        "startChar": 23,
+        "endLine": 2857,
+        "endChar": 27
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4242da6_763d50e9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 2857,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T12:05:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eadf9421_3323fab0",
       "range": {
         "startLine": 2857,
         "startChar": 23,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "24400542_d0965c56",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 2870,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T12:05:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4acfc072_dbc2eb79",
+      "range": {
+        "startLine": 2870,
+        "startChar": 4,
+        "endLine": 2870,
+        "endChar": 20
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a0ff877_2c6637a0",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 14
@@ -370,6 +730,30 @@
     },
     {
       "key": {
+        "uuid": "446259ef_c996b156",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 2871,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T12:05:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a0ff877_2c6637a0",
+      "range": {
+        "startLine": 2871,
+        "startChar": 4,
+        "endLine": 2871,
+        "endChar": 15
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ad60c0d_b497f854",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 14
@@ -381,6 +765,30 @@
       "writtenOn": "2015-08-04T18:53:51Z",
       "side": 1,
       "message": "kCallArtMethod?",
+      "range": {
+        "startLine": 2872,
+        "startChar": 4,
+        "endLine": 2872,
+        "endChar": 15
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a405d5ff_9c47e572",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 2872,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T12:05:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ad60c0d_b497f854",
       "range": {
         "startLine": 2872,
         "startChar": 4,
