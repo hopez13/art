@@ -94,6 +94,30 @@
       "revId": "18aefd979e0a392d71814c39cd214e732261d1ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4242da6_56949449",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 4844,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-12T13:21:04Z",
+      "side": 1,
+      "message": "Sorry for the unclear comment.  I meant I prefered the approach used in PS9 (also used in PS17), where nodes_arm64.h is included after the common HInstruction classes definitions but before the definition of HGraphVisitor, as it did not require the type-unsafe reinterpret_cast used in DECLARE_VISIT_INSTRUCTION_ARCH (in PS9).",
+      "parentUuid": "47209b2d_19282b36",
+      "range": {
+        "startLine": 4840,
+        "startChar": 0,
+        "endLine": 4844,
+        "endChar": 15
+      },
+      "revId": "18aefd979e0a392d71814c39cd214e732261d1ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
