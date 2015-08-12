@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c44d6987_251b2e7a",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 2473,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-12T14:24:17Z",
+      "side": 1,
+      "message": "Maybe use an initialization list instead?\n\n  std::vector\u003cHOptimization*\u003e list \u003d { arch_simplifier, side_effects, gvn };",
+      "range": {
+        "startLine": 2470,
+        "startChar": 0,
+        "endLine": 2473,
+        "endChar": 21
+      },
+      "revId": "411de426c5edce4bc3607166c224dcbd8e80a926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
