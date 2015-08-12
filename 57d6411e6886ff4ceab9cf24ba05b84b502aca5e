@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4298d86_7d6e63aa",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1281,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-12T22:19:56Z",
+      "side": 1,
+      "message": "Since a class loaders is marked here, the classes of that class loader now get marked when the class loader is processed on the mark stack (delayed) rather than right here in VisitClassRoots(). Correct?\n\nAlso, if a class or a class loader gets found by GC outside of this function (eg. in a handle on the stack, potentially when it\u0027s still being initialized), it gets visited by GC as well. Correct?",
+      "range": {
+        "startLine": 1281,
+        "startChar": 6,
+        "endLine": 1281,
+        "endChar": 57
+      },
+      "revId": "57d6411e6886ff4ceab9cf24ba05b84b502aca5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "046a21d9_da0541ce",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2812,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-12T22:19:56Z",
+      "side": 1,
+      "message": "I assume this is necessary because we assign a new class table to the class loader, which may have to be rescanned by GC.",
+      "range": {
+        "startLine": 2810,
+        "startChar": 0,
+        "endLine": 2812,
+        "endChar": 3
+      },
+      "revId": "57d6411e6886ff4ceab9cf24ba05b84b502aca5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "645f5d28_718a07f9",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-12T22:19:56Z",
+      "side": 1,
+      "message": "We use this visitor to visit the roots in ArtFields and ArtMethods reachable from either a class or a class loader (when the \"obj\" in DumpHeapObject() is a class or a class loader). Correct?",
+      "range": {
+        "startLine": 1027,
+        "startChar": 0,
+        "endLine": 1027,
+        "endChar": 51
+      },
+      "revId": "57d6411e6886ff4ceab9cf24ba05b84b502aca5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "645f5d28_9f6ea7f0",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-12T22:19:56Z",
+      "side": 1,
+      "message": "Should we avoid calling these \"native\" roots? How about ClassRootVisitor?",
+      "range": {
+        "startLine": 1028,
+        "startChar": 6,
+        "endLine": 1028,
+        "endChar": 23
+      },
+      "revId": "57d6411e6886ff4ceab9cf24ba05b84b502aca5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "645f5d28_d16bf390",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-12T22:19:56Z",
+      "side": 1,
+      "message": "Not sure what this means exactly. There are no roots in a class object, the roots are in ArtMethods/ArtFields that belong to a class. So, I don\u0027t see a distinction between \"ArtMethod roots\" and \"class loader classes\".\n\nIt seems just that if the root points to a class (like ArtMethod::declaring_class_) then we use kRootStickyClass or kRootVMInternal otherwise? Is that what this means?",
+      "range": {
+        "startLine": 1048,
+        "startChar": 55,
+        "endLine": 1048,
+        "endChar": 86
+      },
+      "revId": "57d6411e6886ff4ceab9cf24ba05b84b502aca5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04f5c13c_b9418f0f",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-12T22:19:56Z",
+      "side": 1,
+      "message": "Both ArtMethod and ArtField roots?",
+      "range": {
+        "startLine": 1048,
+        "startChar": 39,
+        "endLine": 1048,
+        "endChar": 54
+      },
+      "revId": "57d6411e6886ff4ceab9cf24ba05b84b502aca5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
