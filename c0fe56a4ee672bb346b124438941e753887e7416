@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24400542_305ec849",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5005,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T10:06:16Z",
+      "side": 1,
+      "message": "The methods are now initialized in this thread but other threads may not see it that way. Do we need a memory barrier?",
+      "range": {
+        "startLine": 5005,
+        "startChar": 4,
+        "endLine": 5005,
+        "endChar": 42
+      },
+      "revId": "c0fe56a4ee672bb346b124438941e753887e7416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c44d6987_a5ff1e9c",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T10:06:16Z",
+      "side": 1,
+      "message": "I think some callers don\u0027t handle this correctly. The size of the 32-bit ArtMethod is not a multiple of 8, so adding an array with an odd number of them in ImageWriter will end up on an unaligned address. That means the next array will have its length_ member at an unaligned address. So we have unaligned reads in ImageSection::VisitPackedArtFields/Methods(). Luckily (or unluckily because the bug would have been exposed), the gcc/clang generated LDRD on arm requires only 4-byte alignment and the ArtMethods bins are the last, so this doesn\u0027t propagate to any other bins.\n\nThe size of ArtField is currently a multiple of 8 but if that changed, we would run into the same problem.\n\nI think we should round up here and fix the ImageWriter to round up the bin size after assigning offsets for an array.",
+      "range": {
+        "startLine": 51,
+        "startChar": 5,
+        "endLine": 51,
+        "endChar": 46
+      },
+      "revId": "c0fe56a4ee672bb346b124438941e753887e7416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
