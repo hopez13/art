@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c42489af_1394f496",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1193,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T17:43:04Z",
+      "side": 1,
+      "message": "const int32_t",
+      "range": {
+        "startLine": 1193,
+        "startChar": 2,
+        "endLine": 1193,
+        "endChar": 5
+      },
+      "revId": "c0975479e0ca3a5ed1767c8ee0cf7908ea71eba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4298d86_97f32e60",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1195,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T17:43:04Z",
+      "side": 1,
+      "message": "const int32_t",
+      "range": {
+        "startLine": 1195,
+        "startChar": 2,
+        "endLine": 1195,
+        "endChar": 5
+      },
+      "revId": "c0975479e0ca3a5ed1767c8ee0cf7908ea71eba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4f6494b_a3895eae",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T17:43:04Z",
+      "side": 1,
+      "message": "Add comment explaining this, something like: \"Compute the address of the source string by adding twice the given UTF-16 character offset to the value offset of a string\"",
+      "range": {
+        "startLine": 1211,
+        "startChar": 30,
+        "endLine": 1211,
+        "endChar": 48
+      },
+      "revId": "c0975479e0ca3a5ed1767c8ee0cf7908ea71eba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42489af_9351045e",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1119,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T17:43:04Z",
+      "side": 1,
+      "message": "const int32_t",
+      "range": {
+        "startLine": 1119,
+        "startChar": 2,
+        "endLine": 1119,
+        "endChar": 5
+      },
+      "revId": "c0975479e0ca3a5ed1767c8ee0cf7908ea71eba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a41eb557_dd08bf34",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T17:43:04Z",
+      "side": 1,
+      "message": "const int32_t",
+      "range": {
+        "startLine": 1121,
+        "startChar": 2,
+        "endLine": 1121,
+        "endChar": 5
+      },
+      "revId": "c0975479e0ca3a5ed1767c8ee0cf7908ea71eba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a41eb557_bd15034b",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1137,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T17:43:04Z",
+      "side": 1,
+      "message": "Add comment explaining this, something like: \"Compute the address of the source string by adding twice the given UTF-16 character offset to the value offset of a string\"",
+      "range": {
+        "startLine": 1137,
+        "startChar": 43,
+        "endLine": 1137,
+        "endChar": 61
+      },
+      "revId": "c0975479e0ca3a5ed1767c8ee0cf7908ea71eba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64111d42_c3cd7cab",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1543,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T17:43:04Z",
+      "side": 1,
+      "message": "Should the order of these two lines be reversed (as in repne_scasw above and repe_cmpsw below)?",
+      "range": {
+        "startLine": 1542,
+        "startChar": 2,
+        "endLine": 1543,
+        "endChar": 18
+      },
+      "revId": "c0975479e0ca3a5ed1767c8ee0cf7908ea71eba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64111d42_a3ca888f",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2099,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-12T17:43:04Z",
+      "side": 1,
+      "message": "Should the order of these two lines be reversed (as in repne_scasw above and repe_cmpsw below)?",
+      "range": {
+        "startLine": 2098,
+        "startChar": 2,
+        "endLine": 2099,
+        "endChar": 18
+      },
+      "revId": "c0975479e0ca3a5ed1767c8ee0cf7908ea71eba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
