@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a47a35a8_54858ce7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T18:59:34Z",
+      "side": 1,
+      "message": "Should I expand the comments on MethodLoadKind and CodePtrLocation?\nShould I reference those comments in the commit message?",
+      "parentUuid": "446259ef_291c2d27",
+      "range": {
+        "startLine": 11,
+        "startChar": 36,
+        "endLine": 11,
+        "endChar": 41
+      },
+      "revId": "0c867bff0cae9513b4675b177169dbd91d4b927c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4242da6_16cf3c27",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 16
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-12T17:32:26Z",
       "side": 1,
       "message": "maybe at least comment on the branches? It looks like magic to me :)",
+      "range": {
+        "startLine": 970,
+        "startChar": 27,
+        "endLine": 970,
+        "endChar": 29
+      },
+      "revId": "0c867bff0cae9513b4675b177169dbd91d4b927c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4242da6_56eed480",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-12T18:59:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4242da6_16cf3c27",
       "range": {
         "startLine": 970,
         "startChar": 27,
