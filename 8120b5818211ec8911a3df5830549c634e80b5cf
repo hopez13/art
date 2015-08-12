@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a405d5ff_7c02d94a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-12T09:19:28Z",
+      "side": 1,
+      "message": "The commit message is a bit misleading, as the main contribution of this CL is to introduce support for arch/hardware simulators in ART, starting with ARM64, implemented by VIXL.  Adding support for it to codegen_test is just a way to test this.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "8120b5818211ec8911a3df5830549c634e80b5cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
