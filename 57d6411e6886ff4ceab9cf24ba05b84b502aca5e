@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "64111d42_a90ca9f5",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-12T23:08:54Z",
+      "side": 1,
+      "message": "I thought we are calling the roots in ArtMethods and ArtFields \u0027class roots\u0027 as in \u0027roots reachable by a class\u0027, rather than what they may point to.\n\nGcRootVisitor is fine.",
+      "parentUuid": "a41eb557_8e644f9a",
+      "range": {
+        "startLine": 1028,
+        "startChar": 6,
+        "endLine": 1028,
+        "endChar": 23
+      },
+      "revId": "57d6411e6886ff4ceab9cf24ba05b84b502aca5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "645f5d28_d16bf390",
         "filename": "runtime/hprof/hprof.cc",
         "patchSetId": 3
@@ -272,6 +296,30 @@
       "side": 1,
       "message": "Clarified comment.",
       "parentUuid": "645f5d28_d16bf390",
+      "range": {
+        "startLine": 1048,
+        "startChar": 55,
+        "endLine": 1048,
+        "endChar": 86
+      },
+      "revId": "57d6411e6886ff4ceab9cf24ba05b84b502aca5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a41eb557_a9e38511",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-12T23:08:54Z",
+      "side": 1,
+      "message": "Now I realize that a class loader points to a class table which contains roots.",
+      "parentUuid": "e4298d86_9d57cfa0",
       "range": {
         "startLine": 1048,
         "startChar": 55,
