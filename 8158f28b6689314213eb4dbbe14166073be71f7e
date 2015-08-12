@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "24400542_1011848f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-08-12T08:33:29Z",
+      "side": 1,
+      "message": "It should. I\u0027ll double check the uses of InvokeRuntime in the x86/x86_64 code and fix these issues.",
+      "parentUuid": "645f5d28_ca3103f3",
+      "range": {
+        "startLine": 324,
+        "startChar": 4,
+        "endLine": 324,
+        "endChar": 49
+      },
+      "revId": "8158f28b6689314213eb4dbbe14166073be71f7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4298d86_aeddb7d9",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
