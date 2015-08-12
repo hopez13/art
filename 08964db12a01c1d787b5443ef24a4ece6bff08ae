@@ -613,6 +613,30 @@
     },
     {
       "key": {
+        "uuid": "446259ef_494081ef",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-12T17:32:26Z",
+      "side": 1,
+      "message": "if it can\u0027t be null please use the reference.",
+      "parentUuid": "e4242da6_3637d80b",
+      "range": {
+        "startLine": 378,
+        "startChar": 28,
+        "endLine": 378,
+        "endChar": 42
+      },
+      "revId": "08964db12a01c1d787b5443ef24a4ece6bff08ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eadf9421_3323fab0",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 14
