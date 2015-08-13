@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8400d1f0_bbf62750",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-13T04:41:27Z",
+      "side": 1,
+      "message": "Nit: reverse the condition and make an early return to avoid all the indentation.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 63
+      },
+      "revId": "f6b9686201aa942a9e382322cf44bee0fc905a98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
