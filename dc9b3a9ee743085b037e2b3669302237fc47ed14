@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64367de0_e1bcf022",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-13T16:48:38Z",
+      "side": 1,
+      "message": "So the budget is per-depth? Should we also consider an overall limit?",
+      "range": {
+        "startLine": 401,
+        "startChar": 4,
+        "endLine": 401,
+        "endChar": 77
+      },
+      "revId": "dc9b3a9ee743085b037e2b3669302237fc47ed14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
