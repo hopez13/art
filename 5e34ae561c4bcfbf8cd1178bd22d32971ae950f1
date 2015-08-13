@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24400542_10e9842c",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-13T14:59:16Z",
+      "side": 1,
+      "message": "If I understand correctly, when the runtime ISA is ARM64, it will run the compiled ARM64 tests on the ARM64 hardware only (and not the ARM64 simulator); whereas when the runtime ISA is something else (e.g. x86-64), it will both run the compiled x86-64 tests on the x86-64 hardware *and* run the compiled ARM64 tests on the ARM64 simulator.\n\nShouldn\u0027t we always try to run the compiled code on all the available simulators?",
+      "range": {
+        "startLine": 177,
+        "startChar": 2,
+        "endLine": 183,
+        "endChar": 3
+      },
+      "revId": "5e34ae561c4bcfbf8cd1178bd22d32971ae950f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
