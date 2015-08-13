@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "44141933_0e9a777a",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1747,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-13T13:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "046a21d9_40e86470",
+      "range": {
+        "startLine": 1747,
+        "startChar": 12,
+        "endLine": 1747,
+        "endChar": 29
+      },
+      "revId": "f8ea40b92d97a7015eb17a792268a97a3c97699b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "046a21d9_a044e01f",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-13T01:39:54Z",
       "side": 1,
       "message": "Make comment more specific, something like \"Since we are given a constant input, we can determine the result.\"",
+      "range": {
+        "startLine": 1766,
+        "startChar": 7,
+        "endLine": 1766,
+        "endChar": 36
+      },
+      "revId": "f8ea40b92d97a7015eb17a792268a97a3c97699b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64367de0_411cdc27",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1766,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-13T13:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "046a21d9_a044e01f",
       "range": {
         "startLine": 1766,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a41eb557_5125b3e1",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1780,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-13T13:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64111d42_9431fc78",
+      "range": {
+        "startLine": 1780,
+        "startChar": 2,
+        "endLine": 1780,
+        "endChar": 22
+      },
+      "revId": "f8ea40b92d97a7015eb17a792268a97a3c97699b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4f6494b_8cda0f95",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "645f5d28_47b62147",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1613,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-13T13:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4f6494b_8cda0f95",
+      "range": {
+        "startLine": 1613,
+        "startChar": 12,
+        "endLine": 1613,
+        "endChar": 29
+      },
+      "revId": "f8ea40b92d97a7015eb17a792268a97a3c97699b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44141933_f3d050c3",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2015-08-13T01:39:54Z",
       "side": 1,
       "message": "Add a more specific comment.",
+      "range": {
+        "startLine": 1628,
+        "startChar": 7,
+        "endLine": 1628,
+        "endChar": 36
+      },
+      "revId": "f8ea40b92d97a7015eb17a792268a97a3c97699b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42489af_d692d528",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1628,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-13T13:53:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44141933_f3d050c3",
       "range": {
         "startLine": 1628,
         "startChar": 7,
