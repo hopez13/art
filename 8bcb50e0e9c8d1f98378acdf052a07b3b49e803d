@@ -22,6 +22,30 @@
       "revId": "8bcb50e0e9c8d1f98378acdf052a07b3b49e803d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "046a21d9_00326cf6",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-13T00:46:31Z",
+      "side": 1,
+      "message": "I guess we don\u0027t need a lock since we check the boolean while we hold the lock. Probably not worth changing though.",
+      "parentUuid": "e4298d86_c8923329",
+      "range": {
+        "startLine": 748,
+        "startChar": 30,
+        "endLine": 748,
+        "endChar": 60
+      },
+      "revId": "8bcb50e0e9c8d1f98378acdf052a07b3b49e803d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
