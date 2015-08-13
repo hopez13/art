@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "8400d1f0_3b47b7f9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-13T10:56:47Z",
+      "side": 1,
+      "message": "Yes to both.\n\nI think it\u0027s important to be detailed in explaining how this works. (btw, do we have any sort of design doc around this?)",
+      "parentUuid": "a47a35a8_54858ce7",
+      "range": {
+        "startLine": 11,
+        "startChar": 36,
+        "endLine": 11,
+        "endChar": 41
+      },
+      "revId": "0c867bff0cae9513b4675b177169dbd91d4b927c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4242da6_16cf3c27",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 16
