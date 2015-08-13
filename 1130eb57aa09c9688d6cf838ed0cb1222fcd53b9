@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4a9e95f_6b59d55f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2472,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-13T23:34:14Z",
+      "side": 1,
+      "message": "Should this write be a CAS? Multiple threads can have the same method on their stacks and concurrently write to it.",
+      "range": {
+        "startLine": 2472,
+        "startChar": 16,
+        "endLine": 2472,
+        "endChar": 33
+      },
+      "revId": "1130eb57aa09c9688d6cf838ed0cb1222fcd53b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
