@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4aeed64_2920c9a0",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2463,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-13T22:44:05Z",
+      "side": 1,
+      "message": "Add a comment why we need to do this?",
+      "range": {
+        "startLine": 2463,
+        "startChar": 7,
+        "endLine": 2463,
+        "endChar": 26
+      },
+      "revId": "eeedfc8656e8bee9b5daeb52ac727dd66d63e357",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4a8755c_875a08c7",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2464,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-13T22:44:05Z",
+      "side": 1,
+      "message": "I think this should be GetDeclaringClassNoBarrier() to avoid the read barrier as we are updating the thread roots here.\n\nOr, add a special VisitDeclaringClass() function to ArtMethod and call it?",
+      "range": {
+        "startLine": 2464,
+        "startChar": 35,
+        "endLine": 2464,
+        "endChar": 64
+      },
+      "revId": "eeedfc8656e8bee9b5daeb52ac727dd66d63e357",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64591d73_9d0207c3",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2465,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-13T22:44:05Z",
+      "side": 1,
+      "message": "When can the class be null?",
+      "range": {
+        "startLine": 2465,
+        "startChar": 8,
+        "endLine": 2465,
+        "endChar": 24
+      },
+      "revId": "eeedfc8656e8bee9b5daeb52ac727dd66d63e357",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8448d1a1_1b839b5d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2467,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-13T22:44:05Z",
+      "side": 1,
+      "message": "Should we avoid visiting the classes of non-static methods as the \u0027this\u0027 pointer will make them alive anyway (redundant)?",
+      "range": {
+        "startLine": 2467,
+        "startChar": 6,
+        "endLine": 2467,
+        "endChar": 14
+      },
+      "revId": "eeedfc8656e8bee9b5daeb52ac727dd66d63e357",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
