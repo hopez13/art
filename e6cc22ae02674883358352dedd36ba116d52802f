@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "44141933_738a00f9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2905,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-13T01:22:14Z",
+      "side": 1,
+      "message": "I think having an enum makes the code more readable, especially in the intrinsics_list.h file. It is also reasonable to assume that nodes.h would be included in files that use the third part of the intrinsics_list.h macro, since this is where HInvoke is declared.",
+      "parentUuid": "c42489af_e21bcca3",
+      "range": {
+        "startLine": 2902,
+        "startChar": 0,
+        "endLine": 2905,
+        "endChar": 2
+      },
+      "revId": "e6cc22ae02674883358352dedd36ba116d52802f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44141933_7307a059",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-13T00:26:07Z",
       "side": 1,
       "message": "You\u0027ll have to change this. Either use a boolean here, or make the field of enum type.",
+      "range": {
+        "startLine": 2968,
+        "startChar": 25,
+        "endLine": 2968,
+        "endChar": 42
+      },
+      "revId": "e6cc22ae02674883358352dedd36ba116d52802f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "645f5d28_c7e69123",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2968,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-13T01:22:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44141933_7307a059",
       "range": {
         "startLine": 2968,
         "startChar": 25,
