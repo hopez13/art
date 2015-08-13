@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c4f6494b_f7472023",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-13T16:03:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8400d1f0_bb8ce7be",
+      "range": {
+        "startLine": 9,
+        "startChar": 26,
+        "endLine": 9,
+        "endChar": 34
+      },
+      "revId": "7b37f89c17c60db0360d64f1e809fd22e23e9a4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a405d5ff_9c7ec51e",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-13T13:23:20Z",
       "side": 1,
       "message": "With this change, is the `fold2` pass in the `optimizations2` array from compiler/optimizing/optimizing_compiler.cc still relevant?",
+      "range": {
+        "startLine": 9,
+        "startChar": 55,
+        "endLine": 11,
+        "endChar": 17
+      },
+      "revId": "7b37f89c17c60db0360d64f1e809fd22e23e9a4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44141933_ceb91fb1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-13T16:03:04Z",
+      "side": 1,
+      "message": "Yes, the return value of inlined methods might help constant fold more.",
+      "parentUuid": "a405d5ff_9c7ec51e",
       "range": {
         "startLine": 9,
         "startChar": 55,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "64367de0_e18f50b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-13T16:03:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "446259ef_4cde4f53",
+      "revId": "7b37f89c17c60db0360d64f1e809fd22e23e9a4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2459e545_a8f6db4f",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 4
@@ -76,6 +142,30 @@
       "writtenOn": "2015-08-13T10:28:04Z",
       "side": 1,
       "message": "line too long",
+      "range": {
+        "startLine": 359,
+        "startChar": 99,
+        "endLine": 359,
+        "endChar": 101
+      },
+      "revId": "7b37f89c17c60db0360d64f1e809fd22e23e9a4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a41eb557_91f34b97",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-13T16:03:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2459e545_a8f6db4f",
       "range": {
         "startLine": 359,
         "startChar": 99,
