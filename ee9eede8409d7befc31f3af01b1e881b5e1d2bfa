@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4242da6_f6a96014",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-13T10:04:57Z",
+      "side": 1,
+      "message": "This comment looks misplaced now.",
+      "range": {
+        "startLine": 583,
+        "startChar": 0,
+        "endLine": 583,
+        "endChar": 65
+      },
+      "revId": "ee9eede8409d7befc31f3af01b1e881b5e1d2bfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2459e545_48ee3f81",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-13T10:04:57Z",
+      "side": 1,
+      "message": "#if defined(ART_ENABLE_CODEGEN_mips) || defined(ART_ENABLE_CODEGEN_mips64)\n\nLet\u0027s not rely on the implicit dependency currently enforced by the make files.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 30
+      },
+      "revId": "ee9eede8409d7befc31f3af01b1e881b5e1d2bfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4242da6_d6a66444",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-13T10:04:57Z",
+      "side": 1,
+      "message": "#if defined(ART_ENABLE_CODEGEN_x86) || defined(ART_ENABLE_CODEGEN_x86_64)",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 29
+      },
+      "revId": "ee9eede8409d7befc31f3af01b1e881b5e1d2bfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c44d6987_c55d7ac2",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-13T10:04:57Z",
+      "side": 1,
+      "message": "I think this should be\n\n    #if defined(ART_ENABLE_CODEGEN_mips) || defined(ART_ENABLE_CODEGEN_mips64)\n    #ifdef ART_ENABLE_CODEGEN_mips\n        case kMips:\n    #endif  // ART_ENABLE_CODEGEN_mips\n    #ifdef ART_ENABLE_CODEGEN_mips64\n        case kMips64:\n    #endif  // ART_ENABLE_CODEGEN_mips64\n          mir_to_lir \u003d MipsCodeGenerator(cu, cu-\u003emir_graph.get(), \u0026cu-\u003earena);\n          break;\n    #endif  // defined(ART_ENABLE_CODEGEN_mips) || defined(ART_ENABLE_CODEGEN_mips64)",
+      "range": {
+        "startLine": 868,
+        "startChar": 0,
+        "endLine": 878,
+        "endChar": 34
+      },
+      "revId": "ee9eede8409d7befc31f3af01b1e881b5e1d2bfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24400542_104ce417",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-13T10:04:57Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 879,
+        "startChar": 0,
+        "endLine": 889,
+        "endChar": 33
+      },
+      "revId": "ee9eede8409d7befc31f3af01b1e881b5e1d2bfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
