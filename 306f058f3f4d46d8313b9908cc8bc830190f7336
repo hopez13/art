@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "64111d42_695211b8",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1102,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-13T01:16:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "045ce134_47a18e7e",
+      "revId": "306f058f3f4d46d8313b9908cc8bc830190f7336",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4242da6_367fd85a",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2015-08-12T15:20:06Z",
       "side": 1,
       "message": "Why not simply have `Register out \u003d XRegisterFrom...`?",
+      "range": {
+        "startLine": 1107,
+        "startChar": 9,
+        "endLine": 1107,
+        "endChar": 16
+      },
+      "revId": "306f058f3f4d46d8313b9908cc8bc830190f7336",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "645f5d28_540c9179",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1107,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-13T01:16:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4242da6_367fd85a",
       "range": {
         "startLine": 1107,
         "startChar": 9,
