@@ -22,6 +22,30 @@
       "revId": "f6b9686201aa942a9e382322cf44bee0fc905a98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4f6494b_77ab1090",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-13T04:57:39Z",
+      "side": 1,
+      "message": "Already discussed and in the works, but we had to investigate a build breakage.",
+      "parentUuid": "8400d1f0_bbf62750",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 63
+      },
+      "revId": "f6b9686201aa942a9e382322cf44bee0fc905a98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
