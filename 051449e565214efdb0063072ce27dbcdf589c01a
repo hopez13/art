@@ -870,6 +870,30 @@
     },
     {
       "key": {
+        "uuid": "c43e49ec_5dd87b62",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-13T19:13:37Z",
+      "side": 1,
+      "message": "I changed my mind.  Restriction removed.",
+      "parentUuid": "c4f6494b_b78998ae",
+      "range": {
+        "startLine": 1060,
+        "startChar": 5,
+        "endLine": 1060,
+        "endChar": 67
+      },
+      "revId": "051449e565214efdb0063072ce27dbcdf589c01a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a47a35a8_94256439",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 7
