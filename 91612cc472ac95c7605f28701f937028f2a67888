@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "243ac5f6_269ac2c5",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-14T17:22:44Z",
+      "side": 1,
+      "message": "I think that this RoundUp is not necessary since OffsetOfElement is already rounded.",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 10
+      },
+      "revId": "91612cc472ac95c7605f28701f937028f2a67888",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
