@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "040b0162_8fe3d5c3",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T14:45:51Z",
+      "side": 1,
+      "message": "ClassLinker::FindDexCache() also tries to match location if pointer comparison doesn\u0027t yield a result. I don\u0027t know what use cases does it target.",
+      "parentUuid": "e46c2d17_f66b6090",
+      "range": {
+        "startLine": 965,
+        "startChar": 15,
+        "endLine": 965,
+        "endChar": 78
+      },
+      "revId": "1c5f859a77096b61a2d61c8729eea6146f1c1e13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64111d42_293c19ea",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 18
@@ -252,6 +276,30 @@
       "side": 1,
       "message": "There\u0027s sort of already stored with the method_load_data.....\n\nAlso, why would it affect inlining? The only problem with inlining is being able to recover the call stack, which we cannot do because we rely on the dex_method_index of the outermost method\u0027s dex_file. So I don\u0027t see why a different call implementation (relative/direct/...) would affect it?",
       "parentUuid": "040b0162_af82190b",
+      "range": {
+        "startLine": 956,
+        "startChar": 0,
+        "endLine": 1029,
+        "endChar": 3
+      },
+      "revId": "1c5f859a77096b61a2d61c8729eea6146f1c1e13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ec89d0_ad34dde3",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T14:45:51Z",
+      "side": 1,
+      "message": "method_load_data_ is a union of string_init_offset, method_address and dex_cache_offset, distinguished by method_load_kind_. It no longer needs to be decoded to find out what to do with itm, the decoding has already happened.\n\nInliner checks\n\n  if (!same_dex_file \u0026\u0026 current-\u003eNeedsDexCache()) { ... }\n\nIf we can access a different dex cache with a PC-relative load, we don\u0027t need the same dex file.",
+      "parentUuid": "e4f18da3_ee0fffe8",
       "range": {
         "startLine": 956,
         "startChar": 0,
