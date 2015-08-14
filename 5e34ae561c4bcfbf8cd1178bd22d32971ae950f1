@@ -22,6 +22,30 @@
       "revId": "5e34ae561c4bcfbf8cd1178bd22d32971ae950f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e480adc6_d6bf6415",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1076443
+      },
+      "writtenOn": "2015-08-14T02:39:15Z",
+      "side": 1,
+      "message": "I think the point of introducing simulator here is to verify changes to code generator for as many ISAs as possible, even without the devices. On the device with target ISA, wouldn\u0027t it be faster and simpler to run on hardware only?",
+      "parentUuid": "24400542_10e9842c",
+      "range": {
+        "startLine": 177,
+        "startChar": 2,
+        "endLine": 183,
+        "endChar": 3
+      },
+      "revId": "5e34ae561c4bcfbf8cd1178bd22d32971ae950f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
