@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8448d1a1_6a02c77f",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-14T22:43:46Z",
+      "side": 1,
+      "message": "Why not just pass LOG(ERROR) as the stream.",
+      "range": {
+        "startLine": 648,
+        "startChar": 8,
+        "endLine": 648,
+        "endChar": 18
+      },
+      "revId": "ebf850c9ec47e199cfb3712b7832eb2f32e2ee02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
