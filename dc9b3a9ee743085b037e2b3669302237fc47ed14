@@ -22,6 +22,30 @@
       "revId": "dc9b3a9ee743085b037e2b3669302237fc47ed14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4f18da3_ceda03df",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-14T11:00:59Z",
+      "side": 1,
+      "message": "Maybe, in a later change? We did not have an overall limit before, it has always been per depth.",
+      "parentUuid": "64367de0_e1bcf022",
+      "range": {
+        "startLine": 401,
+        "startChar": 4,
+        "endLine": 401,
+        "endChar": 77
+      },
+      "revId": "dc9b3a9ee743085b037e2b3669302237fc47ed14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
