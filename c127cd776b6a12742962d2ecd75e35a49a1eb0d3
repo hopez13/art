@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e4aeed64_8fe69d22",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1771,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-14T15:46:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4aeed64_4cb67379",
+      "range": {
+        "startLine": 1771,
+        "startChar": 6,
+        "endLine": 1771,
+        "endChar": 36
+      },
+      "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "043dc1ed_68949798",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 2
@@ -120,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "64591d73_c3501c2d",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1784,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-14T15:46:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4fb1585_ac50632b",
+      "range": {
+        "startLine": 1779,
+        "startChar": 4,
+        "endLine": 1784,
+        "endChar": 5
+      },
+      "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a466b534_f415184a",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 2
@@ -131,6 +179,30 @@
       "writtenOn": "2015-08-14T10:37:46Z",
       "side": 1,
       "message": "out is undefined if ZF is set.",
+      "range": {
+        "startLine": 1809,
+        "startChar": 2,
+        "endLine": 1809,
+        "endChar": 23
+      },
+      "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04b861a5_90f0fa05",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1809,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-14T15:46:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a466b534_f415184a",
       "range": {
         "startLine": 1809,
         "startChar": 2,
@@ -166,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "a4a8755c_4db67179",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1811,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-14T15:46:23Z",
+      "side": 1,
+      "message": "No, we want 32 + CLZ(low). That is not the same as CLZ(low) ^ 63",
+      "parentUuid": "c4672930_b50ba02f",
+      "range": {
+        "startLine": 1810,
+        "startChar": 0,
+        "endLine": 1811,
+        "endChar": 30
+      },
+      "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4f18da3_0e5c0bf8",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 2
@@ -177,6 +273,30 @@
       "writtenOn": "2015-08-14T10:37:46Z",
       "side": 1,
       "message": "Evaluate",
+      "range": {
+        "startLine": 1612,
+        "startChar": 7,
+        "endLine": 1612,
+        "endChar": 13
+      },
+      "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "243ac5f6_46126618",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1612,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-14T15:46:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4f18da3_0e5c0bf8",
       "range": {
         "startLine": 1612,
         "startChar": 7,
@@ -212,6 +332,30 @@
     },
     {
       "key": {
+        "uuid": "243ac5f6_26176208",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1617,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-14T15:46:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a466b534_94082434",
+      "range": {
+        "startLine": 1617,
+        "startChar": 14,
+        "endLine": 1617,
+        "endChar": 35
+      },
+      "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4672930_7502a818",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 2
@@ -223,6 +367,30 @@
       "writtenOn": "2015-08-14T10:37:46Z",
       "side": 1,
       "message": "You need to do much more than this. The manual says\n\n  IF SRC \u003d 0\n     THEN\n         ZF \u003c- 1\n         DEST is undefined;\n     ELSE\n         ...",
+      "range": {
+        "startLine": 1638,
+        "startChar": 0,
+        "endLine": 1639,
+        "endChar": 47
+      },
+      "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4aeed64_0f25cde2",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1639,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-14T15:46:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4672930_7502a818",
       "range": {
         "startLine": 1638,
         "startChar": 0,
