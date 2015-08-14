@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e46c2d17_d6c46438",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T11:28:21Z",
+      "side": 1,
+      "message": "This has gone way beyond my comments on PS4 in automatically supporting 32-bit variants on 64-bit architectures. That\u0027s OK for make files but don\u0027t do that in the C++ code where we should rigorously follow the ART_ENABLE_CODEGEN_\u003carch\u003e defines.\n\nI commented on all the places where I wanted to see some change, i.e. the x86 and mips bits that required it because they share the backend for 32-bit and 64-bit variants.\n\nPlease revert all the extra changes between PS4 and PS5.",
+      "range": {
+        "startLine": 46,
+        "startChar": 39,
+        "endLine": 46,
+        "endChar": 72
+      },
+      "revId": "396070edbf71a61bd0b10478d0ecd6938d4db8a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e46c2d17_16cffc58",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T11:28:21Z",
+      "side": 1,
+      "message": "As I\u0027ve suggested on PS4, this should really be conditional on ART_ENABLE_CODEGEN_mips. Do not force all mips64 devices to support mips32.",
+      "range": {
+        "startLine": 869,
+        "startChar": 4,
+        "endLine": 869,
+        "endChar": 15
+      },
+      "revId": "396070edbf71a61bd0b10478d0ecd6938d4db8a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4672930_b53440e4",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T11:28:21Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 879,
+        "startChar": 4,
+        "endLine": 879,
+        "endChar": 14
+      },
+      "revId": "396070edbf71a61bd0b10478d0ecd6938d4db8a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
