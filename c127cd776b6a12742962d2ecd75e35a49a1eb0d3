@@ -22,6 +22,30 @@
       "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4aeed64_4cb67379",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1771,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-14T03:16:51Z",
+      "side": 1,
+      "message": "Also: use bit_utils.h:CLZ...",
+      "parentUuid": "043dc1ed_08ca2bb2",
+      "range": {
+        "startLine": 1771,
+        "startChar": 6,
+        "endLine": 1771,
+        "endChar": 36
+      },
+      "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
