@@ -286,6 +286,30 @@
     },
     {
       "key": {
+        "uuid": "a4a8755c_4d03d185",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1811,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-14T16:19:18Z",
+      "side": 1,
+      "message": "Sorry.  I had mis-computed my answer when calculating it by hand because I was using CLZ, not BSR, and thought it wasn\u0027t right.\n\nDone.",
+      "parentUuid": "0456a145_b79288d9",
+      "range": {
+        "startLine": 1810,
+        "startChar": 0,
+        "endLine": 1811,
+        "endChar": 30
+      },
+      "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4f18da3_0e5c0bf8",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 2
