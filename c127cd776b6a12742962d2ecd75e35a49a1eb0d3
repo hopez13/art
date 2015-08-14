@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "a4fb1585_ac50632b",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1784,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-14T15:09:12Z",
+      "side": 1,
+      "message": "No, the difference is that the __builtin_clz spec says that the result is undefined if you give zero. Java, however, clearly specifies 32 as the return value in this case.",
+      "parentUuid": "c43e49ec_236c6e26",
+      "range": {
+        "startLine": 1779,
+        "startChar": 4,
+        "endLine": 1784,
+        "endChar": 5
+      },
+      "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a466b534_f415184a",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 2
