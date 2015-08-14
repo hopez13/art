@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0456a145_97478424",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-14T13:32:02Z",
+      "side": 1,
+      "message": "Nit: use a 4-space indentation.",
+      "range": {
+        "startLine": 929,
+        "startChar": 2,
+        "endLine": 929,
+        "endChar": 4
+      },
+      "revId": "6550cf43eb5a882fe50ef186be5801de274ad911",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24080563_50f22c91",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-14T13:32:02Z",
+      "side": 1,
+      "message": "Remove operator ?:, useless here.",
+      "range": {
+        "startLine": 982,
+        "startChar": 6,
+        "endLine": 982,
+        "endChar": 24
+      },
+      "revId": "6550cf43eb5a882fe50ef186be5801de274ad911",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4401793c_91e3fcc3",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-14T13:32:02Z",
+      "side": 1,
+      "message": "Remove operator ?:.",
+      "range": {
+        "startLine": 1078,
+        "startChar": 6,
+        "endLine": 1078,
+        "endChar": 27
+      },
+      "revId": "6550cf43eb5a882fe50ef186be5801de274ad911",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "040b0162_6fd4b1e9",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-14T13:32:02Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1086,
+        "startChar": 6,
+        "endLine": 1086,
+        "endChar": 28
+      },
+      "revId": "6550cf43eb5a882fe50ef186be5801de274ad911",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4672930_f5e078b8",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-14T13:32:02Z",
+      "side": 1,
+      "message": "Remove operator ?:.",
+      "range": {
+        "startLine": 880,
+        "startChar": 6,
+        "endLine": 880,
+        "endChar": 24
+      },
+      "revId": "6550cf43eb5a882fe50ef186be5801de274ad911",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e46c2d17_16eedc7f",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-14T13:32:02Z",
+      "side": 1,
+      "message": "Remove operator ?:.",
+      "range": {
+        "startLine": 976,
+        "startChar": 6,
+        "endLine": 976,
+        "endChar": 27
+      },
+      "revId": "6550cf43eb5a882fe50ef186be5801de274ad911",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4f18da3_ae77b746",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-14T13:32:02Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 984,
+        "startChar": 6,
+        "endLine": 984,
+        "endChar": 28
+      },
+      "revId": "6550cf43eb5a882fe50ef186be5801de274ad911",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
