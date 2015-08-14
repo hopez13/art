@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c4672930_751bc878",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-14T11:10:15Z",
+      "side": 1,
+      "message": "Why would an Equals method not belong to the DexFile?",
+      "parentUuid": "446259ef_6967c546",
+      "range": {
+        "startLine": 965,
+        "startChar": 15,
+        "endLine": 965,
+        "endChar": 78
+      },
+      "revId": "1c5f859a77096b61a2d61c8729eea6146f1c1e13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64111d42_293c19ea",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 18
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "Let\u0027s leave this to a refactoring CL, it will need a lot of thought.",
       "parentUuid": "240ba519_9857f5a0",
+      "range": {
+        "startLine": 956,
+        "startChar": 0,
+        "endLine": 1029,
+        "endChar": 3
+      },
+      "revId": "1c5f859a77096b61a2d61c8729eea6146f1c1e13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4672930_55204ca1",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-14T11:10:15Z",
+      "side": 1,
+      "message": "Why do you think it will need some thought?\n\nIf we agree it\u0027s better, I\u0027d rather do this now than in a refactoring CL, which is often delayed because of more (valid) importants things to do.",
+      "parentUuid": "240ba519_d8a68d44",
       "range": {
         "startLine": 956,
         "startChar": 0,
