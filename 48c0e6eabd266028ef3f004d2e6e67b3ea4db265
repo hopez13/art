@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a4a8755c_4d7e71d8",
+        "filename": "test/082-inline-execute/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1049,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-14T16:50:40Z",
+      "side": 1,
+      "message": "Yes, but they aren\u0027t constants in the loop.  I was asked to add more constant tests.  This is because x86 folds constant numberOfLeadingZeros at compile time.",
+      "parentUuid": "0456a145_5717acd4",
+      "range": {
+        "startLine": 1048,
+        "startChar": 0,
+        "endLine": 1049,
+        "endChar": 80
+      },
+      "revId": "48c0e6eabd266028ef3f004d2e6e67b3ea4db265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0456a145_b71ba8fd",
         "filename": "test/082-inline-execute/src/Main.java",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-14T16:43:09Z",
       "side": 1,
       "message": "Also tested in the loop.",
+      "range": {
+        "startLine": 1059,
+        "startChar": 0,
+        "endLine": 1061,
+        "endChar": 75
+      },
+      "revId": "48c0e6eabd266028ef3f004d2e6e67b3ea4db265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8448d1a1_e46e10f1",
+        "filename": "test/082-inline-execute/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-14T16:50:40Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "0456a145_b71ba8fd",
       "range": {
         "startLine": 1059,
         "startChar": 0,
