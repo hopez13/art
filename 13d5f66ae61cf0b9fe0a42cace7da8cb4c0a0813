@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4ec89d0_cd2b2980",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 930,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-14T14:26:17Z",
+      "side": 1,
+      "message": "We use 4-space indentation, e.g.:\n\n  int num_constants \u003d\n      ((src_pos !\u003d nullptr) ? 1 : 0)\n      + ((dest_pos !\u003d nullptr) ? 1 : 0)\n      + ((length !\u003d nullptr) ? 1 : 0);",
+      "range": {
+        "startLine": 927,
+        "startChar": 0,
+        "endLine": 930,
+        "endChar": 36
+      },
+      "revId": "13d5f66ae61cf0b9fe0a42cace7da8cb4c0a0813",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
