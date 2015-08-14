@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "a4fb1585_2cac73f7",
+        "filename": "test/082-inline-execute/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1049,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-14T17:23:37Z",
+      "side": 1,
+      "message": "I do agree, and rpl should be working on that. :-) However, for now this is what I was interested in for the constants.\n\nMark, can you also come up with a case where the parameter is zero (but not visibly constant)? (There might be some $noinline trickery or so available to do this with a function)",
+      "parentUuid": "a466b534_74e3c897",
+      "range": {
+        "startLine": 1048,
+        "startChar": 0,
+        "endLine": 1049,
+        "endChar": 80
+      },
+      "revId": "48c0e6eabd266028ef3f004d2e6e67b3ea4db265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0456a145_b71ba8fd",
         "filename": "test/082-inline-execute/src/Main.java",
         "patchSetId": 4
