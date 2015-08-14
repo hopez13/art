@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0456a145_5717acd4",
+        "filename": "test/082-inline-execute/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1049,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T16:43:09Z",
+      "side": 1,
+      "message": "These are tested by the first assertion in the loop for i\u003d0 and i\u003dInteger.SIZE-1.",
+      "range": {
+        "startLine": 1048,
+        "startChar": 0,
+        "endLine": 1049,
+        "endChar": 80
+      },
+      "revId": "48c0e6eabd266028ef3f004d2e6e67b3ea4db265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0456a145_b71ba8fd",
+        "filename": "test/082-inline-execute/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T16:43:09Z",
+      "side": 1,
+      "message": "Also tested in the loop.",
+      "range": {
+        "startLine": 1059,
+        "startChar": 0,
+        "endLine": 1061,
+        "endChar": 75
+      },
+      "revId": "48c0e6eabd266028ef3f004d2e6e67b3ea4db265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
