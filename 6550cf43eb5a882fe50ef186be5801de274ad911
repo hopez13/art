@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "64591d73_63bf90f8",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-14T13:56:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0456a145_97478424",
+      "range": {
+        "startLine": 929,
+        "startChar": 2,
+        "endLine": 929,
+        "endChar": 4
+      },
+      "revId": "6550cf43eb5a882fe50ef186be5801de274ad911",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24080563_50f22c91",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-14T13:32:02Z",
       "side": 1,
       "message": "Remove operator ?:, useless here.",
+      "range": {
+        "startLine": 982,
+        "startChar": 6,
+        "endLine": 982,
+        "endChar": 24
+      },
+      "revId": "6550cf43eb5a882fe50ef186be5801de274ad911",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4fb1585_4c63bf0e",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-14T13:56:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24080563_50f22c91",
       "range": {
         "startLine": 982,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "243ac5f6_46c0a6f8",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-14T13:56:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4401793c_91e3fcc3",
+      "range": {
+        "startLine": 1078,
+        "startChar": 6,
+        "endLine": 1078,
+        "endChar": 27
+      },
+      "revId": "6550cf43eb5a882fe50ef186be5801de274ad911",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "040b0162_6fd4b1e9",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 8
@@ -82,6 +154,30 @@
       "writtenOn": "2015-08-14T13:32:02Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 1086,
+        "startChar": 6,
+        "endLine": 1086,
+        "endChar": 28
+      },
+      "revId": "6550cf43eb5a882fe50ef186be5801de274ad911",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c43e49ec_46b0a82a",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-14T13:56:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "040b0162_6fd4b1e9",
       "range": {
         "startLine": 1086,
         "startChar": 6,
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "8448d1a1_013fae3d",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-14T13:56:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e46c2d17_16eedc7f",
+      "range": {
+        "startLine": 976,
+        "startChar": 6,
+        "endLine": 976,
+        "endChar": 27
+      },
+      "revId": "6550cf43eb5a882fe50ef186be5801de274ad911",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4f18da3_ae77b746",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 8
@@ -151,6 +271,30 @@
       "writtenOn": "2015-08-14T13:32:02Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 984,
+        "startChar": 6,
+        "endLine": 984,
+        "endChar": 28
+      },
+      "revId": "6550cf43eb5a882fe50ef186be5801de274ad911",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4aeed64_ac51275d",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-14T13:56:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4f18da3_ae77b746",
       "range": {
         "startLine": 984,
         "startChar": 6,
