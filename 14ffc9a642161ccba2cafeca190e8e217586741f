@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e46c2d17_1626dcc0",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-14T10:58:35Z",
+      "side": 1,
+      "message": "Maybe just cache it instead in the HGraphBuilder?",
+      "range": {
+        "startLine": 749,
+        "startChar": 0,
+        "endLine": 757,
+        "endChar": 83
+      },
+      "revId": "14ffc9a642161ccba2cafeca190e8e217586741f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
