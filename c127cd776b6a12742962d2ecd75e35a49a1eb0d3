@@ -69,6 +69,144 @@
       "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a466b534_f415184a",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1809,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T10:37:46Z",
+      "side": 1,
+      "message": "out is undefined if ZF is set.",
+      "range": {
+        "startLine": 1809,
+        "startChar": 2,
+        "endLine": 1809,
+        "endChar": 23
+      },
+      "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4672930_b50ba02f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1811,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T10:37:46Z",
+      "side": 1,
+      "message": "__ xorl(out, Immediate(63));",
+      "range": {
+        "startLine": 1810,
+        "startChar": 0,
+        "endLine": 1811,
+        "endChar": 30
+      },
+      "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4f18da3_0e5c0bf8",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1612,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T10:37:46Z",
+      "side": 1,
+      "message": "Evaluate",
+      "range": {
+        "startLine": 1612,
+        "startChar": 7,
+        "endLine": 1612,
+        "endChar": 13
+      },
+      "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a466b534_94082434",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1617,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T10:37:46Z",
+      "side": 1,
+      "message": "is_long ? CLZ(static_cast\u003cuint64_t\u003e(value)) : CLZ(static_cast\u003cuint32_t\u003e(value))",
+      "range": {
+        "startLine": 1617,
+        "startChar": 14,
+        "endLine": 1617,
+        "endChar": 35
+      },
+      "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4672930_7502a818",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1639,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T10:37:46Z",
+      "side": 1,
+      "message": "You need to do much more than this. The manual says\n\n  IF SRC \u003d 0\n     THEN\n         ZF \u003c- 1\n         DEST is undefined;\n     ELSE\n         ...",
+      "range": {
+        "startLine": 1638,
+        "startChar": 0,
+        "endLine": 1639,
+        "endChar": 47
+      },
+      "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4401793c_31f85089",
+        "filename": "compiler/utils/x86_64/assembler_x86_64_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1152,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T10:37:46Z",
+      "side": 1,
+      "message": "bsrq",
+      "range": {
+        "startLine": 1152,
+        "startChar": 80,
+        "endLine": 1152,
+        "endChar": 84
+      },
+      "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
