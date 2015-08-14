@@ -262,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "0456a145_b79288d9",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1811,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T16:06:26Z",
+      "side": 1,
+      "message": "Did you misread my comment? It\u0027s about replacing _two_ lines, not just the last one.\n\nFor every x in [0, 31], 32+(x^31) \u003d x^63, i.e.\n\n   32+CLZ(low) \u003d 32+BSR(low)^31 \u003d BSR(low)^63 .",
+      "parentUuid": "a4a8755c_4db67179",
+      "range": {
+        "startLine": 1810,
+        "startChar": 0,
+        "endLine": 1811,
+        "endChar": 30
+      },
+      "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4f18da3_0e5c0bf8",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 2
