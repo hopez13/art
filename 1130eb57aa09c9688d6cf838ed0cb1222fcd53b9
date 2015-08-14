@@ -46,6 +46,30 @@
       "revId": "1130eb57aa09c9688d6cf838ed0cb1222fcd53b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ec89d0_8d4da195",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2472,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-14T11:15:47Z",
+      "side": 1,
+      "message": "Why could it be a problem?  Aren\u0027t the multiple threads updating the class to the same value?",
+      "parentUuid": "e4aeed64_6c26cfc2",
+      "range": {
+        "startLine": 2472,
+        "startChar": 16,
+        "endLine": 2472,
+        "endChar": 33
+      },
+      "revId": "1130eb57aa09c9688d6cf838ed0cb1222fcd53b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
