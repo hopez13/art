@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "e46c2d17_f66b6090",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-14T12:34:21Z",
+      "side": 1,
+      "message": "Oh I see. What would be the definition for other uses than the compiler?",
+      "parentUuid": "0456a145_97aca474",
+      "range": {
+        "startLine": 965,
+        "startChar": 15,
+        "endLine": 965,
+        "endChar": 78
+      },
+      "revId": "1c5f859a77096b61a2d61c8729eea6146f1c1e13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64111d42_293c19ea",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 18
@@ -204,6 +228,30 @@
       "side": 1,
       "message": "I don\u0027t want to store the magic values for direct_code and direct_method returned by the ComputeInvokeInfo(). I want to process them right here. It logically belongs together and postponing the processing while keeping the ComputeInvokeInfo() here just spreads the chaos around instead of keeping it localized.\n\nAnd you\u0027re not thinking far enough. For example, this information could be used by inliner; if we actually use kDexCachePcRelative, we can relax the same_dex_file check. So, if we push this to the CodeGenerator now, we may need to pull it back later.\n\nThis CL should be considered a first step, not the last one. I have the refactoring on my roadmap because there are a lot of things that the CompilerDriver should do better.",
       "parentUuid": "c4672930_55204ca1",
+      "range": {
+        "startLine": 956,
+        "startChar": 0,
+        "endLine": 1029,
+        "endChar": 3
+      },
+      "revId": "1c5f859a77096b61a2d61c8729eea6146f1c1e13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4f18da3_ee0fffe8",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-14T12:34:21Z",
+      "side": 1,
+      "message": "There\u0027s sort of already stored with the method_load_data.....\n\nAlso, why would it affect inlining? The only problem with inlining is being able to recover the call stack, which we cannot do because we rely on the dex_method_index of the outermost method\u0027s dex_file. So I don\u0027t see why a different call implementation (relative/direct/...) would affect it?",
+      "parentUuid": "040b0162_af82190b",
       "range": {
         "startLine": 956,
         "startChar": 0,
