@@ -22,6 +22,30 @@
       "revId": "f7fa7b0ef71fefba0fb03f76bb6cb10718764395",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64591d73_e3fc40a9",
+        "filename": "runtime/base/unix_file/fd_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-14T15:15:23Z",
+      "side": 1,
+      "message": "Preparation work for the bug, which wants to replace ScopedFd with FdFile. I wanted to do it without heap allocations, so a move constructor passing off ownership is the right way to go. (Doesn\u0027t work yet, though, gotta take a course in move semantics...)",
+      "parentUuid": "e46c2d17_56d9741d",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 32
+      },
+      "revId": "f7fa7b0ef71fefba0fb03f76bb6cb10718764395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
