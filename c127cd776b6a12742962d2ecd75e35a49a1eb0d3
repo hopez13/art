@@ -46,6 +46,29 @@
       "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "043dc1ed_68949798",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1784,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-14T03:29:46Z",
+      "side": 1,
+      "message": "Hm, spec says the result is undefined if the source operand has value 0. Doesn\u0027t that mean you\u0027ll have to have a check for that (in case it\u0027s not a constant but still zero), i.e., check zf after?\n\n(Guess this also requires some test coverage.)\n\nAlso, ever want to add optional support for lzcnt which would take care of this (including the correction below)?",
+      "range": {
+        "startLine": 1779,
+        "startChar": 4,
+        "endLine": 1784,
+        "endChar": 5
+      },
+      "revId": "c127cd776b6a12742962d2ecd75e35a49a1eb0d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
