@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c4ec89d0_cda049a8",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1158,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T14:45:51Z",
+      "side": 1,
+      "message": "This file is a part of Quick.",
+      "parentUuid": "e46c2d17_d6dd8400",
+      "range": {
+        "startLine": 1155,
+        "startChar": 1,
+        "endLine": 1158,
+        "endChar": 4
+      },
+      "revId": "7455fca52494e2368b558bd9cd878cf6f617bea7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e46c2d17_b6e608d4",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 22
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-14T11:45:22Z",
       "side": 1,
       "message": "It\u0027s hard to make a connection between this \u0027No\u0027 and the first comment in the  if. Either skip it, or add in parentheses No (to what question).",
+      "range": {
+        "startLine": 1005,
+        "startChar": 19,
+        "endLine": 1005,
+        "endChar": 21
+      },
+      "revId": "7455fca52494e2368b558bd9cd878cf6f617bea7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4f18da3_ce25e35f",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 1005,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T14:45:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e46c2d17_b6e608d4",
       "range": {
         "startLine": 1005,
         "startChar": 19,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e4f18da3_8ea63b43",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 4532,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T14:45:51Z",
+      "side": 1,
+      "message": "I think comparing pointers looks perfectly OK. It tells you exactly what it\u0027s doing. Calling Equals() doesn\u0027t explain any more than comparing pointers, it just hides the actual implementation but you still have to look it up to find out what it means.",
+      "parentUuid": "a466b534_d42bbc7f",
+      "range": {
+        "startLine": 4532,
+        "startChar": 10,
+        "endLine": 4532,
+        "endChar": 73
+      },
+      "revId": "7455fca52494e2368b558bd9cd878cf6f617bea7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0456a145_77a63099",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 22
@@ -82,6 +154,30 @@
       "writtenOn": "2015-08-14T11:45:22Z",
       "side": 1,
       "message": "when will this be different than method_index?\n\ni.e. when is in invoke_instruction-\u003eGetDexMethodIndex() !\u003d invoke_instruction-\u003eAsInvokeStaticOrDirect()-\u003eGetTargetMethod().dex_method_index?",
+      "range": {
+        "startLine": 184,
+        "startChar": 8,
+        "endLine": 184,
+        "endChar": 28
+      },
+      "revId": "7455fca52494e2368b558bd9cd878cf6f617bea7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0456a145_7778f067",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T14:45:51Z",
+      "side": 1,
+      "message": "Very often for sharpened calls, plus some odd cases with member access. It may as well be an index in a different dex file.",
+      "parentUuid": "0456a145_77a63099",
       "range": {
         "startLine": 184,
         "startChar": 8,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "040b0162_6f1b1179",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 2908,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T14:45:51Z",
+      "side": 1,
+      "message": "Because we haven\u0027t yet assigned the final address of the target method. That happens during linking.",
+      "parentUuid": "0456a145_17a1b47f",
+      "range": {
+        "startLine": 2908,
+        "startChar": 59,
+        "endLine": 2908,
+        "endChar": 69
+      },
+      "revId": "7455fca52494e2368b558bd9cd878cf6f617bea7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4401793c_31ca1049",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 22
@@ -128,6 +248,30 @@
       "writtenOn": "2015-08-14T11:45:22Z",
       "side": 1,
       "message": "This, and the builder implementation suggest that we can have any sort of combination for (MethodLoadKind,CodePtrLocation). E.g. (kDirectAddress, kCallPCRelative). Is this true?",
+      "range": {
+        "startLine": 2926,
+        "startChar": 13,
+        "endLine": 2926,
+        "endChar": 28
+      },
+      "revId": "7455fca52494e2368b558bd9cd878cf6f617bea7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0456a145_975e64f4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 2926,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T14:45:51Z",
+      "side": 1,
+      "message": "Theoretically yes, though in practice certain combinations don\u0027t really make sense; for example kDirectAddress + kCallDirectWithFixup.",
+      "parentUuid": "4401793c_31ca1049",
       "range": {
         "startLine": 2926,
         "startChar": 13,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "4401793c_11f8ac6f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 2955,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T14:45:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4ec89d0_cd47a971",
+      "range": {
+        "startLine": 2955,
+        "startChar": 40,
+        "endLine": 2955,
+        "endChar": 53
+      },
+      "revId": "7455fca52494e2368b558bd9cd878cf6f617bea7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4ec89d0_ed4a6579",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 22
@@ -174,6 +342,30 @@
       "writtenOn": "2015-08-14T11:45:22Z",
       "side": 1,
       "message": "de-dup in a helper",
+      "range": {
+        "startLine": 552,
+        "startChar": 0,
+        "endLine": 559,
+        "endChar": 5
+      },
+      "revId": "7455fca52494e2368b558bd9cd878cf6f617bea7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e46c2d17_d641040f",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T14:45:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4ec89d0_ed4a6579",
       "range": {
         "startLine": 552,
         "startChar": 0,
