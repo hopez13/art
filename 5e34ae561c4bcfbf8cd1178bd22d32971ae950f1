@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e46c2d17_76cab017",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-14T13:17:23Z",
+      "side": 1,
+      "message": "Sure.  But this is a test, which can also be used to assess the correctness of simulators (especially if there\u0027s a discrepancy between simulator- and hardware-based execution).  I think we should run the code compiled in this test on as many configurations as possible.",
+      "parentUuid": "e480adc6_d6bf6415",
+      "range": {
+        "startLine": 177,
+        "startChar": 2,
+        "endLine": 183,
+        "endChar": 3
+      },
+      "revId": "5e34ae561c4bcfbf8cd1178bd22d32971ae950f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4ec89d0_4db579e7",
         "filename": "runtime/simulator/code_simulator.cc",
         "patchSetId": 4
