@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "0456a145_97aca474",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T11:53:52Z",
+      "side": 1,
+      "message": "Because the definition we need is compiler specific. I wouldn\u0027t want to see a comment \"compiler needs it this way\" in the DexFile.",
+      "parentUuid": "c4672930_751bc878",
+      "range": {
+        "startLine": 965,
+        "startChar": 15,
+        "endLine": 965,
+        "endChar": 78
+      },
+      "revId": "1c5f859a77096b61a2d61c8729eea6146f1c1e13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64111d42_293c19ea",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 18
@@ -156,6 +180,30 @@
       "side": 1,
       "message": "Why do you think it will need some thought?\n\nIf we agree it\u0027s better, I\u0027d rather do this now than in a refactoring CL, which is often delayed because of more (valid) importants things to do.",
       "parentUuid": "240ba519_d8a68d44",
+      "range": {
+        "startLine": 956,
+        "startChar": 0,
+        "endLine": 1029,
+        "endChar": 3
+      },
+      "revId": "1c5f859a77096b61a2d61c8729eea6146f1c1e13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "040b0162_af82190b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-14T11:53:52Z",
+      "side": 1,
+      "message": "I don\u0027t want to store the magic values for direct_code and direct_method returned by the ComputeInvokeInfo(). I want to process them right here. It logically belongs together and postponing the processing while keeping the ComputeInvokeInfo() here just spreads the chaos around instead of keeping it localized.\n\nAnd you\u0027re not thinking far enough. For example, this information could be used by inliner; if we actually use kDexCachePcRelative, we can relax the same_dex_file check. So, if we push this to the CodeGenerator now, we may need to pull it back later.\n\nThis CL should be considered a first step, not the last one. I have the refactoring on my roadmap because there are a lot of things that the CompilerDriver should do better.",
+      "parentUuid": "c4672930_55204ca1",
       "range": {
         "startLine": 956,
         "startChar": 0,
