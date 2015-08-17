@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4486d92e_e9a0b5a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-17T15:57:05Z",
+      "side": 1,
+      "message": "Isn\u0027t that because initially it had no side effects?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 45
+      },
+      "revId": "110bcc8d105e5f9fcd9c6ddfd341835881aab9da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4486d92e_098fc939",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4613,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-17T15:57:05Z",
+      "side": 1,
+      "message": "Please add a top-level comment why we are taking an object and examples why it might be useful.",
+      "range": {
+        "startLine": 4613,
+        "startChar": 31,
+        "endLine": 4613,
+        "endChar": 37
+      },
+      "revId": "110bcc8d105e5f9fcd9c6ddfd341835881aab9da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
