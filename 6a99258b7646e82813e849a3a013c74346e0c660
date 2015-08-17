@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a4a8755c_35a6cf98",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-17T23:32:43Z",
+      "side": 1,
+      "message": "I think that would work too, but I think it could cause problems later with class unloading. How about just using the current approach for now?",
+      "parentUuid": "e4434d7f_cf2b2232",
+      "range": {
+        "startLine": 16,
+        "startChar": 23,
+        "endLine": 16,
+        "endChar": 61
+      },
+      "revId": "6a99258b7646e82813e849a3a013c74346e0c660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4a9e95f_2799c9ff",
         "filename": "runtime/gc/accounting/mod_union_table.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-17T23:12:05Z",
       "side": 1,
       "message": "Say why we can\u0027t add them to the reference cache (since we can\u0027t store a pointer into the hash set of the class table)?",
+      "range": {
+        "startLine": 364,
+        "startChar": 52,
+        "endLine": 365,
+        "endChar": 11
+      },
+      "revId": "6a99258b7646e82813e849a3a013c74346e0c660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64591d73_352f8790",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-17T23:32:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4a9e95f_2799c9ff",
       "range": {
         "startLine": 364,
         "startChar": 52,
