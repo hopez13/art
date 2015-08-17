@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "243ac5f6_da92c5da",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-17T17:39:42Z",
+      "side": 1,
+      "message": "Out of curiosity, shouldn\u0027t this be enough?\n\n ART_TARGET_CLANG_CFLAGS +\u003d -O1\n\nOr even the whole block could be replaced with:\n\n ART_TARGET_CLANG_CFLAGS_arm64 +\u003d -O1",
+      "range": {
+        "startLine": 327,
+        "startChar": 2,
+        "endLine": 330,
+        "endChar": 7
+      },
+      "revId": "78cf7f975c3de55cf67ec6d10b42199d84e20344",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
