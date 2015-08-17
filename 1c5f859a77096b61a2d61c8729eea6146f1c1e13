@@ -336,6 +336,30 @@
     },
     {
       "key": {
+        "uuid": "e4c8ad77_1608bcb6",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-17T17:49:24Z",
+      "side": 1,
+      "message": "I\u0027m not talking about checking \"if the outermost method has the method/string/class in its dex cache too\". I\u0027m talking about directly accessing the _inner_ method\u0027s dex cache, making such a check unnecessary.",
+      "parentUuid": "64b59dd9_9a986d4b",
+      "range": {
+        "startLine": 956,
+        "startChar": 0,
+        "endLine": 1029,
+        "endChar": 3
+      },
+      "revId": "1c5f859a77096b61a2d61c8729eea6146f1c1e13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64367de0_fbaf0367",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 18
