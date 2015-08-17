@@ -94,6 +94,30 @@
       "revId": "1130eb57aa09c9688d6cf838ed0cb1222fcd53b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04806112_6aabd75d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2472,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-17T16:47:56Z",
+      "side": 1,
+      "message": "Its not a real problem, its just easier to reason about it being correct with the CAS.",
+      "parentUuid": "64b59dd9_3aa12180",
+      "range": {
+        "startLine": 2472,
+        "startChar": 16,
+        "endLine": 2472,
+        "endChar": 33
+      },
+      "revId": "1130eb57aa09c9688d6cf838ed0cb1222fcd53b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
