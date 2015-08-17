@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4434d7f_cf2b2232",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-17T23:12:05Z",
+      "side": 1,
+      "message": "An alternative idea may be to add a class table as a whole to the reference cache. That way, we don\u0027t need to keep the card dirty. Did you think about that?",
+      "range": {
+        "startLine": 16,
+        "startChar": 23,
+        "endLine": 16,
+        "endChar": 61
+      },
+      "revId": "6a99258b7646e82813e849a3a013c74346e0c660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4a9e95f_2799c9ff",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-17T23:12:05Z",
+      "side": 1,
+      "message": "Say why we can\u0027t add them to the reference cache (since we can\u0027t store a pointer into the hash set of the class table)?",
+      "range": {
+        "startLine": 364,
+        "startChar": 52,
+        "endLine": 365,
+        "endChar": 11
+      },
+      "revId": "6a99258b7646e82813e849a3a013c74346e0c660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
