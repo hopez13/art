@@ -312,6 +312,30 @@
     },
     {
       "key": {
+        "uuid": "64b59dd9_9a986d4b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-17T17:20:35Z",
+      "side": 1,
+      "message": "Sure, but (I think) that\u0027s independent of the way you do the call. \n\nLet me know if I\u0027m missing something, but accessing a different dex cache can be decided at build time, where we check if the outermost method has the method/string/class in its dex cache too.\n\nIt\u0027s actually on my TODO list to do this, and started working on it last week, but realized it wasn\u0027t enough for inlining String.equals so it remains on my TODO.",
+      "parentUuid": "c4ec89d0_ad34dde3",
+      "range": {
+        "startLine": 956,
+        "startChar": 0,
+        "endLine": 1029,
+        "endChar": 3
+      },
+      "revId": "1c5f859a77096b61a2d61c8729eea6146f1c1e13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64367de0_fbaf0367",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 18
