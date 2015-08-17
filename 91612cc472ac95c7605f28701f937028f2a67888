@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "04b221f6_971e8495",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-17T10:20:39Z",
+      "side": 1,
+      "message": "This is in line with the ObjectSize() above. We can change both in a follow-up CL if this is confusing.",
+      "parentUuid": "04b861a5_d64aea2b",
+      "range": {
+        "startLine": 517,
+        "startChar": 16,
+        "endLine": 517,
+        "endChar": 31
+      },
+      "revId": "91612cc472ac95c7605f28701f937028f2a67888",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "243ac5f6_269ac2c5",
         "filename": "runtime/length_prefixed_array.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-14T17:22:44Z",
       "side": 1,
       "message": "I think that this RoundUp is not necessary since OffsetOfElement is already rounded.",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 10
+      },
+      "revId": "91612cc472ac95c7605f28701f937028f2a67888",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84bd31cc_b3f2b8d4",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-17T10:20:39Z",
+      "side": 1,
+      "message": "Actually, the second RoundUp() in OffsetOfElement is unnecessary. We should just DCHECK that element_size is aligned which makes that RoundUp() useless.\n\nDone.",
+      "parentUuid": "243ac5f6_269ac2c5",
       "range": {
         "startLine": 58,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c4c3a958_152b54b9",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-17T10:20:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c43e49ec_91d4acea",
+      "range": {
+        "startLine": 67,
+        "startChar": 14,
+        "endLine": 67,
+        "endChar": 20
+      },
+      "revId": "91612cc472ac95c7605f28701f937028f2a67888",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "243ac5f6_693add80",
         "filename": "runtime/length_prefixed_array.h",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2015-08-14T19:31:23Z",
       "side": 1,
       "message": "Add a comment about what we expect on the alignments here like part of the commit message?",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 19
+      },
+      "revId": "91612cc472ac95c7605f28701f937028f2a67888",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4486d92e_a9f23dd4",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-17T10:20:39Z",
+      "side": 1,
+      "message": "We do not expect anything beyond the necessary: the alignment being a power of 2 and element_size being a multiple of alignment.",
+      "parentUuid": "243ac5f6_693add80",
       "range": {
         "startLine": 76,
         "startChar": 2,
