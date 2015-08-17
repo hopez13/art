@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "84bd31cc_93bdbcb0",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 4532,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-17T17:20:35Z",
+      "side": 1,
+      "message": "I agree with Calin on the weird part though. A top level IsSameDexFile(const DexFile\u0026 dex_file1, const DexFile\u0026 dex_file2), only accessible to the compiler might help better understand the subtlety of the implementation.",
+      "parentUuid": "e4f18da3_8ea63b43",
+      "range": {
+        "startLine": 4532,
+        "startChar": 10,
+        "endLine": 4532,
+        "endChar": 73
+      },
+      "revId": "7455fca52494e2368b558bd9cd878cf6f617bea7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0456a145_77a63099",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 22
