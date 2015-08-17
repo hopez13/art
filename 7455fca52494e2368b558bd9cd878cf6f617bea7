@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "e4c8ad77_b618e801",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 4532,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-17T17:49:24Z",
+      "side": 1,
+      "message": "Any suggestion where to put that? I don\u0027t see any compilation unit or header that would be a good fit for this.",
+      "parentUuid": "84bd31cc_93bdbcb0",
+      "range": {
+        "startLine": 4532,
+        "startChar": 10,
+        "endLine": 4532,
+        "endChar": 73
+      },
+      "revId": "7455fca52494e2368b558bd9cd878cf6f617bea7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0456a145_77a63099",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 22
