@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4a9e95f_84367b6d",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-17T20:57:16Z",
+      "side": 1,
+      "message": "It shouldn\u0027t be strongly required, but can you mark this as volatile?",
+      "range": {
+        "startLine": 210,
+        "startChar": 2,
+        "endLine": 210,
+        "endChar": 6
+      },
+      "revId": "3e2ef46924f8ea364e1d6c9220c3118e483f3100",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
