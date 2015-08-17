@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4aeed64_1bcaef16",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-17T15:40:23Z",
+      "side": 1,
+      "message": "This should have been below 289 and for the target-only cflags, so to not interfere with the host build.",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 286,
+        "endChar": 5
+      },
+      "revId": "b47bad5e7f0a0a433f24d3742b22bea31d16e12b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
