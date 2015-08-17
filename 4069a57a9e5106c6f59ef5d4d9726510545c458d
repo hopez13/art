@@ -22,6 +22,30 @@
       "revId": "4069a57a9e5106c6f59ef5d4d9726510545c458d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4aeed64_6dda4698",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1043845
+      },
+      "writtenOn": "2015-08-17T20:18:22Z",
+      "side": 1,
+      "message": "Oh, this macro is target specific. I mistakenly thought host flags were being washed through this too.",
+      "parentUuid": "04806112_90ecba05",
+      "range": {
+        "startLine": 377,
+        "startChar": 19,
+        "endLine": 377,
+        "endChar": 37
+      },
+      "revId": "4069a57a9e5106c6f59ef5d4d9726510545c458d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
