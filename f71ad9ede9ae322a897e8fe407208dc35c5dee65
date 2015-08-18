@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "64591d73_ab5693d6",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-18T23:13:03Z",
+      "side": 0,
+      "message": "Made these private, only VisitReferences can call them now.",
+      "parentUuid": "84bd31cc_d3c9f4be",
+      "range": {
+        "startLine": 949,
+        "startChar": 0,
+        "endLine": 951,
+        "endChar": 5
+      },
+      "revId": "f71ad9ede9ae322a897e8fe407208dc35c5dee65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4486d92e_699e85e9",
         "filename": "runtime/mirror/object_array-inl.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-18T22:47:08Z",
       "side": 0,
       "message": "ditto. Are we guaranteed callers of this method have already visited the class? (I can see this is called by Object::VisitReferences, which it does).",
+      "range": {
+        "startLine": 275,
+        "startChar": 0,
+        "endLine": 275,
+        "endChar": 40
+      },
+      "revId": "f71ad9ede9ae322a897e8fe407208dc35c5dee65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64591d73_0b4b3f31",
+        "filename": "runtime/mirror/object_array-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-18T23:13:03Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "4486d92e_699e85e9",
       "range": {
         "startLine": 275,
         "startChar": 0,
