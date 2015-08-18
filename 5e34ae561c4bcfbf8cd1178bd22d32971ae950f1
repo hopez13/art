@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "c4880939_2d9acdc5",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1076443
+      },
+      "writtenOn": "2015-08-18T07:18:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e46c2d17_76cab017",
+      "range": {
+        "startLine": 177,
+        "startChar": 2,
+        "endLine": 183,
+        "endChar": 3
+      },
+      "revId": "5e34ae561c4bcfbf8cd1178bd22d32971ae950f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4ec89d0_4db579e7",
         "filename": "runtime/simulator/code_simulator.cc",
         "patchSetId": 4
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "c4880939_0d951197",
+        "filename": "runtime/simulator/code_simulator.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1076443
+      },
+      "writtenOn": "2015-08-18T07:18:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4ec89d0_4db579e7",
+      "range": {
+        "startLine": 26,
+        "startChar": 24,
+        "endLine": 26,
+        "endChar": 42
+      },
+      "revId": "5e34ae561c4bcfbf8cd1178bd22d32971ae950f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24080563_f02ec091",
         "filename": "runtime/simulator/code_simulator_arm64.cc",
         "patchSetId": 4
@@ -107,6 +155,30 @@
       "writtenOn": "2015-08-14T11:32:04Z",
       "side": 1,
       "message": "parens",
+      "range": {
+        "startLine": 33,
+        "startChar": 23,
+        "endLine": 33,
+        "endChar": 30
+      },
+      "revId": "5e34ae561c4bcfbf8cd1178bd22d32971ae950f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4880939_edc605ae",
+        "filename": "runtime/simulator/code_simulator_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1076443
+      },
+      "writtenOn": "2015-08-18T07:18:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24080563_f02ec091",
       "range": {
         "startLine": 33,
         "startChar": 23,
