@@ -234,6 +234,30 @@
       "revId": "19942328b14acd7cdc41c22a74a7845b5b964238",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04a781c0_cff69d51",
+        "filename": "compiler/Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-18T15:35:28Z",
+      "side": 1,
+      "message": "This should be quite simple. For arm/arm64, only the relative_patcher_arm_base should be shared. For x86/x86-64, it\u0027s the relative_patcher_x86_base and the Quick backend. For mips/mips64 it\u0027s only the Quick backend.\n\nThe question is whether the code is actually properly separated the way we think it is. Maybe we would hit some issues to clean up.",
+      "parentUuid": "e4aeed64_81950999",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 37
+      },
+      "revId": "19942328b14acd7cdc41c22a74a7845b5b964238",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
