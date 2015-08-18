@@ -1,0 +1,970 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4c3a958_355210b7",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "other_loop",
+      "range": {
+        "startLine": 25,
+        "startChar": 20,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4486d92e_491c6128",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "nit: early return?\nif (other_loop \u003d\u003d loop) return false;\n\nAlso, please add comments around the different cases.",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 25
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04b221f6_d7447c21",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "What\u0027s mu?",
+      "range": {
+        "startLine": 33,
+        "startChar": 47,
+        "endLine": 33,
+        "endChar": 49
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247d65ed_683a0381",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "nit: one per line",
+      "range": {
+        "startLine": 36,
+        "startChar": 31,
+        "endLine": 37,
+        "endChar": 51
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24a485b9_30c5c808",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "nit: one line or one statement per line",
+      "range": {
+        "startLine": 58,
+        "startChar": 7,
+        "endLine": 59,
+        "endChar": 46
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84bd31cc_f325105f",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 76,
+        "startChar": 6,
+        "endLine": 77,
+        "endChar": 44
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24a485b9_50ca4c17",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 84,
+        "startChar": 9,
+        "endLine": 85,
+        "endChar": 33
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04a781c0_afd079c2",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 91,
+        "startChar": 9,
+        "endLine": 92,
+        "endChar": 33
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04a781c0_cfddbdd9",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "Add a IsVisited helper? (to avoid the map operation dependency).",
+      "range": {
+        "startLine": 94,
+        "startChar": 10,
+        "endLine": 94,
+        "endChar": 56
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c3a958_754c8819",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "Why do you need to clear it?",
+      "range": {
+        "startLine": 101,
+        "startChar": 2,
+        "endLine": 101,
+        "endChar": 15
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247d65ed_882e5743",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "Add GetState(HInstruction) helper?",
+      "range": {
+        "startLine": 155,
+        "startChar": 10,
+        "endLine": 155,
+        "endChar": 24
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4c8ad77_b91b7ba4",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "GetDepth(HInstruction)?",
+      "range": {
+        "startLine": 158,
+        "startChar": 13,
+        "endLine": 158,
+        "endChar": 26
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4486d92e_6921255d",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "DCHECK",
+      "range": {
+        "startLine": 196,
+        "startChar": 2,
+        "endLine": 196,
+        "endChar": 7
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84bd31cc_335228b7",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "The comment looks off with the code. Why are you clearing the cycle?",
+      "range": {
+        "startLine": 218,
+        "startChar": 2,
+        "endLine": 220,
+        "endChar": 62
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c23555_147ef4d6",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "operation",
+      "range": {
+        "startLine": 222,
+        "startChar": 18,
+        "endLine": 222,
+        "endChar": 22
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247d65ed_e825135f",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "what is an internal link?",
+      "range": {
+        "startLine": 246,
+        "startChar": 16,
+        "endLine": 246,
+        "endChar": 33
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4c8ad77_19546f2a",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "Please add a helper for this",
+      "range": {
+        "startLine": 247,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 50
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247d65ed_08642798",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "Please add comments around the Transfer methods.",
+      "range": {
+        "startLine": 258,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 34
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24a485b9_10e9a477",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "nit: one per line",
+      "range": {
+        "startLine": 268,
+        "startChar": 39,
+        "endLine": 268,
+        "endChar": 70
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247d65ed_2869eb6e",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "nit: reverse the condition for an early return and avoid the indentation?",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 269,
+        "endChar": 37
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04a781c0_0fe98577",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "nit: one argument per line",
+      "range": {
+        "startLine": 274,
+        "startChar": 9,
+        "endLine": 274,
+        "endChar": 32
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c3a958_15b6f477",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "one per line",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 283,
+        "endChar": 27
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84bd31cc_b35d58c3",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 288,
+        "startChar": 10,
+        "endLine": 288,
+        "endChar": 17
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c3a958_35bbf05e",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "early return?",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 37
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4486d92e_693a0581",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "one per line",
+      "range": {
+        "startLine": 304,
+        "startChar": 6,
+        "endLine": 304,
+        "endChar": 24
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64b59dd9_baa61143",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "one per line",
+      "range": {
+        "startLine": 310,
+        "startChar": 0,
+        "endLine": 310,
+        "endChar": 24
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c3a958_55c06cc6",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "early return?",
+      "range": {
+        "startLine": 321,
+        "startChar": 0,
+        "endLine": 321,
+        "endChar": 20
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c23555_748d6884",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "one per line",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 24
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64b59dd9_dab3c57f",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "DCHECK",
+      "range": {
+        "startLine": 338,
+        "startChar": 2,
+        "endLine": 338,
+        "endChar": 7
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c23555_94712405",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "Add a helper?",
+      "range": {
+        "startLine": 339,
+        "startChar": 0,
+        "endLine": 340,
+        "endChar": 28
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04b221f6_f7da60de",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "helper?",
+      "range": {
+        "startLine": 343,
+        "startChar": 0,
+        "endLine": 344,
+        "endChar": 30
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4c8ad77_7963a30e",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "helper?",
+      "range": {
+        "startLine": 359,
+        "startChar": 1,
+        "endLine": 361,
+        "endChar": 34
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247d65ed_6873e35c",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "helper?",
+      "range": {
+        "startLine": 390,
+        "startChar": 0,
+        "endLine": 393,
+        "endChar": 3
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04a781c0_aff95942",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "is it correct to return true if both info1 and info2 are null?",
+      "range": {
+        "startLine": 414,
+        "startChar": 9,
+        "endLine": 414,
+        "endChar": 24
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04a781c0_efda81de",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "induction_class",
+      "range": {
+        "startLine": 110,
+        "startChar": 19,
+        "endLine": 110,
+        "endChar": 29
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64b59dd9_7ac559d5",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "operation?",
+      "range": {
+        "startLine": 111,
+        "startChar": 16,
+        "endLine": 111,
+        "endChar": 20
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24a485b9_30eea880",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "left?",
+      "range": {
+        "startLine": 112,
+        "startChar": 19,
+        "endLine": 112,
+        "endChar": 22
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84bd31cc_734ca019",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "right?",
+      "range": {
+        "startLine": 113,
+        "startChar": 19,
+        "endLine": 113,
+        "endChar": 22
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247d65ed_486e1f78",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "what\u0027s a fetch instruction?",
+      "range": {
+        "startLine": 114,
+        "startChar": 18,
+        "endLine": 114,
+        "endChar": 23
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04a781c0_8fd3b5ce",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "Please use GrowableArray instead.",
+      "range": {
+        "startLine": 151,
+        "startChar": 7,
+        "endLine": 151,
+        "endChar": 12
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c23555_54b6ac46",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 152,
+        "startChar": 7,
+        "endLine": 152,
+        "endChar": 13
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64b59dd9_5ac095c6",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T15:56:48Z",
+      "side": 1,
+      "message": "ArenaSafeMap (here and below)",
+      "range": {
+        "startLine": 153,
+        "startChar": 7,
+        "endLine": 153,
+        "endChar": 20
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
