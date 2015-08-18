@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "4486d92e_6984c5ea",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3899,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-18T10:44:16Z",
+      "side": 1,
+      "message": "Probably we should (also) eliminate this in the simplifier if we see it. Less to process...",
+      "range": {
+        "startLine": 3899,
+        "startChar": 6,
+        "endLine": 3899,
+        "endChar": 10
+      },
+      "revId": "c800931068fa0b05cb451f286dee95701b781fcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4486d92e_e9b6f5bf",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
