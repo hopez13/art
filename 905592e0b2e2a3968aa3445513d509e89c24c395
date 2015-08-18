@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4c3a958_959204da",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T16:21:05Z",
+      "side": 1,
+      "message": ":-( Adding a new structure IMO does not help. Could you do a first change that just moves out the ClinitCheck logic?",
+      "range": {
+        "startLine": 269,
+        "startChar": 9,
+        "endLine": 269,
+        "endChar": 19
+      },
+      "revId": "905592e0b2e2a3968aa3445513d509e89c24c395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
