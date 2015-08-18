@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "c4a9e95f_93547e2c",
+        "filename": "tools/ahat/src/AhatSnapshot.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-18T21:39:47Z",
+      "side": 1,
+      "message": "Changed the string to \"(class unknown)\"",
+      "parentUuid": "47b17b56_34bf1ea9",
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0706a3cf_97070457",
         "filename": "tools/ahat/src/BitmapHandler.java",
         "patchSetId": 4
@@ -119,6 +137,24 @@
     },
     {
       "key": {
+        "uuid": "c4a9e95f_7363020f",
+        "filename": "tools/ahat/src/BitmapHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-18T21:39:47Z",
+      "side": 1,
+      "message": "I put html tags around the message.",
+      "parentUuid": "67ae7ffb_9206dc91",
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2703a7c0_9859f564",
         "filename": "tools/ahat/src/DominatedList.java",
         "patchSetId": 4
@@ -154,6 +190,24 @@
     },
     {
       "key": {
+        "uuid": "a4fb1585_1dba74a4",
+        "filename": "tools/ahat/src/DominatedList.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-18T21:39:47Z",
+      "side": 1,
+      "message": "I made render a static method.",
+      "parentUuid": "47b17b56_d4ab325d",
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0706a3cf_771870a9",
         "filename": "tools/ahat/src/DominatedList.java",
         "patchSetId": 4
@@ -183,6 +237,24 @@
       "side": 1,
       "message": "I\u0027ll try this.",
       "parentUuid": "0706a3cf_771870a9",
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4a8755c_dfff559b",
+        "filename": "tools/ahat/src/DominatedList.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-18T21:39:47Z",
+      "side": 1,
+      "message": "I move the table configuration into a static inner class.",
+      "parentUuid": "a716b7fe_f48d988f",
       "revId": "18129bcd567e91370037f201b58016758a038d21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -236,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "64591d73_28d56960",
+        "filename": "tools/ahat/src/FieldReader.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-18T21:39:47Z",
+      "side": 1,
+      "message": "I reorganized the code and moved it to InstanceUtils. Now readField is getField and it takes an Instance instead of an Object. Is that better?",
+      "parentUuid": "c7172bfa_d838918a",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 5
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2703a7c0_58475d71",
         "filename": "tools/ahat/src/FieldReader.java",
         "patchSetId": 4
@@ -271,6 +367,30 @@
       "side": 1,
       "message": "Yes. Good catch. I\u0027ll fix this.",
       "parentUuid": "2703a7c0_58475d71",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 18
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04806112_b067f918",
+        "filename": "tools/ahat/src/FieldReader.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-18T21:39:47Z",
+      "side": 1,
+      "message": "Fixed in InstanceUtils.getField.",
+      "parentUuid": "275487e3_7070b0cb",
       "range": {
         "startLine": 48,
         "startChar": 8,
@@ -335,6 +455,24 @@
       "side": 1,
       "message": "Just the inner. I\u0027ll add a better comment in the code for this, because the code is non-trivial.",
       "parentUuid": "c7172bfa_9559c464",
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04b861a5_b9a4fd38",
+        "filename": "tools/ahat/src/HeapTable.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-18T21:39:47Z",
+      "side": 1,
+      "message": "I made a function hasNonZeroEntry to hopefully make this more clear.",
+      "parentUuid": "c7172bfa_78285d37",
       "revId": "18129bcd567e91370037f201b58016758a038d21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -458,6 +596,30 @@
     },
     {
       "key": {
+        "uuid": "c4a9e95f_b3abba8e",
+        "filename": "tools/ahat/src/ObjectsHandler.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-18T21:39:47Z",
+      "side": 1,
+      "message": "Now I default to using the root site if we can\u0027t find the requested site.",
+      "parentUuid": "075783ea_ef112190",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 5
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e71c2f21_363438e1",
         "filename": "tools/ahat/src/Query.java",
         "patchSetId": 4
@@ -505,6 +667,30 @@
     },
     {
       "key": {
+        "uuid": "04b861a5_39900dd1",
+        "filename": "tools/ahat/src/Query.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-18T21:39:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07bb033c_0f7005fc",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 3
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7172bfa_95fd447c",
         "filename": "tools/ahat/src/Site.java",
         "patchSetId": 4
@@ -540,6 +726,30 @@
       "side": 1,
       "message": "I want a unique identifier for a Site. I think the real fix is to identify a site using the id of a stack trace and a frame number from the hprof file.",
       "parentUuid": "c7172bfa_95fd447c",
+      "range": {
+        "startLine": 150,
+        "startChar": 4,
+        "endLine": 150,
+        "endChar": 37
+      },
+      "revId": "18129bcd567e91370037f201b58016758a038d21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4fb1585_9d5144e3",
+        "filename": "tools/ahat/src/Site.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-18T21:39:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27b8073d_16e93cf4",
       "range": {
         "startLine": 150,
         "startChar": 4,
