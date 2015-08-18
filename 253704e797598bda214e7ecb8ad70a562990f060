@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "04b221f6_179c3449",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T10:33:20Z",
+      "side": 1,
+      "message": "Can this really be null when writing the image?",
+      "range": {
+        "startLine": 606,
+        "startChar": 7,
+        "endLine": 606,
+        "endChar": 28
+      },
+      "revId": "253704e797598bda214e7ecb8ad70a562990f060",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c43e49ec_0c5b5fcd",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -89,6 +112,75 @@
         "startChar": 0,
         "endLine": 459,
         "endChar": 0
+      },
+      "revId": "253704e797598bda214e7ecb8ad70a562990f060",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04a781c0_afacf973",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2533,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T10:33:20Z",
+      "side": 1,
+      "message": "why no null check? (here and below)",
+      "range": {
+        "startLine": 2533,
+        "startChar": 8,
+        "endLine": 2533,
+        "endChar": 17
+      },
+      "revId": "253704e797598bda214e7ecb8ad70a562990f060",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04a781c0_cfb93db1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2559,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T10:33:20Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2559,
+        "startChar": 4,
+        "endLine": 2559,
+        "endChar": 13
+      },
+      "revId": "253704e797598bda214e7ecb8ad70a562990f060",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4486d92e_298acdf7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3394,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T10:33:20Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3394,
+        "startChar": 6,
+        "endLine": 3394,
+        "endChar": 12
       },
       "revId": "253704e797598bda214e7ecb8ad70a562990f060",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
