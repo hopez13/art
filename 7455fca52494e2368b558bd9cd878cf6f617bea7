@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "247d65ed_e87ef31e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 4532,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-18T15:39:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4c8ad77_b618e801",
+      "range": {
+        "startLine": 4532,
+        "startChar": 10,
+        "endLine": 4532,
+        "endChar": 73
+      },
+      "revId": "7455fca52494e2368b558bd9cd878cf6f617bea7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0456a145_77a63099",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 22
