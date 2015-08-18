@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "04a781c0_4f6e2d78",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-18T18:25:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4c3a958_55994cfe",
+      "range": {
+        "startLine": 800,
+        "startChar": 1,
+        "endLine": 800,
+        "endChar": 23
+      },
+      "revId": "936ef0ccc4049910febf1751160c6f1c5a4cc845",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4c8ad77_b94d3b95",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 27
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-18T16:15:18Z",
       "side": 1,
       "message": "Maybe keep it T for consistency with the other template method (or change the other method to take LabelType)?",
+      "range": {
+        "startLine": 364,
+        "startChar": 21,
+        "endLine": 364,
+        "endChar": 30
+      },
+      "revId": "936ef0ccc4049910febf1751160c6f1c5a4cc845",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247d65ed_48129fe6",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-18T18:25:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4c8ad77_b94d3b95",
       "range": {
         "startLine": 364,
         "startChar": 21,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e4c8ad77_b97ffb84",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 3067,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-18T18:25:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04b221f6_97fcc433",
+      "range": {
+        "startLine": 3066,
+        "startChar": 0,
+        "endLine": 3067,
+        "endChar": 29
+      },
+      "revId": "936ef0ccc4049910febf1751160c6f1c5a4cc845",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4486d92e_e97ef51e",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 27
@@ -82,6 +154,30 @@
       "writtenOn": "2015-08-18T16:15:18Z",
       "side": 1,
       "message": "Why do you need this?",
+      "range": {
+        "startLine": 501,
+        "startChar": 9,
+        "endLine": 501,
+        "endChar": 18
+      },
+      "revId": "936ef0ccc4049910febf1751160c6f1c5a4cc845",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24a485b9_b02b7832",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-18T18:25:47Z",
+      "side": 1,
+      "message": "Removed. (It just shows I don\u0027t really trust the compiler to do it for me.)",
+      "parentUuid": "4486d92e_e97ef51e",
       "range": {
         "startLine": 501,
         "startChar": 9,
