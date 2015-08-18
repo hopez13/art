@@ -360,6 +360,30 @@
     },
     {
       "key": {
+        "uuid": "04b221f6_37ee9880",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-18T15:39:39Z",
+      "side": 1,
+      "message": "Partially refactored in PS26. More to do in subsequent CL(s).",
+      "parentUuid": "e4c8ad77_1608bcb6",
+      "range": {
+        "startLine": 956,
+        "startChar": 0,
+        "endLine": 1029,
+        "endChar": 3
+      },
+      "revId": "1c5f859a77096b61a2d61c8729eea6146f1c1e13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64367de0_fbaf0367",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 18
