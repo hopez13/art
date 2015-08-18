@@ -22,6 +22,30 @@
       "revId": "905592e0b2e2a3968aa3445513d509e89c24c395",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247d65ed_c8b3ef7f",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-18T16:36:12Z",
+      "side": 1,
+      "message": "I don\u0027t see a big improvement of moving just the clinit logic out. The method still remains hard to follow (even with 100loc less). That was my first step. \n\nThe extra struct is just a convenience and I think it makes things better than unwrapping most of the arguments around, or force to inline the functions. I had a version where everything was explicitly passed around and it was too much.\n\nI was consider experimenting with making everything static in the cc but wanted to have an initial opinion on this. (as static requires threading the graph, block, dex file and compilation unit). \n\nDo you think that would make things better for you? Or what is that you dislike about having a (private) helper structure?",
+      "parentUuid": "c4c3a958_959204da",
+      "range": {
+        "startLine": 269,
+        "startChar": 9,
+        "endLine": 269,
+        "endChar": 19
+      },
+      "revId": "905592e0b2e2a3968aa3445513d509e89c24c395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
