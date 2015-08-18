@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "04806112_41fd1678",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-18T17:57:58Z",
+      "side": 1,
+      "message": "done.",
+      "parentUuid": "84bd31cc_539964fe",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 35
+      },
+      "revId": "19942328b14acd7cdc41c22a74a7845b5b964238",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04a781c0_ef8fe1ff",
         "filename": "build/Android.gtest.mk",
         "patchSetId": 7
@@ -191,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "04b861a5_1a75fc3d",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-18T17:57:58Z",
+      "side": 1,
+      "message": "Done. Now gtests are not disabled when running svelte (except for the few that mix multiple archs in the tests).",
+      "parentUuid": "24a485b9_30178808",
+      "range": {
+        "startLine": 571,
+        "startChar": 0,
+        "endLine": 571,
+        "endChar": 69
+      },
+      "revId": "19942328b14acd7cdc41c22a74a7845b5b964238",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4486d92e_a95ebdf3",
         "filename": "build/Android.gtest.mk",
         "patchSetId": 7
@@ -249,6 +297,30 @@
       "writtenOn": "2015-08-18T16:03:49Z",
       "side": 1,
       "message": "separate",
+      "range": {
+        "startLine": 124,
+        "startChar": 24,
+        "endLine": 124,
+        "endChar": 32
+      },
+      "revId": "19942328b14acd7cdc41c22a74a7845b5b964238",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64591d73_a6b08bf9",
+        "filename": "compiler/Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-18T17:57:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4c8ad77_793c83eb",
       "range": {
         "startLine": 124,
         "startChar": 24,
@@ -344,6 +416,30 @@
       "side": 1,
       "message": "I see. Maybe expand the comment by saying arm64 includes all arm files.",
       "parentUuid": "e4aeed64_81950999",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 37
+      },
+      "revId": "19942328b14acd7cdc41c22a74a7845b5b964238",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4fb1585_6c1790d5",
+        "filename": "compiler/Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-18T17:57:58Z",
+      "side": 1,
+      "message": "vmarko: You could be right. My investigation basically began and ended with seeing that there were places where both architectures used the same functions. I didn\u0027t want to explore all that when I didn\u0027t plan on allowing one to specify only the 64bit variant anyway.\n\nngeoffray: done.",
+      "parentUuid": "04a781c0_cff69d51",
       "range": {
         "startLine": 124,
         "startChar": 0,
