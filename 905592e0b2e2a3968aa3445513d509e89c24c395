@@ -46,6 +46,30 @@
       "revId": "905592e0b2e2a3968aa3445513d509e89c24c395",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247d65ed_8892d7d9",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-18T17:13:50Z",
+      "side": 1,
+      "message": "Well you\u0027re moving the clinit logic anyways, so maybe it\u0027s better to discuss about how we can clean up the code more once the clinit logic is out of the way?",
+      "parentUuid": "247d65ed_c8b3ef7f",
+      "range": {
+        "startLine": 269,
+        "startChar": 9,
+        "endLine": 269,
+        "endChar": 19
+      },
+      "revId": "905592e0b2e2a3968aa3445513d509e89c24c395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
