@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "247d65ed_a8a5db01",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-19T10:34:53Z",
+      "side": 1,
+      "message": "I know a weak global can be null, but it seems odd to have it null when writing an image that is supposed to write the dex caches.",
+      "parentUuid": "a4a8755c_ea47f170",
+      "range": {
+        "startLine": 606,
+        "startChar": 7,
+        "endLine": 606,
+        "endChar": 28
+      },
+      "revId": "253704e797598bda214e7ecb8ad70a562990f060",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c43e49ec_0c5b5fcd",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
