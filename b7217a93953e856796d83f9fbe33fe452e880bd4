@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4a9e95f_b92639bf",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-19T01:19:29Z",
+      "side": 1,
+      "message": "Might be expensive to call Thread::Current that often.",
+      "range": {
+        "startLine": 83,
+        "startChar": 19,
+        "endLine": 83,
+        "endChar": 36
+      },
+      "revId": "b7217a93953e856796d83f9fbe33fe452e880bd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
