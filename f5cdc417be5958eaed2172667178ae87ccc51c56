@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4486d92e_ec47e370",
+        "filename": "runtime/verifier/register_line.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-19T17:22:30Z",
+      "side": 1,
+      "message": "Maybe add a comment why you don\u0027t need to do the same for the locking?",
+      "range": {
+        "startLine": 347,
+        "startChar": 0,
+        "endLine": 347,
+        "endChar": 85
+      },
+      "revId": "f5cdc417be5958eaed2172667178ae87ccc51c56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
