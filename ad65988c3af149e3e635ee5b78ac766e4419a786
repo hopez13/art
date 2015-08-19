@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4486d92e_498f0187",
+        "filename": "compiler/Android.mk",
+        "patchSetId": 13
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-19T13:08:21Z",
+      "side": 1,
+      "message": "Maybe make this play nicely with how the Makefiles and code base was changed to not include things targets will not need?",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 45
+      },
+      "revId": "ad65988c3af149e3e635ee5b78ac766e4419a786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
