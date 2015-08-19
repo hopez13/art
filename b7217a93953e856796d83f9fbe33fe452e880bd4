@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e4434d7f_d39e25e7",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-19T19:11:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64b59dd9_7d11d38e",
+      "range": {
+        "startLine": 494,
+        "startChar": 2,
+        "endLine": 494,
+        "endChar": 9
+      },
+      "revId": "b7217a93953e856796d83f9fbe33fe452e880bd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4486d92e_69304570",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-19T10:11:50Z",
       "side": 1,
       "message": "DCHECK?",
+      "range": {
+        "startLine": 497,
+        "startChar": 4,
+        "endLine": 497,
+        "endChar": 9
+      },
+      "revId": "b7217a93953e856796d83f9fbe33fe452e880bd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4434d7f_339309e1",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-19T19:11:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4486d92e_69304570",
       "range": {
         "startLine": 497,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "64591d73_0f58647f",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-19T19:11:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04b221f6_97a92416",
+      "range": {
+        "startLine": 519,
+        "startChar": 43,
+        "endLine": 519,
+        "endChar": 49
+      },
+      "revId": "b7217a93953e856796d83f9fbe33fe452e880bd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "247d65ed_6894c398",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-08-19T10:11:50Z",
       "side": 1,
       "message": "Add a comment why you need a fence here?",
+      "range": {
+        "startLine": 535,
+        "startChar": 0,
+        "endLine": 535,
+        "endChar": 43
+      },
+      "revId": "b7217a93953e856796d83f9fbe33fe452e880bd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4434d7f_f3e40159",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-19T19:11:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "247d65ed_6894c398",
       "range": {
         "startLine": 535,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "04b861a5_28ad156f",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-19T19:11:43Z",
+      "side": 1,
+      "message": "This function is already in a debug-only code path.",
+      "parentUuid": "247d65ed_88a817d9",
+      "range": {
+        "startLine": 764,
+        "startChar": 2,
+        "endLine": 764,
+        "endChar": 3
+      },
+      "revId": "b7217a93953e856796d83f9fbe33fe452e880bd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4a9e95f_b92639bf",
         "filename": "runtime/read_barrier-inl.h",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2015-08-19T01:19:29Z",
       "side": 1,
       "message": "Might be expensive to call Thread::Current that often.",
+      "range": {
+        "startLine": 83,
+        "startChar": 19,
+        "endLine": 83,
+        "endChar": 36
+      },
+      "revId": "b7217a93953e856796d83f9fbe33fe452e880bd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4a8755c_2b42ebc4",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-19T19:11:43Z",
+      "side": 1,
+      "message": "Maybe so. It seems it\u0027s still better than calling IsDuringStartup() and having the startup issue.",
+      "parentUuid": "c4a9e95f_b92639bf",
       "range": {
         "startLine": 83,
         "startChar": 19,
