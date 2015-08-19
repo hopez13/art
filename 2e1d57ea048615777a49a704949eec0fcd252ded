@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4c23555_7773aa5c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-19T15:38:35Z",
+      "side": 1,
+      "message": "This comment looks off knowing that the info is also for TryBlocks.",
+      "range": {
+        "startLine": 559,
+        "startChar": 3,
+        "endLine": 559,
+        "endChar": 74
+      },
+      "revId": "2e1d57ea048615777a49a704949eec0fcd252ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04b221f6_b7570852",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1720,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-19T15:38:35Z",
+      "side": 1,
+      "message": "Every block that has a catch handler is a try block?",
+      "range": {
+        "startLine": 1720,
+        "startChar": 0,
+        "endLine": 1720,
+        "endChar": 84
+      },
+      "revId": "2e1d57ea048615777a49a704949eec0fcd252ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
