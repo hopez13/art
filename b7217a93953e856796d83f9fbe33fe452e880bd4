@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "64b59dd9_7d11d38e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-19T10:11:50Z",
+      "side": 1,
+      "message": "No need.",
+      "range": {
+        "startLine": 494,
+        "startChar": 2,
+        "endLine": 494,
+        "endChar": 9
+      },
+      "revId": "b7217a93953e856796d83f9fbe33fe452e880bd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4486d92e_69304570",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-19T10:11:50Z",
+      "side": 1,
+      "message": "DCHECK?",
+      "range": {
+        "startLine": 497,
+        "startChar": 4,
+        "endLine": 497,
+        "endChar": 9
+      },
+      "revId": "b7217a93953e856796d83f9fbe33fe452e880bd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04b221f6_97a92416",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-19T10:11:50Z",
+      "side": 1,
+      "message": "implies?",
+      "range": {
+        "startLine": 519,
+        "startChar": 43,
+        "endLine": 519,
+        "endChar": 49
+      },
+      "revId": "b7217a93953e856796d83f9fbe33fe452e880bd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247d65ed_6894c398",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-19T10:11:50Z",
+      "side": 1,
+      "message": "Add a comment why you need a fence here?",
+      "range": {
+        "startLine": 535,
+        "startChar": 0,
+        "endLine": 535,
+        "endChar": 43
+      },
+      "revId": "b7217a93953e856796d83f9fbe33fe452e880bd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247d65ed_88a817d9",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-19T10:11:50Z",
+      "side": 1,
+      "message": "if (kIsDebugBuild) ?",
+      "range": {
+        "startLine": 764,
+        "startChar": 2,
+        "endLine": 764,
+        "endChar": 3
+      },
+      "revId": "b7217a93953e856796d83f9fbe33fe452e880bd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4a9e95f_b92639bf",
         "filename": "runtime/read_barrier-inl.h",
         "patchSetId": 1
