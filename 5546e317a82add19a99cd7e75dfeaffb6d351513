@@ -281,6 +281,30 @@
       "revId": "5546e317a82add19a99cd7e75dfeaffb6d351513",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4486d92e_2cabbb90",
+        "filename": "test/450-checker-types/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T17:34:39Z",
+      "side": 1,
+      "message": "Yeah, I think I already complained about `main` not calling any method on the CL that introduced (or amended deeply) this file…",
+      "parentUuid": "a4c23555_b78f02b3",
+      "range": {
+        "startLine": 410,
+        "startChar": 13,
+        "endLine": 410,
+        "endChar": 45
+      },
+      "revId": "5546e317a82add19a99cd7e75dfeaffb6d351513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
