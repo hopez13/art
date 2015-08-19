@@ -213,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "84bd31cc_96e68ad4",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-19T17:32:18Z",
+      "side": 1,
+      "message": "I should actually change it to distinguish between non-natural loops and throw-catch loops and print the right message. But that\u0027s not a nit CL any more...",
+      "parentUuid": "4486d92e_8c674719",
+      "range": {
+        "startLine": 704,
+        "startChar": 0,
+        "endLine": 704,
+        "endChar": 101
+      },
+      "revId": "5546e317a82add19a99cd7e75dfeaffb6d351513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4c3a958_d87cb192",
         "filename": "test/450-checker-types/src/Main.java",
         "patchSetId": 5
@@ -224,6 +248,30 @@
       "writtenOn": "2015-08-19T16:29:47Z",
       "side": 1,
       "message": "Maybe call these methods from `main`?",
+      "range": {
+        "startLine": 410,
+        "startChar": 13,
+        "endLine": 410,
+        "endChar": 45
+      },
+      "revId": "5546e317a82add19a99cd7e75dfeaffb6d351513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c23555_b78f02b3",
+        "filename": "test/450-checker-types/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-19T17:32:18Z",
+      "side": 1,
+      "message": "Won\u0027t run (yet) and I\u0027ll have better tests for the actual thing. Plus `main` here doesn\u0027t run any other test.",
+      "parentUuid": "c4c3a958_d87cb192",
       "range": {
         "startLine": 410,
         "startChar": 13,
