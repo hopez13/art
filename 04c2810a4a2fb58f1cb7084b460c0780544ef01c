@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04a781c0_af8f99b2",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1382,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-19T10:34:53Z",
+      "side": 1,
+      "message": "Expand comment to include the dex_caches change?",
+      "range": {
+        "startLine": 1382,
+        "startChar": 0,
+        "endLine": 1382,
+        "endChar": 75
+      },
+      "revId": "04c2810a4a2fb58f1cb7084b460c0780544ef01c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24a485b9_109fe4e7",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-19T10:34:53Z",
+      "side": 1,
+      "message": "traverse -\u003e add to the list (see RegisterDexFileLocked)",
+      "range": {
+        "startLine": 701,
+        "startChar": 5,
+        "endLine": 701,
+        "endChar": 13
+      },
+      "revId": "04c2810a4a2fb58f1cb7084b460c0780544ef01c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84bd31cc_73666048",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-19T10:34:53Z",
+      "side": 1,
+      "message": "How can that be? Isn\u0027t it more \"if the dex cache was deallocated\" ?",
+      "range": {
+        "startLine": 434,
+        "startChar": 7,
+        "endLine": 434,
+        "endChar": 44
+      },
+      "revId": "04c2810a4a2fb58f1cb7084b460c0780544ef01c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c3a958_f5c6d8ad",
+        "filename": "runtime/runtime-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-19T10:34:53Z",
+      "side": 1,
+      "message": "Why this change? It doesn\u0027t look related.",
+      "range": {
+        "startLine": 34,
+        "startChar": 9,
+        "endLine": 34,
+        "endChar": 10
+      },
+      "revId": "04c2810a4a2fb58f1cb7084b460c0780544ef01c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
