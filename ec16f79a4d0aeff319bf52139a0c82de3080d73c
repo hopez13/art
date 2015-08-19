@@ -46,6 +46,30 @@
       "revId": "ec16f79a4d0aeff319bf52139a0c82de3080d73c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24a485b9_73111a8f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T16:59:46Z",
+      "side": 1,
+      "message": "Oh, I see.  The fact that GetTryEntry returns a `const HTryBoundary\u0026` confused me. :)",
+      "parentUuid": "04b221f6_1ad9b969",
+      "range": {
+        "startLine": 604,
+        "startChar": 2,
+        "endLine": 604,
+        "endChar": 21
+      },
+      "revId": "ec16f79a4d0aeff319bf52139a0c82de3080d73c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
