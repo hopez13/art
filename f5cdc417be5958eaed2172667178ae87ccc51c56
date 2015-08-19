@@ -22,6 +22,30 @@
       "revId": "f5cdc417be5958eaed2172667178ae87ccc51c56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4aeed64_978548eb",
+        "filename": "runtime/verifier/register_line.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-19T17:46:52Z",
+      "side": 1,
+      "message": "Oh, you do, but we simply don\u0027t handle that case at all. For that you\u0027d have to keep track of pre-existing register aliases. That was the other part in PS1 - add one simple case of alias tracking that doesn\u0027t add heavy overhead and is enough for practical purposes...",
+      "parentUuid": "4486d92e_ec47e370",
+      "range": {
+        "startLine": 347,
+        "startChar": 0,
+        "endLine": 347,
+        "endChar": 85
+      },
+      "revId": "f5cdc417be5958eaed2172667178ae87ccc51c56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
