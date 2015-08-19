@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4486d92e_cc15bf4a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3899,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-08-19T22:31:53Z",
+      "side": 1,
+      "message": "Yes, we should. I will take a look at adding this.",
+      "parentUuid": "4486d92e_6984c5ea",
+      "range": {
+        "startLine": 3899,
+        "startChar": 6,
+        "endLine": 3899,
+        "endChar": 10
+      },
+      "revId": "c800931068fa0b05cb451f286dee95701b781fcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4486d92e_e9b6f5bf",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-18T10:22:12Z",
       "side": 1,
       "message": "Could you put the same comment as the one in x86? It will make it as clear why we end up here.",
+      "range": {
+        "startLine": 3900,
+        "startChar": 23,
+        "endLine": 3900,
+        "endChar": 29
+      },
+      "revId": "c800931068fa0b05cb451f286dee95701b781fcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84bd31cc_b65e26f4",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3900,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-08-19T22:31:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4486d92e_e9b6f5bf",
       "range": {
         "startLine": 3900,
         "startChar": 23,
