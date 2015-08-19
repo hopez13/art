@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24a485b9_7094b098",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "in builder?",
+      "revId": "3e56b7b0b32731757251c85855e31ea5fb23f55d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c23555_374052ef",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2534,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Nit: break line after last comma (here and below):\n\n  return GetBlock()-\u003eGetGraph()-\u003eGetIntConstant(Compute(x-\u003eGetValue(), y-\u003eGetValue()),\n                                                GetDexPc());",
+      "range": {
+        "startLine": 2533,
+        "startChar": 10,
+        "endLine": 2534,
+        "endChar": 86
+      },
+      "revId": "3e56b7b0b32731757251c85855e31ea5fb23f55d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04b221f6_b76e2822",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2718,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Nit: one argument per line.",
+      "range": {
+        "startLine": 2717,
+        "startChar": 25,
+        "endLine": 2718,
+        "endChar": 69
+      },
+      "revId": "3e56b7b0b32731757251c85855e31ea5fb23f55d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04a781c0_ef78c1e4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 3273,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Nit: one argument per line (here and below).",
+      "range": {
+        "startLine": 3272,
+        "startChar": 7,
+        "endLine": 3273,
+        "endChar": 33
+      },
+      "revId": "3e56b7b0b32731757251c85855e31ea5fb23f55d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
