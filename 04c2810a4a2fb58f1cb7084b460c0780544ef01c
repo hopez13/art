@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e4aeed64_77076c27",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1382,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-19T17:45:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04a781c0_af8f99b2",
+      "range": {
+        "startLine": 1382,
+        "startChar": 0,
+        "endLine": 1382,
+        "endChar": 75
+      },
+      "revId": "04c2810a4a2fb58f1cb7084b460c0780544ef01c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24a485b9_109fe4e7",
         "filename": "runtime/class_linker.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-19T10:34:53Z",
       "side": 1,
       "message": "traverse -\u003e add to the list (see RegisterDexFileLocked)",
+      "range": {
+        "startLine": 701,
+        "startChar": 5,
+        "endLine": 701,
+        "endChar": 13
+      },
+      "revId": "04c2810a4a2fb58f1cb7084b460c0780544ef01c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "243ac5f6_312f8f90",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-19T17:45:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24a485b9_109fe4e7",
       "range": {
         "startLine": 701,
         "startChar": 5,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e4aeed64_b7cf2457",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-19T17:45:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84bd31cc_73666048",
+      "range": {
+        "startLine": 434,
+        "startChar": 7,
+        "endLine": 434,
+        "endChar": 44
+      },
+      "revId": "04c2810a4a2fb58f1cb7084b460c0780544ef01c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4c3a958_f5c6d8ad",
         "filename": "runtime/runtime-inl.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-08-19T10:34:53Z",
       "side": 1,
       "message": "Why this change? It doesn\u0027t look related.",
+      "range": {
+        "startLine": 34,
+        "startChar": 9,
+        "endLine": 34,
+        "endChar": 10
+      },
+      "revId": "04c2810a4a2fb58f1cb7084b460c0780544ef01c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "243ac5f6_91f2db8e",
+        "filename": "runtime/runtime-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-19T17:45:24Z",
+      "side": 1,
+      "message": "It is related since we need to decode weak globals during classlinker init.",
+      "parentUuid": "c4c3a958_f5c6d8ad",
       "range": {
         "startLine": 34,
         "startChar": 9,
