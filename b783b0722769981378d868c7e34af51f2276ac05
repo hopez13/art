@@ -1,0 +1,453 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4486d92e_ecca8390",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2179,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Please add an `explicit` qualifier, as this constructor can be called with a single argument.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84bd31cc_3694d649",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2181,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Likewise.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247d65ed_eb47cd70",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2210,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Likewise.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4c3a958_b81b75a4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2223,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Likewise.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4486d92e_2cde5b52",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2257,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Likewise.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04a781c0_efc601ae",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2315,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Likewise.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84bd31cc_56895230",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2334,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Likewise.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247d65ed_0ba6e1c9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2379,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Nit: one argument per line please.",
+      "range": {
+        "startLine": 2379,
+        "startChar": 19,
+        "endLine": 2379,
+        "endChar": 94
+      },
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247d65ed_4bb0d9f8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2745,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Keep `explicit`.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04a781c0_6f94d198",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2821,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Keep `explicit`.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c23555_d7f63e51",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2823,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4486d92e_cce69f23",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2862,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4c8ad77_9905dfcf",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2864,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4486d92e_2c073b5a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3384,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Add `explicit`.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24a485b9_d07b9cde",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3648,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Keep `explicit`.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04a781c0_8f71f504",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3722,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Nit: one argument per line.",
+      "range": {
+        "startLine": 3721,
+        "startChar": 7,
+        "endLine": 3722,
+        "endChar": 55
+      },
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c23555_b702a2c2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3800,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Add `explicit`.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4486d92e_6c11338f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4043,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Keep `explicit`.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247d65ed_8b82d10b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4100,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Keep `explicit`.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c23555_d70f1ee9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4267,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Add `explicit`.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64b59dd9_7dd9d31d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4399,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Add `explicit`.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c23555_173b5687",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4465,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Nit: one argument per line.",
+      "range": {
+        "startLine": 4464,
+        "startChar": 13,
+        "endLine": 4465,
+        "endChar": 63
+      },
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64b59dd9_9dbdc7b0",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4547,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Keep `explicit`.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247d65ed_cb7cc992",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4695,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Keep `explicit`.",
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64b59dd9_bdba8bb3",
+        "filename": "compiler/optimizing/nodes_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-19T15:00:58Z",
+      "side": 1,
+      "message": "Nit: put one argument per line, or on a single line (and break line after `HParameterValue(` (here and below).",
+      "range": {
+        "startLine": 38,
+        "startChar": 39,
+        "endLine": 39,
+        "endChar": 67
+      },
+      "revId": "b783b0722769981378d868c7e34af51f2276ac05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
