@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24a485b9_b057f851",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-19T15:21:59Z",
+      "side": 1,
+      "message": "Is this necessary for correctness?\nIf yes please explain. (doesn\u0027t sound right to me)",
+      "range": {
+        "startLine": 10,
+        "startChar": 25,
+        "endLine": 10,
+        "endChar": 57
+      },
+      "revId": "5546e317a82add19a99cd7e75dfeaffb6d351513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24a485b9_d0547c4f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-19T15:21:59Z",
+      "side": 1,
+      "message": "what does this mean?",
+      "range": {
+        "startLine": 31,
+        "startChar": 41,
+        "endLine": 31,
+        "endChar": 48
+      },
+      "revId": "5546e317a82add19a99cd7e75dfeaffb6d351513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64b59dd9_3df83b70",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-19T15:21:59Z",
+      "side": 1,
+      "message": "I\u0027m surprised we don\u0027t have a block iterator. Maybe we should add one (which only iterates through valid blocks offcourse)",
+      "range": {
+        "startLine": 347,
+        "startChar": 0,
+        "endLine": 347,
+        "endChar": 54
+      },
+      "revId": "5546e317a82add19a99cd7e75dfeaffb6d351513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4c23555_d728fe37",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-19T15:21:59Z",
+      "side": 1,
+      "message": "Will this be extended or it will remain basically a TypeReference within a dexfile? If so, we already have a MehodReference. Maybe keep the same naming style?",
+      "range": {
+        "startLine": 562,
+        "startChar": 6,
+        "endLine": 562,
+        "endChar": 29
+      },
+      "revId": "5546e317a82add19a99cd7e75dfeaffb6d351513",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
