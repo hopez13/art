@@ -22,6 +22,30 @@
       "revId": "ec16f79a4d0aeff319bf52139a0c82de3080d73c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04b221f6_1ad9b969",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-19T16:51:23Z",
+      "side": 1,
+      "message": "Because try_entry will be nullptr for catch blocks and catch_dex_file will be nullptr for try blocks. Ideally, it should be a union or I should subclass it",
+      "parentUuid": "64b59dd9_9d98674b",
+      "range": {
+        "startLine": 604,
+        "startChar": 2,
+        "endLine": 604,
+        "endChar": 21
+      },
+      "revId": "ec16f79a4d0aeff319bf52139a0c82de3080d73c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
