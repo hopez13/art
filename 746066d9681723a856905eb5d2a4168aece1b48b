@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4c8ad77_59ca6717",
+        "filename": "compiler/optimizing/ssa_phi_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-19T13:33:00Z",
+      "side": 1,
+      "message": "Maybe update the comment that order does not matter for the end result, and it is not clear which order converges quicker.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 34
+      },
+      "revId": "746066d9681723a856905eb5d2a4168aece1b48b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
