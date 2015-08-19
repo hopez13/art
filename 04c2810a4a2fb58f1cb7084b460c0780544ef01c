@@ -187,6 +187,30 @@
       "revId": "04c2810a4a2fb58f1cb7084b460c0780544ef01c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64b59dd9_1d57f7d8",
+        "filename": "runtime/runtime-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-19T17:55:43Z",
+      "side": 1,
+      "message": "I see. Could you please add that as a comment? And maybe expand it with \"and only once the class linker is done initializing that we set the sentinel\".",
+      "parentUuid": "243ac5f6_91f2db8e",
+      "range": {
+        "startLine": 34,
+        "startChar": 9,
+        "endLine": 34,
+        "endChar": 10
+      },
+      "revId": "04c2810a4a2fb58f1cb7084b460c0780544ef01c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
