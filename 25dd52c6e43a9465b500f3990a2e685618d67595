@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "44e3394a_61139665",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-20T13:32:13Z",
+      "side": 1,
+      "message": "It\u0027s odd that `ReadBarrierSlowPathX86::ReadBarrierSlowPathX86` and `CodeGeneratorX86::GenerateReadBarrier` have non matching signatures (the last two arguments are swapped):\n\n  ReadBarrierSlowPathX86::ReadBarrierSlowPathX86(HInstruction* instruction,\n                                                 Location out,\n                                                 Location ref,\n                                                 Location obj,\n                                                 Location index,\n                                                 uint32_t offset);\n\nvs\n\n  void CodeGeneratorX86::GenerateReadBarrier(HInstruction* instruction,\n                                             Location out,\n                                             Location ref,\n                                             Location obj,\n                                             uint32_t offset,\n                                             Location index);\n\nShouldn\u0027t the former match the latter (so that `index` can still have a default value in `CodeGeneratorX86::GenerateReadBarrier`)?",
+      "range": {
+        "startLine": 370,
+        "startChar": 25,
+        "endLine": 371,
+        "endChar": 40
+      },
+      "revId": "25dd52c6e43a9465b500f3990a2e685618d67595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a45875e6_a4d78233",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
@@ -18,6 +41,29 @@
         "startChar": 0,
         "endLine": 5297,
         "endChar": 1
+      },
+      "revId": "25dd52c6e43a9465b500f3990a2e685618d67595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "847a9131_2b483980",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1424,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-20T13:32:13Z",
+      "side": 1,
+      "message": "down_cast",
+      "range": {
+        "startLine": 1424,
+        "startChar": 28,
+        "endLine": 1424,
+        "endChar": 44
       },
       "revId": "25dd52c6e43a9465b500f3990a2e685618d67595",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
