@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e430ad80_6abe1fac",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-20T22:36:37Z",
+      "side": 1,
+      "message": "DCHECK that art_method !\u003d nullptr or as part of the condition below?",
+      "range": {
+        "startLine": 387,
+        "startChar": 16,
+        "endLine": 388,
+        "endChar": 86
+      },
+      "revId": "0be25ee4392ad7ce5882867d21fd0546f8076e60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
