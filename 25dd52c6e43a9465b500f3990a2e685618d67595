@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "84253145_f6353e62",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1689,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-20T18:08:45Z",
+      "side": 1,
+      "message": "Note: the reference (the class pointer) has already loaded at 1687 and passed into GenerateReadBarrier here. It\u0027s fine for now. But if we do a fast path, we need to do a \"is_gray\" load/check before the ref load (that is, defer the ref load likely into the GenerateReadBarrier).",
+      "range": {
+        "startLine": 1689,
+        "startChar": 50,
+        "endLine": 1689,
+        "endChar": 58
+      },
+      "revId": "25dd52c6e43a9465b500f3990a2e685618d67595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a45875e6_a4d78233",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
