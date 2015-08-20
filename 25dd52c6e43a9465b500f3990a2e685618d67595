@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a45875e6_a4d78233",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5297,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-20T09:42:09Z",
+      "side": 1,
+      "message": "So the problem is that the register allocator does not consider fixed register inputs to be \"live registers\" at the point of the call. We might need another CallKind to make it so.\n\nFor example, I think we do not currently support a fixed input that needs to survive a slow path.",
+      "range": {
+        "startLine": 5258,
+        "startChar": 0,
+        "endLine": 5297,
+        "endChar": 1
+      },
+      "revId": "25dd52c6e43a9465b500f3990a2e685618d67595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
