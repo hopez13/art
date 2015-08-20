@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64e03d3d_021baa79",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 5408,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-20T12:48:58Z",
+      "side": 1,
+      "message": "2 more spaces.",
+      "range": {
+        "startLine": 5408,
+        "startChar": 0,
+        "endLine": 5408,
+        "endChar": 6
+      },
+      "revId": "d4f238c70c6946cd410ebde36858e8c0a02b0b1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "845371c9_236f0aef",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-20T12:48:58Z",
+      "side": 1,
+      "message": "Could you move that out of this change then?",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 283,
+        "endChar": 22
+      },
+      "revId": "d4f238c70c6946cd410ebde36858e8c0a02b0b1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
