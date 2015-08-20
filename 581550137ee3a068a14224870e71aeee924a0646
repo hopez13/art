@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "845371c9_43c48688",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4542,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-20T09:45:51Z",
+      "side": 1,
+      "message": "I think it would have been much cleaner to use ?: or if here.\n\ncallee_method \u003d invoke-\u003eIsRecursive() ? ... : temp;",
+      "range": {
+        "startLine": 4542,
+        "startChar": 27,
+        "endLine": 4542,
+        "endChar": 31
+      },
+      "revId": "581550137ee3a068a14224870e71aeee924a0646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
