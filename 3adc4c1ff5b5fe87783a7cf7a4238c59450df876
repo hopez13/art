@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a45875e6_c4af1ecb",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-20T08:10:02Z",
+      "side": 1,
+      "message": "This is always zero. HLocal never emits code so might as well keep it kNoDexPc, IMHO.",
+      "range": {
+        "startLine": 145,
+        "startChar": 43,
+        "endLine": 145,
+        "endChar": 67
+      },
+      "revId": "3adc4c1ff5b5fe87783a7cf7a4238c59450df876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e45eedce_46c49288",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-20T08:10:02Z",
+      "side": 1,
+      "message": "This will also always be zero, right? So same as HLocal, no point.",
+      "range": {
+        "startLine": 166,
+        "startChar": 37,
+        "endLine": 166,
+        "endChar": 65
+      },
+      "revId": "3adc4c1ff5b5fe87783a7cf7a4238c59450df876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0468616f_87b92616",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-20T08:10:02Z",
+      "side": 1,
+      "message": "Always zero. Also, why is this inconsistent with line 166?",
+      "range": {
+        "startLine": 177,
+        "startChar": 44,
+        "endLine": 177,
+        "endChar": 68
+      },
+      "revId": "3adc4c1ff5b5fe87783a7cf7a4238c59450df876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c459e9e9_e5b4961f",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-20T08:10:02Z",
+      "side": 1,
+      "message": "You set dex_pc of HLocal to zero, so this will also always be zero.",
+      "range": {
+        "startLine": 182,
+        "startChar": 76,
+        "endLine": 182,
+        "endChar": 93
+      },
+      "revId": "3adc4c1ff5b5fe87783a7cf7a4238c59450df876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0468616f_47c48e88",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-20T08:10:02Z",
+      "side": 1,
+      "message": "So, always kNoDexPc. It doesn\u0027t make sense for HExit to have a dex_pc in the first place.",
+      "range": {
+        "startLine": 518,
+        "startChar": 49,
+        "endLine": 518,
+        "endChar": 76
+      },
+      "revId": "3adc4c1ff5b5fe87783a7cf7a4238c59450df876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e45eedce_06ce9aa6",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-20T08:10:02Z",
+      "side": 1,
+      "message": "So, zero because the SuspendCheck above is the last instruction",
+      "range": {
+        "startLine": 521,
+        "startChar": 50,
+        "endLine": 521,
+        "endChar": 78
+      },
+      "revId": "3adc4c1ff5b5fe87783a7cf7a4238c59450df876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "845371c9_c3af16cb",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1284,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-20T08:10:02Z",
+      "side": 1,
+      "message": "Move to own line, please. Here, below and possibly elsewhere.",
+      "range": {
+        "startLine": 1284,
+        "startChar": 76,
+        "endLine": 1284,
+        "endChar": 82
+      },
+      "revId": "3adc4c1ff5b5fe87783a7cf7a4238c59450df876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "847a9131_8bb92d16",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2696,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-20T08:10:02Z",
+      "side": 1,
+      "message": "How about you turn the dex_pc into a field of the HGraphBuilder class. It\u0027s a state machine anyway, so we might as well make it stateful and you wouldn\u0027t have to pass it everywhere.",
+      "range": {
+        "startLine": 2696,
+        "startChar": 32,
+        "endLine": 2696,
+        "endChar": 47
+      },
+      "revId": "3adc4c1ff5b5fe87783a7cf7a4238c59450df876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "446ed97b_89b93916",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-20T08:10:02Z",
+      "side": 1,
+      "message": "Does it make sense to add dex_pc to constants? It\u0027s confusing because the HConstant objects are cached, and because they don\u0027t emit any code.",
+      "range": {
+        "startLine": 316,
+        "startChar": 60,
+        "endLine": 316,
+        "endChar": 88
+      },
+      "revId": "3adc4c1ff5b5fe87783a7cf7a4238c59450df876",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
