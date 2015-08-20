@@ -22,6 +22,30 @@
       "revId": "35975015ac81327b405df1ae58b10792c25e8e01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64591d73_85df3385",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1074223
+      },
+      "writtenOn": "2015-08-20T00:56:19Z",
+      "side": 1,
+      "message": "I found that keeping the add instruction between the two branch instructions, as the ARM team suggested, actually improved benchmarking results. With the add 2 instructions higher, it took 98.7 ns to compare a short string, and with the add where it is now, it takes 91.6 ns. Done with the other suggestions, though. Thanks!",
+      "parentUuid": "24a485b9_9060347a",
+      "range": {
+        "startLine": 1001,
+        "startChar": 0,
+        "endLine": 1004,
+        "endChar": 18
+      },
+      "revId": "35975015ac81327b405df1ae58b10792c25e8e01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
