@@ -46,6 +46,30 @@
       "revId": "b34c35ee8fe1516118d1d172a5e05b263ccbd93d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0468616f_27a15aaa",
+        "filename": "tools/checker/file_format/checker/struct.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-20T13:03:02Z",
+      "side": 1,
+      "message": "I see.\n\nExtra nit: maybe introduce a \"body\" variable to make this more explicit?\n\n  rVariableBody \u003d rName + rVariableSeparator + rRegex\n  regexVariableDefinition \u003d rVariableStartSym + rVariableBody + rVariableEndSym\n\n?",
+      "parentUuid": "0468616f_479a4e7c",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 47
+      },
+      "revId": "b34c35ee8fe1516118d1d172a5e05b263ccbd93d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
