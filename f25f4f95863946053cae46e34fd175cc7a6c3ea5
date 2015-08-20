@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4434d7f_4cd5525f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-20T00:46:08Z",
+      "side": 0,
+      "message": "I assume we don\u0027t need this new roots thing for dex caches because they are JNI references now.",
+      "range": {
+        "startLine": 1316,
+        "startChar": 24,
+        "endLine": 1316,
+        "endChar": 46
+      },
+      "revId": "f25f4f95863946053cae46e34fd175cc7a6c3ea5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c471e91c_277e69d7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1704,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-20T00:46:08Z",
+      "side": 0,
+      "message": "Was this redundant or to be avoided for class unloading?",
+      "range": {
+        "startLine": 1704,
+        "startChar": 14,
+        "endLine": 1704,
+        "endChar": 29
+      },
+      "revId": "f25f4f95863946053cae46e34fd175cc7a6c3ea5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c471e91c_62de8f53",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5822,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-20T00:46:08Z",
+      "side": 0,
+      "message": "Redundant or to be avoided for class unloading?",
+      "range": {
+        "startLine": 5818,
+        "startChar": 0,
+        "endLine": 5822,
+        "endChar": 3
+      },
+      "revId": "f25f4f95863946053cae46e34fd175cc7a6c3ea5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
