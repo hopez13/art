@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e4750d3f_42e48219",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-08-20T23:18:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44e3394a_61139665",
+      "range": {
+        "startLine": 370,
+        "startChar": 25,
+        "endLine": 371,
+        "endChar": 40
+      },
+      "revId": "25dd52c6e43a9465b500f3990a2e685618d67595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84253145_f6353e62",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-20T18:08:45Z",
       "side": 1,
       "message": "Note: the reference (the class pointer) has already loaded at 1687 and passed into GenerateReadBarrier here. It\u0027s fine for now. But if we do a fast path, we need to do a \"is_gray\" load/check before the ref load (that is, defer the ref load likely into the GenerateReadBarrier).",
+      "range": {
+        "startLine": 1689,
+        "startChar": 50,
+        "endLine": 1689,
+        "endChar": 58
+      },
+      "revId": "25dd52c6e43a9465b500f3990a2e685618d67595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47f9520_f5720a8a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1689,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-08-20T23:18:32Z",
+      "side": 1,
+      "message": "Added a comment in GenerateReadBarrier().",
+      "parentUuid": "84253145_f6353e62",
       "range": {
         "startLine": 1689,
         "startChar": 50,
@@ -106,6 +154,30 @@
       "writtenOn": "2015-08-20T13:32:13Z",
       "side": 1,
       "message": "down_cast",
+      "range": {
+        "startLine": 1424,
+        "startChar": 28,
+        "endLine": 1424,
+        "endChar": 44
+      },
+      "revId": "25dd52c6e43a9465b500f3990a2e685618d67595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a42a3512_c855ffcc",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1424,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-08-20T23:18:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "847a9131_2b483980",
       "range": {
         "startLine": 1424,
         "startChar": 28,
