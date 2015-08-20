@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e45eedce_66650e0f",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-20T11:28:48Z",
+      "side": 1,
+      "message": "Not really easy to drop this function without making a mess in AnalyzeDexInstruction.\n\nI moved the invocation there though.",
+      "parentUuid": "0468616f_67f3d2db",
+      "range": {
+        "startLine": 763,
+        "startChar": 0,
+        "endLine": 785,
+        "endChar": 1
+      },
+      "revId": "03e4644831a015411dc5fb7277347f4dfa85f21b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0468616f_0700d639",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 4
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "64e03d3d_6216f67d",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-20T11:28:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e45eedce_e6581e5f",
+      "range": {
+        "startLine": 826,
+        "startChar": 5,
+        "endLine": 826,
+        "endChar": 52
+      },
+      "revId": "03e4644831a015411dc5fb7277347f4dfa85f21b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44e3394a_211cee9b",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 4
@@ -82,6 +130,30 @@
       "writtenOn": "2015-08-20T11:06:04Z",
       "side": 1,
       "message": "indentation is off.",
+      "range": {
+        "startLine": 829,
+        "startChar": 0,
+        "endLine": 829,
+        "endChar": 83
+      },
+      "revId": "03e4644831a015411dc5fb7277347f4dfa85f21b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44e3394a_c13c22f0",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-20T11:28:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44e3394a_211cee9b",
       "range": {
         "startLine": 829,
         "startChar": 0,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "845371c9_0300ce39",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 883,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-20T11:28:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a45875e6_8424c6e7",
+      "range": {
+        "startLine": 883,
+        "startChar": 5,
+        "endLine": 883,
+        "endChar": 36
+      },
+      "revId": "03e4644831a015411dc5fb7277347f4dfa85f21b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c459e9e9_e52fb6c1",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 4
@@ -128,6 +224,30 @@
       "writtenOn": "2015-08-20T11:06:04Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 1116,
+        "startChar": 4,
+        "endLine": 1116,
+        "endChar": 10
+      },
+      "revId": "03e4644831a015411dc5fb7277347f4dfa85f21b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24656596_885db74d",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-20T11:28:48Z",
+      "side": 1,
+      "message": "duh.. :)",
+      "parentUuid": "c459e9e9_e52fb6c1",
       "range": {
         "startLine": 1116,
         "startChar": 4,
