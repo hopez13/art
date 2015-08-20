@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "e430ad80_b9d7bb33",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5297,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-08-20T16:53:44Z",
+      "side": 1,
+      "message": "Yes. I discussed this issue with Mingyao, and tried several other approaches including modifying register allocator slightly, or adding a fake HIR instruction to record live registers, but they didn\u0027t work.",
+      "parentUuid": "a45875e6_a4d78233",
+      "range": {
+        "startLine": 5258,
+        "startChar": 0,
+        "endLine": 5297,
+        "endChar": 1
+      },
+      "revId": "25dd52c6e43a9465b500f3990a2e685618d67595",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "847a9131_2b483980",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
