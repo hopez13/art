@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0468616f_67f3d2db",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-20T11:06:04Z",
+      "side": 1,
+      "message": "Looking at this, we should probably remove this method and just give the argument to BuildInvoke.",
+      "range": {
+        "startLine": 763,
+        "startChar": 0,
+        "endLine": 785,
+        "endChar": 1
+      },
+      "revId": "03e4644831a015411dc5fb7277347f4dfa85f21b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0468616f_0700d639",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-20T11:06:04Z",
+      "side": 1,
+      "message": "one per line (coud you also document the booleans?)",
+      "range": {
+        "startLine": 811,
+        "startChar": 65,
+        "endLine": 811,
+        "endChar": 85
+      },
+      "revId": "03e4644831a015411dc5fb7277347f4dfa85f21b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e45eedce_e6581e5f",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-20T11:06:04Z",
+      "side": 1,
+      "message": "Special handling for string init.",
+      "range": {
+        "startLine": 826,
+        "startChar": 5,
+        "endLine": 826,
+        "endChar": 52
+      },
+      "revId": "03e4644831a015411dc5fb7277347f4dfa85f21b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44e3394a_211cee9b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-20T11:06:04Z",
+      "side": 1,
+      "message": "indentation is off.",
+      "range": {
+        "startLine": 829,
+        "startChar": 0,
+        "endLine": 829,
+        "endChar": 83
+      },
+      "revId": "03e4644831a015411dc5fb7277347f4dfa85f21b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a45875e6_8424c6e7",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 883,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-20T11:06:04Z",
+      "side": 1,
+      "message": "I\u0027d remove and DCHECK that the invoke type is kInterface above.",
+      "range": {
+        "startLine": 883,
+        "startChar": 5,
+        "endLine": 883,
+        "endChar": 36
+      },
+      "revId": "03e4644831a015411dc5fb7277347f4dfa85f21b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c459e9e9_e52fb6c1",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-20T11:06:04Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1116,
+        "startChar": 4,
+        "endLine": 1116,
+        "endChar": 10
+      },
+      "revId": "03e4644831a015411dc5fb7277347f4dfa85f21b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
