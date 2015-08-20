@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "a47f9520_0fcea9a6",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1140,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-08-20T18:26:20Z",
+      "side": 1,
+      "message": "I think we need it. I think you mean pop_eax \u003d\u003d true iff dest_reg !\u003d eax.\nAlthough it is the case currently, this is just a coincidence for the uses of this macro. For example, it\u0027s OK to call this macro and have pop_eax \u003d\u003d true and dest_reg \u003d\u003d eax, then it would just do \"SP \u003d SP + 4\" for the pop part.",
+      "parentUuid": "a4a8755c_0a45adcc",
+      "range": {
+        "startLine": 1140,
+        "startChar": 7,
+        "endLine": 1140,
+        "endChar": 14
+      },
+      "revId": "1aee900d5a0b3a8d78725a7551356bda0d8554e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64591d73_0efd0d2e",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 12
@@ -82,6 +106,30 @@
       "writtenOn": "2015-08-19T01:24:02Z",
       "side": 1,
       "message": "No padding/alignment necessary for x86?",
+      "range": {
+        "startLine": 1149,
+        "startChar": 0,
+        "endLine": 1149,
+        "endChar": 31
+      },
+      "revId": "1aee900d5a0b3a8d78725a7551356bda0d8554e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "248c8586_960b8c62",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1149,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-08-20T18:26:20Z",
+      "side": 1,
+      "message": "It\u0027s aligned. There are 7 pushes (including the ones below) before the call.",
+      "parentUuid": "64591d73_0efd0d2e",
       "range": {
         "startLine": 1149,
         "startChar": 0,
@@ -117,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "c42ba915_b8f1f58d",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1202,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-08-20T18:26:20Z",
+      "side": 1,
+      "message": "For this comment and the comment below:\nThe purpose of writing this code this way is because if we write it as:\n\n#if defined(USE_HEAP_POISONING) || defined(USE_READ_BARRIER)\n  PUSH eax\n  READ_BARRIER edx, MIRROR_OBJECT_CLASS_OFFSET, eax, true\n  cmpl %eax, %ebx\n  POP  eax\n#else\n  cmpl MIRROR_OBJECT_CLASS_OFFSET(%edx), %ebx\n#endif\n\nthe stack alignment would be off if USE_READ_BARRIER \u003d\u003d true (because of the \"PUSH eax\"). It also saves eax twice (one before READ_BARRIER and one inside READ_BARRIER), which is unnecessary.\n\nSo I ended up giving up the symmetry of push/pop eax.",
+      "parentUuid": "e4aeed64_141f1694",
+      "range": {
+        "startLine": 1202,
+        "startChar": 33,
+        "endLine": 1202,
+        "endChar": 100
+      },
+      "revId": "1aee900d5a0b3a8d78725a7551356bda0d8554e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4aeed64_9454662c",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 12
@@ -128,6 +200,30 @@
       "writtenOn": "2015-08-19T01:24:02Z",
       "side": 1,
       "message": "What\u0027s this mean? READ_BARRIER won\u0027t make a call if USE_READ_BARRIER is not defined. Why does the stack alignment matter?",
+      "range": {
+        "startLine": 1205,
+        "startChar": 4,
+        "endLine": 1205,
+        "endChar": 93
+      },
+      "revId": "1aee900d5a0b3a8d78725a7551356bda0d8554e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048f817d_7232b6f8",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1205,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-08-20T18:26:20Z",
+      "side": 1,
+      "message": "As above. I\u0027ll probably make a better comment.",
+      "parentUuid": "e4aeed64_9454662c",
       "range": {
         "startLine": 1205,
         "startChar": 4,
@@ -163,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "048f817d_322c2e98",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1232,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-08-20T18:26:20Z",
+      "side": 1,
+      "message": "OK. I\u0027ll add it.",
+      "parentUuid": "243ac5f6_f6c35d7f",
+      "range": {
+        "startLine": 1231,
+        "startChar": 0,
+        "endLine": 1232,
+        "endChar": 58
+      },
+      "revId": "1aee900d5a0b3a8d78725a7551356bda0d8554e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04806112_536c0727",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 12
@@ -174,6 +294,30 @@
       "writtenOn": "2015-08-19T01:24:02Z",
       "side": 1,
       "message": "Why is this necessary?",
+      "range": {
+        "startLine": 1748,
+        "startChar": 16,
+        "endLine": 1748,
+        "endChar": 43
+      },
+      "revId": "1aee900d5a0b3a8d78725a7551356bda0d8554e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47f9520_0f4b0980",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1748,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-08-20T18:26:20Z",
+      "side": 1,
+      "message": "X86 ABI requires parameters passed on the stack, not in registers.",
+      "parentUuid": "04806112_536c0727",
       "range": {
         "startLine": 1748,
         "startChar": 16,
@@ -279,6 +423,30 @@
     },
     {
       "key": {
+        "uuid": "048f817d_d29b6251",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1184,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-08-20T18:26:20Z",
+      "side": 1,
+      "message": "Yes, it aligned. Odd number of pushes before the call is aligned.",
+      "parentUuid": "04b861a5_5f9921fe",
+      "range": {
+        "startLine": 1184,
+        "startChar": 0,
+        "endLine": 1184,
+        "endChar": 31
+      },
+      "revId": "1aee900d5a0b3a8d78725a7551356bda0d8554e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04b861a5_bf405df0",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 12
@@ -302,6 +470,30 @@
     },
     {
       "key": {
+        "uuid": "e430ad80_b9933bb0",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1797,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-08-20T18:26:20Z",
+      "side": 1,
+      "message": "Because of the SETUP_FP_CALLEE_SAVE_FRAME. The x86_64 quick compiler could use float registers, but they are not callee saves in the ABI. See https://android-review.googlesource.com/#/c/100565/",
+      "parentUuid": "04b861a5_bf405df0",
+      "range": {
+        "startLine": 1797,
+        "startChar": 16,
+        "endLine": 1797,
+        "endChar": 43
+      },
+      "revId": "1aee900d5a0b3a8d78725a7551356bda0d8554e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4fb1585_18e1e2ba",
         "filename": "runtime/entrypoints/quick/quick_entrypoints.h",
         "patchSetId": 12
@@ -313,6 +505,30 @@
       "writtenOn": "2015-08-19T01:24:02Z",
       "side": 1,
       "message": "This is already mentioned in person, but we need to load the ref out of the field after checking the is_gray check. Depending on the context, having the ref as a parameter does not seem like the best interface as it could suggest the caller needs to load the ref before checking the is_gray bits, which is the wrong order of loads. Remove it (as it\u0027s not currently used)?",
+      "range": {
+        "startLine": 81,
+        "startChar": 62,
+        "endLine": 81,
+        "endChar": 65
+      },
+      "revId": "1aee900d5a0b3a8d78725a7551356bda0d8554e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4750d3f_b139fa8c",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-08-20T18:26:20Z",
+      "side": 1,
+      "message": "I\u0027m using it for the instrumentation in optimizing compiler in x86 now. Maybe remove it after the read barrier in optimizing compiler full working, as it helps debugging.",
+      "parentUuid": "a4fb1585_18e1e2ba",
       "range": {
         "startLine": 81,
         "startChar": 62,
@@ -359,6 +575,30 @@
       "writtenOn": "2015-08-19T01:24:02Z",
       "side": 1,
       "message": "Does this really need to be true (kMaybeDuringStartup)?",
+      "range": {
+        "startLine": 568,
+        "startChar": 64,
+        "endLine": 568,
+        "endChar": 68
+      },
+      "revId": "1aee900d5a0b3a8d78725a7551356bda0d8554e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47f9520_0fba29a5",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1073545
+      },
+      "writtenOn": "2015-08-20T18:26:20Z",
+      "side": 1,
+      "message": "I\u0027m not sure about this...",
+      "parentUuid": "a4fb1585_18ba82a4",
       "range": {
         "startLine": 568,
         "startChar": 64,
