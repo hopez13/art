@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "048f817d_58c0f194",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1387,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-20T23:50:19Z",
+      "side": 1,
+      "message": "Why this change?",
+      "range": {
+        "startLine": 1387,
+        "startChar": 4,
+        "endLine": 1387,
+        "endChar": 14
+      },
+      "revId": "7dbd3738bd970a285cd07a4b15ebc7a1a27b6e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048f817d_78a6150e",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-20T23:50:19Z",
+      "side": 1,
+      "message": "If you make it an\n\n else if (kIsDebugBuild)\n\nyou can move this in (and make it a CHECK).\n\n\nAlso, put a comment here what the whole branch is trying to check.",
+      "range": {
+        "startLine": 1036,
+        "startChar": 6,
+        "endLine": 1037,
+        "endChar": 43
+      },
+      "revId": "7dbd3738bd970a285cd07a4b15ebc7a1a27b6e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42ba915_e901dd45",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-20T23:50:19Z",
+      "side": 1,
+      "message": "Bad English.",
+      "range": {
+        "startLine": 1039,
+        "startChar": 77,
+        "endLine": 1039,
+        "endChar": 87
+      },
+      "revId": "7dbd3738bd970a285cd07a4b15ebc7a1a27b6e76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
