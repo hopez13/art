@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c471e91c_82caab14",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-20T01:17:36Z",
+      "side": 1,
+      "message": "This is a bit weird. Making the function const, just to then have to put a const_cast...",
+      "range": {
+        "startLine": 161,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 67
+      },
+      "revId": "48f5c697c64ec4e3af0a392a60d4faafb4270d6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c471e91c_c298234c",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-20T01:17:36Z",
+      "side": 1,
+      "message": "UNREACHABLE();",
+      "range": {
+        "startLine": 189,
+        "startChar": 10,
+        "endLine": 189,
+        "endChar": 16
+      },
+      "revId": "48f5c697c64ec4e3af0a392a60d4faafb4270d6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4aeed64_081ff593",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-20T01:17:36Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 207,
+        "startChar": 10,
+        "endLine": 207,
+        "endChar": 16
+      },
+      "revId": "48f5c697c64ec4e3af0a392a60d4faafb4270d6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "243ac5f6_55ce7ca7",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-20T01:17:36Z",
+      "side": 1,
+      "message": "New line please.",
+      "range": {
+        "startLine": 854,
+        "startChar": 24,
+        "endLine": 854,
+        "endChar": 37
+      },
+      "revId": "48f5c697c64ec4e3af0a392a60d4faafb4270d6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04806112_75a64b99",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-20T01:17:36Z",
+      "side": 1,
+      "message": "New line.",
+      "range": {
+        "startLine": 859,
+        "startChar": 11,
+        "endLine": 859,
+        "endChar": 20
+      },
+      "revId": "48f5c697c64ec4e3af0a392a60d4faafb4270d6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4a9e95f_08e7f1d2",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-20T01:17:36Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 860,
+        "startChar": 7,
+        "endLine": 860,
+        "endChar": 29
+      },
+      "revId": "48f5c697c64ec4e3af0a392a60d4faafb4270d6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4fb1585_e56ee775",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-20T01:17:36Z",
+      "side": 1,
+      "message": "New line.",
+      "range": {
+        "startLine": 969,
+        "startChar": 15,
+        "endLine": 969,
+        "endChar": 24
+      },
+      "revId": "48f5c697c64ec4e3af0a392a60d4faafb4270d6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4fb1585_c573eb5a",
+        "filename": "runtime/check_jni.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-20T01:17:36Z",
+      "side": 1,
+      "message": "Period.",
+      "revId": "48f5c697c64ec4e3af0a392a60d4faafb4270d6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
