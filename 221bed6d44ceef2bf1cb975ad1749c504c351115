@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c459e9e9_25db8ee5",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-08-21T09:42:34Z",
+      "side": 1,
+      "message": "No, I meant merging ClearDeoptimizationReturnValue and ClearDeoptimizationPendingException in one method since they need to be cleared at the same time.\n\nIn the end, it is the same question for SetDeoptimizationReturnValue and SetDeoptimizationPendingException. And I start thinking we should only use the DeoptimizationContextRecord to hold these values.",
+      "parentUuid": "e45eedce_e616de09",
+      "range": {
+        "startLine": 230,
+        "startChar": 5,
+        "endLine": 230,
+        "endChar": 29
+      },
+      "revId": "221bed6d44ceef2bf1cb975ad1749c504c351115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24656596_e83f936f",
         "filename": "runtime/thread.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-21T09:20:59Z",
       "side": 1,
       "message": "Why is the one in deoptimization_return_value_stack not good enough?",
+      "range": {
+        "startLine": 1278,
+        "startChar": 0,
+        "endLine": 1279,
+        "endChar": 59
+      },
+      "revId": "221bed6d44ceef2bf1cb975ad1749c504c351115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a45875e6_845046de",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-08-21T09:42:34Z",
+      "side": 1,
+      "message": "This one may be set before we push a DeoptimizationContextRecord in the deoptimization_return_value_stack.\n\nI think we should only have the DeoptimizationContextRecord stack.",
+      "parentUuid": "24656596_e83f936f",
       "range": {
         "startLine": 1278,
         "startChar": 0,
