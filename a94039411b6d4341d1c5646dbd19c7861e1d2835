@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a45875e6_64faea37",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 930,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2015-08-21T11:46:37Z",
+      "side": 1,
+      "message": "Do you think it is more efficient?\nI thought about more complex algorithm. Say check whether deallocation will help to make a pair. for example break of non-aligned pair not definitely helps us to create a pair. If we have ecx,edx pair we always can create edi,edi pair. So no need to break ecx,edx, isn\u0027t it?",
+      "range": {
+        "startLine": 930,
+        "startChar": 4,
+        "endLine": 930,
+        "endChar": 48
+      },
+      "revId": "a94039411b6d4341d1c5646dbd19c7861e1d2835",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
