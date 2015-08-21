@@ -22,6 +22,30 @@
       "revId": "a94039411b6d4341d1c5646dbd19c7861e1d2835",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "446ed97b_a972fd56",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 930,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-21T12:43:21Z",
+      "side": 1,
+      "message": "No it\u0027s not as efficient as trying to re-allocate the out register of the fuse compare. This change is fixing TrySplitNonPairOrUnalignedPairIntervalAt, which was obviously bogus.\n\nI don\u0027t think any of our instructions involving longs now would lead us to a \"Not enough registers\" situation. So your other change (passing first_register_use - 1 instead) could still be a worthwile optimization.",
+      "parentUuid": "a45875e6_64faea37",
+      "range": {
+        "startLine": 930,
+        "startChar": 4,
+        "endLine": 930,
+        "endChar": 48
+      },
+      "revId": "a94039411b6d4341d1c5646dbd19c7861e1d2835",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
