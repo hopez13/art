@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a45875e6_c4115e14",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-08-21T13:33:38Z",
+      "side": 1,
+      "message": "Done (in header)",
+      "parentUuid": "a72a3712_142eb493",
+      "range": {
+        "startLine": 692,
+        "startChar": 5,
+        "endLine": 692,
+        "endChar": 37
+      },
+      "revId": "62296533997cbe81c2db8d403573e5d3adc16bd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c72bab15_f5cf7856",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-10T11:52:24Z",
       "side": 1,
       "message": "Use emplace_back instead?",
+      "range": {
+        "startLine": 695,
+        "startChar": 14,
+        "endLine": 695,
+        "endChar": 23
+      },
+      "revId": "62296533997cbe81c2db8d403573e5d3adc16bd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24656596_88bff747",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-08-21T13:33:38Z",
+      "side": 1,
+      "message": "This actually is not std::vector, but our own class.  It does not have emplace_back.",
+      "parentUuid": "c72bab15_f5cf7856",
       "range": {
         "startLine": 695,
         "startChar": 14,

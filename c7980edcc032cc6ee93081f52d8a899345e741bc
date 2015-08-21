@@ -22,6 +22,30 @@
       "revId": "c7980edcc032cc6ee93081f52d8a899345e741bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24656596_c8b5ef6b",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-08-21T13:33:38Z",
+      "side": 0,
+      "message": "The DWARF map is build explicitly in RecordPcInfoDebug.\nThis method converted stack map to DWARF map which we no longer want.  It is better to have them separate so that the DWARF map can contain more information.",
+      "parentUuid": "47209b2d_19bb4bab",
+      "range": {
+        "startLine": 572,
+        "startChar": 5,
+        "endLine": 572,
+        "endChar": 34
+      },
+      "revId": "c7980edcc032cc6ee93081f52d8a899345e741bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
