@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e45eedce_e616de09",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-21T09:20:59Z",
+      "side": 1,
+      "message": "Return value and pending exception? You\u0027d like to have just one field and a bool whether it\u0027s a pending exception?",
+      "range": {
+        "startLine": 230,
+        "startChar": 5,
+        "endLine": 230,
+        "endChar": 29
+      },
+      "revId": "221bed6d44ceef2bf1cb975ad1749c504c351115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24656596_e83f936f",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-21T09:20:59Z",
+      "side": 1,
+      "message": "Why is the one in deoptimization_return_value_stack not good enough?",
+      "range": {
+        "startLine": 1278,
+        "startChar": 0,
+        "endLine": 1279,
+        "endChar": 59
+      },
+      "revId": "221bed6d44ceef2bf1cb975ad1749c504c351115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
