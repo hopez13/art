@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "847a9131_6b5e41bf",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-21T14:23:27Z",
+      "side": 1,
+      "message": "C++ style guide says opposite, which I did not know. So we should now do at the end of the line.",
+      "parentUuid": "24656596_0826a743",
+      "range": {
+        "startLine": 598,
+        "startChar": 36,
+        "endLine": 598,
+        "endChar": 38
+      },
+      "revId": "a94039411b6d4341d1c5646dbd19c7861e1d2835",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a45875e6_64faea37",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 1
