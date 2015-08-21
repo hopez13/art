@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4485f957_25caa6b3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5239,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-21T17:45:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "847a9131_cb5655db",
+      "range": {
+        "startLine": 5239,
+        "startChar": 12,
+        "endLine": 5239,
+        "endChar": 13
+      },
+      "revId": "b518e6ab7e3ce9d349bd8efb3b0b773018e76ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e45eedce_a620e65a",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-21T09:43:54Z",
       "side": 1,
       "message": "This looks odd. Why is that in the kClassFlafNoReferenceFields, when mirror::ClassLoader does have reference fields?",
+      "range": {
+        "startLine": 1032,
+        "startChar": 0,
+        "endLine": 1032,
+        "endChar": 80
+      },
+      "revId": "b518e6ab7e3ce9d349bd8efb3b0b773018e76ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e430ad80_2be109bb",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1032,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-21T17:45:53Z",
+      "side": 1,
+      "message": "Its double negative, kClassFlafNoReferenceFields \u003d\u003d 0 -\u003e there is reference fields.",
+      "parentUuid": "e45eedce_a620e65a",
       "range": {
         "startLine": 1032,
         "startChar": 0,
