@@ -1,0 +1,297 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "248c8586_0230ac6e",
+        "filename": "tools/ahat/src/AhatHandler.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-24T20:12:38Z",
+      "side": 1,
+      "message": "Could we not create the HtmlDoc(ps) earlier and use it to avoid some of these embeded String/Html fragments?",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 54,
+        "endChar": 52
+      },
+      "revId": "ac9550d91192128ae80168143cdd54bf4fb30e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a42a3512_6a2cd898",
+        "filename": "tools/ahat/src/AhatSnapshot.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-24T20:12:38Z",
+      "side": 1,
+      "message": "is it worth walking through the heaps if javaLangClass is null?   Should we consider extending the above conditional around this loop?",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 63,
+        "endChar": 30
+      },
+      "revId": "ac9550d91192128ae80168143cdd54bf4fb30e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4700952_794b7231",
+        "filename": "tools/ahat/src/AhatSnapshot.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-24T20:12:38Z",
+      "side": 1,
+      "message": "is this prepared to have javaLangClassId \u003d0 if javaLangClass is null above?",
+      "range": {
+        "startLine": 73,
+        "startChar": 30,
+        "endLine": 73,
+        "endChar": 45
+      },
+      "revId": "ac9550d91192128ae80168143cdd54bf4fb30e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485f957_1dab3691",
+        "filename": "tools/ahat/src/AhatSnapshot.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-24T20:12:38Z",
+      "side": 1,
+      "message": "consider initializing site to mRootSite.  Then you can avoid the ternary in the return below",
+      "range": {
+        "startLine": 130,
+        "startChar": 9,
+        "endLine": 130,
+        "endChar": 13
+      },
+      "revId": "ac9550d91192128ae80168143cdd54bf4fb30e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84253145_300df1c6",
+        "filename": "tools/ahat/src/AhatSnapshot.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-24T20:12:38Z",
+      "side": 1,
+      "message": "delete the todo and the commented return?",
+      "range": {
+        "startLine": 170,
+        "startChar": 4,
+        "endLine": 170,
+        "endChar": 58
+      },
+      "revId": "ac9550d91192128ae80168143cdd54bf4fb30e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42ba915_37108b08",
+        "filename": "tools/ahat/src/AhatSnapshot.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-24T20:12:38Z",
+      "side": 1,
+      "message": "is this TODO comment still valid?  Looks like we are doing what the TODO is describing...",
+      "range": {
+        "startLine": 177,
+        "startChar": 4,
+        "endLine": 177,
+        "endChar": 56
+      },
+      "revId": "ac9550d91192128ae80168143cdd54bf4fb30e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485f957_ddb4ceed",
+        "filename": "tools/ahat/src/AhatSnapshot.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-24T20:12:38Z",
+      "side": 1,
+      "message": "again delete this TODO?",
+      "range": {
+        "startLine": 184,
+        "startChar": 3,
+        "endLine": 184,
+        "endChar": 63
+      },
+      "revId": "ac9550d91192128ae80168143cdd54bf4fb30e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048f817d_71514b2e",
+        "filename": "tools/ahat/src/AhatSnapshot.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-24T20:12:38Z",
+      "side": 1,
+      "message": "initialize to mRootSite?",
+      "range": {
+        "startLine": 193,
+        "startChar": 16,
+        "endLine": 193,
+        "endChar": 20
+      },
+      "revId": "ac9550d91192128ae80168143cdd54bf4fb30e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a42a3512_aabbd0b8",
+        "filename": "tools/ahat/src/Align.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-24T20:12:38Z",
+      "side": 1,
+      "message": "maybe this enum should be in Table?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 2
+      },
+      "revId": "ac9550d91192128ae80168143cdd54bf4fb30e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "248c8586_a2ce80d6",
+        "filename": "tools/ahat/src/BitmapHandler.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-24T20:12:38Z",
+      "side": 1,
+      "message": "see note below",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 14
+      },
+      "revId": "ac9550d91192128ae80168143cdd54bf4fb30e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e430ad80_8cb070c8",
+        "filename": "tools/ahat/src/BitmapHandler.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-24T20:12:38Z",
+      "side": 1,
+      "message": "do we have an obligation to set an error response? or can we just return?",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 15
+      },
+      "revId": "ac9550d91192128ae80168143cdd54bf4fb30e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e430ad80_4cba58a6",
+        "filename": "tools/ahat/src/BitmapHandler.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-24T20:12:38Z",
+      "side": 1,
+      "message": "HtmlDoc?",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 15
+      },
+      "revId": "ac9550d91192128ae80168143cdd54bf4fb30e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4700952_f911a213",
+        "filename": "tools/ahat/src/HtmlDoc.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-24T20:12:38Z",
+      "side": 1,
+      "message": "@Override? for some of these methods",
+      "revId": "ac9550d91192128ae80168143cdd54bf4fb30e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
