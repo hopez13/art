@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c42ba915_148a2df8",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4c3a958_355210b7",
+      "range": {
+        "startLine": 25,
+        "startChar": 20,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4486d92e_491c6128",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-18T15:56:48Z",
       "side": 1,
       "message": "nit: early return?\nif (other_loop \u003d\u003d loop) return false;\n\nAlso, please add comments around the different cases.",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 25
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42ba915_f48451ee",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Added comment, but early return seems a bit overkill over such a very short function.",
+      "parentUuid": "4486d92e_491c6128",
       "range": {
         "startLine": 26,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e4750d3f_495b42cd",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Special entry phi node (is used in the paper). Since you are right this has no meaning in our code base, replaced the comments and method name.",
+      "parentUuid": "04b221f6_d7447c21",
+      "range": {
+        "startLine": 33,
+        "startChar": 47,
+        "endLine": 33,
+        "endChar": 49
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "247d65ed_683a0381",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 9
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "048f817d_6ebe4aac",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "247d65ed_683a0381",
+      "range": {
+        "startLine": 36,
+        "startChar": 31,
+        "endLine": 37,
+        "endChar": 51
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24a485b9_30c5c808",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 9
@@ -105,6 +201,30 @@
       "writtenOn": "2015-08-18T15:56:48Z",
       "side": 1,
       "message": "nit: one line or one statement per line",
+      "range": {
+        "startLine": 58,
+        "startChar": 7,
+        "endLine": 59,
+        "endChar": 46
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a42a3512_4fcecea7",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24a485b9_30c5c808",
       "range": {
         "startLine": 58,
         "startChar": 7,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "c4700952_567f651b",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24a485b9_50ca4c17",
+      "range": {
+        "startLine": 84,
+        "startChar": 9,
+        "endLine": 85,
+        "endChar": 33
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04a781c0_afd079c2",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 9
@@ -174,6 +318,30 @@
       "writtenOn": "2015-08-18T15:56:48Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 91,
+        "startChar": 9,
+        "endLine": 92,
+        "endChar": 33
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4700952_f64c511d",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04a781c0_afd079c2",
       "range": {
         "startLine": 91,
         "startChar": 9,
@@ -209,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "048f817d_6ee72ad2",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "That would require all sorts of setters and getters.\n\n- later edit -\nAh I see you suggested that below too. I could be convinced if you insists, but since this is all in the cc file, I am not sure it matters much?",
+      "parentUuid": "04a781c0_cfddbdd9",
+      "range": {
+        "startLine": 94,
+        "startChar": 10,
+        "endLine": 94,
+        "endChar": 56
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4c3a958_754c8819",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 9
@@ -220,6 +412,30 @@
       "writtenOn": "2015-08-18T15:56:48Z",
       "side": 1,
       "message": "Why do you need to clear it?",
+      "range": {
+        "startLine": 101,
+        "startChar": 2,
+        "endLine": 101,
+        "endChar": 15
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47f9520_ec56c0da",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Just clearing what is no longer needed.\nNote that in a later CL, I want to use a temporary arena, and only copy useful information into a longer lived arena.",
+      "parentUuid": "c4c3a958_754c8819",
       "range": {
         "startLine": 101,
         "startChar": 2,
@@ -255,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "c4700952_d64b5500",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "see above",
+      "parentUuid": "247d65ed_882e5743",
+      "range": {
+        "startLine": 155,
+        "startChar": 10,
+        "endLine": 155,
+        "endChar": 24
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4c8ad77_b91b7ba4",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 9
@@ -266,6 +506,30 @@
       "writtenOn": "2015-08-18T15:56:48Z",
       "side": 1,
       "message": "GetDepth(HInstruction)?",
+      "range": {
+        "startLine": 158,
+        "startChar": 13,
+        "endLine": 158,
+        "endChar": 26
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485f957_da55b4cc",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "see above",
+      "parentUuid": "e4c8ad77_b91b7ba4",
       "range": {
         "startLine": 158,
         "startChar": 13,
@@ -301,6 +565,30 @@
     },
     {
       "key": {
+        "uuid": "048f817d_2ee122bb",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "It is a very cheap test, and if it is not true, the access below to scc_ may be invalid. I would rather have the informative CHECK crash, than some weird behavior?",
+      "parentUuid": "4486d92e_6921255d",
+      "range": {
+        "startLine": 196,
+        "startChar": 2,
+        "endLine": 196,
+        "endChar": 7
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84bd31cc_335228b7",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 9
@@ -312,6 +600,30 @@
       "writtenOn": "2015-08-18T15:56:48Z",
       "side": 1,
       "message": "The comment looks off with the code. Why are you clearing the cycle?",
+      "range": {
+        "startLine": 218,
+        "startChar": 2,
+        "endLine": 220,
+        "endChar": 62
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47f9520_0cc54c07",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Ah, the cycle is in scc_. This cycle_ builds information on the cycle. Added this to comment.",
+      "parentUuid": "84bd31cc_335228b7",
       "range": {
         "startLine": 218,
         "startChar": 2,
@@ -347,6 +659,30 @@
     },
     {
       "key": {
+        "uuid": "048f817d_aea5128c",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4c23555_147ef4d6",
+      "range": {
+        "startLine": 222,
+        "startChar": 18,
+        "endLine": 222,
+        "endChar": 22
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "247d65ed_e825135f",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 9
@@ -358,6 +694,30 @@
       "writtenOn": "2015-08-18T15:56:48Z",
       "side": 1,
       "message": "what is an internal link?",
+      "range": {
+        "startLine": 246,
+        "startChar": 16,
+        "endLine": 246,
+        "endChar": 33
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84253145_d5ba6f27",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "internal: within loop\nexternal: from outside loop",
+      "parentUuid": "247d65ed_e825135f",
       "range": {
         "startLine": 246,
         "startChar": 16,
@@ -393,6 +753,30 @@
     },
     {
       "key": {
+        "uuid": "a47f9520_cce744a1",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "That seems a lot of code for this one time thing?",
+      "parentUuid": "e4c8ad77_19546f2a",
+      "range": {
+        "startLine": 247,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 50
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "247d65ed_08642798",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 9
@@ -404,6 +788,30 @@
       "writtenOn": "2015-08-18T15:56:48Z",
       "side": 1,
       "message": "Please add comments around the Transfer methods.",
+      "range": {
+        "startLine": 258,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 34
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4750d3f_0908dab6",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "247d65ed_08642798",
       "range": {
         "startLine": 258,
         "startChar": 0,
@@ -439,6 +847,30 @@
     },
     {
       "key": {
+        "uuid": "a47f9520_2c104808",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24a485b9_10e9a477",
+      "range": {
+        "startLine": 268,
+        "startChar": 39,
+        "endLine": 268,
+        "endChar": 70
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "247d65ed_2869eb6e",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 9
@@ -462,6 +894,30 @@
     },
     {
       "key": {
+        "uuid": "c42ba915_b4349995",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "I thought about that (since the indentation is a bit of a pain), but than we would need one extra return nullptr for cases not handled. So I liked that this code was a bit more compact, leaving the single return nullptr at the end for all unhandled cases... What do you think?",
+      "parentUuid": "247d65ed_2869eb6e",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 269,
+        "endChar": 37
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04a781c0_0fe98577",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 9
@@ -473,6 +929,30 @@
       "writtenOn": "2015-08-18T15:56:48Z",
       "side": 1,
       "message": "nit: one argument per line",
+      "range": {
+        "startLine": 274,
+        "startChar": 9,
+        "endLine": 274,
+        "endChar": 32
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42ba915_742fe140",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04a781c0_0fe98577",
       "range": {
         "startLine": 274,
         "startChar": 9,
@@ -531,6 +1011,30 @@
     },
     {
       "key": {
+        "uuid": "248c8586_dcce0a29",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84bd31cc_b35d58c3",
+      "range": {
+        "startLine": 288,
+        "startChar": 10,
+        "endLine": 288,
+        "endChar": 17
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4c3a958_35bbf05e",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 9
@@ -542,6 +1046,30 @@
       "writtenOn": "2015-08-18T15:56:48Z",
       "side": 1,
       "message": "early return?",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 37
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048f817d_ce55f6cc",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "See above?",
+      "parentUuid": "c4c3a958_35bbf05e",
       "range": {
         "startLine": 299,
         "startChar": 0,
@@ -577,6 +1105,30 @@
     },
     {
       "key": {
+        "uuid": "048f817d_6e4baa31",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4486d92e_693a0581",
+      "range": {
+        "startLine": 304,
+        "startChar": 6,
+        "endLine": 304,
+        "endChar": 24
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64b59dd9_baa61143",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 9
@@ -588,6 +1140,30 @@
       "writtenOn": "2015-08-18T15:56:48Z",
       "side": 1,
       "message": "one per line",
+      "range": {
+        "startLine": 310,
+        "startChar": 0,
+        "endLine": 310,
+        "endChar": 24
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048f817d_8e484e34",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64b59dd9_baa61143",
       "range": {
         "startLine": 310,
         "startChar": 0,
@@ -623,6 +1199,30 @@
     },
     {
       "key": {
+        "uuid": "248c8586_9cd162c8",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Same argument, although of course subjective :-)",
+      "parentUuid": "c4c3a958_55c06cc6",
+      "range": {
+        "startLine": 321,
+        "startChar": 0,
+        "endLine": 321,
+        "endChar": 20
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4c23555_748d6884",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 9
@@ -634,6 +1234,30 @@
       "writtenOn": "2015-08-18T15:56:48Z",
       "side": 1,
       "message": "one per line",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 24
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485f957_5af46447",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4c23555_748d6884",
       "range": {
         "startLine": 326,
         "startChar": 0,
@@ -669,6 +1293,30 @@
     },
     {
       "key": {
+        "uuid": "84253145_f57d2bda",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "same argument on follow-up access",
+      "parentUuid": "64b59dd9_dab3c57f",
+      "range": {
+        "startLine": 338,
+        "startChar": 2,
+        "endLine": 338,
+        "endChar": 7
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4c23555_94712405",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 9
@@ -680,6 +1328,30 @@
       "writtenOn": "2015-08-18T15:56:48Z",
       "side": 1,
       "message": "Add a helper?",
+      "range": {
+        "startLine": 339,
+        "startChar": 0,
+        "endLine": 340,
+        "endChar": 28
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e430ad80_51e193b9",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "I see you like abstractions :-) \nI have a slight preference on keeping such short stl idioms inline, but if you insis I will rewrite.",
+      "parentUuid": "a4c23555_94712405",
       "range": {
         "startLine": 339,
         "startChar": 0,
@@ -715,6 +1387,30 @@
     },
     {
       "key": {
+        "uuid": "4485f957_da20545c",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "04b221f6_f7da60de",
+      "range": {
+        "startLine": 343,
+        "startChar": 0,
+        "endLine": 344,
+        "endChar": 30
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4c8ad77_7963a30e",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 9
@@ -726,6 +1422,30 @@
       "writtenOn": "2015-08-18T15:56:48Z",
       "side": 1,
       "message": "helper?",
+      "range": {
+        "startLine": 359,
+        "startChar": 1,
+        "endLine": 361,
+        "endChar": 34
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048f817d_0ec53e07",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "e4c8ad77_7963a30e",
       "range": {
         "startLine": 359,
         "startChar": 1,
@@ -784,6 +1504,30 @@
     },
     {
       "key": {
+        "uuid": "e4750d3f_c98e528a",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Yes, that is on purpose, but since you asked I added a comment on that.",
+      "parentUuid": "04a781c0_aff95942",
+      "range": {
+        "startLine": 414,
+        "startChar": 9,
+        "endLine": 414,
+        "endChar": 24
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04a781c0_efda81de",
         "filename": "compiler/optimizing/induction_var_analysis.h",
         "patchSetId": 9
@@ -795,6 +1539,30 @@
       "writtenOn": "2015-08-18T15:56:48Z",
       "side": 1,
       "message": "induction_class",
+      "range": {
+        "startLine": 110,
+        "startChar": 19,
+        "endLine": 110,
+        "endChar": 29
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485f957_4069d897",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04a781c0_efda81de",
       "range": {
         "startLine": 110,
         "startChar": 19,
@@ -830,6 +1598,30 @@
     },
     {
       "key": {
+        "uuid": "048f817d_be9305b0",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64b59dd9_7ac559d5",
+      "range": {
+        "startLine": 111,
+        "startChar": 16,
+        "endLine": 111,
+        "endChar": 20
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24a485b9_30eea880",
         "filename": "compiler/optimizing/induction_var_analysis.h",
         "patchSetId": 9
@@ -841,6 +1633,30 @@
       "writtenOn": "2015-08-18T15:56:48Z",
       "side": 1,
       "message": "left?",
+      "range": {
+        "startLine": 112,
+        "startChar": 19,
+        "endLine": 112,
+        "endChar": 22
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a42a3512_e9079da7",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Here I prefer to keep using a, b since it is not always a clear left/right situation, but I changed it into op_a and op_b",
+      "parentUuid": "24a485b9_30eea880",
       "range": {
         "startLine": 112,
         "startChar": 19,
@@ -876,6 +1692,30 @@
     },
     {
       "key": {
+        "uuid": "248c8586_ad5d1a4d",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Same",
+      "parentUuid": "84bd31cc_734ca019",
+      "range": {
+        "startLine": 113,
+        "startChar": 19,
+        "endLine": 113,
+        "endChar": 22
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "247d65ed_486e1f78",
         "filename": "compiler/optimizing/induction_var_analysis.h",
         "patchSetId": 9
@@ -887,6 +1727,30 @@
       "writtenOn": "2015-08-18T15:56:48Z",
       "side": 1,
       "message": "what\u0027s a fetch instruction?",
+      "range": {
+        "startLine": 114,
+        "startChar": 18,
+        "endLine": 114,
+        "endChar": 23
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4750d3f_c31634d8",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "direct reference to a node in the HIR\n(so you fetch its value)",
+      "parentUuid": "247d65ed_486e1f78",
       "range": {
         "startLine": 114,
         "startChar": 18,
@@ -922,6 +1786,30 @@
     },
     {
       "key": {
+        "uuid": "c42ba915_f40771a7",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04a781c0_8fd3b5ce",
+      "range": {
+        "startLine": 151,
+        "startChar": 7,
+        "endLine": 151,
+        "endChar": 12
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4c23555_54b6ac46",
         "filename": "compiler/optimizing/induction_var_analysis.h",
         "patchSetId": 9
@@ -945,6 +1833,30 @@
     },
     {
       "key": {
+        "uuid": "84253145_55797fe5",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4c23555_54b6ac46",
+      "range": {
+        "startLine": 152,
+        "startChar": 7,
+        "endLine": 152,
+        "endChar": 13
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64b59dd9_5ac095c6",
         "filename": "compiler/optimizing/induction_var_analysis.h",
         "patchSetId": 9
@@ -956,6 +1868,30 @@
       "writtenOn": "2015-08-18T15:56:48Z",
       "side": 1,
       "message": "ArenaSafeMap (here and below)",
+      "range": {
+        "startLine": 153,
+        "startChar": 7,
+        "endLine": 153,
+        "endChar": 20
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4700952_9642adc3",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-24T17:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64b59dd9_5ac095c6",
       "range": {
         "startLine": 153,
         "startChar": 7,
