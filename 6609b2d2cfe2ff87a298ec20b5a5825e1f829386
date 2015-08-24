@@ -237,6 +237,29 @@
     },
     {
       "key": {
+        "uuid": "c4700952_f9f76299",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-24T19:09:17Z",
+      "side": 1,
+      "message": "nit: global_depth_",
+      "range": {
+        "startLine": 72,
+        "startChar": 2,
+        "endLine": 72,
+        "endChar": 14
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84bd31cc_f325105f",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 9
@@ -301,6 +324,23 @@
         "endLine": 85,
         "endChar": 33
       },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a42a3512_4acebca7",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-24T19:09:17Z",
+      "side": 1,
+      "message": "This is a general optimizing compiler question, phis aren\u0027t counted in GetInstructions? But they both return HInstructionIterator?\n\nIsn\u0027t there something that returns an iterator over both sequences?",
       "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -448,6 +488,40 @@
     },
     {
       "key": {
+        "uuid": "e430ad80_2cdefc51",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-24T19:09:17Z",
+      "side": 1,
+      "message": "It looks like this is the only part that is non-tarjan specific? I\u0027m not sure if everyone else is a hybrid algorithms expert here but it seems like perhaps it might be easier to understand if it was more evident where the separation point was (e.g. by splitting out the code more)?",
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42ba915_77be03ac",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-24T19:09:17Z",
+      "side": 1,
+      "message": "very minor terminology confusion:\n\nI am not sure if ascendant/descendant is the standard optimizing term, but in literature SSA forms use \u0027use-definition chains\u0027 , so this would be more like \u0027VisitDefinitions\u0027 in that regards (which is implied by 146)?\n\nFWIW it also looks like from instruction-\u003eInputAt it\u0027s more like output(definition)/input(usage) so using \u0027VisitOutputs\u0027 could also make sense in the optimizing terminology\n\n(I suspect descendant here is meant in the dataflow sense?)",
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "247d65ed_882e5743",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 9
@@ -536,6 +610,23 @@
         "endLine": 158,
         "endChar": 26
       },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42ba915_17a1cf7f",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-24T19:09:17Z",
+      "side": 1,
+      "message": "minor, looks like this expression (LookupInfo(...) is used over and over again, does it make sense to split out to a separate local for readability?",
       "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -1481,6 +1572,29 @@
     },
     {
       "key": {
+        "uuid": "e430ad80_2c591c61",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-24T19:09:17Z",
+      "side": 1,
+      "message": "I probably missed this somewhere, how is InductionInfo supposed to work for trivial inductions like where opA is a constant or a register?\n\nIs it a fetch pointer for both, with op_a going to null?",
+      "range": {
+        "startLine": 411,
+        "startChar": 0,
+        "endLine": 412,
+        "endChar": 47
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04a781c0_aff95942",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 9
@@ -1522,6 +1636,63 @@
         "endLine": 414,
         "endChar": 24
       },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "248c8586_c2e4e4cd",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-24T19:09:17Z",
+      "side": 1,
+      "message": "minor: does the rest of optimizing use plain enums? enum classes should be really preferred for new code since they offer stronger type safety (they aren\u0027t just implicitly convertible to int or to other enums)\n\nhttp://www.stroustrup.com/C++11FAQ.html#enum",
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048f817d_ce8c168b",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-24T19:09:17Z",
+      "side": 1,
+      "message": "Is this supposed to mean \u0027either the operation a+b, a-b,... OR a fetch instruction\u0027 ?\n\nOr it is supposed to mean the operation followed by a fetch?",
+      "range": {
+        "startLine": 89,
+        "startChar": 13,
+        "endLine": 89,
+        "endChar": 18
+      },
+      "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47f9520_e73b39f2",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-24T19:09:17Z",
+      "side": 1,
+      "message": "it\u0027s only +? what about other operators?",
       "revId": "6609b2d2cfe2ff87a298ec20b5a5825e1f829386",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
