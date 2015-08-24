@@ -1,0 +1,395 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e430ad80_c2886f30",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-24T23:33:40Z",
+      "side": 1,
+      "message": "Is this expected to be zero? If so, assert that and avoid the bit-or? If not, specify more clearly in class_flags.h?",
+      "range": {
+        "startLine": 573,
+        "startChar": 28,
+        "endLine": 573,
+        "endChar": 55
+      },
+      "revId": "52a7f5caebdf359ab877f1928aad59f1e9ad29fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4700952_6cf72e00",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2702,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-24T23:33:40Z",
+      "side": 1,
+      "message": "A primitive array has only the kClassFlagNoReferenceFields bit set, correct? Say that in class_flags.h?",
+      "range": {
+        "startLine": 2702,
+        "startChar": 29,
+        "endLine": 2702,
+        "endChar": 64
+      },
+      "revId": "52a7f5caebdf359ab877f1928aad59f1e9ad29fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a42a3512_a0976f51",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4392,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-24T23:33:40Z",
+      "side": 1,
+      "message": "What do we expect klass-\u003eGetClassFlags() to be? If zero, assert that and avoid the bit-or? If not, specify more clearly in class_flags.h?",
+      "range": {
+        "startLine": 4392,
+        "startChar": 25,
+        "endLine": 4392,
+        "endChar": 47
+      },
+      "revId": "52a7f5caebdf359ab877f1928aad59f1e9ad29fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e430ad80_a24e938d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 5235,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-24T23:33:40Z",
+      "side": 1,
+      "message": "Could we assert that if super_class is null, actually num_reference_fields \u003d\u003d 0 and that super_class is null iff. we are java.lang.Object?",
+      "range": {
+        "startLine": 5234,
+        "startChar": 0,
+        "endLine": 5235,
+        "endChar": 65
+      },
+      "revId": "52a7f5caebdf359ab877f1928aad59f1e9ad29fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42ba915_ad09a838",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 5239,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-24T23:33:40Z",
+      "side": 1,
+      "message": "Comment what this block tries to assert?",
+      "range": {
+        "startLine": 5239,
+        "startChar": 17,
+        "endLine": 5239,
+        "endChar": 30
+      },
+      "revId": "52a7f5caebdf359ab877f1928aad59f1e9ad29fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4750d3f_fa7d0eda",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 5245,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-24T23:33:40Z",
+      "side": 1,
+      "message": "This indicates at least two ref fields including the class in the header as we don\u0027t have the kClassFlagNoReferenceFields bit set? Clarify?",
+      "range": {
+        "startLine": 5245,
+        "startChar": 50,
+        "endLine": 5245,
+        "endChar": 54
+      },
+      "revId": "52a7f5caebdf359ab877f1928aad59f1e9ad29fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4700952_2c104608",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-24T23:33:40Z",
+      "side": 1,
+      "message": "Similarly, just \"mirror::kClassFlagClass\"?",
+      "range": {
+        "startLine": 47,
+        "startChar": 33,
+        "endLine": 47,
+        "endChar": 91
+      },
+      "revId": "52a7f5caebdf359ab877f1928aad59f1e9ad29fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a42a3512_a54221c3",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-24T23:33:40Z",
+      "side": 1,
+      "message": "Is this old value expected to be non-zero? If not, avoid or-ing it?",
+      "range": {
+        "startLine": 242,
+        "startChar": 18,
+        "endLine": 242,
+        "endChar": 33
+      },
+      "revId": "52a7f5caebdf359ab877f1928aad59f1e9ad29fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a42a3512_a5cb01c7",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-24T23:33:40Z",
+      "side": 1,
+      "message": "Could we do GetClassFlags() \u003d\u003d kClassFlagClassLoader to be precise?",
+      "range": {
+        "startLine": 246,
+        "startChar": 11,
+        "endLine": 246,
+        "endChar": 58
+      },
+      "revId": "52a7f5caebdf359ab877f1928aad59f1e9ad29fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4750d3f_9a5e4abc",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-24T23:33:40Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 250,
+        "startChar": 18,
+        "endLine": 250,
+        "endChar": 33
+      },
+      "revId": "52a7f5caebdf359ab877f1928aad59f1e9ad29fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e430ad80_a23213f5",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-24T23:33:40Z",
+      "side": 1,
+      "message": "Could this be \n\nGetClassFlags\u003ckVerifyFlags\u003e() \u003d\u003d kClassFlagWeakReference\n\nto be more precise?",
+      "range": {
+        "startLine": 285,
+        "startChar": 11,
+        "endLine": 285,
+        "endChar": 73
+      },
+      "revId": "52a7f5caebdf359ab877f1928aad59f1e9ad29fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485f957_3045011b",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-24T23:33:40Z",
+      "side": 1,
+      "message": "same.",
+      "range": {
+        "startLine": 290,
+        "startChar": 11,
+        "endLine": 290,
+        "endChar": 74
+      },
+      "revId": "52a7f5caebdf359ab877f1928aad59f1e9ad29fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "248c8586_eb0b0361",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-24T23:33:40Z",
+      "side": 1,
+      "message": "same.",
+      "range": {
+        "startLine": 295,
+        "startChar": 11,
+        "endLine": 295,
+        "endChar": 79
+      },
+      "revId": "52a7f5caebdf359ab877f1928aad59f1e9ad29fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4700952_2c7cc6d6",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-24T23:33:40Z",
+      "side": 1,
+      "message": "same.",
+      "range": {
+        "startLine": 300,
+        "startChar": 11,
+        "endLine": 300,
+        "endChar": 77
+      },
+      "revId": "52a7f5caebdf359ab877f1928aad59f1e9ad29fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e430ad80_22ab6391",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-24T23:33:40Z",
+      "side": 1,
+      "message": "This does not include the class in the header, correct?",
+      "range": {
+        "startLine": 870,
+        "startChar": 69,
+        "endLine": 871,
+        "endChar": 17
+      },
+      "revId": "52a7f5caebdf359ab877f1928aad59f1e9ad29fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048f817d_4cc82e4a",
+        "filename": "runtime/mirror/class_flags.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-24T23:33:40Z",
+      "side": 1,
+      "message": "I think we can be more explicit what type has what bits set. Something like,\n\nnormal instance with at least one ref field (excluding the class in the header): kClassFlagNormal (zero)\n\nnormal instance with no ref field (excluding the class in the header): kClassFlagNoReferenceFields\n\nprimitive arrays: kClassFlagNoReferenceFields\n\nstring: kClassFlagNoReferenceFields | kClassFlagString\n\nobject arrays: kClassFlagObjectArray\n\nclass: kClassFlagClass\n\nclass loader and subclasses: kClassFlagClassLoader\n\nsoft/weak/finalizer/phantom ref: kClassFlagSoftReference/kClassFlagWeakReference/kClassFlagFinalizerReference/kClassFlagPhantomReference, respectively\n\n?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 18
+      },
+      "revId": "52a7f5caebdf359ab877f1928aad59f1e9ad29fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485f957_f08e993b",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1018,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-24T23:33:40Z",
+      "side": 1,
+      "message": "Maybe also assert\n\n!IsStringClass \u0026\u0026 !IsClassLoaderClass \u0026\u0026 !ArrayClass\n\nto be extra cautious?",
+      "range": {
+        "startLine": 1018,
+        "startChar": 4,
+        "endLine": 1018,
+        "endChar": 10
+      },
+      "revId": "52a7f5caebdf359ab877f1928aad59f1e9ad29fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
