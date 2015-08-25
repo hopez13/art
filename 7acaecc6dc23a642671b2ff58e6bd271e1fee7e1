@@ -16,6 +16,24 @@
       "revId": "7acaecc6dc23a642671b2ff58e6bd271e1fee7e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a42a3512_6f3f033d",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-25T21:38:24Z",
+      "side": 1,
+      "message": "Yes, I like using the pointers too with a bit more storage wasted for clarity. But for now, I have documented the mapping.",
+      "parentUuid": "c4700952_404b137f",
+      "revId": "7acaecc6dc23a642671b2ff58e6bd271e1fee7e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
