@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "248c8586_f7068029",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-25T19:06:51Z",
+      "side": 1,
+      "message": "Well it might have a general name, but isn\u0027t the specific definition of transfers different from lattice to lattice?\n\nI think what I found hard to understand here is the induction-lattice-specific definition (not the generic term itself).",
+      "parentUuid": "e430ad80_2795b296",
+      "revId": "8e74752f8d48a6eaa21bcbbe27f50fab10eec856",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4700952_65e4211a",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 11
@@ -166,6 +184,24 @@
     },
     {
       "key": {
+        "uuid": "4485f957_4919fcaa",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-25T19:06:51Z",
+      "side": 1,
+      "message": "Of course feel free not to change anything, I was just anticipating that he will have this comment anyway when he gets back.\n\n----------\n\nI personally like to use auto too, it\u0027s just harder to follow because we have to look at the header to see that it-\u003esecond is actually an ArenaSafeMap\u003cint, InductionInfo*\u003e.\n\nAnd for that matter induction_ is a bit tricky too, induction_map_ more clearly implies what the type is.\n\nSome people would like to see all uses of auto gone, so it\u0027s nice to be able to keep a careful balance here of only using it when it\u0027s very obvious (or required for correctness).",
+      "parentUuid": "a47f9520_7eb10f77",
+      "revId": "8e74752f8d48a6eaa21bcbbe27f50fab10eec856",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e430ad80_6782caa5",
         "filename": "compiler/optimizing/induction_var_analysis.h",
         "patchSetId": 11
@@ -195,6 +231,24 @@
       "side": 1,
       "message": "Ah, but those cases are covered as well (having -b\u0027 for the b term). Just think of this as the high school equation of a linear expression ax + b where a and b can by any constant, including negatives.",
       "parentUuid": "e430ad80_6782caa5",
+      "revId": "8e74752f8d48a6eaa21bcbbe27f50fab10eec856",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4750d3f_b0c1e279",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-25T19:06:51Z",
+      "side": 1,
+      "message": "Ok, sure, but what about multiplication then?",
+      "parentUuid": "84253145_48fd6177",
       "revId": "8e74752f8d48a6eaa21bcbbe27f50fab10eec856",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
