@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4485f957_139a47c6",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2326,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-25T15:33:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64e03d3d_25587880",
+      "range": {
+        "startLine": 2325,
+        "startChar": 63,
+        "endLine": 2326,
+        "endChar": 72
+      },
+      "revId": "7a4a7c37dabf2088ad743a1c4ec943f4d2ce01a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "446ed97b_2c429b13",
         "filename": "runtime/verifier/register_line.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-25T12:39:21Z",
       "side": 1,
       "message": "Leave",
+      "range": {
+        "startLine": 53,
+        "startChar": 35,
+        "endLine": 53,
+        "endChar": 39
+      },
+      "revId": "7a4a7c37dabf2088ad743a1c4ec943f4d2ce01a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a42a3512_692f038f",
+        "filename": "runtime/verifier/register_line.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-25T15:33:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "446ed97b_2c429b13",
       "range": {
         "startLine": 53,
         "startChar": 35,
