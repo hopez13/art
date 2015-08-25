@@ -309,6 +309,24 @@
     },
     {
       "key": {
+        "uuid": "c42ba915_e3afb098",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-25T21:31:26Z",
+      "side": 1,
+      "message": "Ok, I think I misunderstood \u0027linear\u0027 earlier, thanks for clearing it up.\n\nI was thinking O(n) but it\u0027s really just \"the graph is a straight line\" kind of linear.",
+      "parentUuid": "a47f9520_216e0aa9",
+      "revId": "8e74752f8d48a6eaa21bcbbe27f50fab10eec856",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "048f817d_8261ff7e",
         "filename": "compiler/optimizing/induction_var_analysis.h",
         "patchSetId": 11
