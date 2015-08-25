@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4700952_404b137f",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-25T21:31:26Z",
+      "side": 1,
+      "message": "May want an extra comment here that the key is a loop ID (all the other ints are an instruction ID)\n\nAlternatively, also using the pointer type as the key would work.",
+      "revId": "7acaecc6dc23a642671b2ff58e6bd271e1fee7e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
