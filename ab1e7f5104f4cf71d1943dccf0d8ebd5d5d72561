@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24656596_6e1c0b9d",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-25T14:54:41Z",
+      "side": 1,
+      "message": "I\u0027m happy to have this refactoring extracted to another CL if you think it\u0027s worth it (though it\u0027s pretty small).",
+      "range": {
+        "startLine": 363,
+        "startChar": 15,
+        "endLine": 363,
+        "endChar": 28
+      },
+      "revId": "ab1e7f5104f4cf71d1943dccf0d8ebd5d5d72561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24656596_0e19cfab",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-25T14:54:41Z",
+      "side": 1,
+      "message": "I will enable it for more as I add tests.",
+      "range": {
+        "startLine": 591,
+        "startChar": 15,
+        "endLine": 591,
+        "endChar": 36
+      },
+      "revId": "ab1e7f5104f4cf71d1943dccf0d8ebd5d5d72561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
