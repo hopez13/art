@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "048f817d_8261ff7e",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-25T16:37:28Z",
+      "side": 1,
+      "message": "Nicolas,\nthis has std:map as basic implemetantion; however, as Igor mentioned earlier, no point in keeping the elements ordered, hashing is fine; any plans to provide this in the ArenaSafeXXX wrappers?",
+      "range": {
+        "startLine": 154,
+        "startChar": 2,
+        "endLine": 154,
+        "endChar": 14
+      },
+      "revId": "8e74752f8d48a6eaa21bcbbe27f50fab10eec856",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
