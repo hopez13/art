@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c42ba915_a3f459fa",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "It will look in dalvik-cache. This behavior is only really needed for test cases like your oat_file_assistant_test",
+      "parentUuid": "e4750d3f_6582daa5",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a47f9520_7e690f98",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2015-08-25T19:23:15Z",
       "side": 1,
       "message": "Should this be a method of ImageAssistant? Should we generally prefer /system over all else?",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 3
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4750d3f_f083eae0",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "No. This is the only case where we would want to choose a /system image over one that is relocated in dalvik_cache. Other places we want to replicate the image loading logic. Here we select slightly differently, using the original image loading logic from before relocation was added.",
+      "parentUuid": "a47f9520_7e690f98",
       "range": {
         "startLine": 123,
         "startChar": 0,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "e4750d3f_90994650",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "It means the image being examined is loaded. Renamed to better reflect that.",
+      "parentUuid": "048f817d_3dc87249",
+      "range": {
+        "startLine": 203,
+        "startChar": 13,
+        "endLine": 203,
+        "endChar": 21
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a42a3512_6c45d119",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 2
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "248c8586_a9cbc094",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a42a3512_6c45d119",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a42a3512_ecd32100",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 2
@@ -93,6 +177,30 @@
       "writtenOn": "2015-08-25T19:23:15Z",
       "side": 1,
       "message": "\u0027image_assistant\u0027 instead of \u0027ia\u0027.\n\nThis happens other places in the code too.",
+      "range": {
+        "startLine": 322,
+        "startChar": 19,
+        "endLine": 322,
+        "endChar": 21
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485f957_894b6430",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a42a3512_ecd32100",
       "range": {
         "startLine": 322,
         "startChar": 19,
@@ -128,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "248c8586_c91f2491",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "I personally disagree but done.",
+      "parentUuid": "84253145_a8c43589",
+      "range": {
+        "startLine": 324,
+        "startChar": 2,
+        "endLine": 338,
+        "endChar": 10
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e430ad80_875846d0",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 2
@@ -139,6 +271,30 @@
       "writtenOn": "2015-08-25T18:23:36Z",
       "side": 1,
       "message": "Doesn\u0027t fit the name of the method, considering that \"GenerateImage\" doesn\u0027t return an ImageSpace.\n\nConsider refactoring into a helper (as there\u0027s another similar copy). Could also consider rolling the FLock part into Init).",
+      "range": {
+        "startLine": 346,
+        "startChar": 4,
+        "endLine": 357,
+        "endChar": 17
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84253145_8852995f",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Changed name to GenerateAndLoadImage. Refactored image_lock stuff.",
+      "parentUuid": "e430ad80_875846d0",
       "range": {
         "startLine": 346,
         "startChar": 4,
@@ -174,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "a42a3512_8fde1ffa",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e430ad80_47b1ce4c",
+      "range": {
+        "startLine": 364,
+        "startChar": 17,
+        "endLine": 364,
+        "endChar": 19
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a47f9520_fee73fa0",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 2
@@ -185,6 +365,30 @@
       "writtenOn": "2015-08-25T19:23:15Z",
       "side": 1,
       "message": "Maybe add a helper function such as ImageInfo::ImageIsUseable. That would make the code here a little easier to understand.",
+      "range": {
+        "startLine": 374,
+        "startChar": 3,
+        "endLine": 374,
+        "endChar": 41
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4700952_a5bd291e",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Made a switch.",
+      "parentUuid": "a47f9520_fee73fa0",
       "range": {
         "startLine": 374,
         "startChar": 3,
@@ -220,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "c4700952_65c741ab",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Renamed to IsCacheImage",
+      "parentUuid": "248c8586_7c0d97ef",
+      "range": {
+        "startLine": 383,
+        "startChar": 17,
+        "endLine": 383,
+        "endChar": 24
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4700952_a5ea09e6",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 2
@@ -231,6 +459,30 @@
       "writtenOn": "2015-08-25T19:23:15Z",
       "side": 1,
       "message": "Should this logic be part of ImageAssistant?",
+      "range": {
+        "startLine": 389,
+        "startChar": 3,
+        "endLine": 396,
+        "endChar": 14
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e430ad80_aae749d0",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "No. The first part is interpreting runtime options, the second is relocating an image, something only the image loader should ever do.",
+      "parentUuid": "c4700952_a5ea09e6",
       "range": {
         "startLine": 389,
         "startChar": 3,
@@ -277,6 +529,30 @@
       "writtenOn": "2015-08-25T20:41:54Z",
       "side": 1,
       "message": "This is sadly safe-ish.\n\nif info.GetFilename() returned a non-reference, this wouldn\u0027t even compile.\n\nsince it\u0027s returning a reference to the inside of the info data, the pointer is valid for as long as info is.\n------------\nThat being said looking at this closely, it is a bit confusing and using image_filename as a string pointer seems like an unnecessary microoptimization. ImageSpace::Create doesn\u0027t seem like something that will get called very often.\n\nThen again I\u0027m just not a fan of using raw pointers in general for C++ code so I just didn\u0027t say anything.",
+      "parentUuid": "4485f957_0eac5af6",
+      "range": {
+        "startLine": 403,
+        "startChar": 25,
+        "endLine": 403,
+        "endChar": 45
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4700952_8506edd7",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "changed to just copy.",
       "parentUuid": "4485f957_0eac5af6",
       "range": {
         "startLine": 403,
@@ -337,6 +613,54 @@
     },
     {
       "key": {
+        "uuid": "4485f957_29eef87f",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c42ba915_c31ab574",
+      "range": {
+        "startLine": 374,
+        "startChar": 2,
+        "endLine": 420,
+        "endChar": 12
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4700952_45ca45b4",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "048f817d_fd4c2a1d",
+      "range": {
+        "startLine": 374,
+        "startChar": 2,
+        "endLine": 420,
+        "endChar": 12
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c42ba915_83359de0",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 2
@@ -348,6 +672,30 @@
       "writtenOn": "2015-08-25T18:23:36Z",
       "side": 1,
       "message": "Update comment. Also, does this really still apply? From the the enum values that reach here, a system image exists. In those cases, the jar files will be stripped, which means this recompile will definitely fail.\n\n(If you removed this, you could merge DoGenerateImage into here, similar to before [just up where the Unusable is], and unify the Init call).",
+      "range": {
+        "startLine": 463,
+        "startChar": 38,
+        "endLine": 463,
+        "endChar": 50
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47f9520_2167ea46",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "fixed comment",
+      "parentUuid": "c42ba915_83359de0",
       "range": {
         "startLine": 463,
         "startChar": 38,
@@ -383,6 +731,30 @@
     },
     {
       "key": {
+        "uuid": "e4750d3f_70529a62",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "248c8586_b7f318da",
+      "range": {
+        "startLine": 34,
+        "startChar": 32,
+        "endLine": 34,
+        "endChar": 44
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "048f817d_1da48e36",
         "filename": "runtime/image_assistant.cc",
         "patchSetId": 2
@@ -394,6 +766,24 @@
       "writtenOn": "2015-08-25T18:56:59Z",
       "side": 1,
       "message": "DCHECK(header !\u003d nullptr)",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42ba915_a3e778d0",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "048f817d_1da48e36",
       "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -417,6 +807,24 @@
     },
     {
       "key": {
+        "uuid": "048f817d_6145f819",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "248c8586_172b04ba",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4750d3f_85d58661",
         "filename": "runtime/image_assistant.cc",
         "patchSetId": 2
@@ -434,6 +842,24 @@
     },
     {
       "key": {
+        "uuid": "c4700952_a558c981",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4750d3f_85d58661",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a47f9520_5e3f733c",
         "filename": "runtime/image_assistant.cc",
         "patchSetId": 2
@@ -445,6 +871,30 @@
       "writtenOn": "2015-08-25T18:56:59Z",
       "side": 1,
       "message": "redundant ()",
+      "range": {
+        "startLine": 66,
+        "startChar": 14,
+        "endLine": 66,
+        "endChar": 31
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485f957_89784437",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a47f9520_5e3f733c",
       "range": {
         "startLine": 66,
         "startChar": 14,
@@ -480,6 +930,30 @@
     },
     {
       "key": {
+        "uuid": "248c8586_69a1587f",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a47f9520_9e45dbce",
+      "range": {
+        "startLine": 75,
+        "startChar": 13,
+        "endLine": 75,
+        "endChar": 32
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4485f957_c9d2cc45",
         "filename": "runtime/image_assistant.cc",
         "patchSetId": 2
@@ -491,6 +965,30 @@
       "writtenOn": "2015-08-25T18:56:59Z",
       "side": 1,
       "message": "redundant ()",
+      "range": {
+        "startLine": 84,
+        "startChar": 13,
+        "endLine": 84,
+        "endChar": 32
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4750d3f_cbb95f15",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4485f957_c9d2cc45",
       "range": {
         "startLine": 84,
         "startChar": 13,
@@ -520,6 +1018,24 @@
     },
     {
       "key": {
+        "uuid": "c42ba915_c3871566",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "System is read only. Anything in it cannot be relocated.",
+      "parentUuid": "a42a3512_0c73fd5d",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c42ba915_e320115c",
         "filename": "runtime/image_assistant.cc",
         "patchSetId": 2
@@ -531,6 +1047,24 @@
       "writtenOn": "2015-08-25T18:56:59Z",
       "side": 1,
       "message": "DCHECK(reason !\u003d nullptr)",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e430ad80_6dce2ba8",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c42ba915_e320115c",
       "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -560,6 +1094,30 @@
     },
     {
       "key": {
+        "uuid": "4485f957_c9d3ac00",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "We use this before a runtime is set up. (Such as in a few places in patchoat).",
+      "parentUuid": "c42ba915_a303f9c7",
+      "range": {
+        "startLine": 118,
+        "startChar": 6,
+        "endLine": 118,
+        "endChar": 24
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4700952_c51ab574",
         "filename": "runtime/image_assistant.cc",
         "patchSetId": 2
@@ -571,6 +1129,24 @@
       "writtenOn": "2015-08-25T18:56:59Z",
       "side": 1,
       "message": "channeling Nicolas: seems like this should be gc::Heap* heap \u003d runtime-\u003eGetHeap()\n\nor at the very least auto* heap.",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47f9520_e4881030",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4700952_c51ab574",
       "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -594,6 +1170,24 @@
     },
     {
       "key": {
+        "uuid": "048f817d_c1d144c7",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a42a3512_8c7f0d1b",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84253145_28f34599",
         "filename": "runtime/image_assistant.cc",
         "patchSetId": 2
@@ -611,6 +1205,24 @@
     },
     {
       "key": {
+        "uuid": "4485f957_e94b1000",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84253145_28f34599",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e430ad80_2ad9f969",
         "filename": "runtime/image_assistant.cc",
         "patchSetId": 2
@@ -622,6 +1234,24 @@
       "writtenOn": "2015-08-25T18:56:59Z",
       "side": 1,
       "message": "Can you add some comments to describe the strategy here?",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4700952_c00b8361",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e430ad80_2ad9f969",
       "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -651,6 +1281,30 @@
     },
     {
       "key": {
+        "uuid": "e430ad80_6d72abd7",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "048f817d_7d1cbaf5",
+      "range": {
+        "startLine": 195,
+        "startChar": 2,
+        "endLine": 195,
+        "endChar": 6
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a47f9520_1eac8bf6",
         "filename": "runtime/image_assistant.cc",
         "patchSetId": 2
@@ -662,6 +1316,24 @@
       "writtenOn": "2015-08-25T18:56:59Z",
       "side": 1,
       "message": "195",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4750d3f_8bf6f7c9",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a47f9520_1eac8bf6",
       "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -691,6 +1363,30 @@
     },
     {
       "key": {
+        "uuid": "e4750d3f_b0bd621e",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e430ad80_a76222b8",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 15
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a47f9520_7e7fcf1b",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 2
@@ -708,6 +1404,24 @@
     },
     {
       "key": {
+        "uuid": "e4750d3f_50cafeb3",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a47f9520_7e7fcf1b",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "048f817d_7d783a36",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 2
@@ -719,6 +1433,24 @@
       "writtenOn": "2015-08-25T18:56:59Z",
       "side": 1,
       "message": "nit: better to use enum classes for new code since they are more type safe",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47f9520_01666e46",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "048f817d_7d783a36",
       "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -748,6 +1480,30 @@
     },
     {
       "key": {
+        "uuid": "a47f9520_6155f247",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "It actually is that way. If an ota has happened the image in dalvik-cache is out of date and cannot be used.",
+      "parentUuid": "c4700952_25b5b919",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 17
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4700952_859a6d79",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 2
@@ -759,6 +1515,30 @@
       "writtenOn": "2015-08-25T18:56:59Z",
       "side": 1,
       "message": "sp: Preferred",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 19
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a42a3512_8f905f21",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4700952_859a6d79",
       "range": {
         "startLine": 44,
         "startChar": 2,
@@ -817,6 +1597,54 @@
     },
     {
       "key": {
+        "uuid": "4485f957_49101c09",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "$ git grep filename | wc -l\n    905\n\nI think its fine to leave it.",
+      "parentUuid": "248c8586_d7b9fc14",
+      "range": {
+        "startLine": 58,
+        "startChar": 44,
+        "endLine": 58,
+        "endChar": 52
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47f9520_04bf5cf8",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "\u0027filename\u0027 is an out argument, holding the name fo the file the image location is associated with.",
+      "parentUuid": "a42a3512_ec7ec15b",
+      "range": {
+        "startLine": 58,
+        "startChar": 7,
+        "endLine": 58,
+        "endChar": 30
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a47f9520_3e0dc7c6",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 2
@@ -828,6 +1656,24 @@
       "writtenOn": "2015-08-25T18:56:59Z",
       "side": 1,
       "message": "Are all of these args optional or required?",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485f957_093bf487",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "required. Also made this private. It isn\u0027t super nessecary to expose.",
+      "parentUuid": "a47f9520_3e0dc7c6",
       "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -851,6 +1697,24 @@
     },
     {
       "key": {
+        "uuid": "c4700952_a56f691e",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Made method private. It does a lot of stuff.",
+      "parentUuid": "4485f957_6e52c662",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "248c8586_5cf1b307",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 2
@@ -862,6 +1726,24 @@
       "writtenOn": "2015-08-25T18:56:59Z",
       "side": 1,
       "message": "Is it supposed to write something into reason? Can it be null?",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048f817d_2157f0d8",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "made reason error_msg.",
+      "parentUuid": "248c8586_5cf1b307",
       "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -885,6 +1767,24 @@
     },
     {
       "key": {
+        "uuid": "c42ba915_a3be98a8",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4750d3f_0530b66e",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4750d3f_a54522ce",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 2
@@ -896,6 +1796,24 @@
       "writtenOn": "2015-08-25T18:56:59Z",
       "side": 1,
       "message": "missing const?",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42ba915_c3bb94b8",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4750d3f_a54522ce",
       "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -919,6 +1837,24 @@
     },
     {
       "key": {
+        "uuid": "048f817d_01566cd8",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "a42a3512_ec348196",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a42a3512_0c569dd8",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 2
@@ -930,6 +1866,24 @@
       "writtenOn": "2015-08-25T18:56:59Z",
       "side": 1,
       "message": "Is ImageHeader supposed to be const here, or does it write into it?",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4750d3f_f0652a3a",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "made comment clearer.",
+      "parentUuid": "a42a3512_0c569dd8",
       "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -970,6 +1924,24 @@
     },
     {
       "key": {
+        "uuid": "a47f9520_44f80471",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4750d3f_45b1de4c",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4485f957_69e4001a",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 2
@@ -981,6 +1953,24 @@
       "writtenOn": "2015-08-25T18:56:59Z",
       "side": 1,
       "message": "channeling Nicolas: please use longer variable names, image_assistant",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "248c8586_89f7dc4c",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4485f957_69e4001a",
       "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -1010,6 +2000,30 @@
     },
     {
       "key": {
+        "uuid": "a47f9520_04f2fc90",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "248c8586_7c135765",
+      "range": {
+        "startLine": 721,
+        "startChar": 100,
+        "endLine": 721,
+        "endChar": 102
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "048f817d_9d195e07",
         "filename": "runtime/utils.cc",
         "patchSetId": 2
@@ -1027,6 +2041,24 @@
     },
     {
       "key": {
+        "uuid": "4485f957_c9bf2c47",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "048f817d_9d195e07",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "048f817d_3d263244",
         "filename": "runtime/utils.h",
         "patchSetId": 2
@@ -1038,6 +2070,30 @@
       "writtenOn": "2015-08-25T18:56:59Z",
       "side": 1,
       "message": "sp: true (this is not python)",
+      "range": {
+        "startLine": 244,
+        "startChar": 88,
+        "endLine": 244,
+        "endChar": 92
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47f9520_a4e768d0",
+        "filename": "runtime/utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-25T22:05:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "048f817d_3d263244",
       "range": {
         "startLine": 244,
         "startChar": 88,
