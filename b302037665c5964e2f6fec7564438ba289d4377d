@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "24656596_6e4e4b91",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-25T16:35:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0468616f_ca6de3ac",
+      "range": {
+        "startLine": 62,
+        "startChar": 5,
+        "endLine": 62,
+        "endChar": 76
+      },
+      "revId": "b302037665c5964e2f6fec7564438ba289d4377d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44e3394a_07473af8",
         "filename": "runtime/stack_map.h",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "writtenOn": "2015-08-25T14:09:31Z",
       "side": 1,
       "message": "I would have one line per \"in-register\" kind, and explain their role a bit more.",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 70
+      },
+      "revId": "b302037665c5964e2f6fec7564438ba289d4377d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24656596_0e4b0f80",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-25T16:35:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44e3394a_07473af8",
       "range": {
         "startLine": 65,
         "startChar": 0,
@@ -119,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "c459e9e9_6bc15577",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-25T16:35:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44e3394a_a7512eb4",
+      "range": {
+        "startLine": 75,
+        "startChar": 7,
+        "endLine": 75,
+        "endChar": 20
+      },
+      "revId": "b302037665c5964e2f6fec7564438ba289d4377d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e45eedce_e972318a",
         "filename": "runtime/stack_map.h",
         "patchSetId": 1
@@ -130,6 +202,30 @@
       "writtenOn": "2015-08-25T14:09:31Z",
       "side": 1,
       "message": "Maybe move this between lines 98 and 100?",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 37
+      },
+      "revId": "b302037665c5964e2f6fec7564438ba289d4377d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24656596_2e485380",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-25T16:35:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e45eedce_e972318a",
       "range": {
         "startLine": 75,
         "startChar": 0,
@@ -189,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "64e03d3d_884b5b7e",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-25T16:35:52Z",
+      "side": 1,
+      "message": "I\u0027ve kept everything explicit but made kNone LOG(FATAL)",
+      "parentUuid": "845371c9_c6308475",
+      "range": {
+        "startLine": 133,
+        "startChar": 6,
+        "endLine": 133,
+        "endChar": 23
+      },
+      "revId": "b302037665c5964e2f6fec7564438ba289d4377d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0468616f_ca8403ef",
         "filename": "runtime/stack_map.h",
         "patchSetId": 1
@@ -200,6 +320,30 @@
       "writtenOn": "2015-08-25T14:09:31Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 154,
+        "startChar": 6,
+        "endLine": 154,
+        "endChar": 23
+      },
+      "revId": "b302037665c5964e2f6fec7564438ba289d4377d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c459e9e9_0bcea1a6",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-25T16:35:52Z",
+      "side": 1,
+      "message": "This one is actually used",
+      "parentUuid": "0468616f_ca8403ef",
       "range": {
         "startLine": 154,
         "startChar": 6,
@@ -235,6 +379,30 @@
     },
     {
       "key": {
+        "uuid": "c459e9e9_ebdd4555",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-25T16:35:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e45eedce_8977fd78",
+      "range": {
+        "startLine": 317,
+        "startChar": 6,
+        "endLine": 319,
+        "endChar": 48
+      },
+      "revId": "b302037665c5964e2f6fec7564438ba289d4377d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e45eedce_a97c395b",
         "filename": "runtime/stack_map.h",
         "patchSetId": 1
@@ -246,6 +414,30 @@
       "writtenOn": "2015-08-25T14:09:31Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 353,
+        "startChar": 6,
+        "endLine": 353,
+        "endChar": 44
+      },
+      "revId": "b302037665c5964e2f6fec7564438ba289d4377d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c459e9e9_8bd29144",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-25T16:35:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e45eedce_a97c395b",
       "range": {
         "startLine": 353,
         "startChar": 6,
