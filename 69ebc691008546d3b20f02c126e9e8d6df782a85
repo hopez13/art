@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84253145_a8c43589",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-25T18:23:36Z",
+      "side": 1,
+      "message": "Easier to read if you don\u0027t chain the ifs.",
+      "range": {
+        "startLine": 324,
+        "startChar": 2,
+        "endLine": 338,
+        "endChar": 10
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e430ad80_875846d0",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-25T18:23:36Z",
+      "side": 1,
+      "message": "Doesn\u0027t fit the name of the method, considering that \"GenerateImage\" doesn\u0027t return an ImageSpace.\n\nConsider refactoring into a helper (as there\u0027s another similar copy). Could also consider rolling the FLock part into Init).",
+      "range": {
+        "startLine": 346,
+        "startChar": 4,
+        "endLine": 357,
+        "endChar": 17
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42ba915_c31ab574",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-25T18:23:36Z",
+      "side": 1,
+      "message": "Could make this a switch (just move the variables up). Might improve readability a little bit.",
+      "range": {
+        "startLine": 374,
+        "startChar": 2,
+        "endLine": 420,
+        "endChar": 12
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42ba915_83359de0",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-25T18:23:36Z",
+      "side": 1,
+      "message": "Update comment. Also, does this really still apply? From the the enum values that reach here, a system image exists. In those cases, the jar files will be stripped, which means this recompile will definitely fail.\n\n(If you removed this, you could merge DoGenerateImage into here, similar to before [just up where the Unusable is], and unify the Init call).",
+      "range": {
+        "startLine": 463,
+        "startChar": 38,
+        "endLine": 463,
+        "endChar": 50
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e430ad80_a76222b8",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-25T18:23:36Z",
+      "side": 1,
+      "message": "Is this really required? Forward declaring of File or FdFile seems to be enough.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 15
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4700952_25b5b919",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-25T18:23:36Z",
+      "side": 1,
+      "message": "Not a great name, as I had to read the comment again when looking through image_space. Something compiled before an OTA is out of date, but not kImageOutOfDate - not very intuitive.\n\n(Don\u0027t have a better suggestion handy, though).",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 17
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "248c8586_7c135765",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-25T18:23:36Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 721,
+        "startChar": 100,
+        "endLine": 721,
+        "endChar": 102
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
