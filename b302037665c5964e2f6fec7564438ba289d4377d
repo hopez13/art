@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "845371c9_86112ce3",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-25T14:09:31Z",
+      "side": 1,
+      "message": "Move after line 72, as a special value?",
+      "range": {
+        "startLine": 62,
+        "startChar": 5,
+        "endLine": 62,
+        "endChar": 76
+      },
+      "revId": "b302037665c5964e2f6fec7564438ba289d4377d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44e3394a_07473af8",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-25T14:09:31Z",
+      "side": 1,
+      "message": "I would have one line per \"in-register\" kind, and explain their role a bit more.",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 70
+      },
+      "revId": "b302037665c5964e2f6fec7564438ba289d4377d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44e3394a_a7512eb4",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-25T14:09:31Z",
+      "side": 1,
+      "message": "\"Entries with no location\"?",
+      "range": {
+        "startLine": 75,
+        "startChar": 7,
+        "endLine": 75,
+        "endChar": 20
+      },
+      "revId": "b302037665c5964e2f6fec7564438ba289d4377d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e45eedce_e972318a",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-25T14:09:31Z",
+      "side": 1,
+      "message": "Maybe move this between lines 98 and 100?",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 37
+      },
+      "revId": "b302037665c5964e2f6fec7564438ba289d4377d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24656596_ee06bb5b",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-25T14:09:31Z",
+      "side": 1,
+      "message": "Remove (i.e., replace with a default case)?",
+      "range": {
+        "startLine": 133,
+        "startChar": 6,
+        "endLine": 133,
+        "endChar": 23
+      },
+      "revId": "b302037665c5964e2f6fec7564438ba289d4377d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0468616f_ca8403ef",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-25T14:09:31Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 154,
+        "startChar": 6,
+        "endLine": 154,
+        "endChar": 23
+      },
+      "revId": "b302037665c5964e2f6fec7564438ba289d4377d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e45eedce_8977fd78",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-25T14:09:31Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 317,
+        "startChar": 6,
+        "endLine": 319,
+        "endChar": 48
+      },
+      "revId": "b302037665c5964e2f6fec7564438ba289d4377d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e45eedce_a97c395b",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-25T14:09:31Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 353,
+        "startChar": 6,
+        "endLine": 353,
+        "endChar": 44
+      },
+      "revId": "b302037665c5964e2f6fec7564438ba289d4377d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
