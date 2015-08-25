@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4700952_ca2ac202",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-25T17:55:28Z",
+      "side": 1,
+      "message": "Can you add a comment on why we need no thread suspension here?",
+      "range": {
+        "startLine": 694,
+        "startChar": 4,
+        "endLine": 694,
+        "endChar": 34
+      },
+      "revId": "506c199cac28ee1329a7fad2f0ab9e915a206a9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4750d3f_a5ed2201",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-25T17:55:28Z",
+      "side": 1,
+      "message": "Why this way of using a handle scope (what was wrong with the original code)?",
+      "range": {
+        "startLine": 815,
+        "startChar": 4,
+        "endLine": 815,
+        "endChar": 44
+      },
+      "revId": "506c199cac28ee1329a7fad2f0ab9e915a206a9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42ba915_2394c948",
+        "filename": "runtime/base/mutex.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-25T17:55:28Z",
+      "side": 1,
+      "message": "Would kJniWeakGlobalsLock be clearer?",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 18
+      },
+      "revId": "506c199cac28ee1329a7fad2f0ab9e915a206a9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048f817d_1d300e21",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-25T17:55:28Z",
+      "side": 1,
+      "message": "Why not add kJniGlobalsLock or something like that (why reuse kAllocSpaceLock)?",
+      "range": {
+        "startLine": 372,
+        "startChar": 55,
+        "endLine": 372,
+        "endChar": 70
+      },
+      "revId": "506c199cac28ee1329a7fad2f0ab9e915a206a9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
