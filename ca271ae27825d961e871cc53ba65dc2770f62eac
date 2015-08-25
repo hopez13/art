@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a42a3512_6362ccbb",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-25T01:32:55Z",
+      "side": 1,
+      "message": "I think most of these don\u0027t need to be RegisterDexFile. Probably just the CompileMethod function. Since that will load a class, it should keep the dex cache live.",
+      "parentUuid": "e4aeed64_28c19177",
+      "range": {
+        "startLine": 34,
+        "startChar": 34,
+        "endLine": 34,
+        "endChar": 49
+      },
+      "revId": "ca271ae27825d961e871cc53ba65dc2770f62eac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4fb1585_a5a69fc7",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-20T00:46:08Z",
       "side": 1,
       "message": "This makes a copy of the list, which I assume is needed to avoid a lock order issue or something? Can you clarify?",
+      "range": {
+        "startLine": 603,
+        "startChar": 15,
+        "endLine": 603,
+        "endChar": 16
+      },
+      "revId": "ca271ae27825d961e871cc53ba65dc2770f62eac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64591d73_94ac83f9",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-25T01:32:55Z",
+      "side": 1,
+      "message": "Changed the locking to avoid this scenario. The issue was previously with ClassInClassTable.",
+      "parentUuid": "a4fb1585_a5a69fc7",
       "range": {
         "startLine": 603,
         "startChar": 15,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c4a9e95f_a8bb3d5c",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1389,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-25T01:32:55Z",
+      "side": 1,
+      "message": "Currently they leak, I suppose I should get rid of them in shutdown",
+      "parentUuid": "e4434d7f_07804302",
+      "range": {
+        "startLine": 1389,
+        "startChar": 32,
+        "endLine": 1389,
+        "endChar": 49
+      },
+      "revId": "ca271ae27825d961e871cc53ba65dc2770f62eac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "243ac5f6_32db0ee5",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2015-08-20T00:46:08Z",
       "side": 1,
       "message": "Add that a null dex cache can occur due to class unloading and we are lazily removing null entries here?",
+      "range": {
+        "startLine": 2468,
+        "startChar": 44,
+        "endLine": 2468,
+        "endChar": 45
+      },
+      "revId": "ca271ae27825d961e871cc53ba65dc2770f62eac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4750d3f_237db88b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2468,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-25T01:32:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "243ac5f6_32db0ee5",
       "range": {
         "startLine": 2468,
         "startChar": 44,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "e4750d3f_15ab1391",
+        "filename": "runtime/runtime-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-25T01:32:55Z",
+      "side": 1,
+      "message": "I think its possible, although a bit tricky since we do FindSystemClass pretty early on in the class linker. I think the old way was \"OK\" but its less clear if it was 100% safe.",
+      "parentUuid": "c4a9e95f_68d8e562",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 87
+      },
+      "revId": "ca271ae27825d961e871cc53ba65dc2770f62eac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4a8755c_f6e6f322",
         "filename": "runtime/trace.cc",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2015-08-20T00:46:08Z",
       "side": 1,
       "message": "Does this mean that we aren\u0027t visiting roots (trace methods)?",
+      "range": {
+        "startLine": 643,
+        "startChar": 4,
+        "endLine": 643,
+        "endChar": 42
+      },
+      "revId": "ca271ae27825d961e871cc53ba65dc2770f62eac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4700952_d69355af",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-25T01:32:55Z",
+      "side": 1,
+      "message": "Yes, we could change it to RegisterDexFile but we currently don\u0027t visit the methods in the trace as roots. We would need to do this to ensure that the declaring classes of the methods don\u0027t get unloaded.",
+      "parentUuid": "a4a8755c_f6e6f322",
       "range": {
         "startLine": 643,
         "startChar": 4,
