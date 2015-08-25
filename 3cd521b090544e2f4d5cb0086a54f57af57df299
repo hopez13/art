@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e430ad80_a49300df",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-25T05:48:31Z",
+      "side": 1,
+      "message": "What about VERIFY_ERROR_NO_METHOD, ACCESS_METHOD and CLASS_CHANGE? They should all be handled by the trampolines you\u0027re calling.\n\n(They\u0027re not necessarily unresolved, but the \"effect\" is the same.)",
+      "range": {
+        "startLine": 591,
+        "startChar": 6,
+        "endLine": 591,
+        "endChar": 36
+      },
+      "revId": "3cd521b090544e2f4d5cb0086a54f57af57df299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
