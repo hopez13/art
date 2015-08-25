@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "c42ba915_83727d06",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-25T20:04:15Z",
+      "side": 1,
+      "message": "I added some comments on the general transfer. If it is still too cryptic, let me know, then I will add a case by case comment",
+      "parentUuid": "248c8586_f7068029",
+      "revId": "8e74752f8d48a6eaa21bcbbe27f50fab10eec856",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4700952_65e4211a",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 11
@@ -202,6 +220,24 @@
     },
     {
       "key": {
+        "uuid": "c42ba915_637961e6",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-25T20:04:15Z",
+      "side": 1,
+      "message": "Well, I did not mean it this harsh :-)\n\nHappy to change it if required, but STL has this somewhat harsh idioms, one reads it easily after a while.\n\nI too like abstracting as much away, but I also am a bit adverse to many little methods that are just wrappers around idioms...",
+      "parentUuid": "4485f957_4919fcaa",
+      "revId": "8e74752f8d48a6eaa21bcbbe27f50fab10eec856",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e430ad80_6782caa5",
         "filename": "compiler/optimizing/induction_var_analysis.h",
         "patchSetId": 11
@@ -249,6 +285,24 @@
       "side": 1,
       "message": "Ok, sure, but what about multiplication then?",
       "parentUuid": "84253145_48fd6177",
+      "revId": "8e74752f8d48a6eaa21bcbbe27f50fab10eec856",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47f9520_216e0aa9",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-25T20:04:15Z",
+      "side": 1,
+      "message": "We don\u0027t do quadratic (or polynomial induction yet). So any linear induction is of the form a * i + b\n(one mult, one add)",
+      "parentUuid": "e4750d3f_b0c1e279",
       "revId": "8e74752f8d48a6eaa21bcbbe27f50fab10eec856",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
