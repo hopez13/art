@@ -22,6 +22,30 @@
       "revId": "3cd521b090544e2f4d5cb0086a54f57af57df299",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24656596_4ba9f9da",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-08-25T10:48:19Z",
+      "side": 1,
+      "message": "Yea, I know. I was mostly \"bothered\" by the name inconsistency and the fact that I don\u0027t have tests yet. I will enable them eventually.\n\nMaybe it will be good to rename this to \"can_be_handled_by_compiler\" or something similar.",
+      "parentUuid": "e430ad80_a49300df",
+      "range": {
+        "startLine": 591,
+        "startChar": 6,
+        "endLine": 591,
+        "endChar": 36
+      },
+      "revId": "3cd521b090544e2f4d5cb0086a54f57af57df299",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
