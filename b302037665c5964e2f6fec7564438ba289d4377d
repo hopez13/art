@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0468616f_ca6de3ac",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-25T15:42:03Z",
+      "side": 1,
+      "message": "Sure; this was in line with my comment on line 76.  I believe we usually put invalid enum values at the end of an enum declaration.",
+      "parentUuid": "847a9131_0e6c6ba8",
+      "range": {
+        "startLine": 62,
+        "startChar": 5,
+        "endLine": 62,
+        "endChar": 76
+      },
+      "revId": "b302037665c5964e2f6fec7564438ba289d4377d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44e3394a_07473af8",
         "filename": "runtime/stack_map.h",
         "patchSetId": 1
