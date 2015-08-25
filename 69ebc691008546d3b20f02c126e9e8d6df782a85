@@ -19,6 +19,52 @@
     },
     {
       "key": {
+        "uuid": "a47f9520_7e690f98",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-25T19:23:15Z",
+      "side": 1,
+      "message": "Should this be a method of ImageAssistant? Should we generally prefer /system over all else?",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 3
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048f817d_3dc87249",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-25T19:23:15Z",
+      "side": 1,
+      "message": "What does this refer to? Is the info loaded, or is the image loaded?",
+      "range": {
+        "startLine": 203,
+        "startChar": 13,
+        "endLine": 203,
+        "endChar": 21
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a42a3512_6c45d119",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 2
@@ -30,6 +76,29 @@
       "writtenOn": "2015-08-25T18:56:59Z",
       "side": 1,
       "message": "DCHECK(error_msg !\u003d nullptr)",
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a42a3512_ecd32100",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-25T19:23:15Z",
+      "side": 1,
+      "message": "\u0027image_assistant\u0027 instead of \u0027ia\u0027.\n\nThis happens other places in the code too.",
+      "range": {
+        "startLine": 322,
+        "startChar": 19,
+        "endLine": 322,
+        "endChar": 21
+      },
       "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -98,6 +167,98 @@
         "startChar": 17,
         "endLine": 364,
         "endChar": 19
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47f9520_fee73fa0",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-25T19:23:15Z",
+      "side": 1,
+      "message": "Maybe add a helper function such as ImageInfo::ImageIsUseable. That would make the code here a little easier to understand.",
+      "range": {
+        "startLine": 374,
+        "startChar": 3,
+        "endLine": 374,
+        "endChar": 41
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "248c8586_7c0d97ef",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-25T19:23:15Z",
+      "side": 1,
+      "message": "It\u0027s not obvious based on the name what this method does.",
+      "range": {
+        "startLine": 383,
+        "startChar": 17,
+        "endLine": 383,
+        "endChar": 24
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4700952_a5ea09e6",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-25T19:23:15Z",
+      "side": 1,
+      "message": "Should this logic be part of ImageAssistant?",
+      "range": {
+        "startLine": 389,
+        "startChar": 3,
+        "endLine": 396,
+        "endChar": 14
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485f957_0eac5af6",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-25T19:23:15Z",
+      "side": 1,
+      "message": "This looks funny to me. The assumption is the object returned by GetFilename is not a temporary object?",
+      "range": {
+        "startLine": 403,
+        "startChar": 25,
+        "endLine": 403,
+        "endChar": 45
       },
       "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -602,6 +763,29 @@
         "startChar": 44,
         "endLine": 58,
         "endChar": 52
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a42a3512_ec7ec15b",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-25T19:23:15Z",
+      "side": 1,
+      "message": "Is this searching for a filename or for a file?",
+      "range": {
+        "startLine": 58,
+        "startChar": 7,
+        "endLine": 58,
+        "endChar": 30
       },
       "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
