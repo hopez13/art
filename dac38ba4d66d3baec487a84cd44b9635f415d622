@@ -16,6 +16,24 @@
       "revId": "dac38ba4d66d3baec487a84cd44b9635f415d622",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44e3394a_c7f27293",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1020,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-08-25T07:53:03Z",
+      "side": 1,
+      "message": "I added a CHECK in the caller (artInstrumentationMethodExitFromCode)",
+      "parentUuid": "e4750d3f_9c83a711",
+      "revId": "dac38ba4d66d3baec487a84cd44b9635f415d622",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
