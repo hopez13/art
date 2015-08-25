@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "248c8586_0c61ba2e",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-25T22:46:55Z",
+      "side": 1,
+      "message": "Did you mean to do this?\n\n  class ImageAssistant : ValueObject",
+      "range": {
+        "startLine": 50,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 20
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47f9520_27a61aca",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-25T22:46:55Z",
+      "side": 1,
+      "message": "Might be helpful to leave a comment here, not really sure what the difference here is between these two. Presumably GetImageState is the same thing as the other one with the parameter set to either true or false?",
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485f957_840cab48",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-25T22:46:55Z",
+      "side": 1,
+      "message": "Why not a unique_ptr?",
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
