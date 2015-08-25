@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4485f957_aed18ec7",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-25T17:55:28Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "a42a3512_6362ccbb",
+      "range": {
+        "startLine": 34,
+        "startChar": 34,
+        "endLine": 34,
+        "endChar": 49
+      },
+      "revId": "ca271ae27825d961e871cc53ba65dc2770f62eac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4fb1585_a5a69fc7",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 4
@@ -143,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "a47f9520_5ec8d349",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1389,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-25T17:55:28Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "c4a9e95f_a8bb3d5c",
+      "range": {
+        "startLine": 1389,
+        "startChar": 32,
+        "endLine": 1389,
+        "endChar": 49
+      },
+      "revId": "ca271ae27825d961e871cc53ba65dc2770f62eac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "243ac5f6_32db0ee5",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -225,6 +273,30 @@
       "side": 1,
       "message": "I think its possible, although a bit tricky since we do FindSystemClass pretty early on in the class linker. I think the old way was \"OK\" but its less clear if it was 100% safe.",
       "parentUuid": "c4a9e95f_68d8e562",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 87
+      },
+      "revId": "ca271ae27825d961e871cc53ba65dc2770f62eac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048f817d_dd62860a",
+        "filename": "runtime/runtime-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-25T17:55:28Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "e4750d3f_15ab1391",
       "range": {
         "startLine": 35,
         "startChar": 0,
