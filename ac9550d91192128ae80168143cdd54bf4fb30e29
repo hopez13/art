@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c42ba915_4826c244",
+        "filename": "tools/ahat/src/AhatHandler.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-25T16:36:19Z",
+      "side": 1,
+      "message": "I moved the content out of HtmlDoc, adding a \u0027menu\u0027 method to Doc to format menu text, and arguments to the HtmlDoc constructor for the page title and style sheet.",
+      "parentUuid": "84253145_26405bef",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 54,
+        "endChar": 52
+      },
+      "revId": "ac9550d91192128ae80168143cdd54bf4fb30e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a42a3512_6a2cd898",
         "filename": "tools/ahat/src/AhatSnapshot.java",
         "patchSetId": 5
