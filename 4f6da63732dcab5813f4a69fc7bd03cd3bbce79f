@@ -378,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "048f817d_30bbb45f",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-26T22:01:48Z",
+      "side": 1,
+      "message": "Given the name of the class \"ImageAssistant\", I assume the ImageAssistant is meant to be analogous to the OatFileAssistant.\n\nThe goal of the OatFileAssistant was to avoid duplicating the  code for checking the status of an oat file. Previously there were multiple copies across the code base of the code for checking the status of an oat file, each with minor variations. The reason the OatFileAssistant is a class, rather than a set of static functions, is because providing static functions without duplicating code would require the same expensive operations to be executed multiple times in many of the use cases. The OatFileAssistant is a cache for those expensive operations. (From a Haskell point of view: lazy evaluation improves modularity; the OatFileAssistant is a localized implementation of lazy evaluation to improve the modularity of getting the status of an oat file).\n\nIn the ImageAssistant case, it doesn\u0027t appear that you need to introduce a kind of lazy evaluation for modularity, and it would be simpler and easier to understand if you provided static functions instead.\n\nOr maybe the issue is that the ImageInfo class is the cache. Then remove the extra class definition and rename the ImageInfo class ImageAssistant.",
+      "parentUuid": "84253145_8eb1417a",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 28
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4700952_9b096e39",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 3
