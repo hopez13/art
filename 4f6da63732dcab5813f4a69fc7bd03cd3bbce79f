@@ -402,6 +402,30 @@
     },
     {
       "key": {
+        "uuid": "048f817d_7b6fdded",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-26T22:30:30Z",
+      "side": 1,
+      "message": "Thanks for the interesting viewpoint :). I don\u0027t have a strong opinion against this FWIW.\n\n----\n\nIf the issue is that it is too similar to ImageAssistant, what if he just renames it to something else like ImageFileHelper, or pretty much anything with +Image -Assistant. That might be the easiest fix.\n\nOn the other hand, if it was purely static helpers do you envision every function with 2 extra arguments?\n\n  ImageFileHelper::GetSelectedImageInfo(location, isa)\n\n?\n\nThat might be a little verbose for a lot of different calls, and it becomes really tempting to fabricate isa from kRuntimeISA. I suppose if it was one arg that might be fine.\n\n  ImageLocation image_location(location, isa);\n  // Option A:\n  ImageFileHelper::GetSelectedImageInfo(image_location);\n  // Option B: I suppose it could also be a free function,\n  GetSelectedImageFileInfo(image_location);\n\n\nThis seems like it could be an OK-ish change, though definitely not the kind of code I would normally write.\n\nOption A is still a few more characters to read though than what it was already doing today. Option B makes it significantly harder to find the source code where the function is actually declared without grepping.\n\n  ImageAssistant image_assistant(location, isa);\n  image_assistant.GetSelectedImageInfo();\n\nOne thing that might help to note is that ImageAssistant is immutable (perhaps we should even change all the local variables to \u0027const ImageAssistant image_assistant\u0027 to make it more obvious), which is a pretty common design pattern in OO-like languages that lack purity.\n\nIn regards to modularity, just separating out code into separate classes usually reduces tight coupling and increases cohesion (think object-oriented design). I\u0027m not sure if lazy evaluation is meant to traditionally affect modularity, it\u0027s usually used as a correctness (can\u0027t eagerly evaluate if it\u0027s too early, e.g. no runtime yet) or as a performance (re-evaluation is expensive, e.g. disk reads) feature.\n\nFor statics vs non-static methods that do the same thing, i.e.\n\n  static void foo(Type\u0026 t, ... Args);\n  void foo(... Args);\n\nThere is indeed very little difference other than the syntax, basically the call-site (and declaration) becomes much larger to read/write, hurting code readability. Instance methods (syntactically) are just generally preferred over static methods if their semantics are identical, am happy to explain more offline as this is a more philosophical discussion without a concretely right/wrong answer.",
+      "parentUuid": "048f817d_30bbb45f",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 28
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4700952_9b096e39",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 3
