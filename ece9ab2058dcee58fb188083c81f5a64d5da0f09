@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "c459e9e9_6b5f15f2",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-08-26T12:59:05Z",
+      "side": 1,
+      "message": "The loop in Bind() could be\n\n  while (label-\u003eIsLinked()) {\n    int position \u003d label-\u003eLinkPosition();\n    uint8_t delta \u003d buffer_.Load\u003cuint8_t\u003e(position);\n    int offset \u003d bound - (position + 1);\n    CHECK(IsInt\u003c8\u003e(offset));\n    buffer_.Store\u003cint8_t\u003e(position, offset);\n    label-\u003eposition_ \u003d delta !\u003d 0u ? label-\u003eposition_ - delta : 0;\n  }\n\nAnd you can CHECK() that delta is small enough as you calculate it in EmitLabelLink().\n\nThis would be just a minor modification of the old approach.\n\n(Having the vector is more readable, of course, but the compile time suffers.)",
+      "parentUuid": "a47f9520_2da4bb36",
+      "range": {
+        "startLine": 234,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 40
+      },
+      "revId": "ece9ab2058dcee58fb188083c81f5a64d5da0f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44e3394a_2a65e30f",
         "filename": "compiler/utils/x86/assembler_x86_test.cc",
         "patchSetId": 2
