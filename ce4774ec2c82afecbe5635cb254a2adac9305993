@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "248c8586_c2c05997",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-26T01:29:04Z",
+      "side": 1,
+      "message": "I think we always pressed for \"capitalize and end with period,\" even for block-end comments like this.",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 72,
+        "endChar": 24
+      },
+      "revId": "ce4774ec2c82afecbe5635cb254a2adac9305993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42ba915_86ee0a28",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-26T01:29:04Z",
+      "side": 1,
+      "message": "No plain ints.",
+      "range": {
+        "startLine": 118,
+        "startChar": 8,
+        "endLine": 118,
+        "endChar": 11
+      },
+      "revId": "ce4774ec2c82afecbe5635cb254a2adac9305993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47f9520_9272aa06",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-26T01:29:04Z",
+      "side": 1,
+      "message": "No plain ints.",
+      "range": {
+        "startLine": 123,
+        "startChar": 2,
+        "endLine": 123,
+        "endChar": 5
+      },
+      "revId": "ce4774ec2c82afecbe5635cb254a2adac9305993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485f957_e49337af",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-26T01:29:04Z",
+      "side": 1,
+      "message": "Nicolas loves visitors for such code, but I think it\u0027s small enough here. :-)",
+      "range": {
+        "startLine": 178,
+        "startChar": 2,
+        "endLine": 194,
+        "endChar": 3
+      },
+      "revId": "ce4774ec2c82afecbe5635cb254a2adac9305993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4700952_fb6d12ac",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-26T01:29:04Z",
+      "side": 1,
+      "message": "Looks like it fits on one line, which is more consistent than the 2+1 parameter split here.",
+      "range": {
+        "startLine": 221,
+        "startChar": 17,
+        "endLine": 222,
+        "endChar": 80
+      },
+      "revId": "ce4774ec2c82afecbe5635cb254a2adac9305993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42ba915_06943a96",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-26T01:29:04Z",
+      "side": 1,
+      "message": "Bit weird/inconsistent being on the same line.",
+      "range": {
+        "startLine": 238,
+        "startChar": 60,
+        "endLine": 238,
+        "endChar": 66
+      },
+      "revId": "ce4774ec2c82afecbe5635cb254a2adac9305993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e430ad80_3869536f",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-26T01:29:04Z",
+      "side": 1,
+      "message": "Style.",
+      "range": {
+        "startLine": 239,
+        "startChar": 35,
+        "endLine": 239,
+        "endChar": 55
+      },
+      "revId": "ce4774ec2c82afecbe5635cb254a2adac9305993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485f957_249a9fc6",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-26T01:29:04Z",
+      "side": 1,
+      "message": "No plain ints. And why does this need to be signed?",
+      "range": {
+        "startLine": 52,
+        "startChar": 22,
+        "endLine": 52,
+        "endChar": 25
+      },
+      "revId": "ce4774ec2c82afecbe5635cb254a2adac9305993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e430ad80_9861877f",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-26T01:29:04Z",
+      "side": 1,
+      "message": "Have you considered DCHECKs to make sure the different fields have \"compatible\" values? Or separate helper constructors?",
+      "range": {
+        "startLine": 101,
+        "startChar": 19,
+        "endLine": 101,
+        "endChar": 21
+      },
+      "revId": "ce4774ec2c82afecbe5635cb254a2adac9305993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4700952_3bc87a49",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-26T01:29:04Z",
+      "side": 1,
+      "message": "No plain ints. Does this have to be signed?",
+      "range": {
+        "startLine": 153,
+        "startChar": 2,
+        "endLine": 153,
+        "endChar": 5
+      },
+      "revId": "ce4774ec2c82afecbe5635cb254a2adac9305993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84253145_ce5e59bd",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-26T01:29:04Z",
+      "side": 1,
+      "message": "No plain ints. I understand we need to fix HInstruction for that, though. So please do a follow-up cleanup. Some for the loop-id.",
+      "range": {
+        "startLine": 159,
+        "startChar": 15,
+        "endLine": 159,
+        "endChar": 18
+      },
+      "revId": "ce4774ec2c82afecbe5635cb254a2adac9305993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
