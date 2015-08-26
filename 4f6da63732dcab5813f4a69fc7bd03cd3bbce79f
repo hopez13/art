@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "e430ad80_4d9a4fc7",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-26T16:55:33Z",
+      "side": 1,
+      "message": "There isn\u0027t really any need to. I use it like a value object but there is no reason it cannot be on the heap.",
+      "parentUuid": "248c8586_0c61ba2e",
+      "range": {
+        "startLine": 50,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 20
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c42ba915_c65e42bd",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 3
