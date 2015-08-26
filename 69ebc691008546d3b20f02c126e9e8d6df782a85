@@ -1405,6 +1405,30 @@
     },
     {
       "key": {
+        "uuid": "849451c2_6100d23b",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-26T22:01:48Z",
+      "side": 1,
+      "message": "I still see the #include \"os.h\" line in PS4.",
+      "parentUuid": "e4750d3f_b0bd621e",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 15
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a47f9520_7e7fcf1b",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 2
