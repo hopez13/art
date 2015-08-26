@@ -1570,6 +1570,30 @@
     },
     {
       "key": {
+        "uuid": "e430ad80_53caf0b3",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-26T17:21:50Z",
+      "side": 1,
+      "message": "Then your comment is wrong. If I don\u0027t have an image in /system, how can this be returned (the comment states *relocation* must be possible)?",
+      "parentUuid": "a42a3512_00941c96",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 17
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4700952_859a6d79",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 2
