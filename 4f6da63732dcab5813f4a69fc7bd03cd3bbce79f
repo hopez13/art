@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c42ba915_2c2b55ba",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-26T20:48:18Z",
+      "side": 1,
+      "message": "They are not totally disjoint. \n\nkImageUnusable is only returned for images that are corrupt or missing. all other states mean the image could be used but the runtime would not pick it for various reasons.\n\nkImageNeedsRelocation will only be returned for /system images. If the /system image would be preferred we would never return this.",
+      "parentUuid": "c4700952_3b72bad6",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 2
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "248c8586_0c61ba2e",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 3
@@ -95,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e430ad80_330df4c6",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-26T20:48:18Z",
+      "side": 1,
+      "message": "If you really want me to I will but these are fairly trivial, keeping them near the declarations seems to be better for readability.",
+      "parentUuid": "c42ba915_c65e42bd",
+      "range": {
+        "startLine": 53,
+        "startChar": 5,
+        "endLine": 53,
+        "endChar": 49
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "048f817d_27d9406a",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 3
@@ -141,6 +189,54 @@
     },
     {
       "key": {
+        "uuid": "e4750d3f_83dedbd2",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-26T20:48:18Z",
+      "side": 1,
+      "message": "I think info is better since it includes a lot of other information about the image then just its status.",
+      "parentUuid": "048f817d_27d9406a",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 11
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "849451c2_7bcb1f96",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-26T20:48:18Z",
+      "side": 1,
+      "message": "Removed selected",
+      "parentUuid": "048f817d_07bf5cf8",
+      "range": {
+        "startLine": 68,
+        "startChar": 15,
+        "endLine": 68,
+        "endChar": 23
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c42ba915_26313677",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 3
@@ -164,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "e430ad80_5ebaf7a5",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-26T20:48:18Z",
+      "side": 1,
+      "message": "Added a comment explaining the parameter. I think that it is better just to leave it as a parameter.",
+      "parentUuid": "c42ba915_26313677",
+      "range": {
+        "startLine": 69,
+        "startChar": 33,
+        "endLine": 69,
+        "endChar": 55
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a42a3512_d52a6402",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 3
@@ -175,6 +295,30 @@
       "writtenOn": "2015-08-26T00:52:39Z",
       "side": 1,
       "message": "Add a comment saying what this function means. Under what conditions would you not be allowed to create the image? Is it because of runtime parameters? File permissions? Other reasons?",
+      "range": {
+        "startLine": 73,
+        "startChar": 7,
+        "endLine": 73,
+        "endChar": 27
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485f957_7f3cb146",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-26T20:48:18Z",
+      "side": 1,
+      "message": "Added. It can only fail because the global /data/dalvik-cache/\u003cisa\u003e/ is special and should not be created by programs.",
+      "parentUuid": "a42a3512_d52a6402",
       "range": {
         "startLine": 73,
         "startChar": 7,
@@ -280,6 +424,54 @@
     },
     {
       "key": {
+        "uuid": "248c8586_73d85d98",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-26T20:48:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4700952_9b096e39",
+      "range": {
+        "startLine": 112,
+        "startChar": 26,
+        "endLine": 112,
+        "endChar": 32
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485f957_ffe8a12a",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-26T20:48:18Z",
+      "side": 1,
+      "message": "Made comment clearer.\n\nIf the file is not readable no, otherwise yes. This should not be relied upon though.",
+      "parentUuid": "c42ba915_0630ba6e",
+      "range": {
+        "startLine": 112,
+        "startChar": 52,
+        "endLine": 112,
+        "endChar": 91
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a47f9520_27a61aca",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 3
@@ -320,6 +512,48 @@
     },
     {
       "key": {
+        "uuid": "e430ad80_5e299738",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-26T20:48:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a47f9520_27a61aca",
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4750d3f_26ab755f",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-26T20:48:18Z",
+      "side": 1,
+      "message": "added comment explanation.",
+      "parentUuid": "e430ad80_38171308",
+      "range": {
+        "startLine": 115,
+        "startChar": 27,
+        "endLine": 115,
+        "endChar": 49
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4750d3f_96a93ede",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 3
@@ -331,6 +565,30 @@
       "writtenOn": "2015-08-26T00:52:39Z",
       "side": 1,
       "message": "IsImageValid().\n\nWhy isn\u0027t this part of the ImageState returned by GetImageState?",
+      "range": {
+        "startLine": 118,
+        "startChar": 7,
+        "endLine": 118,
+        "endChar": 15
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e430ad80_9e616f7f",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-26T20:48:18Z",
+      "side": 1,
+      "message": "It is, if this returns false then the state will be kImageUnusable (or kImageOutOfDate on a cache image if a valid /system image exists).",
+      "parentUuid": "e4750d3f_96a93ede",
       "range": {
         "startLine": 118,
         "startChar": 7,
@@ -377,6 +635,48 @@
         "endLine": 120,
         "endChar": 19
       },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "248c8586_2e2b4eba",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-26T20:48:18Z",
+      "side": 1,
+      "message": "only in the same way that OpenFileForReading does (i.e. it doesn\u0027t exist/no perms to read). That doesn\u0027t have an error message so I don\u0027t thing that this needs one.",
+      "parentUuid": "248c8586_22bb652d",
+      "range": {
+        "startLine": 120,
+        "startChar": 2,
+        "endLine": 120,
+        "endChar": 19
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84253145_ff297dbd",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-26T20:48:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4485f957_840cab48",
       "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -430,6 +730,30 @@
     },
     {
       "key": {
+        "uuid": "849451c2_7bc79faa",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-26T20:48:18Z",
+      "side": 1,
+      "message": "The google style guide doesn\u0027t mention it and this is done in other places in art. Also these are so trivial it is probably better for readability to have them in the class definition.",
+      "parentUuid": "a42a3512_55f17407",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 32
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a42a3512_15da1c97",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 3
@@ -453,6 +777,30 @@
     },
     {
       "key": {
+        "uuid": "84253145_1f547929",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-26T20:48:18Z",
+      "side": 1,
+      "message": "These are internal function used in the implementation of GetImageState (which depends partly on the contents of both the system and cache images).",
+      "parentUuid": "a42a3512_15da1c97",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 3
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "248c8586_e2bd5d1d",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 3
@@ -464,6 +812,30 @@
       "writtenOn": "2015-08-26T00:52:39Z",
       "side": 1,
       "message": "What for?",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 30
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47f9520_33f89870",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-26T20:48:18Z",
+      "side": 1,
+      "message": "To allow ImageAssistant (and no-one else) to directly create ImageInfo structures.",
+      "parentUuid": "248c8586_e2bd5d1d",
       "range": {
         "startLine": 142,
         "startChar": 0,
