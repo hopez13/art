@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "048f817d_4adec952",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1810,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-26T12:36:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44e3394a_4a6827e8",
+      "range": {
+        "startLine": 1809,
+        "startChar": 0,
+        "endLine": 1810,
+        "endChar": 27
+      },
+      "revId": "ece9ab2058dcee58fb188083c81f5a64d5da0f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e45eedce_4961057c",
         "filename": "compiler/utils/x86/assembler_x86.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-26T09:33:33Z",
       "side": 1,
       "message": "I think NearLabel would be a better name (we had that for Thumb2 for a short time).",
+      "range": {
+        "startLine": 206,
+        "startChar": 6,
+        "endLine": 206,
+        "endChar": 16
+      },
+      "revId": "ece9ab2058dcee58fb188083c81f5a64d5da0f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42ba915_89693b9b",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-26T12:36:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e45eedce_4961057c",
       "range": {
         "startLine": 206,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a47f9520_2da4bb36",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-26T12:36:30Z",
+      "side": 1,
+      "message": "We need the bigger size to be able to CHECK that we haven\u0027t exceeded the maximum offset allowed.\n\nEncoding size or correctness?\nComments?",
+      "parentUuid": "c459e9e9_4be7b9d1",
+      "range": {
+        "startLine": 234,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 40
+      },
+      "revId": "ece9ab2058dcee58fb188083c81f5a64d5da0f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44e3394a_2a65e30f",
         "filename": "compiler/utils/x86/assembler_x86_test.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-08-26T09:33:33Z",
       "side": 1,
       "message": "Can you test 2 froward branches to the same target, please?",
+      "range": {
+        "startLine": 265,
+        "startChar": 25,
+        "endLine": 265,
+        "endChar": 31
+      },
+      "revId": "ece9ab2058dcee58fb188083c81f5a64d5da0f09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42ba915_2957c7d8",
+        "filename": "compiler/utils/x86/assembler_x86_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-08-26T12:36:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44e3394a_2a65e30f",
       "range": {
         "startLine": 265,
         "startChar": 25,
