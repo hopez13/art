@@ -1546,6 +1546,30 @@
     },
     {
       "key": {
+        "uuid": "a42a3512_00941c96",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-26T16:55:33Z",
+      "side": 1,
+      "message": "No in that case the status will be kImageOutOfDate.\n\nI am not sure where you are confused...",
+      "parentUuid": "e430ad80_983507e1",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 17
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4700952_859a6d79",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 2
