@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "248c8586_4c949b97",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-26T22:01:22Z",
+      "side": 1,
+      "message": "So if relocation is enabled, this is the same thing as GetCacheImageInfo?\n\nIf relocation is disabled *and* there is no cache image, you get the system image (GetSystemImageInfo).\n\nIf relocation is disabled *but* there is a cache image, you get the GetCacheImageInfo?\n\n---------\n\nHow does it know if relocation is enabled or not since its not a parameter? The global runtime flags?",
+      "revId": "7913265249096d29d063d3e4131d3ca1ba57600b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048f817d_d0fca8e5",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-26T22:01:22Z",
+      "side": 1,
+      "message": "Minor wording confusion, does the above function figure out automatically if relocation is needed?\n\nAnd this version of the function assumes relocation is needed from the argument?\n\n(as opposed to just having GetImageInfo(bool relocation_needed\u003dtrue)) \n\nIf these behave differently then maybe its better to rename one?",
+      "revId": "7913265249096d29d063d3e4131d3ca1ba57600b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47f9520_c5f70bfe",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-26T22:01:22Z",
+      "side": 1,
+      "message": "If I\u0027m understanding correctly the behavior is the same but it\u0027s a tri-state for the value of relocation_needed.\n\nWhy not make this more explicit, e.g.?\n\n  enum class RelocationNeeded {\n    kQueryRuntime,\n    kNeed,\n    kDontNeed\n  }\n\nor similar. Then there\u0027s not a need for 2 separate functions.\n\n(line 71 GetImageInfo might similarly be able to use this)",
+      "revId": "7913265249096d29d063d3e4131d3ca1ba57600b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
