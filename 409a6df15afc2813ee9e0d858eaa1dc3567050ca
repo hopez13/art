@@ -46,6 +46,30 @@
       "revId": "409a6df15afc2813ee9e0d858eaa1dc3567050ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4750d3f_e36f9f1d",
+        "filename": "runtime/base/unix_file/fd_file_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-26T17:58:32Z",
+      "side": 1,
+      "message": "Move constructor what I meant. But its strange to assert on an object with undefined state.",
+      "parentUuid": "e4750d3f_a38af79f",
+      "range": {
+        "startLine": 121,
+        "startChar": 2,
+        "endLine": 121,
+        "endChar": 14
+      },
+      "revId": "409a6df15afc2813ee9e0d858eaa1dc3567050ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
