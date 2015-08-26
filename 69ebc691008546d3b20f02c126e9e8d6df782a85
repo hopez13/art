@@ -1687,6 +1687,30 @@
     },
     {
       "key": {
+        "uuid": "c42ba915_46a47237",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-26T00:52:39Z",
+      "side": 1,
+      "message": "The function is searching for a file, and returning the filename of the file? Then I would say you are finding a file, not a filename. How about \u0027GetSystemImageFilename\u0027?",
+      "parentUuid": "a47f9520_04bf5cf8",
+      "range": {
+        "startLine": 58,
+        "startChar": 7,
+        "endLine": 58,
+        "endChar": 30
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a47f9520_3e0dc7c6",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 2
