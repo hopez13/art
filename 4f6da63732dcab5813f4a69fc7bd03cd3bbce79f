@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "c4700952_3b72bad6",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-26T00:52:39Z",
+      "side": 1,
+      "message": "It\u0027s not obvious reading the code that these states are disjoint. The reading I have is we have the following states:\n\nA. No Image File Found\nB. Image File Found\nIn the case where an image file is found, the image that is found can have the following properties:\n 1. The checksum is or is not up to date.\n 2. The image has or has not been relocated (only relevant if the checksum is up to date).\n 3. The image is or is not for the preferred abi.\n\nThen we have the following cases:\n1. No image file found (kImageUnusable)\n2. Preferred image found with up-to-date checksum and relocated (kImageUsable)\n3. Preferred image found with up-to-date checksum but not relocated (kImageNeedsRelocation). The comment claims this can only happen for system images. Is that because all other images are assumed to already be relocated? Or is it because you can\u0027t relocate the system image? If it\u0027s the later, it seems like the real question we are asking is not \"what is the state of the image\", but rather, \"what should we do to make the image up to date\". Maybe choosing different names based on that idea would make this more understandable.\n4. Preferred image found, but it\u0027s not up to date. (kImageOutOfDate? Though presumably an out-of-date image is also unusable?)\n5. No preferred image found, but a non-preferred image was found that is up to date and relocated (kImageNotPreferred).\n6. No preferred image found, but a non-preferred image was found that is up to date, but not relocated. (kImageNotPreferred? kImageNeedsRelocation? kImageUnusable?)",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 2
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "248c8586_0c61ba2e",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 3
@@ -18,6 +41,190 @@
         "startChar": 6,
         "endLine": 50,
         "endChar": 20
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42ba915_c65e42bd",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-26T00:52:39Z",
+      "side": 1,
+      "message": "Put the constructor implementations in image_assistant.cc instead of in-lining them in the header file.",
+      "range": {
+        "startLine": 53,
+        "startChar": 5,
+        "endLine": 53,
+        "endChar": 49
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048f817d_27d9406a",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-26T00:52:39Z",
+      "side": 1,
+      "message": "Info is a nebulous word. How about \u0027ImageStatus\u0027 instead? And \u0027GetImageStatus()\u0027?",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 11
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "048f817d_07bf5cf8",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-26T00:52:39Z",
+      "side": 1,
+      "message": "What does \"Selected\" mean? Maybe call this \"GetImageInfo\" instead?",
+      "range": {
+        "startLine": 68,
+        "startChar": 15,
+        "endLine": 68,
+        "endChar": 23
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42ba915_26313677",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-26T00:52:39Z",
+      "side": 1,
+      "message": "What does this parameter do?\n\nMy interpretation is if relocation_needed is True, this does the same as GetSelectedImageInfo(), otherwise this may return the info for a system image that hasn\u0027t been relocated, even if relocation is enabled. In that case, maybe have two distinct functions: \u0027GetRelocatedImageInfo()\u0027 for when relocation_needed is true, and \u0027GetUpToDateImageInfo()\u0027 for when relocation_needed is false.",
+      "range": {
+        "startLine": 69,
+        "startChar": 33,
+        "endLine": 69,
+        "endChar": 55
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a42a3512_d52a6402",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-26T00:52:39Z",
+      "side": 1,
+      "message": "Add a comment saying what this function means. Under what conditions would you not be allowed to create the image? Is it because of runtime parameters? File permissions? Other reasons?",
+      "range": {
+        "startLine": 73,
+        "startChar": 7,
+        "endLine": 73,
+        "endChar": 27
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a42a3512_b519e806",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-26T00:52:39Z",
+      "side": 1,
+      "message": "If you aren\u0027t caching anything, why have an ImageAssistant class? Instead just use static functions, passing the location and isa manually every time.",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 28
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4700952_9b096e39",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-26T00:52:39Z",
+      "side": 1,
+      "message": "image\u0027s",
+      "range": {
+        "startLine": 112,
+        "startChar": 26,
+        "endLine": 112,
+        "endChar": 32
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c42ba915_0630ba6e",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-26T00:52:39Z",
+      "side": 1,
+      "message": "Will it fill in header if the image is not readable or the image is invalid?",
+      "range": {
+        "startLine": 112,
+        "startChar": 52,
+        "endLine": 112,
+        "endChar": 91
       },
       "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -42,6 +249,52 @@
     },
     {
       "key": {
+        "uuid": "e430ad80_38171308",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-26T00:52:39Z",
+      "side": 1,
+      "message": "It\u0027s odd that the state of the image depends on our needs.",
+      "range": {
+        "startLine": 115,
+        "startChar": 27,
+        "endLine": 115,
+        "endChar": 49
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4750d3f_96a93ede",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-26T00:52:39Z",
+      "side": 1,
+      "message": "IsImageValid().\n\nWhy isn\u0027t this part of the ImageState returned by GetImageState?",
+      "range": {
+        "startLine": 118,
+        "startChar": 7,
+        "endLine": 118,
+        "endChar": 15
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4485f957_840cab48",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 3
@@ -53,6 +306,98 @@
       "writtenOn": "2015-08-25T22:46:55Z",
       "side": 1,
       "message": "Why not a unique_ptr?",
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "248c8586_22bb652d",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-26T00:52:39Z",
+      "side": 1,
+      "message": "Can this fail? Return an error message if so indicating how it failed?",
+      "range": {
+        "startLine": 120,
+        "startChar": 2,
+        "endLine": 120,
+        "endChar": 19
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84253145_0e4c5117",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-26T00:52:39Z",
+      "side": 1,
+      "message": "Put the implementation in image_assistant.cc",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 32
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a42a3512_15da1c97",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-26T00:52:39Z",
+      "side": 1,
+      "message": "But this already is an ImageInfo. What does it mean to get an ImageInfo from an ImageInfo?",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 3
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "248c8586_e2bd5d1d",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-26T00:52:39Z",
+      "side": 1,
+      "message": "What for?",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 30
+      },
       "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
