@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4750d3f_76ee122b",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-26T00:46:21Z",
+      "side": 1,
+      "message": "No plain ints, please. I know Label does it, but that should be fixed.",
+      "range": {
+        "startLine": 217,
+        "startChar": 2,
+        "endLine": 217,
+        "endChar": 5
+      },
+      "revId": "4cfcb4969b6e0bc3da51978a7d76c8dd557223e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
