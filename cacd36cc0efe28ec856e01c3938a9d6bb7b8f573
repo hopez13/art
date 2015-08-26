@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4750d3f_1108f8b6",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-26T05:34:49Z",
+      "side": 1,
+      "message": "This is functional as-is, but I want to wait for Calin\u0027s rewrite of how we signal different errors to the compilers. Right now I\u0027m really just piggy-backing on Nicolas (I think) turning off the compilers whenever there\u0027s a know runtime failure (which I guess he needed to disable the JIT).",
+      "range": {
+        "startLine": 616,
+        "startChar": 4,
+        "endLine": 622,
+        "endChar": 49
+      },
+      "revId": "cacd36cc0efe28ec856e01c3938a9d6bb7b8f573",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
