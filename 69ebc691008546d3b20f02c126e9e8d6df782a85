@@ -1429,6 +1429,30 @@
     },
     {
       "key": {
+        "uuid": "84253145_646c0127",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-27T21:39:48Z",
+      "side": 1,
+      "message": "Sorry I hit done before I tested it and it turns out the compiler doesn\u0027t like a forward declaration for file for some reason. Therefor I am just leaving the include.",
+      "parentUuid": "849451c2_6100d23b",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 15
+      },
+      "revId": "69ebc691008546d3b20f02c126e9e8d6df782a85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a47f9520_7e7fcf1b",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 2
