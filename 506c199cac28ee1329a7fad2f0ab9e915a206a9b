@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "4468999e_d936f30c",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-27T01:11:16Z",
+      "side": 1,
+      "message": "I see the bug.\n\nI think this works, but I think creating a handle wrapping the dex cache before calling DumpVerifier() and passing that handle to DumpVerifier() would allow us to use the common pattern of StackHandleScope (no unique_ptr, no passing StackHandleScope as a parameter, etc), if that actually works.",
+      "parentUuid": "84253145_4e5249b8",
+      "range": {
+        "startLine": 815,
+        "startChar": 4,
+        "endLine": 815,
+        "endChar": 44
+      },
+      "revId": "506c199cac28ee1329a7fad2f0ab9e915a206a9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c42ba915_2394c948",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 5
