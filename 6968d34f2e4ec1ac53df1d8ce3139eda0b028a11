@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e430ad80_ae42f610",
+        "filename": "compiler/dex/verified_method.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-27T00:56:09Z",
+      "side": 1,
+      "message": "fwiw the c++14 preferred way to construct unique_ptr is with make_unique. we don\u0027t have C++14, but we do have MakeUnique in utils that does the same exact thing.",
+      "revId": "6968d34f2e4ec1ac53df1d8ce3139eda0b028a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485f957_68e71520",
+        "filename": "compiler/dex/verified_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-27T00:56:09Z",
+      "side": 1,
+      "message": "nit: isn\u0027t this unusual for non-pointer arguments?",
+      "range": {
+        "startLine": 91,
+        "startChar": 17,
+        "endLine": 91,
+        "endChar": 22
+      },
+      "revId": "6968d34f2e4ec1ac53df1d8ce3139eda0b028a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485f957_a8f65dc9",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-27T00:56:09Z",
+      "side": 1,
+      "message": "Why? This is guaranteed by the standard already.",
+      "revId": "6968d34f2e4ec1ac53df1d8ce3139eda0b028a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4700952_24a616ca",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-27T00:56:09Z",
+      "side": 1,
+      "message": "Why is this showing up as a whitespace change?",
+      "revId": "6968d34f2e4ec1ac53df1d8ce3139eda0b028a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e430ad80_ced412b9",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-27T00:56:09Z",
+      "side": 1,
+      "message": "Ew. Does it have to be a uint32_t ?",
+      "range": {
+        "startLine": 281,
+        "startChar": 2,
+        "endLine": 281,
+        "endChar": 10
+      },
+      "revId": "6968d34f2e4ec1ac53df1d8ce3139eda0b028a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
