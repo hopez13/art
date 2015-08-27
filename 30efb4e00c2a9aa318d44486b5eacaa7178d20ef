@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "84253145_24cfe926",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-08-27T16:27:47Z",
+      "side": 1,
+      "message": "I just changed these based on the other feedback to use the full 100 cols :-)",
+      "parentUuid": "c48ac99e_3dbb4fbb",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 102
+      },
+      "revId": "30efb4e00c2a9aa318d44486b5eacaa7178d20ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "845371c9_695e41bf",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 16
