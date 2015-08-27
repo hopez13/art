@@ -22,6 +22,30 @@
       "revId": "65d4e8d284fdae4be7c27c22996daaf8f5dc4b58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "046221c0_bdba0758",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5977,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-27T22:41:52Z",
+      "side": 1,
+      "message": "The DexFile pointer needs to match or else FindDexCacheLocked wont work. And if I enable the location check, class loader test 068 fails.",
+      "parentUuid": "e4750d3f_528e783a",
+      "range": {
+        "startLine": 5970,
+        "startChar": 0,
+        "endLine": 5977,
+        "endChar": 1
+      },
+      "revId": "65d4e8d284fdae4be7c27c22996daaf8f5dc4b58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
