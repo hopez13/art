@@ -180,6 +180,30 @@
       "revId": "6968d34f2e4ec1ac53df1d8ce3139eda0b028a11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4750d3f_6d7dd88a",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-27T18:22:19Z",
+      "side": 1,
+      "message": "Some kind of typedef would be more obvious.\n\nIn the kernel where they had typedefs, something like this would be instead called \"GetEncounteredFailureTypesBitSet\" or \"BitFlags\" or similar.\n\nOtherwise from the name (given no comment, which perhaps is also an issue) it just looks like it\u0027s a regular scalar count.",
+      "parentUuid": "a47f9520_9b16427b",
+      "range": {
+        "startLine": 281,
+        "startChar": 2,
+        "endLine": 281,
+        "endChar": 10
+      },
+      "revId": "6968d34f2e4ec1ac53df1d8ce3139eda0b028a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
