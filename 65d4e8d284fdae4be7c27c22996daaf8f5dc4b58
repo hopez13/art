@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4750d3f_528e783a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5977,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-27T22:38:52Z",
+      "side": 1,
+      "message": "The opened_dex_files_ vector is intended to be used internally for memory management purposes. It was never intended to be used to query opened dex files from the class linker.\n\nSee https://android-review.googlesource.com/#/c/121451 and the associated bug for reference.\n\nWhy does oatdump need to get the dex files through the class linker instead of opening them itself?",
+      "range": {
+        "startLine": 5970,
+        "startChar": 0,
+        "endLine": 5977,
+        "endChar": 1
+      },
+      "revId": "65d4e8d284fdae4be7c27c22996daaf8f5dc4b58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
