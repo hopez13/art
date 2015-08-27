@@ -426,6 +426,30 @@
     },
     {
       "key": {
+        "uuid": "c42ba915_58168b56",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-27T21:39:48Z",
+      "side": 1,
+      "message": "Just to defend my current design.\n\nThere are a few places (most notably patchoat) where the fact that ImageAssistant is a class is helpful. It allows one to write functions that pick between a cache and system image in a different manner without having to pass around the location and isa all the time.\n\nFurthermore if we wanted to make ImageInfo not be a class we would need to have everything pass around both the system and cache image filenames (or recalculate them every time) due to the way that status checking works which would be very confusing.\n\nAlso this was mainly designed to pull all the different logics we use to choose images into one single place and allow one to easily implement slightly different logics if need be. This is because none of the operations involved in choosing an art file are particularly expensive. We could change it in the future to be caching if it becomes so however.",
+      "parentUuid": "048f817d_7b6fdded",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 28
+      },
+      "revId": "4f6da63732dcab5813f4a69fc7bd03cd3bbce79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4700952_9b096e39",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 3
