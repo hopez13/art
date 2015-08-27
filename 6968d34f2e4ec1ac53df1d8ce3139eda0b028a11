@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "84253145_513d05e8",
+        "filename": "compiler/dex/verified_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-27T01:30:08Z",
+      "side": 1,
+      "message": "Sure, I can remove.",
+      "parentUuid": "4485f957_68e71520",
+      "range": {
+        "startLine": 91,
+        "startChar": 17,
+        "endLine": 91,
+        "endChar": 22
+      },
+      "revId": "6968d34f2e4ec1ac53df1d8ce3139eda0b028a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4485f957_a8f65dc9",
         "filename": "runtime/verifier/method_verifier.h",
         "patchSetId": 1
@@ -53,6 +77,24 @@
       "writtenOn": "2015-08-27T00:56:09Z",
       "side": 1,
       "message": "Why? This is guaranteed by the standard already.",
+      "revId": "6968d34f2e4ec1ac53df1d8ce3139eda0b028a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4750d3f_f7a5198b",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-27T01:30:08Z",
+      "side": 1,
+      "message": "Because I like to be explicit about this, and in most places where we use enum values in bit-sets, we do it this way AFAIK.",
+      "parentUuid": "4485f957_a8f65dc9",
       "revId": "6968d34f2e4ec1ac53df1d8ce3139eda0b028a11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -76,6 +118,24 @@
     },
     {
       "key": {
+        "uuid": "048f817d_f620c45b",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-27T01:30:08Z",
+      "side": 1,
+      "message": "Because I had to fix indent...",
+      "parentUuid": "c4700952_24a616ca",
+      "revId": "6968d34f2e4ec1ac53df1d8ce3139eda0b028a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e430ad80_ced412b9",
         "filename": "runtime/verifier/method_verifier.h",
         "patchSetId": 1
@@ -87,6 +147,30 @@
       "writtenOn": "2015-08-27T00:56:09Z",
       "side": 1,
       "message": "Ew. Does it have to be a uint32_t ?",
+      "range": {
+        "startLine": 281,
+        "startChar": 2,
+        "endLine": 281,
+        "endChar": 10
+      },
+      "revId": "6968d34f2e4ec1ac53df1d8ce3139eda0b028a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47f9520_9b16427b",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-27T01:30:08Z",
+      "side": 1,
+      "message": "What do you prefer? I can use something smaller, but I really don\u0027t see a reason for size_t when it\u0027s a bit-set, and padding will probably screw space savings, anyways.",
+      "parentUuid": "e430ad80_ced412b9",
       "range": {
         "startLine": 281,
         "startChar": 2,
