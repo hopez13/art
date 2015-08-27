@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "046221c0_1772f407",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-27T21:39:48Z",
+      "side": 1,
+      "message": "\u003e If relocation is disabled *and* there is no cache image, you get the system image (GetSystemImageInfo).\n\nNo it will only return the cache image if the checksum matches.\n\nOtherwise you are correct.\n\nIt knows if relocation is enabled by asking the runtime with Runtime::ShouldRelocate().",
+      "parentUuid": "248c8586_4c949b97",
+      "revId": "7913265249096d29d063d3e4131d3ca1ba57600b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "048f817d_d0fca8e5",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 4
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "a47f9520_7e16e456",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-27T21:39:48Z",
+      "side": 1,
+      "message": "It behaves the same. Comment updated.",
+      "parentUuid": "048f817d_d0fca8e5",
+      "revId": "7913265249096d29d063d3e4131d3ca1ba57600b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a47f9520_c5f70bfe",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 4
@@ -47,6 +83,24 @@
       "writtenOn": "2015-08-26T22:01:22Z",
       "side": 1,
       "message": "If I\u0027m understanding correctly the behavior is the same but it\u0027s a tri-state for the value of relocation_needed.\n\nWhy not make this more explicit, e.g.?\n\n  enum class RelocationNeeded {\n    kQueryRuntime,\n    kNeed,\n    kDontNeed\n  }\n\nor similar. Then there\u0027s not a need for 2 separate functions.\n\n(line 71 GetImageInfo might similarly be able to use this)",
+      "revId": "7913265249096d29d063d3e4131d3ca1ba57600b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "046221c0_3758d880",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-27T21:39:48Z",
+      "side": 1,
+      "message": "It is possible but all places that might want to ignore what the runtime says currently hold this info as a bool, it is easier just to keep it as one.",
+      "parentUuid": "a47f9520_c5f70bfe",
       "revId": "7913265249096d29d063d3e4131d3ca1ba57600b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
