@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "e4750d3f_97db75e3",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-27T02:46:46Z",
+      "side": 1,
+      "message": "True, I guess we could change the verifier method to accept a handle as the parameter. I\u0027ll do that in another CL.",
+      "parentUuid": "4468999e_d936f30c",
+      "range": {
+        "startLine": 815,
+        "startChar": 4,
+        "endLine": 815,
+        "endChar": 44
+      },
+      "revId": "506c199cac28ee1329a7fad2f0ab9e915a206a9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c42ba915_2394c948",
         "filename": "runtime/base/mutex.h",
         "patchSetId": 5
