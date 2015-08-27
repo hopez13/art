@@ -307,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "446ed97b_efc4750d",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-27T08:43:52Z",
+      "side": 1,
+      "message": "I think we use DCHECK instead of CHECK almost everywhere in Optimizing.\n\n  $ git grep \\\\bCHECK compiler/optimizing | wc -l\n  27\n  $ git grep \\\\bDCHECK compiler/optimizing | wc -l\n  1387",
+      "parentUuid": "4485f957_9ff635ca",
+      "range": {
+        "startLine": 81,
+        "startChar": 2,
+        "endLine": 81,
+        "endChar": 7
+      },
+      "revId": "ce4774ec2c82afecbe5635cb254a2adac9305993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "845371c9_69eac1e9",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 13
@@ -2302,6 +2326,30 @@
       "side": 1,
       "message": "Ah, I am a 80 col guy. Fixed.",
       "parentUuid": "c459e9e9_eb2545b4",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 60
+      },
+      "revId": "ce4774ec2c82afecbe5635cb254a2adac9305993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "845371c9_e951d1b2",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-27T08:43:52Z",
+      "side": 1,
+      "message": "Yeah, me too.  I took me a while to get used to 100 cols.  (FWIW, setting my editor to a 100-column width helped me a lot with this.) :)",
+      "parentUuid": "c42ba915_e98eaf89",
       "range": {
         "startLine": 41,
         "startChar": 0,
