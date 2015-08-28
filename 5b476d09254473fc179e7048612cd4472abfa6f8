@@ -16,6 +16,379 @@
       "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "446ed97b_b21fc662",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-28T13:48:23Z",
+      "side": 1,
+      "message": "Please refactor this using something similar to https://android-review.googlesource.com/#/c/167353/2/compiler/optimizing/codegen_test.cc:\n\n  static bool CanExecuteOnHardware(InstructionSet target_isa) {\n    return (target_isa \u003d\u003d kRuntimeISA)\n        // Handle the special case of ARM, with two instructions sets\n        // (ARM32 and Thumb-2).\n        || (kRuntimeISA \u003d\u003d kArm \u0026\u0026 target_isa \u003d\u003d kThumb2);\n  }",
+      "range": {
+        "startLine": 126,
+        "startChar": 9,
+        "endLine": 128,
+        "endChar": 56
+      },
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e45eedce_4ca913db",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-28T13:48:23Z",
+      "side": 1,
+      "message": "Use a pointer instead of reference, as per our C++ style guide (\"all parameters passed by reference must be labeled const\").",
+      "range": {
+        "startLine": 133,
+        "startChar": 33,
+        "endLine": 133,
+        "endChar": 47
+      },
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "444df958_91535c43",
+        "filename": "runtime/code_simulator_container.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-28T13:48:23Z",
+      "side": 1,
+      "message": "Break the line after `\u003d` instead.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 38
+      },
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c459e9e9_aec43bda",
+        "filename": "runtime/code_simulator_container.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-28T13:48:23Z",
+      "side": 1,
+      "message": "I would send the message to the verbose log instead, for debugging purposes:\n\n  const char* libart_compiler_so_name \u003d\n      kIsDebugBuild ? \"libartd-simulator.so\" : \"libart-simulator.so\";\n  VLOG(compiler) \u003c\u003c \"Could not load \" \u003c\u003c libart_compiler_so_name \u003c\u003c \": \" \u003c\u003c dlerror();",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 12
+      },
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c459e9e9_6ea72341",
+        "filename": "runtime/code_simulator_container.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-28T13:48:23Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 64
+      },
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c459e9e9_0eb46f67",
+        "filename": "runtime/code_simulator_container.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-28T13:48:23Z",
+      "side": 1,
+      "message": "symbol",
+      "range": {
+        "startLine": 36,
+        "startChar": 63,
+        "endLine": 36,
+        "endChar": 70
+      },
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e478ad71_96b52c6d",
+        "filename": "runtime/code_simulator_container.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-28T13:48:23Z",
+      "side": 1,
+      "message": "As `simulator_` can be null, I would return a pointer here (even if we\u0027re supposed to call CanSimulate before Get).",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 16
+      },
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "845371c9_eca0ff7d",
+        "filename": "runtime/code_simulator_container.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-28T13:48:23Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 22
+      },
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "444df958_5172d4d6",
+        "filename": "runtime/code_simulator_container.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-28T13:48:23Z",
+      "side": 1,
+      "message": "Also add:\n\n  DISALLOW_COPY_AND_ASSIGN(CodeSimulatorContainer);",
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "845371c9_ec89df03",
+        "filename": "runtime/simulator/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-28T13:48:23Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we prevent the simulator from being built on targets (at least by default)?",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 5
+      },
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e478ad71_d69884fe",
+        "filename": "runtime/simulator/code_simulator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-28T13:48:23Z",
+      "side": 1,
+      "message": "Add a comment saying that this functions returns a null pointer if a simulator cannot be found for `target_isa`.",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 71
+      },
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "446ed97b_d2c91a55",
+        "filename": "runtime/simulator/code_simulator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-28T13:48:23Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 32,
+        "startChar": 31,
+        "endLine": 32,
+        "endChar": 32
+      },
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e48fcdab_e136a00c",
+        "filename": "runtime/simulator/code_simulator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-28T13:48:23Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 33,
+        "startChar": 35,
+        "endLine": 33,
+        "endChar": 36
+      },
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64e03d3d_0b4745f8",
+        "filename": "runtime/simulator/code_simulator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-28T13:48:23Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 34,
+        "startChar": 35,
+        "endLine": 34,
+        "endChar": 36
+      },
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e478ad71_f69d80eb",
+        "filename": "runtime/simulator/code_simulator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-28T13:48:23Z",
+      "side": 1,
+      "message": "Also add:\n\n  private:\n   DISALLOW_COPY_AND_ASSIGN(CodeSimulator);",
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64e03d3d_ab51f9b3",
+        "filename": "runtime/simulator/code_simulator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-28T13:48:23Z",
+      "side": 1,
+      "message": "Put on a single line.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 62
+      },
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "444df958_913c3cef",
+        "filename": "runtime/simulator/code_simulator_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-08-28T13:48:23Z",
+      "side": 1,
+      "message": "Also add:\n\n  DISALLOW_COPY_AND_ASSIGN(CodeSimulatorArm64);",
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
