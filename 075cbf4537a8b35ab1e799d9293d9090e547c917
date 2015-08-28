@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "849451c2_5d5f2ef1",
+        "filename": "runtime/handle_scope-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-28T20:21:56Z",
+      "side": 1,
+      "message": "Thread::Current() is in thread-inl.h",
+      "range": {
+        "startLine": 23,
+        "startChar": 10,
+        "endLine": 23,
+        "endChar": 18
+      },
+      "revId": "075cbf4537a8b35ab1e799d9293d9090e547c917",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4750d3f_665652da",
+        "filename": "runtime/handle_scope-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-28T20:21:56Z",
+      "side": 1,
+      "message": "Needs new include.",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 24
+      },
+      "revId": "075cbf4537a8b35ab1e799d9293d9090e547c917",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
