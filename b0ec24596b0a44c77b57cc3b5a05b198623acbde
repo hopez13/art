@@ -34,6 +34,24 @@
       "revId": "b0ec24596b0a44c77b57cc3b5a05b198623acbde",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e478ad71_b6edc884",
+        "filename": "compiler/utils/arm/assembler_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-08-28T09:19:02Z",
+      "side": 1,
+      "message": "Ok sounds good! I guess it will be worth a test ;)\nMaybe the default value can be abstracted to make testing it easy? `static constexpr SetCC ...`?",
+      "parentUuid": "c459e9e9_2efdaba2",
+      "revId": "b0ec24596b0a44c77b57cc3b5a05b198623acbde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
