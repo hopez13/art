@@ -22,6 +22,29 @@
       "revId": "ed15000a5099f5e230c8ded5ac75692bae272650",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4485f957_6b406af0",
+        "filename": "runtime/handle_scope-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-08-29T02:24:23Z",
+      "side": 1,
+      "message": "In addition to the assert, should this have a thread annotation for shared mutator lock?",
+      "range": {
+        "startLine": 31,
+        "startChar": 83,
+        "endLine": 31,
+        "endChar": 84
+      },
+      "revId": "ed15000a5099f5e230c8ded5ac75692bae272650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
