@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c459e9e9_ae8c3b89",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1196,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-30T14:41:34Z",
+      "side": 1,
+      "message": "Instead of creating + clearing, why not just oa-\u003eGetElementClass()-\u003eIsAssignableFrom(o-\u003eGetClass()) (or opposite).",
+      "range": {
+        "startLine": 1194,
+        "startChar": 10,
+        "endLine": 1196,
+        "endChar": 44
+      },
+      "revId": "f85055f323ed7cfac4c377fba4ffb7e7a0732aa1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
