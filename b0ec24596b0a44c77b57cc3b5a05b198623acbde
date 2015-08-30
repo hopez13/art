@@ -52,6 +52,190 @@
       "revId": "b0ec24596b0a44c77b57cc3b5a05b198623acbde",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e45eedce_ef41d164",
+        "filename": "compiler/utils/arm/assembler_arm_test.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-30T18:19:45Z",
+      "side": 1,
+      "message": "Nit: one per line?",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 25,
+        "endChar": 23
+      },
+      "revId": "b0ec24596b0a44c77b57cc3b5a05b198623acbde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "841b715a_a3065a5a",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-30T18:19:45Z",
+      "side": 1,
+      "message": "instruction -\u003e instructions",
+      "range": {
+        "startLine": 1125,
+        "startChar": 25,
+        "endLine": 1125,
+        "endChar": 36
+      },
+      "revId": "b0ec24596b0a44c77b57cc3b5a05b198623acbde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "446ed97b_f2c45e0d",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-30T18:19:45Z",
+      "side": 1,
+      "message": "remove?",
+      "range": {
+        "startLine": 1126,
+        "startChar": 37,
+        "endLine": 1126,
+        "endChar": 38
+      },
+      "revId": "b0ec24596b0a44c77b57cc3b5a05b198623acbde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e48fcdab_612ff08e",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-30T18:19:45Z",
+      "side": 1,
+      "message": "it\u0027s -\u003e it is",
+      "range": {
+        "startLine": 1147,
+        "startChar": 34,
+        "endLine": 1147,
+        "endChar": 38
+      },
+      "revId": "b0ec24596b0a44c77b57cc3b5a05b198623acbde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e45eedce_8f361d0c",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1151,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-30T18:19:45Z",
+      "side": 1,
+      "message": "There\u0027s -\u003e There is",
+      "range": {
+        "startLine": 1151,
+        "startChar": 40,
+        "endLine": 1151,
+        "endChar": 47
+      },
+      "revId": "b0ec24596b0a44c77b57cc3b5a05b198623acbde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "841b715a_c30b5661",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-30T18:19:45Z",
+      "side": 1,
+      "message": "if and only if (here and below). I tend to avoid abbreviations in comments.",
+      "range": {
+        "startLine": 1155,
+        "startChar": 43,
+        "endLine": 1155,
+        "endChar": 46
+      },
+      "revId": "b0ec24596b0a44c77b57cc3b5a05b198623acbde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "444df958_b1894005",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1638,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-30T18:19:45Z",
+      "side": 1,
+      "message": "One per line?",
+      "range": {
+        "startLine": 1637,
+        "startChar": 32,
+        "endLine": 1638,
+        "endChar": 60
+      },
+      "revId": "b0ec24596b0a44c77b57cc3b5a05b198623acbde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "446ed97b_92c96224",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1679,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-08-30T18:19:45Z",
+      "side": 1,
+      "message": "One per line?",
+      "range": {
+        "startLine": 1678,
+        "startChar": 32,
+        "endLine": 1679,
+        "endChar": 60
+      },
+      "revId": "b0ec24596b0a44c77b57cc3b5a05b198623acbde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
