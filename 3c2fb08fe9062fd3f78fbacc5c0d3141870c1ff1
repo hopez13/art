@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84529221_ac4ee757",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-08-31T22:07:47Z",
+      "side": 1,
+      "message": "Wrong place for this. Ignore this for now, I\u0027m in the process of updating the dex_file_verifier.",
+      "range": {
+        "startLine": 573,
+        "startChar": 1,
+        "endLine": 581,
+        "endChar": 3
+      },
+      "revId": "3c2fb08fe9062fd3f78fbacc5c0d3141870c1ff1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
