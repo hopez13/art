@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8497f201_de44653c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-08-31T19:54:31Z",
+      "side": 1,
+      "message": "seems potentially confusing when reworking code, previously deleting arguments to format string would have triggered an error, makes me wonder if a separate path would be better like appendLiteral",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "f0b89f4074f4110f853b36d4a1079cffe0262f92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
