@@ -22,6 +22,23 @@
       "revId": "f0b89f4074f4110f853b36d4a1079cffe0262f92",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6424bead_70dc4e01",
+        "filename": "tools/ahat/src/DocString.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2015-08-31T20:51:29Z",
+      "side": 1,
+      "message": "Remember a user of your API can still pass Object[] for args. The varargs is just syntactic sugar. So a caller could call append(\"format...\", new Object[]{a1,a2}) (your code will be safe here) or sadly they could call append(\"format ...\", null); which I think will cause a NPE here.   If you truly want to guard this code consider adding a null check on args. \n   \nString text \u003d (args !\u003d null \u0026\u0026 args.length \u003e 0) ? String.format(format, args) : format;",
+      "revId": "f0b89f4074f4110f853b36d4a1079cffe0262f92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
