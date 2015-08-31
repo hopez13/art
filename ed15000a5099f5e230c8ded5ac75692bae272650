@@ -72,6 +72,54 @@
     },
     {
       "key": {
+        "uuid": "a40dd62d_97c6a426",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-31T17:44:22Z",
+      "side": 1,
+      "message": "Dunno, the issue is that constructors and destructors don\u0027t have lock annotation support.",
+      "parentUuid": "c459e9e9_8e87ff66",
+      "range": {
+        "startLine": 545,
+        "startChar": 2,
+        "endLine": 545,
+        "endChar": 57
+      },
+      "revId": "ed15000a5099f5e230c8ded5ac75692bae272650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2419e672_737b2056",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-31T17:44:22Z",
+      "side": 1,
+      "message": "Yes all non-runnable states are suspended wrt GC.",
+      "parentUuid": "c459e9e9_ee823358",
+      "range": {
+        "startLine": 545,
+        "startChar": 48,
+        "endLine": 545,
+        "endChar": 55
+      },
+      "revId": "ed15000a5099f5e230c8ded5ac75692bae272650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4485f957_6b406af0",
         "filename": "runtime/handle_scope-inl.h",
         "patchSetId": 2
@@ -83,6 +131,30 @@
       "writtenOn": "2015-08-29T02:24:23Z",
       "side": 1,
       "message": "In addition to the assert, should this have a thread annotation for shared mutator lock?",
+      "range": {
+        "startLine": 31,
+        "startChar": 83,
+        "endLine": 31,
+        "endChar": 84
+      },
+      "revId": "ed15000a5099f5e230c8ded5ac75692bae272650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a40dd62d_57880ce9",
+        "filename": "runtime/handle_scope-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-31T17:44:22Z",
+      "side": 1,
+      "message": "I suppose so, not supported though.",
+      "parentUuid": "4485f957_6b406af0",
       "range": {
         "startLine": 31,
         "startChar": 83,
