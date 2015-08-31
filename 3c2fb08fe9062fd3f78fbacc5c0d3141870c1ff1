@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e4618eea_aca70bf0",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-08-31T22:37:34Z",
+      "side": 1,
+      "message": "I put it there because we don\u0027t like invoking code on a non-initialized class. This was easier then doing a check if it is an interface everywhere.",
+      "parentUuid": "6424bead_7332182a",
+      "revId": "3c2fb08fe9062fd3f78fbacc5c0d3141870c1ff1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8497f201_415394dd",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 2
