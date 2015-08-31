@@ -22,6 +22,30 @@
       "revId": "d9cb68e3212d31d61445fb7e8446f68991720009",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e48fcdab_c1ce045b",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-08-31T07:53:54Z",
+      "side": 1,
+      "message": "Yes. I didn\u0027t even need to add the DCHECKs - they were already in the code.",
+      "parentUuid": "841b715a_83015e47",
+      "range": {
+        "startLine": 103,
+        "startChar": 51,
+        "endLine": 103,
+        "endChar": 73
+      },
+      "revId": "d9cb68e3212d31d61445fb7e8446f68991720009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
