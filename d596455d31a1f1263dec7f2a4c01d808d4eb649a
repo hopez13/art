@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8429b287_31380a66",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1333,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-31T22:27:44Z",
+      "side": 1,
+      "message": "hs.Self()?",
+      "range": {
+        "startLine": 1333,
+        "startChar": 59,
+        "endLine": 1333,
+        "endChar": 76
+      },
+      "revId": "d596455d31a1f1263dec7f2a4c01d808d4eb649a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "644d9e85_a8c9333a",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-31T22:27:44Z",
+      "side": 1,
+      "message": "Seems off",
+      "range": {
+        "startLine": 1408,
+        "startChar": 2,
+        "endLine": 1408,
+        "endChar": 8
+      },
+      "revId": "d596455d31a1f1263dec7f2a4c01d808d4eb649a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0484e2ca_65b34045",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-08-31T22:27:44Z",
+      "side": 1,
+      "message": "soa.Self()?",
+      "range": {
+        "startLine": 468,
+        "startChar": 60,
+        "endLine": 468,
+        "endChar": 78
+      },
+      "revId": "d596455d31a1f1263dec7f2a4c01d808d4eb649a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
