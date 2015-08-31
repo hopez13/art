@@ -22,6 +22,30 @@
       "revId": "53491be26a11fd25534fca695a278bc12fd0bde5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84529221_cf28f563",
+        "filename": "tools/ahat/src/Value.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-08-31T23:48:27Z",
+      "side": 1,
+      "message": "Using a constant for 200 is slightly annoying, because you can\u0027t embed it in the format string (I don\u0027t think). I\u0027d have to do something like: \"\\\"%.\" + kMaxNumCharsToShow + \"s%s\".\n\nThe cut and paste is a real bug. For the dex cache location, we don\u0027t show an opening quote around the string location and we shouldn\u0027t be showing the closing quote. If I fix that bug, the code is just different enough that I don\u0027t know it\u0027s worth creating a helper function for. I\u0027ll ponder some more.",
+      "parentUuid": "0484e2ca_8280ba81",
+      "range": {
+        "startLine": 49,
+        "startChar": 23,
+        "endLine": 49,
+        "endChar": 26
+      },
+      "revId": "53491be26a11fd25534fca695a278bc12fd0bde5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
