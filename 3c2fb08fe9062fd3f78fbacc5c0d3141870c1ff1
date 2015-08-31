@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "6424bead_7332182a",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-31T22:32:41Z",
+      "side": 1,
+      "message": "Not sure if we need to do this, according to JLS 12.4.1 invoking an interface method doesn\u0027t fall into the requirement of needing to initialize the interface\n\nAlso see:\nhttp://stackoverflow.com/questions/23096084/when-is-an-interface-with-a-default-method-initialized\n\n(we may want to take this discussion offline since it seems like it will get intricate)",
+      "revId": "3c2fb08fe9062fd3f78fbacc5c0d3141870c1ff1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8497f201_415394dd",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-08-31T22:32:41Z",
+      "side": 1,
+      "message": "Let\u0027s change -Xexperimental-lambdas to be more like -X[no]experimental:lambdas,defaultmethods\n\n(The type can be a new enum bitset). You would want to use AppendValues() for this",
+      "revId": "3c2fb08fe9062fd3f78fbacc5c0d3141870c1ff1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84529221_ac4ee757",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 2
