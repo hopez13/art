@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8497f201_6ddc8101",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1903,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-01T21:55:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4618eea_983c81f7",
+      "range": {
+        "startLine": 1903,
+        "startChar": 11,
+        "endLine": 1903,
+        "endChar": 41
+      },
+      "revId": "aeced86cf819b1f5627a5930a5cdc84f87e5b4e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6492fe15_26e9bc78",
         "filename": "test/1337-gc-coverage/src/Main.java",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6492fe15_510cc47b",
+        "filename": "test/1337-gc-coverage/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-01T21:55:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6492fe15_26e9bc78",
+      "range": {
+        "startLine": 61,
+        "startChar": 42,
+        "endLine": 61,
+        "endChar": 50
+      },
+      "revId": "aeced86cf819b1f5627a5930a5cdc84f87e5b4e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8429b287_62591eff",
         "filename": "test/1337-gc-coverage/src/Main.java",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2015-09-01T19:52:21Z",
       "side": 1,
       "message": "\"!performHomogeneousSpaceCompact()\"?",
+      "range": {
+        "startLine": 65,
+        "startChar": 10,
+        "endLine": 65,
+        "endChar": 51
+      },
+      "revId": "aeced86cf819b1f5627a5930a5cdc84f87e5b4e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e486eed4_5b3dbb54",
+        "filename": "test/1337-gc-coverage/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-01T21:55:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8429b287_62591eff",
       "range": {
         "startLine": 65,
         "startChar": 10,
