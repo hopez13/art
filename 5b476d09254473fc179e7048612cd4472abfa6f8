@@ -249,6 +249,30 @@
     },
     {
       "key": {
+        "uuid": "4405fafc_1f53c7de",
+        "filename": "runtime/code_simulator_container.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1076443
+      },
+      "writtenOn": "2015-09-01T12:21:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04d222e7_b2f740c1",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 12
+      },
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c459e9e9_6ea72341",
         "filename": "runtime/code_simulator_container.cc",
         "patchSetId": 1
@@ -730,6 +754,24 @@
       "side": 1,
       "message": "I think we use DISALLOW_COPY_AND_ASSIGN even in abstract classes; see e.g. the definition of `art::HInstruction` in compiler/optimizing/nodes.h.",
       "parentUuid": "4436d9c8_c950d1df",
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "447fb94c_245b3c80",
+        "filename": "runtime/simulator/code_simulator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1076443
+      },
+      "writtenOn": "2015-09-01T12:21:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4dbaa04_102c04c8",
       "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
