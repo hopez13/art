@@ -22,6 +22,99 @@
       "revId": "602ec295908eb56c60dce742f31c46b1b4d92a90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84c53226_0e1e2ba0",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-01T11:12:13Z",
+      "side": 1,
+      "message": "I would drop the default value (here and in other back ends), as the choice of the default behavior (recording pc info vs not recording it) is not obvious.",
+      "range": {
+        "startLine": 305,
+        "startChar": 41,
+        "endLine": 305,
+        "endChar": 47
+      },
+      "revId": "602ec295908eb56c60dce742f31c46b1b4d92a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4d42ed5_b1650029",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-01T11:12:13Z",
+      "side": 1,
+      "message": "Maybe `do_record_pc_info`?",
+      "parentUuid": "845371c9_ec0c7fcc",
+      "range": {
+        "startLine": 305,
+        "startChar": 26,
+        "endLine": 305,
+        "endChar": 40
+      },
+      "revId": "602ec295908eb56c60dce742f31c46b1b4d92a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64c03e16_0d1e31a0",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-01T11:12:13Z",
+      "side": 1,
+      "message": "/* record_pc_info */  (To be consistent with similar uses, here and in other calls.)",
+      "range": {
+        "startLine": 921,
+        "startChar": 26,
+        "endLine": 921,
+        "endChar": 53
+      },
+      "revId": "602ec295908eb56c60dce742f31c46b1b4d92a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04d222e7_524b749f",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-01T11:12:13Z",
+      "side": 1,
+      "message": "Maybe also add a call to CheckEntrypointTypes (here and elsewhere)?",
+      "range": {
+        "startLine": 921,
+        "startChar": 60,
+        "endLine": 921,
+        "endChar": 61
+      },
+      "revId": "602ec295908eb56c60dce742f31c46b1b4d92a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
