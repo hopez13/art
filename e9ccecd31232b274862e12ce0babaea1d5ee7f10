@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4dbaa04_f0414029",
+        "filename": "runtime/base/logging.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-01T13:25:41Z",
+      "side": 1,
+      "message": "Please keep this list sorted.\n\nAlso, could you update the following files with regards to the new `simulator` enum value?\n* cmdline/cmdline_types.h\n* cmdline/cmdline_parser_test.cc\n* runtime/parsed_options.cc\n* runtime/parsed_options_test.cc\n\nThanks.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 16
+      },
+      "revId": "e9ccecd31232b274862e12ce0babaea1d5ee7f10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
