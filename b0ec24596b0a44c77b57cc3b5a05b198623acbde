@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "247566b9_131e4ca0",
+        "filename": "compiler/utils/arm/assembler_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-01T10:57:50Z",
+      "side": 1,
+      "message": "I don\u0027t see how that would make testing easier.",
+      "parentUuid": "e478ad71_b6edc884",
+      "revId": "b0ec24596b0a44c77b57cc3b5a05b198623acbde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e45eedce_ef41d164",
         "filename": "compiler/utils/arm/assembler_arm_test.h",
         "patchSetId": 3
@@ -66,6 +84,30 @@
       "writtenOn": "2015-08-30T18:19:45Z",
       "side": 1,
       "message": "Nit: one per line?",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 25,
+        "endChar": 23
+      },
+      "revId": "b0ec24596b0a44c77b57cc3b5a05b198623acbde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8480d2c5_16d07c30",
+        "filename": "compiler/utils/arm/assembler_arm_test.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-01T10:57:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e45eedce_ef41d164",
       "range": {
         "startLine": 24,
         "startChar": 9,
@@ -101,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "84c53226_8ecc5ba2",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-01T10:57:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "841b715a_a3065a5a",
+      "range": {
+        "startLine": 1125,
+        "startChar": 25,
+        "endLine": 1125,
+        "endChar": 36
+      },
+      "revId": "b0ec24596b0a44c77b57cc3b5a05b198623acbde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "446ed97b_f2c45e0d",
         "filename": "compiler/utils/arm/assembler_thumb2.cc",
         "patchSetId": 3
@@ -112,6 +178,30 @@
       "writtenOn": "2015-08-30T18:19:45Z",
       "side": 1,
       "message": "remove?",
+      "range": {
+        "startLine": 1126,
+        "startChar": 37,
+        "endLine": 1126,
+        "endChar": 38
+      },
+      "revId": "b0ec24596b0a44c77b57cc3b5a05b198623acbde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a46956e6_f7bf00e3",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-01T10:57:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "446ed97b_f2c45e0d",
       "range": {
         "startLine": 1126,
         "startChar": 37,
@@ -147,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "447a5aab_d4e99cef",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-01T10:57:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e48fcdab_612ff08e",
+      "range": {
+        "startLine": 1147,
+        "startChar": 34,
+        "endLine": 1147,
+        "endChar": 38
+      },
+      "revId": "b0ec24596b0a44c77b57cc3b5a05b198623acbde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e45eedce_8f361d0c",
         "filename": "compiler/utils/arm/assembler_thumb2.cc",
         "patchSetId": 3
@@ -158,6 +272,30 @@
       "writtenOn": "2015-08-30T18:19:45Z",
       "side": 1,
       "message": "There\u0027s -\u003e There is",
+      "range": {
+        "startLine": 1151,
+        "startChar": 40,
+        "endLine": 1151,
+        "endChar": 47
+      },
+      "revId": "b0ec24596b0a44c77b57cc3b5a05b198623acbde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64c03e16_cdc2696e",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1151,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-01T10:57:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e45eedce_8f361d0c",
       "range": {
         "startLine": 1151,
         "startChar": 40,
@@ -193,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "c4dbaa04_70db1059",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-01T10:57:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "841b715a_c30b5661",
+      "range": {
+        "startLine": 1155,
+        "startChar": 43,
+        "endLine": 1155,
+        "endChar": 46
+      },
+      "revId": "b0ec24596b0a44c77b57cc3b5a05b198623acbde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "444df958_b1894005",
         "filename": "compiler/utils/arm/assembler_thumb2.cc",
         "patchSetId": 3
@@ -216,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "247566b9_73db0059",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1638,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-01T10:57:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "444df958_b1894005",
+      "range": {
+        "startLine": 1637,
+        "startChar": 32,
+        "endLine": 1638,
+        "endChar": 60
+      },
+      "revId": "b0ec24596b0a44c77b57cc3b5a05b198623acbde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "446ed97b_92c96224",
         "filename": "compiler/utils/arm/assembler_thumb2.cc",
         "patchSetId": 3
@@ -227,6 +413,30 @@
       "writtenOn": "2015-08-30T18:19:45Z",
       "side": 1,
       "message": "One per line?",
+      "range": {
+        "startLine": 1678,
+        "startChar": 32,
+        "endLine": 1679,
+        "endChar": 60
+      },
+      "revId": "b0ec24596b0a44c77b57cc3b5a05b198623acbde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04d222e7_b2c98091",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1679,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-01T10:57:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "446ed97b_92c96224",
       "range": {
         "startLine": 1678,
         "startChar": 32,
