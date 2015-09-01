@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "447a5aab_941b247b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-01T15:25:45Z",
+      "side": 1,
+      "message": "Nit: one per line",
+      "range": {
+        "startLine": 205,
+        "startChar": 33,
+        "endLine": 205,
+        "endChar": 51
+      },
+      "revId": "180cbdfa68fde0abb8b11c752c6c7e0eaec395d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64c03e16_8dc9c13a",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-01T15:25:45Z",
+      "side": 1,
+      "message": "With \"entry_point_can_trigger_gc\", this flag looks redundant.",
+      "range": {
+        "startLine": 1116,
+        "startChar": 44,
+        "endLine": 1116,
+        "endChar": 58
+      },
+      "revId": "180cbdfa68fde0abb8b11c752c6c7e0eaec395d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "447a5aab_b418a07e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2762,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-01T15:25:45Z",
+      "side": 1,
+      "message": "No gc flag?",
+      "range": {
+        "startLine": 2762,
+        "startChar": 14,
+        "endLine": 2762,
+        "endChar": 27
+      },
+      "revId": "180cbdfa68fde0abb8b11c752c6c7e0eaec395d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
