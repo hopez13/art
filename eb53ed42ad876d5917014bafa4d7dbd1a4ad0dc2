@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6424bead_02fb7882",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1335,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-09-01T22:38:29Z",
+      "side": 1,
+      "message": "Adding null check after all calls to FindArrayClass.",
+      "parentUuid": "0484e2ca_d793de47",
+      "range": {
+        "startLine": 1335,
+        "startChar": 39,
+        "endLine": 1335,
+        "endChar": 56
+      },
+      "revId": "eb53ed42ad876d5917014bafa4d7dbd1a4ad0dc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e486eed4_f67386de",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6424bead_82e768e6",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-09-01T22:38:29Z",
+      "side": 1,
+      "message": "It can be for arrays and primitives.",
+      "parentUuid": "e486eed4_f67386de",
+      "range": {
+        "startLine": 433,
+        "startChar": 31,
+        "endLine": 433,
+        "endChar": 51
+      },
+      "revId": "eb53ed42ad876d5917014bafa4d7dbd1a4ad0dc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84529221_f0d5cd57",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2015-09-01T22:07:00Z",
       "side": 1,
       "message": "class_array_class needs to be checked for null in case of OOM.",
+      "range": {
+        "startLine": 469,
+        "startChar": 40,
+        "endLine": 469,
+        "endChar": 51
+      },
+      "revId": "eb53ed42ad876d5917014bafa4d7dbd1a4ad0dc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0484e2ca_b713ba21",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2015-09-01T22:38:29Z",
+      "side": 1,
+      "message": "Adding null check after all calls to FindArrayClass.",
+      "parentUuid": "84529221_f0d5cd57",
       "range": {
         "startLine": 469,
         "startChar": 40,
