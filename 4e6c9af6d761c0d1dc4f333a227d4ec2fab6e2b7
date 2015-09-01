@@ -1,0 +1,326 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64c03e16_4d99996f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 2568,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-01T13:20:19Z",
+      "side": 1,
+      "message": "Should you DCHECK the instruction does not need materialization? (here and all other uses below).",
+      "range": {
+        "startLine": 2568,
+        "startChar": 5,
+        "endLine": 2568,
+        "endChar": 65
+      },
+      "revId": "4e6c9af6d761c0d1dc4f333a227d4ec2fab6e2b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dbaa04_9077949a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 5278,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-01T13:20:19Z",
+      "side": 1,
+      "message": "This seems out of scope, as Java doesn\u0027t have vector types.",
+      "range": {
+        "startLine": 5277,
+        "startChar": 21,
+        "endLine": 5278,
+        "endChar": 55
+      },
+      "revId": "4e6c9af6d761c0d1dc4f333a227d4ec2fab6e2b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dbaa04_50512cfe",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 5385,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-01T13:20:19Z",
+      "side": 1,
+      "message": "dep -\u003e user?",
+      "range": {
+        "startLine": 5385,
+        "startChar": 51,
+        "endLine": 5385,
+        "endChar": 54
+      },
+      "revId": "4e6c9af6d761c0d1dc4f333a227d4ec2fab6e2b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8480d2c5_b63c28f7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 5393,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-01T13:20:19Z",
+      "side": 1,
+      "message": "I\u0027d just inline that method in InitializeConstantAreaPointer.",
+      "range": {
+        "startLine": 5393,
+        "startChar": 3,
+        "endLine": 5393,
+        "endChar": 17
+      },
+      "revId": "4e6c9af6d761c0d1dc4f333a227d4ec2fab6e2b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4d42ed5_71131868",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 5394,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-01T13:20:19Z",
+      "side": 1,
+      "message": "Not a proper comment? You could say: \"we only create a HX86ComputeBaseMethodAddress if an instruction needs it\".",
+      "range": {
+        "startLine": 5394,
+        "startChar": 0,
+        "endLine": 5394,
+        "endChar": 34
+      },
+      "revId": "4e6c9af6d761c0d1dc4f333a227d4ec2fab6e2b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a46956e6_377fb8a8",
+        "filename": "compiler/optimizing/nodes_x86.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-01T13:20:19Z",
+      "side": 1,
+      "message": "return InputAt(0)-\u003eAs...",
+      "range": {
+        "startLine": 48,
+        "startChar": 12,
+        "endLine": 48,
+        "endChar": 71
+      },
+      "revId": "4e6c9af6d761c0d1dc4f333a227d4ec2fab6e2b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4deb6f4_ef7081d4",
+        "filename": "compiler/optimizing/nodes_x86.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-01T13:20:19Z",
+      "side": 1,
+      "message": "return InputAt(1)-\u003eAsConstant()",
+      "range": {
+        "startLine": 52,
+        "startChar": 11,
+        "endLine": 52,
+        "endChar": 52
+      },
+      "revId": "4e6c9af6d761c0d1dc4f333a227d4ec2fab6e2b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64c03e16_0da391a1",
+        "filename": "compiler/optimizing/nodes_x86.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-01T13:20:19Z",
+      "side": 1,
+      "message": "const bool?",
+      "range": {
+        "startLine": 58,
+        "startChar": 2,
+        "endLine": 58,
+        "endChar": 6
+      },
+      "revId": "4e6c9af6d761c0d1dc4f333a227d4ec2fab6e2b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84c53226_6e9ecf5a",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-01T13:20:19Z",
+      "side": 1,
+      "message": "2 more spaces",
+      "range": {
+        "startLine": 434,
+        "startChar": 0,
+        "endLine": 434,
+        "endChar": 8
+      },
+      "revId": "4e6c9af6d761c0d1dc4f333a227d4ec2fab6e2b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247566b9_b33c38f7",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-01T13:20:19Z",
+      "side": 1,
+      "message": "Only used for a IsEmpty check? Therefore remove this method?",
+      "range": {
+        "startLine": 246,
+        "startChar": 6,
+        "endLine": 246,
+        "endChar": 13
+      },
+      "revId": "4e6c9af6d761c0d1dc4f333a227d4ec2fab6e2b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8480d2c5_769e905a",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-01T13:20:19Z",
+      "side": 1,
+      "message": "what is this one for?",
+      "range": {
+        "startLine": 247,
+        "startChar": 41,
+        "endLine": 247,
+        "endChar": 56
+      },
+      "revId": "4e6c9af6d761c0d1dc4f333a227d4ec2fab6e2b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dbaa04_306028ca",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-01T13:20:19Z",
+      "side": 1,
+      "message": "Please add a comment for this one. Where is this used?",
+      "range": {
+        "startLine": 250,
+        "startChar": 6,
+        "endLine": 250,
+        "endChar": 24
+      },
+      "revId": "4e6c9af6d761c0d1dc4f333a227d4ec2fab6e2b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04d222e7_729eb85a",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-01T13:20:19Z",
+      "side": 1,
+      "message": "kElementSize, or kEntrySize?",
+      "range": {
+        "startLine": 267,
+        "startChar": 26,
+        "endLine": 267,
+        "endChar": 36
+      },
+      "revId": "4e6c9af6d761c0d1dc4f333a227d4ec2fab6e2b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4deb6f4_4fe74de7",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-01T13:20:19Z",
+      "side": 1,
+      "message": "Please add a constant_area_.IsEmpty() helper.",
+      "range": {
+        "startLine": 728,
+        "startChar": 44,
+        "endLine": 728,
+        "endChar": 68
+      },
+      "revId": "4e6c9af6d761c0d1dc4f333a227d4ec2fab6e2b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
