@@ -46,6 +46,30 @@
       "revId": "d9cb68e3212d31d61445fb7e8446f68991720009",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "447a5aab_f45b786a",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-01T11:00:38Z",
+      "side": 1,
+      "message": "Actually, this is thanks to the live bit mask, not the Dex register location catalog.",
+      "parentUuid": "e48fcdab_c1ce045b",
+      "range": {
+        "startLine": 103,
+        "startChar": 51,
+        "endLine": 103,
+        "endChar": 73
+      },
+      "revId": "d9cb68e3212d31d61445fb7e8446f68991720009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
