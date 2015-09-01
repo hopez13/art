@@ -225,6 +225,30 @@
     },
     {
       "key": {
+        "uuid": "04d222e7_b2f740c1",
+        "filename": "runtime/code_simulator_container.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-01T10:54:56Z",
+      "side": 1,
+      "message": "Sure, sounds good to me.",
+      "parentUuid": "c421e986_c5bfda46",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 12
+      },
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c459e9e9_6ea72341",
         "filename": "runtime/code_simulator_container.cc",
         "patchSetId": 1
@@ -688,6 +712,24 @@
       "side": 1,
       "message": "CodeSimulator is an abstract base class, so it is non-copy-able and non-assignable. Could we drop this issue?",
       "parentUuid": "e478ad71_f69d80eb",
+      "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dbaa04_102c04c8",
+        "filename": "runtime/simulator/code_simulator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-01T10:54:56Z",
+      "side": 1,
+      "message": "I think we use DISALLOW_COPY_AND_ASSIGN even in abstract classes; see e.g. the definition of `art::HInstruction` in compiler/optimizing/nodes.h.",
+      "parentUuid": "4436d9c8_c950d1df",
       "revId": "5b476d09254473fc179e7048612cd4472abfa6f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
