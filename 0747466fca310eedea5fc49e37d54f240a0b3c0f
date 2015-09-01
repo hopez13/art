@@ -22,6 +22,30 @@
       "revId": "0747466fca310eedea5fc49e37d54f240a0b3c0f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a46956e6_b7742896",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-01T15:38:48Z",
+      "side": 1,
+      "message": "Both parameters are actually *out* parameters (though \u0027result\u0027 is modified here).\n\nMaybe the right thing is to return the DeoptimizationContextRecord and let the caller delete it. But that needs to expose DeoptimizationContextRecord out of the Thread class.",
+      "parentUuid": "c4dbaa04_305348df",
+      "range": {
+        "startLine": 233,
+        "startChar": 54,
+        "endLine": 233,
+        "endChar": 83
+      },
+      "revId": "0747466fca310eedea5fc49e37d54f240a0b3c0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
