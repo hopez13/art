@@ -22,6 +22,30 @@
       "revId": "b1b45bec6a3eed1fb95dabd95b1957a51341dc2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0484e2ca_96323cbe",
+        "filename": "dexlist/dexlist.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-01T15:32:59Z",
+      "side": 1,
+      "message": "Yes, you are right that is clearer. I followed L211 which I kept small on purpose since it appears on the helpline, but I guess we have sufficient space for the full strings.",
+      "parentUuid": "a4deb6f4_af011910",
+      "range": {
+        "startLine": 238,
+        "startChar": 17,
+        "endLine": 238,
+        "endChar": 22
+      },
+      "revId": "b1b45bec6a3eed1fb95dabd95b1957a51341dc2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
