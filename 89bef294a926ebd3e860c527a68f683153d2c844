@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a40a365b_cf7b1dfd",
+        "filename": "runtime/dex_file_verifier_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-09-02T22:30:56Z",
+      "side": 1,
+      "message": "put Base64 in the name somewhere, not as an interior content",
+      "range": {
+        "startLine": 138,
+        "startChar": 32,
+        "endLine": 138,
+        "endChar": 60
+      },
+      "revId": "89bef294a926ebd3e860c527a68f683153d2c844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6492fe15_663c9f92",
+        "filename": "runtime/dex_file_verifier_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-09-02T22:30:56Z",
+      "side": 1,
+      "message": "what does this have to do with contructors? looks copy/pasta from last case?",
+      "range": {
+        "startLine": 407,
+        "startChar": 0,
+        "endLine": 408,
+        "endChar": 75
+      },
+      "revId": "89bef294a926ebd3e860c527a68f683153d2c844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
