@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84529221_8113e966",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-02T04:24:55Z",
+      "side": 1,
+      "message": "This should really be private, but because we need to use a macro we need it public. So I decided to at least move it close to the private section.",
+      "range": {
+        "startLine": 296,
+        "startChar": 2,
+        "endLine": 308,
+        "endChar": 3
+      },
+      "revId": "b8c512d18a30e47d9c6ccfe089472e25d1469db8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
