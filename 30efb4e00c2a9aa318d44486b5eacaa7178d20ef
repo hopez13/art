@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e4d42ed5_548042e9",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-02T17:50:32Z",
+      "side": 1,
+      "message": "How about multiple back edges?",
+      "range": {
+        "startLine": 41,
+        "startChar": 6,
+        "endLine": 41,
+        "endChar": 36
+      },
+      "revId": "30efb4e00c2a9aa318d44486b5eacaa7178d20ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "845371c9_4961057c",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 16
