@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4deb6f4_efa0810a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-02T11:28:30Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we check that `instruction_-\u003eIsInstanceOf()` in this case?",
+      "range": {
+        "startLine": 267,
+        "startChar": 58,
+        "endLine": 267,
+        "endChar": 74
+      },
+      "revId": "5a6cc49ed4f36dd11d6ec1590857b884ad8da6ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
