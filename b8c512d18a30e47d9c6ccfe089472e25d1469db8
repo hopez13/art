@@ -25,6 +25,93 @@
     },
     {
       "key": {
+        "uuid": "c4072a51_795c7bdf",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-02T20:15:08Z",
+      "side": 1,
+      "message": "It was a trivial type before, e.g. destructor was no-op. Now the destructor is not a no-op so it needs to be called explicitly.",
+      "parentUuid": "8480d2c5_7611b0cd",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 48
+      },
+      "revId": "b8c512d18a30e47d9c6ccfe089472e25d1469db8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8497f201_48f170a0",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-02T20:15:08Z",
+      "side": 1,
+      "message": "(no change needed)\n\nNot sure I like this cast but I guess it\u0027s non-trivial to allocate/delete types with variable length memory. Should be possible to generalize something to avoid this kind of reinterpret casting in the future.",
+      "revId": "b8c512d18a30e47d9c6ccfe089472e25d1469db8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a40a365b_2fb3c945",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-02T20:15:08Z",
+      "side": 1,
+      "message": "nit: not aligned to rest \\",
+      "range": {
+        "startLine": 98,
+        "startChar": 93,
+        "endLine": 98,
+        "endChar": 95
+      },
+      "revId": "b8c512d18a30e47d9c6ccfe089472e25d1469db8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "644d9e85_0e184aaf",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-02T20:15:08Z",
+      "side": 1,
+      "message": "IMHO the name should be more like CreateInPlace or CreateUnowned or something like that.",
+      "range": {
+        "startLine": 297,
+        "startChar": 22,
+        "endLine": 297,
+        "endChar": 43
+      },
+      "revId": "b8c512d18a30e47d9c6ccfe089472e25d1469db8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2461e61f_536064ca",
         "filename": "runtime/stack.h",
         "patchSetId": 2
@@ -89,6 +176,23 @@
         "endLine": 308,
         "endChar": 3
       },
+      "revId": "b8c512d18a30e47d9c6ccfe089472e25d1469db8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8497f201_e86abcdf",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-02T20:15:08Z",
+      "side": 1,
+      "message": "nit: although the linkage is still static, it would be less confusing to repeat static again",
       "revId": "b8c512d18a30e47d9c6ccfe089472e25d1469db8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
