@@ -45,6 +45,30 @@
       "revId": "89bef294a926ebd3e860c527a68f683153d2c844",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64ecbece_565a2a6b",
+        "filename": "runtime/dex_file_verifier_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-02T22:32:14Z",
+      "side": 1,
+      "message": "It\u0027s just general cleanup. Those flags are only there to extend the modifier flags encoding...",
+      "parentUuid": "6492fe15_663c9f92",
+      "range": {
+        "startLine": 407,
+        "startChar": 0,
+        "endLine": 408,
+        "endChar": 75
+      },
+      "revId": "89bef294a926ebd3e860c527a68f683153d2c844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
