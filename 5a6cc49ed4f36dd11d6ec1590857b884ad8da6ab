@@ -22,6 +22,30 @@
       "revId": "5a6cc49ed4f36dd11d6ec1590857b884ad8da6ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247566b9_33c26890",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-09-02T19:25:16Z",
+      "side": 1,
+      "message": "I can add an extra DCHECK to all the TypeCheckSlowPaths. However a couple of lines below we do:\n\nif (instruction-\u003eIsInstanceOf()) {\n...\n} else {\nDCHECK(instruction-\u003eIsCheckCast());\n...\n}\n\nThus only an InstanceOf and a CheckCast will pass.",
+      "parentUuid": "a4deb6f4_efa0810a",
+      "range": {
+        "startLine": 267,
+        "startChar": 58,
+        "endLine": 267,
+        "endChar": 74
+      },
+      "revId": "5a6cc49ed4f36dd11d6ec1590857b884ad8da6ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
