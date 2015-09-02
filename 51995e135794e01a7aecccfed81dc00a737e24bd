@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e4618eea_327ff1a8",
+        "filename": "runtime/java_vm_ext.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-02T02:00:07Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "e4618eea_fe748511",
+      "range": {
+        "startLine": 187,
+        "startChar": 39,
+        "endLine": 187,
+        "endChar": 69
+      },
+      "revId": "51995e135794e01a7aecccfed81dc00a737e24bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "045f8228_7f0c13b7",
         "filename": "runtime/java_vm_ext.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-02T01:33:33Z",
       "side": 0,
       "message": "Similarly, comment that this is elided for lockless decode but should hold in other places?",
+      "range": {
+        "startLine": 188,
+        "startChar": 31,
+        "endLine": 188,
+        "endChar": 41
+      },
+      "revId": "51995e135794e01a7aecccfed81dc00a737e24bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84529221_46d3c796",
+        "filename": "runtime/java_vm_ext.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-02T02:00:07Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "045f8228_7f0c13b7",
       "range": {
         "startLine": 188,
         "startChar": 31,

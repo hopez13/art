@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "045f8228_dfaadfb9",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-02T02:00:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6424bead_d66d35fa",
+      "range": {
+        "startLine": 546,
+        "startChar": 24,
+        "endLine": 546,
+        "endChar": 43
+      },
+      "revId": "11f5ace6a9400da4fc74e3cdd320e222b490c9de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6492fe15_4cd8a7b1",
         "filename": "runtime/java_vm_ext.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "045f8228_7f81b334",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-02T02:00:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6492fe15_4cd8a7b1",
+      "range": {
+        "startLine": 580,
+        "startChar": 23,
+        "endLine": 580,
+        "endChar": 43
+      },
+      "revId": "11f5ace6a9400da4fc74e3cdd320e222b490c9de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0484e2ca_4cbf4098",
         "filename": "runtime/java_vm_ext.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2015-09-02T01:33:33Z",
       "side": 1,
       "message": "This only refers to a disallow (true-\u003efalse) change, correct? CC does not use a checkpoint in an allow change or the other collectors do that in a pause. Clarify this?",
+      "range": {
+        "startLine": 586,
+        "startChar": 67,
+        "endLine": 588,
+        "endChar": 34
+      },
+      "revId": "11f5ace6a9400da4fc74e3cdd320e222b490c9de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8497f201_b3966a39",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-02T02:00:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0484e2ca_4cbf4098",
       "range": {
         "startLine": 586,
         "startChar": 67,
