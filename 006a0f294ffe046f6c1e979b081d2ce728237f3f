@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6492fe15_eca8935c",
+        "filename": "test/999-jni-perf/perf-jni.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-02T00:00:32Z",
+      "side": 1,
+      "message": "I think this can be removed. It was there because things went wrong with the libarttest ndebug issues. This shouldn\u0027t be here, it\u0027s unrelated.",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 31
+      },
+      "revId": "006a0f294ffe046f6c1e979b081d2ce728237f3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
