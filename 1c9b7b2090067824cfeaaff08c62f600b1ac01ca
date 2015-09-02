@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c4072a51_30996871",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "not as far as I know. I could make one.",
+      "parentUuid": "6492fe15_a69dccd0",
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "644d9e85_1931bb20",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 5
@@ -30,6 +48,30 @@
       "writtenOn": "2015-09-01T21:12:35Z",
       "side": 1,
       "message": "It looks like the goal here is to open a valid image file (preferring the system image location over the cache image location). I think that would be a good function to implement in the image assistant as a convenience, rather than having to make three calls here to achieve the same thing: GetImageInfo, IsImageValid, and OpenImage.",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 1
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a40a365b_8ff75593",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Also use info to get header and check that loading worked.",
+      "parentUuid": "644d9e85_1931bb20",
       "range": {
         "startLine": 144,
         "startChar": 0,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "a40a365b_8f70f5d3",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "I didn\u0027t add the IsImagePic thing. \n\nIt seems to be there purely for debug logging. I can remove it if you want.",
+      "parentUuid": "8429b287_bdfa8ba9",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 3
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "644d9e85_993c8bf7",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 5
@@ -76,6 +142,30 @@
       "writtenOn": "2015-09-01T21:12:35Z",
       "side": 1,
       "message": "What is this check for? Should it come right after we get the image info?",
+      "range": {
+        "startLine": 203,
+        "startChar": 1,
+        "endLine": 203,
+        "endChar": 30
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a40a365b_cf6afddf",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "It checks that we loaded the image successfully (this is done in lines 174-188). Moved up closer to where it happens.",
+      "parentUuid": "644d9e85_993c8bf7",
       "range": {
         "startLine": 203,
         "startChar": 1,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "0484e2ca_22e7631b",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "See above comment.",
+      "parentUuid": "6424bead_c796a23a",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 1
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "644d9e85_599e135a",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 5
@@ -122,6 +236,30 @@
       "writtenOn": "2015-09-01T21:12:35Z",
       "side": 1,
       "message": "As before, the image_header is unused. Don\u0027t read it in the first place?",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 268,
+        "endChar": 3
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64ecbece_4d92991a",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "See above comment.",
+      "parentUuid": "644d9e85_599e135a",
       "range": {
         "startLine": 264,
         "startChar": 0,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "64ecbece_ad969d0a",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8429b287_fd8c932c",
+      "range": {
+        "startLine": 304,
+        "startChar": 1,
+        "endLine": 304,
+        "endChar": 30
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4deb6f4_ef1e416c",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 5
@@ -168,6 +330,30 @@
       "writtenOn": "2015-09-01T14:12:54Z",
       "side": 1,
       "message": "Why not adding a helper for this: info.IsImageUsable ?",
+      "range": {
+        "startLine": 1192,
+        "startChar": 20,
+        "endLine": 1192,
+        "endChar": 63
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8497f201_a5e4dda1",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1192,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4deb6f4_ef1e416c",
       "range": {
         "startLine": 1192,
         "startChar": 20,
@@ -203,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "6492fe15_92db2a58",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1198,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "We also want to print useful error messages and detect if the image is unusable. Also I don\u0027t think replacing this with:\n\n    bool is_usable \u003d false;\n    patched_image_filename \u003d GetImageFilename(patched_image_location, isa, \u0026is_usable);\n    if (!is_usable) {\n         Usage(...);\n    }\n\nis much better.",
+      "parentUuid": "045f8228_b9c62bcf",
+      "range": {
+        "startLine": 1188,
+        "startChar": 4,
+        "endLine": 1198,
+        "endChar": 48
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a46956e6_1708742f",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 5
@@ -214,6 +424,30 @@
       "writtenOn": "2015-09-01T14:12:54Z",
       "side": 1,
       "message": "-\u003e the cache.\n\nAlso, explain why.",
+      "range": {
+        "startLine": 323,
+        "startChar": 29,
+        "endLine": 323,
+        "endChar": 34
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84529221_f7b93f50",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a46956e6_1708742f",
       "range": {
         "startLine": 323,
         "startChar": 29,
@@ -249,6 +483,30 @@
     },
     {
       "key": {
+        "uuid": "a40a365b_0fba45a8",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Changed to not store the ImageInfo and only store std::string.",
+      "parentUuid": "8497f201_4d0d053f",
+      "range": {
+        "startLine": 324,
+        "startChar": 2,
+        "endLine": 324,
+        "endChar": 55
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4d42ed5_518374ce",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 5
@@ -260,6 +518,30 @@
       "writtenOn": "2015-09-01T14:12:54Z",
       "side": 1,
       "message": "nit: one per line",
+      "range": {
+        "startLine": 350,
+        "startChar": 27,
+        "endLine": 351,
+        "endChar": 38
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8497f201_a5805d81",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4d42ed5_518374ce",
       "range": {
         "startLine": 350,
         "startChar": 27,
@@ -295,6 +577,30 @@
     },
     {
       "key": {
+        "uuid": "c4072a51_708db0f8",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "No. ImageState does not always encode any of this information (cache or system is encoded in some of them).\n\nWe could have all of these be in ImageState but I think that would make the enum even more confusing.",
+      "parentUuid": "644d9e85_f9a81f5c",
+      "range": {
+        "startLine": 378,
+        "startChar": 0,
+        "endLine": 384,
+        "endChar": 33
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e486eed4_5baffbfc",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 5
@@ -306,6 +612,30 @@
       "writtenOn": "2015-09-01T21:12:35Z",
       "side": 1,
       "message": "Is the comment wrong? Is this about relocation or about compilation?",
+      "range": {
+        "startLine": 390,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 62
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e486eed4_403703af",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "It is right. If Dex2Oat is disabled we don\u0027t do patching either.\n\nThis is only for testing.",
+      "parentUuid": "e486eed4_5baffbfc",
       "range": {
         "startLine": 390,
         "startChar": 0,
@@ -341,6 +671,30 @@
     },
     {
       "key": {
+        "uuid": "84529221_125f495b",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Not without utilizing switch fallthough (and really ugly switch fallthough at that).\n\nBasically this if is to recover from a failure of ImageSpace::Init. The switch is to choose what to init.\n\nAdded an explanatory comment and made the first if an else-if.",
+      "parentUuid": "045f8228_39bd9b0f",
+      "range": {
+        "startLine": 436,
+        "startChar": 0,
+        "endLine": 457,
+        "endChar": 3
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4618eea_63db5e59",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 5
@@ -352,6 +706,30 @@
       "writtenOn": "2015-09-01T21:12:35Z",
       "side": 1,
       "message": "What is this lock for?",
+      "range": {
+        "startLine": 482,
+        "startChar": 0,
+        "endLine": 483,
+        "endChar": 45
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a40a365b_0f56c5f7",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "prevents races with patchoat/dex2oat. This was already in the code I just moved it into the ::Init function since that is its whole lifetime anyway.",
+      "parentUuid": "e4618eea_63db5e59",
       "range": {
         "startLine": 482,
         "startChar": 0,
@@ -387,6 +765,30 @@
     },
     {
       "key": {
+        "uuid": "644d9e85_3af105a2",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Needs to be able to call the private Init method.",
+      "parentUuid": "e486eed4_bb9887f7",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 44
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04d222e7_926d5cfb",
         "filename": "runtime/image_assistant.cc",
         "patchSetId": 5
@@ -398,6 +800,30 @@
       "writtenOn": "2015-09-01T14:12:54Z",
       "side": 1,
       "message": "new line",
+      "range": {
+        "startLine": 45,
+        "startChar": 39,
+        "endLine": 45,
+        "endChar": 54
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6492fe15_f2faae7c",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04d222e7_926d5cfb",
       "range": {
         "startLine": 45,
         "startChar": 39,
@@ -433,6 +859,30 @@
     },
     {
       "key": {
+        "uuid": "e486eed4_40aaa3ee",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4dbaa04_700b10ef",
+      "range": {
+        "startLine": 50,
+        "startChar": 2,
+        "endLine": 50,
+        "endChar": 6
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4deb6f4_8f1bf57a",
         "filename": "runtime/image_assistant.cc",
         "patchSetId": 5
@@ -444,6 +894,30 @@
       "writtenOn": "2015-09-01T14:12:54Z",
       "side": 1,
       "message": "Do this before the cache_state?",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 40
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6492fe15_b2042621",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4deb6f4_8f1bf57a",
       "range": {
         "startLine": 60,
         "startChar": 0,
@@ -479,6 +953,30 @@
     },
     {
       "key": {
+        "uuid": "644d9e85_9a747996",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64c03e16_0d7ab1b7",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 56
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4deb6f4_4fb50db7",
         "filename": "runtime/image_assistant.cc",
         "patchSetId": 5
@@ -490,6 +988,30 @@
       "writtenOn": "2015-09-01T14:12:54Z",
       "side": 1,
       "message": "nit: one per line",
+      "range": {
+        "startLine": 116,
+        "startChar": 18,
+        "endLine": 117,
+        "endChar": 77
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6492fe15_121f1a6a",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4deb6f4_4fb50db7",
       "range": {
         "startLine": 116,
         "startChar": 18,
@@ -525,6 +1047,30 @@
     },
     {
       "key": {
+        "uuid": "64ecbece_4df45901",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64c03e16_2d7f6da8",
+      "range": {
+        "startLine": 125,
+        "startChar": 2,
+        "endLine": 125,
+        "endChar": 6
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84c53226_6eec8fca",
         "filename": "runtime/image_assistant.cc",
         "patchSetId": 5
@@ -536,6 +1082,30 @@
       "writtenOn": "2015-09-01T14:12:54Z",
       "side": 1,
       "message": "Runtime",
+      "range": {
+        "startLine": 135,
+        "startChar": 2,
+        "endLine": 135,
+        "endChar": 6
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0484e2ca_e2741b97",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84c53226_6eec8fca",
       "range": {
         "startLine": 135,
         "startChar": 2,
@@ -571,6 +1141,30 @@
     },
     {
       "key": {
+        "uuid": "6492fe15_d218d27f",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4dbaa04_300588d7",
+      "range": {
+        "startLine": 136,
+        "startChar": 27,
+        "endLine": 136,
+        "endChar": 43
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8480d2c5_56e7d4e6",
         "filename": "runtime/image_assistant.cc",
         "patchSetId": 5
@@ -582,6 +1176,30 @@
       "writtenOn": "2015-09-01T14:12:54Z",
       "side": 1,
       "message": "Nit: one per line",
+      "range": {
+        "startLine": 145,
+        "startChar": 39,
+        "endLine": 147,
+        "endChar": 86
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0484e2ca_02457f35",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8480d2c5_56e7d4e6",
       "range": {
         "startLine": 145,
         "startChar": 39,
@@ -617,6 +1235,30 @@
     },
     {
       "key": {
+        "uuid": "0484e2ca_c24eb759",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4d42ed5_d196840c",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 31
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64c03e16_cd7349df",
         "filename": "runtime/image_assistant.cc",
         "patchSetId": 5
@@ -628,6 +1270,30 @@
       "writtenOn": "2015-09-01T14:12:54Z",
       "side": 1,
       "message": "one per line",
+      "range": {
+        "startLine": 167,
+        "startChar": 17,
+        "endLine": 168,
+        "endChar": 75
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84f1b2a4_2e7bc756",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64c03e16_cd7349df",
       "range": {
         "startLine": 167,
         "startChar": 17,
@@ -663,6 +1329,30 @@
     },
     {
       "key": {
+        "uuid": "84529221_1222a9b2",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8480d2c5_76ec50ca",
+      "range": {
+        "startLine": 172,
+        "startChar": 30,
+        "endLine": 173,
+        "endChar": 60
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "447a5aab_14f154a1",
         "filename": "runtime/image_assistant.cc",
         "patchSetId": 5
@@ -674,6 +1364,30 @@
       "writtenOn": "2015-09-01T14:12:54Z",
       "side": 1,
       "message": "one per line",
+      "range": {
+        "startLine": 187,
+        "startChar": 20,
+        "endLine": 188,
+        "endChar": 70
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0484e2ca_8238afb9",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "447a5aab_14f154a1",
       "range": {
         "startLine": 187,
         "startChar": 20,
@@ -709,6 +1423,30 @@
     },
     {
       "key": {
+        "uuid": "84529221_72bafda9",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "447a5aab_34f6d09a",
+      "range": {
+        "startLine": 200,
+        "startChar": 20,
+        "endLine": 201,
+        "endChar": 70
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8480d2c5_16f15ca1",
         "filename": "runtime/image_assistant.cc",
         "patchSetId": 5
@@ -720,6 +1458,30 @@
       "writtenOn": "2015-09-01T14:12:54Z",
       "side": 1,
       "message": "Runtime",
+      "range": {
+        "startLine": 206,
+        "startChar": 2,
+        "endLine": 206,
+        "endChar": 6
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "644d9e85_3a3225d7",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8480d2c5_16f15ca1",
       "range": {
         "startLine": 206,
         "startChar": 2,
@@ -755,6 +1517,30 @@
     },
     {
       "key": {
+        "uuid": "0484e2ca_82df4fcd",
+        "filename": "runtime/image_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Possibly. We need both filenames for these so hence not using those functions. Made one smaller.",
+      "parentUuid": "04d222e7_b26ae0de",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 244,
+        "endChar": 1
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "447a5aab_b46ae0de",
         "filename": "runtime/image_assistant.h",
         "patchSetId": 5
@@ -766,6 +1552,30 @@
       "writtenOn": "2015-09-01T14:12:54Z",
       "side": 1,
       "message": "nit: drop parens",
+      "range": {
+        "startLine": 121,
+        "startChar": 11,
+        "endLine": 121,
+        "endChar": 12
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4072a51_700010c8",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "447a5aab_b46ae0de",
       "range": {
         "startLine": 121,
         "startChar": 11,
@@ -801,6 +1611,30 @@
     },
     {
       "key": {
+        "uuid": "e486eed4_80b0ab60",
+        "filename": "runtime/image_assistant.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4dbaa04_90fc7438",
+      "range": {
+        "startLine": 148,
+        "startChar": 12,
+        "endLine": 149,
+        "endChar": 26
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8497f201_ed5e515d",
         "filename": "runtime/native/dalvik_system_VMRuntime.cc",
         "patchSetId": 5
@@ -812,6 +1646,30 @@
       "writtenOn": "2015-09-01T21:12:35Z",
       "side": 1,
       "message": "I think it would be nice to move this logic into a convenience function in the image assistant. Something like:\n return ImageIsUseable(Runtime::Current()-\u003eGetImageLocation().c_str(), isa)",
+      "range": {
+        "startLine": 589,
+        "startChar": 1,
+        "endLine": 590,
+        "endChar": 84
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0484e2ca_423707af",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8497f201_ed5e515d",
       "range": {
         "startLine": 589,
         "startChar": 1,
@@ -847,6 +1705,30 @@
     },
     {
       "key": {
+        "uuid": "644d9e85_da167113",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Yes. Performance is identical.",
+      "parentUuid": "e4618eea_3894757d",
+      "range": {
+        "startLine": 939,
+        "startChar": 0,
+        "endLine": 953,
+        "endChar": 7
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8497f201_ad684901",
         "filename": "runtime/oat_file_assistant_test.cc",
         "patchSetId": 5
@@ -858,6 +1740,30 @@
       "writtenOn": "2015-09-01T21:12:35Z",
       "side": 1,
       "message": "Why is this needed? Should it be in common_runtime_test instead?",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 73
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "644d9e85_9a10f915",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "8497f201_ad684901",
       "range": {
         "startLine": 58,
         "startChar": 0,
@@ -893,6 +1799,30 @@
     },
     {
       "key": {
+        "uuid": "8497f201_8581a137",
+        "filename": "runtime/oat_file_assistant_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e486eed4_db10eb16",
+      "range": {
+        "startLine": 102,
+        "startChar": 2,
+        "endLine": 104,
+        "endChar": 1
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "045f8228_994807f5",
         "filename": "runtime/runtime.cc",
         "patchSetId": 5
@@ -904,6 +1834,30 @@
       "writtenOn": "2015-09-01T21:12:35Z",
       "side": 1,
       "message": "Why do we use the system image here, and not the cached image?",
+      "range": {
+        "startLine": 714,
+        "startChar": 63,
+        "endLine": 714,
+        "endChar": 81
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8497f201_4562b94d",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "This path is only executed if image loading failed and relocation is enabled. We must not have (and are unable to create) a valid cache image. Therefore we should try to see if there is a /system image. If there is we use the /system oat file to run from the embedded dex files.\n\nSee line 719",
+      "parentUuid": "045f8228_994807f5",
       "range": {
         "startLine": 714,
         "startChar": 63,
@@ -955,6 +1909,54 @@
         "startChar": 69,
         "endLine": 244,
         "endChar": 74
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0484e2ca_c2c6b7d0",
+        "filename": "runtime/utils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "247566b9_b36af8de",
+      "range": {
+        "startLine": 244,
+        "startChar": 69,
+        "endLine": 244,
+        "endChar": 74
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a40a365b_8f1d952a",
+        "filename": "runtime/utils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-02T21:04:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4deb6f4_0f08652f",
+      "range": {
+        "startLine": 244,
+        "startChar": 76,
+        "endLine": 244,
+        "endChar": 81
       },
       "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
