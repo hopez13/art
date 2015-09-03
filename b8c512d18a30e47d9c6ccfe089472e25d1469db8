@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "247566b9_96fa4aaa",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:54:34Z",
+      "side": 1,
+      "message": "The desctructor hasn\u0027t been changed, the body is still empty. Is the plan in another CL to do things in it then?",
+      "parentUuid": "c4072a51_795c7bdf",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 48
+      },
+      "revId": "b8c512d18a30e47d9c6ccfe089472e25d1469db8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8497f201_48f170a0",
         "filename": "runtime/stack.h",
         "patchSetId": 2
