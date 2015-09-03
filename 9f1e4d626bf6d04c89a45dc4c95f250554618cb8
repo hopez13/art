@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e486eed4_afafd7b6",
+        "filename": "compiler/dex/mir_field_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-03T18:54:03Z",
+      "side": 1,
+      "message": "Should this be a pointer instead of a reference as it\u0027s not const?",
+      "range": {
+        "startLine": 137,
+        "startChar": 22,
+        "endLine": 137,
+        "endChar": 45
+      },
+      "revId": "9f1e4d626bf6d04c89a45dc4c95f250554618cb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "240f267a_66bdf00e",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-03T18:54:03Z",
+      "side": 1,
+      "message": "nit: dont -\u003e don\u0027t",
+      "range": {
+        "startLine": 690,
+        "startChar": 29,
+        "endLine": 690,
+        "endChar": 33
+      },
+      "revId": "9f1e4d626bf6d04c89a45dc4c95f250554618cb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0484e2ca_73645ce8",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-03T18:54:03Z",
+      "side": 1,
+      "message": "Can we use a ScopedThreadStateChange?",
+      "range": {
+        "startLine": 740,
+        "startChar": 8,
+        "endLine": 740,
+        "endChar": 41
+      },
+      "revId": "9f1e4d626bf6d04c89a45dc4c95f250554618cb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84529221_4e9995b4",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2384,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-03T18:54:03Z",
+      "side": 1,
+      "message": "same.",
+      "range": {
+        "startLine": 2384,
+        "startChar": 31,
+        "endLine": 2384,
+        "endChar": 35
+      },
+      "revId": "9f1e4d626bf6d04c89a45dc4c95f250554618cb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6492fe15_bf114a8b",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2385,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-03T18:54:03Z",
+      "side": 1,
+      "message": "Can we use a ScopedThreadStateChange?",
+      "range": {
+        "startLine": 2385,
+        "startChar": 16,
+        "endLine": 2385,
+        "endChar": 49
+      },
+      "revId": "9f1e4d626bf6d04c89a45dc4c95f250554618cb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
