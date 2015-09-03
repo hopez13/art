@@ -45,6 +45,52 @@
       "revId": "0883575e4ef9fa3adf0e56b7dfe5b078a9a9e7aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04d222e7_9511c68b",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T12:08:40Z",
+      "side": 1,
+      "message": "I think this one can be in a StackHhandleScope.",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 90
+      },
+      "revId": "0883575e4ef9fa3adf0e56b7dfe5b078a9a9e7aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8480d2c5_5932a729",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T12:08:40Z",
+      "side": 1,
+      "message": "1?",
+      "range": {
+        "startLine": 718,
+        "startChar": 21,
+        "endLine": 718,
+        "endChar": 22
+      },
+      "revId": "0883575e4ef9fa3adf0e56b7dfe5b078a9a9e7aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
