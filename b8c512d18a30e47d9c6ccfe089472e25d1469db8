@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "44141a88_aa47ab15",
+        "filename": "runtime/stack.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-03T18:29:16Z",
+      "side": 1,
+      "message": "Just because the destructor hasn\u0027t changed doesn\u0027t mean the destructor is a no-op\n\nFor a simple example,\n\n  struct StringWrapper {\n     std::string hello;\n  }\n\nStringWrapper itself has no user-defined destructor, but hello does and we\u0027d still want to call ~StringWrapper() to deallocate the hello string.\n\nThe exact term for this in C++ is \"trivial type\" (e.g. a trivial type does not need to have its destructor invoked).",
+      "parentUuid": "8497f201_32756a0c",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 48
+      },
+      "revId": "b8c512d18a30e47d9c6ccfe089472e25d1469db8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8497f201_48f170a0",
         "filename": "runtime/stack.h",
         "patchSetId": 2
