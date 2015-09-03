@@ -651,6 +651,24 @@
       "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dbaa04_f34e2a02",
+        "filename": "compiler/optimizing/nodes_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T12:14:29Z",
+      "side": 1,
+      "message": "Why mandatory? I thought we agreed we are not going to require all code that creates nodes to provide a dex pc.",
+      "parentUuid": "a4deb6f4_d2f20264",
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
