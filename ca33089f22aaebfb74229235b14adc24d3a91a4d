@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84c53226_310caa7b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2552,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:28:16Z",
+      "side": 1,
+      "message": "Should you DCHECK that you can call the lock free version?",
+      "range": {
+        "startLine": 2546,
+        "startChar": 0,
+        "endLine": 2552,
+        "endChar": 5
+      },
+      "revId": "ca33089f22aaebfb74229235b14adc24d3a91a4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
