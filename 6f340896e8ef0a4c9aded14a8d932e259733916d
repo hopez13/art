@@ -1,0 +1,567 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84c53226_d1e9a6ef",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "one per line (and the new... can be on the same line as the variable).",
+      "range": {
+        "startLine": 165,
+        "startChar": 37,
+        "endLine": 166,
+        "endChar": 61
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247566b9_f6e61e1d",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 176,
+        "startChar": 38,
+        "endLine": 177,
+        "endChar": 68
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a46956e6_9a96e939",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2742,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "one per line",
+      "range": {
+        "startLine": 2741,
+        "startChar": 32,
+        "endLine": 2742,
+        "endChar": 47
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84c53226_f1e6221d",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2748,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2747,
+        "startChar": 39,
+        "endLine": 2748,
+        "endChar": 53
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dbaa04_b39ae2d4",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "Maybe don\u0027t change this file, for simplifying reviews.",
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8480d2c5_f914d37c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2378,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "Argument must be mandatory.",
+      "range": {
+        "startLine": 2378,
+        "startChar": 57,
+        "endLine": 2378,
+        "endChar": 69
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dbaa04_d3a3e614",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2597,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "indentation is off here and all other Evaluate methods.",
+      "range": {
+        "startLine": 2596,
+        "startChar": 49,
+        "endLine": 2597,
+        "endChar": 86
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84c53226_91e31e0c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2781,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "one per line",
+      "range": {
+        "startLine": 2780,
+        "startChar": 25,
+        "endLine": 2781,
+        "endChar": 69
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84c53226_51fdb6a7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 3437,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "one per line",
+      "range": {
+        "startLine": 3436,
+        "startChar": 7,
+        "endLine": 3437,
+        "endChar": 33
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2461e61f_93fcbce1",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 3462,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "One per line",
+      "range": {
+        "startLine": 3461,
+        "startChar": 7,
+        "endLine": 3462,
+        "endChar": 33
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a46956e6_5a8051e9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 3485,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "One per line",
+      "range": {
+        "startLine": 3484,
+        "startChar": 8,
+        "endLine": 3485,
+        "endChar": 33
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4d42ed5_7459c6fe",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 3510,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "one per line",
+      "range": {
+        "startLine": 3509,
+        "startChar": 7,
+        "endLine": 3510,
+        "endChar": 33
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2461e61f_b3ff38d5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 3579,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "No, argument must be mandatory.",
+      "range": {
+        "startLine": 3579,
+        "startChar": 61,
+        "endLine": 3579,
+        "endChar": 72
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dbaa04_731c7a00",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 3812,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "one per line",
+      "range": {
+        "startLine": 3811,
+        "startChar": 19,
+        "endLine": 3812,
+        "endChar": 43
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8480d2c5_d917977f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 4025,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "No, the argument must be mandatory.",
+      "range": {
+        "startLine": 4025,
+        "startChar": 43,
+        "endLine": 4025,
+        "endChar": 69
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dbaa04_939d5ed1",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 4161,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "lien too long",
+      "range": {
+        "startLine": 4161,
+        "startChar": 94,
+        "endLine": 4161,
+        "endChar": 102
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2461e61f_d3f634fd",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 4199,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "mandatory",
+      "range": {
+        "startLine": 4199,
+        "startChar": 30,
+        "endLine": 4199,
+        "endChar": 38
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2461e61f_f3f9b0ef",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 4292,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "mandatory",
+      "range": {
+        "startLine": 4292,
+        "startChar": 76,
+        "endLine": 4292,
+        "endChar": 84
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a455d63a_173254bf",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 4374,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "mandatory",
+      "range": {
+        "startLine": 4374,
+        "startChar": 31,
+        "endLine": 4374,
+        "endChar": 39
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4d42ed5_d4475215",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 4455,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "mandatory",
+      "range": {
+        "startLine": 4455,
+        "startChar": 84,
+        "endLine": 4455,
+        "endChar": 95
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8480d2c5_99111f8c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 4493,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "mandatory",
+      "range": {
+        "startLine": 4493,
+        "startChar": 55,
+        "endLine": 4493,
+        "endChar": 72
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "247566b9_96e32a0c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 4650,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "Argument must be mandatory.",
+      "range": {
+        "startLine": 4650,
+        "startChar": 13,
+        "endLine": 4650,
+        "endChar": 41
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a455d63a_372dd85f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 4741,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "mandatory",
+      "range": {
+        "startLine": 4741,
+        "startChar": 31,
+        "endLine": 4741,
+        "endChar": 39
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dbaa04_f3a06a0a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 4801,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "mandatory",
+      "range": {
+        "startLine": 4801,
+        "startChar": 80,
+        "endLine": 4801,
+        "endChar": 88
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a46956e6_1a7ad9b7",
+        "filename": "compiler/optimizing/nodes_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T11:19:39Z",
+      "side": 1,
+      "message": "I don\u0027t think you need to change this file.",
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
