@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "04d222e7_1555d639",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2015-09-03T12:30:01Z",
+      "side": 1,
+      "message": "I could use only one and did not want to use kNoDexPc. So my choice was arbitrary. Please propose whatever you think is better.",
+      "parentUuid": "8480d2c5_192c2fc8",
+      "range": {
+        "startLine": 325,
+        "startChar": 63,
+        "endLine": 325,
+        "endChar": 84
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a46956e6_9a96e939",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 6
@@ -666,6 +690,24 @@
       "side": 1,
       "message": "Why mandatory? I thought we agreed we are not going to require all code that creates nodes to provide a dex pc.",
       "parentUuid": "a4deb6f4_d2f20264",
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04d222e7_d55e6e5d",
+        "filename": "compiler/optimizing/nodes_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2015-09-03T12:30:01Z",
+      "side": 1,
+      "message": "When we finish adding dex_pc params to all new instruction allocations (new patch sets will be needed), we will be able to make this parameter mandatory. From that moment all new code with allocations will have to set dex_pc. This will allow us to keep dex_pc coverage close to 100%.",
+      "parentUuid": "c4dbaa04_f34e2a02",
       "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
