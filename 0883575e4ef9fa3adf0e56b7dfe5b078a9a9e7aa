@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "2461e61f_96702ad4",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T21:46:25Z",
+      "side": 1,
+      "message": "Ah yes. This sucks, we are going to grow the handles_scopes_ proportional to the methods we are going to try to inline. \n\n+calin: We need a better solution for handles_scopes_.",
+      "parentUuid": "8497f201_95a8e87c",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 90
+      },
+      "revId": "0883575e4ef9fa3adf0e56b7dfe5b078a9a9e7aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8480d2c5_5932a729",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 2
