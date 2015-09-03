@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6492fe15_fc96000c",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2381,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-03T18:12:54Z",
+      "side": 1,
+      "message": "We need to be in runnable to create a handle scope to contain the dex cache handle. And we go back to suspended to not block GC as much during compilation.",
+      "parentUuid": "04d222e7_95cc66a2",
+      "range": {
+        "startLine": 2381,
+        "startChar": 4,
+        "endLine": 2381,
+        "endChar": 59
+      },
+      "revId": "0883575e4ef9fa3adf0e56b7dfe5b078a9a9e7aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a455d63a_97282463",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-03T09:50:56Z",
       "side": 1,
       "message": "You\u0027re using \"dex_compilation_unit_-\u003eGetDexCache()\" above. Is there any difference?",
+      "range": {
+        "startLine": 1340,
+        "startChar": 64,
+        "endLine": 1340,
+        "endChar": 74
+      },
+      "revId": "0883575e4ef9fa3adf0e56b7dfe5b078a9a9e7aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "240f267a_66085031",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1340,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-03T18:12:54Z",
+      "side": 1,
+      "message": "Not sure, but I think its easier to reason its correct if the dex_cache_ is clearly associated with the dex_file_.",
+      "parentUuid": "a455d63a_97282463",
       "range": {
         "startLine": 1340,
         "startChar": 64,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8497f201_95a8e87c",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-03T18:12:54Z",
+      "side": 1,
+      "message": "That causes problems due to the handle scope ordering:\nCheck failed: top_handle_scope \u003d\u003d this (top_handle_scope\u003d0x2b827004c270, this\u003d0x2b82193fdf90)\nWhich is from the handles_ scopes not lining up with the stack allocated one.",
+      "parentUuid": "04d222e7_9511c68b",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 90
+      },
+      "revId": "0883575e4ef9fa3adf0e56b7dfe5b078a9a9e7aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8480d2c5_5932a729",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-09-03T12:08:40Z",
       "side": 1,
       "message": "1?",
+      "range": {
+        "startLine": 718,
+        "startChar": 21,
+        "endLine": 718,
+        "endChar": 22
+      },
+      "revId": "0883575e4ef9fa3adf0e56b7dfe5b078a9a9e7aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44141a88_4a5a776b",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-03T18:12:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8480d2c5_5932a729",
       "range": {
         "startLine": 718,
         "startChar": 21,
