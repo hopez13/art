@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "8480d2c5_192c2fc8",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-03T12:13:41Z",
+      "side": 1,
+      "message": "From what I understand, the location (Dex PC) of this \"synthesized\" HTryBoundary could either be `predecessor-\u003eGetDexPc()` or `successor-\u003eGetDexPc()`.  What made you choose `successor-\u003eGetDexPc()`?",
+      "parentUuid": "e4d42ed5_9498eaf7",
+      "range": {
+        "startLine": 325,
+        "startChar": 63,
+        "endLine": 325,
+        "endChar": 84
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a46956e6_9a96e939",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 6
