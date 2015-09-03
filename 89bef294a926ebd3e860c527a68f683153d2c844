@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8497f201_00ced4b8",
+        "filename": "runtime/dex_file_verifier_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-03T21:44:38Z",
+      "side": 1,
+      "message": "Refactored and renamed.",
+      "parentUuid": "a40a365b_cf7b1dfd",
+      "range": {
+        "startLine": 138,
+        "startChar": 32,
+        "endLine": 138,
+        "endChar": 60
+      },
+      "revId": "89bef294a926ebd3e860c527a68f683153d2c844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6492fe15_663c9f92",
         "filename": "runtime/dex_file_verifier_test.cc",
         "patchSetId": 2
