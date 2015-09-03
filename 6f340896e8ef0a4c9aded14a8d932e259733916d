@@ -711,6 +711,24 @@
       "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a455d63a_1767f4ae",
+        "filename": "compiler/optimizing/nodes_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-03T13:20:11Z",
+      "side": 1,
+      "message": "That is not our goal. We agreed doing it in the builder was acceptable. Propagating it to optimization passes is still controversial in terms of need versus complexity, so I wouldn\u0027t expect it to happen in the short term.",
+      "parentUuid": "04d222e7_d55e6e5d",
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
