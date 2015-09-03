@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "e4d42ed5_9498eaf7",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2015-09-03T11:50:15Z",
+      "side": 1,
+      "message": "Please explain.\nI would like to avoid kNoDexPc as much as possible. Please use kNoDexPc only if we absolutely sure the instruction will not get lowered.",
+      "parentUuid": "2461e61f_d39d9427",
+      "range": {
+        "startLine": 325,
+        "startChar": 63,
+        "endLine": 325,
+        "endChar": 84
+      },
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a46956e6_9a96e939",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 6
@@ -582,6 +606,24 @@
       "writtenOn": "2015-09-03T11:19:39Z",
       "side": 1,
       "message": "I don\u0027t think you need to change this file.",
+      "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4deb6f4_d2f20264",
+        "filename": "compiler/optimizing/nodes_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2015-09-03T11:50:15Z",
+      "side": 1,
+      "message": "In future, I\u0027m going to change optional dex_pc to mandatory.\nIf you do not mind, I would keep this file.",
+      "parentUuid": "a46956e6_1a7ad9b7",
       "revId": "6f340896e8ef0a4c9aded14a8d932e259733916d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
