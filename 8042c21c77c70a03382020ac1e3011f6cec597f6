@@ -46,6 +46,30 @@
       "revId": "8042c21c77c70a03382020ac1e3011f6cec597f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04cce27b_6b3751af",
+        "filename": "tools/ahat/src/InstanceUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-09-03T18:46:41Z",
+      "side": 1,
+      "message": "we have had issues with people being confused why their 2 char  string is backed by a 2mb char[]. with the new String implementation this isn\u0027t an issue, but I just wanted to mention it.",
+      "parentUuid": "04cce27b_2b8389cf",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 69
+      },
+      "revId": "8042c21c77c70a03382020ac1e3011f6cec597f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
