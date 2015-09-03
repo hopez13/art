@@ -22,6 +22,30 @@
       "revId": "8042c21c77c70a03382020ac1e3011f6cec597f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04cce27b_2b8389cf",
+        "filename": "tools/ahat/src/InstanceUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-09-03T18:31:33Z",
+      "side": 1,
+      "message": "In what case would that be helpful to the user to have?\nIs this important enough to add to the summary view of the string object? If the user really cares, they can look at the object page for the string object to see that information.",
+      "parentUuid": "6492fe15_1d08932f",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 69
+      },
+      "revId": "8042c21c77c70a03382020ac1e3011f6cec597f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
