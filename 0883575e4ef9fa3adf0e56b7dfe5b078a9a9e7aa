@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04d222e7_95cc66a2",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2381,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-03T09:50:56Z",
+      "side": 1,
+      "message": "Why do we now transition to native?",
+      "range": {
+        "startLine": 2381,
+        "startChar": 4,
+        "endLine": 2381,
+        "endChar": 59
+      },
+      "revId": "0883575e4ef9fa3adf0e56b7dfe5b078a9a9e7aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a455d63a_97282463",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1340,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-03T09:50:56Z",
+      "side": 1,
+      "message": "You\u0027re using \"dex_compilation_unit_-\u003eGetDexCache()\" above. Is there any difference?",
+      "range": {
+        "startLine": 1340,
+        "startChar": 64,
+        "endLine": 1340,
+        "endChar": 74
+      },
+      "revId": "0883575e4ef9fa3adf0e56b7dfe5b078a9a9e7aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
