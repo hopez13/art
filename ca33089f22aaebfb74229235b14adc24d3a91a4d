@@ -22,6 +22,30 @@
       "revId": "ca33089f22aaebfb74229235b14adc24d3a91a4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8497f201_e19deacf",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2552,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-04T01:15:35Z",
+      "side": 1,
+      "message": "Its not lock free, only in the fast path. It can always be called.",
+      "parentUuid": "84c53226_310caa7b",
+      "range": {
+        "startLine": 2546,
+        "startChar": 0,
+        "endLine": 2552,
+        "endChar": 5
+      },
+      "revId": "ca33089f22aaebfb74229235b14adc24d3a91a4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
