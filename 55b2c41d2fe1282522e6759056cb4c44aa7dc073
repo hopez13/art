@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8497f201_8cb9ba04",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-04T22:37:31Z",
+      "side": 1,
+      "message": "SetUpAndroidData sets the environment variable so it has the right data_dir.\n\nReplaced with a manual version to make correctness clearer.",
+      "parentUuid": "0484e2ca_046b44e5",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 58
+      },
+      "revId": "55b2c41d2fe1282522e6759056cb4c44aa7dc073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44141a88_3ec939e7",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-04T17:19:43Z",
       "side": 1,
       "message": "Add a helper function: image_assistant.GetCacheImageFilename()",
+      "range": {
+        "startLine": 324,
+        "startChar": 45,
+        "endLine": 324,
+        "endChar": 78
+      },
+      "revId": "55b2c41d2fe1282522e6759056cb4c44aa7dc073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04cce27b_8c382868",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-04T22:37:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44141a88_3ec939e7",
       "range": {
         "startLine": 324,
         "startChar": 45,
