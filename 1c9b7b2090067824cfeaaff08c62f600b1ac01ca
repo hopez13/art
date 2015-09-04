@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "240f267a_37b5e0b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-09-04T17:19:43Z",
+      "side": 1,
+      "message": "b/11301553?",
+      "parentUuid": "c4072a51_30996871",
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "644d9e85_1931bb20",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 5
@@ -72,6 +90,30 @@
       "side": 1,
       "message": "Also use info to get header and check that loading worked.",
       "parentUuid": "644d9e85_1931bb20",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 1
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6492fe15_750523d6",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-09-04T17:19:43Z",
+      "side": 1,
+      "message": "If you remove the call to IsImagePic below, you don\u0027t need to get the header, and you can check the that image loading worked in the convenience function: if the image didn\u0027t load successfully, return null, otherwise return the opened valid file.",
+      "parentUuid": "a40a365b_8ff75593",
       "range": {
         "startLine": 144,
         "startChar": 0,
@@ -131,6 +173,30 @@
     },
     {
       "key": {
+        "uuid": "e486eed4_381a2f3a",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-09-04T17:19:43Z",
+      "side": 1,
+      "message": "Yes, please remove it. Then you don\u0027t need to load the image header.",
+      "parentUuid": "a40a365b_8f70f5d3",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 3
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "644d9e85_993c8bf7",
         "filename": "patchoat/patchoat.cc",
         "patchSetId": 5
@@ -166,6 +232,30 @@
       "side": 1,
       "message": "It checks that we loaded the image successfully (this is done in lines 174-188). Moved up closer to where it happens.",
       "parentUuid": "644d9e85_993c8bf7",
+      "range": {
+        "startLine": 203,
+        "startChar": 1,
+        "endLine": 203,
+        "endChar": 30
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8497f201_73ba1146",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-09-04T17:19:43Z",
+      "side": 1,
+      "message": "With the helper function I proposed above, this check wouldn\u0027t be necessary at all, because the image assistant would prevent you from getting an open file for an invalid image.",
+      "parentUuid": "a40a365b_cf6afddf",
       "range": {
         "startLine": 203,
         "startChar": 1,
@@ -413,6 +503,30 @@
     },
     {
       "key": {
+        "uuid": "0484e2ca_247448c7",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1198,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-09-04T17:19:43Z",
+      "side": 1,
+      "message": "You can return a useful error message and detect if the image is unusable in the same function. It would look nicer if the function returned the \u0027is_usable\u0027 and took patched_image_filename as an out parameter:\n\nif (!GetImageFilename(patched_image_location, \u0026patched_image_filename, \u0026error_msg)) {\n   Usage(error_msg);\n}\n\nEither way, I think the 3 or 5 new lines of code needed is much better than the 11 lines of code that it would replace.\n\nNow that I look at it more closely, it looks like patched_image_filename is used solely as an argument to ReadBaseDelta to get the image patch delta. What makes it slightly messy is that the user can specify either an image location or an image filename. Getting the patch delta for a given image location (possibly overridden with an explicit image filename) is the same kind of thing the oat file assistant needs, and makes sense to me to encapsulate entirely within an image file assistant.",
+      "parentUuid": "6492fe15_92db2a58",
+      "range": {
+        "startLine": 1188,
+        "startChar": 4,
+        "endLine": 1198,
+        "endChar": 48
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a46956e6_1708742f",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 5
@@ -601,6 +715,30 @@
     },
     {
       "key": {
+        "uuid": "240f267a_173d44a8",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-09-04T17:19:43Z",
+      "side": 1,
+      "message": "It\u0027s confusing to me. I\u0027ll spend some more time looking at the code to try and understand it better.",
+      "parentUuid": "c4072a51_708db0f8",
+      "range": {
+        "startLine": 378,
+        "startChar": 0,
+        "endLine": 384,
+        "endChar": 33
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e486eed4_5baffbfc",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 5
@@ -636,6 +774,30 @@
       "side": 1,
       "message": "It is right. If Dex2Oat is disabled we don\u0027t do patching either.\n\nThis is only for testing.",
       "parentUuid": "e486eed4_5baffbfc",
+      "range": {
+        "startLine": 390,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 62
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04cce27b_37684a2e",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-09-04T17:19:43Z",
+      "side": 1,
+      "message": "Update the comment to say this.",
+      "parentUuid": "e486eed4_403703af",
       "range": {
         "startLine": 390,
         "startChar": 0,
@@ -730,6 +892,30 @@
       "side": 1,
       "message": "prevents races with patchoat/dex2oat. This was already in the code I just moved it into the ::Init function since that is its whole lifetime anyway.",
       "parentUuid": "e4618eea_63db5e59",
+      "range": {
+        "startLine": 482,
+        "startChar": 0,
+        "endLine": 483,
+        "endChar": 45
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0484e2ca_840d1442",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-09-04T17:19:43Z",
+      "side": 1,
+      "message": "Can you add a comment to the code describing the scenario where the lock is required?",
+      "parentUuid": "a40a365b_0f56c5f7",
       "range": {
         "startLine": 482,
         "startChar": 0,
@@ -1729,6 +1915,30 @@
     },
     {
       "key": {
+        "uuid": "8497f201_b30bb99b",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-09-04T17:19:43Z",
+      "side": 1,
+      "message": "The image assistant uses the image info from the image space if the runtime is kRuntimeISA, rather than finding and reading the info from disk?\n\nIf there isn\u0027t a serious performance degredation, please do use the image file assistant to cover both cases.",
+      "parentUuid": "644d9e85_da167113",
+      "range": {
+        "startLine": 939,
+        "startChar": 0,
+        "endLine": 953,
+        "endChar": 7
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8497f201_ad684901",
         "filename": "runtime/oat_file_assistant_test.cc",
         "patchSetId": 5
@@ -1858,6 +2068,30 @@
       "side": 1,
       "message": "This path is only executed if image loading failed and relocation is enabled. We must not have (and are unable to create) a valid cache image. Therefore we should try to see if there is a /system image. If there is we use the /system oat file to run from the embedded dex files.\n\nSee line 719",
       "parentUuid": "045f8228_994807f5",
+      "range": {
+        "startLine": 714,
+        "startChar": 63,
+        "endLine": 714,
+        "endChar": 81
+      },
+      "revId": "1c9b7b2090067824cfeaaff08c62f600b1ac01ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8497f201_b3909981",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-09-04T17:19:43Z",
+      "side": 1,
+      "message": "Makes sense. Can you add a comment to the OpenDexFilesFromImage and OpenDexFiles functions saying that they are used to read the dex files out of the image when image loading failed?",
+      "parentUuid": "8497f201_4562b94d",
       "range": {
         "startLine": 714,
         "startChar": 63,
