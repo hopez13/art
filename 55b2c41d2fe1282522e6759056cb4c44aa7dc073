@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "0484e2ca_046b44e5",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-09-04T17:19:43Z",
+      "side": 1,
+      "message": "What is this for? How does it know to create the dalvik cache at dalvik_cache_? If it is creating the dalvik cache, do we need the mkdir call just prior to it?",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 58
+      },
+      "revId": "55b2c41d2fe1282522e6759056cb4c44aa7dc073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44141a88_3ec939e7",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-09-04T17:19:43Z",
+      "side": 1,
+      "message": "Add a helper function: image_assistant.GetCacheImageFilename()",
+      "range": {
+        "startLine": 324,
+        "startChar": 45,
+        "endLine": 324,
+        "endChar": 78
+      },
+      "revId": "55b2c41d2fe1282522e6759056cb4c44aa7dc073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a46956e6_9a6d89fb",
         "filename": "runtime/image_assistant.cc",
         "patchSetId": 6
