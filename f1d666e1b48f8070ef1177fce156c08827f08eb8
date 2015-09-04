@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84529221_8a7ad2b5",
+        "filename": "runtime/native/dalvik_system_VMStack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-04T17:31:45Z",
+      "side": 1,
+      "message": "Is kSuspended more correct here or it doesn\u0027t matter much whether it\u0027s kNative or kSuspended?",
+      "range": {
+        "startLine": 38,
+        "startChar": 43,
+        "endLine": 38,
+        "endChar": 53
+      },
+      "revId": "f1d666e1b48f8070ef1177fce156c08827f08eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
