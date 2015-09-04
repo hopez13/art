@@ -25,6 +25,52 @@
     },
     {
       "key": {
+        "uuid": "64159e82_b92a6711",
+        "filename": "runtime/scoped_thread_state_change.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T00:28:01Z",
+      "side": 1,
+      "message": "ValueObject ?",
+      "range": {
+        "startLine": 281,
+        "startChar": 6,
+        "endLine": 281,
+        "endChar": 28
+      },
+      "revId": "61552059543ca89cea51817d127ef6622e823f6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "644d9e85_d811d48a",
+        "filename": "runtime/scoped_thread_state_change.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T00:28:01Z",
+      "side": 1,
+      "message": "nit: put attribute on separate line",
+      "range": {
+        "startLine": 285,
+        "startChar": 44,
+        "endLine": 285,
+        "endChar": 57
+      },
+      "revId": "61552059543ca89cea51817d127ef6622e823f6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44141a88_189f359e",
         "filename": "runtime/scoped_thread_state_change.h",
         "patchSetId": 1
@@ -42,6 +88,23 @@
         "endLine": 287,
         "endChar": 41
       },
+      "revId": "61552059543ca89cea51817d127ef6622e823f6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "644d9e85_18188caf",
+        "filename": "runtime/scoped_thread_state_change.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T00:28:01Z",
+      "side": 1,
+      "message": "DCHECK(self) !\u003d null?",
       "revId": "61552059543ca89cea51817d127ef6622e823f6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
