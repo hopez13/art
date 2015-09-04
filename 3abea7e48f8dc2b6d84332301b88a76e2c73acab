@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2461e61f_f6b23ec9",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-04T09:16:40Z",
+      "side": 1,
+      "message": "ArtMethod",
+      "range": {
+        "startLine": 661,
+        "startChar": 2,
+        "endLine": 661,
+        "endChar": 6
+      },
+      "revId": "3abea7e48f8dc2b6d84332301b88a76e2c73acab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04d222e7_55dfdecd",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-04T09:16:40Z",
+      "side": 1,
+      "message": "Probably want to figure this one out :-)",
+      "range": {
+        "startLine": 673,
+        "startChar": 0,
+        "endLine": 674,
+        "endChar": 39
+      },
+      "revId": "3abea7e48f8dc2b6d84332301b88a76e2c73acab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04d222e7_75e462a1",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-04T09:16:40Z",
+      "side": 1,
+      "message": "why this flag when it\u0027s only for the debug version?",
+      "range": {
+        "startLine": 235,
+        "startChar": 6,
+        "endLine": 235,
+        "endChar": 20
+      },
+      "revId": "3abea7e48f8dc2b6d84332301b88a76e2c73acab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2461e61f_d6af425f",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-04T09:16:40Z",
+      "side": 1,
+      "message": "If this was for inlining, the try/catch is currently Quick compiled so it won\u0027t work.",
+      "range": {
+        "startLine": 611,
+        "startChar": 8,
+        "endLine": 611,
+        "endChar": 32
+      },
+      "revId": "3abea7e48f8dc2b6d84332301b88a76e2c73acab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
