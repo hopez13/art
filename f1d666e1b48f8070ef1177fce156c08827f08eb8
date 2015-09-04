@@ -22,6 +22,30 @@
       "revId": "f1d666e1b48f8070ef1177fce156c08827f08eb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6492fe15_9581cf37",
+        "filename": "runtime/native/dalvik_system_VMStack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-04T17:42:49Z",
+      "side": 1,
+      "message": "Should have left it as kSuspended, though there isn\u0027t really a difference.",
+      "parentUuid": "84529221_8a7ad2b5",
+      "range": {
+        "startLine": 38,
+        "startChar": 43,
+        "endLine": 38,
+        "endChar": 53
+      },
+      "revId": "f1d666e1b48f8070ef1177fce156c08827f08eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
