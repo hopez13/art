@@ -22,6 +22,30 @@
       "revId": "30b5e27083913bb711fca0ca89a941797fcf3d5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0484e2ca_79375daf",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-04T01:14:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a455d63a_573ccc91",
+      "range": {
+        "startLine": 588,
+        "startChar": 26,
+        "endLine": 588,
+        "endChar": 60
+      },
+      "revId": "30b5e27083913bb711fca0ca89a941797fcf3d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
