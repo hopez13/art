@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4d42ed5_770b08ef",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1343,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-04T13:39:36Z",
+      "side": 1,
+      "message": "Please add a comment: what is done, and what do you need to carry the flag / why the visitor needs a state?",
+      "range": {
+        "startLine": 1343,
+        "startChar": 0,
+        "endLine": 1343,
+        "endChar": 19
+      },
+      "revId": "ba715a9511ad969c308736a00d1ac1fe5de05d65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04d222e7_7580e280",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2988,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-04T13:39:36Z",
+      "side": 1,
+      "message": "High level comment please.",
+      "range": {
+        "startLine": 2988,
+        "startChar": 6,
+        "endLine": 2988,
+        "endChar": 26
+      },
+      "revId": "ba715a9511ad969c308736a00d1ac1fe5de05d65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2461e61f_56ee9281",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-04T13:39:36Z",
+      "side": 1,
+      "message": "Where is that defined?",
+      "range": {
+        "startLine": 491,
+        "startChar": 8,
+        "endLine": 491,
+        "endChar": 30
+      },
+      "revId": "ba715a9511ad969c308736a00d1ac1fe5de05d65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
