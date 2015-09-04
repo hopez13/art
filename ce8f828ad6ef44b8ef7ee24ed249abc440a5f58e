@@ -22,6 +22,30 @@
       "revId": "ce8f828ad6ef44b8ef7ee24ed249abc440a5f58e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84529221_6a29d364",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2587,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-04T22:42:22Z",
+      "side": 0,
+      "message": "I added the check in DecodeWeakGlobal",
+      "parentUuid": "44141a88_6bd812b2",
+      "range": {
+        "startLine": 2587,
+        "startChar": 4,
+        "endLine": 2587,
+        "endChar": 58
+      },
+      "revId": "ce8f828ad6ef44b8ef7ee24ed249abc440a5f58e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
