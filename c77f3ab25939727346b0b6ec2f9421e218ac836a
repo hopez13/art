@@ -1,0 +1,135 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04cce27b_e972866a",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T18:30:34Z",
+      "side": 1,
+      "message": "Wow this is surprisingly compliant to the letter of the style but hard to read, but would be better to split into 2-3 lines\n\n  Type* root \u003d GetClassRoot(kJavaLangObject);\n  return root-\u003eAlloc\u003ctrue, false\u003e(self,\n                                  Runtime::Current()-\u003eGetHeap()-\u003eGetCurrentAllocator());",
+      "revId": "c77f3ab25939727346b0b6ec2f9421e218ac836a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e486eed4_43baa445",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1567,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T18:30:34Z",
+      "side": 1,
+      "message": "Ewwww.\n\nI think for this we could maybe do\n\n  mirror::ObjectArray\u003cmirror::StackTraceElement\u003e*\n  ClassLinker::AllocStackTraceElementArray(Thread* self,\n                                           size_t length)\n\nin other words put the return type on its own line.\n\nDoes that seem cleaner?",
+      "revId": "c77f3ab25939727346b0b6ec2f9421e218ac836a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04cce27b_09c7aacd",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5035,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T18:30:34Z",
+      "side": 1,
+      "message": "this auto :(",
+      "range": {
+        "startLine": 5035,
+        "startChar": 8,
+        "endLine": 5035,
+        "endChar": 12
+      },
+      "revId": "c77f3ab25939727346b0b6ec2f9421e218ac836a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e486eed4_036d7c87",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T18:30:34Z",
+      "side": 1,
+      "message": "What do you think about order of SHARED_REQUIRES vs REQUIRES?\n\nMaybe all REQUIRES after SHARED_REQUIRES (alphabetical attributes?)",
+      "revId": "c77f3ab25939727346b0b6ec2f9421e218ac836a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8497f201_f667efab",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T18:30:34Z",
+      "side": 1,
+      "message": "one per line",
+      "range": {
+        "startLine": 277,
+        "startChar": 25,
+        "endLine": 279,
+        "endChar": 82
+      },
+      "revId": "c77f3ab25939727346b0b6ec2f9421e218ac836a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0484e2ca_a468582f",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T18:30:34Z",
+      "side": 1,
+      "message": "I think Andreas prefer an empty line before this declaration.\n\nDo we agree this is good style?",
+      "revId": "c77f3ab25939727346b0b6ec2f9421e218ac836a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04cce27b_a9d87eb2",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T18:30:34Z",
+      "side": 1,
+      "message": "Does this really not fit on 1 line?",
+      "revId": "c77f3ab25939727346b0b6ec2f9421e218ac836a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
