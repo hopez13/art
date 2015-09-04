@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84529221_8af3ef67",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:47:07Z",
+      "side": 1,
+      "message": "We may want to gate all the new changes around the experimental default methods runtime options flag.\n\n(i.e. it should use the original behavior unless we enable experimental default methods from the command line)\n\nOne reason is that going forward we may want to change this to use a dex version flag (so older DEX files don\u0027t get the new behavior). Another reason might be to make it easier not to break any tests or the existing apps until the feature is fully functional (which I expect will be multiple CLs).",
+      "revId": "58db91d4b042460eed015c53b8e64e9edb504fd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04cce27b_ff415800",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:47:07Z",
+      "side": 1,
+      "message": "I\u0027m not sure I understand why we would need to add it to dex only (perhaps you meant runtime, as a faster lookup?)\n\nIt seems like it should already be enough to check that the method\u0027s class is an interface and that the method is non-abstract?",
+      "revId": "58db91d4b042460eed015c53b8e64e9edb504fd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
