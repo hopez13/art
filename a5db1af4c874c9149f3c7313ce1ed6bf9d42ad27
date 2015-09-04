@@ -1,0 +1,587 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "644d9e85_93569ef6",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1267,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "Ewwwww. Do we have to?",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8497f201_294978f7",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "I feel like this could potentially use more comments, it\u0027s pretty hard to follow along without needing to read the dex file specification side-by-side for every single line of code.",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44141a88_0b26be94",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "nit, subexpressions should be indented extra 4 spaces",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84529221_c07b0954",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "PRiu16",
+      "range": {
+        "startLine": 496,
+        "startChar": 56,
+        "endLine": 496,
+        "endChar": 64
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8497f201_4952c4a9",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "nit, subexpressions should be indented extra 4 spaces",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04cce27b_2c49dcf7",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "nit, subexpressions should be indented extra 4 spaces",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84529221_00424104",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "PRIu32",
+      "range": {
+        "startLine": 770,
+        "startChar": 75,
+        "endLine": 770,
+        "endChar": 76
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "644d9e85_f3139220",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "PRIu32",
+      "range": {
+        "startLine": 796,
+        "startChar": 74,
+        "endLine": 796,
+        "endChar": 75
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04cce27b_0ce33845",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "PRIu32",
+      "range": {
+        "startLine": 822,
+        "startChar": 76,
+        "endLine": 822,
+        "endChar": 77
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6492fe15_2b43b87a",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "PRIu32",
+      "range": {
+        "startLine": 850,
+        "startChar": 76,
+        "endLine": 850,
+        "endChar": 77
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e486eed4_890c4b7d",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2289,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "wouldn\u0027t this be better in the header?",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e486eed4_49f0835a",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2337,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "minor: document out parameters?",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6492fe15_2b297865",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2378,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "Would it make more sense in the header?",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "644d9e85_33000a75",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2405,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "minor: constant variable for string?",
+      "range": {
+        "startLine": 2405,
+        "startChar": 50,
+        "endLine": 2405,
+        "endChar": 56
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44141a88_2bb8da1e",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2409,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "minor: constant variable for string?",
+      "range": {
+        "startLine": 2409,
+        "startChar": 51,
+        "endLine": 2409,
+        "endChar": 57
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8497f201_2c3d06f2",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2415,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "PRIu32",
+      "range": {
+        "startLine": 2415,
+        "startChar": 39,
+        "endLine": 2415,
+        "endChar": 40
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "644d9e85_13fd0edc",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2422,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "PRIu32",
+      "range": {
+        "startLine": 2422,
+        "startChar": 45,
+        "endLine": 2422,
+        "endChar": 47
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0484e2ca_0a190d81",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2429,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "PRIu32",
+      "range": {
+        "startLine": 2429,
+        "startChar": 53,
+        "endLine": 2429,
+        "endChar": 54
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04cce27b_bf2190af",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2443,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "PRIu32",
+      "range": {
+        "startLine": 2443,
+        "startChar": 40,
+        "endLine": 2443,
+        "endChar": 42
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e486eed4_e92ab740",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2453,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "code doesn\u0027t use \"static\" elsewhere, inconsistent",
+      "range": {
+        "startLine": 2453,
+        "startChar": 6,
+        "endLine": 2453,
+        "endChar": 12
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8497f201_69730070",
+        "filename": "runtime/dex_file_verifier.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "nit: document out parameters",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44141a88_ab932a1a",
+        "filename": "runtime/dex_file_verifier.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "What does it mean to \u0027check\u0027 exactly?",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e486eed4_3efd37dc",
+        "filename": "runtime/dex_file_verifier.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "What does it mean to \u0027check\u0027 exactly?",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04cce27b_ff1b1879",
+        "filename": "runtime/dex_file_verifier_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "const ?",
+      "range": {
+        "startLine": 106,
+        "startChar": 26,
+        "endLine": 106,
+        "endChar": 33
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "240f267a_5d535bdd",
+        "filename": "runtime/dex_file_verifier_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "vertical space before 123\n\nalso if you get rid of the \u0026 it should be just as good (if not better, since then the function doesn\u0027t need to decay to a function pointer)",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "644d9e85_939fbe9c",
+        "filename": "runtime/dex_file_verifier_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "Why? it\u0027s already templated.",
+      "range": {
+        "startLine": 131,
+        "startChar": 70,
+        "endLine": 131,
+        "endChar": 92
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64159e82_d15e175d",
+        "filename": "runtime/dex_file_verifier_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "dex_file-\u003eBegin()",
+      "range": {
+        "startLine": 133,
+        "startChar": 48,
+        "endLine": 133,
+        "endChar": 53
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6492fe15_cb133421",
+        "filename": "runtime/dex_file_verifier_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "dex_file-\u003eBegin,\ndex_file-\u003eSize",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84529221_aac46b2b",
+        "filename": "runtime/dex_file_verifier_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-04T22:22:41Z",
+      "side": 1,
+      "message": "static?",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
