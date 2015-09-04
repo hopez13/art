@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04cce27b_2c9b9cdb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-04T21:54:49Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 12,
+        "startChar": 16,
+        "endLine": 12,
+        "endChar": 24
+      },
+      "revId": "16b6750addfb42d1351b77fca111563648202583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04cce27b_ec4e1402",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1315,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-04T21:54:49Z",
+      "side": 1,
+      "message": "Add \"TODO\" if that matters?",
+      "range": {
+        "startLine": 1315,
+        "startChar": 7,
+        "endLine": 1315,
+        "endChar": 18
+      },
+      "revId": "16b6750addfb42d1351b77fca111563648202583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6492fe15_2b7178d6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1321,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-04T21:54:49Z",
+      "side": 1,
+      "message": "I agree with \"Don\u0027t need...\"\n\nMaybe swap lines 1320 and 1321?",
+      "range": {
+        "startLine": 1320,
+        "startChar": 0,
+        "endLine": 1321,
+        "endChar": 99
+      },
+      "revId": "16b6750addfb42d1351b77fca111563648202583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64159e82_ee31ae85",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2615,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-04T21:54:49Z",
+      "side": 1,
+      "message": "Use jweak?",
+      "range": {
+        "startLine": 2615,
+        "startChar": 7,
+        "endLine": 2615,
+        "endChar": 14
+      },
+      "revId": "16b6750addfb42d1351b77fca111563648202583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8497f201_a967c85a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3004,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-04T21:54:49Z",
+      "side": 1,
+      "message": "Why call the ...AndRemoveClearedLoaders() instead of the other one here?",
+      "range": {
+        "startLine": 3004,
+        "startChar": 2,
+        "endLine": 3004,
+        "endChar": 42
+      },
+      "revId": "16b6750addfb42d1351b77fca111563648202583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
