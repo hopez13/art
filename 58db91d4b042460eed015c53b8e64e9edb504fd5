@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "644d9e85_167bbc89",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-05T00:06:45Z",
+      "side": 1,
+      "message": "Yeah I\u0027m going to do that once I\u0027ve got a working-ish thing i\u0027m ready to submit.",
+      "parentUuid": "84529221_8af3ef67",
+      "revId": "58db91d4b042460eed015c53b8e64e9edb504fd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04cce27b_ff415800",
         "filename": "runtime/modifiers.h",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2015-09-04T22:47:07Z",
       "side": 1,
       "message": "I\u0027m not sure I understand why we would need to add it to dex only (perhaps you meant runtime, as a faster lookup?)\n\nIt seems like it should already be enough to check that the method\u0027s class is an interface and that the method is non-abstract?",
+      "revId": "58db91d4b042460eed015c53b8e64e9edb504fd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04cce27b_22664334",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-05T00:06:45Z",
+      "side": 1,
+      "message": "Yeah sorry. It should be // method (runtime)\n\nAlso shouldn\u0027t kAccMiranda be the same...\n\nWe need it during method linking since defaults might get overriden in subclasses even if the subclass never defines that method.",
+      "parentUuid": "04cce27b_ff415800",
       "revId": "58db91d4b042460eed015c53b8e64e9edb504fd5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
