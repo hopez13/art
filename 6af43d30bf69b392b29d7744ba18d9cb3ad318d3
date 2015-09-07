@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2461e61f_59f6c39a",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-07T16:27:52Z",
+      "side": 1,
+      "message": "Hmm, this would be a good opportunity to refactor this. Could we add an iterator class which would iterate over a sub-range of a vector? It\u0027s pretty simple to do and we could use for-each here and elsewhere.",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 68
+      },
+      "revId": "6af43d30bf69b392b29d7744ba18d9cb3ad318d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
