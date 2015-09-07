@@ -22,6 +22,30 @@
       "revId": "3de0058e1f08dde0e8d9d6ddd40e448c7dc18075",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a455d63a_ba470d16",
+        "filename": "runtime/base/stl_util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-07T17:24:21Z",
+      "side": 1,
+      "message": "If I omit this word, many people who see only the name will assume that it can return static_cast\u003csize_t\u003e(-1) indicating that the value wasn\u0027t found.",
+      "parentUuid": "a4d8763b_9fd85392",
+      "range": {
+        "startLine": 120,
+        "startChar": 14,
+        "endLine": 120,
+        "endChar": 22
+      },
+      "revId": "3de0058e1f08dde0e8d9d6ddd40e448c7dc18075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
