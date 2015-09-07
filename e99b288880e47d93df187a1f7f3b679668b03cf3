@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4d56a01_a0741a11",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-07T17:14:21Z",
+      "side": 1,
+      "message": "The \"\u0026 0x3F\" and handling is_left should be in the reverse order, otherwise it\u0027s very confusing and inefficient. Yes, there is an \"LSR Rd, Rm, #32\" but I\u0027d rather use the MOVs.",
+      "range": {
+        "startLine": 361,
+        "startChar": 0,
+        "endLine": 367,
+        "endChar": 5
+      },
+      "revId": "e99b288880e47d93df187a1f7f3b679668b03cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24bd66ca_53d6c4df",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-07T17:14:21Z",
+      "side": 1,
+      "message": "std::swap(in_reg_hi, in_reg_lo)",
+      "range": {
+        "startLine": 373,
+        "startChar": 0,
+        "endLine": 375,
+        "endChar": 23
+      },
+      "revId": "e99b288880e47d93df187a1f7f3b679668b03cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ae4a93_7892c11a",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-07T17:14:21Z",
+      "side": 1,
+      "message": "The whole setup is inefficient. I think you should just start with\n\n  __ and_(rot, rhs.AsRegister\u003cRegister\u003e(), ShifterOperand(0x1F));\n  __ Lsrs(tmp, rhs.AsRegister\u003cRegister\u003e(), 6);          // Carry :\u003d rhs \u0026 0x20.\n  __ rsb(tmp, rot, ShifterOperand(0x20), AL, kCcKeep);  // Preserve carry.\n  if (is_left) {\n    __ b(\u0026right, CS);\n  } else {\n    __ b(\u0026right, CC);\n    std::swap(rot, tmp);\n  }\n\nand exchange the \"rot\" and \"tmp\" in the \"right\" branch. Drop this MOV, the AND below and both RSB below.\n\nIt would make sense to rename variables rot-\u003eshift_left, tmp-\u003eshift_right.",
+      "revId": "e99b288880e47d93df187a1f7f3b679668b03cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ae4a93_98a8755c",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-07T17:14:21Z",
+      "side": 1,
+      "message": "Multi-instruction IT despite the deprecation?",
+      "range": {
+        "startLine": 400,
+        "startChar": 0,
+        "endLine": 402,
+        "endChar": 47
+      },
+      "revId": "e99b288880e47d93df187a1f7f3b679668b03cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4d42ed5_5a8389ce",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-07T17:14:21Z",
+      "side": 1,
+      "message": "ORR is always 32-bit but we know that the bits don\u0027t overlap, so we can use ADD which will be 16-bit because Rd \u003d\u003d Rn.",
+      "range": {
+        "startLine": 411,
+        "startChar": 7,
+        "endLine": 411,
+        "endChar": 10
+      },
+      "revId": "e99b288880e47d93df187a1f7f3b679668b03cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ae4a93_78c4812b",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-07T17:14:21Z",
+      "side": 1,
+      "message": "Do we know at this point if the InputAt(1) is a constant? Can we avoid requesting these temporaries if it is?",
+      "range": {
+        "startLine": 452,
+        "startChar": 0,
+        "endLine": 453,
+        "endChar": 51
+      },
+      "revId": "e99b288880e47d93df187a1f7f3b679668b03cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4deb6f4_35f49800",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-07T17:14:21Z",
+      "side": 1,
+      "message": "Instead of doing the \"\u0026 (regsize - 1)\" twice (the first one is useless), I think you should just prepare the final shift here:\n\n    uint32_t ror_shift \u003d (regsize - rhs.immediate) \u0026 (regsize - 1);",
+      "range": {
+        "startLine": 377,
+        "startChar": 4,
+        "endLine": 377,
+        "endChar": 53
+      },
+      "revId": "e99b288880e47d93df187a1f7f3b679668b03cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4d56a01_a0adfad4",
+        "filename": "runtime/quick/inline_method_analyser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-07T17:14:21Z",
+      "side": 1,
+      "message": "Nit: I would put these right after the NumberOfTrailingZeros.",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 23
+      },
+      "revId": "e99b288880e47d93df187a1f7f3b679668b03cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
