@@ -157,6 +157,30 @@
     },
     {
       "key": {
+        "uuid": "c4ae4a93_987dd57f",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-07T17:20:24Z",
+      "side": 1,
+      "message": "Or \"(-static_cast\u003cuint32_t\u003e(rhs.immediate())) \u0026 (regsize - 1u)\" if you expect this code to run on hardware that\u0027s not using two\u0027s complement representation of int64_t.",
+      "parentUuid": "a4deb6f4_35f49800",
+      "range": {
+        "startLine": 377,
+        "startChar": 4,
+        "endLine": 377,
+        "endChar": 53
+      },
+      "revId": "e99b288880e47d93df187a1f7f3b679668b03cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4d56a01_a0adfad4",
         "filename": "runtime/quick/inline_method_analyser.h",
         "patchSetId": 1
