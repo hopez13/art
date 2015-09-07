@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4d56a01_00114618",
+        "filename": "runtime/native/dalvik_system_VMStack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T08:56:48Z",
+      "side": 1,
+      "message": "How did this go unnoticed?",
+      "range": {
+        "startLine": 38,
+        "startChar": 43,
+        "endLine": 38,
+        "endChar": 50
+      },
+      "revId": "949b0c42ebb3c0356dd21577cb50f85a65acbd65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a455d63a_fa6d05fa",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T08:56:48Z",
+      "side": 1,
+      "message": "long_suspend",
+      "range": {
+        "startLine": 64,
+        "startChar": 87,
+        "endLine": 64,
+        "endChar": 99
+      },
+      "revId": "949b0c42ebb3c0356dd21577cb50f85a65acbd65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4d42ed5_dac2196e",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T08:56:48Z",
+      "side": 1,
+      "message": "threads",
+      "range": {
+        "startLine": 64,
+        "startChar": 41,
+        "endLine": 64,
+        "endChar": 47
+      },
+      "revId": "949b0c42ebb3c0356dd21577cb50f85a65acbd65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2461e61f_36815636",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T08:56:48Z",
+      "side": 1,
+      "message": "long_suspend",
+      "range": {
+        "startLine": 64,
+        "startChar": 8,
+        "endLine": 64,
+        "endChar": 20
+      },
+      "revId": "949b0c42ebb3c0356dd21577cb50f85a65acbd65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
