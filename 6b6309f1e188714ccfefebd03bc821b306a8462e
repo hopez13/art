@@ -1,0 +1,395 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4d42ed5_1a1e61a0",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T10:59:15Z",
+      "side": 1,
+      "message": "As discussed, you wouldn\u0027t need this method if you had a special instruction that holds the environment at the beginning of the catch. Please add a TODO.",
+      "range": {
+        "startLine": 813,
+        "startChar": 20,
+        "endLine": 813,
+        "endChar": 40
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ae4a93_182465f1",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T10:59:15Z",
+      "side": 1,
+      "message": "Do we need this?",
+      "range": {
+        "startLine": 842,
+        "startChar": 0,
+        "endLine": 844,
+        "endChar": 7
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24bd66ca_53d08431",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T10:59:15Z",
+      "side": 1,
+      "message": "Why do you need this other loop? Looks like you could do everything in the first loop.",
+      "range": {
+        "startLine": 855,
+        "startChar": 0,
+        "endLine": 855,
+        "endChar": 53
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ae4a93_382929ca",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T10:59:15Z",
+      "side": 1,
+      "message": "Please add a comment, and explain why you don\u0027t need to restore.",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 23
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4deb6f4_753d40a7",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1345,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T10:59:15Z",
+      "side": 1,
+      "message": "interval? parent will start from the beginning.",
+      "range": {
+        "startLine": 1345,
+        "startChar": 15,
+        "endLine": 1345,
+        "endChar": 21
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2461e61f_f67ebeee",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1388,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T10:59:15Z",
+      "side": 1,
+      "message": "expand the comment with why, I guess from line 1393.",
+      "range": {
+        "startLine": 1388,
+        "startChar": 0,
+        "endLine": 1388,
+        "endChar": 84
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "049a2278_d2e3a40a",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1399,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T10:59:15Z",
+      "side": 1,
+      "message": "which intervals?",
+      "range": {
+        "startLine": 1399,
+        "startChar": 36,
+        "endLine": 1399,
+        "endChar": 45
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2461e61f_d67bc2fc",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T10:59:15Z",
+      "side": 1,
+      "message": "I\u0027d rephrase the comment with \"will be kept alive .... through the environment uses...",
+      "range": {
+        "startLine": 192,
+        "startChar": 32,
+        "endLine": 192,
+        "endChar": 36
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4deb6f4_1532b4d6",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T10:59:15Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be safer to also do it here? What do we lose from doing it?",
+      "range": {
+        "startLine": 194,
+        "startChar": 32,
+        "endLine": 195,
+        "endChar": 15
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4deb6f4_3537b8c7",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T10:59:15Z",
+      "side": 1,
+      "message": "instruction -\u003e safepoint ?",
+      "range": {
+        "startLine": 66,
+        "startChar": 12,
+        "endLine": 66,
+        "endChar": 23
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "049a2278_f2e0a800",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T10:59:15Z",
+      "side": 1,
+      "message": "num -\u003e number_of?",
+      "range": {
+        "startLine": 66,
+        "startChar": 8,
+        "endLine": 66,
+        "endChar": 35
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24bd66ca_93e93cf1",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T10:59:15Z",
+      "side": 1,
+      "message": "NumberOfSafepointStackMaps?",
+      "range": {
+        "startLine": 136,
+        "startChar": 9,
+        "endLine": 136,
+        "endChar": 29
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2461e61f_79d0df31",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T10:59:15Z",
+      "side": 1,
+      "message": "number_of_?",
+      "range": {
+        "startLine": 358,
+        "startChar": 8,
+        "endLine": 358,
+        "endChar": 18
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ae4a93_f865f127",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T10:59:15Z",
+      "side": 1,
+      "message": "Why do you need another visit? The exception handler must have done it already.",
+      "range": {
+        "startLine": 362,
+        "startChar": 7,
+        "endLine": 362,
+        "endChar": 17
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a455d63a_9a1e896b",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T10:59:15Z",
+      "side": 1,
+      "message": "line too long",
+      "range": {
+        "startLine": 375,
+        "startChar": 105,
+        "endLine": 375,
+        "endChar": 107
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2461e61f_59d52320",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T10:59:15Z",
+      "side": 1,
+      "message": "DCHECK_EQ?",
+      "range": {
+        "startLine": 393,
+        "startChar": 6,
+        "endLine": 393,
+        "endChar": 12
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ae4a93_1832a528",
+        "filename": "test/510-checker-try-catch/smali/Runtime.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T10:59:15Z",
+      "side": 1,
+      "message": "remove (for consistency with other file) here and below?",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 7
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
