@@ -22,6 +22,30 @@
       "revId": "6af43d30bf69b392b29d7744ba18d9cb3ad318d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "049a2278_328870e9",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-07T16:31:01Z",
+      "side": 1,
+      "message": "Roland found a nice implementation of something similar: http://stackoverflow.com/a/28139075",
+      "parentUuid": "2461e61f_59f6c39a",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 68
+      },
+      "revId": "6af43d30bf69b392b29d7744ba18d9cb3ad318d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
