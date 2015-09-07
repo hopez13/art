@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "a4d8763b_9f5bf394",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-07T16:34:55Z",
+      "side": 1,
+      "message": "yea, this kinda sucks. I\u0027ll think about how we can improve this.",
+      "parentUuid": "2461e61f_96702ad4",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 90
+      },
+      "revId": "0883575e4ef9fa3adf0e56b7dfe5b078a9a9e7aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8480d2c5_5932a729",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 2
