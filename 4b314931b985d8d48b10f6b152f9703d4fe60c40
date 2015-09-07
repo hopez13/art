@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64c3de5a_55d6acdf",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2817,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-07T14:07:59Z",
+      "side": 1,
+      "message": "Same for HParameterValue, I don\u0027t think we want one for HLocal.",
+      "range": {
+        "startLine": 2817,
+        "startChar": 39,
+        "endLine": 2817,
+        "endChar": 65
+      },
+      "revId": "4b314931b985d8d48b10f6b152f9703d4fe60c40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
