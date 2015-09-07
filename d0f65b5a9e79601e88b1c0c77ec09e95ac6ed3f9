@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c4d56a01_80af16fc",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2015-09-07T13:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a455d63a_fac98539",
+      "range": {
+        "startLine": 520,
+        "startChar": 0,
+        "endLine": 523,
+        "endChar": 81
+      },
+      "revId": "d0f65b5a9e79601e88b1c0c77ec09e95ac6ed3f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4ae4a93_1880e5e8",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-07T12:32:45Z",
       "side": 1,
       "message": "No, that\u0027s current_block. And I\u0027d just put dex_pc.",
+      "range": {
+        "startLine": 545,
+        "startChar": 54,
+        "endLine": 545,
+        "endChar": 74
+      },
+      "revId": "d0f65b5a9e79601e88b1c0c77ec09e95ac6ed3f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2461e61f_b9171780",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2015-09-07T13:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4ae4a93_1880e5e8",
       "range": {
         "startLine": 545,
         "startChar": 54,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2461e61f_9914db7c",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2015-09-07T13:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "049a2278_32379019",
+      "range": {
+        "startLine": 641,
+        "startChar": 29,
+        "endLine": 641,
+        "endChar": 34
+      },
+      "revId": "d0f65b5a9e79601e88b1c0c77ec09e95ac6ed3f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "049a2278_522c14c9",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 7
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "a455d63a_1a88b9e8",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2015-09-07T13:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "049a2278_522c14c9",
+      "range": {
+        "startLine": 734,
+        "startChar": 32,
+        "endLine": 734,
+        "endChar": 37
+      },
+      "revId": "d0f65b5a9e79601e88b1c0c77ec09e95ac6ed3f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64c3de5a_3585b0f9",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 7
@@ -105,6 +201,30 @@
       "writtenOn": "2015-09-07T12:32:45Z",
       "side": 1,
       "message": "I\u0027d just take the dex_pc of the successor.",
+      "range": {
+        "startLine": 210,
+        "startChar": 47,
+        "endLine": 210,
+        "endChar": 68
+      },
+      "revId": "d0f65b5a9e79601e88b1c0c77ec09e95ac6ed3f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64c3de5a_9573e4df",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2015-09-07T13:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64c3de5a_3585b0f9",
       "range": {
         "startLine": 210,
         "startChar": 47,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "e4d42ed5_5a99496f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 3583,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2015-09-07T13:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4d56a01_e0c622d0",
+      "range": {
+        "startLine": 3583,
+        "startChar": 2,
+        "endLine": 3583,
+        "endChar": 10
+      },
+      "revId": "d0f65b5a9e79601e88b1c0c77ec09e95ac6ed3f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24bd66ca_d396543a",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -174,6 +318,30 @@
       "writtenOn": "2015-09-07T12:32:45Z",
       "side": 1,
       "message": "It\u0027d be pretty weird if that wasn\u0027t kNoDexPc.",
+      "range": {
+        "startLine": 3830,
+        "startChar": 18,
+        "endLine": 3830,
+        "endChar": 44
+      },
+      "revId": "d0f65b5a9e79601e88b1c0c77ec09e95ac6ed3f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4d8763b_9f5133a6",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 3830,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2015-09-07T13:43:07Z",
+      "side": 1,
+      "message": "Removed dex_pc parameter.",
+      "parentUuid": "24bd66ca_d396543a",
       "range": {
         "startLine": 3830,
         "startChar": 18,
@@ -209,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "24bd66ca_737f40a7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 4043,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2015-09-07T13:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24bd66ca_f3935047",
+      "range": {
+        "startLine": 4043,
+        "startChar": 2,
+        "endLine": 4043,
+        "endChar": 10
+      },
+      "revId": "d0f65b5a9e79601e88b1c0c77ec09e95ac6ed3f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64c3de5a_1580b4e8",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 7
@@ -220,6 +412,30 @@
       "writtenOn": "2015-09-07T12:32:45Z",
       "side": 1,
       "message": "drop",
+      "range": {
+        "startLine": 4520,
+        "startChar": 2,
+        "endLine": 4520,
+        "endChar": 10
+      },
+      "revId": "d0f65b5a9e79601e88b1c0c77ec09e95ac6ed3f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24bd66ca_9373fcdf",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 4520,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2015-09-07T13:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64c3de5a_1580b4e8",
       "range": {
         "startLine": 4520,
         "startChar": 2,
@@ -255,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "049a2278_d23f24ea",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 4656,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2015-09-07T13:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "049a2278_72311820",
+      "range": {
+        "startLine": 4656,
+        "startChar": 2,
+        "endLine": 4656,
+        "endChar": 10
+      },
+      "revId": "d0f65b5a9e79601e88b1c0c77ec09e95ac6ed3f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "049a2278_92459c80",
         "filename": "compiler/optimizing/nodes_test.cc",
         "patchSetId": 7
@@ -266,6 +506,24 @@
       "writtenOn": "2015-09-07T12:32:45Z",
       "side": 1,
       "message": "Again, you shouldn\u0027t need to change this file.",
+      "revId": "d0f65b5a9e79601e88b1c0c77ec09e95ac6ed3f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a455d63a_faa06561",
+        "filename": "compiler/optimizing/nodes_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2015-09-07T13:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "049a2278_92459c80",
       "revId": "d0f65b5a9e79601e88b1c0c77ec09e95ac6ed3f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
