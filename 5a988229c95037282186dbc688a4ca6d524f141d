@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64c3de5a_35377019",
+        "filename": "tools/setup-buildbot-device.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-07T11:37:58Z",
+      "side": 1,
+      "message": "This is a bit misleading IMHO.  The documentation on `adb shell start` is scarce, but from what I read and understood from http://developer.android.com/tools/help/shell.html#othershellcommands and https://android.googlesource.com/platform/system/core/+/master/toolbox/start_stop.cpp, `adb shell start` start or restarts the following services:\n\n* netd\n* surfaceflinger\n* zygote\n* zygote_secondary\n\nAs the zygote(s) is (are) (re)started, I understand the framework is \"(re)started\" as well.\n\nMaybe rephrase this comment?",
+      "range": {
+        "startLine": 34,
+        "startChar": 17,
+        "endLine": 34,
+        "endChar": 35
+      },
+      "revId": "5a988229c95037282186dbc688a4ca6d524f141d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
