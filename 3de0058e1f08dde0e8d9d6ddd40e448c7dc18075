@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4d8763b_9fd85392",
+        "filename": "runtime/base/stl_util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-07T13:40:01Z",
+      "side": 1,
+      "message": "I don\u0027t understand the *Existing* part of this and the other names.\nCan you remove/replace/indexof an element that doesn\u0027t exist?\n\nI think it\u0027s fair just dcheck and document it instead of using longer names.",
+      "range": {
+        "startLine": 120,
+        "startChar": 14,
+        "endLine": 120,
+        "endChar": 22
+      },
+      "revId": "3de0058e1f08dde0e8d9d6ddd40e448c7dc18075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
