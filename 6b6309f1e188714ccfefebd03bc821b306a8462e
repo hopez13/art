@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "24bd66ca_93ff7cd5",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-08T18:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4d42ed5_1a1e61a0",
+      "range": {
+        "startLine": 813,
+        "startChar": 20,
+        "endLine": 813,
+        "endChar": 40
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4ae4a93_182465f1",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-07T10:59:15Z",
       "side": 1,
       "message": "Do we need this?",
+      "range": {
+        "startLine": 842,
+        "startChar": 0,
+        "endLine": 844,
+        "endChar": 7
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4deb6f4_f8e6051d",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-08T18:26:36Z",
+      "side": 1,
+      "message": "You\u0027re right. Removed.",
+      "parentUuid": "c4ae4a93_182465f1",
       "range": {
         "startLine": 842,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e4d42ed5_e5173e7f",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-08T18:26:36Z",
+      "side": 1,
+      "message": "Done. Yep, don\u0027t need it without the stack mask.",
+      "parentUuid": "24bd66ca_53d08431",
+      "range": {
+        "startLine": 855,
+        "startChar": 0,
+        "endLine": 855,
+        "endChar": 53
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4ae4a93_382929ca",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-09-07T10:59:15Z",
       "side": 1,
       "message": "Please add a comment, and explain why you don\u0027t need to restore.",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 23
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4d42ed5_455aca6b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-08T18:26:36Z",
+      "side": 1,
+      "message": "Done. Here and everywhere else.",
+      "parentUuid": "c4ae4a93_382929ca",
       "range": {
         "startLine": 70,
         "startChar": 6,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "24bd66ca_f3f6f0fc",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1345,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-08T18:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4deb6f4_753d40a7",
+      "range": {
+        "startLine": 1345,
+        "startChar": 15,
+        "endLine": 1345,
+        "endChar": 21
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2461e61f_f67ebeee",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2015-09-07T10:59:15Z",
       "side": 1,
       "message": "expand the comment with why, I guess from line 1393.",
+      "range": {
+        "startLine": 1388,
+        "startChar": 0,
+        "endLine": 1388,
+        "endChar": 84
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24bd66ca_5394047e",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1388,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-08T18:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2461e61f_f67ebeee",
       "range": {
         "startLine": 1388,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "24bd66ca_739900b5",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1399,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-08T18:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "049a2278_d2e3a40a",
+      "range": {
+        "startLine": 1399,
+        "startChar": 36,
+        "endLine": 1399,
+        "endChar": 45
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2461e61f_d67bc2fc",
         "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
         "patchSetId": 2
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "a4deb6f4_98049921",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-08T18:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2461e61f_d67bc2fc",
+      "range": {
+        "startLine": 192,
+        "startChar": 32,
+        "endLine": 192,
+        "endChar": 36
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4deb6f4_1532b4d6",
         "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
         "patchSetId": 2
@@ -197,6 +389,30 @@
       "writtenOn": "2015-09-07T10:59:15Z",
       "side": 1,
       "message": "Wouldn\u0027t it be safer to also do it here? What do we lose from doing it?",
+      "range": {
+        "startLine": 194,
+        "startChar": 32,
+        "endLine": 195,
+        "endChar": 15
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4deb6f4_f8f7e591",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-08T18:26:36Z",
+      "side": 1,
+      "message": "I didn\u0027t want to do that because it would be slightly hackish. We don\u0027t know what the phi_input_index is to create the phi use. That\u0027s later used by UsePosition::RequiresRegister but doesn\u0027t matter at all for phis, so we could just use zero but it\u0027s another little hack we would have to keep in mind.",
+      "parentUuid": "a4deb6f4_1532b4d6",
       "range": {
         "startLine": 194,
         "startChar": 32,
@@ -255,6 +471,54 @@
     },
     {
       "key": {
+        "uuid": "24bd66ca_f3a430ed",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-08T18:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4deb6f4_3537b8c7",
+      "range": {
+        "startLine": 66,
+        "startChar": 12,
+        "endLine": 66,
+        "endChar": 23
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64c3de5a_95d84492",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-08T18:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "049a2278_f2e0a800",
+      "range": {
+        "startLine": 66,
+        "startChar": 8,
+        "endLine": 66,
+        "endChar": 35
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24bd66ca_93e93cf1",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 2
@@ -266,6 +530,30 @@
       "writtenOn": "2015-09-07T10:59:15Z",
       "side": 1,
       "message": "NumberOfSafepointStackMaps?",
+      "range": {
+        "startLine": 136,
+        "startChar": 9,
+        "endLine": 136,
+        "endChar": 29
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64c3de5a_b5d54059",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-08T18:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24bd66ca_93e93cf1",
       "range": {
         "startLine": 136,
         "startChar": 9,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "2461e61f_79373faf",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-08T18:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2461e61f_79d0df31",
+      "range": {
+        "startLine": 358,
+        "startChar": 8,
+        "endLine": 358,
+        "endChar": 18
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4ae4a93_f865f127",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 2
@@ -312,6 +624,30 @@
       "writtenOn": "2015-09-07T10:59:15Z",
       "side": 1,
       "message": "Why do you need another visit? The exception handler must have done it already.",
+      "range": {
+        "startLine": 362,
+        "startChar": 7,
+        "endLine": 362,
+        "endChar": 17
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4d42ed5_c5c9da90",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-08T18:26:36Z",
+      "side": 1,
+      "message": "Yeah, that\u0027s more of an API issue - the GetVReg method is a member of StackVisitor and that doesn\u0027t allow to just jump to a certain frame straightaway. I could do this inside FindCatchBlock, i.e. during the first walk, but I was following the precedent set by Deoptimize...",
+      "parentUuid": "c4ae4a93_f865f127",
       "range": {
         "startLine": 362,
         "startChar": 7,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "a4d8763b_8260fccb",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-08T18:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a455d63a_9a1e896b",
+      "range": {
+        "startLine": 375,
+        "startChar": 105,
+        "endLine": 375,
+        "endChar": 107
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2461e61f_59d52320",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 2
@@ -370,6 +730,30 @@
     },
     {
       "key": {
+        "uuid": "a455d63a_3ae5bd4e",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-08T18:26:36Z",
+      "side": 1,
+      "message": "Doesn\u0027t know how to print the value, same as nullptr",
+      "parentUuid": "2461e61f_59d52320",
+      "range": {
+        "startLine": 393,
+        "startChar": 6,
+        "endLine": 393,
+        "endChar": 12
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4ae4a93_1832a528",
         "filename": "test/510-checker-try-catch/smali/Runtime.smali",
         "patchSetId": 2
@@ -381,6 +765,30 @@
       "writtenOn": "2015-09-07T10:59:15Z",
       "side": 1,
       "message": "remove (for consistency with other file) here and below?",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 7
+      },
+      "revId": "6b6309f1e188714ccfefebd03bc821b306a8462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a455d63a_dacda1bd",
+        "filename": "test/510-checker-try-catch/smali/Runtime.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-08T18:26:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4ae4a93_1832a528",
       "range": {
         "startLine": 25,
         "startChar": 6,
