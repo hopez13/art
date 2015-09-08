@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4d8763b_a2198046",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3502,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-08T16:05:04Z",
+      "side": 1,
+      "message": "Add a comment why you can just stop the stack walk.",
+      "range": {
+        "startLine": 3502,
+        "startChar": 20,
+        "endLine": 3502,
+        "endChar": 26
+      },
+      "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4d8763b_e2138820",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3507,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-08T16:05:04Z",
+      "side": 1,
+      "message": "Can we really enter here? I assume we hit this code when we are in a Quick ManagedFragment, and the upcall check above prevents seeing a ShadowFrame.",
+      "range": {
+        "startLine": 3506,
+        "startChar": 0,
+        "endLine": 3507,
+        "endChar": 18
+      },
+      "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4d42ed5_450c0a7c",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3515,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-08T16:05:04Z",
+      "side": 1,
+      "message": "I don\u0027 think so? I believe it should always be true if there was a deopt request?",
+      "range": {
+        "startLine": 3515,
+        "startChar": 0,
+        "endLine": 3515,
+        "endChar": 31
+      },
+      "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a455d63a_9afcc9e1",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3554,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-08T16:05:04Z",
+      "side": 1,
+      "message": "I guess you could optimize the visit (and avoid false deopt positives) if you start the visit starting from the catch location.",
+      "range": {
+        "startLine": 3554,
+        "startChar": 0,
+        "endLine": 3554,
+        "endChar": 47
+      },
+      "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4d56a01_c31e886c",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-08T16:05:04Z",
+      "side": 1,
+      "message": "4 space indent",
+      "range": {
+        "startLine": 585,
+        "startChar": 0,
+        "endLine": 585,
+        "endChar": 41
+      },
+      "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4deb6f4_789e955a",
+        "filename": "runtime/quick_exception_handler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-08T16:05:04Z",
+      "side": 1,
+      "message": "Why the flag? It\u0027s always passed true in this change.",
+      "range": {
+        "startLine": 48,
+        "startChar": 18,
+        "endLine": 48,
+        "endChar": 35
+      },
+      "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4deb6f4_18a3c9a1",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2364,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-08T16:05:04Z",
+      "side": 1,
+      "message": "Why do you need this? Maybe for simplicity it\u0027s better to call FindCatch after the if line 2358?",
+      "range": {
+        "startLine": 2364,
+        "startChar": 24,
+        "endLine": 2364,
+        "endChar": 29
+      },
+      "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
