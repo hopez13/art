@@ -70,6 +70,30 @@
       "revId": "3de0058e1f08dde0e8d9d6ddd40e448c7dc18075",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24bd66ca_339f889e",
+        "filename": "runtime/base/stl_util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-08T17:05:00Z",
+      "side": 1,
+      "message": "Well, given that I\u0027m trying to remove that assumption from https://android-review.googlesource.com/#/c/169073/4/compiler/optimizing/nodes.h@790 , I guess stressing the \"Existing\" doesn\u0027t really make sense.",
+      "parentUuid": "a4deb6f4_588071e9",
+      "range": {
+        "startLine": 120,
+        "startChar": 14,
+        "endLine": 120,
+        "endChar": 22
+      },
+      "revId": "3de0058e1f08dde0e8d9d6ddd40e448c7dc18075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
