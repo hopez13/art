@@ -163,6 +163,30 @@
       "revId": "3abea7e48f8dc2b6d84332301b88a76e2c73acab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4deb6f4_b8939d48",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-08T16:19:28Z",
+      "side": 1,
+      "message": "Ah, indeed, you can see why with -verbose:compiler.",
+      "parentUuid": "0484e2ca_3a19c081",
+      "range": {
+        "startLine": 611,
+        "startChar": 8,
+        "endLine": 611,
+        "endChar": 32
+      },
+      "revId": "3abea7e48f8dc2b6d84332301b88a76e2c73acab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
