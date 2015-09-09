@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "a4bdd6e7_31f760fb",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-09T23:30:21Z",
+      "side": 1,
+      "message": "I wanted to see the graph in the inliner for a rejected function. However, there\u0027s no way to get to the active codegen at that point. I could stack-allocate a random one, but that\u0027s painful. Instead, if this is a pointer (and thus basically an option type), I can just say null and it works for the pass I was interested in...",
+      "parentUuid": "0434e264_82e7da18",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 31
+      },
+      "revId": "a7062e05e6048c7f817d784a5b94e3122e25b1ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ffd0472_55a21e56",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 6
