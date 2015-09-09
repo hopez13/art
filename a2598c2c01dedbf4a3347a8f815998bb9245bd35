@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24f726e3_e337d2c6",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3495,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-09T16:44:52Z",
+      "side": 1,
+      "message": "Maybe this should be pc, or height? Feels weird to pass a pointer on the stack this way.",
+      "range": {
+        "startLine": 3495,
+        "startChar": 43,
+        "endLine": 3495,
+        "endChar": 74
+      },
+      "revId": "a2598c2c01dedbf4a3347a8f815998bb9245bd35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
