@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e41fceee_d9d5d324",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-09T08:36:53Z",
+      "side": 1,
+      "message": "Nit: introduce local variable to avoid this indentation dance (here and below)",
+      "range": {
+        "startLine": 463,
+        "startChar": 40,
+        "endLine": 464,
+        "endChar": 85
+      },
+      "revId": "d29146c14bec55c564c91900c27540baeb628203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
