@@ -22,6 +22,30 @@
       "revId": "a2598c2c01dedbf4a3347a8f815998bb9245bd35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4164adc_1878258a",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3495,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-09T17:02:25Z",
+      "side": 1,
+      "message": "Maybe frame height is more appropriate then (and the test to skip a frame is easier)",
+      "parentUuid": "24f726e3_e337d2c6",
+      "range": {
+        "startLine": 3495,
+        "startChar": 43,
+        "endLine": 3495,
+        "endChar": 74
+      },
+      "revId": "a2598c2c01dedbf4a3347a8f815998bb9245bd35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
