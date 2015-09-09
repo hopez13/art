@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "e4c34e74_a23684c7",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3554,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-09T13:32:20Z",
+      "side": 1,
+      "message": "The visitor ignores the method \u003d\u003d nullptr case anyway, so true param isn\u0027t needed?",
+      "parentUuid": "a455d63a_9afcc9e1",
+      "range": {
+        "startLine": 3554,
+        "startChar": 0,
+        "endLine": 3554,
+        "endChar": 47
+      },
+      "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4d56a01_c31e886c",
         "filename": "runtime/debugger.h",
         "patchSetId": 1
@@ -151,6 +175,30 @@
       "writtenOn": "2015-09-08T16:05:04Z",
       "side": 1,
       "message": "Why do you need this? Maybe for simplicity it\u0027s better to call FindCatch after the if line 2358?",
+      "range": {
+        "startLine": 2364,
+        "startChar": 24,
+        "endLine": 2364,
+        "endChar": 29
+      },
+      "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24c9e69c_1c9eb922",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2364,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-09T13:32:20Z",
+      "side": 1,
+      "message": "Can we try this? Let the interpreter handle the try-cache. It seems simpler. No need to worry about FindCatch messing up with exceptions. You have to walk the full fragment so can\u0027t try the trick that filters out the false positive that Nicolas suggested. But I don\u0027t think performance is that important in delivering exception in debugger.\n    if (is_deoptimization) {\n      exception_handler.DeoptimizeStack();\n    } else if (Dbg::IsForcedInterpreterNeededForException(this)) {\n      PushDeoptimizationContext(JValue(), false, exception);\n      exception_handler.DeoptimizeStack();\n      SetException(Thread::GetDeoptimizationException());\n    } else {\n      exception_handler.FindCatch(exception);\n    }",
+      "parentUuid": "a4deb6f4_18a3c9a1",
       "range": {
         "startLine": 2364,
         "startChar": 24,
