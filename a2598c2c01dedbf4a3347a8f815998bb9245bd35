@@ -63,6 +63,24 @@
       "revId": "a2598c2c01dedbf4a3347a8f815998bb9245bd35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0434e264_62217665",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2367,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-09T17:29:34Z",
+      "side": 1,
+      "message": "Good point. We just need to be careful that the handle will be popped up before the long jump.",
+      "parentUuid": "84d4522f_8a183bb2",
+      "revId": "a2598c2c01dedbf4a3347a8f815998bb9245bd35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
