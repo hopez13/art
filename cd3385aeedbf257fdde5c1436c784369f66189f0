@@ -400,6 +400,30 @@
       "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4c34e74_226dd487",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2364,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-09T15:56:27Z",
+      "side": 1,
+      "message": "If you let interpreter throw the exception, does interpreter also give debugger a chance for the debugger events?",
+      "parentUuid": "8447f2eb_5eea15e5",
+      "range": {
+        "startLine": 2364,
+        "startChar": 24,
+        "endLine": 2364,
+        "endChar": 29
+      },
+      "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
