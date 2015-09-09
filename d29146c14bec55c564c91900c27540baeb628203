@@ -22,6 +22,30 @@
       "revId": "d29146c14bec55c564c91900c27540baeb628203",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84d4522f_6aeeffef",
+        "filename": "runtime/reflection.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-09T17:15:20Z",
+      "side": 1,
+      "message": "Moved to sizeof(void*) to be consistent with the rest of the file (which I guess doesn\u0027t work when we\u0027re cross-compiling).",
+      "parentUuid": "e41fceee_d9d5d324",
+      "range": {
+        "startLine": 463,
+        "startChar": 40,
+        "endLine": 464,
+        "endChar": 85
+      },
+      "revId": "d29146c14bec55c564c91900c27540baeb628203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
