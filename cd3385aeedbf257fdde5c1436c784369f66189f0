@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "c4164adc_f8121163",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3554,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-09T14:08:28Z",
+      "side": 1,
+      "message": "Good point. I agree in doing it in UpdateInstrumentationStack, code in this file feels more like a no side-effect thing.",
+      "parentUuid": "24f726e3_e32352e9",
+      "range": {
+        "startLine": 3554,
+        "startChar": 0,
+        "endLine": 3554,
+        "endChar": 47
+      },
+      "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4d56a01_c31e886c",
         "filename": "runtime/debugger.h",
         "patchSetId": 1
