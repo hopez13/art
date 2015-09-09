@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e41fceee_19cd8b9c",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3502,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-09T14:02:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4d8763b_a2198046",
+      "range": {
+        "startLine": 3502,
+        "startChar": 20,
+        "endLine": 3502,
+        "endChar": 26
+      },
+      "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4d8763b_e2138820",
         "filename": "runtime/debugger.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c43d6a4e_a0069a5a",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3507,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-09T14:02:46Z",
+      "side": 1,
+      "message": "Right, this visitor should only be called for managed code. Indeed, we do not expect seeing shadow frame. i\u0027ll make it a CHECK.",
+      "parentUuid": "a4d8763b_e2138820",
+      "range": {
+        "startLine": 3506,
+        "startChar": 0,
+        "endLine": 3507,
+        "endChar": 18
+      },
+      "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4d42ed5_450c0a7c",
         "filename": "runtime/debugger.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-09-08T16:05:04Z",
       "side": 1,
       "message": "I don\u0027 think so? I believe it should always be true if there was a deopt request?",
+      "range": {
+        "startLine": 3515,
+        "startChar": 0,
+        "endLine": 3515,
+        "endChar": 31
+      },
+      "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44517aa7_9ca2e59b",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3515,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-09T14:02:46Z",
+      "side": 1,
+      "message": "Done. I forgot to remove that.",
+      "parentUuid": "e4d42ed5_450c0a7c",
       "range": {
         "startLine": 3515,
         "startChar": 0,
@@ -118,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "24f726e3_e32352e9",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3554,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-09T14:02:46Z",
+      "side": 1,
+      "message": "Makes sense. However, with the CL deopting for SetValue (https://android-review.googlesource.com/158320) we\u0027d also need to deallocate pre-deopted frames that are going to be unwound. If we start from catch handler, we might not deoptimize (if no method in the stack require that) and miss them.\n\nAn alternative would be to deallocate these pre-deopted ShadowFrames as part of unwinding, possibly in QuickExceptionHandler::UpdateInstrumentationStack (that can be done in https://android-review.googlesource.com/158320 based on the current CL)",
+      "parentUuid": "a455d63a_9afcc9e1",
+      "range": {
+        "startLine": 3554,
+        "startChar": 0,
+        "endLine": 3554,
+        "endChar": 47
+      },
+      "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4d56a01_c31e886c",
         "filename": "runtime/debugger.h",
         "patchSetId": 1
@@ -141,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "44517aa7_3c94f12f",
+        "filename": "runtime/debugger.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-09T14:02:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4d56a01_c31e886c",
+      "range": {
+        "startLine": 585,
+        "startChar": 0,
+        "endLine": 585,
+        "endChar": 41
+      },
+      "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4deb6f4_789e955a",
         "filename": "runtime/quick_exception_handler.h",
         "patchSetId": 1
@@ -152,6 +272,30 @@
       "writtenOn": "2015-09-08T16:05:04Z",
       "side": 1,
       "message": "Why the flag? It\u0027s always passed true in this change.",
+      "range": {
+        "startLine": 48,
+        "startChar": 18,
+        "endLine": 48,
+        "endChar": 35
+      },
+      "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0434e264_62f176cf",
+        "filename": "runtime/quick_exception_handler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-09T14:02:46Z",
+      "side": 1,
+      "message": "Done and renamed to ResetForDeoptimization to be more explicit about the usage.",
+      "parentUuid": "a4deb6f4_789e955a",
       "range": {
         "startLine": 48,
         "startChar": 18,
@@ -198,6 +342,30 @@
       "writtenOn": "2015-09-09T13:32:20Z",
       "side": 1,
       "message": "Can we try this? Let the interpreter handle the try-cache. It seems simpler. No need to worry about FindCatch messing up with exceptions. You have to walk the full fragment so can\u0027t try the trick that filters out the false positive that Nicolas suggested. But I don\u0027t think performance is that important in delivering exception in debugger.\n    if (is_deoptimization) {\n      exception_handler.DeoptimizeStack();\n    } else if (Dbg::IsForcedInterpreterNeededForException(this)) {\n      PushDeoptimizationContext(JValue(), false, exception);\n      exception_handler.DeoptimizeStack();\n      SetException(Thread::GetDeoptimizationException());\n    } else {\n      exception_handler.FindCatch(exception);\n    }",
+      "parentUuid": "a4deb6f4_18a3c9a1",
+      "range": {
+        "startLine": 2364,
+        "startChar": 24,
+        "endLine": 2364,
+        "endChar": 29
+      },
+      "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8447f2eb_5eea15e5",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2364,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-09T14:02:46Z",
+      "side": 1,
+      "message": "In FindCatch, we notify the debugger of the exception. That can suspend the thread on an EXCEPTION event. During that event, we may request new event(s) that require deoptimization.\n\nIt\u0027s missing in the comment so I\u0027ll add a note.",
       "parentUuid": "a4deb6f4_18a3c9a1",
       "range": {
         "startLine": 2364,
