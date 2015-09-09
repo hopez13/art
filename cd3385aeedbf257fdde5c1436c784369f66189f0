@@ -424,6 +424,30 @@
       "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24f726e3_63452235",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2364,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-09T16:03:00Z",
+      "side": 1,
+      "message": "Yes, the interpreter notifies the debugger in the same way as the QuickExceptionHandler. And the interpreter will start its execution on the throwing instruction.",
+      "parentUuid": "e4c34e74_226dd487",
+      "range": {
+        "startLine": 2364,
+        "startChar": 24,
+        "endLine": 2364,
+        "endChar": 29
+      },
+      "revId": "cd3385aeedbf257fdde5c1436c784369f66189f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
