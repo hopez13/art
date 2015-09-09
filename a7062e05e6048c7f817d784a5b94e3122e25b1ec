@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "24c9e69c_1c94792f",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-09T04:39:31Z",
+      "side": 1,
+      "message": "Seriously dislike this now. This makes it impossible (or at least really, really painful) to use a visualizer as a temporary tool while debugging issues for anything that doesn\u0027t fit in the global one - e.g., inlining decisions.\n\nCan we change this to a pointer and just abort if we\u0027d have to consult it when initialized with nullptr?",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 31
+      },
+      "revId": "a7062e05e6048c7f817d784a5b94e3122e25b1ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ffd0472_55a21e56",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 6
