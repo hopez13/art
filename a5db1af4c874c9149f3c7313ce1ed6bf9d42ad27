@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "44cedaa4_54152c75",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-09T01:30:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84529221_c07b0954",
+      "range": {
+        "startLine": 496,
+        "startChar": 56,
+        "endLine": 496,
+        "endChar": 64
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8497f201_4952c4a9",
         "filename": "runtime/dex_file_verifier.cc",
         "patchSetId": 4
@@ -105,6 +129,24 @@
       "writtenOn": "2015-09-04T22:22:41Z",
       "side": 1,
       "message": "nit, subexpressions should be indented extra 4 spaces",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84d4522f_960cec44",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-09T01:30:33Z",
+      "side": 1,
+      "message": "Q: Are dereferences sub-expressions?",
+      "parentUuid": "8497f201_4952c4a9",
       "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -139,6 +181,30 @@
       "writtenOn": "2015-09-04T22:22:41Z",
       "side": 1,
       "message": "PRIu32",
+      "range": {
+        "startLine": 770,
+        "startChar": 75,
+        "endLine": 770,
+        "endChar": 76
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "04c1426c_ba8c71fd",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-09T01:30:33Z",
+      "side": 1,
+      "message": "I believe %u is common in our code, though. And compare for the pre-existing %d above... :-(",
+      "parentUuid": "84529221_00424104",
       "range": {
         "startLine": 770,
         "startChar": 75,
@@ -237,6 +303,24 @@
     },
     {
       "key": {
+        "uuid": "24c9e69c_531f8468",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2289,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-09T01:30:33Z",
+      "side": 1,
+      "message": "Header of what (dex_file_verifier.h, modifiers.h, ...)? I think this is an implementation detail only necessary here.",
+      "parentUuid": "e486eed4_890c4b7d",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e486eed4_49f0835a",
         "filename": "runtime/dex_file_verifier.cc",
         "patchSetId": 4
@@ -248,6 +332,24 @@
       "writtenOn": "2015-09-04T22:22:41Z",
       "side": 1,
       "message": "minor: document out parameters?",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4c34e74_b9bc7f13",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2337,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-09T01:30:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e486eed4_49f0835a",
       "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -432,6 +534,30 @@
     },
     {
       "key": {
+        "uuid": "e4c34e74_79c7079f",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2453,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-09T01:30:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e486eed4_e92ab740",
+      "range": {
+        "startLine": 2453,
+        "startChar": 6,
+        "endLine": 2453,
+        "endChar": 12
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8497f201_69730070",
         "filename": "runtime/dex_file_verifier.h",
         "patchSetId": 4
@@ -449,6 +575,24 @@
     },
     {
       "key": {
+        "uuid": "64cf5e9f_beb8ddff",
+        "filename": "runtime/dex_file_verifier.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-09T01:30:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8497f201_69730070",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44141a88_ab932a1a",
         "filename": "runtime/dex_file_verifier.h",
         "patchSetId": 4
@@ -460,6 +604,24 @@
       "writtenOn": "2015-09-04T22:22:41Z",
       "side": 1,
       "message": "What does it mean to \u0027check\u0027 exactly?",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ef2afe_0680a37f",
+        "filename": "runtime/dex_file_verifier.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-09T01:30:33Z",
+      "side": 1,
+      "message": "I do not really want to quote the JLS (or dex constraints) here...",
+      "parentUuid": "44141a88_ab932a1a",
       "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -506,6 +668,30 @@
     },
     {
       "key": {
+        "uuid": "244c8613_5bea23e5",
+        "filename": "runtime/dex_file_verifier_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-09T01:30:33Z",
+      "side": 1,
+      "message": "I\u0027d have to const-cast it away immediately, as I want to modify a derived element.",
+      "parentUuid": "04cce27b_ff1b1879",
+      "range": {
+        "startLine": 106,
+        "startChar": 26,
+        "endLine": 106,
+        "endChar": 33
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "240f267a_5d535bdd",
         "filename": "runtime/dex_file_verifier_test.cc",
         "patchSetId": 4
@@ -523,6 +709,24 @@
     },
     {
       "key": {
+        "uuid": "04c1426c_e010f6cc",
+        "filename": "runtime/dex_file_verifier_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-09T01:30:33Z",
+      "side": 1,
+      "message": "I can\u0027t get that to work correctly. However, I changed to the class+operator() version of the deleter, to get rid of the instance (as the deleter is stateless anyways).",
+      "parentUuid": "240f267a_5d535bdd",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "644d9e85_939fbe9c",
         "filename": "runtime/dex_file_verifier_test.cc",
         "patchSetId": 4
@@ -534,6 +738,30 @@
       "writtenOn": "2015-09-04T22:22:41Z",
       "side": 1,
       "message": "Why? it\u0027s already templated.",
+      "range": {
+        "startLine": 131,
+        "startChar": 70,
+        "endLine": 131,
+        "endChar": 92
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4ef2afe_463fcb7a",
+        "filename": "runtime/dex_file_verifier_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-09T01:30:33Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "644d9e85_939fbe9c",
       "range": {
         "startLine": 131,
         "startChar": 70,
@@ -569,6 +797,30 @@
     },
     {
       "key": {
+        "uuid": "44cedaa4_377f52ed",
+        "filename": "runtime/dex_file_verifier_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-09T01:30:33Z",
+      "side": 1,
+      "message": "Done. (Leftover from pre-unique_ptr attempt)",
+      "parentUuid": "64159e82_d15e175d",
+      "range": {
+        "startLine": 133,
+        "startChar": 48,
+        "endLine": 133,
+        "endChar": 53
+      },
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6492fe15_cb133421",
         "filename": "runtime/dex_file_verifier_test.cc",
         "patchSetId": 4
@@ -586,6 +838,24 @@
     },
     {
       "key": {
+        "uuid": "244c8613_7b159f75",
+        "filename": "runtime/dex_file_verifier_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-09T01:30:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6492fe15_cb133421",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84529221_aac46b2b",
         "filename": "runtime/dex_file_verifier_test.cc",
         "patchSetId": 4
@@ -597,6 +867,24 @@
       "writtenOn": "2015-09-04T22:22:41Z",
       "side": 1,
       "message": "static?",
+      "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84d4522f_7cbdb13b",
+        "filename": "runtime/dex_file_verifier_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-09T01:30:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84529221_aac46b2b",
       "revId": "a5db1af4c874c9149f3c7313ce1ed6bf9d42ad27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
