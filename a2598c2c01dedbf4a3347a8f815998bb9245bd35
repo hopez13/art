@@ -46,6 +46,23 @@
       "revId": "a2598c2c01dedbf4a3347a8f815998bb9245bd35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84d4522f_8a183bb2",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2367,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-09T17:24:27Z",
+      "side": 1,
+      "message": "FindCatch may load class so exception needs to be wrapped in a handle.",
+      "revId": "a2598c2c01dedbf4a3347a8f815998bb9245bd35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
