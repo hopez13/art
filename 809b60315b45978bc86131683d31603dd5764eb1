@@ -22,6 +22,30 @@
       "revId": "809b60315b45978bc86131683d31603dd5764eb1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4bdd6e7_2ce14703",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-09-09T23:49:05Z",
+      "side": 1,
+      "message": "On a second thought, I\u0027m fine with this implementation at this time. But we should eventually realign the C++ types of immediates with their actual treatment as signed/unsigned by the CPU.",
+      "parentUuid": "240f267a_aca34715",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 63
+      },
+      "revId": "809b60315b45978bc86131683d31603dd5764eb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
