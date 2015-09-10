@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6442fedf_dd3dcb59",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3543,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T15:50:09Z",
+      "side": 1,
+      "message": "executed -\u003e execute.",
+      "range": {
+        "startLine": 3543,
+        "startChar": 48,
+        "endLine": 3543,
+        "endChar": 56
+      },
+      "revId": "520633bebd2bf4d70884d30f179dbde9f275aac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6442fedf_fd4207d9",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3543,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T15:50:09Z",
+      "side": 1,
+      "message": "Not true anymore? Why did you remove this \"optimization\"?",
+      "range": {
+        "startLine": 3542,
+        "startChar": 78,
+        "endLine": 3543,
+        "endChar": 37
+      },
+      "revId": "520633bebd2bf4d70884d30f179dbde9f275aac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44517aa7_1f4fa756",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T15:50:09Z",
+      "side": 1,
+      "message": "Feels kind of magic. How about just a flag?",
+      "range": {
+        "startLine": 410,
+        "startChar": 0,
+        "endLine": 412,
+        "endChar": 31
+      },
+      "revId": "520633bebd2bf4d70884d30f179dbde9f275aac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
