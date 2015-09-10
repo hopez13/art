@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e436ee6e_01674aae",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T15:44:14Z",
+      "side": 1,
+      "message": "I agree it\u0027s not as clean. Look at line 393: it wouldn\u0027t be the first time we template due to Label.",
+      "parentUuid": "c4ef2afe_3b0de73f",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 2
+      },
+      "revId": "69e355c3a8632e559c0e56d51bbfc004b1705e75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4164adc_d8538ddf",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "I guess I assumed the target would come from the register allocator, which I believe allocates this in \"regular\" pairs. AFAIK you won\u0027t get EDX as the low partner. Nicolas?",
       "parentUuid": "c4164adc_d8538ddf",
+      "range": {
+        "startLine": 5449,
+        "startChar": 0,
+        "endLine": 5454,
+        "endChar": 7
+      },
+      "revId": "69e355c3a8632e559c0e56d51bbfc004b1705e75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0434e264_65eae0e5",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5454,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T15:44:14Z",
+      "side": 1,
+      "message": "Unfortunately, you never know, as some instructions might say they want lo to be EDX. You can use ParallelMoveResolver to solve your problem.",
+      "parentUuid": "44fdfae7_3c2b7119",
       "range": {
         "startLine": 5449,
         "startChar": 0,
