@@ -225,6 +225,30 @@
     },
     {
       "key": {
+        "uuid": "8447f2eb_5e5215aa",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-10T16:03:08Z",
+      "side": 1,
+      "message": "ORR register has a 16-bit encoding (ooops, I was previously looking at ORR immediate) but it allows only low registers, so I would still prefer ADD which has a 16-bit encoding also for high registers (for kCcKeep and kCcDontCare).\n\n  bool can_contain_high_register \u003d\n      (opcode \u003d\u003d CMP) ||\n      (opcode \u003d\u003d MOV \u0026\u0026 set_cc !\u003d kCcSet) ||\n      ((opcode \u003d\u003d ADD) \u0026\u0026 (rn \u003d\u003d rd) \u0026\u0026 set_cc !\u003d kCcSet);",
+      "parentUuid": "a44076d4_7f8cafb9",
+      "range": {
+        "startLine": 411,
+        "startChar": 7,
+        "endLine": 411,
+        "endChar": 10
+      },
+      "revId": "e99b288880e47d93df187a1f7f3b679668b03cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4ae4a93_78c4812b",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
