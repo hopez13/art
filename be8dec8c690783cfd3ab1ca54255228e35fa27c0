@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4164adc_18a825c0",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-10T16:03:08Z",
+      "side": 1,
+      "message": "For clarity, this should be\n\n  if (invoke-\u003eInputAt(1)-\u003eIsConstant()) {\n    locations-\u003eSetInAt(1, Location::ConstantLocation(invoke-\u003eInputAt(1)));\n  } else {\n    locations-\u003eSetInAt(1, Location::RequiresRegister());\n  }\n\nOtherwise, we\u0027re relying on the register allocator to avoid putting a constant into a register if you ask for RegisterOrConstant().",
+      "range": {
+        "startLine": 444,
+        "startChar": 2,
+        "endLine": 444,
+        "endChar": 74
+      },
+      "revId": "be8dec8c690783cfd3ab1ca54255228e35fa27c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
