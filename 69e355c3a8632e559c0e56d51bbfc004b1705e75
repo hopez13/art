@@ -22,6 +22,29 @@
       "revId": "69e355c3a8632e559c0e56d51bbfc004b1705e75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4164adc_d8538ddf",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5454,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-10T09:31:50Z",
+      "side": 1,
+      "message": "Do we need to consider target_reg_lo \u003d\u003d EDX?",
+      "range": {
+        "startLine": 5449,
+        "startChar": 0,
+        "endLine": 5454,
+        "endChar": 7
+      },
+      "revId": "69e355c3a8632e559c0e56d51bbfc004b1705e75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
