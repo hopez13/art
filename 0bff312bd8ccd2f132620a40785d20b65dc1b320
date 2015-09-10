@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4164adc_b866d95d",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-10T17:22:42Z",
+      "side": 1,
+      "message": "This was better with RegisterOrConstant().\n\nGiven that there\u0027s a 16-bit ROR register but only 32-bit ROR immediate, I wouldn\u0027t mind if a constant was already available in a register.",
+      "range": {
+        "startLine": 431,
+        "startChar": 0,
+        "endLine": 435,
+        "endChar": 3
+      },
+      "revId": "0bff312bd8ccd2f132620a40785d20b65dc1b320",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
