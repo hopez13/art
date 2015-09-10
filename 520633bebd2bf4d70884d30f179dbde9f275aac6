@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "e41fceee_f96c5743",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3543,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-10T16:10:18Z",
+      "side": 1,
+      "message": "I removed it because, now this is called before the FindCatch, I no longer know which frame is a catch handler.\n\nI could recompute that in the visitor but I wonder if this is really a benefit. I can take a look in a follow-up CL if you want.",
+      "parentUuid": "6442fedf_fd4207d9",
+      "range": {
+        "startLine": 3542,
+        "startChar": 78,
+        "endLine": 3543,
+        "endChar": 37
+      },
+      "revId": "520633bebd2bf4d70884d30f179dbde9f275aac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44517aa7_1f4fa756",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 4
@@ -59,6 +83,30 @@
       "writtenOn": "2015-09-10T15:50:09Z",
       "side": 1,
       "message": "Feels kind of magic. How about just a flag?",
+      "range": {
+        "startLine": 410,
+        "startChar": 0,
+        "endLine": 412,
+        "endChar": 31
+      },
+      "revId": "520633bebd2bf4d70884d30f179dbde9f275aac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4164adc_38a5e9e6",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-10T16:10:18Z",
+      "side": 1,
+      "message": "Yeah, I\u0027m not really proud about that... but it\u0027s the only way I see to avoid the double reporting (which is incorrect from the debugger point of view at least).\n\nAn alternative would be to move that logic into the debugger but IMO it\u0027s even more complex to detect that.",
+      "parentUuid": "44517aa7_1f4fa756",
       "range": {
         "startLine": 410,
         "startChar": 0,
