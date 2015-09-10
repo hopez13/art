@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "c4ef2afe_6b270591",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-10T22:41:29Z",
+      "side": 1,
+      "message": "I thought it would be more complicated. I thought I\u0027d get a shadow warning (the arm64 names shadowing the base ones), but alas they\u0027re not...",
+      "parentUuid": "c43d6a4e_c3916816",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 2
+      },
+      "revId": "69e355c3a8632e559c0e56d51bbfc004b1705e75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4164adc_d8538ddf",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
