@@ -25,6 +25,52 @@
     },
     {
       "key": {
+        "uuid": "44517aa7_9f3177d4",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-10T16:08:21Z",
+      "side": 1,
+      "message": "when can this be null?",
+      "range": {
+        "startLine": 108,
+        "startChar": 6,
+        "endLine": 108,
+        "endChar": 17
+      },
+      "revId": "2e549e6dcef8144e877de93c1120f0da0cc061f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e436ee6e_21704e61",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-10T16:08:21Z",
+      "side": 1,
+      "message": "Don\u0027t really understand the test. I would have expected:\n\n !classes_[1].IsNull() \u0026\u0026 classes_[kIndividualCacheSize - 1].IsNull()",
+      "range": {
+        "startLine": 77,
+        "startChar": 6,
+        "endLine": 80,
+        "endChar": 57
+      },
+      "revId": "2e549e6dcef8144e877de93c1120f0da0cc061f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84d4522f_bd0a2097",
         "filename": "runtime/jit/profiling_info.h",
         "patchSetId": 7
