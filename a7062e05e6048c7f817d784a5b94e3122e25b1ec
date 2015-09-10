@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "44517aa7_5c753d0a",
+        "filename": "compiler/optimizing/graph_visualizer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T07:30:08Z",
+      "side": 1,
+      "message": "fine by me. I think we only use the codegen for disassembly and pretty print of registers.",
+      "parentUuid": "a4bdd6e7_31f760fb",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 31
+      },
+      "revId": "a7062e05e6048c7f817d784a5b94e3122e25b1ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ffd0472_55a21e56",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 6
