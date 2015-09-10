@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c4ef2afe_3b0de73f",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-10T15:38:59Z",
+      "side": 1,
+      "message": "Templating means that all functions handling (base) slow paths will have to be templated as well. I assumed that would have been against your wishes for simplicity.\n\nUsing this as the base class seems OK, as I don\u0027t imagine there are a gazillion of those in flight at any point in time, so the overhead shouldn\u0027t kill us. It\u0027s just not as clean IMHO.",
+      "parentUuid": "c43d6a4e_a020da34",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 2
+      },
+      "revId": "69e355c3a8632e559c0e56d51bbfc004b1705e75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4164adc_d8538ddf",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-10T09:31:50Z",
       "side": 1,
       "message": "Do we need to consider target_reg_lo \u003d\u003d EDX?",
+      "range": {
+        "startLine": 5449,
+        "startChar": 0,
+        "endLine": 5454,
+        "endChar": 7
+      },
+      "revId": "69e355c3a8632e559c0e56d51bbfc004b1705e75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44fdfae7_3c2b7119",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5454,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-10T15:38:59Z",
+      "side": 1,
+      "message": "I guess I assumed the target would come from the register allocator, which I believe allocates this in \"regular\" pairs. AFAIK you won\u0027t get EDX as the low partner. Nicolas?",
+      "parentUuid": "c4164adc_d8538ddf",
       "range": {
         "startLine": 5449,
         "startChar": 0,
