@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "44517aa7_bf30f31d",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-10T14:08:33Z",
+      "side": 1,
+      "message": "Because it needs the null check as argument. It might make it more readable to keep the 993 test though, what do you think?",
+      "parentUuid": "24f726e3_e3c8f2e4",
+      "range": {
+        "startLine": 1086,
+        "startChar": 0,
+        "endLine": 1086,
+        "endChar": 49
+      },
+      "revId": "9dff9ee039d80ed1302754a264bf7677deb60f1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4164adc_788cc1b9",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-10T10:34:54Z",
       "side": 1,
       "message": "Could you change the exception handling to not depend on the mapping table in case of an optimizing frame?",
+      "range": {
+        "startLine": 581,
+        "startChar": 0,
+        "endLine": 581,
+        "endChar": 45
+      },
+      "revId": "9dff9ee039d80ed1302754a264bf7677deb60f1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24f726e3_83aedefe",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-10T14:08:33Z",
+      "side": 1,
+      "message": "Done. I was gonna do that in another CL, but fair enough. It\u0027s not a big change...",
+      "parentUuid": "c4164adc_788cc1b9",
       "range": {
         "startLine": 581,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "24f726e3_2335ea71",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1390,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-10T14:08:33Z",
+      "side": 1,
+      "message": "Word dropped... Was supposed to say that the inputs can only be constant, but not needed.",
+      "parentUuid": "c4164adc_389649ca",
+      "range": {
+        "startLine": 1390,
+        "startChar": 17,
+        "endLine": 1390,
+        "endChar": 25
+      },
+      "revId": "9dff9ee039d80ed1302754a264bf7677deb60f1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c43d6a4e_40f78ef9",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2015-09-10T10:34:54Z",
       "side": 1,
       "message": "Can you DCHECK that by walking over the live_in set?",
+      "range": {
+        "startLine": 1869,
+        "startChar": 0,
+        "endLine": 1869,
+        "endChar": 75
+      },
+      "revId": "9dff9ee039d80ed1302754a264bf7677deb60f1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24f726e3_e3e47253",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1869,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-10T14:08:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c43d6a4e_40f78ef9",
       "range": {
         "startLine": 1869,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "0434e264_e29906ba",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-10T14:08:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44517aa7_3f0f0366",
+      "range": {
+        "startLine": 104,
+        "startChar": 7,
+        "endLine": 104,
+        "endChar": 24
+      },
+      "revId": "9dff9ee039d80ed1302754a264bf7677deb60f1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a44076d4_5ff3eb68",
         "filename": "compiler/optimizing/ssa_liveness_analysis.h",
         "patchSetId": 6
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "e41fceee_592b0318",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-10T14:08:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a44076d4_5ff3eb68",
+      "range": {
+        "startLine": 1212,
+        "startChar": 0,
+        "endLine": 1212,
+        "endChar": 58
+      },
+      "revId": "9dff9ee039d80ed1302754a264bf7677deb60f1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24f726e3_a3d2fa90",
         "filename": "runtime/stack_map.cc",
         "patchSetId": 6
@@ -151,6 +295,30 @@
       "writtenOn": "2015-09-10T10:34:54Z",
       "side": 1,
       "message": "dump somewhere that this is a catch stack map?",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 26
+      },
+      "revId": "9dff9ee039d80ed1302754a264bf7677deb60f1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0434e264_a261be49",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-10T14:08:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24f726e3_a3d2fa90",
       "range": {
         "startLine": 140,
         "startChar": 0,
