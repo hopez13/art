@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4bdd6e7_40faff3b",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-10T16:06:07Z",
+      "side": 1,
+      "message": "Why keep this around in this shape?",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 1
+      },
+      "revId": "2e549e6dcef8144e877de93c1120f0da0cc061f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84d4522f_bd0a2097",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-10T16:06:07Z",
+      "side": 1,
+      "message": "This is a weird size. As the overall size is not a power of two, it means you can\u0027t access something in the cache_ array optimally (or there may be padding, but I don\u0027t think so).",
+      "range": {
+        "startLine": 83,
+        "startChar": 53,
+        "endLine": 83,
+        "endChar": 54
+      },
+      "revId": "2e549e6dcef8144e877de93c1120f0da0cc061f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
