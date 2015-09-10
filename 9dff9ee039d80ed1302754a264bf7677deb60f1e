@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24f726e3_e3c8f2e4",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T10:34:54Z",
+      "side": 1,
+      "message": "Why is that here, and not just replacing lines 993?",
+      "range": {
+        "startLine": 1086,
+        "startChar": 0,
+        "endLine": 1086,
+        "endChar": 49
+      },
+      "revId": "9dff9ee039d80ed1302754a264bf7677deb60f1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4164adc_788cc1b9",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T10:34:54Z",
+      "side": 1,
+      "message": "Could you change the exception handling to not depend on the mapping table in case of an optimizing frame?",
+      "range": {
+        "startLine": 581,
+        "startChar": 0,
+        "endLine": 581,
+        "endChar": 45
+      },
+      "revId": "9dff9ee039d80ed1302754a264bf7677deb60f1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4164adc_389649ca",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1390,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T10:34:54Z",
+      "side": 1,
+      "message": "What\u0027s \"constant\" in this context?",
+      "range": {
+        "startLine": 1390,
+        "startChar": 17,
+        "endLine": 1390,
+        "endChar": 25
+      },
+      "revId": "9dff9ee039d80ed1302754a264bf7677deb60f1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c43d6a4e_40f78ef9",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1869,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T10:34:54Z",
+      "side": 1,
+      "message": "Can you DCHECK that by walking over the live_in set?",
+      "range": {
+        "startLine": 1869,
+        "startChar": 0,
+        "endLine": 1869,
+        "endChar": 75
+      },
+      "revId": "9dff9ee039d80ed1302754a264bf7677deb60f1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44517aa7_3f0f0366",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T10:34:54Z",
+      "side": 1,
+      "message": "Maybe just BlockRegisters? the caller_save_only makes the \u0027All\u0027 in the name a bit odd.",
+      "range": {
+        "startLine": 104,
+        "startChar": 7,
+        "endLine": 104,
+        "endChar": 24
+      },
+      "revId": "9dff9ee039d80ed1302754a264bf7677deb60f1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a44076d4_5ff3eb68",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T10:34:54Z",
+      "side": 1,
+      "message": "Please add a comment.",
+      "range": {
+        "startLine": 1212,
+        "startChar": 0,
+        "endLine": 1212,
+        "endChar": 58
+      },
+      "revId": "9dff9ee039d80ed1302754a264bf7677deb60f1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24f726e3_a3d2fa90",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T10:34:54Z",
+      "side": 1,
+      "message": "dump somewhere that this is a catch stack map?",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 26
+      },
+      "revId": "9dff9ee039d80ed1302754a264bf7677deb60f1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
