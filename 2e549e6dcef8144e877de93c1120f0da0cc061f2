@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c43d6a4e_03baf0a8",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T17:35:12Z",
+      "side": 1,
+      "message": "As discussed, not need so removed.",
+      "parentUuid": "a4bdd6e7_40faff3b",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 1
+      },
+      "revId": "2e549e6dcef8144e877de93c1120f0da0cc061f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44517aa7_9f3177d4",
         "filename": "runtime/jit/jit_instrumentation.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-10T16:08:21Z",
       "side": 1,
       "message": "when can this be null?",
+      "range": {
+        "startLine": 108,
+        "startChar": 6,
+        "endLine": 108,
+        "endChar": 17
+      },
+      "revId": "2e549e6dcef8144e877de93c1120f0da0cc061f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c43d6a4e_83a6008c",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T17:35:12Z",
+      "side": 1,
+      "message": "Maybe not right now due to the way the interpreter works, but I think we should be on the defensive, in case a faster interpreter / optimizations comes along.",
+      "parentUuid": "44517aa7_9f3177d4",
       "range": {
         "startLine": 108,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e436ee6e_a1a9befa",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T17:35:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e436ee6e_21704e61",
+      "range": {
+        "startLine": 77,
+        "startChar": 6,
+        "endLine": 80,
+        "endChar": 57
+      },
+      "revId": "2e549e6dcef8144e877de93c1120f0da0cc061f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84d4522f_bd0a2097",
         "filename": "runtime/jit/profiling_info.h",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2015-09-10T16:06:07Z",
       "side": 1,
       "message": "This is a weird size. As the overall size is not a power of two, it means you can\u0027t access something in the cache_ array optimally (or there may be padding, but I don\u0027t think so).",
+      "range": {
+        "startLine": 83,
+        "startChar": 53,
+        "endLine": 83,
+        "endChar": 54
+      },
+      "revId": "2e549e6dcef8144e877de93c1120f0da0cc061f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e41fceee_9c06695b",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T17:35:12Z",
+      "side": 1,
+      "message": "There won\u0027t be padding. The size was based on heuristics. Do you feel strongly about making the size of InlineCache power of two?",
+      "parentUuid": "84d4522f_bd0a2097",
       "range": {
         "startLine": 83,
         "startChar": 53,
