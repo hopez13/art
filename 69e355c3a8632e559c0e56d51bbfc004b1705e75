@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "e4c34e74_a51a0938",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-10T21:12:03Z",
+      "side": 1,
+      "message": "The difference is that CodeGenerator doesn\u0027t have to store that templated class - MethodPatchInfo is stored and handled by the sub-classes (only trivial .\n\nSlowPathCode, on the other hand, is managed by CodeGenerator itself. If you\u0027re OK with templatizing the whole of CodeGenerator, then I\u0027m happy to do it.",
+      "parentUuid": "e436ee6e_01674aae",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 2
+      },
+      "revId": "69e355c3a8632e559c0e56d51bbfc004b1705e75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4164adc_d8538ddf",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "Unfortunately, you never know, as some instructions might say they want lo to be EDX. You can use ParallelMoveResolver to solve your problem.",
       "parentUuid": "44fdfae7_3c2b7119",
+      "range": {
+        "startLine": 5449,
+        "startChar": 0,
+        "endLine": 5454,
+        "endChar": 7
+      },
+      "revId": "69e355c3a8632e559c0e56d51bbfc004b1705e75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44cedaa4_c98c01ff",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5454,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-10T21:12:03Z",
+      "side": 1,
+      "message": "I\u0027d rather clean this up in a follow-up CL, if that\u0027s OK. I intended this as a plain \"move-stuff-around-to-reduce-copy-pasta\" CL.",
+      "parentUuid": "0434e264_65eae0e5",
       "range": {
         "startLine": 5449,
         "startChar": 0,
