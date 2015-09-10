@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e41fceee_791fe768",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-09-10T15:33:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4d56a01_a0741a11",
+      "range": {
+        "startLine": 361,
+        "startChar": 0,
+        "endLine": 367,
+        "endChar": 5
+      },
+      "revId": "e99b288880e47d93df187a1f7f3b679668b03cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24bd66ca_53d6c4df",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-07T17:14:21Z",
       "side": 1,
       "message": "std::swap(in_reg_hi, in_reg_lo)",
+      "range": {
+        "startLine": 373,
+        "startChar": 0,
+        "endLine": 375,
+        "endChar": 23
+      },
+      "revId": "e99b288880e47d93df187a1f7f3b679668b03cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e41fceee_d9e633ea",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-09-10T15:33:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24bd66ca_53d6c4df",
       "range": {
         "startLine": 373,
         "startChar": 0,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "0434e264_05b43409",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-09-10T15:33:52Z",
+      "side": 1,
+      "message": "Yes. That\u0027s much better.",
+      "parentUuid": "c4ae4a93_7892c11a",
+      "revId": "e99b288880e47d93df187a1f7f3b679668b03cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4ae4a93_98a8755c",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
@@ -76,6 +142,30 @@
       "writtenOn": "2015-09-07T17:14:21Z",
       "side": 1,
       "message": "Multi-instruction IT despite the deprecation?",
+      "range": {
+        "startLine": 400,
+        "startChar": 0,
+        "endLine": 402,
+        "endChar": 47
+      },
+      "revId": "e99b288880e47d93df187a1f7f3b679668b03cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8447f2eb_7ef83184",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-09-10T15:33:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4ae4a93_98a8755c",
       "range": {
         "startLine": 400,
         "startChar": 0,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "a44076d4_7f8cafb9",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-09-10T15:33:52Z",
+      "side": 1,
+      "message": "I think in this case the assembler will choose a 16-bit encoding for ORR as it\u0027s outside an IT block and set_cc is kCcDontCare. e.g:\n\n 0x00001284: fa03f704      lsl     r7, r3, r4\n 0x00001288: fa22f601      lsr     r6, r2, r1\n 0x0000128c: 4337          orr     r7, r6\n 0x0000128e: fa02f604      lsl     r6, r2, r4\n 0x00001292: fa23f401      lsr     r4, r3, r1\n 0x00001296: 4326          orr     r6, r4\n 0x00001298: e00b          b       +22 (0x000012b2)\n 0x0000129a: f1c40120      rsb     r1, r4, #32\n 0x0000129e: fa23f704      lsr     r7, r3, r4\n 0x000012a2: fa02f601      lsl     r6, r2, r1\n 0x000012a6: 4337          orr     r7, r6\n 0x000012a8: fa22f604      lsr     r6, r2, r4\n 0x000012ac: fa03f401      lsl     r4, r3, r1\n 0x000012b0: 4326          orr     r6, r4\n\nLooking at Thumb2Assembler::Is32BitDataProcessing, ADD and ORR seem equally likely to use a 32-bit encoding depending on set_cc.",
+      "parentUuid": "e4d42ed5_5a8389ce",
+      "range": {
+        "startLine": 411,
+        "startChar": 7,
+        "endLine": 411,
+        "endChar": 10
+      },
+      "revId": "e99b288880e47d93df187a1f7f3b679668b03cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4ae4a93_78c4812b",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
@@ -122,6 +236,30 @@
       "writtenOn": "2015-09-07T17:14:21Z",
       "side": 1,
       "message": "Do we know at this point if the InputAt(1) is a constant? Can we avoid requesting these temporaries if it is?",
+      "range": {
+        "startLine": 452,
+        "startChar": 0,
+        "endLine": 453,
+        "endChar": 51
+      },
+      "revId": "e99b288880e47d93df187a1f7f3b679668b03cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4164adc_38c72925",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-09-10T15:33:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4ae4a93_78c4812b",
       "range": {
         "startLine": 452,
         "startChar": 0,
@@ -181,6 +319,54 @@
     },
     {
       "key": {
+        "uuid": "c43d6a4e_a379c4c4",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-09-10T15:33:52Z",
+      "side": 1,
+      "message": "ISO C11 says intN_t must be twos complement. Do I need to worry about this?",
+      "parentUuid": "c4ae4a93_987dd57f",
+      "range": {
+        "startLine": 377,
+        "startChar": 4,
+        "endLine": 377,
+        "endChar": 53
+      },
+      "revId": "e99b288880e47d93df187a1f7f3b679668b03cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c43d6a4e_433d58f0",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-09-10T15:33:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4deb6f4_35f49800",
+      "range": {
+        "startLine": 377,
+        "startChar": 4,
+        "endLine": 377,
+        "endChar": 53
+      },
+      "revId": "e99b288880e47d93df187a1f7f3b679668b03cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4d56a01_a0adfad4",
         "filename": "runtime/quick/inline_method_analyser.h",
         "patchSetId": 1
@@ -192,6 +378,30 @@
       "writtenOn": "2015-09-07T17:14:21Z",
       "side": 1,
       "message": "Nit: I would put these right after the NumberOfTrailingZeros.",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 23
+      },
+      "revId": "e99b288880e47d93df187a1f7f3b679668b03cf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4164adc_d8b2ad40",
+        "filename": "runtime/quick/inline_method_analyser.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-09-10T15:33:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4d56a01_a0adfad4",
       "range": {
         "startLine": 75,
         "startChar": 0,
