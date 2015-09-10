@@ -22,6 +22,75 @@
       "revId": "f1c72433a306bb2057b5581308267f9754fd65ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44fdfae7_0238ce65",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-10T22:56:16Z",
+      "side": 1,
+      "message": "You removed the checks. Now this function doesn\u0027t protect that you\u0027ll get something totally unrelated...",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 142,
+        "endChar": 23
+      },
+      "revId": "f1c72433a306bb2057b5581308267f9754fd65ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84d4522f_5605291a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-10T22:56:16Z",
+      "side": 1,
+      "message": "Why is this arena-allocated, actually? I don\u0027t see anything that would make it non-viable to stack-allocate here.",
+      "range": {
+        "startLine": 1418,
+        "startChar": 6,
+        "endLine": 1419,
+        "endChar": 59
+      },
+      "revId": "f1c72433a306bb2057b5581308267f9754fd65ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44cedaa4_4956b16b",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-10T22:56:16Z",
+      "side": 1,
+      "message": "Looks like a forward declaration is enough here.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 35
+      },
+      "revId": "f1c72433a306bb2057b5581308267f9754fd65ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
