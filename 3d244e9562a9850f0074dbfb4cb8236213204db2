@@ -1,0 +1,487 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a44076d4_1f148308",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "tp -\u003e type",
+      "range": {
+        "startLine": 494,
+        "startChar": 59,
+        "endLine": 494,
+        "endChar": 60
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0434e264_a220de34",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "Maybe move this out of VisitCondition?",
+      "range": {
+        "startLine": 496,
+        "startChar": 0,
+        "endLine": 496,
+        "endChar": 37
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e436ee6e_61f3b669",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "less generic name?",
+      "range": {
+        "startLine": 529,
+        "startChar": 51,
+        "endLine": 529,
+        "endChar": 56
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e41fceee_d97ab351",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "tp -\u003e type",
+      "range": {
+        "startLine": 530,
+        "startChar": 59,
+        "endLine": 530,
+        "endChar": 61
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e436ee6e_81f03a5c",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "tp -\u003e type",
+      "range": {
+        "startLine": 599,
+        "startChar": 92,
+        "endLine": 599,
+        "endChar": 94
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44517aa7_ff367b1a",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "one per line",
+      "range": {
+        "startLine": 629,
+        "startChar": 0,
+        "endLine": 629,
+        "endChar": 31
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0434e264_622bb618",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "one per line",
+      "range": {
+        "startLine": 646,
+        "startChar": 0,
+        "endLine": 646,
+        "endChar": 38
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e41fceee_f97f773e",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "one per line",
+      "range": {
+        "startLine": 652,
+        "startChar": 0,
+        "endLine": 653,
+        "endChar": 47
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4164adc_985bd5e7",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "tp -\u003e type",
+      "range": {
+        "startLine": 129,
+        "startChar": 81,
+        "endLine": 129,
+        "endChar": 83
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4164adc_b8601994",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "tp -\u003e type",
+      "range": {
+        "startLine": 150,
+        "startChar": 38,
+        "endLine": 150,
+        "endChar": 40
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44517aa7_5f5f6f59",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "tp -\u003e type",
+      "range": {
+        "startLine": 157,
+        "startChar": 38,
+        "endLine": 157,
+        "endChar": 40
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44517aa7_9f2bb7b1",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "IsValid..",
+      "range": {
+        "startLine": 23,
+        "startChar": 12,
+        "endLine": 23,
+        "endChar": 27
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8447f2eb_de7aa551",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "IsValid...",
+      "range": {
+        "startLine": 27,
+        "startChar": 12,
+        "endLine": 27,
+        "endChar": 27
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24f726e3_c3b4d654",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "IsSafeMultiplication",
+      "range": {
+        "startLine": 48,
+        "startChar": 12,
+        "endLine": 48,
+        "endChar": 20
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e436ee6e_21fdae32",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "IsSafeDivision",
+      "range": {
+        "startLine": 56,
+        "startChar": 12,
+        "endLine": 56,
+        "endChar": 20
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8447f2eb_fe7f613e",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "induction",
+      "range": {
+        "startLine": 116,
+        "startChar": 42,
+        "endLine": 116,
+        "endChar": 47
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8447f2eb_1e424d05",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "avoid abbrevations.",
+      "range": {
+        "startLine": 30,
+        "startChar": 66,
+        "endLine": 30,
+        "endChar": 69
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0434e264_82283a1b",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "other optiimizations like bounds check elimination.",
+      "range": {
+        "startLine": 38,
+        "startChar": 83,
+        "endLine": 38,
+        "endChar": 86
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8447f2eb_3e3f097c",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "a !\u003d 0",
+      "range": {
+        "startLine": 42,
+        "startChar": 22,
+        "endLine": 42,
+        "endChar": 23
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a44076d4_9f3653b1",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "induc -\u003e induction (here and below)",
+      "range": {
+        "startLine": 75,
+        "startChar": 60,
+        "endLine": 75,
+        "endChar": 65
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a44076d4_bf3b179a",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-10T11:12:14Z",
+      "side": 1,
+      "message": "HInductionVarAnalysis* induction_analysis_;",
+      "range": {
+        "startLine": 93,
+        "startChar": 25,
+        "endLine": 93,
+        "endChar": 35
+      },
+      "revId": "3d244e9562a9850f0074dbfb4cb8236213204db2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
