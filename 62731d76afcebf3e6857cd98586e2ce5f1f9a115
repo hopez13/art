@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24f726e3_26ca982e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-11T16:31:21Z",
+      "side": 1,
+      "message": "I\u0027ll get rid of this in the next patch set.",
+      "range": {
+        "startLine": 14,
+        "startChar": 1,
+        "endLine": 14,
+        "endChar": 37
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e41fceee_bc524dd8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-11T16:31:21Z",
+      "side": 1,
+      "message": "Let me know if this bug number should be listed in this CL.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 13
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4164adc_db3707c7",
+        "filename": "runtime/arch/stub_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2427,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-11T16:31:21Z",
+      "side": 1,
+      "message": "I\u0027ll add the test in the next patch set.",
+      "range": {
+        "startLine": 2427,
+        "startChar": 3,
+        "endLine": 2427,
+        "endChar": 63
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4164adc_bb36d3c7",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints_list.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-11T16:31:21Z",
+      "side": 1,
+      "message": "I\u0027ve added this entry point to have a clean signature for read barrier for GC roots, but it is similar to ReadBarrierJni.  Maybe we can merge them; what do you think?",
+      "range": {
+        "startLine": 150,
+        "startChar": 2,
+        "endLine": 150,
+        "endChar": 69
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
