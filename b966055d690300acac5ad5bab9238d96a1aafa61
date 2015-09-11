@@ -22,6 +22,30 @@
       "revId": "b966055d690300acac5ad5bab9238d96a1aafa61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6473de94_35737071",
+        "filename": "compiler/optimizing/intrinsics_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-11T22:20:53Z",
+      "side": 1,
+      "message": "The default intrinsics code uses the function, too, so it seemed more reasonable to keep it in the visitor rather than the slow-path.\n\nI could move it to a top-level method here, if you prefer that.\n\nThere\u0027s the potential to refactor some more and split up EmitNativeCode into the surrounding (binding entry and jumping to exit) and laying down the actual call. Then the latter would be reusable for the other users of MoveArguments. Not sure how good that is, though.",
+      "parentUuid": "24f726e3_2640586b",
+      "range": {
+        "startLine": 46,
+        "startChar": 5,
+        "endLine": 46,
+        "endChar": 36
+      },
+      "revId": "b966055d690300acac5ad5bab9238d96a1aafa61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
