@@ -70,6 +70,30 @@
       "revId": "6d23e205cfc25cf2499726d1629f2a6ebb813be8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "848ff2ac_fedac101",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-09-11T20:25:56Z",
+      "side": 1,
+      "message": "That\u0027s fine. Internally, the suggestion was made that a new \"Emit\" function could be created for cases such as this, i.e., cases where register type instructions don\u0027t use all of the register positions. It\u0027s been my understanding that each patch should only address one issue. Would you prefer that this fix be rolled into this patch or submitted as a separate patch?\n\nThe methods which are using EmitR but using fewer than 3 registers fall into three categories. Instructions which use\n- the t \u0026 d registers,\n- the s \u0026 d registers,\n- don\u0027t use any of the registers.\n\nI\u0027m proposing for the first case, quit using the the EmitR function and instead use a new function EmitRtd which would be implemented as:\n\nvoid Mips64Assembler::EmitRtd(int opcode, GpuRegister rt, GpuRegister rd,\n                               int shamt, int funct) {\n  CHECK_NE(rt, kNoGpuRegister);\n  CHECK_NE(rd, kNoGpuRegister);\n  uint32_t encoding \u003d static_cast\u003cuint32_t\u003e(opcode) \u003c\u003c kOpcodeShift |\n                      0u \u003c\u003c kRsShift |  // Not needed?\n                      static_cast\u003cuint32_t\u003e(rt) \u003c\u003c kRtShift |\n                      static_cast\u003cuint32_t\u003e(rd) \u003c\u003c kRdShift |\n                      shamt \u003c\u003c kShamtShift |\n                      funct;\n  Emit(encoding);\n}\n\nThe second case would be similar but use a new function called EmitRsd.\n\nThe \"nop\", nominally, falls into category 3, but architecturally it\u0027s really a special case of sll (sll ZERO, ZERO, 0) which puts it into the first case.\n\nFor the third case I would propose that the \"sync\" instruction be modified to use Emit directly:\n\nvoid Mips64Assembler::Sync(uint32_t stype) {\n  Emit((0u \u003c\u003c kOpcodeShift) |\n       (0u \u003c\u003c kRdShift) |\n       ((stype \u0026 0x1f) \u003c\u003c kShamtShift) |\n       0xf);\n}\n\nThoughts? Thanks.",
+      "parentUuid": "64175efc_b51680de",
+      "range": {
+        "startLine": 239,
+        "startChar": 14,
+        "endLine": 239,
+        "endChar": 41
+      },
+      "revId": "6d23e205cfc25cf2499726d1629f2a6ebb813be8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
