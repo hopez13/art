@@ -22,6 +22,30 @@
       "revId": "6d23e205cfc25cf2499726d1629f2a6ebb813be8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64cf5e9f_a943f778",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-09-11T12:17:16Z",
+      "side": 1,
+      "message": "Because the instruction format is described in the documentation as:\n\nSPECIAL3                         BITSWAP  BSHFL\n 011111   00000    rt     rd      00000  100000\n          ^^^^^\n\nThat is, the documentation doesn\u0027t specify a register value which goes into that field but says that the field must be all zeroes.\n\nAlso, other previously added functions for emitting other machine instructions (such as MultR2, MultuR2, DivR2, DivuR2, Sll, Srl, Sra, Dsll, Dsrl, Dsra, Dsll32, Dsrl32, Dsra32, Lui, etc.) follow this convention. I probably didn\u0027t write the function from scratch, but copied some other function which already used this convention, and just modified the other fields, as needed.",
+      "parentUuid": "244c8613_8475a70d",
+      "range": {
+        "startLine": 239,
+        "startChar": 14,
+        "endLine": 239,
+        "endChar": 41
+      },
+      "revId": "6d23e205cfc25cf2499726d1629f2a6ebb813be8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
