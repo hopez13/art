@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "44ab3af0_b22318ea",
+        "filename": "test/998-scoped-primitive-array/check",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-11T19:43:53Z",
+      "side": 1,
+      "message": "If the string \"error\" occurs anywhere in the output then the test fails. The idea is to print the benchmark values and only print error if one of the sums don\u0027t match.",
+      "parentUuid": "841c5220_f9a2b39b",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 13
+      },
+      "revId": "f1b1ec64e6a2db1758d816f32cf19778b0400a95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84a1b20e_4e7cd3f5",
         "filename": "test/998-scoped-primitive-array/scoped_primitive_array.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-11T19:23:52Z",
       "side": 1,
       "message": "How about \"+\u003d\" to avoid the compiler to potentially optimize away some code?",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 27,
+        "endChar": 9
+      },
+      "revId": "f1b1ec64e6a2db1758d816f32cf19778b0400a95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44ab3af0_f21da0a3",
+        "filename": "test/998-scoped-primitive-array/scoped_primitive_array.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-11T19:43:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84a1b20e_4e7cd3f5",
       "range": {
         "startLine": 27,
         "startChar": 8,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "c4b72a4b_73c7facc",
+        "filename": "test/998-scoped-primitive-array/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-11T19:43:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04aea2f9_7514020a",
+      "revId": "f1b1ec64e6a2db1758d816f32cf19778b0400a95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64175efc_98e3b999",
         "filename": "test/998-scoped-primitive-array/src/Main.java",
         "patchSetId": 1
@@ -76,6 +142,30 @@
       "writtenOn": "2015-09-11T19:23:52Z",
       "side": 1,
       "message": "Is it ok not to have this message in expected.txt?",
+      "range": {
+        "startLine": 59,
+        "startChar": 6,
+        "endLine": 59,
+        "endChar": 87
+      },
+      "revId": "f1b1ec64e6a2db1758d816f32cf19778b0400a95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24a64628_d17ea4a9",
+        "filename": "test/998-scoped-primitive-array/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-11T19:43:53Z",
+      "side": 1,
+      "message": "It will be flaky due to the results changing?",
+      "parentUuid": "64175efc_98e3b999",
       "range": {
         "startLine": 59,
         "startChar": 6,
