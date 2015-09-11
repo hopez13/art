@@ -46,6 +46,30 @@
       "revId": "6d23e205cfc25cf2499726d1629f2a6ebb813be8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64175efc_b51680de",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-11T17:41:37Z",
+      "side": 1,
+      "message": "Sorry, tradition isn\u0027t a good argument.\n\nI\u0027d rather have functions where types agree with what is expected. As such, EmitR isn\u0027t correct here. Your argument that it\u0027s zero and you don\u0027t want ZERO doesn\u0027t really apply if you have to cast it to GpuRegister. In that case, EmitR should actually take integrals always, and you let the GpuRegister be implicitly converted to that.\n\nI\u0027d rather have this gone, even if you hide it somewhere like:\n\n // A GPURegister value that will be encoded as a sequence of zeroes.\n static GpuRegister ZeroValue() {\n   return ZERO;\n }\n\nVladimir, what\u0027s your opinion?",
+      "parentUuid": "64cf5e9f_a943f778",
+      "range": {
+        "startLine": 239,
+        "startChar": 14,
+        "endLine": 239,
+        "endChar": 41
+      },
+      "revId": "6d23e205cfc25cf2499726d1629f2a6ebb813be8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
