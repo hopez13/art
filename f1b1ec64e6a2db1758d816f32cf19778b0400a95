@@ -223,6 +223,30 @@
       "revId": "f1b1ec64e6a2db1758d816f32cf19778b0400a95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e467cecb_990d5b45",
+        "filename": "test/998-scoped-primitive-array/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-11T20:41:19Z",
+      "side": 1,
+      "message": "I didn\u0027t realize this, is it the case that the expected.txt diff checks only the tail of the output?",
+      "parentUuid": "24a64628_d17ea4a9",
+      "range": {
+        "startLine": 59,
+        "startChar": 6,
+        "endLine": 59,
+        "endChar": 87
+      },
+      "revId": "f1b1ec64e6a2db1758d816f32cf19778b0400a95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
