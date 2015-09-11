@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e4b0ae55_94eb6ab2",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-11T19:42:31Z",
+      "side": 1,
+      "message": "Does kSuspended make more sense as this isn\u0027t a native call?",
+      "range": {
+        "startLine": 425,
+        "startChar": 41,
+        "endLine": 425,
+        "endChar": 48
+      },
+      "revId": "949b0c42ebb3c0356dd21577cb50f85a65acbd65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4d56a01_00114618",
         "filename": "runtime/native/dalvik_system_VMStack.cc",
         "patchSetId": 2
@@ -87,6 +110,29 @@
         "startChar": 8,
         "endLine": 64,
         "endChar": 20
+      },
+      "revId": "949b0c42ebb3c0356dd21577cb50f85a65acbd65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4b72a4b_5328f647",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-11T19:42:31Z",
+      "side": 1,
+      "message": "Would it be possible and make sense to have REQUIRES(Locks::mutator_lock_)? Same for ResumeAll().",
+      "range": {
+        "startLine": 203,
+        "startChar": 6,
+        "endLine": 203,
+        "endChar": 14
       },
       "revId": "949b0c42ebb3c0356dd21577cb50f85a65acbd65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
