@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "44cedaa4_bb3c685a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-11T00:58:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24c9e69c_928f4daf",
+      "range": {
+        "startLine": 11,
+        "startChar": 47,
+        "endLine": 11,
+        "endChar": 48
+      },
+      "revId": "f1c72433a306bb2057b5581308267f9754fd65ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44fdfae7_0238ce65",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-10T22:56:16Z",
       "side": 1,
       "message": "You removed the checks. Now this function doesn\u0027t protect that you\u0027ll get something totally unrelated...",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 142,
+        "endChar": 23
+      },
+      "revId": "f1c72433a306bb2057b5581308267f9754fd65ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24c9e69c_55fd1f31",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-11T00:58:15Z",
+      "side": 1,
+      "message": "This code is only used to match instructions that reach a array length and something related. By hunting \"deeper\" it becomes more likely they match.\n\nFor example, two array lengths on the same array match, but now we also match e.g. trip count \"n\" vs. the length of \"new int[n]\".\n\nIt actually improves the already existing BCE (without induction) for some cases too.",
+      "parentUuid": "44fdfae7_0238ce65",
       "range": {
         "startLine": 131,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "84d4522f_9143cb79",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-11T00:58:15Z",
+      "side": 1,
+      "message": "I actually had that, but decided to stay closer to the original. Changed to stack though now.",
+      "parentUuid": "84d4522f_5605291a",
+      "range": {
+        "startLine": 1418,
+        "startChar": 6,
+        "endLine": 1419,
+        "endChar": 59
+      },
+      "revId": "f1c72433a306bb2057b5581308267f9754fd65ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44cedaa4_4956b16b",
         "filename": "compiler/optimizing/bounds_check_elimination.h",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2015-09-10T22:56:16Z",
       "side": 1,
       "message": "Looks like a forward declaration is enough here.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 35
+      },
+      "revId": "f1c72433a306bb2057b5581308267f9754fd65ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84d4522f_f1543f3f",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-11T00:58:15Z",
+      "side": 1,
+      "message": "Excellent point. Save an include, use a forward!",
+      "parentUuid": "44cedaa4_4956b16b",
       "range": {
         "startLine": 20,
         "startChar": 0,
