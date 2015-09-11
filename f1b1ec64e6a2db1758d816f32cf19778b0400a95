@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "04aea2f9_951b6608",
+        "filename": "test/998-scoped-primitive-array/check",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-11T19:57:01Z",
+      "side": 1,
+      "message": "I just added that, it was not printed before.",
+      "parentUuid": "84a1b20e_115cae62",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 13
+      },
+      "revId": "f1b1ec64e6a2db1758d816f32cf19778b0400a95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84a1b20e_4e7cd3f5",
         "filename": "test/998-scoped-primitive-array/scoped_primitive_array.cc",
         "patchSetId": 1
