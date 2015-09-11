@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "848ff2ac_5e6e55f6",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-11T20:11:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4b0ae55_94eb6ab2",
+      "range": {
+        "startLine": 425,
+        "startChar": 41,
+        "endLine": 425,
+        "endChar": 48
+      },
+      "revId": "949b0c42ebb3c0356dd21577cb50f85a65acbd65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4d56a01_00114618",
         "filename": "runtime/native/dalvik_system_VMStack.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-07T08:56:48Z",
       "side": 1,
       "message": "How did this go unnoticed?",
+      "range": {
+        "startLine": 38,
+        "startChar": 43,
+        "endLine": 38,
+        "endChar": 50
+      },
+      "revId": "949b0c42ebb3c0356dd21577cb50f85a65acbd65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "848ff2ac_3ee7c91a",
+        "filename": "runtime/native/dalvik_system_VMStack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-11T20:11:57Z",
+      "side": 1,
+      "message": "That was from my other CL.\nhttps://android-review.googlesource.com/#/c/169504/2/runtime/native/dalvik_system_VMStack.cc",
+      "parentUuid": "c4d56a01_00114618",
       "range": {
         "startLine": 38,
         "startChar": 43,
@@ -117,6 +165,78 @@
     },
     {
       "key": {
+        "uuid": "648afea0_ddbeeb9a",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-11T20:11:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a455d63a_fa6d05fa",
+      "range": {
+        "startLine": 64,
+        "startChar": 87,
+        "endLine": 64,
+        "endChar": 99
+      },
+      "revId": "949b0c42ebb3c0356dd21577cb50f85a65acbd65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84a1b20e_7126d295",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-11T20:11:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2461e61f_36815636",
+      "range": {
+        "startLine": 64,
+        "startChar": 8,
+        "endLine": 64,
+        "endChar": 20
+      },
+      "revId": "949b0c42ebb3c0356dd21577cb50f85a65acbd65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e467cecb_99fc7bae",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-11T20:11:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4d42ed5_dac2196e",
+      "range": {
+        "startLine": 64,
+        "startChar": 41,
+        "endLine": 64,
+        "endChar": 47
+      },
+      "revId": "949b0c42ebb3c0356dd21577cb50f85a65acbd65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4b72a4b_5328f647",
         "filename": "runtime/thread_list.h",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2015-09-11T19:42:31Z",
       "side": 1,
       "message": "Would it be possible and make sense to have REQUIRES(Locks::mutator_lock_)? Same for ResumeAll().",
+      "range": {
+        "startLine": 203,
+        "startChar": 6,
+        "endLine": 203,
+        "endChar": 14
+      },
+      "revId": "949b0c42ebb3c0356dd21577cb50f85a65acbd65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84a1b20e_d1ed0685",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-11T20:11:57Z",
+      "side": 1,
+      "message": "The UNLOCK_FUNCITON already requires the mutator lock being held.",
+      "parentUuid": "c4b72a4b_5328f647",
       "range": {
         "startLine": 203,
         "startChar": 6,
