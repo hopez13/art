@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64cf5e9f_c946338a",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-09-11T12:03:26Z",
+      "side": 1,
+      "message": "Should use std::numeric_limits\u003cuint32_t\u003e::max()",
+      "range": {
+        "startLine": 582,
+        "startChar": 62,
+        "endLine": 582,
+        "endChar": 72
+      },
+      "revId": "148c71101490ff63c4ccff57324bcf39e5f3632f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
