@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e41fceee_1c1c9971",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-11T12:57:59Z",
+      "side": 1,
+      "message": "I actually can\u0027t because of how things are done in the class linker.",
+      "parentUuid": "e41fceee_9ca2e99b",
+      "range": {
+        "startLine": 408,
+        "startChar": 4,
+        "endLine": 408,
+        "endChar": 23
+      },
+      "revId": "7944b6e53390a538c686d8e414ebadb3d887b53b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44cedaa4_bbaea8fe",
         "filename": "runtime/debugger.cc",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-11T02:08:22Z",
       "side": 1,
       "message": "ATTRIBUTE_UNUSED",
+      "range": {
+        "startLine": 222,
+        "startChar": 40,
+        "endLine": 222,
+        "endChar": 49
+      },
+      "revId": "7944b6e53390a538c686d8e414ebadb3d887b53b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8447f2eb_e1fca0ae",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-11T12:57:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44cedaa4_bbaea8fe",
       "range": {
         "startLine": 222,
         "startChar": 40,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8447f2eb_0102ec49",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-11T12:57:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e41fceee_bca7adaa",
+      "range": {
+        "startLine": 101,
+        "startChar": 15,
+        "endLine": 101,
+        "endChar": 39
+      },
+      "revId": "7944b6e53390a538c686d8e414ebadb3d887b53b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24c9e69c_95217768",
         "filename": "runtime/jit/jit_instrumentation.cc",
         "patchSetId": 9
@@ -82,6 +154,30 @@
       "writtenOn": "2015-09-11T02:08:22Z",
       "side": 1,
       "message": "Assert this?",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 32
+      },
+      "revId": "7944b6e53390a538c686d8e414ebadb3d887b53b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4164adc_5b8d3725",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-11T12:57:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24c9e69c_95217768",
       "range": {
         "startLine": 72,
         "startChar": 4,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "e436ee6e_04dbd859",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-11T12:57:59Z",
+      "side": 1,
+      "message": "You only want to do this once. Multiple threads may see the same value, but that\u0027s fine.",
+      "parentUuid": "a44076d4_df805b34",
+      "range": {
+        "startLine": 77,
+        "startChar": 19,
+        "endLine": 77,
+        "endChar": 21
+      },
+      "revId": "7944b6e53390a538c686d8e414ebadb3d887b53b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e436ee6e_016d0a3d",
         "filename": "runtime/jit/jit_instrumentation.cc",
         "patchSetId": 9
@@ -128,6 +248,30 @@
       "writtenOn": "2015-09-11T08:19:01Z",
       "side": 1,
       "message": "Same question than above",
+      "range": {
+        "startLine": 83,
+        "startChar": 19,
+        "endLine": 83,
+        "endChar": 21
+      },
+      "revId": "7944b6e53390a538c686d8e414ebadb3d887b53b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6442fedf_0002e849",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-11T12:57:59Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "e436ee6e_016d0a3d",
       "range": {
         "startLine": 83,
         "startChar": 19,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "8447f2eb_c10ba463",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-11T12:57:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04c1426c_fa589efd",
+      "range": {
+        "startLine": 99,
+        "startChar": 69,
+        "endLine": 99,
+        "endChar": 81
+      },
+      "revId": "7944b6e53390a538c686d8e414ebadb3d887b53b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24f726e3_26fbb8b1",
         "filename": "runtime/jit/jit_instrumentation.cc",
         "patchSetId": 9
@@ -174,6 +342,30 @@
       "writtenOn": "2015-09-11T08:19:01Z",
       "side": 1,
       "message": "How can this_object be null for an invoke-virtual or invoke-interface?",
+      "range": {
+        "startLine": 100,
+        "startChar": 6,
+        "endLine": 100,
+        "endChar": 28
+      },
+      "revId": "7944b6e53390a538c686d8e414ebadb3d887b53b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e436ee6e_a4cf8c90",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-11T12:57:59Z",
+      "side": 1,
+      "message": "It\u0027s to be on the safe side: we might get notified before the null check happens.\n\nCalin also asked why. Since it\u0027s confusing for now, I\u0027ll just DCHECK it\u0027s not null.",
+      "parentUuid": "24f726e3_26fbb8b1",
       "range": {
         "startLine": 100,
         "startChar": 6,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "0434e264_45023c15",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-11T12:57:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24f726e3_06f8bcb0",
+      "range": {
+        "startLine": 105,
+        "startChar": 2,
+        "endLine": 109,
+        "endChar": 63
+      },
+      "revId": "7944b6e53390a538c686d8e414ebadb3d887b53b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e436ee6e_e167c65c",
         "filename": "runtime/jit/jit_instrumentation.h",
         "patchSetId": 9
@@ -220,6 +436,30 @@
       "writtenOn": "2015-09-11T08:19:01Z",
       "side": 1,
       "message": "nit: virtual is not really needed here (and above).",
+      "range": {
+        "startLine": 96,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 9
+      },
+      "revId": "7944b6e53390a538c686d8e414ebadb3d887b53b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8447f2eb_a106985a",
+        "filename": "runtime/jit/jit_instrumentation.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-11T12:57:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e436ee6e_e167c65c",
       "range": {
         "startLine": 96,
         "startChar": 2,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "c4164adc_7b8a7b10",
+        "filename": "runtime/jit/profiling_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-11T12:57:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e41fceee_5c8d3125",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 27
+      },
+      "revId": "7944b6e53390a538c686d8e414ebadb3d887b53b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6442fedf_7d727725",
         "filename": "runtime/jit/profiling_info.cc",
         "patchSetId": 9
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "a44076d4_02dbcc59",
+        "filename": "runtime/jit/profiling_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-11T12:57:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6442fedf_7d727725",
+      "range": {
+        "startLine": 95,
+        "startChar": 48,
+        "endLine": 95,
+        "endChar": 56
+      },
+      "revId": "7944b6e53390a538c686d8e414ebadb3d887b53b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44fdfae7_a51be407",
         "filename": "runtime/jit/profiling_info.h",
         "patchSetId": 9
@@ -289,6 +577,30 @@
       "writtenOn": "2015-09-11T02:08:22Z",
       "side": 1,
       "message": "No indent in namespace usually.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 2
+      },
+      "revId": "7944b6e53390a538c686d8e414ebadb3d887b53b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44517aa7_9fbc1714",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-11T12:57:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44fdfae7_a51be407",
       "range": {
         "startLine": 30,
         "startChar": 0,
