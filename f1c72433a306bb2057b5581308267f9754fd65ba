@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "c4ef2afe_0e8767da",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-11T01:09:02Z",
+      "side": 1,
+      "message": "I\u0027m saying that I do not like the actual name here. You don\u0027t go from ArrayLength (as that\u0027s neither preferred nor enforced), and you\u0027re not going to actual length (depends fully on whatever the input parameter is). Those parts of the name are now purely implicit.\n\nI do understand the benefits. It\u0027s just not intuitive by name anymore. I don\u0027t have a good name, either, but something more generic like \"Reduce\" or \"FindDeclaration\" or something, with an actual proper method comment, is now better, IMHO.",
+      "parentUuid": "24c9e69c_55fd1f31",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 142,
+        "endChar": 23
+      },
+      "revId": "f1c72433a306bb2057b5581308267f9754fd65ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84d4522f_5605291a",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 3
