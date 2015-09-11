@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c43d6a4e_234ff456",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-11T11:08:21Z",
+      "side": 1,
+      "message": "So this methods returns either a length or an array. That\u0027s very bizarre, could we break it down into two different methods?",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 44
+      },
+      "revId": "a0e4c2920b2be8e6f69e6949fe4b0d8dd2447a03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24f726e3_c636241b",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1170,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-11T11:08:21Z",
+      "side": 1,
+      "message": "Do you have a less generic name for this?",
+      "range": {
+        "startLine": 1170,
+        "startChar": 49,
+        "endLine": 1170,
+        "endChar": 56
+      },
+      "revId": "a0e4c2920b2be8e6f69e6949fe4b0d8dd2447a03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0434e264_85f84485",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1422,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-11T11:08:21Z",
+      "side": 1,
+      "message": "Do we still need this?",
+      "range": {
+        "startLine": 1417,
+        "startChar": 0,
+        "endLine": 1422,
+        "endChar": 7
+      },
+      "revId": "a0e4c2920b2be8e6f69e6949fe4b0d8dd2447a03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a44076d4_22cdb09c",
+        "filename": "compiler/optimizing/bounds_check_elimination.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-11T11:08:21Z",
+      "side": 1,
+      "message": "I\u0027d get rid of this constructor.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 92
+      },
+      "revId": "a0e4c2920b2be8e6f69e6949fe4b0d8dd2447a03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24f726e3_a62b28b1",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-11T11:08:21Z",
+      "side": 1,
+      "message": "nit: one per line",
+      "range": {
+        "startLine": 73,
+        "startChar": 24,
+        "endLine": 74,
+        "endChar": 86
+      },
+      "revId": "a0e4c2920b2be8e6f69e6949fe4b0d8dd2447a03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24f726e3_86302c1e",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-11T11:08:21Z",
+      "side": 1,
+      "message": "Java code starts with lower case for methods.",
+      "range": {
+        "startLine": 32,
+        "startChar": 21,
+        "endLine": 32,
+        "endChar": 27
+      },
+      "revId": "a0e4c2920b2be8e6f69e6949fe4b0d8dd2447a03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
