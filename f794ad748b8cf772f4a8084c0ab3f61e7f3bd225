@@ -22,6 +22,30 @@
       "revId": "f794ad748b8cf772f4a8084c0ab3f61e7f3bd225",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09e87b64_6286b608",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-14T13:47:11Z",
+      "side": 1,
+      "message": "As discussed, I\u0027ll keep the yes/no to be consistent with our other shell scripts.",
+      "parentUuid": "e9ea475e_a10f1e63",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 2
+      },
+      "revId": "f794ad748b8cf772f4a8084c0ab3f61e7f3bd225",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
