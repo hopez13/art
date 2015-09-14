@@ -46,6 +46,30 @@
       "revId": "6af93fa72a92b913266837ab04bb0e2d56c5d53d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c93f43b4_d071bcd8",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T14:17:11Z",
+      "side": 1,
+      "message": "Added flag to make HasTryCatch constant as discussed.",
+      "parentUuid": "691f3755_75e668ed",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 253,
+        "endChar": 3
+      },
+      "revId": "6af93fa72a92b913266837ab04bb0e2d56c5d53d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
