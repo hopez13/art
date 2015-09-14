@@ -16,6 +16,24 @@
       "revId": "acd20ca4edcae752e3e555517fa6f8378177262c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8478d270_ea84af95",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-14T17:40:49Z",
+      "side": 1,
+      "message": "Right. A problem would be a lock order violation btw the shutdown lock and the jni weak global lock.",
+      "parentUuid": "44725a92_9a7aad50",
+      "revId": "acd20ca4edcae752e3e555517fa6f8378177262c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
