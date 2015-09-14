@@ -70,6 +70,52 @@
       "revId": "6af93fa72a92b913266837ab04bb0e2d56c5d53d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9f4cf41_7f81afed",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-14T14:41:49Z",
+      "side": 1,
+      "message": "Add a note if this is needed for correctness of performance.",
+      "range": {
+        "startLine": 111,
+        "startChar": 41,
+        "endLine": 112,
+        "endChar": 53
+      },
+      "revId": "6af93fa72a92b913266837ab04bb0e2d56c5d53d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2900dfee_9baecb62",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-14T14:41:49Z",
+      "side": 1,
+      "message": "so long...\n\nhow about ToVregKind? or ConvertToVregKind if you feel the need to be more explicit? the parameter already tells you what are you converting.",
+      "range": {
+        "startLine": 157,
+        "startChar": 16,
+        "endLine": 157,
+        "endChar": 49
+      },
+      "revId": "6af93fa72a92b913266837ab04bb0e2d56c5d53d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
