@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "691f3755_55380c06",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2900dfee_fb46ef8a",
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89fb8b33_1e24edee",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 13
@@ -30,6 +48,30 @@
       "writtenOn": "2015-09-14T11:00:16Z",
       "side": 1,
       "message": "Maybe be more precise here (\"Inlining calls from catch blocks is not supported yet.\")?",
+      "range": {
+        "startLine": 823,
+        "startChar": 37,
+        "endLine": 823,
+        "endChar": 64
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "691f3755_352d90c4",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89fb8b33_1e24edee",
       "range": {
         "startLine": 823,
         "startChar": 37,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "89fb8b33_9e3d9df3",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c93f43b4_b0cbd887",
+      "range": {
+        "startLine": 825,
+        "startChar": 37,
+        "endLine": 825,
+        "endChar": 60
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64211e85_e52216e3",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 13
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "e9ea475e_c1958230",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 845,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64211e85_e52216e3",
+      "range": {
+        "startLine": 839,
+        "startChar": 0,
+        "endLine": 845,
+        "endChar": 7
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2900dfee_bb674731",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 13
@@ -99,6 +189,30 @@
       "writtenOn": "2015-09-14T11:00:16Z",
       "side": 1,
       "message": "Isn\u0027t this check already covered by the `default` case on line 872–873?  (I would keep the comment though, and move it before line 873.)",
+      "range": {
+        "startLine": 852,
+        "startChar": 8,
+        "endLine": 853,
+        "endChar": 71
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "691f3755_d543fc78",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2900dfee_bb674731",
       "range": {
         "startLine": 852,
         "startChar": 8,
@@ -157,6 +271,54 @@
     },
     {
       "key": {
+        "uuid": "89fb8b33_1ea74dae",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1054,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "I\u0027m getting confused by all this...",
+      "parentUuid": "09e87b64_a2f6fec4",
+      "range": {
+        "startLine": 1054,
+        "startChar": 6,
+        "endLine": 1054,
+        "endChar": 8
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2900dfee_bb6e27f3",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1054,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9ea475e_6138f606",
+      "range": {
+        "startLine": 1054,
+        "startChar": 9,
+        "endLine": 1054,
+        "endChar": 47
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44209a82_a4b902b6",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 13
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "e9ea475e_a1927e44",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2757,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "As discussed, I\u0027m gonna leave the ternary operator like this.",
+      "parentUuid": "44209a82_a4b902b6",
+      "range": {
+        "startLine": 2757,
+        "startChar": 6,
+        "endLine": 2757,
+        "endChar": 7
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c93f43b4_90c8d48b",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 13
@@ -191,6 +377,30 @@
       "writtenOn": "2015-09-14T11:00:16Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 2758,
+        "startChar": 6,
+        "endLine": 2758,
+        "endChar": 7
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2900dfee_9b6b6be3",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2758,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "Ditto",
+      "parentUuid": "c93f43b4_90c8d48b",
       "range": {
         "startLine": 2758,
         "startChar": 6,
@@ -243,6 +453,24 @@
     },
     {
       "key": {
+        "uuid": "e9ea475e_8181baf0",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "490513fd_3c06915e",
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64211e85_45692a04",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 13
@@ -266,6 +494,30 @@
     },
     {
       "key": {
+        "uuid": "64211e85_65946631",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "I wouldn\u0027t complicate it too much. The inputs could be something else than constants, so maybe i could show the number of inputs, but that would make the code uglier too.",
+      "parentUuid": "64211e85_45692a04",
+      "range": {
+        "startLine": 683,
+        "startChar": 76,
+        "endLine": 684,
+        "endChar": 65
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2900dfee_db433379",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 13
@@ -277,6 +529,30 @@
       "writtenOn": "2015-09-14T11:00:16Z",
       "side": 1,
       "message": "GetValueAsUint64?",
+      "range": {
+        "startLine": 2190,
+        "startChar": 19,
+        "endLine": 2190,
+        "endChar": 40
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "691f3755_15a734ae",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 2190,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2900dfee_db433379",
       "range": {
         "startLine": 2190,
         "startChar": 19,
@@ -335,6 +611,30 @@
     },
     {
       "key": {
+        "uuid": "691f3755_95922445",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "I agree, but the split is just temporary and I don\u0027t want to make this method even messier than it already is.",
+      "parentUuid": "44209a82_44b3eece",
+      "range": {
+        "startLine": 492,
+        "startChar": 0,
+        "endLine": 498,
+        "endChar": 16
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9ea475e_0147ea88",
         "filename": "compiler/optimizing/register_allocator.h",
         "patchSetId": 13
@@ -346,6 +646,30 @@
       "writtenOn": "2015-09-14T11:00:16Z",
       "side": 1,
       "message": "Document this new member.",
+      "range": {
+        "startLine": 214,
+        "startChar": 9,
+        "endLine": 214,
+        "endChar": 31
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2900dfee_7b0f7f3b",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9ea475e_0147ea88",
       "range": {
         "startLine": 214,
         "startChar": 9,
@@ -381,6 +705,30 @@
     },
     {
       "key": {
+        "uuid": "c93f43b4_d043fc78",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9ea475e_e143e678",
+      "range": {
+        "startLine": 197,
+        "startChar": 51,
+        "endLine": 197,
+        "endChar": 55
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9ea475e_c140e26e",
         "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
         "patchSetId": 13
@@ -392,6 +740,30 @@
       "writtenOn": "2015-09-14T11:00:16Z",
       "side": 1,
       "message": "SSAChecker",
+      "range": {
+        "startLine": 198,
+        "startChar": 34,
+        "endLine": 198,
+        "endChar": 44
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9f4cf41_9f64732d",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9ea475e_c140e26e",
       "range": {
         "startLine": 198,
         "startChar": 34,
@@ -427,6 +799,30 @@
     },
     {
       "key": {
+        "uuid": "a9f4cf41_bf673731",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44209a82_a4e022b6",
+      "range": {
+        "startLine": 160,
+        "startChar": 30,
+        "endLine": 160,
+        "endChar": 33
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89fb8b33_de5a0567",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 13
@@ -438,6 +834,30 @@
       "writtenOn": "2015-09-14T11:00:16Z",
       "side": 1,
       "message": "Break the line after `\u003d`?",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 52
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "691f3755_d5889c16",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89fb8b33_de5a0567",
       "range": {
         "startLine": 204,
         "startChar": 0,
@@ -473,6 +893,30 @@
     },
     {
       "key": {
+        "uuid": "44209a82_24943202",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 1132,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "Yeah, remnant of the two section changes. Reverted in the latest PS.",
+      "parentUuid": "c93f43b4_b0f998b7",
+      "range": {
+        "startLine": 1132,
+        "startChar": 30,
+        "endLine": 1132,
+        "endChar": 79
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9ea475e_a13ddef2",
         "filename": "runtime/stack_map.h",
         "patchSetId": 13
@@ -484,6 +928,30 @@
       "writtenOn": "2015-09-14T11:00:16Z",
       "side": 1,
       "message": "We should adjust or remove the comment, as binary search won\u0027t work for \"normal\" stack maps either.\n\nNote that if there\u0027s an easy way to state that this method has no catch stack map (maybe using the ArtMethod object?), then we could apply the binary search strategy.",
+      "range": {
+        "startLine": 1191,
+        "startChar": 0,
+        "endLine": 1192,
+        "endChar": 63
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c93f43b4_1032a426",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 1192,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9ea475e_a13ddef2",
       "range": {
         "startLine": 1191,
         "startChar": 0,
@@ -519,6 +987,30 @@
     },
     {
       "key": {
+        "uuid": "2900dfee_3b7b37bc",
+        "filename": "test/510-checker-try-catch/smali/RegisterAllocator.smali",
+        "patchSetId": 13
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": ":)",
+      "parentUuid": "89fb8b33_5e383506",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 41
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89fb8b33_3e2d69c4",
         "filename": "test/510-checker-try-catch/smali/Runtime.smali",
         "patchSetId": 13
@@ -530,6 +1022,30 @@
       "writtenOn": "2015-09-14T11:00:16Z",
       "side": 1,
       "message": "(v0, v1) (here and below)?",
+      "range": {
+        "startLine": 251,
+        "startChar": 16,
+        "endLine": 251,
+        "endChar": 21
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c93f43b4_302da8c4",
+        "filename": "test/510-checker-try-catch/smali/Runtime.smali",
+        "patchSetId": 13
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T13:07:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89fb8b33_3e2d69c4",
       "range": {
         "startLine": 251,
         "startChar": 16,
