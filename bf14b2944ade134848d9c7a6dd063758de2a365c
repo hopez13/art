@@ -1,0 +1,544 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2900dfee_fb46ef8a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "Also add that you removed the bogus test LICMTest.ConstantHoisting from licm_test.cc (and why).",
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89fb8b33_1e24edee",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "Maybe be more precise here (\"Inlining calls from catch blocks is not supported yet.\")?",
+      "range": {
+        "startLine": 823,
+        "startChar": 37,
+        "endLine": 823,
+        "endChar": 64
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c93f43b4_b0cbd887",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "Capital + period please. :)",
+      "range": {
+        "startLine": 825,
+        "startChar": 37,
+        "endLine": 825,
+        "endChar": 60
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64211e85_e52216e3",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 845,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "Maybe more this check into SSAChecker? (Likewise for the similar check in compiler/optimizing/register_allocator.cc.)",
+      "range": {
+        "startLine": 839,
+        "startChar": 0,
+        "endLine": 845,
+        "endChar": 7
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2900dfee_bb674731",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "Isn\u0027t this check already covered by the `default` case on line 872–873?  (I would keep the comment though, and move it before line 873.)",
+      "range": {
+        "startLine": 852,
+        "startChar": 8,
+        "endLine": 853,
+        "endChar": 71
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09e87b64_a2f6fec4",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1054,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "I think we are trying to place operators at the end of lines now (although the C++ style guide seems to be OK with having them at the beginning of lines).",
+      "range": {
+        "startLine": 1054,
+        "startChar": 6,
+        "endLine": 1054,
+        "endChar": 8
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9ea475e_6138f606",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1054,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "Add a small explanation about why we cannot use implicit null checks when `null_check` may throw into a catch block?",
+      "range": {
+        "startLine": 1054,
+        "startChar": 9,
+        "endLine": 1054,
+        "endChar": 47
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44209a82_a4b902b6",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2757,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "Move operator on the previous line (likewise for other cases)?",
+      "range": {
+        "startLine": 2757,
+        "startChar": 6,
+        "endLine": 2757,
+        "endChar": 7
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c93f43b4_90c8d48b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 2758,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 2758,
+        "startChar": 6,
+        "endLine": 2758,
+        "endChar": 7
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "691f3755_b512c08d",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 3548,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "This pattern is the same for all code generators and could be factored.  Maybe we could introduce (possibly in another CL) an InstructionCodeGenerator visitor as base class for all InstructionCodeGeneratorXYZ classes?",
+      "range": {
+        "startLine": 3542,
+        "startChar": 0,
+        "endLine": 3548,
+        "endChar": 1
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "490513fd_3c06915e",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "Nit: period.",
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64211e85_45692a04",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "Maybe show the constant\u0027s values in the error message?",
+      "range": {
+        "startLine": 683,
+        "startChar": 76,
+        "endLine": 684,
+        "endChar": 65
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2900dfee_db433379",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 2190,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "GetValueAsUint64?",
+      "range": {
+        "startLine": 2190,
+        "startChar": 19,
+        "endLine": 2190,
+        "endChar": 40
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09e87b64_421f329b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 4021,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "Move to the beginning of previous line?",
+      "range": {
+        "startLine": 4021,
+        "startChar": 8,
+        "endLine": 4021,
+        "endChar": 10
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44209a82_44b3eece",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "We should only instantiate the optimizations that will be actually used in `optimizations2`.  For instance, `bce` won\u0027t be used if the compiled method has a try/catch.",
+      "range": {
+        "startLine": 492,
+        "startChar": 0,
+        "endLine": 498,
+        "endChar": 16
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9ea475e_0147ea88",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "Document this new member.",
+      "range": {
+        "startLine": 214,
+        "startChar": 9,
+        "endLine": 214,
+        "endChar": 31
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9ea475e_e143e678",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "phis?",
+      "range": {
+        "startLine": 197,
+        "startChar": 51,
+        "endLine": 197,
+        "endChar": 55
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9ea475e_c140e26e",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "SSAChecker",
+      "range": {
+        "startLine": 198,
+        "startChar": 34,
+        "endLine": 198,
+        "endChar": 44
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44209a82_a4e022b6",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "Nit: FPU.",
+      "range": {
+        "startLine": 160,
+        "startChar": 30,
+        "endLine": 160,
+        "endChar": 33
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89fb8b33_de5a0567",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "Break the line after `\u003d`?",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 52
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c93f43b4_b0f998b7",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 1132,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "Did you add the `encoding` argument for uniformity reasons?",
+      "range": {
+        "startLine": 1132,
+        "startChar": 30,
+        "endLine": 1132,
+        "endChar": 79
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9ea475e_a13ddef2",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 1192,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "We should adjust or remove the comment, as binary search won\u0027t work for \"normal\" stack maps either.\n\nNote that if there\u0027s an easy way to state that this method has no catch stack map (maybe using the ArtMethod object?), then we could apply the binary search strategy.",
+      "range": {
+        "startLine": 1191,
+        "startChar": 0,
+        "endLine": 1192,
+        "endChar": 63
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89fb8b33_5e383506",
+        "filename": "test/510-checker-try-catch/smali/RegisterAllocator.smali",
+        "patchSetId": 13
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "That\u0027s awesome!",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 41
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89fb8b33_3e2d69c4",
+        "filename": "test/510-checker-try-catch/smali/Runtime.smali",
+        "patchSetId": 13
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T11:00:16Z",
+      "side": 1,
+      "message": "(v0, v1) (here and below)?",
+      "range": {
+        "startLine": 251,
+        "startChar": 16,
+        "endLine": 251,
+        "endChar": 21
+      },
+      "revId": "bf14b2944ade134848d9c7a6dd063758de2a365c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
