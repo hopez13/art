@@ -46,6 +46,30 @@
       "revId": "f6fde6ec5e0047ceda091a10713e356e4a81d00a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a46156bd_cb01b546",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2015-09-14T19:13:12Z",
+      "side": 1,
+      "message": "yeah, if you don\u0027t have targets \"tests*\" you also want to cover.\n\"tests\" is the umbrella target name used by all userdebug builds on the build server, so I think you are right.",
+      "parentUuid": "a9420f4a_12a74aae",
+      "range": {
+        "startLine": 36,
+        "startChar": 74,
+        "endLine": 36,
+        "endChar": 75
+      },
+      "revId": "f6fde6ec5e0047ceda091a10713e356e4a81d00a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
