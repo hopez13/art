@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9ea475e_a10f1e63",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T08:43:24Z",
+      "side": 1,
+      "message": "If you set emulator to `true` or `false` above, you\u0027ll be able to rewrite such tests as:\n\n  if $emulator; then\n     # Emulator is used.\n     # ...\n  fi\n\nFor negative conditions, you can use:\n\n  if $emulator; then :; else\n    # Emulator is not used.\n    # ...\n  fi",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 2
+      },
+      "revId": "f794ad748b8cf772f4a8084c0ab3f61e7f3bd225",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
