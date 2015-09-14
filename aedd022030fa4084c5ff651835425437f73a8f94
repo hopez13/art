@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e9ea475e_613eb6a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T19:44:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09e87b64_82e65aea",
+      "range": {
+        "startLine": 44,
+        "startChar": 67,
+        "endLine": 45,
+        "endChar": 7
+      },
+      "revId": "aedd022030fa4084c5ff651835425437f73a8f94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89fb8b33_5eb955b1",
         "filename": "runtime/stack_map.h",
         "patchSetId": 17
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "09e87b64_e2cd2646",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 1118,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T19:44:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89fb8b33_5eb955b1",
+      "range": {
+        "startLine": 1118,
+        "startChar": 18,
+        "endLine": 1118,
+        "endChar": 21
+      },
+      "revId": "aedd022030fa4084c5ff651835425437f73a8f94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2900dfee_dba45388",
         "filename": "test/510-checker-try-catch/smali/Runtime.smali",
         "patchSetId": 17
@@ -83,6 +131,30 @@
       "writtenOn": "2015-09-14T14:31:29Z",
       "side": 1,
       "message": "(v2, v3), (v4, v5), (v6, v7)",
+      "range": {
+        "startLine": 459,
+        "startChar": 32,
+        "endLine": 459,
+        "endChar": 49
+      },
+      "revId": "aedd022030fa4084c5ff651835425437f73a8f94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89fb8b33_5ee3959a",
+        "filename": "test/510-checker-try-catch/smali/Runtime.smali",
+        "patchSetId": 17
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-14T19:44:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2900dfee_dba45388",
       "range": {
         "startLine": 459,
         "startChar": 32,
