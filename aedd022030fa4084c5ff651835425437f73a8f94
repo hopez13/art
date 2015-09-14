@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "09e87b64_82e65aea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-14T14:38:00Z",
+      "side": 1,
+      "message": "Rationale: \"virtual\" is a C++ term that applies to methods (or \"member functions\" in the C++ parlance).  A class that cannot be instantiated because it has abstract methods (\"virtual pure member functions\") is said to be abstract, not virtual.\n\nNote that \"virtual\" can also be used to qualify an inheritance relation in C++, so as to share base classes in the case of multiple inheritance – which adds to the confusion.",
+      "parentUuid": "64211e85_850de244",
+      "range": {
+        "startLine": 44,
+        "startChar": 67,
+        "endLine": 45,
+        "endChar": 7
+      },
+      "revId": "aedd022030fa4084c5ff651835425437f73a8f94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89fb8b33_5eb955b1",
         "filename": "runtime/stack_map.h",
         "patchSetId": 17
