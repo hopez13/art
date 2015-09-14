@@ -22,6 +22,30 @@
       "revId": "0c9f68278e68c9d604354044d9578845cdfefeb0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2900dfee_7b33ff2d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 4984,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-09-14T09:46:25Z",
+      "side": 1,
+      "message": "That implies guarding all code using these IRs, so some guards for example in the graph visualizer code.\nI\u0027ll give it a try.",
+      "parentUuid": "a4deb6f4_f5c3708f",
+      "range": {
+        "startLine": 4984,
+        "startChar": 10,
+        "endLine": 4984,
+        "endChar": 21
+      },
+      "revId": "0c9f68278e68c9d604354044d9578845cdfefeb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
