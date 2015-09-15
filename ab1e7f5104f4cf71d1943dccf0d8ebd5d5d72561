@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "490513fd_7c63f9a3",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-15T16:05:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84c53226_2e0d2740",
+      "range": {
+        "startLine": 385,
+        "startChar": 20,
+        "endLine": 386,
+        "endChar": 45
+      },
+      "revId": "ab1e7f5104f4cf71d1943dccf0d8ebd5d5d72561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24656596_6e1c0b9d",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 5
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "2900dfee_bb7d07f4",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-15T16:05:58Z",
+      "side": 1,
+      "message": "It\u0027s a small optimization. I moved the test to TryInline.",
+      "parentUuid": "84c53226_ce2103af",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 40
+      },
+      "revId": "ab1e7f5104f4cf71d1943dccf0d8ebd5d5d72561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a46956e6_d7cf5c3e",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "691f3755_d573fc6e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 3054,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-15T16:05:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a46956e6_d7cf5c3e",
+      "range": {
+        "startLine": 3052,
+        "startChar": 0,
+        "endLine": 3054,
+        "endChar": 3
+      },
+      "revId": "ab1e7f5104f4cf71d1943dccf0d8ebd5d5d72561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "447a5aab_340d7040",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 5
@@ -105,6 +177,30 @@
       "writtenOn": "2015-09-01T15:09:10Z",
       "side": 1,
       "message": "Already in HInvoke.",
+      "range": {
+        "startLine": 3056,
+        "startChar": 0,
+        "endLine": 3056,
+        "endChar": 57
+      },
+      "revId": "ab1e7f5104f4cf71d1943dccf0d8ebd5d5d72561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c93f43b4_109aa4a9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 3056,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-15T16:05:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "447a5aab_340d7040",
       "range": {
         "startLine": 3056,
         "startChar": 0,
