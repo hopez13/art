@@ -144,6 +144,351 @@
     },
     {
       "key": {
+        "uuid": "c45e4afd_295a326b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T20:45:59Z",
+      "side": 1,
+      "message": "Is the reason that we need to have this local variable \"index\" (copy of index_) that we need to avoid modifying index_?",
+      "range": {
+        "startLine": 389,
+        "startChar": 13,
+        "endLine": 389,
+        "endChar": 27
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "848ff2ac_25924d1a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T20:45:59Z",
+      "side": 1,
+      "message": "Can you add a short comment on why we have this ArrayGet or Invoke (UnsafeGetObject) specific handling on index here?\n\nIs it because the index needs adjusting for the read barrier slow path code that we do not want to do at the GenerateReadBarrier call sites?",
+      "range": {
+        "startLine": 390,
+        "startChar": 4,
+        "endLine": 390,
+        "endChar": 27
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a46156bd_c0d50f25",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T20:45:59Z",
+      "side": 1,
+      "message": "index_ -\u003e index? We don\u0027t modify index_, right?",
+      "range": {
+        "startLine": 392,
+        "startChar": 35,
+        "endLine": 392,
+        "endChar": 53
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a46156bd_205a4b6b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T20:45:59Z",
+      "side": 1,
+      "message": "Why do we need a non-callee-saved register?",
+      "range": {
+        "startLine": 397,
+        "startChar": 8,
+        "endLine": 397,
+        "endChar": 10
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0465c2c3_d70a33ea",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T20:45:59Z",
+      "side": 1,
+      "message": "static_assert(1 \u003c\u003c TIMES_4 \u003d\u003d sizeof(mirror::CompressedReference\u003cmirror::Object\u003e) ?",
+      "range": {
+        "startLine": 405,
+        "startChar": 31,
+        "endLine": 405,
+        "endChar": 38
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "648afea0_5cf0145b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T20:45:59Z",
+      "side": 1,
+      "message": "Can you remind me why this does not apply to a static/direct invoke?",
+      "range": {
+        "startLine": 461,
+        "startChar": 10,
+        "endLine": 461,
+        "endChar": 11
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e467cecb_884c1f61",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3723,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T20:45:59Z",
+      "side": 1,
+      "message": "I notice you inserted this read barrier for this dex cache resolved method array, which, as we discussed, can be omitted, but this works (thanks).",
+      "range": {
+        "startLine": 3723,
+        "startChar": 8,
+        "endLine": 3723,
+        "endChar": 34
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0465c2c3_41a9015e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4150,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T20:45:59Z",
+      "side": 1,
+      "message": "Side question: what does \"output overlap\" mean?",
+      "range": {
+        "startLine": 4150,
+        "startChar": 22,
+        "endLine": 4150,
+        "endChar": 36
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8478d270_7d978836",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4280,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T20:45:59Z",
+      "side": 1,
+      "message": "static_assert(1 \u003c\u003c TIMES_4 \u003d\u003d sizeof(mirror::CompressedReference\u003cmirror::Object\u003e) ?",
+      "range": {
+        "startLine": 4280,
+        "startChar": 77,
+        "endLine": 4280,
+        "endChar": 84
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9420f4a_7e81bded",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5334,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T20:45:59Z",
+      "side": 1,
+      "message": "I see that currently \"ref\" does not get unpoisoned, which is ok as the \"ref\" param is unused by ReadBarrierSlow. Correct? Maybe leave a comment?",
+      "range": {
+        "startLine": 5333,
+        "startChar": 0,
+        "endLine": 5334,
+        "endChar": 69
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c45e4afd_13b91b03",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5338,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T20:45:59Z",
+      "side": 1,
+      "message": "Side question: does this place the slow path code out-of-line?",
+      "range": {
+        "startLine": 5338,
+        "startChar": 4,
+        "endLine": 5338,
+        "endChar": 15
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9420f4a_be6e05f3",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5376,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T20:45:59Z",
+      "side": 1,
+      "message": "I think this is correct.",
+      "range": {
+        "startLine": 5374,
+        "startChar": 0,
+        "endLine": 5376,
+        "endChar": 10
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0465c2c3_41458134",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5396,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T20:45:59Z",
+      "side": 1,
+      "message": "My understanding is that the reason to need to save parameter registers is that we call a read barrier in a middle of an invoke instruction where the parameters for the invoke instruction is already loaded. Correct?\n\nIt\u0027s not surprising if the read barrier slow path code isn\u0027t currently touching the float registers. But as this assumption is hard to detect or enforce, it may cause a problem down the road. Is this a matter of writing the code to save/restore float parameter registers?\n\nIn addition, I wonder if it\u0027s hard to find out what parameter registers are actually used for the call of the invoke instruction and save only those rather than all the parameter registers?",
+      "range": {
+        "startLine": 5396,
+        "startChar": 5,
+        "endLine": 5396,
+        "endChar": 9
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44725a92_66f1b0cf",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T20:45:59Z",
+      "side": 1,
+      "message": "Does this mean we won\u0027t intrinsify this invoke when read barriers are enabled? Does this mean we do no intrinsification when read barriers are enabled?",
+      "range": {
+        "startLine": 66,
+        "startChar": 52,
+        "endLine": 67,
+        "endChar": 24
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6473de94_de6ed4c9",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1762,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T20:45:59Z",
+      "side": 1,
+      "message": "Right.",
+      "range": {
+        "startLine": 1760,
+        "startChar": 53,
+        "endLine": 1762,
+        "endChar": 66
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4164adc_db3707c7",
         "filename": "runtime/arch/stub_test.cc",
         "patchSetId": 4
@@ -203,6 +548,30 @@
       "side": 1,
       "message": "Done in PS5.",
       "parentUuid": "e467cecb_88197f84",
+      "range": {
+        "startLine": 2427,
+        "startChar": 3,
+        "endLine": 2427,
+        "endChar": 63
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e467cecb_6efd1332",
+        "filename": "runtime/arch/stub_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2427,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T20:45:59Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "691f3755_1554d4c4",
       "range": {
         "startLine": 2427,
         "startChar": 3,
@@ -321,6 +690,30 @@
       "side": 1,
       "message": "Yes; done in PS5.\n\nI have added a check in compiler/optimizing/optimizing_compiler.cc to bail out when trying to compile with read barriers on arch others than x86 and x86-64.",
       "parentUuid": "a9420f4a_a3c71224",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 96
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c45e4afd_e4121f63",
+        "filename": "runtime/runtime_options.def",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T20:45:59Z",
+      "side": 1,
+      "message": "That makes sense. thanks.",
+      "parentUuid": "c93f43b4_707a1052",
       "range": {
         "startLine": 82,
         "startChar": 0,
