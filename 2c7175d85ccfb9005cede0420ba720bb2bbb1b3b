@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89fb8b33_3ebc4911",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4716,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-15T17:25:53Z",
+      "side": 1,
+      "message": "Maybe add a kReturnReg? same for longs and other backends.",
+      "range": {
+        "startLine": 4716,
+        "startChar": 25,
+        "endLine": 4716,
+        "endChar": 27
+      },
+      "revId": "2c7175d85ccfb9005cede0420ba720bb2bbb1b3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44209a82_27735471",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4722,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-15T17:25:53Z",
+      "side": 1,
+      "message": "just a note that I had to implement this for unresolved fields:)  The interface is a bit different though.",
+      "range": {
+        "startLine": 4722,
+        "startChar": 4,
+        "endLine": 4722,
+        "endChar": 17
+      },
+      "revId": "2c7175d85ccfb9005cede0420ba720bb2bbb1b3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9ea475e_616eb63b",
+        "filename": "compiler/optimizing/intrinsics_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-15T17:25:53Z",
+      "side": 1,
+      "message": "Do we consider out to be available as a temporary? If so add a note. Otherwise we don\u0027t need to do this if out is the return register?",
+      "range": {
+        "startLine": 70,
+        "startChar": 15,
+        "endLine": 70,
+        "endChar": 37
+      },
+      "revId": "2c7175d85ccfb9005cede0420ba720bb2bbb1b3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
