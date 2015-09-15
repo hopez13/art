@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "a9f4cf41_5fe38b9a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-15T15:42:52Z",
+      "side": 1,
+      "message": "Alright; I have kept it.",
+      "parentUuid": "648afea0_12991ab6",
+      "range": {
+        "startLine": 14,
+        "startChar": 1,
+        "endLine": 14,
+        "endChar": 37
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e41fceee_bc524dd8",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "You can list it if you would like to. To me 12687968 seems sufficient and it would allow 22884995 to focus on feature comments.",
       "parentUuid": "e41fceee_bc524dd8",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 13
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89fb8b33_9e3fdd79",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-15T15:42:52Z",
+      "side": 1,
+      "message": "Agreed; I\u0027ve removed 22884995.  It will also reduce bug spam.",
+      "parentUuid": "a9420f4a_c31c5674",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -143,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "691f3755_1554d4c4",
+        "filename": "runtime/arch/stub_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2427,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-15T15:42:52Z",
+      "side": 1,
+      "message": "Done in PS5.",
+      "parentUuid": "e467cecb_88197f84",
+      "range": {
+        "startLine": 2427,
+        "startChar": 3,
+        "endLine": 2427,
+        "endChar": 63
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4164adc_bb36d3c7",
         "filename": "runtime/entrypoints/quick/quick_entrypoints_list.h",
         "patchSetId": 4
@@ -190,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "89fb8b33_3e5d69da",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints_list.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-15T15:42:52Z",
+      "side": 1,
+      "message": "Sure, no problem.",
+      "parentUuid": "44725a92_f44d6d39",
+      "range": {
+        "startLine": 150,
+        "startChar": 2,
+        "endLine": 150,
+        "endChar": 69
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9420f4a_a3c71224",
         "filename": "runtime/runtime_options.def",
         "patchSetId": 4
@@ -201,6 +297,30 @@
       "writtenOn": "2015-09-15T00:36:51Z",
       "side": 1,
       "message": "We could remove this comment as well?",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 96
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c93f43b4_707a1052",
+        "filename": "runtime/runtime_options.def",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-15T15:42:52Z",
+      "side": 1,
+      "message": "Yes; done in PS5.\n\nI have added a check in compiler/optimizing/optimizing_compiler.cc to bail out when trying to compile with read barriers on arch others than x86 and x86-64.",
+      "parentUuid": "a9420f4a_a3c71224",
       "range": {
         "startLine": 82,
         "startChar": 0,
