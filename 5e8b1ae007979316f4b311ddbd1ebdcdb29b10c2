@@ -22,6 +22,30 @@
       "revId": "5e8b1ae007979316f4b311ddbd1ebdcdb29b10c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c45e4afd_cedb7c08",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-15T17:02:48Z",
+      "side": 1,
+      "message": "I think that would also be OK.",
+      "parentUuid": "2900dfee_9ef6b9c5",
+      "range": {
+        "startLine": 589,
+        "startChar": 0,
+        "endLine": 589,
+        "endChar": 49
+      },
+      "revId": "5e8b1ae007979316f4b311ddbd1ebdcdb29b10c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
