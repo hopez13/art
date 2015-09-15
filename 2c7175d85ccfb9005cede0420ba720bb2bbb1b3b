@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "44725a92_05ef152e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4722,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-15T22:57:14Z",
+      "side": 1,
+      "message": "Yours isn\u0027t merged, yet, though, right?",
+      "parentUuid": "44209a82_27735471",
+      "range": {
+        "startLine": 4722,
+        "startChar": 4,
+        "endLine": 4722,
+        "endChar": 17
+      },
+      "revId": "2c7175d85ccfb9005cede0420ba720bb2bbb1b3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9ea475e_616eb63b",
         "filename": "compiler/optimizing/intrinsics_utils.h",
         "patchSetId": 3
@@ -59,6 +83,30 @@
       "writtenOn": "2015-09-15T17:25:53Z",
       "side": 1,
       "message": "Do we consider out to be available as a temporary? If so add a note. Otherwise we don\u0027t need to do this if out is the return register?",
+      "range": {
+        "startLine": 70,
+        "startChar": 15,
+        "endLine": 70,
+        "endChar": 37
+      },
+      "revId": "2c7175d85ccfb9005cede0420ba720bb2bbb1b3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0465c2c3_84a887c2",
+        "filename": "compiler/optimizing/intrinsics_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-15T22:57:14Z",
+      "side": 1,
+      "message": "It\u0027s possible that out is a temp. Assumption here is that the callee will take care of out being already right.",
+      "parentUuid": "e9ea475e_616eb63b",
       "range": {
         "startLine": 70,
         "startChar": 15,
