@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9ea475e_8169ba33",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3042,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-15T17:46:43Z",
+      "side": 1,
+      "message": "The top-level const-qualifier is useless. Should the virtual InputRecordAt() return a const reference?",
+      "range": {
+        "startLine": 3042,
+        "startChar": 2,
+        "endLine": 3042,
+        "endChar": 34
+      },
+      "revId": "1e331e1e3ba8b7455837931faf4d1079d10470a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
