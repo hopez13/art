@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "848ff2ac_7eb071c1",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-15T22:07:03Z",
+      "side": 1,
+      "message": "[x, x+20]",
+      "range": {
+        "startLine": 30,
+        "startChar": 83,
+        "endLine": 30,
+        "endChar": 84
+      },
+      "revId": "4f2700958fac36741e93eb4563ac983dc6d53202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "848ff2ac_9e7ffda8",
         "filename": "test/530-checker-loops/src/Main.java",
         "patchSetId": 5
