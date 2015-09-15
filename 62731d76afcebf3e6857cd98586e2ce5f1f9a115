@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "648afea0_12991ab6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T00:36:51Z",
+      "side": 1,
+      "message": "If that\u0027s useful for debugging, it might be an idea to keep it and have it disabled?",
+      "parentUuid": "24f726e3_26ca982e",
+      "range": {
+        "startLine": 14,
+        "startChar": 1,
+        "endLine": 14,
+        "endChar": 37
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e41fceee_bc524dd8",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-11T16:31:21Z",
       "side": 1,
       "message": "Let me know if this bug number should be listed in this CL.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 13
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9420f4a_c31c5674",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T00:36:51Z",
+      "side": 1,
+      "message": "You can list it if you would like to. To me 12687968 seems sufficient and it would allow 22884995 to focus on feature comments.",
+      "parentUuid": "e41fceee_bc524dd8",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e467cecb_88197f84",
+        "filename": "runtime/arch/stub_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2427,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T00:36:51Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "c4164adc_db3707c7",
+      "range": {
+        "startLine": 2427,
+        "startChar": 3,
+        "endLine": 2427,
+        "endChar": 63
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4164adc_bb36d3c7",
         "filename": "runtime/entrypoints/quick/quick_entrypoints_list.h",
         "patchSetId": 4
@@ -87,6 +159,53 @@
         "startChar": 2,
         "endLine": 150,
         "endChar": 69
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44725a92_f44d6d39",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints_list.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T00:36:51Z",
+      "side": 1,
+      "message": "I think it\u0027s convenient to keep them separate for now. ReadBarrierJni is special in that it\u0027s called from a constrained place (eg. can only happen two params, and the first parameter is a pointer to a handle in handle scope, etc.) rather than a general GcRoot. This does not mean they can\u0027t be merged in the future, of course.",
+      "parentUuid": "c4164adc_bb36d3c7",
+      "range": {
+        "startLine": 150,
+        "startChar": 2,
+        "endLine": 150,
+        "endChar": 69
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9420f4a_a3c71224",
+        "filename": "runtime/runtime_options.def",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T00:36:51Z",
+      "side": 1,
+      "message": "We could remove this comment as well?",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 96
       },
       "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
