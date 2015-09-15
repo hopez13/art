@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2900dfee_9ef6b9c5",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-15T16:54:00Z",
+      "side": 1,
+      "message": "Is that well placed? Maybe makes more sense to put it line 584? But do you hit it then?",
+      "range": {
+        "startLine": 589,
+        "startChar": 0,
+        "endLine": 589,
+        "endChar": 49
+      },
+      "revId": "5e8b1ae007979316f4b311ddbd1ebdcdb29b10c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
