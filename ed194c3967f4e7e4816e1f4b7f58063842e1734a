@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8478d270_966b61e4",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T20:45:59Z",
+      "side": 1,
+      "message": "Thanks. I think this is roughly equivalent to forcing interpretation (-Xint) on non-x86/non-x86-64 architectures.",
+      "range": {
+        "startLine": 658,
+        "startChar": 2,
+        "endLine": 658,
+        "endChar": 4
+      },
+      "revId": "ed194c3967f4e7e4816e1f4b7f58063842e1734a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a46156bd_200b2b9e",
+        "filename": "runtime/arch/stub_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2446,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-15T20:45:59Z",
+      "side": 1,
+      "message": "This is a static member of mirror::String. Would it be simpler to get it as \u0026mirror::String::java_lang_String_?",
+      "range": {
+        "startLine": 2446,
+        "startChar": 43,
+        "endLine": 2446,
+        "endChar": 60
+      },
+      "revId": "ed194c3967f4e7e4816e1f4b7f58063842e1734a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
