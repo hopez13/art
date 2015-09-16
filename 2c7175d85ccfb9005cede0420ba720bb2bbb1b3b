@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "e467cecb_a5f749f8",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4722,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-16T15:55:36Z",
+      "side": 1,
+      "message": "What do you think about the new version that uses the parallel move resolver.\n\nI have also thought about a generic way to do the pairs: I could simply distinguish by asking the location whether it\u0027s a pair. So it would boil down to something like:\n\n HParallelMove ...\n if (target.IsPair()) {\n   move.addMove(src.low(),target.low(),To32Type(type),...)\n   move.addMove(src.high(),target.high(),To32Type(type),...)\n } else {\n   move.addMove(src, target, type, ...)\n }\n resolver-\u003eemit(move);",
+      "parentUuid": "a9f4cf41_0247ec88",
+      "range": {
+        "startLine": 4722,
+        "startChar": 4,
+        "endLine": 4722,
+        "endChar": 17
+      },
+      "revId": "2c7175d85ccfb9005cede0420ba720bb2bbb1b3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9ea475e_616eb63b",
         "filename": "compiler/optimizing/intrinsics_utils.h",
         "patchSetId": 3
