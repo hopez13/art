@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "691f3755_d8433179",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-16T12:49:04Z",
+      "side": 1,
+      "message": "I think it is useful when you\u0027re using gdb, as you can match the printed addresses with what the debugger shows you.",
+      "parentUuid": "c93f43b4_b342c203",
+      "range": {
+        "startLine": 312,
+        "startChar": 2,
+        "endLine": 312,
+        "endChar": 8
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64211e85_081827b0",
         "filename": "compiler/optimizing/linearize_test.cc",
         "patchSetId": 2
