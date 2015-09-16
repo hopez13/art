@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "2900dfee_9e191983",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-16T10:57:50Z",
+      "side": 1,
+      "message": "DCHECK_EQ?",
+      "range": {
+        "startLine": 312,
+        "startChar": 2,
+        "endLine": 312,
+        "endChar": 8
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "691f3755_b8f995b7",
         "filename": "compiler/optimizing/live_ranges_test.cc",
         "patchSetId": 2
@@ -42,6 +65,167 @@
         "startChar": 23,
         "endLine": 128,
         "endChar": 42
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9f4cf41_82d77c2d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-16T10:57:50Z",
+      "side": 1,
+      "message": "Thanks for introducing this.",
+      "range": {
+        "startLine": 629,
+        "startChar": 26,
+        "endLine": 629,
+        "endChar": 41
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44209a82_e78f7c5e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1517,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-16T10:57:50Z",
+      "side": 1,
+      "message": "Replace with\n\n  {}\n\nto call the default ctor?",
+      "range": {
+        "startLine": 1517,
+        "startChar": 14,
+        "endLine": 1517,
+        "endChar": 42
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2900dfee_7edd2dfb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1519,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-16T10:57:50Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 1519,
+        "startChar": 35,
+        "endLine": 1519,
+        "endChar": 45
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "490513fd_9fc8f78b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1613,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-16T10:57:50Z",
+      "side": 1,
+      "message": "Nit: extra space.",
+      "range": {
+        "startLine": 1613,
+        "startChar": 40,
+        "endLine": 1613,
+        "endChar": 41
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09e87b64_a5c8488b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3033,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-16T10:57:50Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 3033,
+        "startChar": 14,
+        "endLine": 3033,
+        "endChar": 42
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64211e85_c8060f5c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3053,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-16T10:57:50Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 3053,
+        "startChar": 40,
+        "endLine": 3053,
+        "endChar": 41
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9ea475e_a43decf2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3985,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-16T10:57:50Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 3985,
+        "startChar": 16,
+        "endLine": 3985,
+        "endChar": 44
       },
       "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
