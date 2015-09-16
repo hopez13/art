@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c93f43b4_b342c203",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-16T12:23:42Z",
+      "side": 1,
+      "message": "I prefer not to do that for pointers. It doesn\u0027t work with nullptr and it doesn\u0027t give you any valuable information anyway.",
+      "parentUuid": "2900dfee_9e191983",
+      "range": {
+        "startLine": 312,
+        "startChar": 2,
+        "endLine": 312,
+        "endChar": 8
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64211e85_081827b0",
         "filename": "compiler/optimizing/linearize_test.cc",
         "patchSetId": 2
@@ -119,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "2900dfee_beca952a",
+        "filename": "compiler/optimizing/live_ranges_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-16T12:23:42Z",
+      "side": 1,
+      "message": "I was thinking about that, maybe as a follow-up CL.",
+      "parentUuid": "c93f43b4_d345460f",
+      "range": {
+        "startLine": 128,
+        "startChar": 23,
+        "endLine": 128,
+        "endChar": 42
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89fb8b33_417bb4ba",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 2
@@ -130,6 +178,30 @@
       "writtenOn": "2015-09-16T11:52:21Z",
       "side": 1,
       "message": "Can\u0027t you do if (++visits[i]) ?",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 17
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44209a82_cab8c701",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-16T12:23:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89fb8b33_417bb4ba",
       "range": {
         "startLine": 178,
         "startChar": 0,
@@ -188,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "c93f43b4_73633aa4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1517,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-16T12:23:42Z",
+      "side": 1,
+      "message": "Removed the argument. The other std::vector\u003c\u003e constructor will default-initialize all elements.",
+      "parentUuid": "44209a82_e78f7c5e",
+      "range": {
+        "startLine": 1517,
+        "startChar": 14,
+        "endLine": 1517,
+        "endChar": 42
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2900dfee_7edd2dfb",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -199,6 +295,30 @@
       "writtenOn": "2015-09-16T10:57:50Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 1519,
+        "startChar": 35,
+        "endLine": 1519,
+        "endChar": 45
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9f4cf41_220b1065",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1519,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-16T12:23:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2900dfee_7edd2dfb",
       "range": {
         "startLine": 1519,
         "startChar": 35,
@@ -234,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "44209a82_4756906b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1613,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-16T12:23:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "490513fd_9fc8f78b",
+      "range": {
+        "startLine": 1613,
+        "startChar": 40,
+        "endLine": 1613,
+        "endChar": 41
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "09e87b64_a5c8488b",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -245,6 +389,30 @@
       "writtenOn": "2015-09-16T10:57:50Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 3033,
+        "startChar": 14,
+        "endLine": 3033,
+        "endChar": 42
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44209a82_67538c7a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3033,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-16T12:23:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09e87b64_a5c8488b",
       "range": {
         "startLine": 3033,
         "startChar": 14,
@@ -280,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "2900dfee_be9f351e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3053,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-16T12:23:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64211e85_c8060f5c",
+      "range": {
+        "startLine": 3053,
+        "startChar": 40,
+        "endLine": 3053,
+        "endChar": 41
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9ea475e_a43decf2",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -303,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "c93f43b4_5368367c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3985,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-16T12:23:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9ea475e_a43decf2",
+      "range": {
+        "startLine": 3985,
+        "startChar": 16,
+        "endLine": 3985,
+        "endChar": 44
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2900dfee_9e9c792a",
         "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
         "patchSetId": 2
@@ -314,6 +530,30 @@
       "writtenOn": "2015-09-16T11:52:21Z",
       "side": 1,
       "message": "Why? The GetGraph-\u003eGetBlocks() contains dead blocks, so shouldn\u0027t be moved. If you want to reserve something, then you should use the reverse post order.",
+      "range": {
+        "startLine": 87,
+        "startChar": 2,
+        "endLine": 87,
+        "endChar": 60
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89fb8b33_a16b98e2",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-16T12:23:42Z",
+      "side": 1,
+      "message": "This was an upper limit on the needed capacity to avoid reallocation. But if the reverse post order is already calculated, then it\u0027s a better estimate.",
+      "parentUuid": "2900dfee_9e9c792a",
       "range": {
         "startLine": 87,
         "startChar": 2,

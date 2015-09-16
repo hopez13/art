@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "64211e85_884a579a",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-16T12:23:42Z",
+      "side": 0,
+      "message": "Because ValueObject prevents even placement new which is used to actually construct elements in containers. Previously we used objects that were never constructed, just relied on the memory being zeroed by the ArenaAllocator. Instead of constructing a Location object, we used to copy one to the uninitialized storage.\n\nI\u0027m thinking about adding the placement operators new/delete to DISALOW_ALLOCATION to actually allow this use of the ValueObject.",
+      "parentUuid": "89fb8b33_8181bcf0",
+      "range": {
+        "startLine": 38,
+        "startChar": 24,
+        "endLine": 38,
+        "endChar": 35
+      },
+      "revId": "e295be4a95d7861f6ec179edf6565f58cad747cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89fb8b33_6186b008",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-16T11:52:21Z",
       "side": 0,
       "message": "Why removing?",
+      "range": {
+        "startLine": 1245,
+        "startChar": 27,
+        "endLine": 1245,
+        "endChar": 38
+      },
+      "revId": "e295be4a95d7861f6ec179edf6565f58cad747cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "490513fd_ffeffbe8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1245,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-16T12:23:42Z",
+      "side": 0,
+      "message": "See Location.",
+      "parentUuid": "89fb8b33_6186b008",
       "range": {
         "startLine": 1245,
         "startChar": 27,
