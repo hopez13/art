@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2900dfee_1ef5098e",
+        "filename": "compiler/dex/quick/mips/utility_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 986,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-16T09:50:59Z",
+      "side": 1,
+      "message": "Nit: indentation is off.",
+      "range": {
+        "startLine": 986,
+        "startChar": 0,
+        "endLine": 986,
+        "endChar": 6
+      },
+      "revId": "b820936b93f79419ab19583efd16dc41b3316d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "691f3755_38b8e5fc",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-16T09:50:59Z",
+      "side": 1,
+      "message": "Use CHECK, here and elsewhere.",
+      "range": {
+        "startLine": 256,
+        "startChar": 2,
+        "endLine": 256,
+        "endChar": 8
+      },
+      "revId": "b820936b93f79419ab19583efd16dc41b3316d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2900dfee_def68198",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-16T09:50:59Z",
+      "side": 1,
+      "message": "Please introduce kMips64WordSize and kMipsDoublewordSize constants, as in https://android-review.googlesource.com/#/c/167924/2/compiler/optimizing/code_generator_mips.h.",
+      "range": {
+        "startLine": 956,
+        "startChar": 94,
+        "endLine": 956,
+        "endChar": 95
+      },
+      "revId": "b820936b93f79419ab19583efd16dc41b3316d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c93f43b4_530cb604",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-16T09:50:59Z",
+      "side": 1,
+      "message": "Replace with\n\n  !IsAligned\u003ckMips64DoubleWordSize\u003e(offset)\n\nhere and below.",
+      "range": {
+        "startLine": 956,
+        "startChar": 57,
+        "endLine": 956,
+        "endChar": 69
+      },
+      "revId": "b820936b93f79419ab19583efd16dc41b3316d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89fb8b33_411f349b",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-16T09:50:59Z",
+      "side": 1,
+      "message": "Likewise, use CHECK_ALIGNED, here and below.",
+      "range": {
+        "startLine": 977,
+        "startChar": 6,
+        "endLine": 977,
+        "endChar": 20
+      },
+      "revId": "b820936b93f79419ab19583efd16dc41b3316d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
