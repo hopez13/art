@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "44209a82_87b2483f",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-16T09:21:02Z",
+      "side": 1,
+      "message": "Replace with\n\n  IsInt\u003c9\u003e(imm9)\n\n(here and below).",
+      "range": {
+        "startLine": 299,
+        "startChar": 9,
+        "endLine": 299,
+        "endChar": 39
+      },
+      "revId": "2fadd7bb67abf5bc3c5370f9508cfb5959d6e536",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0465c2c3_103751af",
         "filename": "compiler/utils/mips64/assembler_mips64.cc",
         "patchSetId": 4
