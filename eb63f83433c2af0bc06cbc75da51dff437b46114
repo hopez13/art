@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c93f43b4_d345460f",
+        "filename": "compiler/optimizing/live_ranges_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-16T10:58:03Z",
+      "side": 1,
+      "message": "Hmm, we could override the operator in ArenaVector? Then we wouldn\u0027t have to reimplement it for every use case. There\u0027s also vector::at, but that would check in release mode too.",
+      "parentUuid": "490513fd_dfbe7fe7",
+      "range": {
+        "startLine": 128,
+        "startChar": 23,
+        "endLine": 128,
+        "endChar": 42
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9f4cf41_82d77c2d",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
