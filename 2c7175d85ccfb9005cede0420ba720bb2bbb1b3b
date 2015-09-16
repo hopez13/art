@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "a9f4cf41_0247ec88",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4722,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-16T14:27:25Z",
+      "side": 1,
+      "message": "Nope, not merged yet. We shouldn\u0027t wait for each other here . I can have a cleanup CL and unify stuff. Just wanting to point out that we need to do a similar stuff in some other place.",
+      "parentUuid": "44725a92_05ef152e",
+      "range": {
+        "startLine": 4722,
+        "startChar": 4,
+        "endLine": 4722,
+        "endChar": 17
+      },
+      "revId": "2c7175d85ccfb9005cede0420ba720bb2bbb1b3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9ea475e_616eb63b",
         "filename": "compiler/optimizing/intrinsics_utils.h",
         "patchSetId": 3
