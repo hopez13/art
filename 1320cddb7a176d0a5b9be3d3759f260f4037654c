@@ -70,6 +70,30 @@
       "revId": "1320cddb7a176d0a5b9be3d3759f260f4037654c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44725a92_10c907e7",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-16T15:40:54Z",
+      "side": 1,
+      "message": "So that they (and their closure) are already there when you start the zygote.\n\nThis shifts a little bit of work. And yes, even on JIT systems that saves overall work, as tools like am and pm (which is started on adb install etc) start a fresh runtime.\n\n(For full compilation there\u0027s obviously also attempted initialization.)\n\nThat\u0027s the argument for it. Argument against is that all those classes will become dirty memory anyways, as none is initialized - the zygote will at least mutate the class status.",
+      "parentUuid": "09e87b64_a56ba8e2",
+      "range": {
+        "startLine": 494,
+        "startChar": 0,
+        "endLine": 496,
+        "endChar": 3
+      },
+      "revId": "1320cddb7a176d0a5b9be3d3759f260f4037654c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
