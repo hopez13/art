@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c93f43b4_936d7e89",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 3505,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-16T12:22:53Z",
+      "side": 1,
+      "message": "say what",
+      "range": {
+        "startLine": 3505,
+        "startChar": 21,
+        "endLine": 3505,
+        "endChar": 25
+      },
+      "revId": "db68f7a21e9750cfcefc9c5a076c3f751ccfd59d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64211e85_2843237b",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-16T12:22:53Z",
+      "side": 1,
+      "message": "Nit: one per line?",
+      "range": {
+        "startLine": 223,
+        "startChar": 51,
+        "endLine": 224,
+        "endChar": 63
+      },
+      "revId": "db68f7a21e9750cfcefc9c5a076c3f751ccfd59d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44209a82_4acdb79b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-16T12:22:53Z",
+      "side": 1,
+      "message": "Could you DCHEKC that there are not other FrameIdToShadowFrame with that id?",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 294,
+        "endChar": 5
+      },
+      "revId": "db68f7a21e9750cfcefc9c5a076c3f751ccfd59d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89fb8b33_61eb50b2",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-16T12:22:53Z",
+      "side": 1,
+      "message": "How about just DCHECKing that record is not null?",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 315,
+        "endChar": 16
+      },
+      "revId": "db68f7a21e9750cfcefc9c5a076c3f751ccfd59d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
