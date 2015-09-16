@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "691f3755_98193983",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4722,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-16T16:24:40Z",
+      "side": 1,
+      "message": "That\u0027s definitely better in this case as it removes duplication. For the other case (fpu \u003c-\u003e reg) I wasn\u0027t convinced about extending the resolver to handle it (just to avoid shooting ourselves in the foot, since it\u0027s a special case). \n\nI am more inclined to have a generic wrapper MoveLocation(dst, src). Produces less code :). arm64/mips64 already implements this.",
+      "parentUuid": "e467cecb_a5f749f8",
+      "range": {
+        "startLine": 4722,
+        "startChar": 4,
+        "endLine": 4722,
+        "endChar": 17
+      },
+      "revId": "2c7175d85ccfb9005cede0420ba720bb2bbb1b3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9ea475e_616eb63b",
         "filename": "compiler/optimizing/intrinsics_utils.h",
         "patchSetId": 3
