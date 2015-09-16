@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "2900dfee_3e6565e5",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-16T12:26:28Z",
+      "side": 1,
+      "message": "Isn\u0027t this deleting the updated_vregs above? Maybe you need to remove the mapping at the end of this method?",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 62
+      },
+      "revId": "db68f7a21e9750cfcefc9c5a076c3f751ccfd59d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64211e85_2843237b",
         "filename": "runtime/stack.cc",
         "patchSetId": 16
