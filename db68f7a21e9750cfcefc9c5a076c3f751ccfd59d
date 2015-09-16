@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "691f3755_f8f94d88",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 3505,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-16T15:51:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c93f43b4_936d7e89",
+      "range": {
+        "startLine": 3505,
+        "startChar": 21,
+        "endLine": 3505,
+        "endChar": 25
+      },
+      "revId": "db68f7a21e9750cfcefc9c5a076c3f751ccfd59d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2900dfee_3e6565e5",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 16
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-16T12:26:28Z",
       "side": 1,
       "message": "Isn\u0027t this deleting the updated_vregs above? Maybe you need to remove the mapping at the end of this method?",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 62
+      },
+      "revId": "db68f7a21e9750cfcefc9c5a076c3f751ccfd59d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44209a82_ca6367df",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-16T15:51:24Z",
+      "side": 1,
+      "message": "Good point. Unless we copy the updated_vregs, yes the good choice is to move that at the end (after we stop using the updated_vregs array)",
+      "parentUuid": "2900dfee_3e6565e5",
       "range": {
         "startLine": 332,
         "startChar": 0,
@@ -71,6 +119,53 @@
     },
     {
       "key": {
+        "uuid": "44209a82_aa12ab61",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-16T15:51:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64211e85_2843237b",
+      "range": {
+        "startLine": 223,
+        "startChar": 51,
+        "endLine": 224,
+        "endChar": 63
+      },
+      "revId": "db68f7a21e9750cfcefc9c5a076c3f751ccfd59d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64211e85_68b0bbc1",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-16T15:51:24Z",
+      "side": 1,
+      "message": "For consistency, I\u0027ll also wrap args to multiple lines here (and below)",
+      "range": {
+        "startLine": 376,
+        "startChar": 54,
+        "endLine": 377,
+        "endChar": 85
+      },
+      "revId": "db68f7a21e9750cfcefc9c5a076c3f751ccfd59d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44209a82_4acdb79b",
         "filename": "runtime/thread.cc",
         "patchSetId": 16
@@ -94,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "e9ea475e_0496d80d",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-16T15:51:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44209a82_4acdb79b",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 294,
+        "endChar": 5
+      },
+      "revId": "db68f7a21e9750cfcefc9c5a076c3f751ccfd59d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89fb8b33_61eb50b2",
         "filename": "runtime/thread.cc",
         "patchSetId": 16
@@ -105,6 +224,30 @@
       "writtenOn": "2015-09-16T12:22:53Z",
       "side": 1,
       "message": "How about just DCHECKing that record is not null?",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 315,
+        "endChar": 16
+      },
+      "revId": "db68f7a21e9750cfcefc9c5a076c3f751ccfd59d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9ea475e_6487e4db",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-16T15:51:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89fb8b33_61eb50b2",
       "range": {
         "startLine": 314,
         "startChar": 0,
