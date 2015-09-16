@@ -94,6 +94,30 @@
       "revId": "1320cddb7a176d0a5b9be3d3759f260f4037654c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44209a82_ea6823be",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-16T15:42:29Z",
+      "side": 1,
+      "message": "But isn\u0027t this verify at runtime for dex2oat? Why are you talking about starting the zygote?",
+      "parentUuid": "44725a92_10c907e7",
+      "range": {
+        "startLine": 494,
+        "startChar": 0,
+        "endLine": 496,
+        "endChar": 3
+      },
+      "revId": "1320cddb7a176d0a5b9be3d3759f260f4037654c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
