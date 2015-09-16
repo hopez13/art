@@ -166,6 +166,30 @@
       "revId": "1320cddb7a176d0a5b9be3d3759f260f4037654c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e467cecb_45ae6dd0",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-16T16:10:54Z",
+      "side": 1,
+      "message": "For VerifyAtRuntime, yes. For everything else, this includes resolution and verification.\n\nVerifyAtRuntime bails out quickly in PreCompile, so it seemed easier to keep the structure as-is and not factor out the image-class-loading.",
+      "parentUuid": "a9f4cf41_42097432",
+      "range": {
+        "startLine": 494,
+        "startChar": 0,
+        "endLine": 496,
+        "endChar": 3
+      },
+      "revId": "1320cddb7a176d0a5b9be3d3759f260f4037654c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
