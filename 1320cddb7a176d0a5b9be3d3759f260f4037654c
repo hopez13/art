@@ -142,6 +142,30 @@
       "revId": "1320cddb7a176d0a5b9be3d3759f260f4037654c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9f4cf41_42097432",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-16T16:09:07Z",
+      "side": 1,
+      "message": "Ok so PrecompileClass is only useful when generating an .art file?",
+      "parentUuid": "6473de94_37744bc7",
+      "range": {
+        "startLine": 494,
+        "startChar": 0,
+        "endLine": 496,
+        "endChar": 3
+      },
+      "revId": "1320cddb7a176d0a5b9be3d3759f260f4037654c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
