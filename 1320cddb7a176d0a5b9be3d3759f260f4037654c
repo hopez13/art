@@ -118,6 +118,30 @@
       "revId": "1320cddb7a176d0a5b9be3d3759f260f4037654c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6473de94_37744bc7",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-16T15:46:02Z",
+      "side": 1,
+      "message": "If you\u0027re argumenting this way, dex2oat should never care about the zygote. So why are we creating an .art file, ever?",
+      "parentUuid": "44209a82_ea6823be",
+      "range": {
+        "startLine": 494,
+        "startChar": 0,
+        "endLine": 496,
+        "endChar": 3
+      },
+      "revId": "1320cddb7a176d0a5b9be3d3759f260f4037654c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
