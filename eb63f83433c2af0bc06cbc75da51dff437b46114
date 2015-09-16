@@ -22,6 +22,30 @@
       "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "490513fd_dfbe7fe7",
+        "filename": "compiler/optimizing/live_ranges_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-16T10:46:22Z",
+      "side": 1,
+      "message": "They are a convenient place for a DCHECK() to verify the index.",
+      "parentUuid": "691f3755_b8f995b7",
+      "range": {
+        "startLine": 128,
+        "startChar": 23,
+        "endLine": 128,
+        "endChar": 42
+      },
+      "revId": "eb63f83433c2af0bc06cbc75da51dff437b46114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
