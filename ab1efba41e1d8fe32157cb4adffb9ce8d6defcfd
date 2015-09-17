@@ -180,6 +180,29 @@
     },
     {
       "key": {
+        "uuid": "09bb1ba1_6a4f97aa",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1074104
+      },
+      "writtenOn": "2015-09-17T07:47:53Z",
+      "side": 1,
+      "message": "What happens if ref1 inherits from ref2 ?",
+      "range": {
+        "startLine": 234,
+        "startChar": 8,
+        "endLine": 234,
+        "endChar": 88
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4b72a4b_f054803f",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
@@ -284,6 +307,30 @@
       "writtenOn": "2015-09-11T21:10:22Z",
       "side": 1,
       "message": "The real monitor level is presumably dynamic, since it depends on callers as well.  I don\u0027t think this test makes any sense here.  Note that if you have\n\nr1 \u003d x;\nsynchronized (p1) {...};\nsynchronized (p2) {...};\nr2 \u003d x;\n\nit is not safe to eliminate the second load, no matter what\u0027s in the ellipses.  A safe, though probably too strong, rule is to have the first monitor entry call kill all prior information.  (This particular case may actually be safe with a single critical section.  I\u0027d need to think about it.  It is for C++.)",
+      "range": {
+        "startLine": 538,
+        "startChar": 28,
+        "endLine": 538,
+        "endChar": 55
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9d407d5_b1198082",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1074104
+      },
+      "writtenOn": "2015-09-17T07:47:53Z",
+      "side": 1,
+      "message": "Maybe just regard monitor as volatile load/store?",
+      "parentUuid": "44725a92_34a6108e",
       "range": {
         "startLine": 538,
         "startChar": 28,
@@ -411,6 +458,29 @@
     },
     {
       "key": {
+        "uuid": "e913274a_1cf5198e",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1074104
+      },
+      "writtenOn": "2015-09-17T07:47:53Z",
+      "side": 1,
+      "message": "Seems the reference alias analysis does something similar with escape analysis :)",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 33
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24a64628_2b5fb95a",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 2
@@ -427,6 +497,75 @@
         "startChar": 39,
         "endLine": 61,
         "endChar": 40
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2919bf72_937a3cf8",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1074104
+      },
+      "writtenOn": "2015-09-17T07:47:53Z",
+      "side": 1,
+      "message": "Maybe replace with a phi node as VMarko suggested.",
+      "range": {
+        "startLine": 164,
+        "startChar": 13,
+        "endLine": 164,
+        "endChar": 29
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89246ba5_96a58cea",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1074104
+      },
+      "writtenOn": "2015-09-17T07:47:53Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 189,
+        "startChar": 13,
+        "endLine": 189,
+        "endChar": 29
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6992d715_1d841394",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1074104
+      },
+      "writtenOn": "2015-09-17T07:47:53Z",
+      "side": 1,
+      "message": "I\u0027m not familiar with the debugger. Is it possible that debugger updates the heap value and we still run the compiled code not interpreter?",
+      "range": {
+        "startLine": 229,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 74
       },
       "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
