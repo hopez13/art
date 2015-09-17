@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c98d83f4_832a00bc",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-17T13:47:53Z",
+      "side": 1,
+      "message": "Please add a comment that for those cases, the compiler will just use the unresolved helpers.",
+      "range": {
+        "startLine": 877,
+        "startChar": 0,
+        "endLine": 879,
+        "endChar": 58
+      },
+      "revId": "b0ff5525ae70c721c7fc7264abda2c299cf9d85f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
