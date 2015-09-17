@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "494c338b_844ae641",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 4689,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-17T10:24:00Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you set CanThrow to true for all four of these?",
+      "revId": "c7561985f9861e28a8af8f096c36b1cc077e9e22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2947ff68_c359f69b",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 6
