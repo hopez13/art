@@ -22,6 +22,29 @@
       "revId": "b0ff5525ae70c721c7fc7264abda2c299cf9d85f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c98d83f4_231f749c",
+        "filename": "test/024-illegal-access/src/PublicAccess.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-17T13:48:35Z",
+      "side": 1,
+      "message": "accessMethod",
+      "range": {
+        "startLine": 25,
+        "startChar": 23,
+        "endLine": 25,
+        "endChar": 34
+      },
+      "revId": "b0ff5525ae70c721c7fc7264abda2c299cf9d85f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
