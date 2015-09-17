@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e9b7a7e1_99431b33",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4741,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-17T21:43:43Z",
+      "side": 1,
+      "message": "Was meant so the blocks can be easily removed later. Done.",
+      "parentUuid": "c98d83f4_20076a93",
+      "range": {
+        "startLine": 4720,
+        "startChar": 0,
+        "endLine": 4741,
+        "endChar": 52
+      },
+      "revId": "9853e4682284bd3ed377131c0f1e315dd171a522",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9b76fb4_474ace9b",
         "filename": "compiler/optimizing/intrinsics_utils.h",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-17T09:55:17Z",
       "side": 1,
       "message": "Avoid timing. I\u0027d drop the TODO anyways.",
+      "range": {
+        "startLine": 77,
+        "startChar": 11,
+        "endLine": 77,
+        "endChar": 19
+      },
+      "revId": "9853e4682284bd3ed377131c0f1e315dd171a522",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9ae6393_181625e2",
+        "filename": "compiler/optimizing/intrinsics_utils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-17T21:43:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9b76fb4_474ace9b",
       "range": {
         "startLine": 77,
         "startChar": 11,
