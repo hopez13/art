@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c98d83f4_63aedcbc",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-17T12:07:14Z",
+      "side": 1,
+      "message": "You probably still want to do an early return in non-debug build.",
+      "range": {
+        "startLine": 308,
+        "startChar": 0,
+        "endLine": 310,
+        "endChar": 21
+      },
+      "revId": "74c07e41e1a7f65cb8b5789823f2dc1ccbe6816e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
