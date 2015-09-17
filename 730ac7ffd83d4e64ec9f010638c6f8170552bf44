@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29a37f81_4398866b",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-17T18:35:23Z",
+      "side": 1,
+      "message": "There\u0027s an issue here since these pairs fail the ExpectedPairLayout() test.\nHaving this exception is rather annoying and I can think of:\na) adding a flag to not check that a pair has the expected layout\nb) requesting a proper pair and work around it with various moves.\nc) ?\n\nI would go with a) since b) implies a lot of working.\nWhat do you think?",
+      "range": {
+        "startLine": 118,
+        "startChar": 12,
+        "endLine": 119,
+        "endChar": 53
+      },
+      "revId": "730ac7ffd83d4e64ec9f010638c6f8170552bf44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e932471b_214f4eab",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-17T18:35:23Z",
+      "side": 1,
+      "message": "For x86, we actually block this pair from being use. We don\u0027t fail because baseline checks if the individual regs are blocked and not the whole pair.",
+      "range": {
+        "startLine": 114,
+        "startChar": 14,
+        "endLine": 114,
+        "endChar": 55
+      },
+      "revId": "730ac7ffd83d4e64ec9f010638c6f8170552bf44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
