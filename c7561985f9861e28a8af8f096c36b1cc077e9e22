@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "c98d83f4_a0561a6a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 4689,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-17T12:05:26Z",
+      "side": 1,
+      "message": "THanks,\nYea, it should. \n\nHowever here\u0027s an interesting thing: currently it won\u0027t make a difference because the same effects are guaranteed by  side effects + can\u0027t move.",
+      "parentUuid": "e986c7d4_81319abd",
+      "revId": "c7561985f9861e28a8af8f096c36b1cc077e9e22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2947ff68_c359f69b",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 6
@@ -48,6 +66,30 @@
       "writtenOn": "2015-09-17T09:59:33Z",
       "side": 1,
       "message": "TODO: Use descriptor?",
+      "range": {
+        "startLine": 455,
+        "startChar": 0,
+        "endLine": 458,
+        "endChar": 3
+      },
+      "revId": "c7561985f9861e28a8af8f096c36b1cc077e9e22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8952ab21_e6f19e61",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-17T12:05:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2947ff68_c359f69b",
       "range": {
         "startLine": 455,
         "startChar": 0,
