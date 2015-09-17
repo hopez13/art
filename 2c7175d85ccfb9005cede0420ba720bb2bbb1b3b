@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "c453aafb_9316fede",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4722,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-17T21:43:43Z",
+      "side": 1,
+      "message": "I don\u0027t know whether this needs to be supported for this restricted-use function. I think it\u0027s easier to just have the constraint that this only moves things in the same category. KISS, maybe?",
+      "parentUuid": "691f3755_98193983",
+      "range": {
+        "startLine": 4722,
+        "startChar": 4,
+        "endLine": 4722,
+        "endChar": 17
+      },
+      "revId": "2c7175d85ccfb9005cede0420ba720bb2bbb1b3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9ea475e_616eb63b",
         "filename": "compiler/optimizing/intrinsics_utils.h",
         "patchSetId": 3
