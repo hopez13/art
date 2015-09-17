@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "694d7785_e5a4f620",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 4689,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-17T12:40:59Z",
+      "side": 1,
+      "message": "That\u0027s not true if used inside try/catch! SsaBuilder will assume the catch block is dead if there is no other throwing instruction.",
+      "parentUuid": "c98d83f4_a0561a6a",
+      "revId": "c7561985f9861e28a8af8f096c36b1cc077e9e22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2947ff68_c359f69b",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 6
