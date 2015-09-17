@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6992d715_3d91cf15",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-17T01:34:40Z",
+      "side": 1,
+      "message": "uint64_t, just to make it consistent with CreateStartPos. Yes, it\u0027s the same underlying type, but...",
+      "range": {
+        "startLine": 129,
+        "startChar": 2,
+        "endLine": 129,
+        "endChar": 11
+      },
+      "revId": "57ccf466953d575dde2fe2796e9fddf825705cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
