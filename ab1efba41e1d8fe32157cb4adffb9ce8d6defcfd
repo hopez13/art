@@ -203,6 +203,30 @@
     },
     {
       "key": {
+        "uuid": "29753fb9_13072c93",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-17T15:59:51Z",
+      "side": 1,
+      "message": "I wondered about that before, too. The point is that this is the index of the class declaring the field. So even if you access the field in a sub-class, this should point to the same (super-)class...",
+      "parentUuid": "09bb1ba1_6a4f97aa",
+      "range": {
+        "startLine": 234,
+        "startChar": 8,
+        "endLine": 234,
+        "endChar": 88
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4b72a4b_f054803f",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
