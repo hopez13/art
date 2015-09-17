@@ -367,6 +367,30 @@
     },
     {
       "key": {
+        "uuid": "c9666312_3ed6b12f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2015-09-17T17:16:49Z",
+      "side": 1,
+      "message": "Yes.  I think those should correspond pretty much exactly here.",
+      "parentUuid": "e9d407d5_b1198082",
+      "range": {
+        "startLine": 538,
+        "startChar": 28,
+        "endLine": 538,
+        "endChar": 55
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24a64628_6b126190",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
