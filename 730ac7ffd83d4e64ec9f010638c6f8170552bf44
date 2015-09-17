@@ -45,6 +45,30 @@
       "revId": "730ac7ffd83d4e64ec9f010638c6f8170552bf44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e96fa7e4_bf495ff8",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-09-17T18:42:29Z",
+      "side": 1,
+      "message": "Yes, the register allocator assumes only certain pairs are legal, so that it matches ARM conventions.  Arbirtrary pairs aren\u0027t supported.\n\nI think you will need a GetSetLongValuePairHigh/Low to get the 2 registers.  Bit of a pain.",
+      "parentUuid": "e932471b_214f4eab",
+      "range": {
+        "startLine": 114,
+        "startChar": 14,
+        "endLine": 114,
+        "endChar": 55
+      },
+      "revId": "730ac7ffd83d4e64ec9f010638c6f8170552bf44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
