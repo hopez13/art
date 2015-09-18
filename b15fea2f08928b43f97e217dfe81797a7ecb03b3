@@ -63,6 +63,24 @@
       "revId": "b15fea2f08928b43f97e217dfe81797a7ecb03b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9ae6393_8189e0ac",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-18T17:35:22Z",
+      "side": 1,
+      "message": "If you set it before runinng envsetup then when you run make it will put the build artifacts in that directory instead of \u0027out\u0027",
+      "parentUuid": "c9ae6393_e1129c8e",
+      "revId": "b15fea2f08928b43f97e217dfe81797a7ecb03b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
