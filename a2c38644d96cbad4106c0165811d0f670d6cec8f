@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c91663dc_3b27237a",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-18T20:10:33Z",
+      "side": 1,
+      "message": "The map is strictly growing. So this uses, as vmarko says, some conclusions from internals, namely that on insert iterators aren\u0027t invalidated, so end() must always be the same. (It\u0027s still not explicitly race-free, as there are no guarantees given for that, but if there were, it would be somewhat insane...)",
+      "parentUuid": "099a3b78_c673e26e",
+      "range": {
+        "startLine": 707,
+        "startChar": 4,
+        "endLine": 707,
+        "endChar": 46
+      },
+      "revId": "a2c38644d96cbad4106c0165811d0f670d6cec8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8902ab8b_86d5ca23",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 2
