@@ -141,6 +141,30 @@
       "revId": "730ac7ffd83d4e64ec9f010638c6f8170552bf44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89762b11_86748aca",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-18T12:40:18Z",
+      "side": 1,
+      "message": "Why drastic? We come up with the ABI we want. If it simplifies the compiler, there\u0027s no reason not changing it.",
+      "parentUuid": "89df0b23_645a1e1c",
+      "range": {
+        "startLine": 114,
+        "startChar": 14,
+        "endLine": 114,
+        "endChar": 55
+      },
+      "revId": "730ac7ffd83d4e64ec9f010638c6f8170552bf44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
