@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4970b318_64d6aa30",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-18T07:47:25Z",
+      "side": 1,
+      "message": "Could you just change the ABI and make that pair aligned?",
+      "parentUuid": "29a37f81_4398866b",
+      "range": {
+        "startLine": 118,
+        "startChar": 12,
+        "endLine": 119,
+        "endChar": 53
+      },
+      "revId": "730ac7ffd83d4e64ec9f010638c6f8170552bf44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e932471b_214f4eab",
         "filename": "compiler/optimizing/code_generator_x86.h",
         "patchSetId": 3
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "Yes, the register allocator assumes only certain pairs are legal, so that it matches ARM conventions.  Arbirtrary pairs aren\u0027t supported.\n\nI think you will need a GetSetLongValuePairHigh/Low to get the 2 registers.  Bit of a pain.",
       "parentUuid": "e932471b_214f4eab",
+      "range": {
+        "startLine": 114,
+        "startChar": 14,
+        "endLine": 114,
+        "endChar": 55
+      },
+      "revId": "730ac7ffd83d4e64ec9f010638c6f8170552bf44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e99a4788_41cc529f",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-18T07:47:25Z",
+      "side": 1,
+      "message": "ditto: change ABI",
+      "parentUuid": "e96fa7e4_bf495ff8",
       "range": {
         "startLine": 114,
         "startChar": 14,
