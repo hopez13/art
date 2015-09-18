@@ -116,6 +116,30 @@
       "revId": "a480aef78c6f9574b8a3ef97553a3c33b73c06fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9a3c3b1_d39726c6",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-18T00:55:17Z",
+      "side": 1,
+      "message": "If you overwrite somebody else\u0027s map, wouldn\u0027t that cause problems since they might access stale data?",
+      "parentUuid": "e99c0776_373ea0a4",
+      "range": {
+        "startLine": 708,
+        "startChar": 6,
+        "endLine": 708,
+        "endChar": 71
+      },
+      "revId": "a480aef78c6f9574b8a3ef97553a3c33b73c06fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
