@@ -140,6 +140,30 @@
       "revId": "a480aef78c6f9574b8a3ef97553a3c33b73c06fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9a3c3b1_b3d4625d",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-18T01:48:37Z",
+      "side": 1,
+      "message": "You also need to put find() under it. But otherwise iterators aren\u0027t invalidated.",
+      "parentUuid": "c9a3c3b1_d39726c6",
+      "range": {
+        "startLine": 708,
+        "startChar": 6,
+        "endLine": 708,
+        "endChar": 71
+      },
+      "revId": "a480aef78c6f9574b8a3ef97553a3c33b73c06fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
