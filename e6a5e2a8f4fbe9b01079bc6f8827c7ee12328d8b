@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e9ea475e_44a2a09e",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c459e9e9_eeaa338b",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 6
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24656596_f1ba1a59",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "Please sort this list of #includes.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 46
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c93f43b4_73557ac4",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Sorted.",
+      "parentUuid": "24656596_f1ba1a59",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "09e87b64_45b85cfd",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "c473a992_55a46cba",
+      "range": {
+        "startLine": 117,
+        "startChar": 60,
+        "endLine": 117,
+        "endChar": 63
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "446ed97b_2fee0d2a",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -105,6 +177,30 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "DCHECK_GE(new_position, old_position);",
+      "range": {
+        "startLine": 511,
+        "startChar": 4,
+        "endLine": 511,
+        "endChar": 41
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9582344_08ede782",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "446ed97b_2fee0d2a",
       "range": {
         "startLine": 511,
         "startChar": 4,
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "c9582344_08916715",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c473a992_d5887c30",
+      "range": {
+        "startLine": 618,
+        "startChar": 57,
+        "endLine": 618,
+        "endChar": 62
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e48fcdab_be0cb9cb",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -151,6 +271,30 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "/* double_slot */ true",
+      "range": {
+        "startLine": 620,
+        "startChar": 57,
+        "endLine": 620,
+        "endChar": 61
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e986c7d4_e1f18661",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e48fcdab_be0cb9cb",
       "range": {
         "startLine": 620,
         "startChar": 57,
@@ -186,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "a95bef3d_67ded2d2",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e45eedce_2cdb77e5",
+      "range": {
+        "startLine": 628,
+        "startChar": 0,
+        "endLine": 629,
+        "endChar": 37
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e45eedce_cce8a376",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -197,6 +365,30 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "Introduce an art::mips::MipsAssembler::Push method.",
+      "range": {
+        "startLine": 634,
+        "startChar": 0,
+        "endLine": 635,
+        "endChar": 30
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2947ff68_a6e4c815",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "e45eedce_cce8a376",
       "range": {
         "startLine": 634,
         "startChar": 0,
@@ -232,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "494c338b_a414c20b",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "e48fcdab_fec481db",
+      "range": {
+        "startLine": 645,
+        "startChar": 23,
+        "endLine": 645,
+        "endChar": 52
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "845371c9_495b457f",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -243,6 +459,30 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "Indentation is off.",
+      "range": {
+        "startLine": 766,
+        "startChar": 10,
+        "endLine": 766,
+        "endChar": 14
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "494c338b_8411c61b",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "845371c9_495b457f",
       "range": {
         "startLine": 766,
         "startChar": 10,
@@ -370,6 +610,30 @@
     },
     {
       "key": {
+        "uuid": "8952ab21_467072a7",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1022,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "If I\u0027m not mistaken, we use value a bit lower in Beqz.",
+      "parentUuid": "44e3394a_35f388dc",
+      "range": {
+        "startLine": 1022,
+        "startChar": 61,
+        "endLine": 1022,
+        "endChar": 66
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64e03d3d_4b35cddd",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -381,6 +645,30 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 1023,
+        "startChar": 2,
+        "endLine": 1023,
+        "endChar": 24
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64211e85_28eec3ee",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64e03d3d_4b35cddd",
       "range": {
         "startLine": 1023,
         "startChar": 2,
@@ -416,6 +704,30 @@
     },
     {
       "key": {
+        "uuid": "490513fd_7fd76b2e",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "845371c9_4cc4b388",
+      "range": {
+        "startLine": 1135,
+        "startChar": 2,
+        "endLine": 1135,
+        "endChar": 20
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44e3394a_d52a1cb4",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -427,6 +739,30 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "Please use a named constant instead.",
+      "range": {
+        "startLine": 1177,
+        "startChar": 25,
+        "endLine": 1177,
+        "endChar": 27
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9b76fb4_a792aa44",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1177,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "44e3394a_d52a1cb4",
       "range": {
         "startLine": 1177,
         "startChar": 25,
@@ -462,6 +798,30 @@
     },
     {
       "key": {
+        "uuid": "e986c7d4_0146ea1a",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "c459e9e9_ee2553b4",
+      "range": {
+        "startLine": 1183,
+        "startChar": 25,
+        "endLine": 1183,
+        "endChar": 27
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c459e9e9_8e1a9f73",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -473,6 +833,24 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "DCHECK(instruction-\u003eIsAnd() || instruction-\u003eIsOr() || instruction-\u003eIsXor());",
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "691f3755_98925945",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "c459e9e9_8e1a9f73",
       "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -496,6 +874,24 @@
     },
     {
       "key": {
+        "uuid": "64211e85_e80bcb62",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1268,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c473a992_f5065829",
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c459e9e9_ae1f5b62",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -507,6 +903,30 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "Replace with\n\n  else {\n    DCHECK(instruction-\u003eIsSub());\n\nand…",
+      "range": {
+        "startLine": 1372,
+        "startChar": 8,
+        "endLine": 1372,
+        "endChar": 40
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09e87b64_85d7842d",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1372,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c459e9e9_ae1f5b62",
       "range": {
         "startLine": 1372,
         "startChar": 8,
@@ -542,6 +962,30 @@
     },
     {
       "key": {
+        "uuid": "89fb8b33_81989c6c",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1380,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24656596_51ce86d9",
+      "range": {
+        "startLine": 1378,
+        "startChar": 8,
+        "endLine": 1380,
+        "endChar": 7
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e48fcdab_fee8012b",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -559,6 +1003,24 @@
     },
     {
       "key": {
+        "uuid": "694d7785_05d71284",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1431,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "The MIPS SLLV instruction takes the bit-shift amount is specified by the low-order 5b of GPR rs. This should match the behavior of the shl-int dex instruction. Same is true for all related shift instructions (SRLV etc.).",
+      "parentUuid": "e48fcdab_fee8012b",
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "845371c9_0ccebba6",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -570,6 +1032,30 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "Use\n\n  Move64(locations-\u003eOut(), locations-\u003eIntAt(0);\n\ninstead?",
+      "range": {
+        "startLine": 1450,
+        "startChar": 0,
+        "endLine": 1451,
+        "endChar": 40
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8952ab21_06edda82",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1451,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "845371c9_0ccebba6",
       "range": {
         "startLine": 1450,
         "startChar": 0,
@@ -605,6 +1091,30 @@
     },
     {
       "key": {
+        "uuid": "0984fbca_228a0e51",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1452,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "44e3394a_b558385e",
+      "range": {
+        "startLine": 1452,
+        "startChar": 35,
+        "endLine": 1452,
+        "endChar": 37
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24656596_f1077a8e",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -616,6 +1126,24 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "Shouldn\u0027t we use the result of `rhs_reg \u0026 kMaxLongShiftValue` as second operand (instead of using `rhs_reg` directly)?",
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9582344_6807c3e4",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1483,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "24656596_f1077a8e",
       "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -645,6 +1173,30 @@
     },
     {
       "key": {
+        "uuid": "2900dfee_3ed7a5dd",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1491,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "845371c9_8cd2ab44",
+      "range": {
+        "startLine": 1491,
+        "startChar": 32,
+        "endLine": 1491,
+        "endChar": 36
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e48fcdab_5ed81598",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -656,6 +1208,24 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "Add\n\n  CheckEntrypointTypes\u003ckQuickAputObject, void, mirror::Array*, int32_t, mirror::Object*\u003e();",
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9582344_2801cbcc",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1794,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "e48fcdab_5ed81598",
       "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -685,6 +1255,30 @@
     },
     {
       "key": {
+        "uuid": "494c338b_e41f5a1f",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1988,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "446ed97b_2fa04ded",
+      "range": {
+        "startLine": 1988,
+        "startChar": 38,
+        "endLine": 1988,
+        "endChar": 66
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44e3394a_f562c009",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -696,6 +1290,24 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "if (in_type \u003d\u003d Primitive::kPrimFloat) {\n  if (instruction-\u003eIsGtBias()) {\n    CheckEntrypointTypes\u003ckQuickCmpgFloat, int32_t, float, float\u003e();\n  } else {\n    CheckEntrypointTypes\u003ckQuickCmplFloat, int32_t, float, float\u003e();\n  }\n} else {\n  if (instruction-\u003eIsGtBias()) {\n    CheckEntrypointTypes\u003ckQuickCmpgDouble, int32_t, double, double\u003e();\n  } else {\n    CheckEntrypointTypes\u003ckQuickCmplDouble, int32_t, double, double\u003e();\n  }\n}",
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0984fbca_02710a1f",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2019,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "44e3394a_f562c009",
       "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -725,6 +1337,30 @@
     },
     {
       "key": {
+        "uuid": "8952ab21_86f8aa41",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2127,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "44e3394a_756fd0ed",
+      "range": {
+        "startLine": 2124,
+        "startChar": 0,
+        "endLine": 2127,
+        "endChar": 3
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e48fcdab_7ed5d15e",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -736,6 +1372,24 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "Add\n\n  CheckEntrypointTypes\u003ckQuickLdiv, int64_t, int64_t, int64_t\u003e();",
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0984fbca_c27a42f9",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2182,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "e48fcdab_7ed5d15e",
       "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -759,6 +1413,24 @@
     },
     {
       "key": {
+        "uuid": "0984fbca_6269f630",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2225,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "24656596_51c0c694",
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24656596_71bdca1b",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -770,6 +1442,24 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "Likewise.",
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2947ff68_46019444",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2236,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "24656596_71bdca1b",
       "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -822,6 +1512,30 @@
     },
     {
       "key": {
+        "uuid": "a95bef3d_67c812e2",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2448,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "e45eedce_6c2c0f4b",
+      "range": {
+        "startLine": 2448,
+        "startChar": 17,
+        "endLine": 2448,
+        "endChar": 51
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64e03d3d_abf73981",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -833,6 +1547,24 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "Add\n\n  CheckEntrypointTypes\u003ckQuickA64Load, int64_t, volatile const int64_t*\u003e();",
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "694d7785_65b12664",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2523,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "64e03d3d_abf73981",
       "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -948,6 +1680,24 @@
     },
     {
       "key": {
+        "uuid": "490513fd_bfcbb387",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2643,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "e45eedce_4c783336",
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24656596_b19342b0",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -1017,6 +1767,30 @@
     },
     {
       "key": {
+        "uuid": "2900dfee_3ebe859b",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3043,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "845371c9_6cf3afdb",
+      "range": {
+        "startLine": 3042,
+        "startChar": 0,
+        "endLine": 3043,
+        "endChar": 73
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64e03d3d_8be195bd",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -1028,6 +1802,30 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "Likewise.",
+      "range": {
+        "startLine": 3044,
+        "startChar": 0,
+        "endLine": 3045,
+        "endChar": 74
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2900dfee_1ec3c925",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3045,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64e03d3d_8be195bd",
       "range": {
         "startLine": 3044,
         "startChar": 0,
@@ -1063,6 +1861,30 @@
     },
     {
       "key": {
+        "uuid": "64211e85_88fc17ae",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3090,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "845371c9_0c00fb39",
+      "range": {
+        "startLine": 3090,
+        "startChar": 2,
+        "endLine": 3090,
+        "endChar": 95
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "845371c9_2cfdb7a2",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -1080,6 +1902,24 @@
     },
     {
       "key": {
+        "uuid": "44209a82_87808833",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3491,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "845371c9_2cfdb7a2",
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e48fcdab_3ef429f9",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -1091,6 +1931,24 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "if (type \u003d\u003d Primitive::kPrimFloat) {\n  CheckEntrypointTypes\u003ckQuickFmodf, float, float, float\u003e();\n} else {\n  CheckEntrypointTypes\u003ckQuickFmod, double, double, double\u003e();\n}",
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "691f3755_98f6d9c5",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3500,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Refactored, fixed.",
+      "parentUuid": "e48fcdab_3ef429f9",
       "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -1120,6 +1978,30 @@
     },
     {
       "key": {
+        "uuid": "e9ea475e_2432fc26",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3679,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "e478ad71_76909020",
+      "range": {
+        "startLine": 3679,
+        "startChar": 6,
+        "endLine": 3679,
+        "endChar": 41
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c473a992_b5cea059",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -1131,6 +2013,24 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "if (result_type \u003d\u003d Primitive::kPrimFloat) {\n  CheckEntrypointTypes\u003ckQuickL2f, float, int64_t\u003e();\n} else {\n  CheckEntrypointTypes\u003ckQuickL2d, double, int64_t\u003e();\n}",
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9ea475e_64380407",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3756,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "c473a992_b5cea059",
       "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -1154,6 +2054,24 @@
     },
     {
       "key": {
+        "uuid": "09e87b64_c256a26b",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3777,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "24656596_11a32efd",
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e45eedce_cc4c231e",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -1165,6 +2083,24 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "#undef __\n#undef QUICK_ENTRY_POINT",
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c93f43b4_d31c262d",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3878,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "e45eedce_cc4c231e",
       "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -1217,6 +2153,30 @@
     },
     {
       "key": {
+        "uuid": "2900dfee_fed01de2",
+        "filename": "compiler/optimizing/code_generator_mips.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Method removed.",
+      "parentUuid": "c459e9e9_2ea12baa",
+      "range": {
+        "startLine": 291,
+        "startChar": 2,
+        "endLine": 291,
+        "endChar": 50
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e478ad71_b6722889",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -1228,6 +2188,30 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "x86, ARM, MIPS and MIPS64",
+      "range": {
+        "startLine": 3881,
+        "startChar": 21,
+        "endLine": 3881,
+        "endChar": 32
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09e87b64_e259a69b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3881,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "e478ad71_b6722889",
       "range": {
         "startLine": 3881,
         "startChar": 21,
@@ -1263,6 +2247,30 @@
     },
     {
       "key": {
+        "uuid": "a9f4cf41_02c24c6f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 4085,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "44e3394a_35970854",
+      "range": {
+        "startLine": 4085,
+        "startChar": 21,
+        "endLine": 4085,
+        "endChar": 25
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c459e9e9_2ec5ab31",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 2
@@ -1274,6 +2282,30 @@
       "writtenOn": "2015-08-27T17:31:26Z",
       "side": 1,
       "message": "While you\u0027re at it, could you sort this list?  Thanks.",
+      "range": {
+        "startLine": 81,
+        "startChar": 9,
+        "endLine": 87,
+        "endChar": 36
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "691f3755_3806a55e",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1080239
+      },
+      "writtenOn": "2015-09-18T17:20:55Z",
+      "side": 1,
+      "message": "No problem :)",
+      "parentUuid": "c459e9e9_2ec5ab31",
       "range": {
         "startLine": 81,
         "startChar": 9,
