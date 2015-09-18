@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "c9ae6393_c173d86e",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-09-18T17:40:44Z",
+      "side": 1,
+      "message": "It is supported in many shells for bash compat. I know it works in \u0027sh\u0027, \u0027zsh\u0027 and \u0027ksh\u0027. It might work in others too.",
+      "parentUuid": "090f9bb2_4a93531d",
+      "range": {
+        "startLine": 23,
+        "startChar": 9,
+        "endLine": 23,
+        "endChar": 23
+      },
+      "revId": "b15fea2f08928b43f97e217dfe81797a7ecb03b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9ae6393_e1129c8e",
         "filename": "tools/run-libcore-tests.sh",
         "patchSetId": 2
