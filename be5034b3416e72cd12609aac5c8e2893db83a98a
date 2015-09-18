@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29bd3fca_dc9e61ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-18T17:36:23Z",
+      "side": 1,
+      "message": "Is this the case? I see Daemon.run() has a catch for OOME and ignores it.",
+      "range": {
+        "startLine": 12,
+        "startChar": 45,
+        "endLine": 14,
+        "endChar": 38
+      },
+      "revId": "be5034b3416e72cd12609aac5c8e2893db83a98a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9a3c3b1_79d65b30",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-18T17:36:23Z",
+      "side": 1,
+      "message": "We also need to catch an OOME for this allocation. Can you add it, too?",
+      "range": {
+        "startLine": 450,
+        "startChar": 24,
+        "endLine": 450,
+        "endChar": 78
+      },
+      "revId": "be5034b3416e72cd12609aac5c8e2893db83a98a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
