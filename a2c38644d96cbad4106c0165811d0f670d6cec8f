@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "49c27358_c8a4df88",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-18T20:32:23Z",
+      "side": 1,
+      "message": "Seems like a brittle microoptimization that will break the moment we decide to mutate the map in some other part of the code.\n\nI would humbly prefer we consider vmarko\u0027s alternative code here.",
+      "parentUuid": "c91663dc_3b27237a",
+      "range": {
+        "startLine": 707,
+        "startChar": 4,
+        "endLine": 707,
+        "endChar": 46
+      },
+      "revId": "a2c38644d96cbad4106c0165811d0f670d6cec8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8902ab8b_86d5ca23",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 2
