@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89df0b23_411274d5",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-18T00:39:19Z",
+      "side": 1,
+      "message": "Isn\u0027t a MutexLock enough?",
+      "range": {
+        "startLine": 701,
+        "startChar": 4,
+        "endLine": 701,
+        "endChar": 66
+      },
+      "revId": "a480aef78c6f9574b8a3ef97553a3c33b73c06fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9b7a7e1_dcfae1e1",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-18T00:39:19Z",
+      "side": 1,
+      "message": "Looks like Mathieu\u0027s scoped unlock...",
+      "range": {
+        "startLine": 705,
+        "startChar": 6,
+        "endLine": 707,
+        "endChar": 68
+      },
+      "revId": "a480aef78c6f9574b8a3ef97553a3c33b73c06fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
