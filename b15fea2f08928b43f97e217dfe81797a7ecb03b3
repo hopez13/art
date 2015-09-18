@@ -22,6 +22,47 @@
       "revId": "b15fea2f08928b43f97e217dfe81797a7ecb03b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e99c0776_3a85a542",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-18T16:22:21Z",
+      "side": 1,
+      "message": "line #1 says /bin/bash so it\u0027s not like this is really supposed to work in other shells, is it?",
+      "parentUuid": "091ddbf6_5af0d5cc",
+      "range": {
+        "startLine": 23,
+        "startChar": 9,
+        "endLine": 23,
+        "endChar": 23
+      },
+      "revId": "b15fea2f08928b43f97e217dfe81797a7ecb03b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9ae6393_e1129c8e",
+        "filename": "tools/run-libcore-tests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-18T16:22:21Z",
+      "side": 1,
+      "message": "How is this supposed to work? I don\u0027t get \"OUT_DIR\" or \"OUT_DIR-out\" in my env variables.\n\n\"get_build_var OUT_DIR\" does return \"out\" however\n\n(I realize ${OUT_DIR-out} just gives \u0027out\u0027 when OUT_DIR is undefined, but I guess my question is how/when is OUT_DIR supposed to be defined?)",
+      "revId": "b15fea2f08928b43f97e217dfe81797a7ecb03b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
