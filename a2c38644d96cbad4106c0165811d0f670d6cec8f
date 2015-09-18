@@ -22,6 +22,75 @@
       "revId": "a2c38644d96cbad4106c0165811d0f670d6cec8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9ef43fe_90d5f423",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-18T09:18:37Z",
+      "side": 1,
+      "message": "This should be done with the mutex held, otherwise you\u0027re relying on subtle properties of the container. I would prefer\n\n    SafeMap\u003cuint32_t, std::set\u003cuint32_t\u003e\u003e* string_init_map_ptr \u003d nullptr;\n    {\n      MutexLock mu(self, *Locks::interpreter_string_init_map_lock_);\n      it \u003d method_to_string_init_map.find(method_ref);\n      if (it !\u003d method_to_string_init_map.end()) {\n        string_init_map_ptr \u003d \u0026it-\u003esecond;\n      }\n    }\n    if (string_init_map_ptr \u003d\u003d nullptr) {\n      SafeMap\u003cuint32_t, std::set\u003cuint32_t\u003e\u003e string_init_map \u003d\n          verifier::MethodVerifier::FindStringInitMap(method);\n      MutexLock mu(self, *Locks::interpreter_string_init_map_lock_);\n      // For efficiency you should add an overload of Overwrite() that takes\n      // the value as an rvalue reference and have both overloads return\n      // the iterator to the inserted/replaced entry.\n      auto it \u003d method_to_string_init_map.Overwrite(\n          method_ref, std::move(string_init_map));\n      string_init_map_ptr \u003d \u0026it-\u003esecond;\n    }",
+      "range": {
+        "startLine": 707,
+        "startChar": 4,
+        "endLine": 707,
+        "endChar": 46
+      },
+      "revId": "a2c38644d96cbad4106c0165811d0f670d6cec8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8902ab8b_86d5ca23",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-18T09:18:37Z",
+      "side": 1,
+      "message": "Unnecessary std::move().",
+      "range": {
+        "startLine": 708,
+        "startChar": 24,
+        "endLine": 708,
+        "endChar": 33
+      },
+      "revId": "a2c38644d96cbad4106c0165811d0f670d6cec8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89762b11_86180ab1",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-18T09:18:37Z",
+      "side": 1,
+      "message": "This may be correct as it is but it looks odd, you\u0027re using a copy that\u0027s outside the method_to_string_init_map.",
+      "range": {
+        "startLine": 713,
+        "startChar": 6,
+        "endLine": 713,
+        "endChar": 45
+      },
+      "revId": "a2c38644d96cbad4106c0165811d0f670d6cec8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
