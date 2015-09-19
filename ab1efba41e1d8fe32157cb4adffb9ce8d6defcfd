@@ -65,6 +65,30 @@
     },
     {
       "key": {
+        "uuid": "099a3b78_c1290c66",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "24a64628_4b3de5f0",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 10
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4b72a4b_500f4c64",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
@@ -76,6 +100,30 @@
       "writtenOn": "2015-09-11T16:20:09Z",
       "side": 1,
       "message": "something like \"may become\" is not very clear at first reading, please add more detailed doc",
+      "range": {
+        "startLine": 42,
+        "startChar": 7,
+        "endLine": 42,
+        "endChar": 26
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9a3c3b1_24502afc",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "I added more comments.",
+      "parentUuid": "c4b72a4b_500f4c64",
       "range": {
         "startLine": 42,
         "startChar": 7,
@@ -111,6 +159,30 @@
     },
     {
       "key": {
+        "uuid": "099a3b78_c1ee6c7d",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a405d6c4_77fb50b0",
+      "range": {
+        "startLine": 53,
+        "startChar": 6,
+        "endLine": 53,
+        "endChar": 19
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44ab3af0_0cf81783",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
@@ -122,6 +194,30 @@
       "writtenOn": "2015-09-11T16:20:09Z",
       "side": 1,
       "message": "explicit?",
+      "range": {
+        "startLine": 55,
+        "startChar": 2,
+        "endLine": 55,
+        "endChar": 10
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9a3c3b1_044b2648",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "Fixed. Forgot to remove explicit after adding some params.",
+      "parentUuid": "44ab3af0_0cf81783",
       "range": {
         "startLine": 55,
         "startChar": 2,
@@ -157,6 +253,30 @@
     },
     {
       "key": {
+        "uuid": "49c27358_68202b35",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "Ok will keep that in mind. This comment was removed and added in another place.",
+      "parentUuid": "c4b72a4b_904ff4a9",
+      "range": {
+        "startLine": 59,
+        "startChar": 10,
+        "endLine": 59,
+        "endChar": 14
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84a1b20e_8e287bc7",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
@@ -168,6 +288,30 @@
       "writtenOn": "2015-09-11T16:20:09Z",
       "side": 1,
       "message": "const size_t",
+      "range": {
+        "startLine": 186,
+        "startChar": 10,
+        "endLine": 186,
+        "endChar": 11
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9a3c3b1_8438f6b5",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84a1b20e_8e287bc7",
       "range": {
         "startLine": 186,
         "startChar": 10,
@@ -227,6 +371,30 @@
     },
     {
       "key": {
+        "uuid": "69dad736_97259c46",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "Yes. \"Declaring\" part is important here.",
+      "parentUuid": "29753fb9_13072c93",
+      "range": {
+        "startLine": 234,
+        "startChar": 8,
+        "endLine": 234,
+        "endChar": 88
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4b72a4b_f054803f",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
@@ -250,6 +418,30 @@
     },
     {
       "key": {
+        "uuid": "49c27358_a829631f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4b72a4b_f054803f",
+      "range": {
+        "startLine": 247,
+        "startChar": 50,
+        "endLine": 247,
+        "endChar": 53
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "841c5220_b64a089a",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
@@ -261,6 +453,30 @@
       "writtenOn": "2015-09-11T16:20:09Z",
       "side": 1,
       "message": "const 2x",
+      "range": {
+        "startLine": 325,
+        "startChar": 67,
+        "endLine": 325,
+        "endChar": 70
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69dad736_174a6ceb",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "841c5220_b64a089a",
       "range": {
         "startLine": 325,
         "startChar": 67,
@@ -308,6 +524,30 @@
       "side": 1,
       "message": "Agreed.\n\nI\u0027m not sufficiently familiar with this code base to tell whether this actually satisfies the necessary restrictions.\n\nSome examples of the memory model rules for checking purposes.  Here v is volatile, x is not:\n\nr1 \u003d x;\nr2 \u003d v;\nr3 \u003d x;\n\nHere the second load of x can NOT be replaced by r1.  (If there are no intervening uses, the other way around works.)\nThe same of the middle statement is replaced by another \"acquire\" operation, e.g. MonitorEnter. \n\nr1 \u003d v;\nr2 \u003d v;  \n\nIt\u0027s fine to combine these if there are no intervening shared memory accesses.  This is not important, but I wanted to emphasize that these are not C volatiles.\n\nIn general the effect on the algorithm of a volatile load should be essentially the same as MonitorEnter, and volatile store should be treated similarly to MonitorExit.  But the dramatic asymmetry between those cases.",
       "parentUuid": "24a64628_0b947d01",
+      "range": {
+        "startLine": 527,
+        "startChar": 60,
+        "endLine": 527,
+        "endChar": 61
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e99c0776_4668d07c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "Good point. I\u0027m leaving out the part that deals with volatile/monitor ops from this CL since it\u0027s already pretty big.\n\nI\u0027ll handle those cases later. And need to do it right, especially when some loads are not allowed to be removed, the corresponding stores need to stay also. So there are some tricky dependencies to deal with.",
+      "parentUuid": "6473de94_756b28e5",
       "range": {
         "startLine": 527,
         "startChar": 60,
@@ -391,6 +631,30 @@
     },
     {
       "key": {
+        "uuid": "c91663dc_3e1ab176",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "Good points. Will deal with it later.",
+      "parentUuid": "c9666312_3ed6b12f",
+      "range": {
+        "startLine": 538,
+        "startChar": 28,
+        "endLine": 538,
+        "endChar": 55
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24a64628_6b126190",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
@@ -460,6 +724,30 @@
     },
     {
       "key": {
+        "uuid": "c9a3c3b1_049de624",
+        "filename": "compiler/optimizing/load_store_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4b0ae55_b12320ea",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 10
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64175efc_f52bd8af",
         "filename": "compiler/optimizing/load_store_elimination.h",
         "patchSetId": 2
@@ -471,6 +759,30 @@
       "writtenOn": "2015-09-11T16:20:09Z",
       "side": 1,
       "message": "empty line before the DISALLOW macro invocation",
+      "range": {
+        "startLine": 42,
+        "startChar": 47,
+        "endLine": 42,
+        "endChar": 49
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9ae6393_473ef8a4",
+        "filename": "compiler/optimizing/load_store_elimination.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64175efc_f52bd8af",
       "range": {
         "startLine": 42,
         "startChar": 47,
@@ -506,6 +818,30 @@
     },
     {
       "key": {
+        "uuid": "c9a3c3b1_6465d2e4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 4087,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "It\u0027s the resolved field\u0027s declaring class, so it\u0027s meaningful.\nSub.f may resolve to Base.f. So we use Base\u0027s class def index instead of Sub\u0027s.",
+      "parentUuid": "44ab3af0_6c6efbf6",
+      "range": {
+        "startLine": 4087,
+        "startChar": 11,
+        "endLine": 4087,
+        "endChar": 36
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e913274a_1cf5198e",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 2
@@ -517,6 +853,30 @@
       "writtenOn": "2015-09-17T07:47:53Z",
       "side": 1,
       "message": "Seems the reference alias analysis does something similar with escape analysis :)",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 33
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c91663dc_7e7ca97e",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "Yes. Interesting result.",
+      "parentUuid": "e913274a_1cf5198e",
       "range": {
         "startLine": 57,
         "startChar": 0,
@@ -575,6 +935,30 @@
     },
     {
       "key": {
+        "uuid": "c9ae6393_a7bb5447",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "I discussed with Nicolas before, building phi has its complexities. We may investigate it later.",
+      "parentUuid": "2919bf72_937a3cf8",
+      "range": {
+        "startLine": 164,
+        "startChar": 13,
+        "endLine": 164,
+        "endChar": 29
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89246ba5_96a58cea",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 2
@@ -621,6 +1005,30 @@
     },
     {
       "key": {
+        "uuid": "c9ae6393_67abfcf0",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "One option is when IsDebuggable() is true, we skip load/store elimination.",
+      "parentUuid": "6992d715_1d841394",
+      "range": {
+        "startLine": 229,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 74
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c402caba_5802bd14",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 2
@@ -632,6 +1040,30 @@
       "writtenOn": "2015-09-11T16:20:09Z",
       "side": 1,
       "message": "uh, don\u0027t you want to verify the output of the methods?\n\noptimization without verification is, well, very dangerous!",
+      "range": {
+        "startLine": 427,
+        "startChar": 2,
+        "endLine": 427,
+        "endChar": 3
+      },
+      "revId": "ab1efba41e1d8fe32157cb4adffb9ce8d6defcfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9b7a7e1_2833932e",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "Good point. Added invocations.",
+      "parentUuid": "c402caba_5802bd14",
       "range": {
         "startLine": 427,
         "startChar": 2,
