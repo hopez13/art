@@ -60,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "c91663dc_5b5d3786",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "The place where I call to construct HeapLocation already a shared method (UpdateHeapLocations()) so it\u0027s more convenient to call this directly.\n\nI can separate into two types of HeapLocations and build aliasing matrix separately, etc. It\u0027s just going to be more code. I can refine it later.",
+      "parentUuid": "24c9e69c_f006795b",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 3
+      },
+      "revId": "fb2de7c6adaf325886436050e4de387b4118029d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4c34e74_bbd46a25",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -83,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "89df0b23_fe7a41f8",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "It\u0027s not an academic term. I tried to find a good and succinct name for it and it\u0027s the best I can think of. It\u0027s basically a singleton name for the value.",
+      "parentUuid": "e4c34e74_bbd46a25",
+      "range": {
+        "startLine": 57,
+        "startChar": 11,
+        "endLine": 57,
+        "endChar": 24
+      },
+      "revId": "fb2de7c6adaf325886436050e4de387b4118029d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "244c8613_f080e633",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -94,6 +142,30 @@
       "writtenOn": "2015-09-11T04:47:02Z",
       "side": 1,
       "message": "I assume that includes the constructor, so you only see that for inlined constructors?",
+      "range": {
+        "startLine": 60,
+        "startChar": 10,
+        "endLine": 60,
+        "endChar": 46
+      },
+      "revId": "fb2de7c6adaf325886436050e4de387b4118029d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29bd3fca_e29e18ca",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "Yes. If constructor is called, it\u0027s not a singleton.",
+      "parentUuid": "244c8613_f080e633",
       "range": {
         "startLine": 60,
         "startChar": 10,
@@ -175,6 +247,54 @@
     },
     {
       "key": {
+        "uuid": "c91663dc_5ec20571",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "244c8613_c493af95",
+      "range": {
+        "startLine": 108,
+        "startChar": 10,
+        "endLine": 108,
+        "endChar": 26
+      },
+      "revId": "fb2de7c6adaf325886436050e4de387b4118029d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9a3c3b1_64beb29c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "I moved class_def_index_ to HeapLocation where it really belongs to.\n\nThe field_index of the resolved field can work also. Still we need to change nodes.h/builder.cc to get that additional info. It\u0027s essentially serving as a (class_index, offset) pair so it\u0027s probably a better choice. I may make the change later.",
+      "parentUuid": "64cf5e9f_a6ba0643",
+      "range": {
+        "startLine": 108,
+        "startChar": 45,
+        "endLine": 108,
+        "endChar": 51
+      },
+      "revId": "fb2de7c6adaf325886436050e4de387b4118029d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04c1426c_179a0bae",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -186,6 +306,30 @@
       "writtenOn": "2015-09-11T04:47:02Z",
       "side": 1,
       "message": "Space.",
+      "range": {
+        "startLine": 111,
+        "startChar": 28,
+        "endLine": 111,
+        "endChar": 29
+      },
+      "revId": "fb2de7c6adaf325886436050e4de387b4118029d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9a3c3b1_84c39623",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04c1426c_179a0bae",
       "range": {
         "startLine": 111,
         "startChar": 28,
@@ -221,6 +365,30 @@
     },
     {
       "key": {
+        "uuid": "c9a3c3b1_c4a4be88",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "244c8613_9072c222",
+      "range": {
+        "startLine": 180,
+        "startChar": 6,
+        "endLine": 180,
+        "endChar": 20
+      },
+      "revId": "fb2de7c6adaf325886436050e4de387b4118029d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84d4522f_d1aee3ff",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -232,6 +400,30 @@
       "writtenOn": "2015-09-11T04:47:02Z",
       "side": 1,
       "message": "You should profile this. I wonder if a map is an acceptable space-time tradeoff here.",
+      "range": {
+        "startLine": 201,
+        "startChar": 2,
+        "endLine": 209,
+        "endChar": 3
+      },
+      "revId": "fb2de7c6adaf325886436050e4de387b4118029d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "099a3b78_41551ceb",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "I cap the max number of locations to 32, which covers almost all cases. Number of refs are further smaller than the number of locations. So some linear search seems acceptable since the average length is not big.",
+      "parentUuid": "84d4522f_d1aee3ff",
       "range": {
         "startLine": 201,
         "startChar": 2,
@@ -267,6 +459,30 @@
     },
     {
       "key": {
+        "uuid": "c9a3c3b1_a4d09ae1",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4ef2afe_ce971f80",
+      "range": {
+        "startLine": 296,
+        "startChar": 36,
+        "endLine": 296,
+        "endChar": 44
+      },
+      "revId": "fb2de7c6adaf325886436050e4de387b4118029d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04c1426c_9a75220e",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -278,6 +494,30 @@
       "writtenOn": "2015-09-11T04:47:02Z",
       "side": 1,
       "message": "You could disambiguate this (if it\u0027s similar to \"singleton\"). Negative component type, for example.",
+      "range": {
+        "startLine": 339,
+        "startChar": 40,
+        "endLine": 339,
+        "endChar": 41
+      },
+      "revId": "fb2de7c6adaf325886436050e4de387b4118029d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69c3b75a_1eafec60",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "I added some fixed constant for this and a TODO for more fine-grained array types later.",
+      "parentUuid": "04c1426c_9a75220e",
       "range": {
         "startLine": 339,
         "startChar": 40,
@@ -313,6 +553,30 @@
     },
     {
       "key": {
+        "uuid": "099a3b78_c1402c28",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4c34e74_9beac6e2",
+      "range": {
+        "startLine": 370,
+        "startChar": 4,
+        "endLine": 370,
+        "endChar": 10
+      },
+      "revId": "fb2de7c6adaf325886436050e4de387b4118029d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4ef2afe_6ea953c4",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -324,6 +588,30 @@
       "writtenOn": "2015-09-11T04:47:02Z",
       "side": 1,
       "message": "As in the in-person discussion, this needs to be investigated. I don\u0027t think this is true, you may only not eliminate over monitor-enter and monitor-exit, separately, IMHO.",
+      "range": {
+        "startLine": 527,
+        "startChar": 41,
+        "endLine": 527,
+        "endChar": 67
+      },
+      "revId": "fb2de7c6adaf325886436050e4de387b4118029d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69c3b75a_3edd88fc",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-19T00:00:40Z",
+      "side": 1,
+      "message": "For now I give up load-store elimination if there is volatile or monitor ops. I\u0027ll add that support later.",
+      "parentUuid": "c4ef2afe_6ea953c4",
       "range": {
         "startLine": 527,
         "startChar": 41,
