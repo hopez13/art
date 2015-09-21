@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "89762b11_e63ffe77",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-21T09:36:11Z",
+      "side": 1,
+      "message": "Igor is right, the Overwrite() makes this unsafe no matter what\u0027s the iterator validity. We should not Overwrite() at all, we should instead try to find() once again and if that fails we should Put() the new element. (With a micro-optimization of using lower_bound()+PutBefore().)",
+      "parentUuid": "49c27358_c8a4df88",
+      "range": {
+        "startLine": 707,
+        "startChar": 4,
+        "endLine": 707,
+        "endChar": 46
+      },
+      "revId": "a2c38644d96cbad4106c0165811d0f670d6cec8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8902ab8b_86d5ca23",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 2
