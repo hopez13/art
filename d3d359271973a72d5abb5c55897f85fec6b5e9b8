@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "09987b8e_82a5ba1c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5045,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-21T21:21:33Z",
+      "side": 1,
+      "message": "I wanted to avoid having to request such a register (there is no support for such request right now. Best you can do is request a fixed one).",
+      "parentUuid": "89ab8b9d_e15480f1",
+      "range": {
+        "startLine": 5043,
+        "startChar": 0,
+        "endLine": 5045,
+        "endChar": 20
+      },
+      "revId": "d3d359271973a72d5abb5c55897f85fec6b5e9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9a3c3b1_2582e4cb",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
