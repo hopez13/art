@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "89470bec_a4ef86bb",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4484,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-21T22:29:03Z",
+      "side": 1,
+      "message": "typo: Otherwise",
+      "range": {
+        "startLine": 4484,
+        "startChar": 9,
+        "endLine": 4484,
+        "endChar": 18
+      },
+      "revId": "d3d359271973a72d5abb5c55897f85fec6b5e9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89ab8b9d_e15480f1",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
