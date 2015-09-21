@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "89ab8b9d_e15480f1",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5045,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-21T18:19:15Z",
+      "side": 1,
+      "message": "Why not setb like on x86-64? (With an additional check that out is eax, ecx, edx or ebx.)",
+      "range": {
+        "startLine": 5043,
+        "startChar": 0,
+        "endLine": 5045,
+        "endChar": 20
+      },
+      "revId": "d3d359271973a72d5abb5c55897f85fec6b5e9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9a3c3b1_2582e4cb",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
