@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "69fd77bf_a5bd5e9f",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-21T21:09:26Z",
+      "side": 1,
+      "message": "Why is this necessary? This should already be an rvalue which is moved implicitly.",
+      "revId": "78568351b22554c3a885216cd5be480dab88a951",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
