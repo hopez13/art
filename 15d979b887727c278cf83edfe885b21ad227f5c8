@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e99a4788_c41e309e",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-22T13:24:40Z",
+      "side": 1,
+      "message": "sentence is not finished.",
+      "range": {
+        "startLine": 324,
+        "startChar": 20,
+        "endLine": 324,
+        "endChar": 24
+      },
+      "revId": "15d979b887727c278cf83edfe885b21ad227f5c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89ab8b9d_214a68ec",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-22T13:24:40Z",
+      "side": 1,
+      "message": "Do you need this optimization? I\u0027d make it a follow-up cl if you don\u0027t need it.",
+      "range": {
+        "startLine": 325,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 48
+      },
+      "revId": "15d979b887727c278cf83edfe885b21ad227f5c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9ef43fe_b38b62e4",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-22T13:24:40Z",
+      "side": 1,
+      "message": "Instead of doing this dance, consider just inlining the code below line 342.",
+      "range": {
+        "startLine": 342,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 5
+      },
+      "revId": "15d979b887727c278cf83edfe885b21ad227f5c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89762b11_69c3e124",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-22T13:24:40Z",
+      "side": 1,
+      "message": "Explain why it\u0027s important that the catch block does not throw.",
+      "range": {
+        "startLine": 351,
+        "startChar": 51,
+        "endLine": 352,
+        "endChar": 71
+      },
+      "revId": "15d979b887727c278cf83edfe885b21ad227f5c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "090f9bb2_cd9cfd60",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-22T13:24:40Z",
+      "side": 1,
+      "message": "Same comment about avoiding the dance.",
+      "range": {
+        "startLine": 390,
+        "startChar": 0,
+        "endLine": 400,
+        "endChar": 5
+      },
+      "revId": "15d979b887727c278cf83edfe885b21ad227f5c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8902ab8b_c684e247",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-22T13:24:40Z",
+      "side": 1,
+      "message": "-\u003e the",
+      "range": {
+        "startLine": 419,
+        "startChar": 18,
+        "endLine": 419,
+        "endChar": 25
+      },
+      "revId": "15d979b887727c278cf83edfe885b21ad227f5c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4970b318_64686a2b",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-22T13:24:40Z",
+      "side": 1,
+      "message": "What order?",
+      "range": {
+        "startLine": 122,
+        "startChar": 63,
+        "endLine": 122,
+        "endChar": 68
+      },
+      "revId": "15d979b887727c278cf83edfe885b21ad227f5c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e99a4788_042538ee",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-22T13:24:40Z",
+      "side": 1,
+      "message": "-\u003e blocks,",
+      "range": {
+        "startLine": 122,
+        "startChar": 11,
+        "endLine": 122,
+        "endChar": 17
+      },
+      "revId": "15d979b887727c278cf83edfe885b21ad227f5c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "090f9bb2_ada1c99a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-22T13:24:40Z",
+      "side": 1,
+      "message": "-\u003e Support for moving .... not implemented",
+      "range": {
+        "startLine": 1148,
+        "startChar": 30,
+        "endLine": 1148,
+        "endChar": 43
+      },
+      "revId": "15d979b887727c278cf83edfe885b21ad227f5c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8902ab8b_a689e65d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-22T13:24:40Z",
+      "side": 1,
+      "message": "Top -\u003e Entry?\nAtTop-\u003eBeforeFirstInstruction?",
+      "range": {
+        "startLine": 839,
+        "startChar": 22,
+        "endLine": 839,
+        "endChar": 25
+      },
+      "revId": "15d979b887727c278cf83edfe885b21ad227f5c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
