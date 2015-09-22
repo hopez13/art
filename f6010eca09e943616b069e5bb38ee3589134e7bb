@@ -70,6 +70,29 @@
       "revId": "f6010eca09e943616b069e5bb38ee3589134e7bb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "091ddbf6_fd5443f1",
+        "filename": "dex2oat/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-22T08:21:46Z",
+      "side": 1,
+      "message": "This is crazy. How much MB does that add to binary?\n\nThis is extremely sad, knowing that it\u0027s because libbacktrace requires a tiny subset of llvm. There are other engineering solutions.",
+      "range": {
+        "startLine": 62,
+        "startChar": 21,
+        "endLine": 62,
+        "endChar": 104
+      },
+      "revId": "f6010eca09e943616b069e5bb38ee3589134e7bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
