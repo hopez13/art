@@ -46,6 +46,30 @@
       "revId": "f6010eca09e943616b069e5bb38ee3589134e7bb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e91fa7ee_53e2fc09",
+        "filename": "build/Android.executable.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2015-09-22T05:00:20Z",
+      "side": 1,
+      "message": "They are being linked in statically. This is exactly the missing puzzle piece from earlier. I kept thinking it was pulling in ncurses (for which the .so will pull in the appropriate tinfo/terminfo/etc. libraries), but the static designation here forces you to be explicit for the complete chain of deps.\n\nIt is a bit terrible that we are polluting our build with more non-hermetic components, but I assume that the host librt is also not a checked-in thing either.",
+      "parentUuid": "29de1f5b_e000e843",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 46
+      },
+      "revId": "f6010eca09e943616b069e5bb38ee3589134e7bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
