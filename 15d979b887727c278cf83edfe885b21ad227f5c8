@@ -445,6 +445,30 @@
       "revId": "15d979b887727c278cf83edfe885b21ad227f5c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a97f6fe5_0ab41bbc",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-22T17:42:23Z",
+      "side": 1,
+      "message": "Decided to name it CreateImmediateDominator.",
+      "parentUuid": "a97f6fe5_6a32f727",
+      "range": {
+        "startLine": 839,
+        "startChar": 22,
+        "endLine": 839,
+        "endChar": 25
+      },
+      "revId": "15d979b887727c278cf83edfe885b21ad227f5c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
