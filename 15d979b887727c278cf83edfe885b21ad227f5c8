@@ -330,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "4970b318_272af4bd",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-22T15:13:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e99a4788_042538ee",
+      "range": {
+        "startLine": 122,
+        "startChar": 11,
+        "endLine": 122,
+        "endChar": 17
+      },
+      "revId": "15d979b887727c278cf83edfe885b21ad227f5c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "090f9bb2_ada1c99a",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -353,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "89ab8b9d_61acf0d4",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-22T15:13:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "090f9bb2_ada1c99a",
+      "range": {
+        "startLine": 1148,
+        "startChar": 30,
+        "endLine": 1148,
+        "endChar": 43
+      },
+      "revId": "15d979b887727c278cf83edfe885b21ad227f5c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8902ab8b_a689e65d",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -364,6 +412,30 @@
       "writtenOn": "2015-09-22T13:24:40Z",
       "side": 1,
       "message": "Top -\u003e Entry?\nAtTop-\u003eBeforeFirstInstruction?",
+      "range": {
+        "startLine": 839,
+        "startChar": 22,
+        "endLine": 839,
+        "endChar": 25
+      },
+      "revId": "15d979b887727c278cf83edfe885b21ad227f5c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a97f6fe5_6a32f727",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-22T15:13:17Z",
+      "side": 1,
+      "message": "Didn\u0027t want to name it SplitBeforeFirstInstruction because that suggests it\u0027s equivalent to SplitBefore(FirstInstruction()) which GraphBuilder uses as well to split catch blocks. \n\nThe difference is quite subtle - SplitBefore creates the block that will come second, SplitAtTop the one that will come first. This preserves try/catch information in the respective use cases. When splitting a try+catch block, the first block should keep the catch info. When splitting a block to insert try entry, the second block should remain the try block... I could just make this a flag of SplitBefore.",
+      "parentUuid": "8902ab8b_a689e65d",
       "range": {
         "startLine": 839,
         "startChar": 22,
