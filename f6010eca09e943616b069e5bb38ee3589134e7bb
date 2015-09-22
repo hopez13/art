@@ -22,6 +22,30 @@
       "revId": "f6010eca09e943616b069e5bb38ee3589134e7bb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29de1f5b_e000e843",
+        "filename": "build/Android.executable.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-22T04:52:43Z",
+      "side": 1,
+      "message": "These aren\u0027t linked in statically?",
+      "parentUuid": "495193a7_a3a21911",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 46
+      },
+      "revId": "f6010eca09e943616b069e5bb38ee3589134e7bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
