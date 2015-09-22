@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "692bb717_3e1dc86d",
+        "filename": "runtime/gc/collector/mark_sweep.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-22T22:22:45Z",
+      "side": 1,
+      "message": "nit: Attributes should be alphabetical, split out the negative capabilities into a second attribute.\n\n(same for the rest of this file)",
+      "revId": "30fd89db1dc3ef1cedf6c915222de7bcf9f96691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c91663dc_ed79ed5c",
+        "filename": "runtime/gc/collector/mark_sweep.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-22T22:22:45Z",
+      "side": 1,
+      "message": "Is it legal for this to be mixed between the attributes? We should put it on its own line if it is.\n\nIf it\u0027s not, then we should use lowercase \u0027override\u0027 since it\u0027s a keyword and not an attribute.",
+      "range": {
+        "startLine": 179,
+        "startChar": 81,
+        "endLine": 179,
+        "endChar": 89
+      },
+      "revId": "30fd89db1dc3ef1cedf6c915222de7bcf9f96691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9a3c3b1_4db38e24",
+        "filename": "runtime/gc/collector/sticky_mark_sweep.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-22T22:22:45Z",
+      "side": 1,
+      "message": "See previous note about OVERRIDE",
+      "revId": "30fd89db1dc3ef1cedf6c915222de7bcf9f96691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
