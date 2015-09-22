@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "a90befa7_bb59ff27",
+        "filename": "build/Android.executable.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-22T21:56:54Z",
+      "side": 1,
+      "message": "As long as they are availably on the local machines it should be ok. I assume that don\u0027t use dlopens to work...",
+      "parentUuid": "e91fa7ee_53e2fc09",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 46
+      },
+      "revId": "f6010eca09e943616b069e5bb38ee3589134e7bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "091ddbf6_fd5443f1",
         "filename": "dex2oat/Android.mk",
         "patchSetId": 1
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "for dex2oats, it changes from 255M to 295M; for dex2oatds, it changes from 263M to 303M. I think they are on host, so the size doesn\u0027t matter very much, no?",
       "parentUuid": "091ddbf6_fd5443f1",
+      "range": {
+        "startLine": 62,
+        "startChar": 21,
+        "endLine": 62,
+        "endChar": 104
+      },
+      "revId": "f6010eca09e943616b069e5bb38ee3589134e7bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9404fd4_42c314c1",
+        "filename": "dex2oat/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-22T21:56:54Z",
+      "side": 1,
+      "message": "It\u0027s unfortunate that we need to do this. Size is not a priority, but it still affects how fast some things work. We can talk offline about it.",
+      "parentUuid": "c91663dc_b2535057",
       "range": {
         "startLine": 62,
         "startChar": 21,
