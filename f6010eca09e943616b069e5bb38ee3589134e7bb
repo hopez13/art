@@ -93,6 +93,30 @@
       "revId": "f6010eca09e943616b069e5bb38ee3589134e7bb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c91663dc_b2535057",
+        "filename": "dex2oat/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1056364
+      },
+      "writtenOn": "2015-09-22T17:39:56Z",
+      "side": 1,
+      "message": "for dex2oats, it changes from 255M to 295M; for dex2oatds, it changes from 263M to 303M. I think they are on host, so the size doesn\u0027t matter very much, no?",
+      "parentUuid": "091ddbf6_fd5443f1",
+      "range": {
+        "startLine": 62,
+        "startChar": 21,
+        "endLine": 62,
+        "endChar": 104
+      },
+      "revId": "f6010eca09e943616b069e5bb38ee3589134e7bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
