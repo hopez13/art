@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "e99a4788_019beab1",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5045,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-22T09:33:11Z",
+      "side": 1,
+      "message": "Yeah I agree we could. It would be the first of a kind though that we do this sort of checking at this level (the assemblers already have to do some checking for the high/low registers). Not sure I want to make a precedent here.",
+      "parentUuid": "090f9bb2_2dccb99e",
+      "range": {
+        "startLine": 5043,
+        "startChar": 0,
+        "endLine": 5045,
+        "endChar": 20
+      },
+      "revId": "d3d359271973a72d5abb5c55897f85fec6b5e9b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9a3c3b1_2582e4cb",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
