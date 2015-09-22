@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "099a3b78_0896d03b",
+        "filename": "runtime/gc/collector/mark_sweep.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-22T22:55:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "692bb717_3e1dc86d",
+      "revId": "30fd89db1dc3ef1cedf6c915222de7bcf9f96691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c91663dc_ed79ed5c",
         "filename": "runtime/gc/collector/mark_sweep.h",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "e9b7a7e1_7b4f1231",
+        "filename": "runtime/gc/collector/mark_sweep.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-22T22:55:46Z",
+      "side": 1,
+      "message": "Currently OVERRIDE checks against GCC version, I guess we can just leave it as the first thing then?",
+      "parentUuid": "c91663dc_ed79ed5c",
+      "range": {
+        "startLine": 179,
+        "startChar": 81,
+        "endLine": 179,
+        "endChar": 89
+      },
+      "revId": "30fd89db1dc3ef1cedf6c915222de7bcf9f96691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9a3c3b1_4db38e24",
         "filename": "runtime/gc/collector/sticky_mark_sweep.h",
         "patchSetId": 1
@@ -53,6 +95,24 @@
       "writtenOn": "2015-09-22T22:22:45Z",
       "side": 1,
       "message": "See previous note about OVERRIDE",
+      "revId": "30fd89db1dc3ef1cedf6c915222de7bcf9f96691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "099a3b78_289d5425",
+        "filename": "runtime/gc/collector/sticky_mark_sweep.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-22T22:55:46Z",
+      "side": 1,
+      "message": "Same comment.",
+      "parentUuid": "c9a3c3b1_4db38e24",
       "revId": "30fd89db1dc3ef1cedf6c915222de7bcf9f96691",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
