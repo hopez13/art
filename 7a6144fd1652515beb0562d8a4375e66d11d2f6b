@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4916f301_74686800",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5346,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-22T23:12:13Z",
+      "side": 1,
+      "message": "No non-const references.",
+      "range": {
+        "startLine": 5346,
+        "startChar": 17,
+        "endLine": 5346,
+        "endChar": 37
+      },
+      "revId": "7a6144fd1652515beb0562d8a4375e66d11d2f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "099a3b78_289554be",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5353,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-22T23:12:13Z",
+      "side": 1,
+      "message": "Can be const.",
+      "range": {
+        "startLine": 5353,
+        "startChar": 2,
+        "endLine": 5353,
+        "endChar": 31
+      },
+      "revId": "7a6144fd1652515beb0562d8a4375e66d11d2f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2911bf09_93b27c1f",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3130,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-22T23:12:13Z",
+      "side": 1,
+      "message": "Nit: prefer ++i.",
+      "range": {
+        "startLine": 3130,
+        "startChar": 41,
+        "endLine": 3130,
+        "endChar": 44
+      },
+      "revId": "7a6144fd1652515beb0562d8a4375e66d11d2f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
