@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "495193a7_a3a21911",
+        "filename": "build/Android.executable.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2015-09-22T04:50:39Z",
+      "side": 1,
+      "message": "not sure we\u0027ll have ncurses or tinfo in the environment where we run this. calin?",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 46
+      },
+      "revId": "f6010eca09e943616b069e5bb38ee3589134e7bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
