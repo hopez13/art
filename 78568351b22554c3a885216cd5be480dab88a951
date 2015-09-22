@@ -16,6 +16,24 @@
       "revId": "78568351b22554c3a885216cd5be480dab88a951",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "090f9bb2_8dbcc5f1",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-22T09:15:28Z",
+      "side": 1,
+      "message": "verifier.FindStringInitMap() is an lvalue. See declaration:\n\n   SafeMap\u003cuint32_t, std::set\u003cuint32_t\u003e\u003e\u0026 FindStringInitMap();",
+      "parentUuid": "69fd77bf_a5bd5e9f",
+      "revId": "78568351b22554c3a885216cd5be480dab88a951",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
