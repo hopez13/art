@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4916f301_3744323a",
+        "filename": "benchmark/jobject-benchmark/src/JObjectBenchmark.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-23T01:54:02Z",
+      "side": 1,
+      "message": "This does not link methods. You\u0027d have to write a register function and hook OnLoad...",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 39
+      },
+      "revId": "14f8b13d2593770b7f5387a33f6a8400c20aaa8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
