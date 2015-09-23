@@ -22,6 +22,30 @@
       "revId": "aab5b758a2ec7b089cd4993fc77f8f94d979e61e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "691737fc_fe1e159d",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-23T18:35:09Z",
+      "side": 1,
+      "message": "Ah, because I loosely refer to L123/124 bce \"terminology\" here",
+      "parentUuid": "29f8dff9_db5ed30c",
+      "range": {
+        "startLine": 498,
+        "startChar": 48,
+        "endLine": 498,
+        "endChar": 62
+      },
+      "revId": "aab5b758a2ec7b089cd4993fc77f8f94d979e61e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
