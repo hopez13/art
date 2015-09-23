@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e90b27d5_b954bfc9",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-23T19:33:20Z",
+      "side": 1,
+      "message": "I think this should go above all the other includes.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 30
+      },
+      "revId": "b2adb1736a1b6f8d7fb0f352732570283aa09b96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9b08755_148bfaa2",
         "filename": "compiler/optimizing/intrinsics_mips64.h",
         "patchSetId": 2
@@ -37,6 +60,30 @@
       "side": 1,
       "message": "The header file intrinsics.h, above, includes code_generator.h; code_generator.h includes utils/label.h; utils/label.h declares Mips64Assembler.\n\nAre you saying you think the code would be more readable if I added \"class Mips64Assembler;\" around line 31, or so?",
       "parentUuid": "e9b08755_148bfaa2",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 17
+      },
+      "revId": "b2adb1736a1b6f8d7fb0f352732570283aa09b96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69ee5738_5d40fbfb",
+        "filename": "compiler/optimizing/intrinsics_mips64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-23T19:33:20Z",
+      "side": 1,
+      "message": "Yes, I believe stuff you\u0027re using should be forward declared or explicitly included. I\u0027ve been adding explicit includes all over the place for things that were included only indirectly.",
+      "parentUuid": "e9b08755_37c600a4",
       "range": {
         "startLine": 70,
         "startChar": 2,
