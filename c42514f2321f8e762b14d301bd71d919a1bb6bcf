@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "699c97d8_706feef0",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-23T15:33:26Z",
+      "side": 1,
+      "message": "emplace_back?",
+      "range": {
+        "startLine": 154,
+        "startChar": 11,
+        "endLine": 154,
+        "endChar": 20
+      },
+      "revId": "c42514f2321f8e762b14d301bd71d919a1bb6bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8978eb70_16f03ccc",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -110,6 +133,52 @@
         "startChar": 0,
         "endLine": 160,
         "endChar": 5
+      },
+      "revId": "c42514f2321f8e762b14d301bd71d919a1bb6bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "891c6b20_9c00cd43",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-23T15:33:26Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 164,
+        "startChar": 15,
+        "endLine": 164,
+        "endChar": 24
+      },
+      "revId": "c42514f2321f8e762b14d301bd71d919a1bb6bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a905afc4_5a9591bc",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-23T15:33:26Z",
+      "side": 1,
+      "message": "Move this comment to the .h file.",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 63
       },
       "revId": "c42514f2321f8e762b14d301bd71d919a1bb6bcf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
