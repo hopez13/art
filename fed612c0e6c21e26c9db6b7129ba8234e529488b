@@ -22,6 +22,30 @@
       "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "699c97d8_70fc0e36",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-09-23T19:21:27Z",
+      "side": 1,
+      "message": "Likewise for TMP in compiler/optimizing/code_generator_mips64.cc?\n\nIf so, how would you name \"static constexpr FpuRegister FTMP \u003d F8;\" also in compiler/optimizing/code_generator_mips64.cc?\n\nAnd should TMP be handled the same way as you suggested for TR? From your comments regarding patch 172320:\n\n\"Move the definition in code_generator_mips64.cc into the h file and use it here. It isn\u0027t good to have to separate declarations that aren\u0027t checked to be equal.\n\nAlternatively, you could extend the register enum with a TR value that maps to S1 and share that way.\"",
+      "parentUuid": "a905afc4_7a1df56c",
+      "range": {
+        "startLine": 35,
+        "startChar": 29,
+        "endLine": 35,
+        "endChar": 32
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
