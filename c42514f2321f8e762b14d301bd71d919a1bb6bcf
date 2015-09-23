@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "c9e9032d_e05e820c",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-23T15:45:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09095bdd_1a183d3e",
+      "range": {
+        "startLine": 149,
+        "startChar": 11,
+        "endLine": 149,
+        "endChar": 35
+      },
+      "revId": "c42514f2321f8e762b14d301bd71d919a1bb6bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "699c97d8_706feef0",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2015-09-23T15:33:26Z",
       "side": 1,
       "message": "emplace_back?",
+      "range": {
+        "startLine": 154,
+        "startChar": 11,
+        "endLine": 154,
+        "endChar": 20
+      },
+      "revId": "c42514f2321f8e762b14d301bd71d919a1bb6bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09095bdd_fa3589a7",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-23T15:45:53Z",
+      "side": 1,
+      "message": "No, I would have to explicitly define a constructor. (PS2 doesn\u0027t compile.)",
+      "parentUuid": "699c97d8_706feef0",
       "range": {
         "startLine": 154,
         "startChar": 11,
@@ -117,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "49fd13e8_1cef957a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-23T15:45:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8978eb70_16f03ccc",
+      "range": {
+        "startLine": 156,
+        "startChar": 17,
+        "endLine": 156,
+        "endChar": 28
+      },
+      "revId": "c42514f2321f8e762b14d301bd71d919a1bb6bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49fd13e8_5c4bdd47",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -128,6 +200,30 @@
       "writtenOn": "2015-09-23T15:28:21Z",
       "side": 1,
       "message": "else {",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 5
+      },
+      "revId": "c42514f2321f8e762b14d301bd71d919a1bb6bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e90b27d5_f932b7d6",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-23T15:45:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49fd13e8_5c4bdd47",
       "range": {
         "startLine": 159,
         "startChar": 0,
@@ -174,6 +270,30 @@
       "writtenOn": "2015-09-23T15:33:26Z",
       "side": 1,
       "message": "Move this comment to the .h file.",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 63
+      },
+      "revId": "c42514f2321f8e762b14d301bd71d919a1bb6bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c902e3ba_1846851a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-23T15:45:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a905afc4_5a9591bc",
       "range": {
         "startLine": 187,
         "startChar": 0,
