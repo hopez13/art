@@ -22,6 +22,30 @@
       "revId": "763f1905e4643cc986568c016c4b7e956d4ab541",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9b7434b_f335aaa7",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-09-23T16:29:06Z",
+      "side": 1,
+      "message": "From the pages of \"The MIPS64 Instruction Set Reference Manual, Revision 6.02\" describing LH, LW, LD, SH, SW, and SD:\n\nRelease 6 requires systems to provide support for misaligned memory accesses for all ordinary memory reference\ninstructions. This instruction is considered an ordinary memory reference instruction for the purposes of misalign-\nment: the system must provide a mechanism to complete a misaligned memory reference for this instruction, ranging\nfrom full execution in hardware to trap-and-emulate.",
+      "parentUuid": "e9b08755_549582bc",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 1
+      },
+      "revId": "763f1905e4643cc986568c016c4b7e956d4ab541",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
