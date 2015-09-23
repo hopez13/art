@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "891c6b20_d924174a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-23T04:48:47Z",
+      "side": 1,
+      "message": "equals is missing from the list",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 42
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "699c97d8_ed62e54c",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
