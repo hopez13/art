@@ -46,6 +46,30 @@
       "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09aebbf9_db0a3f5f",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-23T20:33:08Z",
+      "side": 1,
+      "message": "If you wanted it as a general value, you could do that, and then TMP would be an acceptable name. However, it\u0027s less important than TR. So I\u0027m fine having the temp registers defined locally (other architectures are doing it that way already).",
+      "parentUuid": "699c97d8_70fc0e36",
+      "range": {
+        "startLine": 35,
+        "startChar": 29,
+        "endLine": 35,
+        "endChar": 32
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
