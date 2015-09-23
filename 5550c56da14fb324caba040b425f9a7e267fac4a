@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "691737fc_dbc08b8a",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1368,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-23T18:06:11Z",
+      "side": 1,
+      "message": "Would it be a good idea to assert the allocator is null if the class table is null in ClassLinker::InsertClassTableForClassLoader()?",
+      "range": {
+        "startLine": 1368,
+        "startChar": 60,
+        "endLine": 1368,
+        "endChar": 67
+      },
+      "revId": "5550c56da14fb324caba040b425f9a7e267fac4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
