@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29f8dff9_7bb21fcd",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-23T15:28:21Z",
+      "side": 1,
+      "message": "I think I would find the whole thing more readable if the worklist would only contain blocks, and we would get two other ArenaVector: one for number of visited predecessor, and one for number of visited successors.",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 36
+      },
+      "revId": "c42514f2321f8e762b14d301bd71d919a1bb6bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09095bdd_1a183d3e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-23T15:28:21Z",
+      "side": 1,
+      "message": "-\u003e number_of_processed_successors",
+      "range": {
+        "startLine": 149,
+        "startChar": 11,
+        "endLine": 149,
+        "endChar": 35
+      },
+      "revId": "c42514f2321f8e762b14d301bd71d919a1bb6bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8978eb70_16f03ccc",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-23T15:28:21Z",
+      "side": 1,
+      "message": "current?",
+      "range": {
+        "startLine": 156,
+        "startChar": 17,
+        "endLine": 156,
+        "endChar": 28
+      },
+      "revId": "c42514f2321f8e762b14d301bd71d919a1bb6bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e90b27d5_39442f3a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-23T15:28:21Z",
+      "side": 1,
+      "message": "Fetch the worklist entry instead?",
+      "range": {
+        "startLine": 156,
+        "startChar": 31,
+        "endLine": 156,
+        "endChar": 46
+      },
+      "revId": "c42514f2321f8e762b14d301bd71d919a1bb6bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49fd13e8_5c4bdd47",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-23T15:28:21Z",
+      "side": 1,
+      "message": "else {",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 5
+      },
+      "revId": "c42514f2321f8e762b14d301bd71d919a1bb6bcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
