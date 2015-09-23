@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "699c97d8_ed62e54c",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-23T04:48:12Z",
+      "side": 1,
+      "message": "Why T9?\n\nFor newer contributions it\u0027s now also \"required\" to put such things into a nicely named constant, kXXX, when it\u0027s local to the file like this is...",
+      "range": {
+        "startLine": 901,
+        "startChar": 20,
+        "endLine": 901,
+        "endChar": 22
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
