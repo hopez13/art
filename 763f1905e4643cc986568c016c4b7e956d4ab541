@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9b08755_549582bc",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-23T04:18:28Z",
+      "side": 1,
+      "message": "Unaligned loads have been removed from r6, right (and load instructions must support non-alignment)? (Note that the addresses here don\u0027t have to be aligned.)",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 1
+      },
+      "revId": "763f1905e4643cc986568c016c4b7e956d4ab541",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
