@@ -22,6 +22,30 @@
       "revId": "14f8b13d2593770b7f5387a33f6a8400c20aaa8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09aebbf9_15d5b657",
+        "filename": "benchmark/jobject-benchmark/src/JObjectBenchmark.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-23T18:35:53Z",
+      "side": 1,
+      "message": "I mean resolve JNI methods, if I don\u0027t call the methods it skews the results of the first benchmark run.",
+      "parentUuid": "4916f301_3744323a",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 39
+      },
+      "revId": "14f8b13d2593770b7f5387a33f6a8400c20aaa8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
