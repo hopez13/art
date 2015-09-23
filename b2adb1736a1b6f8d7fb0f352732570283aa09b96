@@ -22,6 +22,30 @@
       "revId": "b2adb1736a1b6f8d7fb0f352732570283aa09b96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9b08755_37c600a4",
+        "filename": "compiler/optimizing/intrinsics_mips64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-09-23T19:18:41Z",
+      "side": 1,
+      "message": "The header file intrinsics.h, above, includes code_generator.h; code_generator.h includes utils/label.h; utils/label.h declares Mips64Assembler.\n\nAre you saying you think the code would be more readable if I added \"class Mips64Assembler;\" around line 31, or so?",
+      "parentUuid": "e9b08755_148bfaa2",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 17
+      },
+      "revId": "b2adb1736a1b6f8d7fb0f352732570283aa09b96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
