@@ -45,6 +45,29 @@
       "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4916f301_088c77fa",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-23T21:07:16Z",
+      "side": 1,
+      "message": "It actually happens that str \u003d\u003d arg, which triggers a check. We\u0027ll have to implement a compile-time fast-path.",
+      "range": {
+        "startLine": 951,
+        "startChar": 10,
+        "endLine": 951,
+        "endChar": 18
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
