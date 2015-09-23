@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2911bf09_19bfabe4",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-23T04:36:48Z",
+      "side": 1,
+      "message": "Move the definition in code_generator_mips64.cc into the h file and use it here. It isn\u0027t good to have to separate declarations that aren\u0027t checked to be equal.\n\nAlternatively, you could extend the register enum with a TR value that maps to S1 and share that way.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 37
+      },
+      "revId": "1562dfa28da90c66fde7eea1f07d7f5b02ca244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
