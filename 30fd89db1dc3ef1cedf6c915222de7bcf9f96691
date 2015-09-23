@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "2911bf09_56f9f243",
+        "filename": "runtime/gc/collector/mark_sweep.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-23T01:33:48Z",
+      "side": 1,
+      "message": "That\u0027s what we appear to have settled on in the style guidelines for how to format attributes.\n\nIn essence: (alphabetical, one per line, list negative/positive capabilities as separate attributes)",
+      "parentUuid": "891c6b20_7996a33c",
+      "revId": "30fd89db1dc3ef1cedf6c915222de7bcf9f96691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c91663dc_ed79ed5c",
         "filename": "runtime/gc/collector/mark_sweep.h",
         "patchSetId": 1
