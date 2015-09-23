@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8978eb70_96d60c30",
+        "filename": "runtime/base/arena_allocator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-23T14:24:46Z",
+      "side": 1,
+      "message": "This seems conflicting...",
+      "range": {
+        "startLine": 141,
+        "startChar": 5,
+        "endLine": 142,
+        "endChar": 25
+      },
+      "revId": "e20f092f9b5380e4ffee1f940863a0e9f0a0411c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8978eb70_b6db0857",
+        "filename": "runtime/base/arena_allocator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-23T14:24:46Z",
+      "side": 1,
+      "message": "Why do you need this? It\u0027s in the super class so should be available?",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 51
+      },
+      "revId": "e20f092f9b5380e4ffee1f940863a0e9f0a0411c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "89f38b1a_de3a4595",
+        "filename": "runtime/base/scoped_arena_allocator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-23T14:24:46Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 56
+      },
+      "revId": "e20f092f9b5380e4ffee1f940863a0e9f0a0411c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29f8dff9_1b203ba9",
+        "filename": "runtime/base/scoped_arena_allocator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-23T14:24:46Z",
+      "side": 1,
+      "message": "Feels odd that you need those here. Guess it\u0027s template voodoo requiring it.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 51
+      },
+      "revId": "e20f092f9b5380e4ffee1f940863a0e9f0a0411c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
