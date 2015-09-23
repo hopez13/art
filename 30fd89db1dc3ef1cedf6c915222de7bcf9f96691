@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "2911bf09_f6b75e0d",
+        "filename": "runtime/gc/collector/mark_sweep.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-23T00:30:42Z",
+      "side": 1,
+      "message": "I believe we\u0027re always on a GCC that has \u0027override\u0027 as a keyword at this point. We compile against either 4.8 or 4.9 (at least no other version is available in the prebuilts).\n\nIt looks like a historical artifact to support older versions of GCC.\n\nSomething to consider in the future.\n\nhttps://gcc.gnu.org/gcc-4.8/cxx0x_status.html",
+      "parentUuid": "e9b7a7e1_7b4f1231",
+      "range": {
+        "startLine": 179,
+        "startChar": 81,
+        "endLine": 179,
+        "endChar": 89
+      },
+      "revId": "30fd89db1dc3ef1cedf6c915222de7bcf9f96691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9a3c3b1_4db38e24",
         "filename": "runtime/gc/collector/sticky_mark_sweep.h",
         "patchSetId": 1
