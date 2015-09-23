@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c902e3ba_182045a9",
+        "filename": "test/117-nopatchoat/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-23T11:16:56Z",
+      "side": 1,
+      "message": "double since. I suggest: \n\nWith a relocationDelta of 0, the runtime has no way to determine if the oat file in ANDROID_DATA has been relocated, since a non-relocated oat file always has a 0 delta.",
+      "range": {
+        "startLine": 22,
+        "startChar": 55,
+        "endLine": 22,
+        "endChar": 60
+      },
+      "revId": "a3ffe0fc31daea5b34964ed624f09a328e10caf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
