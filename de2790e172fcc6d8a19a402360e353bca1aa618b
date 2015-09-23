@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a9612fbd_f7310023",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5224,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-23T11:11:34Z",
+      "side": 1,
+      "message": "I don\u0027t understand this.",
+      "range": {
+        "startLine": 5224,
+        "startChar": 0,
+        "endLine": 5224,
+        "endChar": 70
+      },
+      "revId": "de2790e172fcc6d8a19a402360e353bca1aa618b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9e9032d_20898a19",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5313,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-23T11:11:34Z",
+      "side": 1,
+      "message": "drop?",
+      "range": {
+        "startLine": 5313,
+        "startChar": 32,
+        "endLine": 5313,
+        "endChar": 61
+      },
+      "revId": "de2790e172fcc6d8a19a402360e353bca1aa618b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9eccf3c_5f3e2bee",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5317,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-23T11:11:34Z",
+      "side": 1,
+      "message": "Please add more comments. Basically, if no constants were not emitted, you don\u0027t need to fixup the jump tables?",
+      "range": {
+        "startLine": 5311,
+        "startChar": 4,
+        "endLine": 5317,
+        "endChar": 5
+      },
+      "revId": "de2790e172fcc6d8a19a402360e353bca1aa618b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9612fbd_17475488",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5370,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-23T11:11:34Z",
+      "side": 1,
+      "message": "2 more spaces.",
+      "range": {
+        "startLine": 5370,
+        "startChar": 0,
+        "endLine": 5370,
+        "endChar": 4
+      },
+      "revId": "de2790e172fcc6d8a19a402360e353bca1aa618b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c902e3ba_d8f40d94",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5390,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-23T11:11:34Z",
+      "side": 1,
+      "message": "Move this to line 5373?",
+      "range": {
+        "startLine": 5379,
+        "startChar": 0,
+        "endLine": 5390,
+        "endChar": 2
+      },
+      "revId": "de2790e172fcc6d8a19a402360e353bca1aa618b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c902e3ba_58011d0f",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-23T11:11:34Z",
+      "side": 1,
+      "message": "I think it\u0027s confusing that you\u0027re calling them jump_table_fixups_ but they\u0027re not JumpTableFixup. Maybe fixups_to_jump_tables_ ?",
+      "range": {
+        "startLine": 364,
+        "startChar": 0,
+        "endLine": 364,
+        "endChar": 46
+      },
+      "revId": "de2790e172fcc6d8a19a402360e353bca1aa618b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c902e3ba_9813b568",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-23T11:11:34Z",
+      "side": 1,
+      "message": "Why is that not just in the buffer? After all it\u0027s constants you\u0027re putting.",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 33
+      },
+      "revId": "de2790e172fcc6d8a19a402360e353bca1aa618b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
