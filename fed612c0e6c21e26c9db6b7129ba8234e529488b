@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "8e52b121_8f631d25",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-24T21:28:30Z",
+      "side": 1,
+      "message": "It\u0027s java.lang.Math, actually... :-)",
+      "parentUuid": "0e5fa128_be75f191",
+      "range": {
+        "startLine": 276,
+        "startChar": 10,
+        "endLine": 276,
+        "endChar": 31
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9ba0f35_529c72d0",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
@@ -222,6 +246,30 @@
       "writtenOn": "2015-09-24T21:13:25Z",
       "side": 1,
       "message": "I don\u0027t really get that. Should the code be shorter in that case? Also, shouldn\u0027t you also address the case where `out.AsRegister\u003cGpuRegister\u003e() \u003d\u003d op2.AsRegister\u003cGpuRegister\u003e()`?",
+      "range": {
+        "startLine": 421,
+        "startChar": 2,
+        "endLine": 421,
+        "endChar": 69
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_f4494e2d",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-24T21:28:30Z",
+      "side": 1,
+      "message": "I guess you could drop one of the Sel instructions in each branch below...",
+      "parentUuid": "2e470569_52b26a1e",
       "range": {
         "startLine": 421,
         "startChar": 2,
