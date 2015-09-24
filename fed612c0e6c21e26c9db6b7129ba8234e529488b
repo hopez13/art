@@ -70,6 +70,305 @@
       "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_be75f191",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-24T21:13:25Z",
+      "side": 1,
+      "message": "`java.lang.Object.Math`? (Here and below.)",
+      "range": {
+        "startLine": 276,
+        "startChar": 10,
+        "endLine": 276,
+        "endChar": 31
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9ba0f35_529c72d0",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-24T21:13:25Z",
+      "side": 1,
+      "message": "Nit: put on a single line.",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 50
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_97cb34aa",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-24T21:13:25Z",
+      "side": 1,
+      "message": "Replace with\n\n  GpuRegister in \u003d locations-\u003eInAt(0).AsRegister\u003cGpuRegister\u003e();\n  GpuRegister out \u003d locations-\u003eOut().AsRegister\u003cGpuRegister\u003e();\n\nand replace `in.AsRegister\u003cGpuRegister\u003e()` and `out.AsRegister\u003cGpuRegister\u003e()` with `in` and `out`.",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 306,
+        "endChar": 34
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_8d544960",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-24T21:13:25Z",
+      "side": 1,
+      "message": "Likewise, replace with\n\n  FpuRegister lhs \u003d locations-\u003eInAt(0).AsFpuRegister\u003cFpuRegister\u003e();\n  FpuRegister rhs \u003d locations-\u003eInAt(1).AsFpuRegister\u003cFpuRegister\u003e();\n  FpuRegister out \u003d locations-\u003eOut().AsFpuRegister\u003cFpuRegister\u003e();\n\nand simplify the expressions below?",
+      "range": {
+        "startLine": 341,
+        "startChar": 0,
+        "endLine": 343,
+        "endChar": 34
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_f47b8e85",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-24T21:13:25Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 415,
+        "startChar": 22,
+        "endLine": 415,
+        "endChar": 52
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_d1253644",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-24T21:13:25Z",
+      "side": 1,
+      "message": "Ditto (here and in other intrinsics below).",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 34
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_52b26a1e",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-24T21:13:25Z",
+      "side": 1,
+      "message": "I don\u0027t really get that. Should the code be shorter in that case? Also, shouldn\u0027t you also address the case where `out.AsRegister\u003cGpuRegister\u003e() \u003d\u003d op2.AsRegister\u003cGpuRegister\u003e()`?",
+      "range": {
+        "startLine": 421,
+        "startChar": 2,
+        "endLine": 421,
+        "endChar": 69
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_32b7ee0e",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-24T21:13:25Z",
+      "side": 1,
+      "message": "Move this magic number to a constant and document it a bit more.",
+      "range": {
+        "startLine": 541,
+        "startChar": 18,
+        "endLine": 541,
+        "endChar": 23
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_0fd3ad3c",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-24T21:13:25Z",
+      "side": 1,
+      "message": "`Long.MAX_VALUE`?",
+      "range": {
+        "startLine": 546,
+        "startChar": 23,
+        "endLine": 546,
+        "endChar": 34
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4d7d85_3906b727",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-24T21:13:25Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 552,
+        "startChar": 55,
+        "endLine": 552,
+        "endChar": 66
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_78e549df",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-24T21:13:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 590,
+        "startChar": 18,
+        "endLine": 590,
+        "endChar": 23
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_1e62bdd5",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-24T21:13:25Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 595,
+        "startChar": 23,
+        "endLine": 595,
+        "endChar": 34
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_b2e19e07",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-24T21:13:25Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 601,
+        "startChar": 55,
+        "endLine": 601,
+        "endChar": 66
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
