@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0e5fa128_f35de287",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-24T20:32:23Z",
+      "side": 1,
+      "message": "TL;DR yes, we need to rename it.\n\nThis one will go away soon , I have a todo list of revised opcode changes, but we\u0027d have to fix smali first , not worth it fixing smali for every incremental CL because it does have some overhead.\n\n(capture-variable+create-lambda will get merged into the new create-lambda)\n\n-------\n\nAs for liberate-variable that will \"stay\" (semantically) but we can rename it as well, something like lambda-liberate , lambda-get, etc, (but not lget since it looks too much like iget depending on the font).",
+      "parentUuid": "2e2e2591_d1ef84eb",
+      "range": {
+        "startLine": 394,
+        "startChar": 33,
+        "endLine": 394,
+        "endChar": 34
+      },
+      "revId": "ead989ef0a1a251c325f8d38dcaa80f76e21f8af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e5fa128_10f4ec8d",
         "filename": "runtime/base/hash_set.h",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2015-09-24T20:26:12Z",
       "side": 1,
       "message": "a note to caller should be in the method api, not inside its implementation",
+      "range": {
+        "startLine": 421,
+        "startChar": 25,
+        "endLine": 421,
+        "endChar": 26
+      },
+      "revId": "ead989ef0a1a251c325f8d38dcaa80f76e21f8af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4d7d85_79ad4fc0",
+        "filename": "runtime/base/hash_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-24T20:32:23Z",
+      "side": 1,
+      "message": "It\u0027s just rewording the statement on line 411, if you have a specific idea then I can copy-and-paste it verbatim ?",
+      "parentUuid": "2e470569_cca7e38a",
       "range": {
         "startLine": 421,
         "startChar": 25,
