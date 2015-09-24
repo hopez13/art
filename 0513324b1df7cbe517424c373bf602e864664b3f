@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae5bf53d_0a039bd6",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-24T01:16:10Z",
+      "side": 1,
+      "message": "return new (memory)\n\n?",
+      "revId": "0513324b1df7cbe517424c373bf602e864664b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_ae3db7f2",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-24T01:16:10Z",
+      "side": 1,
+      "message": "Slightly hard to tell it\u0027s static inline, but ok.",
+      "revId": "0513324b1df7cbe517424c373bf602e864664b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
