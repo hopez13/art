@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee616dea_cfed9185",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2591,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-24T17:11:31Z",
+      "side": 1,
+      "message": "There are more than one FinishGC call sites. Should add the same code there?",
+      "range": {
+        "startLine": 2591,
+        "startChar": 75,
+        "endLine": 2591,
+        "endChar": 83
+      },
+      "revId": "3357d6ac93178fe06fcb16c88f5cee4bd1cc12c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_6f0465e0",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-24T17:11:31Z",
+      "side": 1,
+      "message": "nit: jweak?",
+      "range": {
+        "startLine": 171,
+        "startChar": 8,
+        "endLine": 171,
+        "endChar": 15
+      },
+      "revId": "3357d6ac93178fe06fcb16c88f5cee4bd1cc12c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_4f7e4144",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-24T17:11:31Z",
+      "side": 1,
+      "message": "Dumpable may call this without holding the lock? In that case, why would this assert not fail?",
+      "range": {
+        "startLine": 196,
+        "startChar": 34,
+        "endLine": 196,
+        "endChar": 44
+      },
+      "revId": "3357d6ac93178fe06fcb16c88f5cee4bd1cc12c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_af2c9d5f",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-24T17:11:31Z",
+      "side": 1,
+      "message": "nit: auto -\u003e JNI_OnUnloadFn?",
+      "range": {
+        "startLine": 274,
+        "startChar": 12,
+        "endLine": 274,
+        "endChar": 16
+      },
+      "revId": "3357d6ac93178fe06fcb16c88f5cee4bd1cc12c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_7149f0a7",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-24T17:11:31Z",
+      "side": 1,
+      "message": "Maybe add a VLOG(jni) line before calling one?",
+      "range": {
+        "startLine": 286,
+        "startChar": 6,
+        "endLine": 286,
+        "endChar": 7
+      },
+      "revId": "3357d6ac93178fe06fcb16c88f5cee4bd1cc12c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
