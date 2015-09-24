@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2e470569_e9a5f11c",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5224,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-09-24T12:20:46Z",
+      "side": 1,
+      "message": "I can\u0027t update CpuRegister with a new value, as it has no assignment operator.  I will remove the second part of the comment.",
+      "parentUuid": "a9612fbd_f7310023",
+      "range": {
+        "startLine": 5224,
+        "startChar": 0,
+        "endLine": 5224,
+        "endChar": 70
+      },
+      "revId": "de2790e172fcc6d8a19a402360e353bca1aa618b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9e9032d_20898a19",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-23T11:11:34Z",
       "side": 1,
       "message": "drop?",
+      "range": {
+        "startLine": 5313,
+        "startChar": 32,
+        "endLine": 5313,
+        "endChar": 61
+      },
+      "revId": "de2790e172fcc6d8a19a402360e353bca1aa618b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_eec05b69",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5313,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-09-24T12:20:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9e9032d_20898a19",
       "range": {
         "startLine": 5313,
         "startChar": 32,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8e52b121_298b09e9",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5317,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-09-24T12:20:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9eccf3c_5f3e2bee",
+      "range": {
+        "startLine": 5311,
+        "startChar": 4,
+        "endLine": 5317,
+        "endChar": 5
+      },
+      "revId": "de2790e172fcc6d8a19a402360e353bca1aa618b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9612fbd_17475488",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2015-09-23T11:11:34Z",
       "side": 1,
       "message": "2 more spaces.",
+      "range": {
+        "startLine": 5370,
+        "startChar": 0,
+        "endLine": 5370,
+        "endChar": 4
+      },
+      "revId": "de2790e172fcc6d8a19a402360e353bca1aa618b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4d7d85_c84c6f0e",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5370,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-09-24T12:20:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9612fbd_17475488",
       "range": {
         "startLine": 5370,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "0e5fa128_0d0df5b1",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5390,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-09-24T12:20:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c902e3ba_d8f40d94",
+      "range": {
+        "startLine": 5379,
+        "startChar": 0,
+        "endLine": 5390,
+        "endChar": 2
+      },
+      "revId": "de2790e172fcc6d8a19a402360e353bca1aa618b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c902e3ba_58011d0f",
         "filename": "compiler/optimizing/code_generator_x86_64.h",
         "patchSetId": 4
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "8e52b121_09904d0d",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-09-24T12:20:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c902e3ba_58011d0f",
+      "range": {
+        "startLine": 364,
+        "startChar": 0,
+        "endLine": 364,
+        "endChar": 46
+      },
+      "revId": "de2790e172fcc6d8a19a402360e353bca1aa618b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c902e3ba_9813b568",
         "filename": "compiler/utils/x86_64/assembler_x86_64.h",
         "patchSetId": 4
@@ -151,6 +295,30 @@
       "writtenOn": "2015-09-23T11:11:34Z",
       "side": 1,
       "message": "Why is that not just in the buffer? After all it\u0027s constants you\u0027re putting.",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 33
+      },
+      "revId": "de2790e172fcc6d8a19a402360e353bca1aa618b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_af66dd34",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-09-24T12:20:46Z",
+      "side": 1,
+      "message": "This is needed to get a callback to the Code Generator once all the code has been generated for the method. The offsets to the blocks needed are not known at the time the space for the jump table is allocated in the constant area. This is used by AddConstantAreaFixup to save a JumpTableFixup, which is used to populate the constant area properly.",
+      "parentUuid": "c902e3ba_9813b568",
       "range": {
         "startLine": 324,
         "startChar": 0,
