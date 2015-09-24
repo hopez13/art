@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e2e2591_bfe15f07",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-24T22:26:21Z",
+      "side": 1,
+      "message": "minor: wrap each with ()\n\n  CreateShadowFrameImpl((num_vregs), (link), (method), ...",
+      "range": {
+        "startLine": 103,
+        "startChar": 43,
+        "endLine": 103,
+        "endChar": 52
+      },
+      "revId": "25d98f45b2f4c3477da2c4820ed131b409108bca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_98292150",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-24T22:26:21Z",
+      "side": 1,
+      "message": "?",
+      "revId": "25d98f45b2f4c3477da2c4820ed131b409108bca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
