@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2ebd45ca_733900b7",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-24T17:05:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce074951_70d81009",
+      "range": {
+        "startLine": 48,
+        "startChar": 33,
+        "endLine": 48,
+        "endChar": 35
+      },
+      "revId": "4de021c960d6924268a0219210d3ab9e4486b59f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce074951_50dd0cf7",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-24T16:58:07Z",
       "side": 1,
       "message": "could you DCHECK the block is in the worklist?",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 40
+      },
+      "revId": "4de021c960d6924268a0219210d3ab9e4486b59f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce074951_b0d1d8e3",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-24T17:05:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce074951_50dd0cf7",
       "range": {
         "startLine": 60,
         "startChar": 0,
