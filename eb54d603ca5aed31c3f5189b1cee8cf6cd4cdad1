@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2e2e2591_6e490fa8",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-24T01:03:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e2e2591_6e26affe",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 105
+      },
+      "revId": "eb54d603ca5aed31c3f5189b1cee8cf6cd4cdad1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee86cdd4_21d52e78",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-24T01:00:13Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 104
+      },
+      "revId": "eb54d603ca5aed31c3f5189b1cee8cf6cd4cdad1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_8cffa768",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-24T01:03:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee86cdd4_21d52e78",
       "range": {
         "startLine": 101,
         "startChar": 0,
@@ -76,6 +124,30 @@
       "writtenOn": "2015-09-24T01:00:13Z",
       "side": 1,
       "message": "What about:\n\n  Value(v1.instruction,\n        v1.a_constant,\n        is_min ? std::min(v1.b_constant, v2.b_constant) : std::max(v1.b_constant, v2.b_constant));\n\n?",
+      "range": {
+        "startLine": 311,
+        "startChar": 13,
+        "endLine": 312,
+        "endChar": 98
+      },
+      "revId": "eb54d603ca5aed31c3f5189b1cee8cf6cd4cdad1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_67824cf6",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-24T01:03:49Z",
+      "side": 1,
+      "message": "even more merged!\n\nyes, good idea",
+      "parentUuid": "ce582944_eb43ad7a",
       "range": {
         "startLine": 311,
         "startChar": 13,
