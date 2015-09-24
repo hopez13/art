@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "ee616dea_b813c58f",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-24T21:43:00Z",
+      "side": 1,
+      "message": "Yeah, sorry, copy n\u0027 paste error… :)",
+      "parentUuid": "8e52b121_8f631d25",
+      "range": {
+        "startLine": 276,
+        "startChar": 10,
+        "endLine": 276,
+        "endChar": 31
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9ba0f35_529c72d0",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
@@ -270,6 +294,30 @@
       "side": 1,
       "message": "I guess you could drop one of the Sel instructions in each branch below...",
       "parentUuid": "2e470569_52b26a1e",
+      "range": {
+        "startLine": 421,
+        "startChar": 2,
+        "endLine": 421,
+        "endChar": 69
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_b2199e82",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-24T21:43:00Z",
+      "side": 1,
+      "message": "Yes, this was my guess too.",
+      "parentUuid": "2e2e2591_f4494e2d",
       "range": {
         "startLine": 421,
         "startChar": 2,
