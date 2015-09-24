@@ -215,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "2e470569_b232be86",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-24T22:27:15Z",
+      "side": 1,
+      "message": "Actually, one note: don\u0027t do it completely uniform. Make sure that values close to zero are always included. A few architectures have some special encodings for things like one...",
+      "parentUuid": "0e5fa128_f98ee324",
+      "range": {
+        "startLine": 432,
+        "startChar": 4,
+        "endLine": 433,
+        "endChar": 46
+      },
+      "revId": "df040508b3c81aec117b07d632e36cf429307307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e470569_698101c7",
         "filename": "compiler/utils/assembler_test.h",
         "patchSetId": 1
