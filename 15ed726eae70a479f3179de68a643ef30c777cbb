@@ -22,6 +22,30 @@
       "revId": "15ed726eae70a479f3179de68a643ef30c777cbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_cf735124",
+        "filename": "runtime/java_vm_ext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-24T19:31:59Z",
+      "side": 0,
+      "message": "Since UnloadNativeLibraries ends up locking then unlocking before calling JNI_OnUnload.",
+      "parentUuid": "2e2e2591_91f9fcb5",
+      "range": {
+        "startLine": 187,
+        "startChar": 40,
+        "endLine": 187,
+        "endChar": 50
+      },
+      "revId": "15ed726eae70a479f3179de68a643ef30c777cbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
