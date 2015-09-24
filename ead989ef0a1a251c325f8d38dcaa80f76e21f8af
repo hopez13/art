@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e2e2591_d1ef84eb",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-24T20:26:12Z",
+      "side": 1,
+      "message": "I don\u0027t know if this has been discussed before, but does this opcode have any use outside LAMBDA context. If not, perhaps use the LAMBDA in the name as well, so we have a nice grouping of the opcodes.",
+      "range": {
+        "startLine": 394,
+        "startChar": 33,
+        "endLine": 394,
+        "endChar": 34
+      },
+      "revId": "ead989ef0a1a251c325f8d38dcaa80f76e21f8af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_10f4ec8d",
+        "filename": "runtime/base/hash_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-24T20:26:12Z",
+      "side": 1,
+      "message": "an -\u003e a",
+      "range": {
+        "startLine": 341,
+        "startChar": 67,
+        "endLine": 341,
+        "endChar": 69
+      },
+      "revId": "ead989ef0a1a251c325f8d38dcaa80f76e21f8af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_cca7e38a",
+        "filename": "runtime/base/hash_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-24T20:26:12Z",
+      "side": 1,
+      "message": "a note to caller should be in the method api, not inside its implementation",
+      "range": {
+        "startLine": 421,
+        "startChar": 25,
+        "endLine": 421,
+        "endChar": 26
+      },
+      "revId": "ead989ef0a1a251c325f8d38dcaa80f76e21f8af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_e94f3100",
+        "filename": "runtime/dex_instruction_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-24T20:26:12Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 2,
+        "startChar": 1,
+        "endLine": 2,
+        "endChar": 2
+      },
+      "revId": "ead989ef0a1a251c325f8d38dcaa80f76e21f8af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_6cdeaff9",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-24T20:26:12Z",
+      "side": 1,
+      "message": "period at end",
+      "range": {
+        "startLine": 69,
+        "startChar": 27,
+        "endLine": 69,
+        "endChar": 40
+      },
+      "revId": "ead989ef0a1a251c325f8d38dcaa80f76e21f8af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_f3aba2bf",
+        "filename": "runtime/lambda/leaking_allocator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-24T20:26:12Z",
+      "side": 1,
+      "message": "use (a) (b)",
+      "revId": "ead989ef0a1a251c325f8d38dcaa80f76e21f8af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4d7d85_6bcb35e2",
+        "filename": "test/955-lambda-smali/smali/BoxUnbox.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-24T20:26:12Z",
+      "side": 1,
+      "message": "why?",
+      "revId": "ead989ef0a1a251c325f8d38dcaa80f76e21f8af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
