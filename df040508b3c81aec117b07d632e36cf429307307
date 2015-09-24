@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "6e4d7d85_b9574764",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-24T22:14:43Z",
+      "side": 1,
+      "message": "I know the version above sucks. But I\u0027d suggest for small lengths, just be exhaustive. Assembling with even just 100 immediates should not be too expensive, hopefully. (Even though your code is randomized, it may not be testing really well, with the few entries being pushed.)\n\n(And we do have time, considering oatdump_test taking several minutes to dump images...)\n\nFor the larger bit lengths, I have no good idea. An actual prng (with a known seed) would at least make it reproduce-able.",
+      "parentUuid": "ee616dea_52b26a1e",
+      "range": {
+        "startLine": 432,
+        "startChar": 4,
+        "endLine": 433,
+        "endChar": 46
+      },
+      "revId": "df040508b3c81aec117b07d632e36cf429307307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e470569_698101c7",
         "filename": "compiler/utils/assembler_test.h",
         "patchSetId": 1
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "Do you have a format you\u0027d like to suggest?",
       "parentUuid": "2e470569_698101c7",
+      "range": {
+        "startLine": 448,
+        "startChar": 6,
+        "endLine": 450,
+        "endChar": 72
+      },
+      "revId": "df040508b3c81aec117b07d632e36cf429307307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_586f2d39",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-24T22:14:43Z",
+      "side": 1,
+      "message": "Nah, just leave it.",
+      "parentUuid": "8e52b121_6cd46f26",
       "range": {
         "startLine": 448,
         "startChar": 6,
