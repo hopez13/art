@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce074951_10a0a495",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-24T12:05:04Z",
+      "side": 1,
+      "message": "Maybe inline this in the caller? Since there\u0027s only one caller, and the methods are somehow small, maybe it makes sense to put the logic in one single place?",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 1
+      },
+      "revId": "83467a7feb5ec168a378ec236275c4aae43c7fb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
