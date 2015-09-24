@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eececd75_8158fa70",
+        "filename": "test/482-checker-loop-back-edge-use/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-24T11:16:13Z",
+      "side": 1,
+      "message": "There\u0027s one thing I was thinking about though. The user needs to make sure they matched the right lines before verifying the property. A better approach would be to not match a line (and keep searching) if a certain condition is met.\n\nHere that would mean matching ParameterValue and then finding a Goto which satisfies the liveness relation. Because right now if the condition is not met, the algorithm will not attempt to find different lines that would make it meet.\n\nBut yeah, even the current approach is much more expressive than before. :)",
+      "parentUuid": "2e470569_03da6ea8",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 48
+      },
+      "revId": "29c8680e0146caadaf30f441f68779cc2b963f62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e52b121_265a16e2",
         "filename": "test/482-checker-loop-back-edge-use/src/Main.java",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-24T00:29:15Z",
       "side": 1,
       "message": "Out of curiosity, why did you change this part?",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 61
+      },
+      "revId": "29c8680e0146caadaf30f441f68779cc2b963f62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ec3bd5a_955cc464",
+        "filename": "test/482-checker-loop-back-edge-use/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-24T11:16:13Z",
+      "side": 1,
+      "message": "It\u0027s the same reason as inserting invokes below - having some instructions before loop headers, so that a pre-headers are not created and back edges not split. That makes the block layout cleaner and easier to test. That said, I am a little worried what Jack will do with this. It\u0027s still not as clean as I\u0027d want it to be. Was thinking for a while that instructions should print their block number and control-flow instructions also their targets. That would make verifying block layout much easier.",
+      "parentUuid": "8e52b121_265a16e2",
       "range": {
         "startLine": 92,
         "startChar": 0,
