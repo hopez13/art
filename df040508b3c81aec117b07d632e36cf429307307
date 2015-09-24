@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "ee616dea_383915a1",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-09-24T22:22:43Z",
+      "side": 1,
+      "message": "I considered doing it exhaustively for a small number of bits, and then using log2(number of bit) samples, uniformly placed over the entire range, for large numbers of bits. Does this sound good to you? If so, where would you draw the line? I\u0027m thinking maybe use exhaustive testing for 8 bits or less, and evenly spaced for more bits.",
+      "parentUuid": "6e4d7d85_b9574764",
+      "range": {
+        "startLine": 432,
+        "startChar": 4,
+        "endLine": 433,
+        "endChar": 46
+      },
+      "revId": "df040508b3c81aec117b07d632e36cf429307307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e470569_698101c7",
         "filename": "compiler/utils/assembler_test.h",
         "patchSetId": 1
