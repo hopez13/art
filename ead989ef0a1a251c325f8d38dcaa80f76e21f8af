@@ -282,6 +282,30 @@
     },
     {
       "key": {
+        "uuid": "0e5fa128_b9506bf4",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-24T22:52:00Z",
+      "side": 1,
+      "message": "Basically, yes. If you don\u0027t need the length (the string should be zero-terminated), there\u0027s another shorter helper.",
+      "parentUuid": "ce582944_fc4ff1ff",
+      "range": {
+        "startLine": 312,
+        "startChar": 2,
+        "endLine": 312,
+        "endChar": 8
+      },
+      "revId": "ead989ef0a1a251c325f8d38dcaa80f76e21f8af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee86cdd4_47b1625d",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 1
