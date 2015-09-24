@@ -49,6 +49,24 @@
     },
     {
       "key": {
+        "uuid": "0e5fa128_93c8e636",
+        "filename": "test/482-checker-loop-back-edge-use/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-24T18:52:38Z",
+      "side": 1,
+      "message": "Yeah, the current solution is very effective (and better than the previous one) on a small test like this one. :-)\n\nIf you plan to do something even smarter for such cases, an option could be to let a CHECK statement possibly match several lines (and remember them), and later have CHECK-EVAL try to solve its condition by exploring the various lines associated to Checker variables (such as `GotoLiv` here).\n* If the set of lines matched by a CHECK were empty, that would be an error.\n* If the condition contained in a CHECK-EVAL could not be met for at least one combination of matched lines/variables, that would be an error too.",
+      "parentUuid": "eececd75_8158fa70",
+      "revId": "29c8680e0146caadaf30f441f68779cc2b963f62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e52b121_265a16e2",
         "filename": "test/482-checker-loop-back-edge-use/src/Main.java",
         "patchSetId": 2
@@ -84,6 +102,30 @@
       "side": 1,
       "message": "It\u0027s the same reason as inserting invokes below - having some instructions before loop headers, so that a pre-headers are not created and back edges not split. That makes the block layout cleaner and easier to test. That said, I am a little worried what Jack will do with this. It\u0027s still not as clean as I\u0027d want it to be. Was thinking for a while that instructions should print their block number and control-flow instructions also their targets. That would make verifying block layout much easier.",
       "parentUuid": "8e52b121_265a16e2",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 61
+      },
+      "revId": "29c8680e0146caadaf30f441f68779cc2b963f62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_57d93c5c",
+        "filename": "test/482-checker-loop-back-edge-use/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-24T18:52:38Z",
+      "side": 1,
+      "message": "Yes, printing more info seems a good idea, even if we do not use it yet.\n\n(Sorry for expanding Checker\u0027s TODO list!) :-)",
+      "parentUuid": "6ec3bd5a_955cc464",
       "range": {
         "startLine": 92,
         "startChar": 0,
