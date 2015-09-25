@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0eb5e1d9_ba4c510d",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-25T11:25:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce074951_904c940d",
+      "range": {
+        "startLine": 57,
+        "startChar": 27,
+        "endLine": 57,
+        "endChar": 82
+      },
+      "revId": "f43894bf82f67780791fca8c629c41aab0a4ecd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ec8f176_16dd1cd3",
         "filename": "compiler/optimizing/dead_code_elimination.cc",
         "patchSetId": 2
@@ -225,6 +249,30 @@
       "side": 1,
       "message": "+1. At least add comments. This looks pretty scary despite doing simple work. \nOr maybe a helper static function with the current loop body, and the same if/elseif/else structure as before that either calls it on `selected_successor` or all successors.",
       "parentUuid": "ceae6993_3bea03b1",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 56
+      },
+      "revId": "f43894bf82f67780791fca8c629c41aab0a4ecd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ec3bd5a_d5439c08",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-25T11:25:21Z",
+      "side": 1,
+      "message": "I don\u0027t want to have the same structure as before. It requires code duplication - the \"IF\" branch had to explicitly handle the non-const path when the default handling would have been perfectly OK.",
+      "parentUuid": "eeb7ade1_f90ed7f9",
       "range": {
         "startLine": 68,
         "startChar": 0,
