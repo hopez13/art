@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e470569_111aa7a7",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-25T21:46:10Z",
+      "side": 1,
+      "message": "FINAL?",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 36
+      },
+      "revId": "d3c65512da7c758e903e50256aa5435a9aa26eaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_16714a64",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-25T21:46:10Z",
+      "side": 1,
+      "message": "Just looked that up, how about cleaning up the \"int\" in barrier in another CL?",
+      "range": {
+        "startLine": 120,
+        "startChar": 46,
+        "endLine": 120,
+        "endChar": 47
+      },
+      "revId": "d3c65512da7c758e903e50256aa5435a9aa26eaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_01237d71",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-25T21:46:10Z",
+      "side": 1,
+      "message": "Unnecessary?",
+      "range": {
+        "startLine": 126,
+        "startChar": 2,
+        "endLine": 126,
+        "endChar": 9
+      },
+      "revId": "d3c65512da7c758e903e50256aa5435a9aa26eaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_168aaaa0",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-25T21:46:10Z",
+      "side": 1,
+      "message": "Unnecessary?",
+      "range": {
+        "startLine": 128,
+        "startChar": 2,
+        "endLine": 128,
+        "endChar": 9
+      },
+      "revId": "d3c65512da7c758e903e50256aa5435a9aa26eaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
