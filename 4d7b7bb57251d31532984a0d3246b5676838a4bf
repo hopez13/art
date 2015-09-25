@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee86cdd4_1b79738d",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-25T18:22:57Z",
+      "side": 1,
+      "message": "perhaps also a negative test case (i.e. one where the optimization cannot kick in)?",
+      "range": {
+        "startLine": 170,
+        "startChar": 28,
+        "endLine": 170,
+        "endChar": 29
+      },
+      "revId": "4d7b7bb57251d31532984a0d3246b5676838a4bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_716567a6",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-25T18:22:57Z",
+      "side": 1,
+      "message": "don\u0027t you want to verify the new methods here?",
+      "range": {
+        "startLine": 1197,
+        "startChar": 35,
+        "endLine": 1197,
+        "endChar": 37
+      },
+      "revId": "4d7b7bb57251d31532984a0d3246b5676838a4bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
