@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ee616dea_7e79b559",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2433,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-09-25T17:14:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae5bf53d_7c6add2a",
+      "range": {
+        "startLine": 2432,
+        "startChar": 0,
+        "endLine": 2433,
+        "endChar": 68
+      },
+      "revId": "b2adb1736a1b6f8d7fb0f352732570283aa09b96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e90b27d5_b954bfc9",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 2
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "8e52b121_c616a281",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-09-25T17:14:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9b08755_2550869f",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 30
+      },
+      "revId": "b2adb1736a1b6f8d7fb0f352732570283aa09b96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee616dea_c349eafb",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 2
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "ae5bf53d_53a5c7a4",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-09-25T17:14:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee616dea_c349eafb",
+      "range": {
+        "startLine": 52,
+        "startChar": 11,
+        "endLine": 52,
+        "endChar": 15
+      },
+      "revId": "b2adb1736a1b6f8d7fb0f352732570283aa09b96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae5bf53d_30bc89ef",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 2
@@ -106,6 +178,30 @@
       "writtenOn": "2015-09-25T00:19:18Z",
       "side": 1,
       "message": "Replace with\n\n  FpuRegister input \u003d locations-\u003eInAt(0).AsFpuRegister\u003cFpuRegister\u003e();\n  GpuRegister output \u003d locations-\u003eOut().AsRegister\u003cGpuRegister\u003e();\n\n(here and below).",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 37
+      },
+      "revId": "b2adb1736a1b6f8d7fb0f352732570283aa09b96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_7e6ad12a",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-09-25T17:14:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae5bf53d_30bc89ef",
       "range": {
         "startLine": 63,
         "startChar": 0,
@@ -201,6 +297,30 @@
       "side": 1,
       "message": "We still rely quite a bit on transitive includes, but trying to go to include-what-you-use. It means that the dependencies are more explicit and visible, so you know what you\u0027re pulling in (or depending on) when you include a header / .cc file.\n\nFor example, the transitive chain you mention makes it harder to reason about separated backends...",
       "parentUuid": "69ee5738_5d40fbfb",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 17
+      },
+      "revId": "b2adb1736a1b6f8d7fb0f352732570283aa09b96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4d7d85_45350a0c",
+        "filename": "compiler/optimizing/intrinsics_mips64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-09-25T17:14:48Z",
+      "side": 1,
+      "message": "Agreed. Forward reference added.",
+      "parentUuid": "4916f301_88688701",
       "range": {
         "startLine": 70,
         "startChar": 2,
