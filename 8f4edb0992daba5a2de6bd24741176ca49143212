@@ -1,0 +1,2629 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e52b121_aca5c7eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Perhaps \"Add initial default method support to Art\" to be consistent with line 9?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_d14c160e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Consider adding \"with invoke-static\" (just to be consistent with your explanation of line 12 and 20) ?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_b64996fc",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Add a test for both lambdas and default-methods?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_7ee539df",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Don\u0027t need these static casts, redundant.",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_39e7dba8",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "I think this is allowing for invoke-virtual on an interface, but perhaps leave a comment?\n\nAlso why doesn\u0027t this have an experimental defaults guard? If it\u0027s because IsDefault is always false then leave a comment too.",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_b7cab285",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Let\u0027s just add a comment saying that this is synthesized by another part of the runtime (the class linker? the verifier?)\n\n(to prevent cases of someone calling this before its set? is that possible?)",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_3cefc5c1",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Not sure if this is performant, it has to construct the value of PrettyMethod regardless of whether or not DCHECKs are enabled, then it throws the value away.\n\nThe problem is it might be pretty hard to optimize it out. Have you checked assembly output to see if \"PrettyMethod\" call is there for release build?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_1cf4018e",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Comments?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_9c291150",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4614,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "What is the int?\n\n(I for one would prefer a using int alias in the header so we don\u0027t need to leave a comment every time, not sure if anyone else will agree. But it needs a comment at least)",
+      "range": {
+        "startLine": 4614,
+        "startChar": 11,
+        "endLine": 4614,
+        "endChar": 18
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_8381b2c9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4617,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "style nit: /*out*/\u0026default_translations",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_93290650",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4618,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "use const T\u0026 here instead?",
+      "range": {
+        "startLine": 4618,
+        "startChar": 47,
+        "endLine": 4618,
+        "endChar": 78
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_9ff7c34f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4746,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Maybe misunderstanding here, why is this getting executed as part of LinkVirtualMethods instead of as part of SetupInterfaceLookupTable ?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_73b20a68",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4749,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "zu",
+      "range": {
+        "startLine": 4749,
+        "startChar": 74,
+        "endLine": 4749,
+        "endChar": 76
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4d7d85_1f0e3b77",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4757,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Comment what this loop is doing?\n\n\nI would guess giving each interface method an IMT index (and caching the default flag), but maybe not? Maybe more?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_1890910d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4761,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Perhaps this could probably be refactored further\n\n   LinkVirtualMethodsForInterface\n   LinkVirtualMethodsForClass\n\n?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_5cb71956",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4777,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Why? (Also please add comment)",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_c4fc52a7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4784,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Why? (Also please add comment)",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_bf2cbf5f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4805,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Magic numbers ? \n\nWhy? (Also please add comment)",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_5f5b9bf6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4853,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "style nit: add /*out*/s, one arg per line",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_733c4a5b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4871,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "I think I recall something about this being a phasing problem, can you elaborate some more in comments?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_4334dabf",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4877,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "add a CHECK?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_2458ce6e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4883,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "-",
+      "range": {
+        "startLine": 4883,
+        "startChar": 18,
+        "endLine": 4883,
+        "endChar": 19
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_e3a2ae12",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4936,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Does this function have any side effects? const it?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_f575c0c2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4937,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "The name could probably be better, something like \u0027target_method\u0027, \u0027search_method\u0027, etc.\n\ninterface_method too vague and its easy to get lost a few loops into this function",
+      "range": {
+        "startLine": 4937,
+        "startChar": 61,
+        "endLine": 4937,
+        "endChar": 77
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_9f9c63d1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4939,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "style nit: /*out*/",
+      "range": {
+        "startLine": 4939,
+        "startChar": 49,
+        "endLine": 4939,
+        "endChar": 50
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_c4021216",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4940,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "style nit: /*out*/",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_435a9ae2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4941,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "DCHECK not null on the out args",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_23b1e65e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4945,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "add somewhere that the order of unrelated interfaces doesn\u0027t matter (unless it does , in which case add that it uses implements order)\n\nIIRC implements order does matter for some things, but not sure if its relevant in this particular function.",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_24620ed6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4949,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Nicolas nit: prefer more explicit names, iftable_count (maybe even interface_table_count)",
+      "range": {
+        "startLine": 4949,
+        "startChar": 9,
+        "endLine": 4949,
+        "endChar": 16
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_fe5c8164",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4952,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Ditto as the function name, how about renaming this to e.g. \u0027target_name_comparator\u0027 or just a \u0027target_method_comparator\u0027, etc.",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_7e2651fe",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4953,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "DCHECK for correct iftable order somewhere?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_4cce4e99",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4954,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "size_t and then do a \"if k \u003d\u003d 0 break\" at the end\n\n(size_t is 64bit on 64bit so this truncates)\n.....\n\nalso add something like..\n\n\n   // Iterate over the klass\u0027s iftable in reverse",
+      "range": {
+        "startLine": 4954,
+        "startChar": 7,
+        "endLine": 4954,
+        "endChar": 14
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_43361a7a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4956,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Why not num_virtual_methods or just num_instance_methods ?",
+      "range": {
+        "startLine": 4956,
+        "startChar": 11,
+        "endLine": 4956,
+        "endChar": 28
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4d7d85_ff46bf43",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4957,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "add a // Iterate through every instance method on the interface [in some order?]",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_8c832640",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4959,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "you can reduce # of indents by flipping this\n\nalso add comments either way\n\n  // Skip abstract methods because they can\u0027t be default.\n  // Skip non-abstract methods with non-matching signatures.\n  if (current_method-\u003eIsAbstract || ...)\n    continue",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_b732b286",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4962,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Why is this CHECK safe? Does it verify first?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_9e3a2df7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4964,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "perhaps chosen_iface , to reduce the number of *s",
+      "range": {
+        "startLine": 4964,
+        "startChar": 21,
+        "endLine": 4964,
+        "endChar": 40
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_f51f0066",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4989,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "I for one would\u0027ve preferred these \"new\" functions go below the older methods, this would\u0027ve made the diff easier to read (high level to low level).\n\nDoesn\u0027t really matter too much now (in fact, don\u0027t change it since it\u0027ll make successive reviews of this CL more difficult), but just something to keep in mind for the future.",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_70ea01b2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4990,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Should mention the conflicts up here too.\n\nWhat is a conflict anyway? Can you please elaborate (in comments)?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_300ec977",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4995,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "style nit: /*out*/",
+      "range": {
+        "startLine": 4995,
+        "startChar": 0,
+        "endLine": 4995,
+        "endChar": 22
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_f7da6a86",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5016,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "DCHECK(val !\u003d nullptr)",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_f594e003",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5031,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "(be sure to add this notation \u003c: means subtype)",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_fa7b7185",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5039,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "add a \"Upon entry, ..\" or similar so that it\u0027s clear this is the precondition not the postcondition.",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_8f9b1867",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5047,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Based on comments in 5054 should this perhaps be called current_iface_list (set) ?",
+      "range": {
+        "startLine": 5047,
+        "startChar": 37,
+        "endLine": 5047,
+        "endChar": 41
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_3e6219df",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5050,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "is it possible to DCHECK they were initialized already?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_3e5d7911",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5052,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "naming nit: too hard to follow what idx is, perhaps filled_ifcount or similar.",
+      "range": {
+        "startLine": 5052,
+        "startChar": 9,
+        "endLine": 5052,
+        "endChar": 12
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_82ad2ec3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5053,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "style nit: _iter, _it, _iteterator, etc implies the variable name is an iterator (e.g. std::vector\u003cT\u003e::iterator or similar) so it\u0027s best not to use that naming convention for the name of the element. instead consider something simply like \"current_interface\" or really anything else without _it.",
+      "range": {
+        "startLine": 5053,
+        "startChar": 12,
+        "endLine": 5053,
+        "endChar": 26
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_2f2f84c0",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5053,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "nit: mirror::Class* instead of auto here",
+      "range": {
+        "startLine": 5053,
+        "startChar": 7,
+        "endLine": 5053,
+        "endChar": 11
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_22bc42ef",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5055,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "missing period? Also consider newlines for readability.",
+      "range": {
+        "startLine": 5055,
+        "startChar": 32,
+        "endLine": 5055,
+        "endChar": 33
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_be75e991",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5058,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "unnecessary, interface_iter is already a pointer",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_af3a54f6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5078,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "see performance note about DCHECK / PrettyClass made earlier in this file",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_fe46c143",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5084,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "else DCHECK that all of the super interfaces must already be in the current-iface-list ?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_17c61e36",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5103,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Can you explain somewhere why you split off this part of LinkInterfaceMethods into (2) parts and did it *before* linking virtuals?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_1ac64d36",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5134,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "What does that mean?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_c3fb2ae4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5150,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "nit: period at end of comment",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_faaa5154",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5156,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "nit: period at end of comment",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_b03ab9f6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5174,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Can you explain why this was refactored? (And add a comment)?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_23c0c687",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5251,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Add comment for the skip?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_f5d140e2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5272,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "A bit hard to follow logic (I know this line is not your code), could you please add a comment explaining what this variable is for?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_170dfeb1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5321,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Please no auto**, write full type out when it\u0027s not obvious without needing to scroll up/down\n\n(also calling a pointer a ref is misleading, use \u0026 with refs, or * with ptrs)",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_77b1da38",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5351,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Where is the \"next step\" ? Please adjust comment.",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_30f4898e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5367,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "What does it mean for an interface to be new (please elaborate in comments)?\n\nPresumably it means it\u0027s the immediate implements child (i.e. it wasn\u0027t implemented by any of the superclasses)?",
+      "range": {
+        "startLine": 5367,
+        "startChar": 77,
+        "endLine": 5367,
+        "endChar": 97
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_7a81c1c6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5379,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "style nit: add /*out*/",
+      "range": {
+        "startLine": 5378,
+        "startChar": 47,
+        "endLine": 5379,
+        "endChar": 62
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_37924291",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5385,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "style nit: else if to save 1 line?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_5a8605e1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5387,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "nit: add period to end of comment",
+      "range": {
+        "startLine": 5387,
+        "startChar": 65,
+        "endLine": 5387,
+        "endChar": 71
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_84609a98",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5399,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "nit: add period",
+      "range": {
+        "startLine": 5399,
+        "startChar": 55,
+        "endLine": 5399,
+        "endChar": 65
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_ba9e1920",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5460,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "nit: indent 4 more spaces to the right",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_64d00689",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5467,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "can\u0027t be default? must not be default?",
+      "range": {
+        "startLine": 5467,
+        "startChar": 57,
+        "endLine": 5467,
+        "endChar": 59
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_a354b65f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5471,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "I remember hearing something offline about these copies being necessary to avoid leaving vtable holes in classes that \u0027inherit\u0027 a default method.\n\nCan you please leave a comment here with more details?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_5a6de5ce",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5474,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "style nit: var name \u003d *out, move_table.emplace(def_method, \u0026name);",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_7e81b1c6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5505,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "What is this doing? (Add a comment please?)",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_df730b24",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5518,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Must",
+      "range": {
+        "startLine": 5518,
+        "startChar": 81,
+        "endLine": 5518,
+        "endChar": 87
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4d7d85_7f152fd1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5549,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Why is this doing the check? (Add a comment please?)",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_83d41227",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Almost always unordered_map (or even a HashMap) for speed",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_63d91e5d",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Comment?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_7fb777bf",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "What are these ints?",
+      "range": {
+        "startLine": 724,
+        "startChar": 35,
+        "endLine": 724,
+        "endChar": 42
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_3c06a527",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Comment?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_cffeb5d6",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Otherwise if?",
+      "range": {
+        "startLine": 734,
+        "startChar": 47,
+        "endLine": 734,
+        "endChar": 49
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_f7beea36",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Does this have any side effects ? Can you const it?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_2f08a9a1",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 741,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "add /*out*/",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_23d3263d",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "add /*out*/",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_999c87d1",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Comment?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_5804cd56",
+        "filename": "runtime/experimental.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "File name should match type name whenever possible, experimental.h -\u003e experimental_flags.h",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_bd2ccf5f",
+        "filename": "runtime/experimental.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Comments?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_fd49272d",
+        "filename": "runtime/experimental.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "style nit: don\u0027t rely on integer automatic conversion to bool (see \"Coding Like Its Java\")\n\n  return value_ !\u003d kNone;",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_63047e57",
+        "filename": "runtime/experimental.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "if (started \u003d false) kNone",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_f201567c",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem right. I think you want to load/link/verify/etc the interface class but *not* initialize it (if I\u0027m understanding the old code here correctly?).\n\nI think you had an upcoming CL that fixes the initialization order, so you might just want to leave a comment here saying \"this is wrong but I\u0027m fixing it in the next CL\"\n\nand add a DCHECK/CHECK/etc if possible to catch the incorrect behavior.",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_ef73b16c",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Add a comment to this DCHECK for clarity?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_bce4d94e",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Why this change? Please leave a comment",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_19dd37f8",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Let\u0027s include the longer disclaimer from below too.\n\n(For example):\n\n\"All existing invoke opcodes have an unstable updated specification and are nearly guaranteed to change over time. Do not attempt to write shipping code against the invoke opcodes.\"",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_1f58736e",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Probably don\u0027t need both of these methods?\n\n\n  bool AreExperimentalFlagsEnabled(ExperimentalFlags flags) [\n    return experimental_flags_ \u0026 flags !\u003d kNone;\n  }",
+      "range": {
+        "startLine": 535,
+        "startChar": 0,
+        "endLine": 541,
+        "endChar": 3
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_7cd41d26",
+        "filename": "runtime/runtime_options.def",
+        "patchSetId": 17
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Having \"none\" as an explicit option doesn\u0027t make sense (because it wouldn\u0027t change the result of the flags if it was on the command line, i.e. x or 0 \u003d x), it can just be \u0027-Xexperimental:\u0027 if they don\u0027t want any options.",
+      "range": {
+        "startLine": 117,
+        "startChar": 105,
+        "endLine": 117,
+        "endChar": 109
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_d38bfe12",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Unnecessary change?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_ea8cfbbe",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "update comment",
+      "range": {
+        "startLine": 633,
+        "startChar": 44,
+        "endLine": 633,
+        "endChar": 56
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_328dae6b",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "I believe Andreas wrote a dex file test that munges around with the flags to check invalid combinations, perhaps we can update it to remove kAccAbstract from the list of \"invalid\" flags for interfaces (when this setting is enabled)?\n\n+agampe@ for more thoughts",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_5c883d5b",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Not sure if this is right, the constraint might be too big.\n\nCan an interface class have methods that aren\u0027t public (accessibility level)? Final methods? Synthetic methods (this one probably yes)?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_b8fcdda5",
+        "filename": "test/960-default-smali/build",
+        "patchSetId": 17
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Pretty complicated, some comments please?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_1c90810d",
+        "filename": "test/960-default-smali/build",
+        "patchSetId": 17
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "all of these exit 1s are redundant, just use \"set -e\" to do the same thing",
+      "range": {
+        "startLine": 17,
+        "startChar": 39,
+        "endLine": 17,
+        "endChar": 46
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_b9498bfc",
+        "filename": "test/960-default-smali/build",
+        "patchSetId": 17
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Kind of a round about way of doing things\n\n  if [[ $@ \u003d\u003d *\"--jvm\"*; ]] \n\nwhich is not strictly right (it\u0027ll catch things like --jvmfoo) but its still better.",
+      "range": {
+        "startLine": 19,
+        "startChar": 8,
+        "endLine": 19,
+        "endChar": 10
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4d7d85_f48ca6be",
+        "filename": "test/960-default-smali/build",
+        "patchSetId": 17
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "why not mkdir -p ?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_2af1830f",
+        "filename": "test/960-default-smali/build",
+        "patchSetId": 17
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "why not mkdir -p ?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_78ff85a0",
+        "filename": "test/960-default-smali/build",
+        "patchSetId": 17
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "use \"$(...)\" instead or it wont support file names with spaces",
+      "range": {
+        "startLine": 23,
+        "startChar": 61,
+        "endLine": 23,
+        "endChar": 62
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_53582e21",
+        "filename": "test/960-default-smali/build",
+        "patchSetId": 17
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Can you refactor this out to something like EXPERIMENTAL_API_LEVEL\u003d23 and fix the other scripts not to use the magical 23 either?",
+      "range": {
+        "startLine": 26,
+        "startChar": 46,
+        "endLine": 26,
+        "endChar": 48
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_572b76c4",
+        "filename": "test/960-default-smali/build",
+        "patchSetId": 17
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "use \"$(...)\" instead or it wont support file names with spaces",
+      "range": {
+        "startLine": 26,
+        "startChar": 70,
+        "endLine": 26,
+        "endChar": 72
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_d9d79f5c",
+        "filename": "test/960-default-smali/build",
+        "patchSetId": 17
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "\"$TEST_NAME.jar\"",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 18
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_9710ce83",
+        "filename": "test/960-default-smali/expected.txt",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Is this auto generated?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4d7d85_9f46abe8",
+        "filename": "test/960-default-smali/info.txt",
+        "patchSetId": 17
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Java 8 Language",
+      "range": {
+        "startLine": 3,
+        "startChar": 38,
+        "endLine": 3,
+        "endChar": 44
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_d8167981",
+        "filename": "test/960-default-smali/run",
+        "patchSetId": 17
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Same as in build",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_9e4d8d60",
+        "filename": "test/960-default-smali/smali/classes.xml",
+        "patchSetId": 17
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "How about a corresponding XSD file for the win?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_a2f952b5",
+        "filename": "test/960-default-smali/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_1abc01ef",
+        "filename": "test/960-default-smali/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "google3 style guide kindly requests docstrings for any public (not prefixed with _) functions and classes\n-- only saying this once, but obviously every function should get some docstrings added.\n\nalso style: functions are lower_with_under",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4d7d85_bfe4c74e",
+        "filename": "test/960-default-smali/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Why 4?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_c213268f",
+        "filename": "test/960-default-smali/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "redundant newline",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_ef8bac12",
+        "filename": "test/960-default-smali/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "missing new line",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_f52dc075",
+        "filename": "test/960-default-smali/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "redundant newline",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_8249aeaa",
+        "filename": "test/960-default-smali/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "missing newline",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4d7d85_1f0d1bb2",
+        "filename": "test/960-default-smali/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "redundant newline",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_deed4585",
+        "filename": "test/960-default-smali/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_44f1820e",
+        "filename": "test/960-default-smali/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "style: functions are lower_with_under (same below)",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_900455e1",
+        "filename": "test/960-default-smali/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "while c?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_300369d7",
+        "filename": "test/960-default-smali/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "yield from?",
+      "range": {
+        "startLine": 260,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 16
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_a2639224",
+        "filename": "test/960-default-smali/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "nit: modern python prefers list comprehensions over the using the functional functions",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_1018653d",
+        "filename": "test/960-default-smali/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_3e2a1db0",
+        "filename": "test/960-default-smali/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_de40a170",
+        "filename": "test/961-default-iface-resolution-generated/build",
+        "patchSetId": 17
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Why?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_9509d4f9",
+        "filename": "test/961-default-iface-resolution-generated/build",
+        "patchSetId": 17
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Same as before",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_7a0421e0",
+        "filename": "test/961-default-iface-resolution-generated/expected.txt",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "It might be good if this was generated by run-test on the fly instead of checking this in. It also makes this CL looks unnecessarily scarily large.\n\nWhat does everyone else think?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_f517000d",
+        "filename": "test/961-default-iface-resolution-generated/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Seems similar-ish to the other script, can it be refactored?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_1515c404",
+        "filename": "test/961-default-iface-resolution-generated/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "see style nits from previous file",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_b04079fd",
+        "filename": "test/961-default-iface-resolution-generated/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "docstrings over regular comments",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_d043ed08",
+        "filename": "test/961-default-iface-resolution-generated/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "google style guide prefers not to  make such complicated functional maps",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_d759a672",
+        "filename": "test/962-iface-static/build",
+        "patchSetId": 17
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "This looks pretty similar to the other file, can we refactor?\n\nIn fact, why not just add --jvm functionality to every single test?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_53e26e98",
+        "filename": "test/962-iface-static/run",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Same as in build",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_533f0e9f",
+        "filename": "test/963-default-range-smali/build",
+        "patchSetId": 17
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "This looks pretty similar to the other file, can we refactor?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_33e7f2a8",
+        "filename": "test/963-default-range-smali/run",
+        "patchSetId": 17
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Same as in build",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_78b1cd38",
+        "filename": "test/run-test",
+        "patchSetId": 17
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "This is default already, why does it need to be repeated from line 43/44 ?",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 33
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_bf983f65",
+        "filename": "tools/extract_embedded_java.sh",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "bash filenames don\u0027t need \u0027.sh\u0027 extension which implies sh[ell] scripts, not bash scripts\n\n\nalso consider \"extract-embedded-java\" to be consistent with our other scripts (run-test, etc)",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_fde7e71a",
+        "filename": "tools/extract_embedded_java.sh",
+        "patchSetId": 17
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Perhaps have a small description of what this actually does?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_98cb61aa",
+        "filename": "tools/extract_embedded_java.sh",
+        "patchSetId": 17
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "This is pretty magical, can this be simplified?",
+      "range": {
+        "startLine": 22,
+        "startChar": 46,
+        "endLine": 22,
+        "endChar": 88
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4d7d85_1462a2d5",
+        "filename": "tools/extract_embedded_java.sh",
+        "patchSetId": 17
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Isn\u0027t this introducing a data race? What\u0027s to prevent the output from happening concurrently?",
+      "range": {
+        "startLine": 23,
+        "startChar": 65,
+        "endLine": 23,
+        "endChar": 67
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_730c4a49",
+        "filename": "tools/extract_embedded_java.sh",
+        "patchSetId": 17
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-25T01:10:43Z",
+      "side": 1,
+      "message": "Can you include some comments with sample strings that get matched, and also what happens before/after the sed?",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
