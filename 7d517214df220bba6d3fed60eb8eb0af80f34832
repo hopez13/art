@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0eb5e1d9_faf889e9",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-25T11:18:50Z",
+      "side": 1,
+      "message": "Done. (Though the back-tick is not in the C++ \"basic source character set\", I will accommodate it in comments.)",
+      "parentUuid": "0eb5e1d9_5a0895a2",
+      "range": {
+        "startLine": 1155,
+        "startChar": 41,
+        "endLine": 1155,
+        "endChar": 43
+      },
+      "revId": "7d517214df220bba6d3fed60eb8eb0af80f34832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ec8f176_968cccbe",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-25T10:59:33Z",
       "side": 1,
       "message": "I\u0027d drop the \u0027now\u0027.",
+      "range": {
+        "startLine": 1156,
+        "startChar": 55,
+        "endLine": 1156,
+        "endChar": 58
+      },
+      "revId": "7d517214df220bba6d3fed60eb8eb0af80f34832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceae6993_9b7b0f87",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-25T11:18:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ec8f176_968cccbe",
       "range": {
         "startLine": 1156,
         "startChar": 55,
