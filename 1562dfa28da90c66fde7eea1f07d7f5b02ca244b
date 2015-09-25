@@ -22,6 +22,53 @@
       "revId": "1562dfa28da90c66fde7eea1f07d7f5b02ca244b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4d7d85_7f0c0f49",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-25T00:01:35Z",
+      "side": 1,
+      "message": "+1 for extending the enum in runtime/arch/mips64/registers_mips64.h.",
+      "parentUuid": "2911bf09_19bfabe4",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 37
+      },
+      "revId": "1562dfa28da90c66fde7eea1f07d7f5b02ca244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_c3968ac8",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-25T00:01:35Z",
+      "side": 1,
+      "message": "kMips64PointerSize",
+      "range": {
+        "startLine": 740,
+        "startChar": 39,
+        "endLine": 740,
+        "endChar": 40
+      },
+      "revId": "1562dfa28da90c66fde7eea1f07d7f5b02ca244b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
