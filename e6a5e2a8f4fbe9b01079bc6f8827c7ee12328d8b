@@ -634,6 +634,30 @@
     },
     {
       "key": {
+        "uuid": "0e5fa128_c46d728c",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1022,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-25T00:48:48Z",
+      "side": 1,
+      "message": "Right, I missed it; sorry.",
+      "parentUuid": "8952ab21_467072a7",
+      "range": {
+        "startLine": 1022,
+        "startChar": 61,
+        "endLine": 1022,
+        "endChar": 66
+      },
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64e03d3d_4b35cddd",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -1015,6 +1039,24 @@
       "side": 1,
       "message": "The MIPS SLLV instruction takes the bit-shift amount is specified by the low-order 5b of GPR rs. This should match the behavior of the shl-int dex instruction. Same is true for all related shift instructions (SRLV etc.).",
       "parentUuid": "e48fcdab_fee8012b",
+      "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_977d6ef2",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1431,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-25T00:48:48Z",
+      "side": 1,
+      "message": "Alright.",
+      "parentUuid": "694d7785_05d71284",
       "revId": "e6a5e2a8f4fbe9b01079bc6f8827c7ee12328d8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
