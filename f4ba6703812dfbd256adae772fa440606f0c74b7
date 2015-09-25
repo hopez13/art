@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e5fa128_d16f73f2",
+        "filename": "test/141-class-unload/jni_unload.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-25T17:42:35Z",
+      "side": 1,
+      "message": "2015",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "f4ba6703812dfbd256adae772fa440606f0c74b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_4bd87608",
+        "filename": "test/141-class-unload/jni_unload.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-25T17:42:35Z",
+      "side": 1,
+      "message": "Should we also add JNI_OnLoad?",
+      "range": {
+        "startLine": 23,
+        "startChar": 26,
+        "endLine": 23,
+        "endChar": 38
+      },
+      "revId": "f4ba6703812dfbd256adae772fa440606f0c74b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_f573826c",
+        "filename": "test/141-class-unload/src-ex/IntHolder.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-25T17:42:35Z",
+      "side": 1,
+      "message": "indentation is off.",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 6
+      },
+      "revId": "f4ba6703812dfbd256adae772fa440606f0c74b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
