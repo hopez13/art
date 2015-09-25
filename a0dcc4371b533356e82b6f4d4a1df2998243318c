@@ -22,6 +22,30 @@
       "revId": "a0dcc4371b533356e82b6f4d4a1df2998243318c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eececd75_21b2ce66",
+        "filename": "runtime/jvalue.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-25T12:06:00Z",
+      "side": 1,
+      "message": "Note that storing one field of a union and reading another one is undefined behavior. it would be preferable to always read only the field we have stored (no casts required).",
+      "parentUuid": "ceae6993_5b5df70f",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 5
+      },
+      "revId": "a0dcc4371b533356e82b6f4d4a1df2998243318c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
