@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e470569_ef160c81",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-25T00:48:48Z",
+      "side": 1,
+      "message": "To be sorted.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 31
+      },
+      "revId": "0f72aade765b073cbe152b1872644e8526e12d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_579db6a0",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-25T00:48:48Z",
+      "side": 1,
+      "message": "Nit: double_slot (here and elsewhere).",
+      "range": {
+        "startLine": 618,
+        "startChar": 60,
+        "endLine": 618,
+        "endChar": 71
+      },
+      "revId": "0f72aade765b073cbe152b1872644e8526e12d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_708681e1",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1445,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-25T00:48:48Z",
+      "side": 1,
+      "message": "Extra space.",
+      "range": {
+        "startLine": 1445,
+        "startChar": 22,
+        "endLine": 1445,
+        "endChar": 23
+      },
+      "revId": "0f72aade765b073cbe152b1872644e8526e12d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_9a723da6",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2462,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-25T00:48:48Z",
+      "side": 1,
+      "message": "I would add parentheses only around the operands of `||`.",
+      "range": {
+        "startLine": 2462,
+        "startChar": 17,
+        "endLine": 2462,
+        "endChar": 99
+      },
+      "revId": "0f72aade765b073cbe152b1872644e8526e12d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
