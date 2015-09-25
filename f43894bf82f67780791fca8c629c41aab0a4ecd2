@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ec8f176_d6272491",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-25T09:05:09Z",
+      "side": 1,
+      "message": "Nit: new line after that.",
+      "range": {
+        "startLine": 30,
+        "startChar": 41,
+        "endLine": 30,
+        "endChar": 45
+      },
+      "revId": "f43894bf82f67780791fca8c629c41aab0a4ecd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e9a4178_126a8c29",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-25T09:05:09Z",
+      "side": 1,
+      "message": "live_successor?",
+      "range": {
+        "startLine": 37,
+        "startChar": 17,
+        "endLine": 37,
+        "endChar": 35
+      },
+      "revId": "f43894bf82f67780791fca8c629c41aab0a4ecd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ec8f176_16dd1cd3",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-25T09:05:09Z",
+      "side": 1,
+      "message": "Please add comments around this. What\u0027s odd is that the previous code was not breaking the loop line 51.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 9
+      },
+      "revId": "f43894bf82f67780791fca8c629c41aab0a4ecd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e9a4178_326f903a",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-25T09:05:09Z",
+      "side": 1,
+      "message": "Wouldn\u0027t that make more sense to do line 36 (just like before, at the entry of the marking of a block). Then I think you wouldn\u0027t need that selected_successor logic and could just push_back in the work list.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 56
+      },
+      "revId": "f43894bf82f67780791fca8c629c41aab0a4ecd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
