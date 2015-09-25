@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "ae5bf53d_7c6add2a",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2433,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-25T00:19:18Z",
+      "side": 1,
+      "message": "Nit: put on a single line.",
+      "range": {
+        "startLine": 2432,
+        "startChar": 0,
+        "endLine": 2433,
+        "endChar": 68
+      },
+      "revId": "b2adb1736a1b6f8d7fb0f352732570283aa09b96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e90b27d5_b954bfc9",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 2
@@ -42,6 +65,52 @@
         "startChar": 0,
         "endLine": 28,
         "endChar": 30
+      },
+      "revId": "b2adb1736a1b6f8d7fb0f352732570283aa09b96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_c349eafb",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-25T00:19:18Z",
+      "side": 1,
+      "message": "I\u0027d replace this with `assembler` (and adjust other uses below).\n\n`masm` is used in ARM64, because of VIXL\u0027s MacroAssembler, but does not really make sense here.",
+      "range": {
+        "startLine": 52,
+        "startChar": 11,
+        "endLine": 52,
+        "endChar": 15
+      },
+      "revId": "b2adb1736a1b6f8d7fb0f352732570283aa09b96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_30bc89ef",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-25T00:19:18Z",
+      "side": 1,
+      "message": "Replace with\n\n  FpuRegister input \u003d locations-\u003eInAt(0).AsFpuRegister\u003cFpuRegister\u003e();\n  GpuRegister output \u003d locations-\u003eOut().AsRegister\u003cGpuRegister\u003e();\n\n(here and below).",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 37
       },
       "revId": "b2adb1736a1b6f8d7fb0f352732570283aa09b96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
