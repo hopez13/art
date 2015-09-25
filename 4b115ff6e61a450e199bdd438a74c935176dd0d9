@@ -22,6 +22,29 @@
       "revId": "4b115ff6e61a450e199bdd438a74c935176dd0d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_5606d527",
+        "filename": "test/141-class-unload/jni_unload.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-25T20:06:54Z",
+      "side": 1,
+      "message": "Why isn\u0027t this static?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 6
+      },
+      "revId": "4b115ff6e61a450e199bdd438a74c935176dd0d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
