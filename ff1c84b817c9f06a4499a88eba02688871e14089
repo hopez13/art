@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e4d7d85_ceb472b6",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-25T16:14:39Z",
+      "side": 1,
+      "message": "I had to look twice to see why this is a signed shift here, but then I realize the conditions \u003e\u003d followed by \u003d\u003d makes it so. Still, if you have to stare at code like that, a few more comments on your flow always help, especially if you want to make changes later.",
+      "range": {
+        "startLine": 529,
+        "startChar": 15,
+        "endLine": 529,
+        "endChar": 26
+      },
+      "revId": "ff1c84b817c9f06a4499a88eba02688871e14089",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
