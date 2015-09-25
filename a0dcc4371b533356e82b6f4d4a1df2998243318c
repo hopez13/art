@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ceae6993_5b5df70f",
+        "filename": "runtime/jvalue.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-25T11:58:50Z",
+      "side": 1,
+      "message": "The fact that other architectures don\u0027t use the high word is no excuse to leave it incorrect. If we actually want to support storing jbyte and reading jlong, we MUST store the \"j\".\n\nAlso, the static_cast\u003c\u003e SHALL sign-extend, so why are we doing the shifts? To slow down -O0?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 5
+      },
+      "revId": "a0dcc4371b533356e82b6f4d4a1df2998243318c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
