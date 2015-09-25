@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eececd75_e12c6661",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-25T09:46:32Z",
+      "side": 1,
+      "message": "request for comments please :) Just saying that this will put the interval at the start of the active list is good enough.",
+      "range": {
+        "startLine": 626,
+        "startChar": 0,
+        "endLine": 626,
+        "endChar": 40
+      },
+      "revId": "0cf1e6721e62ae1a53504367e823fd62852ea101",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ec3bd5a_d5fabc38",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-25T09:46:32Z",
+      "side": 1,
+      "message": "ditto: say that the last elements have now been moved the handled or inactive (And a DCHECK might be useful).",
+      "range": {
+        "startLine": 629,
+        "startChar": 11,
+        "endLine": 629,
+        "endChar": 12
+      },
+      "revId": "0cf1e6721e62ae1a53504367e823fd62852ea101",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeb7ade1_b91fff1d",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-25T09:46:32Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 642,
+        "startChar": 0,
+        "endLine": 642,
+        "endChar": 14
+      },
+      "revId": "0cf1e6721e62ae1a53504367e823fd62852ea101",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceae6993_5b06d727",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-25T09:46:32Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 646,
+        "startChar": 4,
+        "endLine": 646,
+        "endChar": 13
+      },
+      "revId": "0cf1e6721e62ae1a53504367e823fd62852ea101",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ec27958_142fd45a",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 960,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-25T09:46:32Z",
+      "side": 1,
+      "message": "Including -\u003e AndPotential",
+      "range": {
+        "startLine": 960,
+        "startChar": 20,
+        "endLine": 960,
+        "endChar": 29
+      },
+      "revId": "0cf1e6721e62ae1a53504367e823fd62852ea101",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ec8f176_96176c0e",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1149,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-25T09:46:32Z",
+      "side": 1,
+      "message": "Comments please :)",
+      "range": {
+        "startLine": 1147,
+        "startChar": 0,
+        "endLine": 1149,
+        "endChar": 7
+      },
+      "revId": "0cf1e6721e62ae1a53504367e823fd62852ea101",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
