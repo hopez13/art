@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "4e4c398b_d9731f24",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-25T17:41:55Z",
+      "side": 1,
+      "message": "InitFreeList should touch all the cache lines, worth trying to disable kUsePrefetchDuringAllocRun and seeing if that helps?",
+      "range": {
+        "startLine": 575,
+        "startChar": 13,
+        "endLine": 575,
+        "endChar": 25
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_7111e75b",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-25T17:41:55Z",
+      "side": 1,
+      "message": "Put on a new line?",
+      "range": {
+        "startLine": 946,
+        "startChar": 60,
+        "endLine": 946,
+        "endChar": 90
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eeb7ade1_795567be",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 1
@@ -18,6 +64,29 @@
         "startChar": 0,
         "endLine": 996,
         "endChar": 62
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_60834b8f",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1706,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-25T17:41:55Z",
+      "side": 1,
+      "message": "Split into two DCHECK_GT?",
+      "range": {
+        "startLine": 1706,
+        "startChar": 0,
+        "endLine": 1706,
+        "endChar": 48
       },
       "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -65,6 +134,23 @@
         "endLine": 118,
         "endChar": 17
       },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_553b4c60",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-25T17:41:55Z",
+      "side": 1,
+      "message": "I thought cpplint required vertical whitespace before the private:, is this not the case?",
       "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -186,6 +272,29 @@
     },
     {
       "key": {
+        "uuid": "ee616dea_9e7229a6",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-25T17:41:55Z",
+      "side": 1,
+      "message": "Is it worth investigating not keeping a size_ field, I think its only required to figure out if a run is empty?",
+      "range": {
+        "startLine": 177,
+        "startChar": 8,
+        "endLine": 177,
+        "endChar": 13
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eececd75_615056d0",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 1
@@ -255,6 +364,23 @@
     },
     {
       "key": {
+        "uuid": "0e5fa128_31bc8fef",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-25T17:41:55Z",
+      "side": 1,
+      "message": "const?",
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ec27958_1456f4ce",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 1
@@ -272,6 +398,40 @@
         "endLine": 415,
         "endChar": 44
       },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_d29f75c4",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-25T17:41:55Z",
+      "side": 1,
+      "message": "const?",
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_11c18b6b",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-25T17:41:55Z",
+      "side": 1,
+      "message": "const?",
       "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
