@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "2e2e2591_542a5db0",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-25T22:53:25Z",
+      "side": 1,
+      "message": "Just moved to kTemp right now.",
+      "parentUuid": "09aebbf9_db0a3f5f",
+      "range": {
+        "startLine": 35,
+        "startChar": 29,
+        "endLine": 35,
+        "endChar": 32
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e5fa128_be75f191",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
@@ -144,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "ee616dea_8b2f8459",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-25T22:53:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee616dea_b813c58f",
+      "range": {
+        "startLine": 276,
+        "startChar": 10,
+        "endLine": 276,
+        "endChar": 31
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9ba0f35_529c72d0",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
@@ -155,6 +203,30 @@
       "writtenOn": "2015-09-24T21:13:25Z",
       "side": 1,
       "message": "Nit: put on a single line.",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 50
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4d7d85_e772b1d8",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-25T22:53:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9ba0f35_529c72d0",
       "range": {
         "startLine": 302,
         "startChar": 0,
@@ -190,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "ee86cdd4_cae1f206",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-25T22:53:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e470569_97cb34aa",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 306,
+        "endChar": 34
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e4c398b_8d544960",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
@@ -201,6 +297,30 @@
       "writtenOn": "2015-09-24T21:13:25Z",
       "side": 1,
       "message": "Likewise, replace with\n\n  FpuRegister lhs \u003d locations-\u003eInAt(0).AsFpuRegister\u003cFpuRegister\u003e();\n  FpuRegister rhs \u003d locations-\u003eInAt(1).AsFpuRegister\u003cFpuRegister\u003e();\n  FpuRegister out \u003d locations-\u003eOut().AsFpuRegister\u003cFpuRegister\u003e();\n\nand simplify the expressions below?",
+      "range": {
+        "startLine": 341,
+        "startChar": 0,
+        "endLine": 343,
+        "endChar": 34
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_8aff6a9f",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-25T22:53:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e4c398b_8d544960",
       "range": {
         "startLine": 341,
         "startChar": 0,
@@ -236,6 +356,30 @@
     },
     {
       "key": {
+        "uuid": "0e5fa128_e7c1958b",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-25T22:53:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e2e2591_f47b8e85",
+      "range": {
+        "startLine": 415,
+        "startChar": 22,
+        "endLine": 415,
+        "endChar": 52
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce582944_d1253644",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
@@ -247,6 +391,30 @@
       "writtenOn": "2015-09-24T21:13:25Z",
       "side": 1,
       "message": "Ditto (here and in other intrinsics below).",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 34
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_94e565e2",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-25T22:53:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce582944_d1253644",
       "range": {
         "startLine": 417,
         "startChar": 0,
@@ -353,6 +521,30 @@
     },
     {
       "key": {
+        "uuid": "8e52b121_fb949303",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-25T22:53:25Z",
+      "side": 1,
+      "message": "Chris, can you send us a PDF or so for the instruction set manual? It\u0027s really hard to find good literature on this. I was trying to fix up the CL, but I can\u0027t fix this without figuring out how the classify (?) instruction works.",
+      "parentUuid": "2e470569_32b7ee0e",
+      "range": {
+        "startLine": 541,
+        "startChar": 18,
+        "endLine": 541,
+        "endChar": 23
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e52b121_0fd3ad3c",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
@@ -376,6 +568,30 @@
     },
     {
       "key": {
+        "uuid": "ee616dea_ebfe00d6",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-25T22:53:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e52b121_0fd3ad3c",
+      "range": {
+        "startLine": 546,
+        "startChar": 23,
+        "endLine": 546,
+        "endChar": 34
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e4d7d85_3906b727",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
@@ -387,6 +603,30 @@
       "writtenOn": "2015-09-24T21:13:25Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 552,
+        "startChar": 55,
+        "endLine": 552,
+        "endChar": 66
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_2a5ade66",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-25T22:53:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e4d7d85_3906b727",
       "range": {
         "startLine": 552,
         "startChar": 55,
@@ -445,6 +685,30 @@
     },
     {
       "key": {
+        "uuid": "ce582944_6587e104",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-25T22:53:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e5fa128_1e62bdd5",
+      "range": {
+        "startLine": 595,
+        "startChar": 23,
+        "endLine": 595,
+        "endChar": 34
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e470569_b2e19e07",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
@@ -456,6 +720,30 @@
       "writtenOn": "2015-09-24T21:13:25Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 601,
+        "startChar": 55,
+        "endLine": 601,
+        "endChar": 66
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_ca66d236",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-25T22:53:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e470569_b2e19e07",
       "range": {
         "startLine": 601,
         "startChar": 55,
