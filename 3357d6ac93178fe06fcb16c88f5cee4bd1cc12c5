@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "2e2e2591_6535aa0c",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-25T17:42:35Z",
+      "side": 1,
+      "message": "Can you add the \"Dumpable can\u0027t be annotated properly due to the template\" part to the comment?",
+      "parentUuid": "ce582944_d1f5368a",
+      "range": {
+        "startLine": 196,
+        "startChar": 34,
+        "endLine": 196,
+        "endChar": 44
+      },
+      "revId": "3357d6ac93178fe06fcb16c88f5cee4bd1cc12c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee616dea_af2c9d5f",
         "filename": "runtime/java_vm_ext.cc",
         "patchSetId": 1
