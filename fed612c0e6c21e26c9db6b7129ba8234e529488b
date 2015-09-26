@@ -690,6 +690,30 @@
     },
     {
       "key": {
+        "uuid": "2e2e2591_34691132",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-26T00:20:41Z",
+      "side": 1,
+      "message": "Ah, yes. The short description I could find didn\u0027t make this very clear. Thanks. (Also thanks for the docs)",
+      "parentUuid": "ae5bf53d_44f4df8e",
+      "range": {
+        "startLine": 421,
+        "startChar": 2,
+        "endLine": 421,
+        "endChar": 69
+      },
+      "revId": "fed612c0e6c21e26c9db6b7129ba8234e529488b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e470569_32b7ee0e",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
