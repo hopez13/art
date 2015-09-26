@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2e2e2591_00ac94d7",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ebd45ca_3365c8a7",
+      "range": {
+        "startLine": 35,
+        "startChar": 15,
+        "endLine": 36,
+        "endChar": 69
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eececd75_2179ee5a",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 38,
+        "endChar": 89
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_112067aa",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eececd75_2179ee5a",
       "range": {
         "startLine": 37,
         "startChar": 8,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ee616dea_15f97786",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "It may treat some classes that cannot alias as may alias, but not the other way around. So should be safe.",
+      "parentUuid": "0e9a4178_f5f972b4",
+      "range": {
+        "startLine": 75,
+        "startChar": 16,
+        "endLine": 75,
+        "endChar": 42
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eececd75_417ef243",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "reference",
+      "range": {
+        "startLine": 82,
+        "startChar": 30,
+        "endLine": 82,
+        "endChar": 33
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_ff147a0a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eececd75_417ef243",
       "range": {
         "startLine": 82,
         "startChar": 30,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "ae5bf53d_df11b618",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ebd45ca_735f40d1",
+      "range": {
+        "startLine": 92,
+        "startChar": 25,
+        "endLine": 92,
+        "endChar": 41
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce074951_d0e1fc3d",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "-\u003e allocation and stores into ... ?",
+      "range": {
+        "startLine": 124,
+        "startChar": 9,
+        "endLine": 124,
+        "endChar": 26
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_a146e9e7",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce074951_d0e1fc3d",
       "range": {
         "startLine": 124,
         "startChar": 9,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "8e52b121_fb5c9364",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "I changed it to:\nposition in HeapLocationCollector\u0027s ref_info_array_",
+      "parentUuid": "eeb7ade1_d943d308",
+      "range": {
+        "startLine": 131,
+        "startChar": 45,
+        "endLine": 131,
+        "endChar": 65
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ec3bd5a_f50ed8f9",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -174,6 +342,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "Do you need two flags? Is it worth knowing it\u0027s a singleton but returned?",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 20
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_81b1ad3b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Yes if it\u0027s singleton we know it won\u0027t alias during current method\u0027s invocation and can do some optimizations. If it\u0027s returned though, we cannot eliminate the allocation and the stores into the object.",
+      "parentUuid": "6ec3bd5a_f50ed8f9",
       "range": {
         "startLine": 132,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "8e52b121_5ba04796",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0eb5e1d9_da32e587",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 2
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ec27958_54506ccf",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -220,6 +436,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "nit: one per line",
+      "range": {
+        "startLine": 143,
+        "startChar": 8,
+        "endLine": 146,
+        "endChar": 80
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_5a06f427",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ec27958_54506ccf",
       "range": {
         "startLine": 143,
         "startChar": 8,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "8e52b121_7b1543d1",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ec27958_745568be",
+      "range": {
+        "startLine": 156,
+        "startChar": 17,
+        "endLine": 156,
+        "endChar": 34
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceae6993_7b90fb0e",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -266,6 +530,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "What\u0027s \u0027Id\u0027 in this context?",
+      "range": {
+        "startLine": 185,
+        "startChar": 9,
+        "endLine": 185,
+        "endChar": 27
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_713f9b9f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "I changed Id to Index and added this comment:\n// Find and return the heap location index in heap_locations_.",
+      "parentUuid": "ceae6993_7b90fb0e",
       "range": {
         "startLine": 185,
         "startChar": 9,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "2e470569_313923b8",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ceae6993_3be3e3c4",
+      "range": {
+        "startLine": 185,
+        "startChar": 28,
+        "endLine": 186,
+        "endChar": 82
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eeb7ade1_1979cb5a",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -312,6 +624,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "Compute?",
+      "range": {
+        "startLine": 219,
+        "startChar": 12,
+        "endLine": 219,
+        "endChar": 21
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_1674ea0b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eeb7ade1_1979cb5a",
       "range": {
         "startLine": 219,
         "startChar": 12,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "4e4c398b_2192f987",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ebd45ca_d36d748c",
+      "range": {
+        "startLine": 228,
+        "startChar": 19,
+        "endLine": 228,
+        "endChar": 22
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceae6993_5bd89708",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -358,6 +718,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "cannot",
+      "range": {
+        "startLine": 232,
+        "startChar": 80,
+        "endLine": 232,
+        "endChar": 83
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_1b81afec",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ceae6993_5bd89708",
       "range": {
         "startLine": 232,
         "startChar": 80,
@@ -393,6 +777,30 @@
     },
     {
       "key": {
+        "uuid": "ee86cdd4_b6809e2e",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "As long as one cannot alias with the other by checking the pre-existence, they cannot alias.",
+      "parentUuid": "ce074951_700810a3",
+      "range": {
+        "startLine": 251,
+        "startChar": 64,
+        "endLine": 251,
+        "endChar": 66
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ebd45ca_13cb6ce2",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -404,6 +812,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "Position",
+      "range": {
+        "startLine": 258,
+        "startChar": 23,
+        "endLine": 258,
+        "endChar": 26
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_31ec8389",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ebd45ca_13cb6ce2",
       "range": {
         "startLine": 258,
         "startChar": 23,
@@ -439,6 +871,30 @@
     },
     {
       "key": {
+        "uuid": "0e5fa128_4a8bc8e7",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0eb5e1d9_7a3b9960",
+      "range": {
+        "startLine": 260,
+        "startChar": 17,
+        "endLine": 260,
+        "endChar": 23
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e9a4178_3504da56",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -450,6 +906,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "Use return (id1 \u003d\u003d 0)\n  ?\n  :\n\nTo avoi this temporary?",
+      "range": {
+        "startLine": 261,
+        "startChar": 12,
+        "endLine": 261,
+        "endChar": 25
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_26ab2f5b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "The id1 \u003d\u003d 0 part isn\u0027t needed. The single math formula works. I simplified it.",
+      "parentUuid": "0e9a4178_3504da56",
       "range": {
         "startLine": 261,
         "startChar": 12,
@@ -485,6 +965,30 @@
     },
     {
       "key": {
+        "uuid": "6e4d7d85_a226e7fa",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Changed it to CheckedAliasingMatrixPosition.",
+      "parentUuid": "ce074951_500d0cb1",
+      "range": {
+        "startLine": 272,
+        "startChar": 9,
+        "endLine": 272,
+        "endChar": 26
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ec27958_1479945a",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -496,6 +1000,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "Compute?",
+      "range": {
+        "startLine": 280,
+        "startChar": 7,
+        "endLine": 280,
+        "endChar": 16
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_04502b9c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ec27958_1479945a",
       "range": {
         "startLine": 280,
         "startChar": 7,
@@ -531,6 +1059,30 @@
     },
     {
       "key": {
+        "uuid": "2e2e2591_342fd1c0",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "I\u0027m thinking of using the resolved field index instead of the (class index, offset) pair. I can do it in another CL.",
+      "parentUuid": "0e9a4178_55095e6d",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 291,
+        "endChar": 5
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eeb7ade1_5983438e",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -542,6 +1094,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "The naming isn\u0027t great here, as this sounds like a cached version of CalculateMayAlias. How about CanReferencesAlias?",
+      "range": {
+        "startLine": 292,
+        "startChar": 9,
+        "endLine": 292,
+        "endChar": 17
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_ab4008fd",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eeb7ade1_5983438e",
       "range": {
         "startLine": 292,
         "startChar": 9,
@@ -577,6 +1153,30 @@
     },
     {
       "key": {
+        "uuid": "2e2e2591_f48b8912",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0eb5e1d9_1ae7fd59",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 7
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ebd45ca_53d5e476",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -588,6 +1188,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "nit: one per line",
+      "range": {
+        "startLine": 303,
+        "startChar": 11,
+        "endLine": 304,
+        "endChar": 86
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_2bdad8a8",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ebd45ca_53d5e476",
       "range": {
         "startLine": 303,
         "startChar": 11,
@@ -623,6 +1247,30 @@
     },
     {
       "key": {
+        "uuid": "2e2e2591_d4988d66",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce074951_b001d87d",
+      "range": {
+        "startLine": 312,
+        "startChar": 36,
+        "endLine": 313,
+        "endChar": 90
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eeb7ade1_798807aa",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -634,6 +1282,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "You\u0027ll probably also have trouble with HBoundType.",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 5
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_d16d2f8c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "I moved the while loop to a separate static method where I check both NullCheck and BoundType.",
+      "parentUuid": "eeb7ade1_798807aa",
       "range": {
         "startLine": 314,
         "startChar": 0,
@@ -669,6 +1341,30 @@
     },
     {
       "key": {
+        "uuid": "2e470569_b16ab370",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ec8f176_1656fcce",
+      "range": {
+        "startLine": 323,
+        "startChar": 99,
+        "endLine": 323,
+        "endChar": 101
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceae6993_7bdd5bf7",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -680,6 +1376,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "location",
+      "range": {
+        "startLine": 349,
+        "startChar": 18,
+        "endLine": 349,
+        "endChar": 21
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_a4f957b5",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ceae6993_7bdd5bf7",
       "range": {
         "startLine": 349,
         "startChar": 18,
@@ -715,6 +1435,30 @@
     },
     {
       "key": {
+        "uuid": "2e470569_11bf4735",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce074951_90fe54d5",
+      "range": {
+        "startLine": 351,
+        "startChar": 8,
+        "endLine": 352,
+        "endChar": 53
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eeb7ade1_b989bfad",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -726,6 +1470,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "Why is that not doing SetMayBecomeUnknown ?",
+      "range": {
+        "startLine": 389,
+        "startChar": 0,
+        "endLine": 390,
+        "endChar": 28
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_876ad927",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "We don\u0027t eliminate stores into arrays since array location can easily alias due to non-constant index.\n\nI added some comment in the store elimination part.",
+      "parentUuid": "eeb7ade1_b989bfad",
       "range": {
         "startLine": 389,
         "startChar": 0,
@@ -761,6 +1529,30 @@
     },
     {
       "key": {
+        "uuid": "ee86cdd4_2a417e72",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "I don\u0027t see it in the code. What\u0027s that?",
+      "parentUuid": "8ec8f176_365bf8f7",
+      "range": {
+        "startLine": 405,
+        "startChar": 7,
+        "endLine": 405,
+        "endChar": 27
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eeb7ade1_3965afa7",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -772,6 +1564,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "Please add comment around these.",
+      "range": {
+        "startLine": 412,
+        "startChar": 0,
+        "endLine": 414,
+        "endChar": 47
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_14d295e6",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eeb7ade1_3965afa7",
       "range": {
         "startLine": 412,
         "startChar": 0,
@@ -807,6 +1623,30 @@
     },
     {
       "key": {
+        "uuid": "8e52b121_bb75fb91",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Changed it to:\n // If there is no heap stores, LSE acts as GVN with better\n // alias analysis and won\u0027t be as effective.",
+      "parentUuid": "0eb5e1d9_3aecc13b",
+      "range": {
+        "startLine": 416,
+        "startChar": 59,
+        "endLine": 416,
+        "endChar": 85
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eececd75_21600e97",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -818,6 +1658,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "It\u0027s a shame a single instruction can bail the optimization. What\u0027s your plan to do this contextually?",
+      "range": {
+        "startLine": 416,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 23
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_9b247f8e",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "I\u0027ll address it in another CL. Just want to make sure it sticks to the spec.",
+      "parentUuid": "eececd75_21600e97",
       "range": {
         "startLine": 416,
         "startChar": 0,
@@ -853,6 +1717,30 @@
     },
     {
       "key": {
+        "uuid": "ce582944_65e361c4",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Changed it to:\n// An unknown heap value. Loads with such a value in the heap location cannot be eliminated.",
+      "parentUuid": "eececd75_0194eabd",
+      "range": {
+        "startLine": 424,
+        "startChar": 26,
+        "endLine": 424,
+        "endChar": 44
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eeb7ade1_d99673c8",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -864,6 +1752,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "heap_locations_collector",
+      "range": {
+        "startLine": 434,
+        "startChar": 42,
+        "endLine": 434,
+        "endChar": 60
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_b1a2b3df",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eeb7ade1_d99673c8",
       "range": {
         "startLine": 434,
         "startChar": 42,
@@ -899,6 +1811,30 @@
     },
     {
       "key": {
+        "uuid": "ee616dea_cb57bc63",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Added:\n      // There is no heap values array allocated yet for the block. The block\n      // is either just visited, or didn\u0027t inherit its heap values array from\n      // one predecessor.",
+      "parentUuid": "ceae6993_fbc88b37",
+      "range": {
+        "startLine": 447,
+        "startChar": 0,
+        "endLine": 453,
+        "endChar": 5
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce074951_10b6e431",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -910,6 +1846,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "block-\u003eGetLoopInformation()-\u003eGetPreHeader()",
+      "range": {
+        "startLine": 459,
+        "startChar": 33,
+        "endLine": 459,
+        "endChar": 61
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_94dd65d5",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce074951_10b6e431",
       "range": {
         "startLine": 459,
         "startChar": 33,
@@ -945,6 +1905,30 @@
     },
     {
       "key": {
+        "uuid": "4e4c398b_a416f74d",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ec8f176_765570be",
+      "range": {
+        "startLine": 476,
+        "startChar": 35,
+        "endLine": 476,
+        "endChar": 36
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ec8f176_b646281a",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -956,6 +1940,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "Why not moving this optimization into the MergePredecessorValues?\n\nAlso, I suggest doing this optimization in a followup cl.",
+      "range": {
+        "startLine": 475,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 5
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_5acef498",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Ok, I\u0027ll do this in a following CL.",
+      "parentUuid": "8ec8f176_b646281a",
       "range": {
         "startLine": 475,
         "startChar": 0,
@@ -991,6 +1999,30 @@
     },
     {
       "key": {
+        "uuid": "ee86cdd4_6a0b062f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Currently we don\u0027t have another pass after lse that can eliminate the null check. It\u0027s cheap to do it here.",
+      "parentUuid": "eececd75_615a16e3",
+      "range": {
+        "startLine": 533,
+        "startChar": 0,
+        "endLine": 542,
+        "endChar": 3
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eececd75_815f1ad0",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -1002,6 +2034,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "One per line",
+      "range": {
+        "startLine": 565,
+        "startChar": 25,
+        "endLine": 566,
+        "endChar": 93
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_2aec1489",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eececd75_815f1ad0",
       "range": {
         "startLine": 565,
         "startChar": 25,
@@ -1037,6 +2093,30 @@
     },
     {
       "key": {
+        "uuid": "ce582944_a57279a5",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done with the new method.",
+      "parentUuid": "0eb5e1d9_bad7f15c",
+      "range": {
+        "startLine": 567,
+        "startChar": 16,
+        "endLine": 567,
+        "endChar": 27
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceae6993_5b8b37e7",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -1048,6 +2128,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "How can that be?",
+      "range": {
+        "startLine": 585,
+        "startChar": 0,
+        "endLine": 585,
+        "endChar": 64
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_4a2aa8b0",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "We have the unfortunate I/F, J/D aliasing issue. An int value node can be stored into a float array, for example. I have a testcase for it.",
+      "parentUuid": "ceae6993_5b8b37e7",
       "range": {
         "startLine": 585,
         "startChar": 0,
@@ -1083,6 +2187,30 @@
     },
     {
       "key": {
+        "uuid": "ce582944_256209d6",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done with the new method.",
+      "parentUuid": "8ec8f176_367e9843",
+      "range": {
+        "startLine": 601,
+        "startChar": 16,
+        "endLine": 601,
+        "endChar": 27
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eececd75_c1704263",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -1094,6 +2222,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "else if?",
+      "range": {
+        "startLine": 615,
+        "startChar": 1,
+        "endLine": 616,
+        "endChar": 8
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_482ab4b0",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eececd75_c1704263",
       "range": {
         "startLine": 615,
         "startChar": 1,
@@ -1129,6 +2281,30 @@
     },
     {
       "key": {
+        "uuid": "2e2e2591_54fedd2a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "I added some comment. Array stores can\u0027t be eliminated (at least for now) since it can be easily aliased with a non-constant index. Field accesses can be tracked precisely.",
+      "parentUuid": "eececd75_e16d468c",
+      "range": {
+        "startLine": 618,
+        "startChar": 10,
+        "endLine": 618,
+        "endChar": 28
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eeb7ade1_f96a5771",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -1140,6 +2316,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "What\u0027s `value` here?",
+      "range": {
+        "startLine": 621,
+        "startChar": 76,
+        "endLine": 621,
+        "endChar": 81
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_35e8eeeb",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "The value passed in the parameter. I changed it to:\nthe value set by this instruction.",
+      "parentUuid": "eeb7ade1_f96a5771",
       "range": {
         "startLine": 621,
         "startChar": 76,
@@ -1175,6 +2375,30 @@
     },
     {
       "key": {
+        "uuid": "4e4c398b_4462a3df",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce074951_d0cbbca8",
+      "range": {
+        "startLine": 628,
+        "startChar": 48,
+        "endLine": 628,
+        "endChar": 54
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eeb7ade1_b970df61",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -1186,6 +2410,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "false?",
+      "range": {
+        "startLine": 634,
+        "startChar": 28,
+        "endLine": 634,
+        "endChar": 32
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_5b7e0744",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "Nice catch. Fixed.\nI\u0027m wondering if the I/F, J/D aliasing only happens for arrays which we don\u0027t eliminate stores anyway.",
+      "parentUuid": "eeb7ade1_b970df61",
       "range": {
         "startLine": 634,
         "startChar": 28,
@@ -1221,6 +2469,30 @@
     },
     {
       "key": {
+        "uuid": "2e2e2591_747e7944",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "I took it out.",
+      "parentUuid": "6ec3bd5a_f529784e",
+      "range": {
+        "startLine": 645,
+        "startChar": 5,
+        "endLine": 645,
+        "endChar": 20
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ec8f176_5683148e",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -1238,6 +2510,24 @@
     },
     {
       "key": {
+        "uuid": "0e5fa128_8ab780be",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "How do I make sure a generic instruction doesn\u0027t write to heap?",
+      "parentUuid": "8ec8f176_5683148e",
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ec3bd5a_355bf0f7",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -1249,6 +2539,30 @@
       "writtenOn": "2015-09-25T10:55:13Z",
       "side": 1,
       "message": "Shouldn\u0027t remove/substiute be at the same index?",
+      "range": {
+        "startLine": 757,
+        "startChar": 0,
+        "endLine": 763,
+        "endChar": 23
+      },
+      "revId": "6462daab4d53f88c978495123b5640f9af08f229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_2ac65436",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-09-26T00:30:46Z",
+      "side": 1,
+      "message": "This is linear search to find if the instruction is removed. It\u0027s to be used by the code that traces substitutes all the way to one that\u0027s not removed.",
+      "parentUuid": "6ec3bd5a_355bf0f7",
       "range": {
         "startLine": 757,
         "startChar": 0,
