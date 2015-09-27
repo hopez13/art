@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "6ec3bd5a_f5541861",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-09-27T22:42:55Z",
+      "side": 1,
+      "message": "Check for other users? If not, why do we check in the case below?",
+      "revId": "ff1c84b817c9f06a4499a88eba02688871e14089",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e4d7d85_ceb472b6",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
