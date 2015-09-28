@@ -352,6 +352,30 @@
       "revId": "de2790e172fcc6d8a19a402360e353bca1aa618b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_ca27c691",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-09-28T12:05:47Z",
+      "side": 1,
+      "message": "I can rename zero word area if you insist.  It initially holds zeroes.  I want to keep this in the constant area because it is filled with constants.  They just happen to be updated to hold their constant values a bit later than the other uses of the constant area.  What benefit does making it a different area hold?",
+      "parentUuid": "2ebd45ca_d63d62f2",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 33
+      },
+      "revId": "de2790e172fcc6d8a19a402360e353bca1aa618b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
