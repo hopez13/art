@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce074951_b322826a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5613,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T09:02:50Z",
+      "side": 1,
+      "message": "comparison",
+      "range": {
+        "startLine": 5613,
+        "startChar": 9,
+        "endLine": 5613,
+        "endChar": 20
+      },
+      "revId": "8ce7dc81ddb3df94cb2fe6947fa09ce4e8e357ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0eb5e1d9_bdf52b8b",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1002,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T09:02:50Z",
+      "side": 1,
+      "message": "comparison",
+      "range": {
+        "startLine": 1002,
+        "startChar": 9,
+        "endLine": 1002,
+        "endChar": 20
+      },
+      "revId": "8ce7dc81ddb3df94cb2fe6947fa09ce4e8e357ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ebd45ca_36a05696",
+        "filename": "compiler/optimizing/generate_selects.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T09:02:50Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you check if the number of predecessors is 1 instead? Or do you handle those cases?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 3
+      },
+      "revId": "8ce7dc81ddb3df94cb2fe6947fa09ce4e8e357ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0eb5e1d9_dd02df15",
+        "filename": "compiler/optimizing/generate_selects.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T09:02:50Z",
+      "side": 1,
+      "message": "Make this a helper on the graph?",
+      "range": {
+        "startLine": 32,
+        "startChar": 1,
+        "endLine": 37,
+        "endChar": 3
+      },
+      "revId": "8ce7dc81ddb3df94cb2fe6947fa09ce4e8e357ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ec27958_17d43625",
+        "filename": "compiler/optimizing/generate_selects.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T09:02:50Z",
+      "side": 1,
+      "message": "This is a subset of the CanBeMoved below. CanBeMoved if false for other things, like calls.",
+      "range": {
+        "startLine": 39,
+        "startChar": 19,
+        "endLine": 39,
+        "endChar": 27
+      },
+      "revId": "8ce7dc81ddb3df94cb2fe6947fa09ce4e8e357ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ec8f176_19ad4fc1",
+        "filename": "compiler/optimizing/generate_selects.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T09:02:50Z",
+      "side": 1,
+      "message": "describe (or name) the pattern here too.",
+      "range": {
+        "startLine": 82,
+        "startChar": 26,
+        "endLine": 82,
+        "endChar": 33
+      },
+      "revId": "8ce7dc81ddb3df94cb2fe6947fa09ce4e8e357ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eececd75_4487e003",
+        "filename": "compiler/optimizing/generate_selects.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T09:02:50Z",
+      "side": 1,
+      "message": "2 more spaces",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 4
+      },
+      "revId": "8ce7dc81ddb3df94cb2fe6947fa09ce4e8e357ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ebd45ca_56a5d2a4",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T09:02:50Z",
+      "side": 1,
+      "message": "ARch dependent shouldn\u0027t be here as this will conditionnaly be compiled.",
+      "range": {
+        "startLine": 734,
+        "startChar": 23,
+        "endLine": 734,
+        "endChar": 40
+      },
+      "revId": "8ce7dc81ddb3df94cb2fe6947fa09ce4e8e357ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eececd75_8481e8ee",
+        "filename": "compiler/optimizing/nodes_x86_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T09:02:50Z",
+      "side": 1,
+      "message": "Why can\u0027t you take the condition as input and rely on the materialization bit?",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 38
+      },
+      "revId": "8ce7dc81ddb3df94cb2fe6947fa09ce4e8e357ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
