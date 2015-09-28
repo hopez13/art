@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e9a4178_582a75b0",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-28T15:37:32Z",
+      "side": 1,
+      "message": "This is using std::allocator\u003c\u003e. We should use ArenaAllocatorAdapter\u003c\u003e. However, this requires changes to HashMap and HasSet, so I\u0027ll leave that for another CL.",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 66
+      },
+      "revId": "a7929d2f8bf8df96f5d483c05a027a1877707834",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
