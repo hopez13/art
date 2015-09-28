@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eececd75_0496b837",
+        "filename": "runtime/entrypoints/quick/quick_deoptimization_entrypoints.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T08:28:53Z",
+      "side": 1,
+      "message": "cannot",
+      "range": {
+        "startLine": 61,
+        "startChar": 36,
+        "endLine": 61,
+        "endChar": 39
+      },
+      "revId": "8da3ad87371bafe30b8ffd3a448442e5cecd059e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ec8f176_d6572463",
+        "filename": "runtime/entrypoints/quick/quick_deoptimization_entrypoints.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T08:28:53Z",
+      "side": 1,
+      "message": "in what sense? By saying so, it sounds like we\u0027re not doing something correct.",
+      "range": {
+        "startLine": 61,
+        "startChar": 26,
+        "endLine": 61,
+        "endChar": 31
+      },
+      "revId": "8da3ad87371bafe30b8ffd3a448442e5cecd059e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ec27958_b7bd42ec",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T08:28:53Z",
+      "side": 1,
+      "message": "if (kIsDebugBuild)",
+      "range": {
+        "startLine": 669,
+        "startChar": 0,
+        "endLine": 676,
+        "endChar": 79
+      },
+      "revId": "8da3ad87371bafe30b8ffd3a448442e5cecd059e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ec27958_d7cabe86",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T08:28:53Z",
+      "side": 1,
+      "message": "Why is that not addressed?",
+      "range": {
+        "startLine": 688,
+        "startChar": 7,
+        "endLine": 689,
+        "endChar": 39
+      },
+      "revId": "8da3ad87371bafe30b8ffd3a448442e5cecd059e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e9a4178_55507ecf",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T08:28:53Z",
+      "side": 1,
+      "message": "why etc?",
+      "range": {
+        "startLine": 519,
+        "startChar": 87,
+        "endLine": 519,
+        "endChar": 90
+      },
+      "revId": "8da3ad87371bafe30b8ffd3a448442e5cecd059e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e9a4178_755582be",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T08:28:53Z",
+      "side": 1,
+      "message": "why this new terminology? What do you loose from printing \"transition\", \"runtime\", \"quick\" ... ?",
+      "range": {
+        "startLine": 617,
+        "startChar": 22,
+        "endLine": 617,
+        "endChar": 23
+      },
+      "revId": "8da3ad87371bafe30b8ffd3a448442e5cecd059e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceae6993_1e0c4d48",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T08:28:53Z",
+      "side": 1,
+      "message": "Shound\u0027t those be CHECK?",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 39
+      },
+      "revId": "8da3ad87371bafe30b8ffd3a448442e5cecd059e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
