@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6ec3bd5a_d802f115",
+        "filename": "runtime/entrypoints/quick/quick_deoptimization_entrypoints.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T15:34:09Z",
+      "side": 1,
+      "message": "Then maybe consider rephrasing the comment? I don\u0027t understand why there is a risk. Who\u0027s \"somebody\"?",
+      "parentUuid": "2e470569_af536705",
+      "range": {
+        "startLine": 61,
+        "startChar": 36,
+        "endLine": 61,
+        "endChar": 39
+      },
+      "revId": "8da3ad87371bafe30b8ffd3a448442e5cecd059e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ec27958_b7bd42ec",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 11
@@ -107,6 +131,30 @@
       "side": 1,
       "message": "You really feel that check isn\u0027t important enough to do it generally?",
       "parentUuid": "4ec27958_b7bd42ec",
+      "range": {
+        "startLine": 669,
+        "startChar": 0,
+        "endLine": 676,
+        "endChar": 79
+      },
+      "revId": "8da3ad87371bafe30b8ffd3a448442e5cecd059e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ec27958_97aa0654",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T15:34:09Z",
+      "side": 1,
+      "message": "You said it\u0027s a sanity check, why should we pay for it everytime we deopt?",
+      "parentUuid": "6e4d7d85_3df69a08",
       "range": {
         "startLine": 669,
         "startChar": 0,
@@ -213,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "ce074951_53923688",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T15:34:09Z",
+      "side": 1,
+      "message": "Ah I see. Maybe then say. For example, this is to get the LR right on x86 and x64.",
+      "parentUuid": "2e470569_8f58ab22",
+      "range": {
+        "startLine": 519,
+        "startChar": 87,
+        "endLine": 519,
+        "endChar": 90
+      },
+      "revId": "8da3ad87371bafe30b8ffd3a448442e5cecd059e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e9a4178_755582be",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 11
@@ -260,6 +332,30 @@
     },
     {
       "key": {
+        "uuid": "0e9a4178_b840c16f",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T15:34:09Z",
+      "side": 1,
+      "message": "I know it\u0027s just debug info, but it will still be obscure for developers doing -verbose:deopt. I would tend to say concise is probably not worth the confusion, but your call.",
+      "parentUuid": "2e2e2591_8a565ecd",
+      "range": {
+        "startLine": 617,
+        "startChar": 22,
+        "endLine": 617,
+        "endChar": 23
+      },
+      "revId": "8da3ad87371bafe30b8ffd3a448442e5cecd059e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceae6993_1e0c4d48",
         "filename": "runtime/thread.cc",
         "patchSetId": 11
@@ -295,6 +391,30 @@
       "side": 1,
       "message": "They were DCHECKs before, and Seb and Mingyao agreed on that...",
       "parentUuid": "ceae6993_1e0c4d48",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 39
+      },
+      "revId": "8da3ad87371bafe30b8ffd3a448442e5cecd059e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eececd75_c414d00b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T15:34:09Z",
+      "side": 1,
+      "message": "Yeah, but we won\u0027t abort on error then in release builds. Unless abort_on_error is only true on debug builds?",
+      "parentUuid": "8e52b121_90e579e2",
       "range": {
         "startLine": 256,
         "startChar": 0,
