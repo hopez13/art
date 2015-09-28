@@ -376,6 +376,30 @@
       "revId": "de2790e172fcc6d8a19a402360e353bca1aa618b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce074951_73d5ba77",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T12:17:12Z",
+      "side": 1,
+      "message": "Simplicity? And separation of concerns? One is a ConstantArea, the other is a JumpTableArea. You don\u0027t do eg AddInt32 area to a JumpTableArea, nor do you do Fixup on a ConstantArea.",
+      "parentUuid": "2e2e2591_ca27c691",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 33
+      },
+      "revId": "de2790e172fcc6d8a19a402360e353bca1aa618b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
