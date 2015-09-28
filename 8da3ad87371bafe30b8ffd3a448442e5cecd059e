@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "4e4c398b_b524df8d",
+        "filename": "runtime/entrypoints/quick/quick_deoptimization_entrypoints.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-28T20:08:53Z",
+      "side": 1,
+      "message": "Basically we don\u0027t poison registers anymore, and so incorrect use down the line wouldn\u0027t be detected.",
+      "parentUuid": "6ec3bd5a_d802f115",
+      "range": {
+        "startLine": 61,
+        "startChar": 36,
+        "endLine": 61,
+        "endChar": 39
+      },
+      "revId": "8da3ad87371bafe30b8ffd3a448442e5cecd059e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ec27958_b7bd42ec",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 11
@@ -155,6 +179,30 @@
       "side": 1,
       "message": "You said it\u0027s a sanity check, why should we pay for it everytime we deopt?",
       "parentUuid": "6e4d7d85_3df69a08",
+      "range": {
+        "startLine": 669,
+        "startChar": 0,
+        "endLine": 676,
+        "endChar": 79
+      },
+      "revId": "8da3ad87371bafe30b8ffd3a448442e5cecd059e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_be9ba62f",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-28T20:08:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ec27958_97aa0654",
       "range": {
         "startLine": 669,
         "startChar": 0,
@@ -285,6 +333,30 @@
     },
     {
       "key": {
+        "uuid": "ae5bf53d_fc75a390",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-28T20:08:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce074951_53923688",
+      "range": {
+        "startLine": 519,
+        "startChar": 87,
+        "endLine": 519,
+        "endChar": 90
+      },
+      "revId": "8da3ad87371bafe30b8ffd3a448442e5cecd059e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e9a4178_755582be",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 11
@@ -356,6 +428,30 @@
     },
     {
       "key": {
+        "uuid": "4e4c398b_f514970a",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-28T20:08:53Z",
+      "side": 1,
+      "message": "The way it is means it\u0027s easier to align and doesn\u0027t waste space (which helps keeping things on one line in the logs).\n\nI added \"\u003ctransition\u003e,\" though.",
+      "parentUuid": "0e9a4178_b840c16f",
+      "range": {
+        "startLine": 617,
+        "startChar": 22,
+        "endLine": 617,
+        "endChar": 23
+      },
+      "revId": "8da3ad87371bafe30b8ffd3a448442e5cecd059e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceae6993_1e0c4d48",
         "filename": "runtime/thread.cc",
         "patchSetId": 11
@@ -415,6 +511,30 @@
       "side": 1,
       "message": "Yeah, but we won\u0027t abort on error then in release builds. Unless abort_on_error is only true on debug builds?",
       "parentUuid": "8e52b121_90e579e2",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 39
+      },
+      "revId": "8da3ad87371bafe30b8ffd3a448442e5cecd059e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_c00e77fa",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-28T20:08:53Z",
+      "side": 1,
+      "message": "I see your issue. Should I call it dabort_on_error?",
+      "parentUuid": "eececd75_c414d00b",
       "range": {
         "startLine": 256,
         "startChar": 0,
