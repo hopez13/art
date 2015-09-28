@@ -544,6 +544,30 @@
       "revId": "8da3ad87371bafe30b8ffd3a448442e5cecd059e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeb7ade1_bc460d1a",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T22:11:51Z",
+      "side": 1,
+      "message": "How about calling it must_be_present? Makes the intent clearer.",
+      "parentUuid": "0e5fa128_c00e77fa",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 39
+      },
+      "revId": "8da3ad87371bafe30b8ffd3a448442e5cecd059e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
