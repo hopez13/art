@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee86cdd4_803c2b5c",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-28T18:57:46Z",
+      "side": 1,
+      "message": "Do we still need this?",
+      "range": {
+        "startLine": 202,
+        "startChar": 21,
+        "endLine": 202,
+        "endChar": 24
+      },
+      "revId": "9cca9c03f3a4f6fec9d614f2c6ec1734c2b0bd74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_77b79356",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-28T18:57:46Z",
+      "side": 1,
+      "message": "side question: There are a vector of DexFiles rather than one DexFile because of a multidex thing?",
+      "range": {
+        "startLine": 206,
+        "startChar": 34,
+        "endLine": 206,
+        "endChar": 43
+      },
+      "revId": "9cca9c03f3a4f6fec9d614f2c6ec1734c2b0bd74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_d76d1f8c",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-28T18:57:46Z",
+      "side": 1,
+      "message": "Anything to check/assert before deleting this?",
+      "range": {
+        "startLine": 207,
+        "startChar": 4,
+        "endLine": 207,
+        "endChar": 20
+      },
+      "revId": "9cca9c03f3a4f6fec9d614f2c6ec1734c2b0bd74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
