@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ee86cdd4_632571ec",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-28T20:22:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ec3bd5a_b8e45518",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 19
+      },
+      "revId": "a50f9cf85a3c72376a6f3e4d2e673c08169cffde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ebd45ca_567cf2b0",
         "filename": "runtime/jit/jit_instrumentation.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6e4d7d85_f37273d8",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-28T20:22:37Z",
+      "side": 1,
+      "message": "I think I can use ThreadPool::Wait, I forgot about that API.",
+      "parentUuid": "2ebd45ca_567cf2b0",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 19
+      },
+      "revId": "a50f9cf85a3c72376a6f3e4d2e673c08169cffde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e52b121_f05a6d8d",
         "filename": "test/141-class-unload/src/Main.java",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2015-09-28T18:48:29Z",
       "side": 1,
       "message": "Is there a chance that new JIT work will be added after we wait?",
+      "range": {
+        "startLine": 142,
+        "startChar": 25,
+        "endLine": 142,
+        "endChar": 31
+      },
+      "revId": "a50f9cf85a3c72376a6f3e4d2e673c08169cffde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_37c0fb87",
+        "filename": "test/141-class-unload/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-28T20:22:37Z",
+      "side": 1,
+      "message": "Depends on what code is run after the call, for the class unloading test I just wanted to make sure the JIT wouldn\u0027t keep the class loader we want to unload live.",
+      "parentUuid": "8e52b121_f05a6d8d",
       "range": {
         "startLine": 142,
         "startChar": 25,
