@@ -140,6 +140,30 @@
       "revId": "9cca9c03f3a4f6fec9d614f2c6ec1734c2b0bd74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_a3cb85e0",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-28T22:42:22Z",
+      "side": 1,
+      "message": "How about \"class_linker-\u003eFindDexCache() \u003d\u003d nullptr\" or anything else, if any, that indicates that the DexFile can be safely unloaded?",
+      "parentUuid": "ce582944_1902cc80",
+      "range": {
+        "startLine": 207,
+        "startChar": 4,
+        "endLine": 207,
+        "endChar": 20
+      },
+      "revId": "9cca9c03f3a4f6fec9d614f2c6ec1734c2b0bd74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
