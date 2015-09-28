@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a905afc4_dd24fb49",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-09-28T18:40:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "891c6b20_d924174a",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 42
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "699c97d8_ed62e54c",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2e2e2591_ed785c8b",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-09-28T18:40:20Z",
+      "side": 1,
+      "message": "I can change this to TMP which was added to the enumeration in runtime/arch/mips64/registers_mips64.h.",
+      "parentUuid": "699c97d8_ed62e54c",
+      "range": {
+        "startLine": 901,
+        "startChar": 20,
+        "endLine": 901,
+        "endChar": 22
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4916f301_088c77fa",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-09-23T21:07:16Z",
       "side": 1,
       "message": "It actually happens that str \u003d\u003d arg, which triggers a check. We\u0027ll have to implement a compile-time fast-path.",
+      "range": {
+        "startLine": 951,
+        "startChar": 10,
+        "endLine": 951,
+        "endChar": 18
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_d0fc09a7",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-09-28T18:40:20Z",
+      "side": 1,
+      "message": "I pulled the logic directly from the ARM64 code (compiler/optimizing/intrinsics_arm64.cc, lines 1224-1226):\n  // Reference equality check, return true if same reference.\n  __ Cmp(str, arg);\n  __ B(\u0026return_true, eq);\nIs that code wrong too, or did I misunderstand what the ARM code is doing?\nSo if this triggers a check I should revert to \"slow path\" code here and let the slow path do the work in this case?",
+      "parentUuid": "4916f301_088c77fa",
       "range": {
         "startLine": 951,
         "startChar": 10,
