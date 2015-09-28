@@ -140,6 +140,30 @@
       "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee616dea_77d0b388",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-28T18:52:14Z",
+      "side": 1,
+      "message": "It means we\u0027re generating more code than we need to in the other architectures. We simply sometimes get the case where receiver and argument are the same (guess for inlining or so).\n\nThe other architectures allow to compare two registers that are the same. Your assembler rejects that.\n\nThis simply needs a pre-check and fast-bail (with result true).",
+      "parentUuid": "4e4c398b_d0fc09a7",
+      "range": {
+        "startLine": 951,
+        "startChar": 10,
+        "endLine": 951,
+        "endChar": 18
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
