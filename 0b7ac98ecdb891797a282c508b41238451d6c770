@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee616dea_3c8100ed",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-28T05:41:59Z",
+      "side": 1,
+      "message": "Nit: this could be implemented as an enum (preferably in assembler_mips64.cc), the values of which should be used to define CLASS_MASK.",
+      "range": {
+        "startLine": 515,
+        "startChar": 0,
+        "endLine": 520,
+        "endChar": 24
+      },
+      "revId": "0b7ac98ecdb891797a282c508b41238451d6c770",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_da6d4a8c",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-28T05:41:59Z",
+      "side": 1,
+      "message": "Should be renamed as kClassMask, or maybe something more specific (kSpecialValuesClassMask?).",
+      "range": {
+        "startLine": 521,
+        "startChar": 25,
+        "endLine": 521,
+        "endChar": 35
+      },
+      "revId": "0b7ac98ecdb891797a282c508b41238451d6c770",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_e0fcdba6",
+        "filename": "runtime/arch/mips64/registers_mips64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-28T05:41:59Z",
+      "side": 1,
+      "message": "Nit: I would put this alias after the definition of the last register (RA), similarly to other back ends.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 53
+      },
+      "revId": "0b7ac98ecdb891797a282c508b41238451d6c770",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
