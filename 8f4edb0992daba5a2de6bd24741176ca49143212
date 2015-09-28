@@ -839,6 +839,24 @@
     },
     {
       "key": {
+        "uuid": "8e52b121_104aa921",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5050,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-28T17:43:50Z",
+      "side": 1,
+      "message": "Thinking about this some more, IMHO this should also DCHECK that iftable\u0027s supers are already sorted correctly (maintaining the invariant you set out on line 5031).",
+      "parentUuid": "4e4c398b_3e6219df",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e4c398b_3e5d7911",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 17
