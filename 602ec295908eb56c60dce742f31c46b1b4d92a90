@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2ebd45ca_566232df",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-09-28T13:48:53Z",
+      "side": 1,
+      "message": "Before this patch `InvokeRuntime()` was unconditionally recording the pc info, which is why I opted for a default argument.\n\nFrom what I understand we only need the pc info when the runtime may try to map dex_pc to native pc. But when is that exactly? It looks to me as if some existing code records the pc info when it doesn\u0027t need it.\n\nMaybe for now we can keep a default to true and override it only in places where the pc info was not recorded. Then in a later patch we can try to remove the default and reduce the number of places where we do record the info.\n\nWhat do you think?",
+      "parentUuid": "e4d42ed5_b1650029",
+      "range": {
+        "startLine": 305,
+        "startChar": 26,
+        "endLine": 305,
+        "endChar": 40
+      },
+      "revId": "602ec295908eb56c60dce742f31c46b1b4d92a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64c03e16_0d1e31a0",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 2
