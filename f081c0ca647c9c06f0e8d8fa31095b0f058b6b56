@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eececd75_044eb85a",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T14:24:32Z",
+      "side": 1,
+      "message": "Please expand based on our findings: SSA builder can create typed phi equivalents. So we can end up with a PrimVoid phi and a PrimNot phi equivalent. We should not unconditionaly set the the here, because we may make a PrimNot to PrimInt transition, which is unsupported in our implementation logic.",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 83
+      },
+      "revId": "f081c0ca647c9c06f0e8d8fa31095b0f058b6b56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
