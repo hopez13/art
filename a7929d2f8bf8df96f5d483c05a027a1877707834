@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "2ebd45ca_16043adf",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-28T15:59:07Z",
+      "side": 1,
+      "message": "So iiuc, this runs the constructor without allocating memory? Is there no other way of invoking the constructor?",
+      "revId": "a7929d2f8bf8df96f5d483c05a027a1877707834",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ec8f176_b92a9b5a",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-28T15:59:07Z",
+      "side": 1,
+      "message": "Is this meant to be here? In other files too.",
+      "range": {
+        "startLine": 338,
+        "startChar": 28,
+        "endLine": 338,
+        "endChar": 80
+      },
+      "revId": "a7929d2f8bf8df96f5d483c05a027a1877707834",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ebd45ca_d6fac238",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-09-28T15:59:07Z",
+      "side": 1,
+      "message": "I still think you should override ArenaVector::operator[] and put this DCHECK there rather than scattering it all over the code.",
+      "range": {
+        "startLine": 613,
+        "startChar": 2,
+        "endLine": 613,
+        "endChar": 34
+      },
+      "revId": "a7929d2f8bf8df96f5d483c05a027a1877707834",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e9a4178_582a75b0",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 2
