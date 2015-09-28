@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6ec3bd5a_38bcc5a1",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-28T16:54:59Z",
+      "side": 1,
+      "message": "Yes, this placement-new constructs the object at the given address.\nNo, there\u0027s no other way.",
+      "parentUuid": "2ebd45ca_16043adf",
+      "revId": "a7929d2f8bf8df96f5d483c05a027a1877707834",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ec8f176_b92a9b5a",
         "filename": "compiler/optimizing/code_generator_arm.h",
         "patchSetId": 2
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "2ebd45ca_3634d6a8",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-28T16:54:59Z",
+      "side": 1,
+      "message": "Yes, that\u0027s a comment about the size of the array. I can try and rewrite it if it\u0027s too confusing.",
+      "parentUuid": "8ec8f176_b92a9b5a",
+      "range": {
+        "startLine": 338,
+        "startChar": 28,
+        "endLine": 338,
+        "endChar": 80
+      },
+      "revId": "a7929d2f8bf8df96f5d483c05a027a1877707834",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ebd45ca_d6fac238",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -53,6 +95,30 @@
       "writtenOn": "2015-09-28T15:59:07Z",
       "side": 1,
       "message": "I still think you should override ArenaVector::operator[] and put this DCHECK there rather than scattering it all over the code.",
+      "range": {
+        "startLine": 613,
+        "startChar": 2,
+        "endLine": 613,
+        "endChar": 34
+      },
+      "revId": "a7929d2f8bf8df96f5d483c05a027a1877707834",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0eb5e1d9_3d659ba7",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-28T16:54:59Z",
+      "side": 1,
+      "message": "I started working on that but it\u0027s not trivial. Changing ArenaVector to actually not be std::vector breaks some template functions we use. I\u0027ll do that later.",
+      "parentUuid": "2ebd45ca_d6fac238",
       "range": {
         "startLine": 613,
         "startChar": 2,
