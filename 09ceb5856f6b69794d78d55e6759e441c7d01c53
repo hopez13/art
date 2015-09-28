@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ceae6993_5ebb2519",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-28T17:38:23Z",
+      "side": 1,
+      "message": "-\u003e it is the boot class loader. We should not unload the native libraries of the boot class loader.",
+      "range": {
+        "startLine": 269,
+        "startChar": 50,
+        "endLine": 269,
+        "endChar": 80
+      },
+      "revId": "09ceb5856f6b69794d78d55e6759e441c7d01c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
