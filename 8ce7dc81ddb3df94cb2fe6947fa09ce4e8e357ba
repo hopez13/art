@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2e470569_5e18223e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5613,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-09-28T19:00:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce074951_b322826a",
+      "range": {
+        "startLine": 5613,
+        "startChar": 9,
+        "endLine": 5613,
+        "endChar": 20
+      },
+      "revId": "8ce7dc81ddb3df94cb2fe6947fa09ce4e8e357ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0eb5e1d9_bdf52b8b",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-28T09:02:50Z",
       "side": 1,
       "message": "comparison",
+      "range": {
+        "startLine": 1002,
+        "startChar": 9,
+        "endLine": 1002,
+        "endChar": 20
+      },
+      "revId": "8ce7dc81ddb3df94cb2fe6947fa09ce4e8e357ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_3e156605",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1002,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-09-28T19:00:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0eb5e1d9_bdf52b8b",
       "range": {
         "startLine": 1002,
         "startChar": 9,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4e4c398b_300b5d30",
+        "filename": "compiler/optimizing/generate_selects.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-09-28T19:00:29Z",
+      "side": 1,
+      "message": "The number of predecessors is checked at line 75/76",
+      "parentUuid": "2ebd45ca_36a05696",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 3
+      },
+      "revId": "8ce7dc81ddb3df94cb2fe6947fa09ce4e8e357ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0eb5e1d9_dd02df15",
         "filename": "compiler/optimizing/generate_selects.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-09-28T09:02:50Z",
       "side": 1,
       "message": "Make this a helper on the graph?",
+      "range": {
+        "startLine": 32,
+        "startChar": 1,
+        "endLine": 37,
+        "endChar": 3
+      },
+      "revId": "8ce7dc81ddb3df94cb2fe6947fa09ce4e8e357ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_9f4e99af",
+        "filename": "compiler/optimizing/generate_selects.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-09-28T19:00:29Z",
+      "side": 1,
+      "message": "Does this happen often enough that it is worth it?  What other optimization would care?",
+      "parentUuid": "0eb5e1d9_dd02df15",
       "range": {
         "startLine": 32,
         "startChar": 1,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "ee616dea_97cb27e1",
+        "filename": "compiler/optimizing/generate_selects.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-09-28T19:00:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ec27958_17d43625",
+      "range": {
+        "startLine": 39,
+        "startChar": 19,
+        "endLine": 39,
+        "endChar": 27
+      },
+      "revId": "8ce7dc81ddb3df94cb2fe6947fa09ce4e8e357ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ec8f176_19ad4fc1",
         "filename": "compiler/optimizing/generate_selects.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2015-09-28T09:02:50Z",
       "side": 1,
       "message": "describe (or name) the pattern here too.",
+      "range": {
+        "startLine": 82,
+        "startChar": 26,
+        "endLine": 82,
+        "endChar": 33
+      },
+      "revId": "8ce7dc81ddb3df94cb2fe6947fa09ce4e8e357ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e470569_5e4a6222",
+        "filename": "compiler/optimizing/generate_selects.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-09-28T19:00:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ec8f176_19ad4fc1",
       "range": {
         "startLine": 82,
         "startChar": 26,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "4e4c398b_b0b18dc4",
+        "filename": "compiler/optimizing/generate_selects.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-09-28T19:00:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eececd75_4487e003",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 4
+      },
+      "revId": "8ce7dc81ddb3df94cb2fe6947fa09ce4e8e357ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ebd45ca_56a5d2a4",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 2
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "ee86cdd4_c049d3fb",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-09-28T19:00:29Z",
+      "side": 1,
+      "message": "Added #ifdefs.  Not sure how to do this without ifdefs.",
+      "parentUuid": "2ebd45ca_56a5d2a4",
+      "range": {
+        "startLine": 734,
+        "startChar": 23,
+        "endLine": 734,
+        "endChar": 40
+      },
+      "revId": "8ce7dc81ddb3df94cb2fe6947fa09ce4e8e357ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eececd75_8481e8ee",
         "filename": "compiler/optimizing/nodes_x86_common.h",
         "patchSetId": 2
@@ -197,6 +389,30 @@
       "writtenOn": "2015-09-28T09:02:50Z",
       "side": 1,
       "message": "Why can\u0027t you take the condition as input and rely on the materialization bit?",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 38
+      },
+      "revId": "8ce7dc81ddb3df94cb2fe6947fa09ce4e8e357ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4d7d85_78b66033",
+        "filename": "compiler/optimizing/nodes_x86_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-09-28T19:00:29Z",
+      "side": 1,
+      "message": "Because I want to ensure that the comparison is done right before the CMOV.  This also lets the HIf go dead using DCE.",
+      "parentUuid": "eececd75_8481e8ee",
       "range": {
         "startLine": 30,
         "startChar": 0,
