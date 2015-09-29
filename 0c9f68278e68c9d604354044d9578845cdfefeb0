@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eececd75_8462c8d3",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1153,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-09-29T09:09:59Z",
+      "side": 0,
+      "message": "Why do we record the pc info before the branch?\nIn the codegen the info is recorded after the branch.\n\nDoes the runtime have different expectations?",
+      "revId": "0c9f68278e68c9d604354044d9578845cdfefeb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
