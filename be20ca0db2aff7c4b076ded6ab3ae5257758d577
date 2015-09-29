@@ -282,6 +282,30 @@
       "revId": "be20ca0db2aff7c4b076ded6ab3ae5257758d577",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceae6993_81b1e060",
+        "filename": "runtime/jni_env_ext.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-29T17:04:28Z",
+      "side": 1,
+      "message": "If you could do a checkJni check at JNI entry, could you then scope the locked_objects?",
+      "parentUuid": "0e5fa128_def7774e",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 61
+      },
+      "revId": "be20ca0db2aff7c4b076ded6ab3ae5257758d577",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
