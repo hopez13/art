@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae5bf53d_02a36de6",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-29T18:15:30Z",
+      "side": 1,
+      "message": "Spurious now?",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 18
+      },
+      "revId": "11b6fab83cdbc35b3617468e6c1aabf31c0dfa41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_2341da72",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-29T18:15:30Z",
+      "side": 1,
+      "message": "New style would be one parameter per line.",
+      "range": {
+        "startLine": 115,
+        "startChar": 36,
+        "endLine": 117,
+        "endChar": 61
+      },
+      "revId": "11b6fab83cdbc35b3617468e6c1aabf31c0dfa41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_033ed6ed",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1929,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-29T18:15:30Z",
+      "side": 1,
+      "message": "Period.",
+      "range": {
+        "startLine": 1929,
+        "startChar": 37,
+        "endLine": 1929,
+        "endChar": 38
+      },
+      "revId": "11b6fab83cdbc35b3617468e6c1aabf31c0dfa41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4d7d85_c710cc84",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1937,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-29T18:15:30Z",
+      "side": 1,
+      "message": "Line too long. You\u0027ll have to break the parameter list...",
+      "range": {
+        "startLine": 1937,
+        "startChar": 100,
+        "endLine": 1937,
+        "endChar": 101
+      },
+      "revId": "11b6fab83cdbc35b3617468e6c1aabf31c0dfa41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
