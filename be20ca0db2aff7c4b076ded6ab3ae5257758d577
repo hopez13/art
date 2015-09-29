@@ -186,6 +186,30 @@
       "revId": "be20ca0db2aff7c4b076ded6ab3ae5257758d577",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e9a4178_3bb20b1e",
+        "filename": "runtime/jni_env_ext.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-29T16:19:20Z",
+      "side": 1,
+      "message": "Oh, didn\u0027t nee the vector wasn\u0027t locked. My question then is around the \"sessions\" you talk about in the implementation. Why do you need them when calls are scoped? Is that the stack of vectors you wanted to avoid? But if no check-jni, that stack of vector will always be empty.",
+      "parentUuid": "2e2e2591_39b1025f",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 61
+      },
+      "revId": "be20ca0db2aff7c4b076ded6ab3ae5257758d577",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
