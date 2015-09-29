@@ -22,6 +22,29 @@
       "revId": "8a0014dd3ad1562d93695fa0d3033856ec7da133",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_fd27e190",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1947,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-29T03:19:10Z",
+      "side": 0,
+      "message": "I see that this one is the issue, because we have to go through the dex cache to get to the dex file. Blarg.",
+      "range": {
+        "startLine": 1947,
+        "startChar": 28,
+        "endLine": 1947,
+        "endChar": 47
+      },
+      "revId": "8a0014dd3ad1562d93695fa0d3033856ec7da133",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
