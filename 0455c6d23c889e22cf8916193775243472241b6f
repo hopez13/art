@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e470569_b211875e",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-29T01:16:40Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be moved here. This is not an entrypoint - it\u0027s not called from compiled code.",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 39
+      },
+      "revId": "0455c6d23c889e22cf8916193775243472241b6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
