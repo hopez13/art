@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6ec3bd5a_78c0fd88",
+        "filename": "compiler/dex/quick/mips/utility_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 986,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-09-29T15:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2900dfee_1ef5098e",
+      "range": {
+        "startLine": 986,
+        "startChar": 0,
+        "endLine": 986,
+        "endChar": 6
+      },
+      "revId": "b820936b93f79419ab19583efd16dc41b3316d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "691f3755_38b8e5fc",
         "filename": "compiler/utils/mips64/assembler_mips64.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-16T09:50:59Z",
       "side": 1,
       "message": "Use CHECK, here and elsewhere.",
+      "range": {
+        "startLine": 256,
+        "startChar": 2,
+        "endLine": 256,
+        "endChar": 8
+      },
+      "revId": "b820936b93f79419ab19583efd16dc41b3316d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceae6993_813e4087",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-09-29T15:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "691f3755_38b8e5fc",
       "range": {
         "startLine": 256,
         "startChar": 2,
@@ -94,6 +142,54 @@
     },
     {
       "key": {
+        "uuid": "0e9a4178_1898edb1",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-09-29T15:35:13Z",
+      "side": 1,
+      "message": "Done. I have added those constants in assembler_mips64.h since it is included in both, assembler_mips64.cc and code_generator_mips64.cc.",
+      "parentUuid": "2900dfee_def68198",
+      "range": {
+        "startLine": 956,
+        "startChar": 94,
+        "endLine": 956,
+        "endChar": 95
+      },
+      "revId": "b820936b93f79419ab19583efd16dc41b3316d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ec3bd5a_98c4f99d",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-09-29T15:35:13Z",
+      "side": 1,
+      "message": "Done. I\u0027m not sure if indentations are ok in this case.",
+      "parentUuid": "c93f43b4_530cb604",
+      "range": {
+        "startLine": 956,
+        "startChar": 57,
+        "endLine": 956,
+        "endChar": 69
+      },
+      "revId": "b820936b93f79419ab19583efd16dc41b3316d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89fb8b33_411f349b",
         "filename": "compiler/utils/mips64/assembler_mips64.cc",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2015-09-16T09:50:59Z",
       "side": 1,
       "message": "Likewise, use CHECK_ALIGNED, here and below.",
+      "range": {
+        "startLine": 977,
+        "startChar": 6,
+        "endLine": 977,
+        "endChar": 20
+      },
+      "revId": "b820936b93f79419ab19583efd16dc41b3316d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceae6993_e12c5c61",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-09-29T15:35:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89fb8b33_411f349b",
       "range": {
         "startLine": 977,
         "startChar": 6,
