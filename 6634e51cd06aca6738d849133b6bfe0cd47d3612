@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e4c398b_2518ba3d",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-29T19:22:59Z",
+      "side": 1,
+      "message": "Insert a comment that the dex cache having been cleared indicates that the class loader for this dex file has become unreachable and thus it\u0027s safe to delete this dex file, or something like that? Maybe combine it with the comment in line 202?",
+      "range": {
+        "startLine": 207,
+        "startChar": 4,
+        "endLine": 207,
+        "endChar": 9
+      },
+      "revId": "6634e51cd06aca6738d849133b6bfe0cd47d3612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
