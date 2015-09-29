@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8ec8f176_d9fbd7e3",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-29T12:57:26Z",
+      "side": 1,
+      "message": "Unfortunately not, this is not a function parameter.",
+      "parentUuid": "eececd75_a4018c7d",
+      "range": {
+        "startLine": 338,
+        "startChar": 2,
+        "endLine": 338,
+        "endChar": 22
+      },
+      "revId": "225b6464a58ebe11c156144653f11a1c6607f4eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceae6993_c1a7588a",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-29T12:12:52Z",
       "side": 1,
       "message": "Why isn\u0027t the Equal call line 408 enough?",
+      "range": {
+        "startLine": 411,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 19
+      },
+      "revId": "225b6464a58ebe11c156144653f11a1c6607f4eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eececd75_84c0088a",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-29T12:57:26Z",
+      "side": 1,
+      "message": "The Equal() at line 408 is the same as the check at line 412 in \"base\" for all dex registers.\n\nThis std::equals() is the same as the check at line 420 in \"base\" for all registers.\n\n(Instead of a single loop I\u0027ve got two. Or three, if you count NumSetBits().)",
+      "parentUuid": "ceae6993_c1a7588a",
       "range": {
         "startLine": 411,
         "startChar": 0,
