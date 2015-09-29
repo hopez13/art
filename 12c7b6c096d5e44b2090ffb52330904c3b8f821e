@@ -16,6 +16,24 @@
       "revId": "12c7b6c096d5e44b2090ffb52330904c3b8f821e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeb7ade1_5c925191",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-29T14:42:52Z",
+      "side": 1,
+      "message": "Good point. As discussed, I now check against the void type on the equivalent. PTAL.",
+      "parentUuid": "8ec8f176_b9fe1bd5",
+      "revId": "12c7b6c096d5e44b2090ffb52330904c3b8f821e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
