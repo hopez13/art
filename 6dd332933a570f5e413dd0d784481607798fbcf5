@@ -22,6 +22,30 @@
       "revId": "6dd332933a570f5e413dd0d784481607798fbcf5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_40f1725c",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-29T21:00:01Z",
+      "side": 1,
+      "message": "Yes. ScopedThreadStateChange (the state behind SOA) supports that.",
+      "parentUuid": "ee616dea_e6118e18",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 22
+      },
+      "revId": "6dd332933a570f5e413dd0d784481607798fbcf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
