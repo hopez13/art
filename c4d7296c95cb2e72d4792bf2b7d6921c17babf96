@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ec3bd5a_d8fbd1e3",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-29T15:01:01Z",
+      "side": 1,
+      "message": "GetQuickInstrumentationExitPc() (from runtime/entrypoints/runtime_asm_entrypoints.h)",
+      "range": {
+        "startLine": 92,
+        "startChar": 56,
+        "endLine": 92,
+        "endChar": 86
+      },
+      "revId": "c4d7296c95cb2e72d4792bf2b7d6921c17babf96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0eb5e1d9_00114a86",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-29T15:01:01Z",
+      "side": 1,
+      "message": "This is exactly the same code below. Since that check will always pass in this case, you may want to also set do_caller_check \u003d false to avoid the check (it\u0027s only for debug build though)",
+      "range": {
+        "startLine": 103,
+        "startChar": 6,
+        "endLine": 107,
+        "endChar": 30
+      },
+      "revId": "c4d7296c95cb2e72d4792bf2b7d6921c17babf96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
