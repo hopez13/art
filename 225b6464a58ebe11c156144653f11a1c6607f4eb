@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ae5bf53d_c5e2ff96",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-29T18:57:29Z",
+      "side": 1,
+      "message": "Could you add a comment that this is meant to be used as an array?\n\nor why didn\u0027t you use an explicit ArenaVector here?",
+      "parentUuid": "8ec8f176_d9fbd7e3",
+      "range": {
+        "startLine": 338,
+        "startChar": 2,
+        "endLine": 338,
+        "endChar": 22
+      },
+      "revId": "225b6464a58ebe11c156144653f11a1c6607f4eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceae6993_c1a7588a",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 3
