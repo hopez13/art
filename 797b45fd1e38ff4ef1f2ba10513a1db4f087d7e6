@@ -22,6 +22,30 @@
       "revId": "797b45fd1e38ff4ef1f2ba10513a1db4f087d7e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e9a4178_5b098f6d",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-29T18:12:06Z",
+      "side": 1,
+      "message": "Wooops late evening change :-) Thanks for the catch.",
+      "parentUuid": "ee616dea_4b0d03b1",
+      "range": {
+        "startLine": 368,
+        "startChar": 56,
+        "endLine": 368,
+        "endChar": 85
+      },
+      "revId": "797b45fd1e38ff4ef1f2ba10513a1db4f087d7e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
