@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee616dea_e6118e18",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-29T19:17:15Z",
+      "side": 1,
+      "message": "It\u0027s harmless to enter here with the mutator lock shared already held, correct?",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 22
+      },
+      "revId": "6dd332933a570f5e413dd0d784481607798fbcf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
