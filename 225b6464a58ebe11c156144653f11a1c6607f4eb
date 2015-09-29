@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eececd75_a4018c7d",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-29T12:12:52Z",
+      "side": 1,
+      "message": "Can you write Label block_labels_[] ?",
+      "range": {
+        "startLine": 338,
+        "startChar": 2,
+        "endLine": 338,
+        "endChar": 22
+      },
+      "revId": "225b6464a58ebe11c156144653f11a1c6607f4eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ceae6993_c1a7588a",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-29T12:12:52Z",
+      "side": 1,
+      "message": "Why isn\u0027t the Equal call line 408 enough?",
+      "range": {
+        "startLine": 411,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 19
+      },
+      "revId": "225b6464a58ebe11c156144653f11a1c6607f4eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
