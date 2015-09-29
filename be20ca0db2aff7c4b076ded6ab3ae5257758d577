@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee86cdd4_991586d4",
+        "filename": "runtime/jni_env_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-29T05:05:54Z",
+      "side": 1,
+      "message": "Note: I don\u0027t think this actually happens, as the JNI transition frame is a quick frame (even the Generic JNI one looks like one). But just for completeness it\u0027s better to have something here.",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 78
+      },
+      "revId": "be20ca0db2aff7c4b076ded6ab3ae5257758d577",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_ce9b412f",
+        "filename": "runtime/jni_env_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-29T05:05:54Z",
+      "side": 1,
+      "message": "Yuck, cruft, will remove tomorrow. Wonder why it didn\u0027t warn me...",
+      "range": {
+        "startLine": 137,
+        "startChar": 2,
+        "endLine": 137,
+        "endChar": 24
+      },
+      "revId": "be20ca0db2aff7c4b076ded6ab3ae5257758d577",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_998116ca",
+        "filename": "runtime/jni_env_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-29T05:05:54Z",
+      "side": 1,
+      "message": "It\u0027s obviously not a great implementation, but then this is on abort, so I felt this was nicely declarative...",
+      "range": {
+        "startLine": 164,
+        "startChar": 4,
+        "endLine": 166,
+        "endChar": 66
+      },
+      "revId": "be20ca0db2aff7c4b076ded6ab3ae5257758d577",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
