@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eececd75_6709466e",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-29T15:58:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ec8f176_b95a9b8c",
+      "range": {
+        "startLine": 577,
+        "startChar": 0,
+        "endLine": 581,
+        "endChar": 3
+      },
+      "revId": "e9eb2b8092126f614dae58b18aaa70b1903f6914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ec27958_5a2a55b0",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-29T15:26:55Z",
       "side": 1,
       "message": "Nit: no comma",
+      "range": {
+        "startLine": 103,
+        "startChar": 55,
+        "endLine": 103,
+        "endChar": 56
+      },
+      "revId": "e9eb2b8092126f614dae58b18aaa70b1903f6914",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e9a4178_985dbd89",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-29T15:58:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ec27958_5a2a55b0",
       "range": {
         "startLine": 103,
         "startChar": 55,
