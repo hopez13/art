@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e2e2591_23a31019",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-29T23:46:51Z",
+      "side": 1,
+      "message": "Only run if env-\u003echeck_jni is true?",
+      "range": {
+        "startLine": 68,
+        "startChar": 7,
+        "endLine": 68,
+        "endChar": 28
+      },
+      "revId": "00db8f5e521e4b0fc7454c7e43d2c910ac30e441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
