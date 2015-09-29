@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ceae6993_612a0cb1",
+        "filename": "compiler/optimizing/generate_selects.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-09-29T09:41:54Z",
+      "side": 1,
+      "message": "Should we also have `|| instr-\u003eHasSideEffects()` ?",
+      "revId": "170d1a769f38ac2f7693050c308cd8d3f6f5b1a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
