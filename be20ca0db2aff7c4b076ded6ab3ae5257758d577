@@ -118,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "2e2e2591_19a64629",
+        "filename": "runtime/jni_env_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-29T16:08:00Z",
+      "side": 1,
+      "message": "Sorry, do I understand you correctly and you really want me to implement remove_if? I disagree with that. Either we should accept the lambda, or we should have a simple implementation. Something that is juggling elements around explicitly (and still needs the erase call to cut off the unused end) is IMHO neither simple nor elegant.",
+      "parentUuid": "6ec3bd5a_d85031f6",
+      "range": {
+        "startLine": 164,
+        "startChar": 4,
+        "endLine": 166,
+        "endChar": 66
+      },
+      "revId": "be20ca0db2aff7c4b076ded6ab3ae5257758d577",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eececd75_44b7e055",
         "filename": "runtime/jni_env_ext.h",
         "patchSetId": 2
@@ -129,6 +153,30 @@
       "writtenOn": "2015-09-29T08:32:56Z",
       "side": 1,
       "message": "Won\u0027t it simplify a lot of things if this was thread specific and created at JNI entry? The need to have a uintptr_t from the frame (?) also doesn\u0027t seem right when you know that the calls are scoped.",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 61
+      },
+      "revId": "be20ca0db2aff7c4b076ded6ab3ae5257758d577",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_39b1025f",
+        "filename": "runtime/jni_env_ext.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-29T16:08:00Z",
+      "side": 1,
+      "message": "This *is* thread-specific, as JNIEnv is. That\u0027s why there\u0027s no lock around this.\n\nMathieu and I derived this encoding to minimize the overhead in non-CheckJNI situations. The only thing you always pay is the CheckJNI-check on exit of a JNI function. And even if CheckJNI is on, only MonitorEnter and Exit operations pay any price. Any stack of vectors to scope things requires entry instrumentation that we wanted to avoid (as bdc really only wanted CheckJNI impacted).",
+      "parentUuid": "eececd75_44b7e055",
       "range": {
         "startLine": 118,
         "startChar": 0,
