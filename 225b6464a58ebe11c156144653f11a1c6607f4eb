@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "4ec27958_da758591",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-29T20:00:50Z",
+      "side": 1,
+      "message": "I think \"Indexed by block id.\" makes it clear that it\u0027s used as an array.\n\nIf we want to add comments about not using ArenaVector, I would prefer to put them in CommonInitializeLabels() instead of copy-pasting a multi-line comment into 5 (eventually 6) units.",
+      "parentUuid": "ae5bf53d_c5e2ff96",
+      "range": {
+        "startLine": 338,
+        "startChar": 2,
+        "endLine": 338,
+        "endChar": 22
+      },
+      "revId": "225b6464a58ebe11c156144653f11a1c6607f4eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceae6993_c1a7588a",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 3
