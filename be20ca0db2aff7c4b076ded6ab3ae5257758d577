@@ -48,6 +48,46 @@
     },
     {
       "key": {
+        "uuid": "ee616dea_8bbc1ba3",
+        "filename": "runtime/jni_env_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-29T23:46:51Z",
+      "side": 1,
+      "message": "self",
+      "range": {
+        "startLine": 139,
+        "startChar": 44,
+        "endLine": 139,
+        "endChar": 61
+      },
+      "revId": "be20ca0db2aff7c4b076ded6ab3ae5257758d577",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_e230591f",
+        "filename": "runtime/jni_env_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-29T23:46:51Z",
+      "side": 1,
+      "message": "One line per arg",
+      "revId": "be20ca0db2aff7c4b076ded6ab3ae5257758d577",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ec27958_773baa60",
         "filename": "runtime/jni_env_ext.cc",
         "patchSetId": 2
@@ -231,6 +271,29 @@
         "startChar": 4,
         "endLine": 166,
         "endChar": 66
+      },
+      "revId": "be20ca0db2aff7c4b076ded6ab3ae5257758d577",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_3447a119",
+        "filename": "runtime/jni_env_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-09-29T23:46:51Z",
+      "side": 1,
+      "message": "newline",
+      "range": {
+        "startLine": 185,
+        "startChar": 42,
+        "endLine": 185,
+        "endChar": 43
       },
       "revId": "be20ca0db2aff7c4b076ded6ab3ae5257758d577",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
