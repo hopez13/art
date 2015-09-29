@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "f86a1765_10832c3e",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-29T23:18:47Z",
+      "side": 1,
+      "message": "Use DCHECK_EQ.",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 10
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "699c97d8_ed62e54c",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
@@ -160,6 +183,190 @@
         "startChar": 10,
         "endLine": 951,
         "endChar": 18
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f86a1765_53e68e1b",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1012,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-29T23:18:47Z",
+      "side": 1,
+      "message": "Replace with\n\n  IsUint\u003c16\u003e(invoke-\u003eInputAt(1)-\u003eAsIntConstant()-\u003eGetValue())\n\n?",
+      "range": {
+        "startLine": 1011,
+        "startChar": 8,
+        "endLine": 1012,
+        "endChar": 44
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f86a1765_d3359e0c",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-29T23:18:47Z",
+      "side": 1,
+      "message": "Replace with\n\n  Location outLocation \u003d calling_convention.GetReturnLocation(Primitive::kPrimInt);\n  locations-\u003eSetOut(Location::RegisterLocation(outLocation.AsRegister\u003cGpuRegister\u003e()));\n\n(as in other places).",
+      "range": {
+        "startLine": 1063,
+        "startChar": 2,
+        "endLine": 1063,
+        "endChar": 52
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_c33a0caf",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-29T23:18:47Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1084,
+        "startChar": 2,
+        "endLine": 1084,
+        "endChar": 52
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_a7def2f5",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1641,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-29T23:18:47Z",
+      "side": 1,
+      "message": "Two suggestions about this part of the comment:\n\n1. replace it with\n\n  if this[i] !\u003d anotherString[i]\n\n2. move it on the previous line.",
+      "range": {
+        "startLine": 1641,
+        "startChar": 26,
+        "endLine": 1641,
+        "endChar": 37
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_d6ff539e",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1642,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-29T23:18:47Z",
+      "side": 1,
+      "message": "this.charAt(i++) ?",
+      "range": {
+        "startLine": 1642,
+        "startChar": 35,
+        "endLine": 1642,
+        "endChar": 44
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_2f774714",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1646,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-29T23:18:47Z",
+      "side": 1,
+      "message": "anotherString.charAt(i++) ?",
+      "range": {
+        "startLine": 1646,
+        "startChar": 35,
+        "endLine": 1646,
+        "endChar": 53
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_c3568cce",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1664,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-29T23:18:47Z",
+      "side": 1,
+      "message": "Nit: move this comment on the next line?",
+      "range": {
+        "startLine": 1664,
+        "startChar": 26,
+        "endLine": 1664,
+        "endChar": 40
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_74530a55",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1671,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-29T23:18:47Z",
+      "side": 1,
+      "message": "this.charAt(i++) ?",
+      "range": {
+        "startLine": 1671,
+        "startChar": 26,
+        "endLine": 1671,
+        "endChar": 35
       },
       "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
