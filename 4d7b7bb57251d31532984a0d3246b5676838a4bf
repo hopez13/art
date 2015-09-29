@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0eb5e1d9_fd540361",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-29T12:42:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce582944_0f8de6b8",
+      "range": {
+        "startLine": 517,
+        "startChar": 4,
+        "endLine": 517,
+        "endChar": 6
+      },
+      "revId": "4d7b7bb57251d31532984a0d3246b5676838a4bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e4d7d85_5134a7bf",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 2
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "ce074951_962acc5a",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-29T12:42:51Z",
+      "side": 1,
+      "message": "Done (parentheses). With the comments above (PS3) and below, I don\u0027t think we need another one just before the \"if\".",
+      "parentUuid": "6e4d7d85_5134a7bf",
+      "range": {
+        "startLine": 521,
+        "startChar": 10,
+        "endLine": 521,
+        "endChar": 71
+      },
+      "revId": "4d7b7bb57251d31532984a0d3246b5676838a4bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e52b121_c0ca0287",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 2
@@ -82,6 +130,30 @@
       "writtenOn": "2015-09-25T18:55:09Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 527,
+        "startChar": 18,
+        "endLine": 528,
+        "endChar": 52
+      },
+      "revId": "4d7b7bb57251d31532984a0d3246b5676838a4bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eeb7ade1_1ce7f959",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-29T12:42:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e52b121_c0ca0287",
       "range": {
         "startLine": 527,
         "startChar": 18,
@@ -141,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "0e9a4178_f86a4971",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-29T12:42:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e470569_3b0342d7",
+      "range": {
+        "startLine": 170,
+        "startChar": 28,
+        "endLine": 170,
+        "endChar": 29
+      },
+      "revId": "4d7b7bb57251d31532984a0d3246b5676838a4bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e5fa128_716567a6",
         "filename": "test/458-checker-instruction-simplification/src/Main.java",
         "patchSetId": 2
@@ -176,6 +272,30 @@
       "side": 1,
       "message": "ditto",
       "parentUuid": "0e5fa128_716567a6",
+      "range": {
+        "startLine": 1197,
+        "startChar": 35,
+        "endLine": 1197,
+        "endChar": 37
+      },
+      "revId": "4d7b7bb57251d31532984a0d3246b5676838a4bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ebd45ca_d9e11307",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-29T12:42:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae5bf53d_c9e46850",
       "range": {
         "startLine": 1197,
         "startChar": 35,
