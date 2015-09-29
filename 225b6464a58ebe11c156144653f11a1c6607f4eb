@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "ce582944_eefa8938",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-29T21:34:39Z",
+      "side": 1,
+      "message": "I\u0027m good with having comments in CommonInitilizeLabels()",
+      "parentUuid": "4ec27958_da758591",
+      "range": {
+        "startLine": 338,
+        "startChar": 2,
+        "endLine": 338,
+        "endChar": 22
+      },
+      "revId": "225b6464a58ebe11c156144653f11a1c6607f4eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceae6993_c1a7588a",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 3
