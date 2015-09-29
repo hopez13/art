@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e4d7d85_9987dd03",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1944,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-29T01:59:04Z",
+      "side": 0,
+      "message": "Honestly I do not think the complexity is required (and I really don\u0027t like exposing internals in a header file and pasting return code all over the place).\n\nIsn\u0027t it enough to\n 1) Remove SHARED_REQUIRES, as it\u0027s wrong\n 2) Put a SOA here. How often are native methods synchronized? I don\u0027t think this is common in apps (and for the boot image - except for eng builds, JNI should really be compiled).",
+      "range": {
+        "startLine": 1942,
+        "startChar": 4,
+        "endLine": 1944,
+        "endChar": 43
+      },
+      "revId": "8a0014dd3ad1562d93695fa0d3033856ec7da133",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
