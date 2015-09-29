@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee616dea_4b0d03b1",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-29T18:09:19Z",
+      "side": 1,
+      "message": "Don\u0027t you have to *call* the function? Otherwise you\u0027re comparing to *that* helper function, not the actual stub address.",
+      "range": {
+        "startLine": 368,
+        "startChar": 56,
+        "endLine": 368,
+        "endChar": 85
+      },
+      "revId": "797b45fd1e38ff4ef1f2ba10513a1db4f087d7e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
