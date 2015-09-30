@@ -287,6 +287,30 @@
     },
     {
       "key": {
+        "uuid": "f597825c_42521205",
+        "filename": "runtime/jni_env_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-30T19:17:40Z",
+      "side": 1,
+      "message": "OK. (Note: \"git grep -E for.*rbegin.*rend\" reveals 4 existing backward loops. That\u0027s not too many.)",
+      "parentUuid": "354d9aaf_bfe6d319",
+      "range": {
+        "startLine": 202,
+        "startChar": 63,
+        "endLine": 204,
+        "endChar": 64
+      },
+      "revId": "00db8f5e521e4b0fc7454c7e43d2c910ac30e441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55712e1a_a5e33e09",
         "filename": "runtime/jni_env_ext.h",
         "patchSetId": 5
