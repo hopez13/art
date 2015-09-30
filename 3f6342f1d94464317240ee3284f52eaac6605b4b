@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4e4c398b_307c767e",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "Good point. Measured it with kUsePrefetchDuringAllocRun disabled. It improved it a bit. Updated the commit message.",
+      "parentUuid": "4e4c398b_d9731f24",
+      "range": {
+        "startLine": 575,
+        "startChar": 13,
+        "endLine": 575,
+        "endChar": 25
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e5fa128_7111e75b",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-25T17:41:55Z",
       "side": 1,
       "message": "Put on a new line?",
+      "range": {
+        "startLine": 946,
+        "startChar": 60,
+        "endLine": 946,
+        "endChar": 90
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fa128_acded9f5",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e5fa128_7111e75b",
       "range": {
         "startLine": 946,
         "startChar": 60,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ee616dea_71ce7a99",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "Clarified the comment.",
+      "parentUuid": "eeb7ade1_795567be",
+      "range": {
+        "startLine": 996,
+        "startChar": 0,
+        "endLine": 996,
+        "endChar": 62
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e470569_60834b8f",
         "filename": "runtime/gc/allocator/rosalloc.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-09-25T17:41:55Z",
       "side": 1,
       "message": "Split into two DCHECK_GT?",
+      "range": {
+        "startLine": 1706,
+        "startChar": 0,
+        "endLine": 1706,
+        "endChar": 48
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4d7d85_62fea62b",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1706,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e470569_60834b8f",
       "range": {
         "startLine": 1706,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "4e4c398b_7009ce6d",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1986,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "It looks like it can call InspectAllSlots. Will address in a separate CL.",
+      "parentUuid": "2ebd45ca_1360cc96",
+      "range": {
+        "startLine": 1956,
+        "startChar": 0,
+        "endLine": 1986,
+        "endChar": 3
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce074951_30e7a85a",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2015-09-25T10:01:14Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 118,
+        "startChar": 16,
+        "endLine": 118,
+        "endChar": 17
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_6eb7b90d",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce074951_30e7a85a",
       "range": {
         "startLine": 118,
         "startChar": 16,
@@ -157,6 +301,24 @@
     },
     {
       "key": {
+        "uuid": "4e4c398b_10f05ac7",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "Not sure. Done.",
+      "parentUuid": "ee86cdd4_553b4c60",
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eececd75_81555ac1",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 1
@@ -168,6 +330,30 @@
       "writtenOn": "2015-09-25T10:01:14Z",
       "side": 1,
       "message": "Why making it optional?",
+      "range": {
+        "startLine": 135,
+        "startChar": 16,
+        "endLine": 135,
+        "endChar": 24
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_b2f995b5",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "Added a comment.",
+      "parentUuid": "eececd75_81555ac1",
       "range": {
         "startLine": 135,
         "startChar": 16,
@@ -203,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "ae5bf53d_18999a68",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eeb7ade1_f929774e",
+      "range": {
+        "startLine": 139,
+        "startChar": 16,
+        "endLine": 139,
+        "endChar": 17
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce074951_10ec243b",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 1
@@ -214,6 +424,30 @@
       "writtenOn": "2015-09-25T10:01:14Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 142,
+        "startChar": 16,
+        "endLine": 142,
+        "endChar": 17
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_722b1dc5",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce074951_10ec243b",
       "range": {
         "startLine": 142,
         "startChar": 16,
@@ -249,6 +483,30 @@
     },
     {
       "key": {
+        "uuid": "8e52b121_522021dd",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ec27958_9422046b",
+      "range": {
+        "startLine": 146,
+        "startChar": 17,
+        "endLine": 146,
+        "endChar": 18
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e9a4178_55cebe98",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 1
@@ -260,6 +518,30 @@
       "writtenOn": "2015-09-25T10:01:14Z",
       "side": 1,
       "message": "Maybe FetchOneSlotAndRemove?\n\nJust calling it Remove makes me think that there must be some guarantee about whehre it removes (random/head/tail).",
+      "range": {
+        "startLine": 149,
+        "startChar": 10,
+        "endLine": 149,
+        "endChar": 16
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f86a1765_cd12ddf0",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "Remove() does always remove from the head of the free list.",
+      "parentUuid": "0e9a4178_55cebe98",
       "range": {
         "startLine": 149,
         "startChar": 10,
@@ -295,6 +577,30 @@
     },
     {
       "key": {
+        "uuid": "f86a1765_adb20960",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "size_ is used to make it fast to check if a free list is all free (IsAllFree()), which, without size_, would need to traverse the whole free list, which I\u0027d avoid.",
+      "parentUuid": "ee616dea_9e7229a6",
+      "range": {
+        "startLine": 177,
+        "startChar": 8,
+        "endLine": 177,
+        "endChar": 13
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eececd75_615056d0",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 1
@@ -306,6 +612,30 @@
       "writtenOn": "2015-09-25T10:01:14Z",
       "side": 1,
       "message": "kUseTail?",
+      "range": {
+        "startLine": 214,
+        "startChar": 28,
+        "endLine": 214,
+        "endChar": 32
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_60622ed7",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "Added a comment.",
+      "parentUuid": "eececd75_615056d0",
       "range": {
         "startLine": 214,
         "startChar": 28,
@@ -341,6 +671,30 @@
     },
     {
       "key": {
+        "uuid": "ee86cdd4_4f8dec69",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ec27958_d42c7c61",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 7
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ec27958_f429784e",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 1
@@ -352,6 +706,30 @@
       "writtenOn": "2015-09-25T10:01:14Z",
       "side": 1,
       "message": "Why do we need this guarantee? Please add the explanation in the comment.",
+      "range": {
+        "startLine": 284,
+        "startChar": 22,
+        "endLine": 284,
+        "endChar": 40
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_6f58f06f",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "Added a comment.",
+      "parentUuid": "4ec27958_f429784e",
       "range": {
         "startLine": 284,
         "startChar": 22,
@@ -381,6 +759,24 @@
     },
     {
       "key": {
+        "uuid": "2e2e2591_202b0662",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e5fa128_31bc8fef",
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ec27958_1456f4ce",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 1
@@ -392,6 +788,30 @@
       "writtenOn": "2015-09-25T10:01:14Z",
       "side": 1,
       "message": "nit: drop?",
+      "range": {
+        "startLine": 415,
+        "startChar": 6,
+        "endLine": 415,
+        "endChar": 44
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_e024de8e",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ec27958_1456f4ce",
       "range": {
         "startLine": 415,
         "startChar": 6,
@@ -421,6 +841,24 @@
     },
     {
       "key": {
+        "uuid": "ce582944_2e442183",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee616dea_d29f75c4",
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e5fa128_11c18b6b",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 1
@@ -438,6 +876,24 @@
     },
     {
       "key": {
+        "uuid": "15197672_13d2ac3e",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e5fa128_11c18b6b",
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ebd45ca_938cdcbe",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 1
@@ -449,6 +905,30 @@
       "writtenOn": "2015-09-25T10:01:14Z",
       "side": 1,
       "message": "What are these Java-conventions named?",
+      "range": {
+        "startLine": 477,
+        "startChar": 0,
+        "endLine": 483,
+        "endChar": 48
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e4c398b_708b0ee8",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:02:58Z",
+      "side": 1,
+      "message": "Will address that in a separate CL.",
+      "parentUuid": "2ebd45ca_938cdcbe",
       "range": {
         "startLine": 477,
         "startChar": 0,
