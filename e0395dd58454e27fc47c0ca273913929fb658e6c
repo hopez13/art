@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d55b5e6b_5c3a315a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3907,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-30T17:37:57Z",
+      "side": 1,
+      "message": "this reads a lot better too now",
+      "range": {
+        "startLine": 3907,
+        "startChar": 59,
+        "endLine": 3907,
+        "endChar": 60
+      },
+      "revId": "e0395dd58454e27fc47c0ca273913929fb658e6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5398a03_e0572269",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 4397,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-30T17:37:57Z",
+      "side": 1,
+      "message": "\\O/\n\nmuch more descriptive, thanks!",
+      "revId": "e0395dd58454e27fc47c0ca273913929fb658e6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
