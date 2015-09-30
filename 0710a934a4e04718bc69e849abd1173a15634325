@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55712e1a_e5dd364a",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T08:38:38Z",
+      "side": 1,
+      "message": "Ins\u0027t the definition of trip count the minimum number a loop executes?",
+      "range": {
+        "startLine": 609,
+        "startChar": 39,
+        "endLine": 609,
+        "endChar": 65
+      },
+      "revId": "0710a934a4e04718bc69e849abd1173a15634325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75ab929e_9e063d5f",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T08:38:38Z",
+      "side": 1,
+      "message": "listed?",
+      "range": {
+        "startLine": 627,
+        "startChar": 76,
+        "endLine": 627,
+        "endChar": 84
+      },
+      "revId": "0710a934a4e04718bc69e849abd1173a15634325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75ab929e_7eec91f1",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T08:38:38Z",
+      "side": 1,
+      "message": "FATAL(UNREACHABLE) ?",
+      "range": {
+        "startLine": 682,
+        "startChar": 6,
+        "endLine": 682,
+        "endChar": 15
+      },
+      "revId": "0710a934a4e04718bc69e849abd1173a15634325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "957f26e6_67d23240",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T08:38:38Z",
+      "side": 1,
+      "message": "kTripCountInBodyUnsafe.",
+      "range": {
+        "startLine": 68,
+        "startChar": 60,
+        "endLine": 68,
+        "endChar": 66
+      },
+      "revId": "0710a934a4e04718bc69e849abd1173a15634325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "957f26e6_87e6461a",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T08:38:38Z",
+      "side": 1,
+      "message": "nit: TC -\u003e TripCount?",
+      "range": {
+        "startLine": 69,
+        "startChar": 5,
+        "endLine": 69,
+        "endChar": 7
+      },
+      "revId": "0710a934a4e04718bc69e849abd1173a15634325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "957f26e6_a7e34a09",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T08:38:38Z",
+      "side": 1,
+      "message": "better name?",
+      "range": {
+        "startLine": 167,
+        "startChar": 37,
+        "endLine": 167,
+        "endChar": 43
+      },
+      "revId": "0710a934a4e04718bc69e849abd1173a15634325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35e91ad0_dc0e6d6c",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T08:38:38Z",
+      "side": 1,
+      "message": "ditto: l and u are not defined in this file.",
+      "range": {
+        "startLine": 168,
+        "startChar": 36,
+        "endLine": 168,
+        "endChar": 43
+      },
+      "revId": "0710a934a4e04718bc69e849abd1173a15634325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
