@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f5586271_407ec241",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T20:04:05Z",
+      "side": 1,
+      "message": "As discussed offline, haven\u0027t had a chance to update smali yet so the encodings stay the way they do for the short term.",
+      "parentUuid": "0eb5e1d9_5d06cf27",
+      "range": {
+        "startLine": 394,
+        "startChar": 17,
+        "endLine": 394,
+        "endChar": 34
+      },
+      "revId": "b72123440d8541362ebdb131436f9dbdda5fd329",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eececd75_a4750cc4",
         "filename": "runtime/dex_instruction-inl.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-28T09:21:40Z",
       "side": 1,
       "message": "Why this change?",
+      "range": {
+        "startLine": 458,
+        "startChar": 48,
+        "endLine": 458,
+        "endChar": 53
+      },
+      "revId": "b72123440d8541362ebdb131436f9dbdda5fd329",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9555663b_ba60ad3f",
+        "filename": "runtime/dex_instruction-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T20:04:05Z",
+      "side": 1,
+      "message": "Has to use a new constant now since the array sizes are different for 25x and non-25x version. \n\n\nAs for \u0026 vs non-\u0026, the \u0026 version is much safer because this\nargument doesn\u0027t just decay to a pointer \n(i.e. it\u0027s not possible to call this with an array of the wrong size).\n \nFor example,\n\n     error: invalid initialization of reference of type\n     ‘uint32_t (\u0026)[kMaxVarArgRegs25x]’\n     from expression of type ‘uint32_t [5]’\n\n     uint32_t arg[5];\n     inst.GetAllArgs25x(arg);",
+      "parentUuid": "eececd75_a4750cc4",
       "range": {
         "startLine": 458,
         "startChar": 48,
@@ -209,6 +257,30 @@
     },
     {
       "key": {
+        "uuid": "d55b5e6b_bffc1fdd",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T20:04:05Z",
+      "side": 1,
+      "message": "I would prefer not to change this one since that\u0027s how the rest of the code is written already.",
+      "parentUuid": "2ebd45ca_b68b8613",
+      "range": {
+        "startLine": 339,
+        "startChar": 46,
+        "endLine": 339,
+        "endChar": 57
+      },
+      "revId": "b72123440d8541362ebdb131436f9dbdda5fd329",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceae6993_9e1f7d67",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 3
@@ -232,6 +304,30 @@
     },
     {
       "key": {
+        "uuid": "354d9aaf_1fd1c793",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T20:04:05Z",
+      "side": 1,
+      "message": "to avoid writing out the entire type name each time?",
+      "parentUuid": "ceae6993_9e1f7d67",
+      "range": {
+        "startLine": 342,
+        "startChar": 2,
+        "endLine": 342,
+        "endChar": 32
+      },
+      "revId": "b72123440d8541362ebdb131436f9dbdda5fd329",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eececd75_e46f14f2",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 3
@@ -243,6 +339,30 @@
       "writtenOn": "2015-09-28T09:21:40Z",
       "side": 1,
       "message": "huh?",
+      "range": {
+        "startLine": 362,
+        "startChar": 90,
+        "endLine": 362,
+        "endChar": 123
+      },
+      "revId": "b72123440d8541362ebdb131436f9dbdda5fd329",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1548969f_2183ca93",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T20:04:05Z",
+      "side": 1,
+      "message": "lint doesn\u0027t like the /*out*/ , don\u0027t ask me why",
+      "parentUuid": "eececd75_e46f14f2",
       "range": {
         "startLine": 362,
         "startChar": 90,
@@ -347,6 +467,30 @@
     },
     {
       "key": {
+        "uuid": "15a33681_6672701e",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T20:04:05Z",
+      "side": 1,
+      "message": "I\u0027m not super sure, but the existing interpreter code would also clear out destination vregs when an error occurred.",
+      "parentUuid": "4ec27958_d7e1de06",
+      "range": {
+        "startLine": 488,
+        "startChar": 43,
+        "endLine": 488,
+        "endChar": 47
+      },
+      "revId": "b72123440d8541362ebdb131436f9dbdda5fd329",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ec8f176_d9caf786",
         "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
         "patchSetId": 3
@@ -370,6 +514,30 @@
     },
     {
       "key": {
+        "uuid": "d55b5e6b_dff3d308",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2425,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T20:04:05Z",
+      "side": 1,
+      "message": "You mean the shadow frame or?\n\nOnce I kill off the capture-variable instruction, the ClosureBuilder will just be a temp used only for the scope of a single DoCreateLambda, so it will just disappear from the switch altogether.",
+      "parentUuid": "8ec8f176_d9caf786",
+      "range": {
+        "startLine": 2422,
+        "startChar": 0,
+        "endLine": 2425,
+        "endChar": 5
+      },
+      "revId": "b72123440d8541362ebdb131436f9dbdda5fd329",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceae6993_1eb7edbf",
         "filename": "runtime/lambda/closure.cc",
         "patchSetId": 3
@@ -381,6 +549,30 @@
       "writtenOn": "2015-09-28T09:21:40Z",
       "side": 1,
       "message": "?",
+      "range": {
+        "startLine": 128,
+        "startChar": 9,
+        "endLine": 128,
+        "endChar": 19
+      },
+      "revId": "b72123440d8541362ebdb131436f9dbdda5fd329",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "354d9aaf_9fbcb73c",
+        "filename": "runtime/lambda/closure.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T20:04:05Z",
+      "side": 1,
+      "message": "Too many things on an ArtMethod require it to be non-const (don\u0027t ask me why, I didn\u0027t design it), better to have the const cast in one place than all over the place.",
+      "parentUuid": "ceae6993_1eb7edbf",
       "range": {
         "startLine": 128,
         "startChar": 9,
