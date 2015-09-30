@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5398a03_20890a61",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4395,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-30T17:23:10Z",
+      "side": 1,
+      "message": "can you add a clarifying comment to this?\nfields like can_be_null are reasonably self-explanatory, but the meaning of is_xxx_useful is a bit obscure when read in isolation",
+      "range": {
+        "startLine": 4395,
+        "startChar": 36,
+        "endLine": 4395,
+        "endChar": 37
+      },
+      "revId": "de61b82132847503a9e43515e9d39419a247d10d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
