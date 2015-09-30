@@ -239,6 +239,30 @@
     },
     {
       "key": {
+        "uuid": "75ab929e_3e528904",
+        "filename": "runtime/jni_env_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-30T17:05:39Z",
+      "side": 1,
+      "message": "Improve stl_util.h?\n\ntemplate \u003ctypename Container\u003e\nclass ReverseImpl {\n  typedef typename Container::reverse_iterator iterator;\n  ...\n  ReverseImpl(Container\u0026 container) : container_(container) { }\n  ...\n  iterator begin() { return container_.rbegin(); }\n  iterator end() { return container_.rend(); }\n  ...\n  Container\u0026 container_;\n};\n\ntemplate \u003ctypename Container\u003e\nReverseImpl\u003cContainer\u003e Reverse(Container\u0026 container) {\n  return ReverseImpl(container);\n}",
+      "parentUuid": "9555663b_1789b460",
+      "range": {
+        "startLine": 202,
+        "startChar": 63,
+        "endLine": 204,
+        "endChar": 64
+      },
+      "revId": "00db8f5e521e4b0fc7454c7e43d2c910ac30e441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55712e1a_a5e33e09",
         "filename": "runtime/jni_env_ext.h",
         "patchSetId": 5
