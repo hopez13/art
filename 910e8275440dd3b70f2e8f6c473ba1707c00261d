@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5586271_e396003e",
+        "filename": "runtime/mirror/throwable.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T21:12:08Z",
+      "side": 1,
+      "message": "The old code also returned -1 rather than crashing if the stack state type does not match, but maybe we should crash if we see a non-null non-object-array object?",
+      "range": {
+        "startLine": 74,
+        "startChar": 28,
+        "endLine": 74,
+        "endChar": 61
+      },
+      "revId": "910e8275440dd3b70f2e8f6c473ba1707c00261d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
