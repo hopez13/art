@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f597825c_a2943e0a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3795,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T16:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b57c2af2_4869bfba",
+      "revId": "abe410f7db8d494145890a53b1346bbacac159c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "156b3632_4369a6ba",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2015-09-30T16:39:59Z",
       "side": 1,
       "message": "Rename to \"array\"?",
+      "range": {
+        "startLine": 3813,
+        "startChar": 11,
+        "endLine": 3813,
+        "endChar": 14
+      },
+      "revId": "abe410f7db8d494145890a53b1346bbacac159c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75763214_6666aeae",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3813,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T16:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "156b3632_4369a6ba",
       "range": {
         "startLine": 3813,
         "startChar": 11,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "35e91ad0_bc8e01b4",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3909,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T16:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75ab929e_fe53010c",
+      "range": {
+        "startLine": 3909,
+        "startChar": 46,
+        "endLine": 3909,
+        "endChar": 51
+      },
+      "revId": "abe410f7db8d494145890a53b1346bbacac159c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "156b3632_636ea2c5",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -76,6 +142,30 @@
       "writtenOn": "2015-09-30T16:39:59Z",
       "side": 1,
       "message": "Unpoison input temp.",
+      "range": {
+        "startLine": 1694,
+        "startChar": 35,
+        "endLine": 1694,
+        "endChar": 39
+      },
+      "revId": "abe410f7db8d494145890a53b1346bbacac159c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35e91ad0_dc9bcdf4",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1694,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T16:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "156b3632_636ea2c5",
       "range": {
         "startLine": 1694,
         "startChar": 35,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "55eccecd_4db4594e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4407,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T16:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "957f26e6_8782c6c1",
+      "range": {
+        "startLine": 4407,
+        "startChar": 32,
+        "endLine": 4407,
+        "endChar": 36
+      },
+      "revId": "abe410f7db8d494145890a53b1346bbacac159c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b57c2af2_28748b97",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 2
@@ -122,6 +236,30 @@
       "writtenOn": "2015-09-30T16:39:59Z",
       "side": 1,
       "message": "Unpoison input temp.",
+      "range": {
+        "startLine": 4151,
+        "startChar": 32,
+        "endLine": 4151,
+        "endChar": 36
+      },
+      "revId": "abe410f7db8d494145890a53b1346bbacac159c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f597825c_6297560d",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4151,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T16:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b57c2af2_28748b97",
       "range": {
         "startLine": 4151,
         "startChar": 32,
