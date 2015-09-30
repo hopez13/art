@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "1548969f_bea3757a",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-30T16:51:01Z",
+      "side": 1,
+      "message": "Hmm, I tried that and looked around but\n\nLOG(FATAL) \u003c\u003c \"UNREACHABLE\";\nUNREACHABLE();\n\nseems to be the practice. Using that.",
+      "parentUuid": "1548969f_1ea1c995",
+      "range": {
+        "startLine": 682,
+        "startChar": 6,
+        "endLine": 682,
+        "endChar": 15
+      },
+      "revId": "0710a934a4e04718bc69e849abd1173a15634325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "957f26e6_67d23240",
         "filename": "compiler/optimizing/induction_var_analysis.h",
         "patchSetId": 4
