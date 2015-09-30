@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "75439281_a18eb8b3",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T21:32:57Z",
+      "side": 1,
+      "message": "kUseTail is a compile time constant. So, it shouldn\u0027t cause any runtime overhead and it\u0027s reasonable to fail if someone calls SlotFreeList\u003cfalse\u003e::Tail() even on a non-debug build.",
+      "parentUuid": "2e2e2591_86ce5296",
+      "range": {
+        "startLine": 148,
+        "startChar": 6,
+        "endLine": 148,
+        "endChar": 11
+      },
+      "revId": "119902883d54523ba492644430678960f32e5f04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75ab929e_defcc5a8",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-30T08:19:13Z",
       "side": 1,
       "message": "Deliberately",
+      "range": {
+        "startLine": 219,
+        "startChar": 7,
+        "endLine": 219,
+        "endChar": 19
+      },
+      "revId": "119902883d54523ba492644430678960f32e5f04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9555663b_3d3bf761",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T21:32:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75ab929e_defcc5a8",
       "range": {
         "startLine": 219,
         "startChar": 7,
