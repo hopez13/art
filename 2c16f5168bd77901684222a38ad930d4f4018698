@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f597825c_02d9aa13",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T17:07:24Z",
+      "side": 1,
+      "message": "in a subinterface? Doesn\u0027t this method only applies to interfaces then?",
+      "range": {
+        "startLine": 179,
+        "startChar": 58,
+        "endLine": 179,
+        "endChar": 87
+      },
+      "revId": "2c16f5168bd77901684222a38ad930d4f4018698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55eccecd_ed742555",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 3676,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T17:07:24Z",
+      "side": 1,
+      "message": "Isn\u0027t that what you\u0027re doing here?",
+      "range": {
+        "startLine": 3676,
+        "startChar": 0,
+        "endLine": 3676,
+        "endChar": 69
+      },
+      "revId": "2c16f5168bd77901684222a38ad930d4f4018698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f597825c_c2d2a2ef",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 3813,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T17:07:24Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3813,
+        "startChar": 0,
+        "endLine": 3813,
+        "endChar": 67
+      },
+      "revId": "2c16f5168bd77901684222a38ad930d4f4018698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f597825c_e2dda6ff",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 3827,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T17:07:24Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 3827,
+        "startChar": 41,
+        "endLine": 3827,
+        "endChar": 44
+      },
+      "revId": "2c16f5168bd77901684222a38ad930d4f4018698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55712e1a_c574ba55",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 3933,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T17:07:24Z",
+      "side": 1,
+      "message": "There\u0027s already initialization steps that wil ltell you whether a class is being initialized. Why can\u0027t you use that?",
+      "range": {
+        "startLine": 3933,
+        "startChar": 22,
+        "endLine": 3933,
+        "endChar": 51
+      },
+      "revId": "2c16f5168bd77901684222a38ad930d4f4018698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "957f26e6_676312d5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 5284,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T17:07:24Z",
+      "side": 1,
+      "message": "I\u0027d avoid classes (ie GC objects) in a std::vector. Especially if you now allow thread suspension.",
+      "range": {
+        "startLine": 5277,
+        "startChar": 2,
+        "endLine": 5284,
+        "endChar": 84
+      },
+      "revId": "2c16f5168bd77901684222a38ad930d4f4018698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75ab929e_5e455538",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 5472,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T17:07:24Z",
+      "side": 1,
+      "message": "indentation is off",
+      "range": {
+        "startLine": 5467,
+        "startChar": 0,
+        "endLine": 5472,
+        "endChar": 22
+      },
+      "revId": "2c16f5168bd77901684222a38ad930d4f4018698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "957f26e6_87472643",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 5595,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T17:07:24Z",
+      "side": 1,
+      "message": "virtual",
+      "range": {
+        "startLine": 5595,
+        "startChar": 55,
+        "endLine": 5595,
+        "endChar": 63
+      },
+      "revId": "2c16f5168bd77901684222a38ad930d4f4018698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "957f26e6_a7442a3f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 5600,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T17:07:24Z",
+      "side": 1,
+      "message": "are verified?",
+      "range": {
+        "startLine": 5600,
+        "startChar": 37,
+        "endLine": 5600,
+        "endChar": 40
+      },
+      "revId": "2c16f5168bd77901684222a38ad930d4f4018698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
