@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75ab929e_becc59a0",
+        "filename": "runtime/entrypoints/entrypoint_utils.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-09-30T07:56:37Z",
+      "side": 1,
+      "message": "Maybe add a comment to say why you do that. Something like \"avoid running the same code twice for debug build\" ?",
+      "range": {
+        "startLine": 384,
+        "startChar": 6,
+        "endLine": 384,
+        "endChar": 30
+      },
+      "revId": "3d59f6fd4a9793427f86730849baa9854c00a4ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
