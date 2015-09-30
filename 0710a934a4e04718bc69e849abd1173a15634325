@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "354d9aaf_7c88d9ab",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-30T16:35:52Z",
+      "side": 1,
+      "message": "Yes, runtime-TC \u003c\u003d computed static-TC\n(when there are early exits)",
+      "parentUuid": "75763214_2683d693",
+      "range": {
+        "startLine": 609,
+        "startChar": 39,
+        "endLine": 609,
+        "endChar": 65
+      },
+      "revId": "0710a934a4e04718bc69e849abd1173a15634325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75ab929e_9e063d5f",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 4
