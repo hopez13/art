@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1548969f_3e9c8563",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-30T16:23:35Z",
+      "side": 1,
+      "message": "No, just think about something like\n\nfor (int i \u003d 0; i \u003c 100; i++)\n        if (a[i] \u003d\u003d 0)\n           return i;\n\nThis loops executes at most 100 times (so we can remove the bounds check if we know a has length 100), but it may iterate fewer times as well",
+      "parentUuid": "55712e1a_e5dd364a",
+      "range": {
+        "startLine": 609,
+        "startChar": 39,
+        "endLine": 609,
+        "endChar": 65
+      },
+      "revId": "0710a934a4e04718bc69e849abd1173a15634325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75ab929e_9e063d5f",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-30T08:38:38Z",
       "side": 1,
       "message": "listed?",
+      "range": {
+        "startLine": 627,
+        "startChar": 76,
+        "endLine": 627,
+        "endChar": 84
+      },
+      "revId": "0710a934a4e04718bc69e849abd1173a15634325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5586271_9de3270a",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-30T16:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75ab929e_9e063d5f",
       "range": {
         "startLine": 627,
         "startChar": 76,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1548969f_1ea1c995",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-30T16:23:35Z",
+      "side": 1,
+      "message": "Ah, a much better idiom. Thanks!",
+      "parentUuid": "75ab929e_7eec91f1",
+      "range": {
+        "startLine": 682,
+        "startChar": 6,
+        "endLine": 682,
+        "endChar": 15
+      },
+      "revId": "0710a934a4e04718bc69e849abd1173a15634325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "957f26e6_67d23240",
         "filename": "compiler/optimizing/induction_var_analysis.h",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2015-09-30T08:38:38Z",
       "side": 1,
       "message": "kTripCountInBodyUnsafe.",
+      "range": {
+        "startLine": 68,
+        "startChar": 60,
+        "endLine": 68,
+        "endChar": 66
+      },
+      "revId": "0710a934a4e04718bc69e849abd1173a15634325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5586271_dddd9f4a",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-30T16:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "957f26e6_67d23240",
       "range": {
         "startLine": 68,
         "startChar": 60,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "1548969f_7ea60daf",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-30T16:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "957f26e6_87e6461a",
+      "range": {
+        "startLine": 69,
+        "startChar": 5,
+        "endLine": 69,
+        "endChar": 7
+      },
+      "revId": "0710a934a4e04718bc69e849abd1173a15634325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "957f26e6_a7e34a09",
         "filename": "compiler/optimizing/induction_var_analysis.h",
         "patchSetId": 4
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "9555663b_57b4cc4d",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-30T16:23:35Z",
+      "side": 1,
+      "message": "lower/upper okay?",
+      "parentUuid": "957f26e6_a7e34a09",
+      "range": {
+        "startLine": 167,
+        "startChar": 37,
+        "endLine": 167,
+        "endChar": 43
+      },
+      "revId": "0710a934a4e04718bc69e849abd1173a15634325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35e91ad0_dc0e6d6c",
         "filename": "compiler/optimizing/induction_var_analysis.h",
         "patchSetId": 4
@@ -151,6 +295,30 @@
       "writtenOn": "2015-09-30T08:38:38Z",
       "side": 1,
       "message": "ditto: l and u are not defined in this file.",
+      "range": {
+        "startLine": 168,
+        "startChar": 36,
+        "endLine": 168,
+        "endChar": 43
+      },
+      "revId": "0710a934a4e04718bc69e849abd1173a15634325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1548969f_5eab5173",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-09-30T16:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35e91ad0_dc0e6d6c",
       "range": {
         "startLine": 168,
         "startChar": 36,
