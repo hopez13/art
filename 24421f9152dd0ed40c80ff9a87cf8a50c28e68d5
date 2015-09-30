@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee86cdd4_322ed072",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1969,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:48:13Z",
+      "side": 1,
+      "message": "It\u0027s not immediately clear to me what this notation means. Can you clarify this?",
+      "range": {
+        "startLine": 1969,
+        "startChar": 41,
+        "endLine": 1969,
+        "endChar": 91
+      },
+      "revId": "24421f9152dd0ed40c80ff9a87cf8a50c28e68d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_b6885f5c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2041,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:48:13Z",
+      "side": 1,
+      "message": "Update this comment on what this object array means?",
+      "range": {
+        "startLine": 2041,
+        "startChar": 2,
+        "endLine": 2041,
+        "endChar": 76
+      },
+      "revId": "24421f9152dd0ed40c80ff9a87cf8a50c28e68d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae5bf53d_5677e312",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2068,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:48:13Z",
+      "side": 1,
+      "message": "Update this comment?",
+      "range": {
+        "startLine": 2068,
+        "startChar": 4,
+        "endLine": 2068,
+        "endChar": 30
+      },
+      "revId": "24421f9152dd0ed40c80ff9a87cf8a50c28e68d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_235b1094",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2124,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:48:13Z",
+      "side": 1,
+      "message": "Can we assert this is actually an object array if not done already?",
+      "range": {
+        "startLine": 2124,
+        "startChar": 41,
+        "endLine": 2124,
+        "endChar": 55
+      },
+      "revId": "24421f9152dd0ed40c80ff9a87cf8a50c28e68d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_c9f8dfe9",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2127,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:48:13Z",
+      "side": 1,
+      "message": "Can we assert this is actually a pointer array if not done already?",
+      "range": {
+        "startLine": 2127,
+        "startChar": 32,
+        "endLine": 2127,
+        "endChar": 44
+      },
+      "revId": "24421f9152dd0ed40c80ff9a87cf8a50c28e68d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2e2591_66d3663c",
+        "filename": "test/141-class-unload/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-09-30T00:48:13Z",
+      "side": 1,
+      "message": "We need to keep throwable until the end this method, correct? Should we worry about a liveness analysis that may mark throwable dead sooner? Is there a way to avoid it (i.e., maybe print its nullness along with isNull)?",
+      "range": {
+        "startLine": 83,
+        "startChar": 18,
+        "endLine": 83,
+        "endChar": 27
+      },
+      "revId": "24421f9152dd0ed40c80ff9a87cf8a50c28e68d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
