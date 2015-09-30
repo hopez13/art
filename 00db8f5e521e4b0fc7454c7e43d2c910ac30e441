@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "d55b5e6b_bca38d7a",
+        "filename": "runtime/jni_env_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-30T16:44:16Z",
+      "side": 1,
+      "message": "The first time you find pair.first !\u003d current_frame.\n\nIf things are locked according to the rules, the vector forms a stack wrt/ frames. You may freely lock and unlock in a frame, but you need to unlock all monitors in the current frame when unlocking. So you get something like:\n\n [\u003c0,mon1\u003e,\u003c0,mon2\u003e,\u003c#1,mon1\u003e,\u003c#1,mon3\u003e,\u003c#2,monX\u003e,\u003c#3,monY\u003e,...]\n\nIf you go backwards, you either have #X \u003d\u003d current_frame and have some locked but not unlocked monitors, or it\u0027s different (and should be the parent).",
+      "parentUuid": "55712e1a_45fd2a29",
+      "range": {
+        "startLine": 202,
+        "startChar": 63,
+        "endLine": 204,
+        "endChar": 64
+      },
+      "revId": "00db8f5e521e4b0fc7454c7e43d2c910ac30e441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55712e1a_a5e33e09",
         "filename": "runtime/jni_env_ext.h",
         "patchSetId": 5
