@@ -563,6 +563,24 @@
     },
     {
       "key": {
+        "uuid": "9555663b_3de0173a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4761,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T22:49:56Z",
+      "side": 1,
+      "message": "I was just suggesting this since it seemed like you were already refactoring a few of the other functions out into separate functions.\n\nIt seems like it would be a purely mechanical refactor, it might make the function shorter and less readable. I realize this is already a mess prior to this CL, but it doesn\u0027t hurt to minimize how much larger we make the mess :).",
+      "parentUuid": "2e2e2591_28c1b26b",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae5bf53d_5cb71956",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 17
@@ -767,6 +785,24 @@
       "side": 1,
       "message": "the check would be the if statement above.",
       "parentUuid": "ee616dea_4334dabf",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75439281_8702ac4b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4877,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T22:49:56Z",
+      "side": 1,
+      "message": "Perhaps there is some way to check the ArtMethod itself instead of relying [only] on the declaring class?",
+      "parentUuid": "4e4c398b_906a1128",
       "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -1171,6 +1207,24 @@
     },
     {
       "key": {
+        "uuid": "75439281_e7f290cd",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4953,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T22:49:56Z",
+      "side": 1,
+      "message": "Where is that DCHECK currently? I don\u0027t think I saw it.",
+      "parentUuid": "2e2e2591_48f4fe8e",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e470569_4cce4e99",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 17
@@ -1218,6 +1272,30 @@
     },
     {
       "key": {
+        "uuid": "d55b5e6b_a2bc043c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4954,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T22:49:56Z",
+      "side": 1,
+      "message": "This wasn\u0027t a \"stylistic\" comment, this loop could have undefined behavior because this assignment\n\n  int32_t k \u003d iftable_count - 1\n\nis actually doing:\n\n  int32_t \u003d size_t\n\nand size_t is uint64_t on 64-bit platforms (N9, x86, etc)\n\n  int32_t \u003d uint64_t // OOPS.\n-----------\nthe \"if k \u003d\u003d 0 break\" is because \"k\u003e\u003d0\" is always true if you made k a size_t",
+      "parentUuid": "0e5fa128_161a99a7",
+      "range": {
+        "startLine": 4954,
+        "startChar": 7,
+        "endLine": 4954,
+        "endChar": 14
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee616dea_43361a7a",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 17
@@ -1253,6 +1331,30 @@
       "side": 1,
       "message": "Because they are interface methods...",
       "parentUuid": "ee616dea_43361a7a",
+      "range": {
+        "startLine": 4956,
+        "startChar": 11,
+        "endLine": 4956,
+        "endChar": 28
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15a33681_69e56149",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4956,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T22:49:56Z",
+      "side": 1,
+      "message": "It\u0027s confusing because an interface can also have static methods, num_virtual_methods/num_instance_methods is less ambiguous.",
+      "parentUuid": "ce582944_796f8839",
       "range": {
         "startLine": 4956,
         "startChar": 11,
@@ -1335,6 +1437,24 @@
     },
     {
       "key": {
+        "uuid": "b5398a03_260802f4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4959,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T22:49:56Z",
+      "side": 1,
+      "message": "More comments?",
+      "parentUuid": "0e5fa128_d6664136",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce582944_b732b286",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 17
@@ -1364,6 +1484,24 @@
       "side": 1,
       "message": "Interface methods should never not be public.",
       "parentUuid": "ce582944_b732b286",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1548969f_248bd8ea",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4962,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T22:49:56Z",
+      "side": 1,
+      "message": "It was more of a mechanical question. In other plces of the code I\u0027ve seen comments written similar to this:\n\n  // The verifier should\u0027ve caught non-public methods on interfaces.\n\nPlease consider adding a comment here of some sort :).",
+      "parentUuid": "0e5fa128_7635550c",
       "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -1604,6 +1742,24 @@
     },
     {
       "key": {
+        "uuid": "354d9aaf_c21e6670",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5031,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T22:49:56Z",
+      "side": 1,
+      "message": "Do we use it elsewhere in our code? I\u0027m not quite sure.\n\nI am not against the standard notation either, we just need to be sure it\u0027s documented/referenced somewhere (*and* people are aware of it).",
+      "parentUuid": "0e5fa128_76a0b596",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e52b121_fa7b7185",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 17
@@ -1751,6 +1907,24 @@
       "side": 1,
       "message": "I don\u0027t know. I think they are just uninitialized memory if not filled in.",
       "parentUuid": "4e4c398b_3e6219df",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9555663b_60b948fc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5050,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T22:49:56Z",
+      "side": 1,
+      "message": "It\u0027s checking the post-condition at the end but it could also check the pre-condition (at the beginning).\n\nYou could also just put the dcheck into a lambda and then you won\u0027t have to copy/paste it twice.",
+      "parentUuid": "ee86cdd4_636251d7",
       "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -2740,6 +2914,24 @@
     },
     {
       "key": {
+        "uuid": "b5398a03_668deaba",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5474,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T22:49:56Z",
+      "side": 1,
+      "message": "var\u0026 name \u003d *out\n\nthen",
+      "parentUuid": "ee86cdd4_43f14d0e",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e4c398b_7e81b1c6",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 17
@@ -3085,6 +3277,24 @@
       "side": 1,
       "message": "Creating scopes requires non-const.",
       "parentUuid": "ce582944_f7beea36",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9555663b_9d77a358",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T22:49:56Z",
+      "side": 1,
+      "message": "That\u0027s too bad, why don\u0027t we fix scopes to be mutable const?\n(more of a question to other reviewers)",
+      "parentUuid": "ee616dea_b79bca66",
       "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -3511,6 +3721,30 @@
       "side": 1,
       "message": "We do want to support only one or the other I think.",
       "parentUuid": "2e2e2591_1f58736e",
+      "range": {
+        "startLine": 535,
+        "startChar": 0,
+        "endLine": 541,
+        "endChar": 3
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75439281_67d8400d",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T22:49:56Z",
+      "side": 1,
+      "message": "With the above function it allows querying any combination of flags (only defaults, only lambdas, both defaults and lambdas) so it\u0027s just more general.\n\nWe might also need to add experimental repeatable etc, and we shouldn\u0027t need to add a new method every time.",
+      "parentUuid": "6e4d7d85_f3983266",
       "range": {
         "startLine": 535,
         "startChar": 0,
@@ -4037,6 +4271,54 @@
         "startChar": 46,
         "endLine": 26,
         "endChar": 48
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1548969f_245638d5",
+        "filename": "test/960-default-smali/build",
+        "patchSetId": 17
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T22:49:56Z",
+      "side": 1,
+      "message": "Yes changing run-test is fine.",
+      "parentUuid": "6e4d7d85_98159cd4",
+      "range": {
+        "startLine": 26,
+        "startChar": 46,
+        "endLine": 26,
+        "endChar": 48
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1548969f_4451c4db",
+        "filename": "test/960-default-smali/build",
+        "patchSetId": 17
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T22:49:56Z",
+      "side": 1,
+      "message": "Why does the / matter? \"\" shouldn\u0027t escape /",
+      "parentUuid": "ce582944_59b7240d",
+      "range": {
+        "startLine": 26,
+        "startChar": 70,
+        "endLine": 26,
+        "endChar": 72
       },
       "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -4586,6 +4868,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "ae5bf53d_900455e1",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d55b5e6b_8dcdb19e",
+        "filename": "test/960-default-smali/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T22:49:56Z",
+      "side": 1,
+      "message": "(still says while c !\u003d None)",
+      "parentUuid": "6e4d7d85_5390260e",
       "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
