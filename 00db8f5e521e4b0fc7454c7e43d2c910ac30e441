@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0e5fa128_0747fe18",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-30T16:05:34Z",
+      "side": 1,
+      "message": "The implementation checks that (difference between this and the Impl). As it\u0027s in the .h file, I\u0027d expect that to be inlined here.",
+      "parentUuid": "2e2e2591_23a31019",
+      "range": {
+        "startLine": 68,
+        "startChar": 7,
+        "endLine": 68,
+        "endChar": 28
+      },
+      "revId": "00db8f5e521e4b0fc7454c7e43d2c910ac30e441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55712e1a_c5e03aff",
         "filename": "runtime/jni_env_ext.cc",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9555663b_b7444818",
+        "filename": "runtime/jni_env_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-30T16:05:34Z",
+      "side": 1,
+      "message": "This one\u0027s faster, I only need to find the immediate caller and not traverse the complete stack (you need to pass over all transitions etc).",
+      "parentUuid": "55712e1a_c5e03aff",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 3
+      },
+      "revId": "00db8f5e521e4b0fc7454c7e43d2c910ac30e441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b57c2af2_e8c4337e",
         "filename": "runtime/jni_env_ext.cc",
         "patchSetId": 5
@@ -59,6 +107,30 @@
       "writtenOn": "2015-09-30T08:24:30Z",
       "side": 1,
       "message": "Well wouldn\u0027t that also just optimize the failing case?",
+      "range": {
+        "startLine": 202,
+        "startChar": 63,
+        "endLine": 204,
+        "endChar": 64
+      },
+      "revId": "00db8f5e521e4b0fc7454c7e43d2c910ac30e441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5398a03_e098c2fa",
+        "filename": "runtime/jni_env_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-09-30T16:05:34Z",
+      "side": 1,
+      "message": "These are ordered. So the current frame entries are at the end, and you can detect when you go to the next frame. In the passing case, you\u0027ll immediately find something !\u003d current_frame and can stop.",
+      "parentUuid": "b57c2af2_e8c4337e",
       "range": {
         "startLine": 202,
         "startChar": 63,
