@@ -554,6 +554,30 @@
     },
     {
       "key": {
+        "uuid": "35703a18_24d8325e",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T08:19:13Z",
+      "side": 1,
+      "message": "Thanks, could you add that as a comment?",
+      "parentUuid": "f86a1765_cd12ddf0",
+      "range": {
+        "startLine": 149,
+        "startChar": 10,
+        "endLine": 149,
+        "endChar": 16
+      },
+      "revId": "3f6342f1d94464317240ee3284f52eaac6605b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee616dea_9e7229a6",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 1
