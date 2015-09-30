@@ -364,6 +364,52 @@
     },
     {
       "key": {
+        "uuid": "b5526a4f_21d8f45d",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2015-09-30T23:50:49Z",
+      "side": 1,
+      "message": "I don\u0027t think there\u0027s actually a reason to bail on volatile stores, if you just bail on loads.  It\u0027s perfectly OK to reuse a value that was stored or loaded before an intervening volatile store.",
+      "range": {
+        "startLine": 365,
+        "startChar": 8,
+        "endLine": 365,
+        "endChar": 31
+      },
+      "revId": "759acb32530c27d8a2247823085aa02e488f539c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1548969f_4f3d5da3",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2015-09-30T23:50:49Z",
+      "side": 1,
+      "message": "Ditto here.  Monitor entry is a problem.  Reusing results from before monitor entry amounts to moving operations out of the critical section, which is bad.  Reusing results from before monitor exit amounts to moving them in, which is OK.\n\nThis assumes you always eliminate the later load or store.\nIt also assumes you don\u0027t optimize volatile operations themselves.\n\nAnd it ignores the Java memory model bugs that we customarily ignore.",
+      "range": {
+        "startLine": 432,
+        "startChar": 4,
+        "endLine": 432,
+        "endChar": 28
+      },
+      "revId": "759acb32530c27d8a2247823085aa02e488f539c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9555663b_fd817f35",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 5
