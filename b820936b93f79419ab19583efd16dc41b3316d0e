@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "b5526a4f_becc214f",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-30T22:06:31Z",
+      "side": 1,
+      "message": "The indentation looks correct; thanks.",
+      "parentUuid": "6ec3bd5a_98c4f99d",
+      "range": {
+        "startLine": 956,
+        "startChar": 57,
+        "endLine": 956,
+        "endChar": 69
+      },
+      "revId": "b820936b93f79419ab19583efd16dc41b3316d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89fb8b33_411f349b",
         "filename": "compiler/utils/mips64/assembler_mips64.cc",
         "patchSetId": 1
