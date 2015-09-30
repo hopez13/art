@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "156b3632_83147e82",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-30T12:53:43Z",
+      "side": 1,
+      "message": "Is the \"*\u0026\" necessary?",
+      "range": {
+        "startLine": 53,
+        "startChar": 26,
+        "endLine": 53,
+        "endChar": 28
+      },
+      "revId": "7963d8b8a48a582688ad41a89f2086ba14cc066b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35e91ad0_9c1ea56f",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-30T12:53:43Z",
+      "side": 1,
+      "message": "Why fstcw and not fnstcw?",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 12
+      },
+      "revId": "7963d8b8a48a582688ad41a89f2086ba14cc066b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
