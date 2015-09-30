@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "957f26e6_a7ba6aed",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T07:39:38Z",
+      "side": 0,
+      "message": "Wasn\u0027t the idea that you\u0027d only need to allocate a few of those?",
+      "range": {
+        "startLine": 1140,
+        "startChar": 0,
+        "endLine": 1147,
+        "endChar": 36
+      },
+      "revId": "de8a3f4dce1e9ff0e3be16956b06bafc8cd4f397",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
