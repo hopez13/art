@@ -46,6 +46,30 @@
       "revId": "de8a3f4dce1e9ff0e3be16956b06bafc8cd4f397",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75ab929e_9e019dd2",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-30T19:13:58Z",
+      "side": 0,
+      "message": "I measured this. For the boot image method for which we allocate over 27MiB on N5, using the extra indirection would save\n\n    8544B - // without indirection\n    (4272B /*safe maps*/ + 1712B /*pointers*/) // with indirection\n    \u003d 2560B \u003d 2.5KiB\n\n(Note: We allocated the map for 178 of 427 basic blocks; each individual allocation is rounded up to 8B. 427*20\u003d8540, 178*24\u003d4272, 427*4\u003d1708)\n\nDo we care?",
+      "parentUuid": "55712e1a_e571b662",
+      "range": {
+        "startLine": 1140,
+        "startChar": 0,
+        "endLine": 1147,
+        "endChar": 36
+      },
+      "revId": "de8a3f4dce1e9ff0e3be16956b06bafc8cd4f397",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
