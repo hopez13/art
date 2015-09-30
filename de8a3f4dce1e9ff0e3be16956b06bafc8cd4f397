@@ -22,6 +22,30 @@
       "revId": "de8a3f4dce1e9ff0e3be16956b06bafc8cd4f397",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55712e1a_e571b662",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-30T17:45:56Z",
+      "side": 0,
+      "message": "I don\u0027t expect this to be significant. We may revisit it later if needed.",
+      "parentUuid": "957f26e6_a7ba6aed",
+      "range": {
+        "startLine": 1140,
+        "startChar": 0,
+        "endLine": 1147,
+        "endChar": 36
+      },
+      "revId": "de8a3f4dce1e9ff0e3be16956b06bafc8cd4f397",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
