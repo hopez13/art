@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5398a03_89b48108",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-30T23:07:47Z",
+      "side": 1,
+      "message": "The native bridge handler is a managed_handler for which you block all signals. How come this passes?",
+      "range": {
+        "startLine": 417,
+        "startChar": 35,
+        "endLine": 417,
+        "endChar": 78
+      },
+      "revId": "13e2b4614d09c63ec200b0bdec1bb74fac4e4547",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1548969f_c4603441",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-09-30T23:07:47Z",
+      "side": 1,
+      "message": "Why did you need to special case these two?",
+      "range": {
+        "startLine": 424,
+        "startChar": 51,
+        "endLine": 424,
+        "endChar": 86
+      },
+      "revId": "13e2b4614d09c63ec200b0bdec1bb74fac4e4547",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
