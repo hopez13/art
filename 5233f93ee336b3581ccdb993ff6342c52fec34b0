@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75439281_41d37445",
+        "filename": "runtime/base/arena_allocator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-09-30T16:35:24Z",
+      "side": 1,
+      "message": "Suggestion (maybe in another CL): turn this enum into\n\n  enum class ArenaAllocKind {\n    // ...\n  };\n\nand rename values `kArenaAllocXYZ` into `kXYZ` here in the definition, and as `ArenaAllocKind::kXYZ` at use sites.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 19
+      },
+      "revId": "5233f93ee336b3581ccdb993ff6342c52fec34b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
