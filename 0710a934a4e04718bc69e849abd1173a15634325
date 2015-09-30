@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "75763214_2683d693",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T16:27:10Z",
+      "side": 1,
+      "message": "So trip count is \"at most\"?",
+      "parentUuid": "1548969f_3e9c8563",
+      "range": {
+        "startLine": 609,
+        "startChar": 39,
+        "endLine": 609,
+        "endChar": 65
+      },
+      "revId": "0710a934a4e04718bc69e849abd1173a15634325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75ab929e_9e063d5f",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 4
@@ -272,6 +296,30 @@
       "side": 1,
       "message": "lower/upper okay?",
       "parentUuid": "957f26e6_a7e34a09",
+      "range": {
+        "startLine": 167,
+        "startChar": 37,
+        "endLine": 167,
+        "endChar": 43
+      },
+      "revId": "0710a934a4e04718bc69e849abd1173a15634325",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "156b3632_036faec3",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T16:27:10Z",
+      "side": 1,
+      "message": "yes :-)",
+      "parentUuid": "9555663b_57b4cc4d",
       "range": {
         "startLine": 167,
         "startChar": 37,
