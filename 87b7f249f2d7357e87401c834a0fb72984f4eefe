@@ -68,6 +68,52 @@
       "revId": "87b7f249f2d7357e87401c834a0fb72984f4eefe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35e91ad0_5c317d1d",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1424,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-30T10:28:33Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 1424,
+        "startChar": 0,
+        "endLine": 1424,
+        "endChar": 52
+      },
+      "revId": "87b7f249f2d7357e87401c834a0fb72984f4eefe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75763214_069c1a63",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1437,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-09-30T10:28:33Z",
+      "side": 1,
+      "message": "This is ugly but simple. (Implementing SETUP_GOT_NOSAVE for got_reg \u003d ecx is a feasible alternative but not required for this CL.)",
+      "range": {
+        "startLine": 1437,
+        "startChar": 4,
+        "endLine": 1437,
+        "endChar": 20
+      },
+      "revId": "87b7f249f2d7357e87401c834a0fb72984f4eefe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
