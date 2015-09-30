@@ -2,6 +2,97 @@
   "comments": [
     {
       "key": {
+        "uuid": "1548969f_61b4b24e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 3681,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T20:27:33Z",
+      "side": 1,
+      "message": "How is this supposed to work exactly (add comments?)?\n\nCanWeInitializeClass sounds like it should return true if there are interfaces with defaults, but it\u0027s returning false?\n\nHowever I\u0027m guessing this is some kind of super-early eager initialization optimization scenario that can happen without breaking semantics (as implied by \"can_init_statics\u003dfalse\")?",
+      "revId": "b3035b4dacba9d8c3456cbcd9e22e410e39a6126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d55b5e6b_9f5ddb8d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 3812,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T20:27:33Z",
+      "side": 1,
+      "message": "Why can\u0027t this just call InitializeClass recursively?\n\n(needs more comments)",
+      "revId": "b3035b4dacba9d8c3456cbcd9e22e410e39a6126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d55b5e6b_e2c43c7e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 3931,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T20:27:33Z",
+      "side": 1,
+      "message": "Consider adding more comments, something like:\n\n   // Walk the interface tree in pre-order. Exact child order is the implements order. Initialize the interface on each visit.",
+      "revId": "b3035b4dacba9d8c3456cbcd9e22e410e39a6126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d55b5e6b_42d36845",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 3946,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T20:27:33Z",
+      "side": 1,
+      "message": "mustn\u0027t",
+      "range": {
+        "startLine": 3946,
+        "startChar": 35,
+        "endLine": 3946,
+        "endChar": 42
+      },
+      "revId": "b3035b4dacba9d8c3456cbcd9e22e410e39a6126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "953c86f3_05821639",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 3957,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T20:27:33Z",
+      "side": 1,
+      "message": "Not sure I understand, don\u0027t you want to set the recursively initialized even if there aren\u0027t default methods?",
+      "revId": "b3035b4dacba9d8c3456cbcd9e22e410e39a6126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee616dea_4b8d0c6a",
         "filename": "runtime/class_linker.h",
         "patchSetId": 18
@@ -31,6 +122,97 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "ee616dea_4b8d0c6a",
+      "revId": "b3035b4dacba9d8c3456cbcd9e22e410e39a6126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5586271_c0c932b7",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T20:27:33Z",
+      "side": 1,
+      "message": "Initialized (its mispelled)",
+      "range": {
+        "startLine": 232,
+        "startChar": 21,
+        "endLine": 232,
+        "endChar": 45
+      },
+      "revId": "b3035b4dacba9d8c3456cbcd9e22e410e39a6126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9555663b_1da1d395",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T20:27:33Z",
+      "side": 1,
+      "message": "Seems like this needs a lock held assert",
+      "revId": "b3035b4dacba9d8c3456cbcd9e22e410e39a6126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d55b5e6b_82cd809e",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T20:27:33Z",
+      "side": 1,
+      "message": "Seems like this needs a lock held assert",
+      "revId": "b3035b4dacba9d8c3456cbcd9e22e410e39a6126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5586271_a0c6bea4",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T20:27:33Z",
+      "side": 1,
+      "message": "Interface\n\n(and missing period)",
+      "revId": "b3035b4dacba9d8c3456cbcd9e22e410e39a6126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d55b5e6b_c2e6581b",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-09-30T20:27:33Z",
+      "side": 1,
+      "message": "nit: missing period",
       "revId": "b3035b4dacba9d8c3456cbcd9e22e410e39a6126",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
