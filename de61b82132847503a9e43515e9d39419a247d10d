@@ -22,6 +22,30 @@
       "revId": "de61b82132847503a9e43515e9d39419a247d10d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "156b3632_a32dfa6e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4395,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-09-30T17:31:53Z",
+      "side": 1,
+      "message": "I made the field more explanatory and added a comment. PTAL.",
+      "parentUuid": "b5398a03_20890a61",
+      "range": {
+        "startLine": 4395,
+        "startChar": 36,
+        "endLine": 4395,
+        "endChar": 37
+      },
+      "revId": "de61b82132847503a9e43515e9d39419a247d10d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
