@@ -36,6 +36,98 @@
     },
     {
       "key": {
+        "uuid": "d55b5e6b_4259a329",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-01T21:15:22Z",
+      "side": 1,
+      "message": "If you use this as a mutable handle, why not move the StackHandleScope out of the loop and mutate the handle? There is overhead to installing and removing a handlescope...",
+      "range": {
+        "startLine": 248,
+        "startChar": 4,
+        "endLine": 248,
+        "endChar": 11
+      },
+      "revId": "a5e3fb58bf3d1d52326e3c3259477e7dbe636d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5526a4f_879910bc",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-01T21:15:22Z",
+      "side": 1,
+      "message": "the",
+      "range": {
+        "startLine": 264,
+        "startChar": 19,
+        "endLine": 264,
+        "endChar": 21
+      },
+      "revId": "a5e3fb58bf3d1d52326e3c3259477e7dbe636d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d55b5e6b_a2699fbd",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-01T21:15:22Z",
+      "side": 1,
+      "message": "Period.",
+      "range": {
+        "startLine": 264,
+        "startChar": 52,
+        "endLine": 264,
+        "endChar": 53
+      },
+      "revId": "a5e3fb58bf3d1d52326e3c3259477e7dbe636d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "953c86f3_14824239",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-01T21:15:22Z",
+      "side": 1,
+      "message": "Period.",
+      "range": {
+        "startLine": 269,
+        "startChar": 24,
+        "endLine": 269,
+        "endChar": 25
+      },
+      "revId": "a5e3fb58bf3d1d52326e3c3259477e7dbe636d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75439281_a5cd1d9e",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 1
