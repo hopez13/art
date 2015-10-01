@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "354d9aaf_7663d0d4",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-01T21:17:15Z",
+      "side": 1,
+      "message": "If this returns null because of OOME, we should be careful to not get another OOME causing a recursive throw abort.",
+      "range": {
+        "startLine": 241,
+        "startChar": 28,
+        "endLine": 241,
+        "endChar": 44
+      },
+      "revId": "a5e3fb58bf3d1d52326e3c3259477e7dbe636d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "354d9aaf_5654d4f4",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 1
@@ -13,6 +36,24 @@
       "writtenOn": "2015-10-01T21:14:21Z",
       "side": 1,
       "message": "Is using \"fast JNI\" compatible with causing a suspend in the middle of the code?",
+      "revId": "a5e3fb58bf3d1d52326e3c3259477e7dbe636d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9555663b_a0b4fb07",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-01T21:17:15Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "354d9aaf_5654d4f4",
       "revId": "a5e3fb58bf3d1d52326e3c3259477e7dbe636d27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
