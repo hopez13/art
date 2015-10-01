@@ -238,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "f5586271_14524c03",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-01T17:32:56Z",
+      "side": 1,
+      "message": "Either way works for me.",
+      "parentUuid": "ce582944_9da0e597",
+      "range": {
+        "startLine": 390,
+        "startChar": 4,
+        "endLine": 390,
+        "endChar": 27
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a46156bd_c0d50f25",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -473,6 +497,30 @@
     },
     {
       "key": {
+        "uuid": "f5586271_94e49c9e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3723,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-01T17:32:56Z",
+      "side": 1,
+      "message": "Right. I think it\u0027s not urgent to think about this optimization right away.",
+      "parentUuid": "354d9aaf_5fb98ffb",
+      "range": {
+        "startLine": 3723,
+        "startChar": 8,
+        "endLine": 3723,
+        "endChar": 34
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0465c2c3_41a9015e",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -508,6 +556,30 @@
       "side": 1,
       "message": "It means the liveness of the instruction\u0027s output locations overlaps one of its inputs, meaning we cannot use reuse of the input register for the output during register allocation.\n\nHere, this tag was initially only required for ArrayGet operations on long arrays, as they requires two 32-bit loads on x86; without the kOutputOverlap tag, the first load could clutter the input register containing the array location, which is needed for the second load. Other types of ArrayGet operations do not have this constraint and can use kNoOutputOverlap (i.e., reuse the input register for the output of the ArrayGet operation).\n\nWith the introduction of read barriers in ArrayGet, we also need to use kOutputOverlap, as we need to preserve the instructions\u0027 inputs for the call to GenerateReadBarrier.",
       "parentUuid": "0465c2c3_41a9015e",
+      "range": {
+        "startLine": 4150,
+        "startChar": 22,
+        "endLine": 4150,
+        "endChar": 36
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5526a4f_ac8ebbb3",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4150,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-01T17:32:56Z",
+      "side": 1,
+      "message": "Thanks for the explanation.",
+      "parentUuid": "953c86f3_62db18b2",
       "range": {
         "startLine": 4150,
         "startChar": 22,
@@ -649,6 +721,30 @@
       "side": 1,
       "message": "Yes; all the slow paths are generated at the end of the method by art::CodeGenerator::GenerateSlowPaths.\n\nEntering this slow path is done with a jump (line 5354) to the beginning of the slow path\u0027s code (line 378). Exiting the slow path is done with a jump at the end of the slow path\u0027s code (line 456) to the next instruction in the compiled method\u0027s flow (line 5355).",
       "parentUuid": "c45e4afd_13b91b03",
+      "range": {
+        "startLine": 5338,
+        "startChar": 4,
+        "endLine": 5338,
+        "endChar": 15
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5398a03_d4c9fcb6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5338,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-01T17:32:56Z",
+      "side": 1,
+      "message": "Thanks, that makes sense.",
+      "parentUuid": "9555663b_009a0c62",
       "range": {
         "startLine": 5338,
         "startChar": 4,
