@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "6e4d7d85_5697f47f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-01T01:33:53Z",
+      "side": 1,
+      "message": "We have to use a copy of `index_` here, because we cannot modify it, as it is a const member. I think this safe to preserve this, especially debugging-wise. I have added a comment about this.",
+      "parentUuid": "c45e4afd_295a326b",
+      "range": {
+        "startLine": 389,
+        "startChar": 13,
+        "endLine": 389,
+        "endChar": 27
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "848ff2ac_25924d1a",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -178,6 +202,30 @@
       "writtenOn": "2015-09-15T20:45:59Z",
       "side": 1,
       "message": "Can you add a short comment on why we have this ArrayGet or Invoke (UnsafeGetObject) specific handling on index here?\n\nIs it because the index needs adjusting for the read barrier slow path code that we do not want to do at the GenerateReadBarrier call sites?",
+      "range": {
+        "startLine": 390,
+        "startChar": 4,
+        "endLine": 390,
+        "endChar": 27
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce582944_9da0e597",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-01T01:33:53Z",
+      "side": 1,
+      "message": "Yes, this is because we have to handle the case of offset+index-based memory accesses using an entry point routine designed to only support offset-based accesses.\n\nWe could introduce an additional entry point taking four arguments for this case instead:\n\n  mirror::Object* artReadBarrierWithIndexSlow(mirror::Object* ref,\n                                              mirror::Object* obj,\n                                              uint32_t offset,\n                                              uint32_t index);\n\nso that we could move these operations from the compiler to the runtime – meaning we\u0027ll save on generated code size here.\n\nI had a quick discussion with Andreas about the costs/cons of adding an entry point, and from what I understood, we could afford it. This seems like a good idea. What do you think?",
+      "parentUuid": "848ff2ac_25924d1a",
       "range": {
         "startLine": 390,
         "startChar": 4,
@@ -213,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "ee616dea_f8437d7a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-01T01:33:53Z",
+      "side": 1,
+      "message": "Indeed, yes. Fixed.",
+      "parentUuid": "a46156bd_c0d50f25",
+      "range": {
+        "startLine": 392,
+        "startChar": 35,
+        "endLine": 392,
+        "endChar": 53
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a46156bd_205a4b6b",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -224,6 +296,30 @@
       "writtenOn": "2015-09-15T20:45:59Z",
       "side": 1,
       "message": "Why do we need a non-callee-saved register?",
+      "range": {
+        "startLine": 397,
+        "startChar": 8,
+        "endLine": 397,
+        "endChar": 10
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee86cdd4_148dbdb8",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-01T01:33:53Z",
+      "side": 1,
+      "message": "Because callee-saved registers are saved later (in the called function, here artReadBarrierSlow), which is too late for us to preserve the initial value of the `index_` register before we modify it. I have improved the comments to make this clearer.\n\nNot that we could get rid of this step by introducing the artReadBarrierWithIndexSlow I mentioned before; I\u0027ll implement in another CL.",
+      "parentUuid": "a46156bd_205a4b6b",
       "range": {
         "startLine": 397,
         "startChar": 8,
@@ -259,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "15197672_96a0ea5c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-01T01:33:53Z",
+      "side": 1,
+      "message": "Indeed, thanks. I have replaced mirror::CompressedReference with mirror::HeapReference though.",
+      "parentUuid": "0465c2c3_d70a33ea",
+      "range": {
+        "startLine": 405,
+        "startChar": 31,
+        "endLine": 405,
+        "endChar": 38
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "648afea0_5cf0145b",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -270,6 +390,30 @@
       "writtenOn": "2015-09-15T20:45:59Z",
       "side": 1,
       "message": "Can you remind me why this does not apply to a static/direct invoke?",
+      "range": {
+        "startLine": 461,
+        "startChar": 10,
+        "endLine": 461,
+        "endChar": 11
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e52b121_141df66d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-01T01:33:53Z",
+      "side": 1,
+      "message": "Static/direct invokes do not need a read barrier for a heap reference; they only use a read barrier for GC roots, hence we\u0027ll never end up in this slow path when visiting a HInvokeStaticOrDirect instruction.\n\nTo make this more clear, I have renamed IsRunBeforeCall as ShouldSaveAndRestoreParameterRegisters and added a comment.",
+      "parentUuid": "648afea0_5cf0145b",
       "range": {
         "startLine": 461,
         "startChar": 10,
@@ -305,6 +449,30 @@
     },
     {
       "key": {
+        "uuid": "354d9aaf_5fb98ffb",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3723,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-01T01:33:53Z",
+      "side": 1,
+      "message": "Yes; as discussed offline, we can disable this conditionally as an \"optimization\", enabled by default for the moment. I\u0027ll do that in another CL as I\u0027d like to do more testing. I have added a TODO.",
+      "parentUuid": "e467cecb_884c1f61",
+      "range": {
+        "startLine": 3723,
+        "startChar": 8,
+        "endLine": 3723,
+        "endChar": 34
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0465c2c3_41a9015e",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -316,6 +484,30 @@
       "writtenOn": "2015-09-15T20:45:59Z",
       "side": 1,
       "message": "Side question: what does \"output overlap\" mean?",
+      "range": {
+        "startLine": 4150,
+        "startChar": 22,
+        "endLine": 4150,
+        "endChar": 36
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "953c86f3_62db18b2",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4150,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-01T01:33:53Z",
+      "side": 1,
+      "message": "It means the liveness of the instruction\u0027s output locations overlaps one of its inputs, meaning we cannot use reuse of the input register for the output during register allocation.\n\nHere, this tag was initially only required for ArrayGet operations on long arrays, as they requires two 32-bit loads on x86; without the kOutputOverlap tag, the first load could clutter the input register containing the array location, which is needed for the second load. Other types of ArrayGet operations do not have this constraint and can use kNoOutputOverlap (i.e., reuse the input register for the output of the ArrayGet operation).\n\nWith the introduction of read barriers in ArrayGet, we also need to use kOutputOverlap, as we need to preserve the instructions\u0027 inputs for the call to GenerateReadBarrier.",
+      "parentUuid": "0465c2c3_41a9015e",
       "range": {
         "startLine": 4150,
         "startChar": 22,
@@ -351,6 +543,30 @@
     },
     {
       "key": {
+        "uuid": "d55b5e6b_7f31e71d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4280,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-01T01:33:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8478d270_7d978836",
+      "range": {
+        "startLine": 4280,
+        "startChar": 77,
+        "endLine": 4280,
+        "endChar": 84
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9420f4a_7e81bded",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -362,6 +578,30 @@
       "writtenOn": "2015-09-15T20:45:59Z",
       "side": 1,
       "message": "I see that currently \"ref\" does not get unpoisoned, which is ok as the \"ref\" param is unused by ReadBarrierSlow. Correct? Maybe leave a comment?",
+      "range": {
+        "startLine": 5333,
+        "startChar": 0,
+        "endLine": 5334,
+        "endChar": 69
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5526a4f_db15a74b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5334,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-01T01:33:53Z",
+      "side": 1,
+      "message": "Yes, indeed.  I added a comment.",
+      "parentUuid": "a9420f4a_7e81bded",
       "range": {
         "startLine": 5333,
         "startChar": 0,
@@ -397,6 +637,30 @@
     },
     {
       "key": {
+        "uuid": "9555663b_009a0c62",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5338,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-01T01:33:53Z",
+      "side": 1,
+      "message": "Yes; all the slow paths are generated at the end of the method by art::CodeGenerator::GenerateSlowPaths.\n\nEntering this slow path is done with a jump (line 5354) to the beginning of the slow path\u0027s code (line 378). Exiting the slow path is done with a jump at the end of the slow path\u0027s code (line 456) to the next instruction in the compiled method\u0027s flow (line 5355).",
+      "parentUuid": "c45e4afd_13b91b03",
+      "range": {
+        "startLine": 5338,
+        "startChar": 4,
+        "endLine": 5338,
+        "endChar": 15
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9420f4a_be6e05f3",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -413,6 +677,53 @@
         "startChar": 0,
         "endLine": 5376,
         "endChar": 10
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "354d9aaf_e227228b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5376,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-01T01:33:53Z",
+      "side": 1,
+      "message": "Thanks! I\u0027ve adjusted the comment.",
+      "parentUuid": "a9420f4a_be6e05f3",
+      "range": {
+        "startLine": 5374,
+        "startChar": 0,
+        "endLine": 5376,
+        "endChar": 10
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9555663b_00820c39",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5384,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-01T01:33:53Z",
+      "side": 1,
+      "message": "This was dead code; removed in PS7.",
+      "range": {
+        "startLine": 5384,
+        "startChar": 0,
+        "endLine": 5384,
+        "endChar": 55
       },
       "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -443,6 +754,30 @@
     },
     {
       "key": {
+        "uuid": "15a33681_2ce9b772",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5396,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-01T01:33:53Z",
+      "side": 1,
+      "message": "Your assumption about the need to save \u0026 restore parameter registers is correct.\n\nI believe we do not need to save \u0026 restore floating point parameter registers at the moment, as they do not seem to be touched by the slow path code (not by the runtime, called by the slow path). I agree, this assumption is hard to check and the current code is not future-proof.  So we should probably save those FP parameter registers. I have modified the TODO to make this more explicit.\n\nYour suggestion about saving the exact set of used registers is good, and could also be used to save FP parameter registers as well. I have added a TODO about this.",
+      "parentUuid": "0465c2c3_41458134",
+      "range": {
+        "startLine": 5396,
+        "startChar": 5,
+        "endLine": 5396,
+        "endChar": 9
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44725a92_66f1b0cf",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 4
@@ -454,6 +789,30 @@
       "writtenOn": "2015-09-15T20:45:59Z",
       "side": 1,
       "message": "Does this mean we won\u0027t intrinsify this invoke when read barriers are enabled? Does this mean we do no intrinsification when read barriers are enabled?",
+      "range": {
+        "startLine": 66,
+        "startChar": 52,
+        "endLine": 67,
+        "endChar": 24
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "953c86f3_13525c03",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-01T01:33:53Z",
+      "side": 1,
+      "message": "Yes. :-( I have added a TODO to implement this.",
+      "parentUuid": "44725a92_66f1b0cf",
       "range": {
         "startLine": 66,
         "startChar": 52,
