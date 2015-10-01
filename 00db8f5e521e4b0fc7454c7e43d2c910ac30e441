@@ -311,6 +311,30 @@
     },
     {
       "key": {
+        "uuid": "f5586271_017a097d",
+        "filename": "runtime/jni_env_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-01T20:43:50Z",
+      "side": 1,
+      "message": "I actually don\u0027t need a scan at all, since I only need to touch the last entry, anyways...",
+      "parentUuid": "f597825c_42521205",
+      "range": {
+        "startLine": 202,
+        "startChar": 63,
+        "endLine": 204,
+        "endChar": 64
+      },
+      "revId": "00db8f5e521e4b0fc7454c7e43d2c910ac30e441",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55712e1a_a5e33e09",
         "filename": "runtime/jni_env_ext.h",
         "patchSetId": 5
