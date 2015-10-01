@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "354d9aaf_16736cdc",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1671,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-01T20:42:26Z",
+      "side": 1,
+      "message": "Isn\u0027t this just i++, if you say in line 1669 charAt(i)?\n\nOtherwise the whole set of comments should be updated to be correct, e.g., formulate it in C style with \"# if *ptr \u003d\u003d ch\"",
+      "range": {
+        "startLine": 1671,
+        "startChar": 26,
+        "endLine": 1671,
+        "endChar": 42
+      },
+      "revId": "900883ab3b2e76d80d9e55e7a9705aff91347582",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
