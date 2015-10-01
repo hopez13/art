@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "15a33681_d730acca",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-01T01:27:22Z",
+      "side": 1,
+      "message": "was planning to merge the functionality in Move32/64 in a later cl. \ndone now.",
+      "parentUuid": "75ab929e_7ee7f117",
+      "range": {
+        "startLine": 991,
+        "startChar": 0,
+        "endLine": 1008,
+        "endChar": 83
+      },
+      "revId": "87b7f249f2d7357e87401c834a0fb72984f4eefe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75ab929e_5ee43511",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-30T08:03:49Z",
       "side": 1,
       "message": "Use Move32/Move64?",
+      "range": {
+        "startLine": 924,
+        "startChar": 23,
+        "endLine": 924,
+        "endChar": 35
+      },
+      "revId": "87b7f249f2d7357e87401c834a0fb72984f4eefe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "953c86f3_2e53b75d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 924,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-01T01:27:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75ab929e_5ee43511",
       "range": {
         "startLine": 924,
         "startChar": 23,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b5398a03_c9c969b7",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-01T01:27:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f597825c_02d3ea46",
+      "range": {
+        "startLine": 948,
+        "startChar": 26,
+        "endLine": 948,
+        "endChar": 38
+      },
+      "revId": "87b7f249f2d7357e87401c834a0fb72984f4eefe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35e91ad0_5c317d1d",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 5
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "15a33681_a66f08eb",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1424,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-01T01:27:22Z",
+      "side": 1,
+      "message": "missed this, thanks",
+      "parentUuid": "35e91ad0_5c317d1d",
+      "range": {
+        "startLine": 1424,
+        "startChar": 0,
+        "endLine": 1424,
+        "endChar": 52
+      },
+      "revId": "87b7f249f2d7357e87401c834a0fb72984f4eefe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75763214_069c1a63",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 5
@@ -105,6 +201,30 @@
       "writtenOn": "2015-09-30T10:28:33Z",
       "side": 1,
       "message": "This is ugly but simple. (Implementing SETUP_GOT_NOSAVE for got_reg \u003d ecx is a feasible alternative but not required for this CL.)",
+      "range": {
+        "startLine": 1437,
+        "startChar": 4,
+        "endLine": 1437,
+        "endChar": 20
+      },
+      "revId": "87b7f249f2d7357e87401c834a0fb72984f4eefe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "354d9aaf_7c99f9b8",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 1437,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-01T01:27:22Z",
+      "side": 1,
+      "message": "I will add a TODO for that.",
+      "parentUuid": "75763214_069c1a63",
       "range": {
         "startLine": 1437,
         "startChar": 4,
