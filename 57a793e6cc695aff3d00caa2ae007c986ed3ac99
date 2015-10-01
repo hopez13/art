@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "9555663b_3acc9df9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-10-01T05:53:39Z",
+      "side": 1,
+      "message": "equals is being removed from this patch and will submitted in a subsequent patch.",
+      "parentUuid": "a905afc4_dd24fb49",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 42
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f86a1765_10832c3e",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "writtenOn": "2015-09-29T23:18:47Z",
       "side": 1,
       "message": "Use DCHECK_EQ.",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 10
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5526a4f_bb99d341",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-10-01T05:53:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f86a1765_10832c3e",
       "range": {
         "startLine": 58,
         "startChar": 4,
@@ -190,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "8e52b121_8349b1aa",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-10-01T05:53:39Z",
+      "side": 1,
+      "message": "I understand now. I was focusing on comparing the contents of the two registers to see if \"this\", and \"anObject\" were the same object. You were focusing on the register str being the same register as arg, which would be another case of str and anObject pointer to the same object.  I\u0027ve added a check at the top of the inserted code to short-circuit to \"true\" in a single instruction in this case.\n\n\"equals\" is removed from this patch and will be part of a future patch.",
+      "parentUuid": "ee616dea_77d0b388",
+      "range": {
+        "startLine": 951,
+        "startChar": 10,
+        "endLine": 951,
+        "endChar": 18
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f86a1765_53e68e1b",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
@@ -201,6 +273,30 @@
       "writtenOn": "2015-09-29T23:18:47Z",
       "side": 1,
       "message": "Replace with\n\n  IsUint\u003c16\u003e(invoke-\u003eInputAt(1)-\u003eAsIntConstant()-\u003eGetValue())\n\n?",
+      "range": {
+        "startLine": 1011,
+        "startChar": 8,
+        "endLine": 1012,
+        "endChar": 44
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9555663b_baa8adee",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1012,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-10-01T05:53:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f86a1765_53e68e1b",
       "range": {
         "startLine": 1011,
         "startChar": 8,
@@ -236,6 +332,30 @@
     },
     {
       "key": {
+        "uuid": "9555663b_1a1719e2",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-10-01T05:53:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f86a1765_d3359e0c",
+      "range": {
+        "startLine": 1063,
+        "startChar": 2,
+        "endLine": 1063,
+        "endChar": 52
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e2e2591_c33a0caf",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
@@ -247,6 +367,30 @@
       "writtenOn": "2015-09-29T23:18:47Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 1084,
+        "startChar": 2,
+        "endLine": 1084,
+        "endChar": 52
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5526a4f_3b3dc3a4",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-10-01T05:53:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e2e2591_c33a0caf",
       "range": {
         "startLine": 1084,
         "startChar": 2,
@@ -282,6 +426,30 @@
     },
     {
       "key": {
+        "uuid": "b5526a4f_5b3cf7a4",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1641,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-10-01T05:53:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e5fa128_a7def2f5",
+      "range": {
+        "startLine": 1641,
+        "startChar": 26,
+        "endLine": 1641,
+        "endChar": 37
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae5bf53d_d6ff539e",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 1
@@ -293,6 +461,30 @@
       "writtenOn": "2015-09-29T23:18:47Z",
       "side": 1,
       "message": "this.charAt(i++) ?",
+      "range": {
+        "startLine": 1642,
+        "startChar": 35,
+        "endLine": 1642,
+        "endChar": 44
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5526a4f_bb30b3c9",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1642,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-10-01T05:53:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae5bf53d_d6ff539e",
       "range": {
         "startLine": 1642,
         "startChar": 35,
@@ -328,6 +520,30 @@
     },
     {
       "key": {
+        "uuid": "15a33681_6617d0e1",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1646,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-10-01T05:53:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee86cdd4_2f774714",
+      "range": {
+        "startLine": 1646,
+        "startChar": 35,
+        "endLine": 1646,
+        "endChar": 53
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e2e2591_c3568cce",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 1
@@ -351,6 +567,30 @@
     },
     {
       "key": {
+        "uuid": "b5398a03_c344a819",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1664,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-10-01T05:53:39Z",
+      "side": 1,
+      "message": "The comment is really for both lines. Amended comment to make this more clear.",
+      "parentUuid": "2e2e2591_c3568cce",
+      "range": {
+        "startLine": 1664,
+        "startChar": 26,
+        "endLine": 1664,
+        "endChar": 40
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e52b121_74530a55",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 1
@@ -362,6 +602,30 @@
       "writtenOn": "2015-09-29T23:18:47Z",
       "side": 1,
       "message": "this.charAt(i++) ?",
+      "range": {
+        "startLine": 1671,
+        "startChar": 26,
+        "endLine": 1671,
+        "endChar": 35
+      },
+      "revId": "57a793e6cc695aff3d00caa2ae007c986ed3ac99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9555663b_3a3bfd61",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1671,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-10-01T05:53:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e52b121_74530a55",
       "range": {
         "startLine": 1671,
         "startChar": 26,
