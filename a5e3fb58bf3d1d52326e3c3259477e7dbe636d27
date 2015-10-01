@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "354d9aaf_5654d4f4",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-01T21:14:21Z",
+      "side": 1,
+      "message": "Is using \"fast JNI\" compatible with causing a suspend in the middle of the code?",
+      "revId": "a5e3fb58bf3d1d52326e3c3259477e7dbe636d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5586271_813a9957",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-01T21:14:21Z",
+      "side": 1,
+      "message": "Why is this inside of the loop instead of outside of the loop?\n\nI have a feeling creating scopes is more expensive over and over again (not less expensive). Unless it\u0027s there for correctness?\n\nAlso just using a raw mirror::Class pointer at all seems more scary than using h_clazz for the entire function.",
+      "revId": "a5e3fb58bf3d1d52326e3c3259477e7dbe636d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75439281_a5cd1d9e",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-01T21:14:21Z",
+      "side": 1,
+      "message": "NPE is name is null?",
+      "revId": "a5e3fb58bf3d1d52326e3c3259477e7dbe636d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
