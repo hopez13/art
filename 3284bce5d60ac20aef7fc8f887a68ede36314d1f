@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "1548969f_2711151f",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-01T22:18:20Z",
+      "side": 1,
+      "message": "Sounds better.",
+      "parentUuid": "9555663b_c0f2cf9f",
+      "range": {
+        "startLine": 538,
+        "startChar": 25,
+        "endLine": 538,
+        "endChar": 37
+      },
+      "revId": "3284bce5d60ac20aef7fc8f887a68ede36314d1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "354d9aaf_967f7ca2",
         "filename": "compiler/utils/mips64/assembler_mips64.h",
         "patchSetId": 1
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "If I do this I get all kinds of breakage. The final straw was the following:\nart/compiler/optimizing/intrinsics_mips64.cc:538:74: error: no match for \u0027operator|\u0027 (operand types are \u0027art::mips64::FPClassMaskType\u0027 and \u0027art::mips64::FPClassMaskType\u0027)\n\nDo you want me to implement FPClassMaskType::operator|()?",
       "parentUuid": "354d9aaf_967f7ca2",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 5
+      },
+      "revId": "3284bce5d60ac20aef7fc8f887a68ede36314d1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "354d9aaf_51d33e45",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-01T22:18:20Z",
+      "side": 1,
+      "message": "Ah, yeah, I forget. You\u0027d have to explicitly static_cast for the bitset. Leave it.",
+      "parentUuid": "953c86f3_c88cbe2f",
       "range": {
         "startLine": 50,
         "startChar": 0,
