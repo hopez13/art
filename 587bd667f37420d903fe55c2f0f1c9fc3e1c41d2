@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75439281_c574a90e",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-01T23:16:00Z",
+      "side": 1,
+      "message": "I think we usually compare against 0, i.e.\n(result-\u003eGetAccessFlags() \u0026 kAccPublic) !\u003d 0.",
+      "range": {
+        "startLine": 245,
+        "startChar": 29,
+        "endLine": 245,
+        "endChar": 66
+      },
+      "revId": "587bd667f37420d903fe55c2f0f1c9fc3e1c41d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
