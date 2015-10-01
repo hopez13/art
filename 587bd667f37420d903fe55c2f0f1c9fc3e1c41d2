@@ -22,6 +22,47 @@
       "revId": "587bd667f37420d903fe55c2f0f1c9fc3e1c41d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9555663b_8307415c",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-01T23:34:02Z",
+      "side": 1,
+      "message": "style-wise that\u0027s up-to-date with the latest draft (i.e. omitting the !\u003d 0 for *only* bitwise ops is OK).\n\nIf we don\u0027t agree, please comment there, but Nicolas seemed ok with it.\n\nI do however think that most likely to get the Nicolas stamp of approval this needs more parentheses\n\n  if ((result !\u003d nullptr) \u0026\u0026 (result-\u003eGetAccessFlags() \u0026 kAccPublic)) {",
+      "parentUuid": "75439281_c574a90e",
+      "range": {
+        "startLine": 245,
+        "startChar": 29,
+        "endLine": 245,
+        "endChar": 66
+      },
+      "revId": "587bd667f37420d903fe55c2f0f1c9fc3e1c41d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5586271_c4749f0e",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-01T23:34:02Z",
+      "side": 1,
+      "message": "nit: UNLIKELY",
+      "revId": "587bd667f37420d903fe55c2f0f1c9fc3e1c41d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
