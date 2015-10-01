@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1548969f_270f556a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-10-01T22:12:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5586271_2152ad03",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 50
+      },
+      "revId": "3284bce5d60ac20aef7fc8f887a68ede36314d1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9555663b_2cbaa73b",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-01T20:34:57Z",
       "side": 1,
       "message": "ART",
+      "range": {
+        "startLine": 13,
+        "startChar": 50,
+        "endLine": 13,
+        "endChar": 56
+      },
+      "revId": "3284bce5d60ac20aef7fc8f887a68ede36314d1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "354d9aaf_f64520e1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-10-01T22:12:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9555663b_2cbaa73b",
       "range": {
         "startLine": 13,
         "startChar": 50,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9555663b_c0f2cf9f",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-10-01T22:12:45Z",
+      "side": 1,
+      "message": "kFPLeaveUnchanged?\n\nThat\u0027s how it\u0027s used. If the input value is one of these floating point types (+/- zero, +/- infinity, or a NaN), then the input value is returned as the output value.",
+      "parentUuid": "75439281_f3f4124c",
+      "range": {
+        "startLine": 538,
+        "startChar": 25,
+        "endLine": 538,
+        "endChar": 37
+      },
+      "revId": "3284bce5d60ac20aef7fc8f887a68ede36314d1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "354d9aaf_967f7ca2",
         "filename": "compiler/utils/mips64/assembler_mips64.h",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-10-01T20:34:57Z",
       "side": 1,
       "message": "Consider an enum class for cleanliness.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 5
+      },
+      "revId": "3284bce5d60ac20aef7fc8f887a68ede36314d1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "953c86f3_c88cbe2f",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-10-01T22:12:45Z",
+      "side": 1,
+      "message": "If I do this I get all kinds of breakage. The final straw was the following:\nart/compiler/optimizing/intrinsics_mips64.cc:538:74: error: no match for \u0027operator|\u0027 (operand types are \u0027art::mips64::FPClassMaskType\u0027 and \u0027art::mips64::FPClassMaskType\u0027)\n\nDo you want me to implement FPClassMaskType::operator|()?",
+      "parentUuid": "354d9aaf_967f7ca2",
       "range": {
         "startLine": 50,
         "startChar": 0,
