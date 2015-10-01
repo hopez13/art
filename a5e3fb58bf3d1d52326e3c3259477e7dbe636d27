@@ -201,6 +201,24 @@
       "revId": "a5e3fb58bf3d1d52326e3c3259477e7dbe636d27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5398a03_da4ac591",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-01T21:20:31Z",
+      "side": 1,
+      "message": "Either way is ok with me (with a slight preference towards each method handling its own preconditions, instead of letting the caller handle it), but the javadoc on the java side should probably clearly state what happens since it\u0027s in two completely separate files.",
+      "parentUuid": "d55b5e6b_a237dfc2",
+      "revId": "a5e3fb58bf3d1d52326e3c3259477e7dbe636d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
