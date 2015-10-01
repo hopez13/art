@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d55b5e6b_881bdfb1",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-10-01T18:54:15Z",
+      "side": 1,
+      "message": "Done in CL 173966.",
+      "parentUuid": "ee616dea_3c8100ed",
+      "range": {
+        "startLine": 515,
+        "startChar": 0,
+        "endLine": 520,
+        "endChar": 24
+      },
+      "revId": "0b7ac98ecdb891797a282c508b41238451d6c770",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e4c398b_da6d4a8c",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "1548969f_aff981ec",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-10-01T18:54:15Z",
+      "side": 1,
+      "message": "Done in CL 173966.",
+      "parentUuid": "4e4c398b_da6d4a8c",
+      "range": {
+        "startLine": 521,
+        "startChar": 25,
+        "endLine": 521,
+        "endChar": 35
+      },
+      "revId": "0b7ac98ecdb891797a282c508b41238451d6c770",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e5fa128_e0fcdba6",
         "filename": "runtime/arch/mips64/registers_mips64.h",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2015-09-28T05:41:59Z",
       "side": 1,
       "message": "Nit: I would put this alias after the definition of the last register (RA), similarly to other back ends.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 53
+      },
+      "revId": "0b7ac98ecdb891797a282c508b41238451d6c770",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5398a03_0975114f",
+        "filename": "runtime/arch/mips64/registers_mips64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-10-01T18:54:15Z",
+      "side": 1,
+      "message": "Done. See CL 172230.",
+      "parentUuid": "0e5fa128_e0fcdba6",
       "range": {
         "startLine": 55,
         "startChar": 0,
