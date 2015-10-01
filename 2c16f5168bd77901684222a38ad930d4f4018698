@@ -845,6 +845,24 @@
     },
     {
       "key": {
+        "uuid": "f5586271_69d2d13f",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-01T00:42:47Z",
+      "side": 1,
+      "message": "I thought the intent was that this wasn\u0027t the case.",
+      "parentUuid": "b5398a03_06ca1ed8",
+      "revId": "2c16f5168bd77901684222a38ad930d4f4018698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "953c86f3_28d1ef93",
         "filename": "runtime/modifiers.h",
         "patchSetId": 20
@@ -856,6 +874,24 @@
       "writtenOn": "2015-09-30T22:49:56Z",
       "side": 1,
       "message": "this implies it\u0027s not recursive (i.e. the interface has a direct method implementation that\u0027s default)\n\nI imagine this was meant to be recursive?\n\n  \"Interface or a superinterface defines at least 1 default method\"",
+      "revId": "2c16f5168bd77901684222a38ad930d4f4018698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9555663b_2b83b193",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-01T00:42:47Z",
+      "side": 1,
+      "message": "You don\u0027t really need that, if the above flag is correctly set. Yes, you\u0027ll do a bit more work, but you only do it once, which seems acceptable.\n\n(And you\u0027d want these to be two separate ones, as you use the \"*this* has a default method\" as a fast flag)",
+      "parentUuid": "953c86f3_28d1ef93",
       "revId": "2c16f5168bd77901684222a38ad930d4f4018698",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
