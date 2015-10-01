@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9555663b_40debffc",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-01T22:27:03Z",
+      "side": 1,
+      "message": "Added check for pending exception.",
+      "parentUuid": "354d9aaf_7663d0d4",
+      "range": {
+        "startLine": 241,
+        "startChar": 28,
+        "endLine": 241,
+        "endChar": 44
+      },
+      "revId": "a5e3fb58bf3d1d52326e3c3259477e7dbe636d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "354d9aaf_5654d4f4",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 1
@@ -100,6 +124,30 @@
     },
     {
       "key": {
+        "uuid": "15a33681_d861b91b",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-01T22:27:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d55b5e6b_4259a329",
+      "range": {
+        "startLine": 248,
+        "startChar": 4,
+        "endLine": 248,
+        "endChar": 11
+      },
+      "revId": "a5e3fb58bf3d1d52326e3c3259477e7dbe636d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5526a4f_879910bc",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 1
@@ -146,6 +194,54 @@
     },
     {
       "key": {
+        "uuid": "1548969f_478a610e",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-01T22:27:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d55b5e6b_a2699fbd",
+      "range": {
+        "startLine": 264,
+        "startChar": 52,
+        "endLine": 264,
+        "endChar": 53
+      },
+      "revId": "a5e3fb58bf3d1d52326e3c3259477e7dbe636d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15a33681_f85ef55e",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-01T22:27:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5526a4f_879910bc",
+      "range": {
+        "startLine": 264,
+        "startChar": 19,
+        "endLine": 264,
+        "endChar": 21
+      },
+      "revId": "a5e3fb58bf3d1d52326e3c3259477e7dbe636d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "953c86f3_14824239",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 1
@@ -157,6 +253,30 @@
       "writtenOn": "2015-10-01T21:15:22Z",
       "side": 1,
       "message": "Period.",
+      "range": {
+        "startLine": 269,
+        "startChar": 24,
+        "endLine": 269,
+        "endChar": 25
+      },
+      "revId": "a5e3fb58bf3d1d52326e3c3259477e7dbe636d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5526a4f_92314c21",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-01T22:27:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "953c86f3_14824239",
       "range": {
         "startLine": 269,
         "startChar": 24,
@@ -216,6 +336,42 @@
       "side": 1,
       "message": "Either way is ok with me (with a slight preference towards each method handling its own preconditions, instead of letting the caller handle it), but the javadoc on the java side should probably clearly state what happens since it\u0027s in two completely separate files.",
       "parentUuid": "d55b5e6b_a237dfc2",
+      "revId": "a5e3fb58bf3d1d52326e3c3259477e7dbe636d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1548969f_07fdf96c",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-01T22:27:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5398a03_da4ac591",
+      "revId": "a5e3fb58bf3d1d52326e3c3259477e7dbe636d27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1548969f_2700f50f",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-01T22:27:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75439281_a5cd1d9e",
       "revId": "a5e3fb58bf3d1d52326e3c3259477e7dbe636d27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
