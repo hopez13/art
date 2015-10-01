@@ -189,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "75439281_b2bc483c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 3933,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-01T01:07:56Z",
+      "side": 1,
+      "message": "Yeah, I have a comment in PS18 asking if there should be an extra SetRecursivelyInitialized somewhere near line 3958.",
+      "parentUuid": "9555663b_6bb929fc",
+      "range": {
+        "startLine": 3933,
+        "startChar": 22,
+        "endLine": 3933,
+        "endChar": 51
+      },
+      "revId": "2c16f5168bd77901684222a38ad930d4f4018698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5526a4f_fe0e996b",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 20
@@ -217,6 +241,30 @@
       "writtenOn": "2015-10-01T00:34:47Z",
       "side": 1,
       "message": "If we want to enforce this, we should do it at the dex file level, not here. (And I believe irogers once said it is, but I have doubts)",
+      "range": {
+        "startLine": 4827,
+        "startChar": 4,
+        "endLine": 4830,
+        "endChar": 5
+      },
+      "revId": "2c16f5168bd77901684222a38ad930d4f4018698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5526a4f_413d28a3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 4830,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-01T01:07:56Z",
+      "side": 1,
+      "message": "I think the old code might have been doing this already?\n\nI don\u0027t see how this can happen anyway, we are restricted to a uint16_t method id limit in the dex file. Defensive programming?",
+      "parentUuid": "75439281_67932093",
       "range": {
         "startLine": 4827,
         "startChar": 4,
@@ -441,6 +489,30 @@
       "writtenOn": "2015-10-01T00:34:47Z",
       "side": 1,
       "message": "If you have to explain it, then the logical formula isn\u0027t more concise than your textual sentence and not really necessary. I don\u0027t see a point of adding it here.",
+      "range": {
+        "startLine": 5144,
+        "startChar": 0,
+        "endLine": 5144,
+        "endChar": 47
+      },
+      "revId": "2c16f5168bd77901684222a38ad930d4f4018698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5526a4f_613caca5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 5144,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-01T01:07:56Z",
+      "side": 1,
+      "message": "Sorry, I asked for this particular line to be added (it was initially just the logical formula).",
+      "parentUuid": "75439281_b247288a",
       "range": {
         "startLine": 5144,
         "startChar": 0,
@@ -857,6 +929,24 @@
       "side": 1,
       "message": "I thought the intent was that this wasn\u0027t the case.",
       "parentUuid": "b5398a03_06ca1ed8",
+      "revId": "2c16f5168bd77901684222a38ad930d4f4018698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1548969f_0f823539",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-01T01:07:56Z",
+      "side": 1,
+      "message": "then it should say \"but not itself\"? It\u0027s currently ambiguous.",
+      "parentUuid": "f5586271_69d2d13f",
       "revId": "2c16f5168bd77901684222a38ad930d4f4018698",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
