@@ -310,6 +310,29 @@
     },
     {
       "key": {
+        "uuid": "f597825c_c2e98225",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-10-01T16:57:47Z",
+      "side": 1,
+      "message": "Delete empty line.",
+      "range": {
+        "startLine": 538,
+        "startChar": 0,
+        "endLine": 538,
+        "endChar": 0
+      },
+      "revId": "df040508b3c81aec117b07d632e36cf429307307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e4d7d85_6879fb59",
         "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
         "patchSetId": 1
