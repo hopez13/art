@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "156b3632_039faea1",
+        "filename": "compiler/driver/compiled_method_storage.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-01T16:04:43Z",
+      "side": 1,
+      "message": "It should always prevent an exported symbol unless the compiler is brain-dead.\nAssuming all uses are actually inlined, it also prevents emitting an out-of-line copy.",
+      "parentUuid": "b5398a03_7463d0d4",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 6
+      },
+      "revId": "124d61227d28ca1135250491b798f781f60d8cfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "354d9aaf_f027e88a",
         "filename": "compiler/driver/compiled_method_storage.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-01T15:30:31Z",
       "side": 1,
       "message": "This is stale now?",
+      "range": {
+        "startLine": 194,
+        "startChar": 78,
+        "endLine": 195,
+        "endChar": 33
+      },
+      "revId": "124d61227d28ca1135250491b798f781f60d8cfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b57c2af2_280e4bb2",
+        "filename": "compiler/driver/compiled_method_storage.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-01T16:04:43Z",
+      "side": 1,
+      "message": "No, it isn\u0027t. The destruction of dedupe sets below still requires the swap space and allocator to be alive.",
+      "parentUuid": "354d9aaf_f027e88a",
       "range": {
         "startLine": 194,
         "startChar": 78,
