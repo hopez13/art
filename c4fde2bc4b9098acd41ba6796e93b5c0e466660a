@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "354d9aaf_cbe6811b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4338,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-01T17:32:56Z",
+      "side": 1,
+      "message": "Should we have the same static_assert here, too?",
+      "range": {
+        "startLine": 4338,
+        "startChar": 77,
+        "endLine": 4338,
+        "endChar": 84
+      },
+      "revId": "c4fde2bc4b9098acd41ba6796e93b5c0e466660a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
