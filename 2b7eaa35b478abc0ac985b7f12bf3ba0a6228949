@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75439281_285ba497",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5664,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-02T17:09:18Z",
+      "side": 1,
+      "message": "this comment jumps a bit out of nowhere. You are commenting on the visit method. I think you need to move it down where you use the property.",
+      "range": {
+        "startLine": 5664,
+        "startChar": 27,
+        "endLine": 5664,
+        "endChar": 28
+      },
+      "revId": "2b7eaa35b478abc0ac985b7f12bf3ba0a6228949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d55b5e6b_58287449",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5697,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-02T17:09:18Z",
+      "side": 1,
+      "message": "I suppose num_entries \u003e\u003d 1 is guaranteed at this point?\nYou could use kAboveEq and num_entries just to be safe",
+      "range": {
+        "startLine": 5697,
+        "startChar": 31,
+        "endLine": 5697,
+        "endChar": 42
+      },
+      "revId": "2b7eaa35b478abc0ac985b7f12bf3ba0a6228949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d55b5e6b_b818b03b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5974,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-02T17:09:18Z",
+      "side": 1,
+      "message": "DCHECK_EQ (does that work?)\nit usually gives better reporting when it fails",
+      "range": {
+        "startLine": 5974,
+        "startChar": 18,
+        "endLine": 5974,
+        "endChar": 36
+      },
+      "revId": "2b7eaa35b478abc0ac985b7f12bf3ba0a6228949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5586271_baa0a66e",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-02T17:09:18Z",
+      "side": 1,
+      "message": "I don\u0027t think it is necessary to comment on a forward decl if you document things a bit more elaborate below.",
+      "range": {
+        "startLine": 248,
+        "startChar": 32,
+        "endLine": 248,
+        "endChar": 36
+      },
+      "revId": "2b7eaa35b478abc0ac985b7f12bf3ba0a6228949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5586271_3ab5b6b4",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-02T17:09:18Z",
+      "side": 1,
+      "message": "Why not spell it out more clearly in the comment what is so special? Terms like \"handled specially\" lose meaning over time.",
+      "revId": "2b7eaa35b478abc0ac985b7f12bf3ba0a6228949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
