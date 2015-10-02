@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35e91ad0_7fdb8bb1",
+        "filename": "runtime/jni_env_ext.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-02T08:46:57Z",
+      "side": 1,
+      "message": "Explain why this is bad too.",
+      "range": {
+        "startLine": 196,
+        "startChar": 25,
+        "endLine": 196,
+        "endChar": 79
+      },
+      "revId": "4202a0df0bbcdbcca0262eab79f398eb71489eb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "957f26e6_ca44c387",
+        "filename": "runtime/jni_env_ext.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-02T08:46:57Z",
+      "side": 1,
+      "message": "CheckNoHeldMonitors?",
+      "range": {
+        "startLine": 102,
+        "startChar": 7,
+        "endLine": 102,
+        "endChar": 28
+      },
+      "revId": "4202a0df0bbcdbcca0262eab79f398eb71489eb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b57c2af2_4bcd399b",
+        "filename": "runtime/jni_env_ext.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-02T08:46:57Z",
+      "side": 1,
+      "message": "I\u0027d suggest doing the check_jni at the caller side. Avoid this \u0027Impl\u0027 suffix that are just confusing.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 3
+      },
+      "revId": "4202a0df0bbcdbcca0262eab79f398eb71489eb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
