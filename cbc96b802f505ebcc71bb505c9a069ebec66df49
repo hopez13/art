@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d55b5e6b_366cb10f",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-02T20:42:23Z",
+      "side": 1,
+      "message": "You need the mutator lock for getting the class. SOA ensures that (except in the cases where the state doesn\u0027t make it clear that you maybe still have the lock, like PerformingGC.",
+      "parentUuid": "953c86f3_01232169",
+      "revId": "cbc96b802f505ebcc71bb505c9a069ebec66df49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d55b5e6b_b61ba1b1",
         "filename": "runtime/art_method-inl.h",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "15a33681_cfa0105e",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-02T20:42:23Z",
+      "side": 1,
+      "message": "Because this one can be correctly analyzed with annotalysis. The helper is only there because the Assert below doesn\u0027t work correctly. :-(",
+      "parentUuid": "d55b5e6b_b61ba1b1",
+      "revId": "cbc96b802f505ebcc71bb505c9a069ebec66df49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5526a4f_02704bcc",
         "filename": "runtime/art_method-inl.h",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2015-10-02T20:35:00Z",
       "side": 1,
       "message": "Couldn\u0027t this check what state it\u0027s in?",
+      "revId": "cbc96b802f505ebcc71bb505c9a069ebec66df49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "953c86f3_01720166",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-02T20:42:23Z",
+      "side": 1,
+      "message": "It makes the SOA more complicated, and we haven\u0027t needed/done that before. That\u0027s why we check here...",
+      "parentUuid": "b5526a4f_02704bcc",
       "revId": "cbc96b802f505ebcc71bb505c9a069ebec66df49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
