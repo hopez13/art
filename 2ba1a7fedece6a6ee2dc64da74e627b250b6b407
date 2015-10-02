@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "75df1224_ede0d1fe",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-02T01:06:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "354d9aaf_e3eba1d8",
+      "range": {
+        "startLine": 166,
+        "startChar": 2,
+        "endLine": 166,
+        "endChar": 77
+      },
+      "revId": "2ba1a7fedece6a6ee2dc64da74e627b250b6b407",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "751ab2b5_09a1ad95",
         "filename": "runtime/thread.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-02T01:00:05Z",
       "side": 1,
       "message": "Please fix language.",
+      "range": {
+        "startLine": 1023,
+        "startChar": 9,
+        "endLine": 1023,
+        "endChar": 73
+      },
+      "revId": "2ba1a7fedece6a6ee2dc64da74e627b250b6b407",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "751ab2b5_e97251d6",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-02T01:06:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "751ab2b5_09a1ad95",
       "range": {
         "startLine": 1023,
         "startChar": 9,
