@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9555663b_7620e9d7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5664,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-02T17:27:00Z",
+      "side": 1,
+      "message": "Both the location visitor and the code generator visitor need to know that this is for a jump table.\n\nFixed by deleting the comment.",
+      "parentUuid": "75439281_285ba497",
+      "range": {
+        "startLine": 5664,
+        "startChar": 27,
+        "endLine": 5664,
+        "endChar": 28
+      },
+      "revId": "2b7eaa35b478abc0ac985b7f12bf3ba0a6228949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d55b5e6b_58287449",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-02T17:09:18Z",
       "side": 1,
       "message": "I suppose num_entries \u003e\u003d 1 is guaranteed at this point?\nYou could use kAboveEq and num_entries just to be safe",
+      "range": {
+        "startLine": 5697,
+        "startChar": 31,
+        "endLine": 5697,
+        "endChar": 42
+      },
+      "revId": "2b7eaa35b478abc0ac985b7f12bf3ba0a6228949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5586271_7a3c4ea5",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5697,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-02T17:27:00Z",
+      "side": 1,
+      "message": "Added DCHECK_GE",
+      "parentUuid": "d55b5e6b_58287449",
       "range": {
         "startLine": 5697,
         "startChar": 31,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "15a33681_cc79fe89",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5974,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-02T17:27:00Z",
+      "side": 1,
+      "message": "Done.  I was used to comparing to nullptr, which doesn\u0027t work with DCHECK_EQ/NE",
+      "parentUuid": "d55b5e6b_b818b03b",
+      "range": {
+        "startLine": 5974,
+        "startChar": 18,
+        "endLine": 5974,
+        "endChar": 36
+      },
+      "revId": "2b7eaa35b478abc0ac985b7f12bf3ba0a6228949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5586271_baa0a66e",
         "filename": "compiler/optimizing/code_generator_x86.h",
         "patchSetId": 4
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "f5586271_3a59362b",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-02T17:27:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5586271_baa0a66e",
+      "range": {
+        "startLine": 248,
+        "startChar": 32,
+        "endLine": 248,
+        "endChar": 36
+      },
+      "revId": "2b7eaa35b478abc0ac985b7f12bf3ba0a6228949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5586271_3ab5b6b4",
         "filename": "compiler/optimizing/code_generator_x86.h",
         "patchSetId": 4
@@ -105,6 +201,24 @@
       "writtenOn": "2015-10-02T17:09:18Z",
       "side": 1,
       "message": "Why not spell it out more clearly in the comment what is so special? Terms like \"handled specially\" lose meaning over time.",
+      "revId": "2b7eaa35b478abc0ac985b7f12bf3ba0a6228949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9555663b_562165dd",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-02T17:27:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5586271_3ab5b6b4",
       "revId": "2b7eaa35b478abc0ac985b7f12bf3ba0a6228949",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
