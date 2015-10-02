@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "953c86f3_e116fd18",
+        "filename": "runtime/jni_env_ext.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-02T22:56:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35e91ad0_7fdb8bb1",
+      "range": {
+        "startLine": 196,
+        "startChar": 25,
+        "endLine": 196,
+        "endChar": 79
+      },
+      "revId": "4202a0df0bbcdbcca0262eab79f398eb71489eb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "957f26e6_ca44c387",
         "filename": "runtime/jni_env_ext.h",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "75439281_9e3792c3",
+        "filename": "runtime/jni_env_ext.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-02T22:56:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "957f26e6_ca44c387",
+      "range": {
+        "startLine": 102,
+        "startChar": 7,
+        "endLine": 102,
+        "endChar": 28
+      },
+      "revId": "4202a0df0bbcdbcca0262eab79f398eb71489eb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b57c2af2_4bcd399b",
         "filename": "runtime/jni_env_ext.h",
         "patchSetId": 6
@@ -59,6 +107,30 @@
       "writtenOn": "2015-10-02T08:46:57Z",
       "side": 1,
       "message": "I\u0027d suggest doing the check_jni at the caller side. Avoid this \u0027Impl\u0027 suffix that are just confusing.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 3
+      },
+      "revId": "4202a0df0bbcdbcca0262eab79f398eb71489eb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1548969f_789f38a1",
+        "filename": "runtime/jni_env_ext.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-02T22:56:12Z",
+      "side": 1,
+      "message": "Well, I thought encapsulation would be better, but done.",
+      "parentUuid": "b57c2af2_4bcd399b",
       "range": {
         "startLine": 101,
         "startChar": 0,
