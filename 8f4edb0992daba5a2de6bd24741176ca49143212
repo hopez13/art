@@ -1296,6 +1296,30 @@
     },
     {
       "key": {
+        "uuid": "b5398a03_7a08d9a2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4954,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-02T18:49:38Z",
+      "side": 1,
+      "message": "Which is why k is a int32_t...\n\nAnyway done.",
+      "parentUuid": "d55b5e6b_a2bc043c",
+      "range": {
+        "startLine": 4954,
+        "startChar": 7,
+        "endLine": 4954,
+        "endChar": 14
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee616dea_43361a7a",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 17
@@ -1355,6 +1379,30 @@
       "side": 1,
       "message": "It\u0027s confusing because an interface can also have static methods, num_virtual_methods/num_instance_methods is less ambiguous.",
       "parentUuid": "ce582944_796f8839",
+      "range": {
+        "startLine": 4956,
+        "startChar": 11,
+        "endLine": 4956,
+        "endChar": 28
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d55b5e6b_c513fd26",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4956,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-02T18:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15a33681_69e56149",
       "range": {
         "startLine": 4956,
         "startChar": 11,
@@ -1455,6 +1503,24 @@
     },
     {
       "key": {
+        "uuid": "b5398a03_faf34908",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4959,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-02T18:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5398a03_260802f4",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce582944_b732b286",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 17
@@ -1502,6 +1568,24 @@
       "side": 1,
       "message": "It was more of a mechanical question. In other plces of the code I\u0027ve seen comments written similar to this:\n\n  // The verifier should\u0027ve caught non-public methods on interfaces.\n\nPlease consider adding a comment here of some sort :).",
       "parentUuid": "0e5fa128_7635550c",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5526a4f_d24e2406",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 4962,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-02T18:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1548969f_248bd8ea",
       "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -1760,6 +1844,24 @@
     },
     {
       "key": {
+        "uuid": "9555663b_c3e819df",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5031,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-02T18:49:38Z",
+      "side": 1,
+      "message": "I don\u0027t think we use it anywhere else. It is a standard notation though, (see wikipedia page on subtyping)",
+      "parentUuid": "354d9aaf_c21e6670",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e52b121_fa7b7185",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 17
@@ -1925,6 +2027,24 @@
       "side": 1,
       "message": "It\u0027s checking the post-condition at the end but it could also check the pre-condition (at the beginning).\n\nYou could also just put the dcheck into a lambda and then you won\u0027t have to copy/paste it twice.",
       "parentUuid": "ee86cdd4_636251d7",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5398a03_dab2c530",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5050,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-02T18:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9555663b_60b948fc",
       "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -2926,6 +3046,24 @@
       "side": 1,
       "message": "var\u0026 name \u003d *out\n\nthen",
       "parentUuid": "ee86cdd4_43f14d0e",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "354d9aaf_315672d5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 5474,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-02T18:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5398a03_668deaba",
       "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -4326,6 +4464,30 @@
     },
     {
       "key": {
+        "uuid": "b5398a03_5a6d1539",
+        "filename": "test/960-default-smali/build",
+        "patchSetId": 17
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-02T18:49:38Z",
+      "side": 1,
+      "message": "\u003e Why does the / matter? \"\" shouldn\u0027t escape /\n\nwell it does.",
+      "parentUuid": "1548969f_4451c4db",
+      "range": {
+        "startLine": 26,
+        "startChar": 70,
+        "endLine": 26,
+        "endChar": 72
+      },
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e5fa128_d9d79f5c",
         "filename": "test/960-default-smali/build",
         "patchSetId": 17
@@ -4886,6 +5048,24 @@
       "side": 1,
       "message": "(still says while c !\u003d None)",
       "parentUuid": "6e4d7d85_5390260e",
+      "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5526a4f_f2d0885b",
+        "filename": "test/960-default-smali/util-src/generate_smali.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-02T18:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d55b5e6b_8dcdb19e",
       "revId": "8f4edb0992daba5a2de6bd24741176ca49143212",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
