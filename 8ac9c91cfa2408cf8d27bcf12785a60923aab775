@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75439281_9bfde42c",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-02T18:21:31Z",
+      "side": 1,
+      "message": "There\u0027s also Thread::PassActiveSuspendBarriers(Thread* self) which this calls. Neither has a comment on what they do in the header file. Worth clarifying what they do and what their relationship is?",
+      "range": {
+        "startLine": 147,
+        "startChar": 20,
+        "endLine": 147,
+        "endChar": 45
+      },
+      "revId": "8ac9c91cfa2408cf8d27bcf12785a60923aab775",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
