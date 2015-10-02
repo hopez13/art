@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "953c86f3_28a44a70",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-02T20:04:21Z",
+      "side": 1,
+      "message": "nit: either mention what the *info* contains or drop the comment.",
+      "range": {
+        "startLine": 26,
+        "startChar": 39,
+        "endLine": 26,
+        "endChar": 62
+      },
+      "revId": "759acb32530c27d8a2247823085aa02e488f539c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d55b5e6b_2208f4f3",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 5
@@ -87,6 +110,29 @@
         "startChar": 4,
         "endLine": 38,
         "endChar": 7
+      },
+      "revId": "759acb32530c27d8a2247823085aa02e488f539c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1548969f_e7444d19",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-02T20:04:21Z",
+      "side": 1,
+      "message": "add unresolved fields",
+      "range": {
+        "startLine": 44,
+        "startChar": 16,
+        "endLine": 44,
+        "endChar": 32
       },
       "revId": "759acb32530c27d8a2247823085aa02e488f539c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -357,6 +403,29 @@
         "startChar": 33,
         "endLine": 324,
         "endChar": 35
+      },
+      "revId": "759acb32530c27d8a2247823085aa02e488f539c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9555663b_b9ba72ed",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-02T20:04:21Z",
+      "side": 1,
+      "message": "introduce a new local (orginal_ref maybe)",
+      "range": {
+        "startLine": 336,
+        "startChar": 4,
+        "endLine": 336,
+        "endChar": 7
       },
       "revId": "759acb32530c27d8a2247823085aa02e488f539c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
