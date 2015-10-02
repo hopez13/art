@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "953c86f3_01232169",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-02T20:35:00Z",
+      "side": 1,
+      "message": "Not sure I understand, what is the point of this if soa doesn\u0027t appear to get used anywhere?",
+      "revId": "cbc96b802f505ebcc71bb505c9a069ebec66df49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d55b5e6b_b61ba1b1",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-02T20:35:00Z",
+      "side": 1,
+      "message": "why not\n\n  DoGetAccessFlagsHelper(this)\n\n?",
+      "revId": "cbc96b802f505ebcc71bb505c9a069ebec66df49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5526a4f_02704bcc",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-02T20:35:00Z",
+      "side": 1,
+      "message": "Couldn\u0027t this check what state it\u0027s in?",
+      "revId": "cbc96b802f505ebcc71bb505c9a069ebec66df49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9555663b_39a14296",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-02T20:35:00Z",
+      "side": 1,
+      "message": "nit: kSynchronized",
+      "revId": "cbc96b802f505ebcc71bb505c9a069ebec66df49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75439281_1e2b8259",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-02T20:35:00Z",
+      "side": 1,
+      "message": "nit: kMask",
+      "revId": "cbc96b802f505ebcc71bb505c9a069ebec66df49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
