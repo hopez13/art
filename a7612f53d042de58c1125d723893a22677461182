@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b5526a4f_55dafbe0",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 3815,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-02T23:42:45Z",
+      "side": 1,
+      "message": "add \n    if (handle_scope_iface-\u003eHasBeenRecursivelyInitialized()) {\n      continue;\n    }",
+      "range": {
+        "startLine": 3815,
+        "startChar": 47,
+        "endLine": 3815,
+        "endChar": 47
+      },
+      "revId": "a7612f53d042de58c1125d723893a22677461182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5526a4f_62d94713",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 22
