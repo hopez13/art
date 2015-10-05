@@ -70,6 +70,30 @@
       "revId": "538d61cad82c201bc4cc4bd9a3bb901b60a47086",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b92a812_068280fd",
+        "filename": "runtime/arch/quick_alloc_entrypoints.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-05T22:54:15Z",
+      "side": 1,
+      "message": "OK. It seems the limitation described in this paragraph is gone with newer clang. Removing this part of the comment.",
+      "parentUuid": "4b9c302a_8490cc1b",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 95
+      },
+      "revId": "538d61cad82c201bc4cc4bd9a3bb901b60a47086",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
