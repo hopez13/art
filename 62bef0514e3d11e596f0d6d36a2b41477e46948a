@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b57c2af2_8ba811ef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-05T12:27:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35e91ad0_e2c9c2e4",
+      "revId": "62bef0514e3d11e596f0d6d36a2b41477e46948a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b57c2af2_abbcf53b",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2015-10-05T11:51:26Z",
       "side": 1,
       "message": "What stubs? Should we open a bug to fix these stubs?",
+      "range": {
+        "startLine": 613,
+        "startChar": 7,
+        "endLine": 613,
+        "endChar": 62
+      },
+      "revId": "62bef0514e3d11e596f0d6d36a2b41477e46948a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55712e1a_8be6511a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-05T12:27:28Z",
+      "side": 1,
+      "message": "There is a discussion going on here: b/21057237. I\u0027ve updated the commit message.",
+      "parentUuid": "b57c2af2_abbcf53b",
       "range": {
         "startLine": 613,
         "startChar": 7,
