@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b57c2af2_eb0d0d00",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-05T07:52:57Z",
+      "side": 1,
+      "message": "Maybe you should special case the HLoadClass and check if it\u0027s unresolved?",
+      "range": {
+        "startLine": 505,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 71
+      },
+      "revId": "f11f2589e51d0a2c0842248752766ee265907814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "156b3632_26baf83b",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-05T07:52:57Z",
+      "side": 1,
+      "message": "Cab\u0027t you just check somehow that the HLoadClass is for an unresolved class?",
+      "range": {
+        "startLine": 321,
+        "startChar": 1,
+        "endLine": 329,
+        "endChar": 3
+      },
+      "revId": "f11f2589e51d0a2c0842248752766ee265907814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55eccecd_b3256041",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-05T07:52:57Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 532,
+        "startChar": 0,
+        "endLine": 536,
+        "endChar": 5
+      },
+      "revId": "f11f2589e51d0a2c0842248752766ee265907814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
