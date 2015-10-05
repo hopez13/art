@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0b7078c2_b97c1f77",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 3815,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-05T18:46:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5526a4f_55dafbe0",
+      "range": {
+        "startLine": 3815,
+        "startChar": 47,
+        "endLine": 3815,
+        "endChar": 47
+      },
+      "revId": "a7612f53d042de58c1125d723893a22677461182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5526a4f_62d94713",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 22
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-02T21:44:01Z",
       "side": 1,
       "message": "This seems misleading, it\u0027s more like\n\n\n   Non-default interface initialization will not affect other non-default super-interfaces.",
+      "range": {
+        "startLine": 3817,
+        "startChar": 47,
+        "endLine": 3817,
+        "endChar": 53
+      },
+      "revId": "a7612f53d042de58c1125d723893a22677461182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ba1f45d_1cf97582",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 3817,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-05T18:46:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5526a4f_62d94713",
       "range": {
         "startLine": 3817,
         "startChar": 47,
@@ -82,6 +130,24 @@
     },
     {
       "key": {
+        "uuid": "ab976c01_5e25b57c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 3954,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-05T18:46:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9555663b_b91b927e",
+      "revId": "a7612f53d042de58c1125d723893a22677461182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15a33681_8f5698d3",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 22
@@ -93,6 +159,24 @@
       "writtenOn": "2015-10-02T21:44:01Z",
       "side": 1,
       "message": "Optimization or required for correctness (please consider leaving a comment?)",
+      "revId": "a7612f53d042de58c1125d723893a22677461182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab804cc5_f6adc072",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 4851,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-05T18:46:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15a33681_8f5698d3",
       "revId": "a7612f53d042de58c1125d723893a22677461182",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -116,6 +200,24 @@
     },
     {
       "key": {
+        "uuid": "ab804cc5_96ba4caa",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 4874,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-05T18:46:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "953c86f3_8121f135",
+      "revId": "a7612f53d042de58c1125d723893a22677461182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15a33681_ef44ec18",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 22
@@ -127,6 +229,24 @@
       "writtenOn": "2015-10-02T21:44:01Z",
       "side": 1,
       "message": "Would you mind adding a CHECK is abstract class here for readability?",
+      "revId": "a7612f53d042de58c1125d723893a22677461182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab976c01_be1f1926",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 4879,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-05T18:46:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15a33681_ef44ec18",
       "revId": "a7612f53d042de58c1125d723893a22677461182",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -150,6 +270,24 @@
     },
     {
       "key": {
+        "uuid": "4b9c302a_3be6b7a0",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 5622,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-05T18:46:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5398a03_a799a9bb",
+      "revId": "a7612f53d042de58c1125d723893a22677461182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "953c86f3_81c5719e",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 22
@@ -161,6 +299,24 @@
       "writtenOn": "2015-10-02T21:44:01Z",
       "side": 1,
       "message": "Not sure if this makes it clear enough that the default ArtMethods aren\u0027t shared across classes?",
+      "revId": "a7612f53d042de58c1125d723893a22677461182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6d3ced_3a6801ab",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 5628,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-05T18:46:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "953c86f3_81c5719e",
       "revId": "a7612f53d042de58c1125d723893a22677461182",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -184,6 +340,24 @@
     },
     {
       "key": {
+        "uuid": "4b9c302a_db11d324",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 5669,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-05T18:46:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9555663b_5986b6e4",
+      "revId": "a7612f53d042de58c1125d723893a22677461182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5586271_90b941ff",
         "filename": "runtime/class_linker.h",
         "patchSetId": 22
@@ -195,6 +369,24 @@
       "writtenOn": "2015-10-02T21:44:01Z",
       "side": 1,
       "message": "nit: please format into separate lines, this is just one giant paragraph and a bit hard to follow.\n\nfor example,\n\n  High level description\n\n  Arguments:\n    * self - the current thread\n    * klass - class, whose vtable will be filled in\n    * default_translations: vtable index to new method map that......",
+      "revId": "a7612f53d042de58c1125d723893a22677461182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b92a812_dd86aba2",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-05T18:46:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5586271_90b941ff",
       "revId": "a7612f53d042de58c1125d723893a22677461182",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -224,6 +416,30 @@
     },
     {
       "key": {
+        "uuid": "ab804cc5_76453028",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 753,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-05T18:46:52Z",
+      "side": 1,
+      "message": "Rewrote comment like above.",
+      "parentUuid": "9555663b_997faea2",
+      "range": {
+        "startLine": 753,
+        "startChar": 25,
+        "endLine": 753,
+        "endChar": 26
+      },
+      "revId": "a7612f53d042de58c1125d723893a22677461182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75439281_be224e34",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 22
@@ -241,6 +457,24 @@
     },
     {
       "key": {
+        "uuid": "8b92a812_3d71cfa0",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-05T18:46:52Z",
+      "side": 1,
+      "message": "You said to check that we were locked. This is the only way I know of how to do that.",
+      "parentUuid": "75439281_be224e34",
+      "revId": "a7612f53d042de58c1125d723893a22677461182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75439281_3ee59e4a",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 22
@@ -252,6 +486,24 @@
       "writtenOn": "2015-10-02T21:44:01Z",
       "side": 1,
       "message": "Out of date comment",
+      "revId": "a7612f53d042de58c1125d723893a22677461182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6d3ced_bace5137",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-05T18:46:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75439281_3ee59e4a",
       "revId": "a7612f53d042de58c1125d723893a22677461182",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -292,6 +544,24 @@
     },
     {
       "key": {
+        "uuid": "4b9c302a_fb9b6f3a",
+        "filename": "test/964-default-iface-init-generated/util-src/generate_smali.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-05T18:46:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75439281_5eb6aa32",
+      "revId": "a7612f53d042de58c1125d723893a22677461182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1548969f_f3788bb9",
         "filename": "test/utils/python/testgen/mixins.py",
         "patchSetId": 22
@@ -303,6 +573,30 @@
       "writtenOn": "2015-10-02T21:44:01Z",
       "side": 1,
       "message": "nit: abstract base class (ABC)",
+      "range": {
+        "startLine": 18,
+        "startChar": 18,
+        "endLine": 18,
+        "endChar": 22
+      },
+      "revId": "a7612f53d042de58c1125d723893a22677461182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b92a812_3d9a2f3b",
+        "filename": "test/utils/python/testgen/mixins.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-05T18:46:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1548969f_f3788bb9",
       "range": {
         "startLine": 18,
         "startChar": 18,
@@ -332,6 +626,24 @@
     },
     {
       "key": {
+        "uuid": "eb66c411_18f8a535",
+        "filename": "test/utils/python/testgen/mixins.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-05T18:46:52Z",
+      "side": 1,
+      "message": "forgot to do that.\n\nIt adds abstract methods which are useful for correctness checking.",
+      "parentUuid": "1548969f_53e7bfe2",
+      "revId": "a7612f53d042de58c1125d723893a22677461182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5526a4f_22f8ef3c",
         "filename": "test/utils/python/testgen/mixins.py",
         "patchSetId": 22
@@ -343,6 +655,24 @@
       "writtenOn": "2015-10-02T21:44:01Z",
       "side": 1,
       "message": "Did I miss where Named.register was called?",
+      "revId": "a7612f53d042de58c1125d723893a22677461182",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b9c302a_db9eb32d",
+        "filename": "test/utils/python/testgen/mixins.py",
+        "patchSetId": 22
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-05T18:46:52Z",
+      "side": 1,
+      "message": "Sorry forgot to do that...\n\nDone.",
+      "parentUuid": "b5526a4f_22f8ef3c",
       "revId": "a7612f53d042de58c1125d723893a22677461182",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
