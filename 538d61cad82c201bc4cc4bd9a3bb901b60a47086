@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb90200c_e2118824",
+        "filename": "runtime/arch/quick_alloc_entrypoints.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-05T20:05:21Z",
+      "side": 1,
+      "message": "Did you verify that this is still correct? None of the old paths are still around.",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 95
+      },
+      "revId": "538d61cad82c201bc4cc4bd9a3bb901b60a47086",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
