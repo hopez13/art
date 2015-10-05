@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ba1f45d_9cba65aa",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-05T17:27:17Z",
+      "side": 1,
+      "message": "Should we check if cookie is null before doing this cast which can crash?",
+      "range": {
+        "startLine": 197,
+        "startChar": 61,
+        "endLine": 197,
+        "endChar": 67
+      },
+      "revId": "e46c8eba9a10dc590d8d581295d5c686133fc0d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b7078c2_d918f342",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-05T17:27:17Z",
+      "side": 1,
+      "message": "Is this error message correct?",
+      "range": {
+        "startLine": 199,
+        "startChar": 30,
+        "endLine": 199,
+        "endChar": 46
+      },
+      "revId": "e46c8eba9a10dc590d8d581295d5c686133fc0d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb6900e6_f782a0c4",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-05T17:27:17Z",
+      "side": 1,
+      "message": "Update this comment? We aren\u0027t checking any more.",
+      "range": {
+        "startLine": 209,
+        "startChar": 7,
+        "endLine": 209,
+        "endChar": 17
+      },
+      "revId": "e46c8eba9a10dc590d8d581295d5c686133fc0d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6d3ced_9af4ad47",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-05T17:27:17Z",
+      "side": 1,
+      "message": "Does the fact that we may call close more than once mean that not all the dex files may become unreachable at the same time?",
+      "range": {
+        "startLine": 212,
+        "startChar": 48,
+        "endLine": 212,
+        "endChar": 71
+      },
+      "revId": "e46c8eba9a10dc590d8d581295d5c686133fc0d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
