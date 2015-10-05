@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35703a18_07b5f84c",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-10-05T12:37:45Z",
+      "side": 1,
+      "message": "Missing spaces around \u003d and \u003c\u003d here and below. They are generating errors when building.",
+      "range": {
+        "startLine": 436,
+        "startChar": 22,
+        "endLine": 436,
+        "endChar": 55
+      },
+      "revId": "686e9192e27e2624435ba1e736d02e2f56489c91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
