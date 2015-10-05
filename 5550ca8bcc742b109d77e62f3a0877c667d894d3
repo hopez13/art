@@ -46,6 +46,30 @@
       "revId": "5550ca8bcc742b109d77e62f3a0877c667d894d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6d3ced_7dfaf3a9",
+        "filename": "runtime/jit/profiling_info.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-05T18:31:06Z",
+      "side": 1,
+      "message": "Yes, I mean disabled.\n\nGenerally, the GC roots that we visit concurrently need read barriers (particularly \"GcRoot\" ones, that\u0027s the primary reason that we invented the GcRoot type.)\n\nThis one is no different than ArtMethod::declaring_class_. So, I think this one should have the read barrier enabled.",
+      "parentUuid": "55eccecd_9322e434",
+      "range": {
+        "startLine": 94,
+        "startChar": 54,
+        "endLine": 94,
+        "endChar": 73
+      },
+      "revId": "5550ca8bcc742b109d77e62f3a0877c667d894d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
