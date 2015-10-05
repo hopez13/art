@@ -140,6 +140,30 @@
       "revId": "4202a0df0bbcdbcca0262eab79f398eb71489eb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75ab929e_017e4c40",
+        "filename": "runtime/jni_env_ext.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-05T09:15:53Z",
+      "side": 1,
+      "message": "Fine by me, but then I wouldn\u0027t bother having an inlined version.",
+      "parentUuid": "1548969f_789f38a1",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 3
+      },
+      "revId": "4202a0df0bbcdbcca0262eab79f398eb71489eb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
