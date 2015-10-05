@@ -22,6 +22,30 @@
       "revId": "538d61cad82c201bc4cc4bd9a3bb901b60a47086",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6d3ced_e0bad6fc",
+        "filename": "runtime/arch/quick_alloc_entrypoints.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-05T21:33:03Z",
+      "side": 1,
+      "message": "Nope.\n\nWhat did you mean by \"None of the old paths are still around.\"?",
+      "parentUuid": "cb90200c_e2118824",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 95
+      },
+      "revId": "538d61cad82c201bc4cc4bd9a3bb901b60a47086",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
