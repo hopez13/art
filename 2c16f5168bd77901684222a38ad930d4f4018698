@@ -1169,6 +1169,30 @@
     },
     {
       "key": {
+        "uuid": "6ba1f45d_bc2ac15e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 5284,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-05T18:46:52Z",
+      "side": 1,
+      "message": "This is hardly the only thing to do this (see ClassLinker::LinkFields).\n\nAlso we should be totally safe since there are no java allocations here.\n\nFurthermore to do this that way we would need to allocate a java array, which would be annoying and slow.",
+      "parentUuid": "75763214_ec0b5f59",
+      "range": {
+        "startLine": 5277,
+        "startChar": 2,
+        "endLine": 5284,
+        "endChar": 84
+      },
+      "revId": "2c16f5168bd77901684222a38ad930d4f4018698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75ab929e_5e455538",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 20
@@ -1551,6 +1575,30 @@
       "side": 1,
       "message": "Oh, I see now.. this probably would\u0027ve been fine just by fixing the name and making it obvious the first element was an int\n\n   auto translation_it \u003d default_translations.find(i);\n   if (translation_it !\u003d default_translations.end()) {\n     int32_t vtable_index;\n     std::tie(vtable_index, m) \u003d *translation_it;\n   }\n     \nbut this is also fine, although for future reference iterators usually have it, iterator, etc in the name.",
       "parentUuid": "354d9aaf_0500580f",
+      "range": {
+        "startLine": 5637,
+        "startChar": 6,
+        "endLine": 5637,
+        "endChar": 10
+      },
+      "revId": "2c16f5168bd77901684222a38ad930d4f4018698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb90200c_9f0b33f1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 5637,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-05T18:46:52Z",
+      "side": 1,
+      "message": "Changed name to translation_it.",
+      "parentUuid": "15a33681_4f6660ae",
       "range": {
         "startLine": 5637,
         "startChar": 6,
