@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ab976c01_fede013c",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 886,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-05T15:59:02Z",
+      "side": 1,
+      "message": "No, I need the exact same entrypoint. The test is now trying to run JNI code.",
+      "parentUuid": "75439281_f9b23030",
+      "range": {
+        "startLine": 886,
+        "startChar": 40,
+        "endLine": 886,
+        "endChar": 69
+      },
+      "revId": "23c5583c5fae2e7422d3221b586454d6b8dab355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d55b5e6b_b190cb17",
         "filename": "runtime/jni_internal_test.cc",
         "patchSetId": 7
@@ -36,6 +60,24 @@
       "writtenOn": "2015-10-02T23:21:21Z",
       "side": 1,
       "message": "Indentation is off.",
+      "revId": "23c5583c5fae2e7422d3221b586454d6b8dab355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ba1f45d_9cc4a571",
+        "filename": "runtime/jni_internal_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-05T15:59:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d55b5e6b_b190cb17",
       "revId": "23c5583c5fae2e7422d3221b586454d6b8dab355",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
