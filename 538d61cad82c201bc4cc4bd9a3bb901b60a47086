@@ -46,6 +46,30 @@
       "revId": "538d61cad82c201bc4cc4bd9a3bb901b60a47086",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b9c302a_8490cc1b",
+        "filename": "runtime/arch/quick_alloc_entrypoints.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-05T21:34:27Z",
+      "side": 1,
+      "message": "The old \"can\u0027t user named arguments\" etc. This has all been removed, as we need to support the Clang assembler now anyways. (Check the asm_support files...)",
+      "parentUuid": "2b6d3ced_e0bad6fc",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 95
+      },
+      "revId": "538d61cad82c201bc4cc4bd9a3bb901b60a47086",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
