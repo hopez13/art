@@ -1145,6 +1145,30 @@
     },
     {
       "key": {
+        "uuid": "75763214_ec0b5f59",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 5284,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-05T10:49:37Z",
+      "side": 1,
+      "message": "You\u0027ll save yourself (and us too) from a lot of trouble by avoiding that kind of thinking/optimization. If you deal with mirror objects, you should stay on the safe side.",
+      "parentUuid": "b5398a03_43e0983a",
+      "range": {
+        "startLine": 5277,
+        "startChar": 2,
+        "endLine": 5284,
+        "endChar": 84
+      },
+      "revId": "2c16f5168bd77901684222a38ad930d4f4018698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75ab929e_5e455538",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 20
