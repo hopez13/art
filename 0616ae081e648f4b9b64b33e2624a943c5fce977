@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "156b3632_09da6de0",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 5328,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-06T14:16:07Z",
+      "side": 1,
+      "message": "Why is this in the code_generator and not in its own file?\n\nThis modifies the graph and I didn\u0027t expect to have it here.",
+      "range": {
+        "startLine": 5328,
+        "startChar": 6,
+        "endLine": 5328,
+        "endChar": 28
+      },
+      "revId": "0616ae081e648f4b9b64b33e2624a943c5fce977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
