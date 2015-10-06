@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8b92a812_ec7c13f3",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-06T18:13:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f597825c_a520c830",
+      "range": {
+        "startLine": 752,
+        "startChar": 0,
+        "endLine": 754,
+        "endChar": 5
+      },
+      "revId": "f327a0e362060ebec8926303f7aa0f93b7eecdb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f597825c_c51bcc09",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-06T08:13:06Z",
       "side": 1,
       "message": "what choice did it had in this context? Please expand.",
+      "range": {
+        "startLine": 480,
+        "startChar": 30,
+        "endLine": 480,
+        "endChar": 46
+      },
+      "revId": "f327a0e362060ebec8926303f7aa0f93b7eecdb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ba1f45d_902a444d",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-06T18:13:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f597825c_c51bcc09",
       "range": {
         "startLine": 480,
         "startChar": 30,
