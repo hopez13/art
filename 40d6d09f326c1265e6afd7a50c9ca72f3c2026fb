@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b57c2af2_cef5b7b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-06T13:02:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35703a18_0a37bf16",
+      "range": {
+        "startLine": 11,
+        "startChar": 28,
+        "endLine": 11,
+        "endChar": 35
+      },
+      "revId": "40d6d09f326c1265e6afd7a50c9ca72f3c2026fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55712e1a_ab96ad0e",
         "filename": "/COMMIT_MSG",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-06T08:22:00Z",
       "side": 1,
       "message": "dex2oat",
+      "range": {
+        "startLine": 17,
+        "startChar": 17,
+        "endLine": 17,
+        "endChar": 24
+      },
+      "revId": "40d6d09f326c1265e6afd7a50c9ca72f3c2026fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55712e1a_cb512900",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-06T13:02:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55712e1a_ab96ad0e",
       "range": {
         "startLine": 17,
         "startChar": 17,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "55eccecd_b6b26e2f",
+        "filename": "compiler/utils/dedupe_set_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-06T13:02:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75ab929e_64e4fe11",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 5
+      },
+      "revId": "40d6d09f326c1265e6afd7a50c9ca72f3c2026fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75763214_0c519bdc",
         "filename": "compiler/utils/swap_space_fwd.h",
         "patchSetId": 9
@@ -82,6 +154,30 @@
       "writtenOn": "2015-10-06T08:22:00Z",
       "side": 1,
       "message": "2015.\n\nWe don\u0027t have any fwd.h file yet, could we avoid introducing it?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "40d6d09f326c1265e6afd7a50c9ca72f3c2026fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75763214_ec7effe8",
+        "filename": "compiler/utils/swap_space_fwd.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-06T13:02:05Z",
+      "side": 1,
+      "message": "Done (2015); split the swap_space_fwd.h to its own CL for discussion.",
+      "parentUuid": "75763214_0c519bdc",
       "range": {
         "startLine": 2,
         "startChar": 17,
