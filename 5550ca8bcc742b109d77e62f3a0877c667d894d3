@@ -70,6 +70,30 @@
       "revId": "5550ca8bcc742b109d77e62f3a0877c667d894d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "957f26e6_cd993d6f",
+        "filename": "runtime/jit/profiling_info.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-06T08:30:38Z",
+      "side": 1,
+      "message": "So if this one needs a read barrier, how about the inline cache in compiled code? The compiled code will look like:\n\nr0 \u003d load the cache\nr1 \u003d load the class from r0\nr2 \u003d load the class from receiver\nr3 \u003d compare r1 and r2\ndeopt if r3 is false\n... // continue\n\nWill we need a read barrier when executing r1?",
+      "parentUuid": "2b6d3ced_7dfaf3a9",
+      "range": {
+        "startLine": 94,
+        "startChar": 54,
+        "endLine": 94,
+        "endChar": 73
+      },
+      "revId": "5550ca8bcc742b109d77e62f3a0877c667d894d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
