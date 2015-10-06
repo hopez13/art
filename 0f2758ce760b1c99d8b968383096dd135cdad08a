@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f597825c_88ecbbf2",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-06T16:34:02Z",
+      "side": 1,
+      "message": "There are many reasons why the result could be different on a second attempt. If there\u0027s a kernel bug or something else causing a temporary failure (think file-system races), I\u0027d like to see a clear discrepancy between the FindTool() above and FindToolDump() below rather than everything suddenly looking fine.",
+      "parentUuid": "eb66c411_120f1c00",
+      "range": {
+        "startLine": 72,
+        "startChar": 44,
+        "endLine": 72,
+        "endChar": 73
+      },
+      "revId": "0f2758ce760b1c99d8b968383096dd135cdad08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75ab929e_84314acf",
         "filename": "compiler/utils/assembler_test_base.h",
         "patchSetId": 1
