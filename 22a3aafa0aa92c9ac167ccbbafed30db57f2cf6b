@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b57c2af2_ceadb765",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-06T15:34:01Z",
+      "side": 1,
+      "message": "Nit: method on same line as frame_id and arguments in the new line.",
+      "range": {
+        "startLine": 966,
+        "startChar": 0,
+        "endLine": 968,
+        "endChar": 97
+      },
+      "revId": "22a3aafa0aa92c9ac167ccbbafed30db57f2cf6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35703a18_2a42bb2e",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-06T15:34:01Z",
+      "side": 1,
+      "message": "TBH, this code is already aware that it needs to deal with inlined frames specially. How about having static a ComputeNonInlinedFrames in StackVisitor? And then do the math dance just here?",
+      "range": {
+        "startLine": 966,
+        "startChar": 0,
+        "endLine": 968,
+        "endChar": 96
+      },
+      "revId": "22a3aafa0aa92c9ac167ccbbafed30db57f2cf6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
