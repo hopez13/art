@@ -165,6 +165,30 @@
       "revId": "22a3aafa0aa92c9ac167ccbbafed30db57f2cf6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35703a18_ea27c38a",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-10-06T16:29:46Z",
+      "side": 1,
+      "message": "Good point. I understand your confusion, I will change that.\n\nI\u0027m actually thinking about the reverse situation where instrumentation would visit inlined frames but the current visitor does not. It\u0027s even more complicated because you don\u0027t know how many inlined frames were in the stack (especially up the current method) when you compute the instrumentation frame ID :(\n\nBut yes, for instrumentation point of view, it is basically \"give me the frame ID of the current method as if there was no inlined method in the stack\". So I agree it\u0027s better to separate things.",
+      "parentUuid": "35703a18_8a300fca",
+      "range": {
+        "startLine": 966,
+        "startChar": 0,
+        "endLine": 968,
+        "endChar": 96
+      },
+      "revId": "22a3aafa0aa92c9ac167ccbbafed30db57f2cf6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
