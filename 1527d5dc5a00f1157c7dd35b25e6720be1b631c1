@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "d00a915c_9552c446",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T23:38:00Z",
+      "side": 1,
+      "message": "Yeah, I know :(",
+      "parentUuid": "1001893d_91fe5c66",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab976c01_3316da8f",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 3
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "I believe the last state was that it is not required to document all parameters. And this is just refactored into its own line (though this isn\u0027t even necessary anymore).",
       "parentUuid": "ab976c01_3316da8f",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "105c2963_1c78b985",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T23:38:00Z",
+      "side": 1,
+      "message": "The latest draft says to document magic numbers for parameters with a comment, afaik it always stated that and nobody was ever against that.",
+      "parentUuid": "d00a915c_4f160d60",
       "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -135,6 +171,24 @@
       "side": 1,
       "message": "You\u0027d have to hook that somewhere, so it wouldn\u0027t be automatically (I prefer the DCHECK in the actual interpreters to make sure that the entry is correct instead of cleaning up there).\n\nThere\u0027s only one call-site, and this isn\u0027t very general code. Do you have a good argument why this should move into ShadowFrame?",
       "parentUuid": "ab804cc5_c5ac84de",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d00a915c_357958bc",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T23:38:00Z",
+      "side": 1,
+      "message": "I thought the whole point of having the macro was to always call the destructor. Therefore shouldn\u0027t the ShadowFrame destructor be responsible for cleaning this up?\n\nI\u0027m not so much arguing for it, as trying to understand why/if it has to be like this.",
+      "parentUuid": "d00a915c_efb9c1b6",
       "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -409,6 +463,30 @@
     },
     {
       "key": {
+        "uuid": "b0435d80_41889461",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T23:38:00Z",
+      "side": 1,
+      "message": "The expression is just very complicated here, it might be nice to bring it out to a temp.",
+      "parentUuid": "b0435d80_9e82fd8c",
+      "range": {
+        "startLine": 118,
+        "startChar": 44,
+        "endLine": 118,
+        "endChar": 74
+      },
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b92a812_d72a0460",
         "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
         "patchSetId": 3
@@ -560,6 +638,24 @@
       "side": 1,
       "message": "I disagree, there\u0027s no reason here to make this complicated and complicate all call-sites. It\u0027s more common to write a comment here for that.\n\nI would love to make this private and not have any callers except to few cases in the interpreter, and they are very well documented.",
       "parentUuid": "8b92a812_d7f1a455",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "105c2963_fc2ea573",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T23:38:00Z",
+      "side": 1,
+      "message": "I would\u0027ve just made this a separate class for maximal call-site simplicity, although it honestly doesn\u0027t bother me too much the way it is because ShadowFrame is already a mess.\n\n  class LockCountTracker {\n    std::unique_ptr\u003cLockCountData\u003e data_;\n\n   public:\n    void BeginTracking();\n    void EndTracking();\n    void TrackMonitorEnter();\n    void TrackMonitorExit();\n    bool CheckMonitorsUnheldOrThrow();\n  }\n\n  struct ShadowFrame {\n    ....\n    LockCountTracker lock_count_tracker_;\n  }",
+      "parentUuid": "1001893d_5181948a",
       "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
