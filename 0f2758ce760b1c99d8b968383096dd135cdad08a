@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eb66c411_120f1c00",
+        "filename": "compiler/utils/assembler_test_base.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-06T16:25:11Z",
+      "side": 1,
+      "message": "Do we really need to protect against the file system changing under our ass? I think that\u0027s a bit excessive.",
+      "parentUuid": "35703a18_aa2dcb6e",
+      "range": {
+        "startLine": 72,
+        "startChar": 44,
+        "endLine": 72,
+        "endChar": 73
+      },
+      "revId": "0f2758ce760b1c99d8b968383096dd135cdad08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75ab929e_84314acf",
         "filename": "compiler/utils/assembler_test_base.h",
         "patchSetId": 1
