@@ -93,6 +93,30 @@
       "revId": "22a3aafa0aa92c9ac167ccbbafed30db57f2cf6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75763214_0f37cd16",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-06T15:50:23Z",
+      "side": 1,
+      "message": "OK, so how about passing everything to ComputeFrameId and avoid doing a stack walk there?\n\nsize_t frame_id \u003d ComputeFrameId(num_frames, cur_depth, number_of_inlined_frames);\n\n?",
+      "parentUuid": "156b3632_693761ab",
+      "range": {
+        "startLine": 966,
+        "startChar": 0,
+        "endLine": 968,
+        "endChar": 96
+      },
+      "revId": "22a3aafa0aa92c9ac167ccbbafed30db57f2cf6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
