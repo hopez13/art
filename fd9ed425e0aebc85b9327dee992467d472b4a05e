@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30592d74_20dbced8",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T23:38:00Z",
+      "side": 1,
+      "message": "Ah, ok, this makes more sense now. This was pretty subtle earlier.\n\nPerhaps, add something like ... \" as an optimization defer allocating lock counter until we know for a fact we need it\"?",
+      "revId": "fd9ed425e0aebc85b9327dee992467d472b4a05e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "704d65ae_7f9d6ba9",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T23:38:00Z",
+      "side": 1,
+      "message": "This can go inline if you want, there\u0027s no requirement to put it above the call.\n\n   function_call(\n                 nullptr,   // No last shadow coming from quick\n                 false,     // Disable lock counting \n                 ...)\n\nThanks for fixing it in PS#4.",
+      "revId": "fd9ed425e0aebc85b9327dee992467d472b4a05e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
