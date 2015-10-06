@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1001893d_91fe5c66",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-06T22:40:35Z",
+      "side": 1,
+      "message": "Because IsPreverified is not const, either. This would be a larger change, and deserves a follow-up, IMHO.",
+      "parentUuid": "4b9c302a_c4d1efda",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ab976c01_3316da8f",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2015-10-06T19:14:42Z",
       "side": 1,
       "message": "style nit: what is nullptr?",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d00a915c_4f160d60",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-06T22:40:35Z",
+      "side": 1,
+      "message": "I believe the last state was that it is not required to document all parameters. And this is just refactored into its own line (though this isn\u0027t even necessary anymore).",
+      "parentUuid": "ab976c01_3316da8f",
       "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +123,24 @@
     },
     {
       "key": {
+        "uuid": "d00a915c_efb9c1b6",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-06T22:40:35Z",
+      "side": 1,
+      "message": "You\u0027d have to hook that somewhere, so it wouldn\u0027t be automatically (I prefer the DCHECK in the actual interpreters to make sure that the entry is correct instead of cleaning up there).\n\nThere\u0027s only one call-site, and this isn\u0027t very general code. Do you have a good argument why this should move into ShadowFrame?",
+      "parentUuid": "ab804cc5_c5ac84de",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb66c411_5f77dcc5",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 3
@@ -121,6 +175,24 @@
     },
     {
       "key": {
+        "uuid": "30592d74_ba855199",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-06T22:40:35Z",
+      "side": 1,
+      "message": "The problem is that the MonitorEnter is marked EXCLUSIVE_LOCK_FUNCTION, so that you get a warning if you don\u0027t unlock under normal circumstances. Even if you annotate this, you\u0027ll just pass it upwards. It\u0027s exactly the case that the interpreter can\u0027t guarantee there\u0027ll be an exit (much less so statically).",
+      "parentUuid": "0b7078c2_33f82836",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb66c411_3f2468e7",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 3
@@ -132,6 +204,24 @@
       "writtenOn": "2015-10-06T19:14:42Z",
       "side": 1,
       "message": "When would the get lock count map be null if kMonitorCounntig is true?",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90673931_5567acdc",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-06T22:40:35Z",
+      "side": 1,
+      "message": "kMonitorCounting is currently aliased to do_access_checks, but we could try to separate this etc. You\u0027re right that the second check isn\u0027t required right now. I\u0027ll move it to a DCHECK.",
+      "parentUuid": "eb66c411_3f2468e7",
       "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -172,6 +262,24 @@
     },
     {
       "key": {
+        "uuid": "504861a0_fb550fe0",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-06T22:40:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b9c302a_44639fd0",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b92a812_373a48b8",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 3
@@ -189,6 +297,24 @@
     },
     {
       "key": {
+        "uuid": "30592d74_dae6454c",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-06T22:40:35Z",
+      "side": 1,
+      "message": "That\u0027s how I interpret enforcement of structured locking. Otherwise just throwing IllegalMonitorState won\u0027t help you avoid a following deadlock.",
+      "parentUuid": "8b92a812_373a48b8",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb6900e6_6b89c965",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 3
@@ -200,6 +326,30 @@
       "writtenOn": "2015-10-06T19:14:42Z",
       "side": 1,
       "message": "style nit: what is false?",
+      "range": {
+        "startLine": 113,
+        "startChar": 22,
+        "endLine": 113,
+        "endChar": 27
+      },
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "105c2963_39414f1f",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-06T22:40:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb6900e6_6b89c965",
       "range": {
         "startLine": 113,
         "startChar": 22,
@@ -235,6 +385,30 @@
     },
     {
       "key": {
+        "uuid": "b0435d80_9e82fd8c",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-06T22:40:35Z",
+      "side": 1,
+      "message": "Could you be more precise?\n\n(The other IllegalMonitorStateException throws have a similar message, in fact this is derived from them...)",
+      "parentUuid": "cb6900e6_8b8e9d6d",
+      "range": {
+        "startLine": 118,
+        "startChar": 44,
+        "endLine": 118,
+        "endChar": 74
+      },
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b92a812_d72a0460",
         "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
         "patchSetId": 3
@@ -246,6 +420,24 @@
       "writtenOn": "2015-10-06T19:14:42Z",
       "side": 1,
       "message": "doesn\u0027t matter to me either way, but please tell me so I know how to write my own code correctly:\n\nwhy isn\u0027t this just a single stmt \n\n   DCHECK(!do_access_check \u0026\u0026 shadow_frame.GetLockCountMap() !\u003d nullptr) \u003c\u003c \"Should not have lock counting without access checks\";\n\n?",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5061411e_73cac0d1",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-06T22:40:35Z",
+      "side": 1,
+      "message": "Sure, that\u0027s equivalent (if you fix it up to be the reverse). Sometimes I like the extended form with the abort when the condition is true.",
+      "parentUuid": "8b92a812_d72a0460",
       "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -269,6 +461,24 @@
     },
     {
       "key": {
+        "uuid": "704d65ae_bc5a61b6",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-06T22:40:35Z",
+      "side": 1,
+      "message": "Was trying to avoid it, especially macro in macro. Done.",
+      "parentUuid": "ab804cc5_85752c01",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50478167_e6e7600a",
         "filename": "runtime/stack.h",
         "patchSetId": 3
@@ -280,6 +490,24 @@
       "writtenOn": "2015-10-06T19:14:42Z",
       "side": 1,
       "message": "IMHO a vector should never be called a map. That was very confusing until I hit this file.\n\nWhy isn\u0027t this just a map of the objects to a counter anyway?",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5061411e_d3ff54c8",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-06T22:40:35Z",
+      "side": 1,
+      "message": "Cause it\u0027s more complicated to manage that, in this is slow-path code (it was a map, then I went with the lighter-weight vector). Admittedly naming sucks, I\u0027ll make it LockCountData.",
+      "parentUuid": "50478167_e6e7600a",
       "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -314,6 +542,24 @@
       "writtenOn": "2015-10-06T19:14:42Z",
       "side": 1,
       "message": "-1 this should be a std::unique_ptr\u003cLockCountMap\u003e to make it clear the ownership is being transferred",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1001893d_5181948a",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-06T22:40:35Z",
+      "side": 1,
+      "message": "I disagree, there\u0027s no reason here to make this complicated and complicate all call-sites. It\u0027s more common to write a comment here for that.\n\nI would love to make this private and not have any callers except to few cases in the interpreter, and they are very well documented.",
+      "parentUuid": "8b92a812_d7f1a455",
       "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -371,6 +617,30 @@
       "writtenOn": "2015-10-06T19:14:42Z",
       "side": 1,
       "message": "style nit: can we not use array notation here?",
+      "range": {
+        "startLine": 2801,
+        "startChar": 18,
+        "endLine": 2801,
+        "endChar": 35
+      },
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "704d65ae_5c97dd82",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2801,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-06T22:40:35Z",
+      "side": 1,
+      "message": "This is taken from the RootVisitor interface, and at least for this CL I prefer to have this matching 1:1. A future cleanup may consider changing both.",
+      "parentUuid": "cb6900e6_0b612d3c",
       "range": {
         "startLine": 2801,
         "startChar": 18,
