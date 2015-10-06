@@ -33,6 +33,23 @@
       "revId": "fd9ed425e0aebc85b9327dee992467d472b4a05e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "105c2963_dcf00154",
+        "filename": "test/088-monitor-verification/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T23:40:40Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem safe, shouldn\u0027t there be a TODO here to punt to interpreter if locks can\u0027t be proven balanced?",
+      "revId": "fd9ed425e0aebc85b9327dee992467d472b4a05e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
