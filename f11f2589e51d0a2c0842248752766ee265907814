@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b57c2af2_6e368b18",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-06T11:47:07Z",
+      "side": 1,
+      "message": "A class can be resolved but still require access check. Right now we don\u0027t differentiate between them. I would avoid adding an extra bit just for that.",
+      "parentUuid": "b57c2af2_eb0d0d00",
+      "range": {
+        "startLine": 505,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 71
+      },
+      "revId": "f11f2589e51d0a2c0842248752766ee265907814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "156b3632_26baf83b",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "75763214_4c1c7302",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-06T11:47:07Z",
+      "side": 1,
+      "message": "This check is more refined. It targets only the unresolved classes but allows the ones we need to check for access.\n\nWe could add another bool to HLoadClass if it\u0027s unresolved but I wouldn\u0027t bother with that.",
+      "parentUuid": "156b3632_26baf83b",
+      "range": {
+        "startLine": 321,
+        "startChar": 1,
+        "endLine": 329,
+        "endChar": 3
+      },
+      "revId": "f11f2589e51d0a2c0842248752766ee265907814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55eccecd_b3256041",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2015-10-05T07:52:57Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 532,
+        "startChar": 0,
+        "endLine": 536,
+        "endChar": 5
+      },
+      "revId": "f11f2589e51d0a2c0842248752766ee265907814",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75763214_4c35536a",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-06T11:47:07Z",
+      "side": 1,
+      "message": "same",
+      "parentUuid": "55eccecd_b3256041",
       "range": {
         "startLine": 532,
         "startChar": 0,
