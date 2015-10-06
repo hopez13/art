@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb66c411_2df9a582",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-06T17:46:29Z",
+      "side": 1,
+      "message": "I guess this can\u0027t easily be reflected in the thread annotations?",
+      "range": {
+        "startLine": 1304,
+        "startChar": 5,
+        "endLine": 1304,
+        "endChar": 47
+      },
+      "revId": "7778b880b9cf46fe7a303b11477bd92b5cf65316",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b7078c2_087a8ff4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1332,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-06T17:46:29Z",
+      "side": 1,
+      "message": "We are updating the GcRoot on the stack (a local variable) and not the one in the weak global table, but it\u0027s ok as this is a weak root that the GC will clear or update later at the system weak time. Correct?",
+      "range": {
+        "startLine": 1332,
+        "startChar": 8,
+        "endLine": 1332,
+        "endChar": 12
+      },
+      "revId": "7778b880b9cf46fe7a303b11477bd92b5cf65316",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
