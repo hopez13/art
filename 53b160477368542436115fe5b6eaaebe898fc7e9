@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1001893d_318a10eb",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2381,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-06T20:46:37Z",
+      "side": 1,
+      "message": "Will change to uint32_t",
+      "parentUuid": "5061411e_1378ac85",
+      "range": {
+        "startLine": 2381,
+        "startChar": 27,
+        "endLine": 2381,
+        "endChar": 28
+      },
+      "revId": "53b160477368542436115fe5b6eaaebe898fc7e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0435d80_de52c5f5",
         "filename": "compiler/utils/x86/assembler_x86.cc",
         "patchSetId": 7
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b0435d80_7ee0d184",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2396,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-06T20:46:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0435d80_de52c5f5",
+      "range": {
+        "startLine": 2396,
+        "startChar": 29,
+        "endLine": 2396,
+        "endChar": 30
+      },
+      "revId": "53b160477368542436115fe5b6eaaebe898fc7e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d00a915c_8f2755ca",
         "filename": "compiler/utils/x86/assembler_x86.h",
         "patchSetId": 7
@@ -59,6 +107,30 @@
       "writtenOn": "2015-10-06T20:42:52Z",
       "side": 1,
       "message": "just curious, shouldn\u0027t the type of all these returned offset be int32_t to avoid portability issues with what an int means?",
+      "range": {
+        "startLine": 743,
+        "startChar": 6,
+        "endLine": 743,
+        "endChar": 15
+      },
+      "revId": "53b160477368542436115fe5b6eaaebe898fc7e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1001893d_91d5bcca",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-06T20:46:37Z",
+      "side": 1,
+      "message": "Will do.  In practice, the constant area won\u0027t be big enough to make a difference.",
+      "parentUuid": "d00a915c_8f2755ca",
       "range": {
         "startLine": 743,
         "startChar": 6,
