@@ -1,0 +1,385 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b9c302a_c4d1efda",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "why not const? :(",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab976c01_3316da8f",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "style nit: what is nullptr?",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b6d3ced_c9efbddf",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "style nit: what is 0?",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50478167_e6e2c002",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "style nit: what is 0?",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab804cc5_c5ac84de",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "Wow this seems complicated, why can\u0027t the ShadowFrame just automatically clean it up?",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb66c411_5f77dcc5",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "style nit: what is 0?",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b7078c2_33f82836",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "NO_THREAD_SAFETY_ANALYSIS makes me very very sad. Is there any lock held asserts we can add here?",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb66c411_3f2468e7",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "When would the get lock count map be null if kMonitorCounntig is true?",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb66c411_5f291cbe",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "See 85",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b9c302a_44639fd0",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "nit: would be nice to have a comment explaining that it only removes the first occurrence of the object",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b92a812_373a48b8",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "Is there a semantical requirement for this?",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb6900e6_6b89c965",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "style nit: what is false?",
+      "range": {
+        "startLine": 113,
+        "startChar": 22,
+        "endLine": 113,
+        "endChar": 27
+      },
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb6900e6_8b8e9d6d",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "seems like a bit much?",
+      "range": {
+        "startLine": 118,
+        "startChar": 44,
+        "endLine": 118,
+        "endChar": 74
+      },
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b92a812_d72a0460",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "doesn\u0027t matter to me either way, but please tell me so I know how to write my own code correctly:\n\nwhy isn\u0027t this just a single stmt \n\n   DCHECK(!do_access_check \u0026\u0026 shadow_frame.GetLockCountMap() !\u003d nullptr) \u003c\u003c \"Should not have lock counting without access checks\";\n\n?",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab804cc5_85752c01",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "imho seems like this could just be a macro in a file already full of macros\n\n   HANDLE_MONITOR_CHECKS_OR_THROW\n\nor some such.",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50478167_e6e7600a",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "IMHO a vector should never be called a map. That was very confusing until I hit this file.\n\nWhy isn\u0027t this just a map of the objects to a counter anyway?",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab976c01_1354fe31",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "style nit: what is nullptr?",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b92a812_d7f1a455",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "-1 this should be a std::unique_ptr\u003cLockCountMap\u003e to make it clear the ownership is being transferred",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b9c302a_8440c71a",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "see 282",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b7078c2_d3368cad",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "see 282",
+      "range": {
+        "startLine": 318,
+        "startChar": 45,
+        "endLine": 318,
+        "endChar": 59
+      },
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb6900e6_0b612d3c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2801,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-06T19:14:42Z",
+      "side": 1,
+      "message": "style nit: can we not use array notation here?",
+      "range": {
+        "startLine": 2801,
+        "startChar": 18,
+        "endLine": 2801,
+        "endChar": 35
+      },
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
