@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5061411e_1378ac85",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2381,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-06T20:42:52Z",
+      "side": 1,
+      "message": "this is an size_t returned as int; perhaps add a cast or at least a comment?",
+      "range": {
+        "startLine": 2381,
+        "startChar": 27,
+        "endLine": 2381,
+        "endChar": 28
+      },
+      "revId": "53b160477368542436115fe5b6eaaebe898fc7e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0435d80_de52c5f5",
+        "filename": "compiler/utils/x86/assembler_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2396,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-06T20:42:52Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 2396,
+        "startChar": 29,
+        "endLine": 2396,
+        "endChar": 30
+      },
+      "revId": "53b160477368542436115fe5b6eaaebe898fc7e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d00a915c_8f2755ca",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-06T20:42:52Z",
+      "side": 1,
+      "message": "just curious, shouldn\u0027t the type of all these returned offset be int32_t to avoid portability issues with what an int means?",
+      "range": {
+        "startLine": 743,
+        "startChar": 6,
+        "endLine": 743,
+        "endChar": 15
+      },
+      "revId": "53b160477368542436115fe5b6eaaebe898fc7e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
