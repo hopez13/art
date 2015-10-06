@@ -22,6 +22,30 @@
       "revId": "b5c469357f8faf8fbaa05bc41d56903b300d0cd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "156b3632_e93b5187",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-06T16:21:26Z",
+      "side": 1,
+      "message": "Agree, I\u0027ll refactor in another CL all the uses.",
+      "parentUuid": "cb6900e6_cbefb5df",
+      "range": {
+        "startLine": 27,
+        "startChar": 20,
+        "endLine": 27,
+        "endChar": 45
+      },
+      "revId": "b5c469357f8faf8fbaa05bc41d56903b300d0cd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
