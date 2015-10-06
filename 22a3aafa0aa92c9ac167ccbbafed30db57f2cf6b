@@ -141,6 +141,30 @@
       "revId": "22a3aafa0aa92c9ac167ccbbafed30db57f2cf6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35703a18_8a300fca",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-06T16:16:53Z",
+      "side": 1,
+      "message": "Ok I see. Not the simplest thing in the world this code :-( I think what confuses me is that you pass some kind of current state (depth_without_inlined_frame) to a static method that will use that state. But now I understand what you\u0027re asking is \"compute the frame id of that method at depth X\".\n\nStill, you\u0027re implicitly encoding in this code that you expect instrumentation to not deal with inlined frames, right? So you could pass both information: cur_depth_ and current_number_of_inlined_frames_.?",
+      "parentUuid": "35703a18_6a3cb3a5",
+      "range": {
+        "startLine": 966,
+        "startChar": 0,
+        "endLine": 968,
+        "endChar": 96
+      },
+      "revId": "22a3aafa0aa92c9ac167ccbbafed30db57f2cf6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
