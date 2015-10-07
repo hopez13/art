@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "704d65ae_1639ac0d",
+        "filename": "runtime/stack.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-07T22:39:53Z",
+      "side": 1,
+      "message": "Either way works for me.",
+      "parentUuid": "30592d74_a1f99d3b",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 17
+      },
+      "revId": "52d73bfb40a4c588e594b7e1635c93e74f00500f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "504861a0_8afe3399",
         "filename": "runtime/stack.h",
         "patchSetId": 9
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "This is being reworked into a helper class, anyways, which will have the vector explicit.",
       "parentUuid": "504861a0_8afe3399",
+      "range": {
+        "startLine": 347,
+        "startChar": 33,
+        "endLine": 347,
+        "endChar": 49
+      },
+      "revId": "52d73bfb40a4c588e594b7e1635c93e74f00500f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d00a915c_69a829fb",
+        "filename": "runtime/stack.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-07T22:39:53Z",
+      "side": 1,
+      "message": "SGTM.",
+      "parentUuid": "30592d74_e1127528",
       "range": {
         "startLine": 347,
         "startChar": 33,
