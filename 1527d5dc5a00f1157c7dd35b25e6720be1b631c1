@@ -195,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "30592d74_00b16a36",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-07T00:44:27Z",
+      "side": 1,
+      "message": "I don\u0027t want to delete it in the destructor. This is basically the reverse of the optimization in the quick_trampoline_entrypoints: line 339 allocates the structure, but the static initializer is here, in a separate function.\n\nMy original intent was to have the lock counting visible in the signature of the \"constructor,\" so that future users cannot forget it. But maybe it\u0027s better to always have it delayed. (Then it would be the AllocLockCountData here...)",
+      "parentUuid": "d00a915c_357958bc",
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb66c411_5f77dcc5",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 3
@@ -475,6 +493,30 @@
       "side": 1,
       "message": "The expression is just very complicated here, it might be nice to bring it out to a temp.",
       "parentUuid": "b0435d80_9e82fd8c",
+      "range": {
+        "startLine": 118,
+        "startChar": 44,
+        "endLine": 118,
+        "endChar": 74
+      },
+      "revId": "1527d5dc5a00f1157c7dd35b25e6720be1b631c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1001893d_b45a6eb6",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-07T00:44:27Z",
+      "side": 1,
+      "message": "Ah, OK, sure.",
+      "parentUuid": "b0435d80_41889461",
       "range": {
         "startLine": 118,
         "startChar": 44,
