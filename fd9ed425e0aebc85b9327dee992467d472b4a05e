@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "504861a0_61515245",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-07T00:44:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30592d74_20dbced8",
+      "revId": "fd9ed425e0aebc85b9327dee992467d472b4a05e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "704d65ae_7f9d6ba9",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2015-10-06T23:38:00Z",
       "side": 1,
       "message": "This can go inline if you want, there\u0027s no requirement to put it above the call.\n\n   function_call(\n                 nullptr,   // No last shadow coming from quick\n                 false,     // Disable lock counting \n                 ...)\n\nThanks for fixing it in PS#4.",
+      "revId": "fd9ed425e0aebc85b9327dee992467d472b4a05e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1001893d_942e4a2c",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-07T00:44:27Z",
+      "side": 1,
+      "message": "I usually don\u0027t like comments in macros at all, but done.",
+      "parentUuid": "704d65ae_7f9d6ba9",
       "revId": "fd9ed425e0aebc85b9327dee992467d472b4a05e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -65,6 +101,24 @@
       "side": 1,
       "message": "Agh, I had a more detailed comment. GERRIT!\n--------\nI may be mis-understanding what\u0027s going on overall, so I apologize in advance.\n\nIsn\u0027t it currently changing semantics if run inside of interpreter vs compiled code? If so, we should probably punt to interpreter if it can\u0027t be proven balanced, to avoid diverging of semantics?",
       "parentUuid": "105c2963_dcf00154",
+      "revId": "fd9ed425e0aebc85b9327dee992467d472b4a05e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "704d65ae_e221e2b4",
+        "filename": "test/088-monitor-verification/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-07T00:44:27Z",
+      "side": 1,
+      "message": "Sorry, I\u0027ll extend the comment.\n\nSome test cases are \"positive\" tests, that is, they assert that we were able to verify and then compile (see the smali code). But then if you start with interpreted code, anyways, this goes wrong - so I disable those asserts here.",
+      "parentUuid": "504861a0_21abcab2",
       "revId": "fd9ed425e0aebc85b9327dee992467d472b4a05e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
