@@ -70,6 +70,30 @@
       "revId": "8cf29238a0e95de08855d6ac5573e2583b6e2c74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "506b0131_e37d3272",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-07T18:36:26Z",
+      "side": 1,
+      "message": "People familiar with at() would actually expect it to throw out_of_range. To avoid misinterpretation of the code, I decided to remove at() from the interface.",
+      "parentUuid": "704d65ae_30783086",
+      "range": {
+        "startLine": 50,
+        "startChar": 34,
+        "endLine": 50,
+        "endChar": 36
+      },
+      "revId": "8cf29238a0e95de08855d6ac5573e2583b6e2c74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
