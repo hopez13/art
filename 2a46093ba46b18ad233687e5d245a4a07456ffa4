@@ -45,6 +45,30 @@
       "revId": "2a46093ba46b18ad233687e5d245a4a07456ffa4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30592d74_e921c1b4",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-07T16:30:58Z",
+      "side": 1,
+      "message": "Igor asked the same question in a previous PS. It\u0027s not clear from the definition, but IMHO \"enforcement\" would ensure that your invariant holds when returning from the call, so you\u0027ll have to unlock. Otherwise you can still get deadlocks down the line.",
+      "parentUuid": "b06c3d16_d6c0e45d",
+      "range": {
+        "startLine": 121,
+        "startChar": 57,
+        "endLine": 121,
+        "endChar": 75
+      },
+      "revId": "2a46093ba46b18ad233687e5d245a4a07456ffa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
