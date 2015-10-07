@@ -117,6 +117,47 @@
     },
     {
       "key": {
+        "uuid": "d03c51f4_4e1d5bab",
+        "filename": "runtime/experimental_flags.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-07T21:32:12Z",
+      "side": 1,
+      "message": "We can always remove this particular value and the call checks for it after we ship the feature.\n\nIt\u0027s preferred this way for now since it\u0027s only on in a few test cases, since turning on by default on causes a regression in compiler performance (quick has to scan all the opcodes to bail out when it sees lambdas).",
+      "parentUuid": "704d65ae_8bc91986",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 12
+      },
+      "revId": "2eaee1290b575347eabb78c076c859ed3816b74c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "704d65ae_0b222971",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-07T21:32:12Z",
+      "side": 1,
+      "message": "Is there a more obvious way to assert the lock held? Hiroshi/Mathieu?",
+      "revId": "2eaee1290b575347eabb78c076c859ed3816b74c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1001893d_050d0204",
         "filename": "runtime/modifiers.h",
         "patchSetId": 24
@@ -134,6 +175,47 @@
         "endLine": 52,
         "endChar": 37
       },
+      "revId": "2eaee1290b575347eabb78c076c859ed3816b74c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d00a915c_a90df176",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-07T21:32:12Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we also change the other ones to be consistent then? \n\n   kAccFastNativeMethod\n   kAccMirandaMethod\n\netc\n\n(That being said, I personally didn\u0027t think it was confusing since \u0027default\u0027 wasn\u0027t a keyword previously, but it is now).",
+      "parentUuid": "1001893d_050d0204",
+      "range": {
+        "startLine": 52,
+        "startChar": 26,
+        "endLine": 52,
+        "endChar": 37
+      },
+      "revId": "2eaee1290b575347eabb78c076c859ed3816b74c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5061411e_68e487c0",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-07T21:32:12Z",
+      "side": 1,
+      "message": "Alex, can we change this to just one function?\n\n   bool AreExperimentalFlagsEnabled(ExperimentalFlags flags) {\n     return (experimental_flags_ \u0026 flags) !\u003d kNone;\n   }\n\nThis way we won\u0027t need to add or remove the methods later when new elements get added or removed.",
       "revId": "2eaee1290b575347eabb78c076c859ed3816b74c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -163,6 +245,30 @@
     },
     {
       "key": {
+        "uuid": "105c2963_cd120929",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-07T21:32:12Z",
+      "side": 1,
+      "message": "It has experimental in the name intentionally so that people don\u0027t try to ship out of AOSP with this feature enabled, since it\u0027s incomplete.\n\nIIRC, there\u0027s also giant warnings that get printed when enabling these flags :).",
+      "parentUuid": "504861a0_0a39830d",
+      "range": {
+        "startLine": 535,
+        "startChar": 10,
+        "endLine": 535,
+        "endChar": 22
+      },
+      "revId": "2eaee1290b575347eabb78c076c859ed3816b74c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "704d65ae_6bce4d8d",
         "filename": "runtime/runtime.h",
         "patchSetId": 24
@@ -174,6 +280,30 @@
       "writtenOn": "2015-10-07T20:50:54Z",
       "side": 1,
       "message": "Make sense to drop \"Experimental\" from the name?",
+      "range": {
+        "startLine": 539,
+        "startChar": 10,
+        "endLine": 539,
+        "endChar": 22
+      },
+      "revId": "2eaee1290b575347eabb78c076c859ed3816b74c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "105c2963_8df9313c",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-07T21:32:12Z",
+      "side": 1,
+      "message": "See 535.",
+      "parentUuid": "704d65ae_6bce4d8d",
       "range": {
         "startLine": 539,
         "startChar": 10,
