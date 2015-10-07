@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30592d74_a1f99d3b",
+        "filename": "runtime/stack.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-07T22:15:00Z",
+      "side": 1,
+      "message": "(Do you want me to replace my line with your line?)",
+      "parentUuid": "105c2963_0dc40170",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 17
+      },
+      "revId": "52d73bfb40a4c588e594b7e1635c93e74f00500f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "504861a0_8afe3399",
         "filename": "runtime/stack.h",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-07T20:04:39Z",
       "side": 1,
       "message": "Either not use the LockCountData typedef and make explicit it\u0027s a vector of Object (to make it clearer that they are GC roots) or at least add a comment here that this contains Object* and thread GC roots?",
+      "range": {
+        "startLine": 347,
+        "startChar": 33,
+        "endLine": 347,
+        "endChar": 49
+      },
+      "revId": "52d73bfb40a4c588e594b7e1635c93e74f00500f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30592d74_e1127528",
+        "filename": "runtime/stack.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-07T22:15:00Z",
+      "side": 1,
+      "message": "This is being reworked into a helper class, anyways, which will have the vector explicit.",
+      "parentUuid": "504861a0_8afe3399",
       "range": {
         "startLine": 347,
         "startChar": 33,
