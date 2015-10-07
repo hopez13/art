@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0079550_33f4d2bc",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1306,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-07T21:11:42Z",
+      "side": 1,
+      "message": "There\u0027s still some piece of the puzzle that I\u0027m not getting. If the class can be resolved, we\u0027ll say yes to the outer class. But then if we inline something that has no access to it, who prevents the \"is_referrer\" to be true? Isn\u0027t it there you should DCHECK?",
+      "range": {
+        "startLine": 1306,
+        "startChar": 0,
+        "endLine": 1306,
+        "endChar": 94
+      },
+      "revId": "b894aadec21344dfcf6b70e809bfa779da45d07f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
