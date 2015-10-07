@@ -141,6 +141,30 @@
       "revId": "5550ca8bcc742b109d77e62f3a0877c667d894d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b06c3d16_f6c36067",
+        "filename": "runtime/jit/profiling_info.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-07T08:33:17Z",
+      "side": 1,
+      "message": "Any ways to prevent this? We are special casing thread stacks, could we also special case the cache?",
+      "parentUuid": "eb66c411_0dae216f",
+      "range": {
+        "startLine": 94,
+        "startChar": 54,
+        "endLine": 94,
+        "endChar": 73
+      },
+      "revId": "5550ca8bcc742b109d77e62f3a0877c667d894d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
