@@ -22,6 +22,30 @@
       "revId": "98893e146b0ff0e1fd1d7c29252f1d1e75a163f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "506b0131_4311a665",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4543,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-07T15:15:06Z",
+      "side": 1,
+      "message": "I thought more about this and it\u0027s superfluous. If we are the referrer class we should never need an access check. I\u0027ll add a dcheck for that.",
+      "parentUuid": "75763214_6c6ccf3b",
+      "range": {
+        "startLine": 4543,
+        "startChar": 35,
+        "endLine": 4543,
+        "endChar": 54
+      },
+      "revId": "98893e146b0ff0e1fd1d7c29252f1d1e75a163f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
