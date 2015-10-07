@@ -46,6 +46,30 @@
       "revId": "8cf29238a0e95de08855d6ac5573e2583b6e2c74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "704d65ae_30783086",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-07T18:29:30Z",
+      "side": 1,
+      "message": "I guess my question was why you don\u0027t also \"intercept\" the at() operator in checked vector and add the DCHECK before issuing the base implementation. That way future clients that inadvertently use at() will still get your desired behavior.\n\nAgain, just curious, the change here obviously looks good.",
+      "parentUuid": "90ec99cf_6d17958c",
+      "range": {
+        "startLine": 50,
+        "startChar": 34,
+        "endLine": 50,
+        "endChar": 36
+      },
+      "revId": "8cf29238a0e95de08855d6ac5573e2583b6e2c74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
