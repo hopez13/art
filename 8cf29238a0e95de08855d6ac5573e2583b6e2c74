@@ -94,6 +94,30 @@
       "revId": "8cf29238a0e95de08855d6ac5573e2583b6e2c74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d03c51f4_3377a062",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-07T19:30:39Z",
+      "side": 1,
+      "message": "Fair enough. Perhaps a good idea to add this rationale as a comment to the class. Other than than, +1 for induction change.",
+      "parentUuid": "506b0131_e37d3272",
+      "range": {
+        "startLine": 50,
+        "startChar": 34,
+        "endLine": 50,
+        "endChar": 36
+      },
+      "revId": "8cf29238a0e95de08855d6ac5573e2583b6e2c74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
