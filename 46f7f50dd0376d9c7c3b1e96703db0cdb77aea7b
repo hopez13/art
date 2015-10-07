@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "105c2963_bf125f27",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 5997,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-07T13:06:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70fba586_ac550333",
+      "range": {
+        "startLine": 5997,
+        "startChar": 0,
+        "endLine": 5997,
+        "endChar": 49
+      },
+      "revId": "46f7f50dd0376d9c7c3b1e96703db0cdb77aea7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90ec99cf_ade21d01",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 9
@@ -71,6 +95,54 @@
     },
     {
       "key": {
+        "uuid": "704d65ae_6572fca7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 6003,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-07T13:06:14Z",
+      "side": 1,
+      "message": "Yes, it is a limitation. There is an explicit DCHECK for this.  I can replace with DCHECK that if existing one is control, then the new one must be too.",
+      "parentUuid": "70fba586_4c51ff44",
+      "range": {
+        "startLine": 6003,
+        "startChar": 0,
+        "endLine": 6003,
+        "endChar": 46
+      },
+      "revId": "46f7f50dd0376d9c7c3b1e96703db0cdb77aea7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5061411e_271c827e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 6003,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-07T13:06:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90ec99cf_ade21d01",
+      "range": {
+        "startLine": 6003,
+        "startChar": 10,
+        "endLine": 6003,
+        "endChar": 13
+      },
+      "revId": "46f7f50dd0376d9c7c3b1e96703db0cdb77aea7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b06c3d16_b6e28801",
         "filename": "compiler/optimizing/nodes_x86.h",
         "patchSetId": 9
@@ -82,6 +154,30 @@
       "writtenOn": "2015-10-07T08:52:52Z",
       "side": 1,
       "message": "const?",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 23
+      },
+      "revId": "46f7f50dd0376d9c7c3b1e96703db0cdb77aea7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "105c2963_5ffea322",
+        "filename": "compiler/optimizing/nodes_x86.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-07T13:06:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b06c3d16_b6e28801",
       "range": {
         "startLine": 97,
         "startChar": 0,
