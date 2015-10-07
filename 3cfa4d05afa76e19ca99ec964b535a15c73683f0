@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "459c212a_7baaffb1",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-07T18:50:44Z",
+      "side": 1,
+      "message": "This was cut-and-pasted from the deleted interpreter_entrypoint.cc .",
+      "parentUuid": "90673931_248d9c71",
+      "revId": "3cfa4d05afa76e19ca99ec964b535a15c73683f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1001893d_fa85fd45",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 2
