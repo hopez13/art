@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90673931_0f86b951",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-07T20:50:54Z",
+      "side": 1,
+      "message": "How about IsDefaultMethod() to be clearer as just default could mean something else?",
+      "range": {
+        "startLine": 140,
+        "startChar": 7,
+        "endLine": 140,
+        "endChar": 16
+      },
+      "revId": "2eaee1290b575347eabb78c076c859ed3816b74c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d03c51f4_936b0c20",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 4867,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-07T20:50:54Z",
+      "side": 1,
+      "message": "Can this be Handle instead of a MutableHandle?",
+      "range": {
+        "startLine": 4867,
+        "startChar": 4,
+        "endLine": 4867,
+        "endChar": 17
+      },
+      "revId": "2eaee1290b575347eabb78c076c859ed3816b74c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0435d80_0d251dc1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 5660,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-07T20:50:54Z",
+      "side": 1,
+      "message": "In general, an important thing for GC around here is to always copy ArtMethod contents by using CopyFrom() as it contains the right read barriers. I think we do, correct?",
+      "range": {
+        "startLine": 5660,
+        "startChar": 17,
+        "endLine": 5660,
+        "endChar": 25
+      },
+      "revId": "2eaee1290b575347eabb78c076c859ed3816b74c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30592d74_4f242d83",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 5666,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-07T20:50:54Z",
+      "side": 1,
+      "message": "out \u003d\u003d new_method, correct? Seems better write this as \"new_method.SetAccessFlags(..)\" here to be clearer?",
+      "range": {
+        "startLine": 5666,
+        "startChar": 6,
+        "endLine": 5666,
+        "endChar": 9
+      },
+      "revId": "2eaee1290b575347eabb78c076c859ed3816b74c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "704d65ae_8bc91986",
+        "filename": "runtime/experimental_flags.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-07T20:50:54Z",
+      "side": 1,
+      "message": "What happens if/when lambdas and default methods become non-experimental? Do we care to minimize code/flag change when that happens?",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 12
+      },
+      "revId": "2eaee1290b575347eabb78c076c859ed3816b74c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1001893d_050d0204",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-07T20:50:54Z",
+      "side": 1,
+      "message": "How about kAccDefaultMethod? Default could be confused with the default package-scoped visibility?",
+      "range": {
+        "startLine": 52,
+        "startChar": 26,
+        "endLine": 52,
+        "endChar": 37
+      },
+      "revId": "2eaee1290b575347eabb78c076c859ed3816b74c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "504861a0_0a39830d",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-07T20:50:54Z",
+      "side": 1,
+      "message": "Make sense to drop \"Experimental\" from the name?",
+      "range": {
+        "startLine": 535,
+        "startChar": 10,
+        "endLine": 535,
+        "endChar": 22
+      },
+      "revId": "2eaee1290b575347eabb78c076c859ed3816b74c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "704d65ae_6bce4d8d",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-07T20:50:54Z",
+      "side": 1,
+      "message": "Make sense to drop \"Experimental\" from the name?",
+      "range": {
+        "startLine": 539,
+        "startChar": 10,
+        "endLine": 539,
+        "endChar": 22
+      },
+      "revId": "2eaee1290b575347eabb78c076c859ed3816b74c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
