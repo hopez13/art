@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70700519_641ceaad",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-10-07T11:16:38Z",
+      "side": 1,
+      "message": "Why not test method\u003d\u003dnullptr before the return? You could then get rid of the shouldCompile inside TryCompile.",
+      "revId": "0c27ff7742a943af716f8a4d51cb1f67865cd482",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
