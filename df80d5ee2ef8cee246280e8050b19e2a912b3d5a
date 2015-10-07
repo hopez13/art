@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b6d3ced_4952cd4a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 5075,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-07T00:59:31Z",
+      "side": 1,
+      "message": "DCHECK_GT(iftable_count, 0u)?",
+      "range": {
+        "startLine": 5075,
+        "startChar": 9,
+        "endLine": 5075,
+        "endChar": 22
+      },
+      "revId": "df80d5ee2ef8cee246280e8050b19e2a912b3d5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab804cc5_a5af08d1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 5082,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-07T00:59:31Z",
+      "side": 1,
+      "message": "Delete?",
+      "range": {
+        "startLine": 5082,
+        "startChar": 37,
+        "endLine": 5082,
+        "endChar": 41
+      },
+      "revId": "df80d5ee2ef8cee246280e8050b19e2a912b3d5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
