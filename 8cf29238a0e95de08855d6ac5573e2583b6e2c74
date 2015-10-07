@@ -22,6 +22,30 @@
       "revId": "8cf29238a0e95de08855d6ac5573e2583b6e2c74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90ec99cf_6d17958c",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-07T10:00:15Z",
+      "side": 1,
+      "message": "We don\u0027t want to throw or catch C++ exceptions, ever. So at() was using an unsupported way of asserting that the index is correct. With this change we DCHECK() in the operator[].",
+      "parentUuid": "b0435d80_1edb8dd8",
+      "range": {
+        "startLine": 50,
+        "startChar": 34,
+        "endLine": 50,
+        "endChar": 36
+      },
+      "revId": "8cf29238a0e95de08855d6ac5573e2583b6e2c74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
