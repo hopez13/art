@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "105c2963_0dc40170",
+        "filename": "runtime/stack.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-07T20:04:39Z",
+      "side": 1,
+      "message": "This is fine because those roots are thread-local and visited by GC along with the thread stack.",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 17
+      },
+      "revId": "52d73bfb40a4c588e594b7e1635c93e74f00500f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "504861a0_8afe3399",
+        "filename": "runtime/stack.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-07T20:04:39Z",
+      "side": 1,
+      "message": "Either not use the LockCountData typedef and make explicit it\u0027s a vector of Object (to make it clearer that they are GC roots) or at least add a comment here that this contains Object* and thread GC roots?",
+      "range": {
+        "startLine": 347,
+        "startChar": 33,
+        "endLine": 347,
+        "endChar": 49
+      },
+      "revId": "52d73bfb40a4c588e594b7e1635c93e74f00500f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
