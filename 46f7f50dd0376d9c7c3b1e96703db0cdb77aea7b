@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "70700519_c4667e15",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 6003,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-07T13:14:51Z",
+      "side": 1,
+      "message": "I think that sgtm.",
+      "parentUuid": "704d65ae_6572fca7",
+      "range": {
+        "startLine": 6003,
+        "startChar": 0,
+        "endLine": 6003,
+        "endChar": 46
+      },
+      "revId": "46f7f50dd0376d9c7c3b1e96703db0cdb77aea7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b06c3d16_b6e28801",
         "filename": "compiler/optimizing/nodes_x86.h",
         "patchSetId": 9
