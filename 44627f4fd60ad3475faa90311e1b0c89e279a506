@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "504861a0_24691374",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2557,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T17:50:08Z",
+      "side": 1,
+      "message": "What is it supposed to throw then?\n\n  throw OldException(MonitorException)\n\nor\n\n  throw MonitorException(OldException)\n\nor just \n\n  throw MonitorException //discard OldException\n\n?",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90673931_375dcb0b",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T17:50:08Z",
+      "side": 1,
+      "message": "Agreed, this should wrap either as a suppressed exception so that we don\u0027t lose the original one.\n\n(looks like IllegalMonitorStateException doesn\u0027t have an (Exception) constructor, too bad).",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d00a915c_5b888661",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1099,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T17:50:08Z",
+      "side": 1,
+      "message": "DCHECK obj not null?\n\nWhy does it need self?",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30592d74_158d23bb",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T17:50:08Z",
+      "side": 1,
+      "message": "nit: public functions should have comments, as per style",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "504861a0_64c03bb3",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T17:50:08Z",
+      "side": 1,
+      "message": "can obj be const?\nDCHECK for self being null?",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5061411e_75cf3be0",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T17:50:08Z",
+      "side": 1,
+      "message": "nit: DCHECK arguments for not null?\n\ncan obj be const?",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "504861a0_84a8e7fb",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T17:50:08Z",
+      "side": 1,
+      "message": "So apparently this can throw but nothing mentions that, I was under the impression the existing interpreter convention was\n\n   bool FunctionNameOrThrow(args)\n\nand it would return false and set the exception, otherwise return true.\n\nAlso Nicolas has remarked in the past that the name/comment should mention if it throws.",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "704d65ae_037e8d6d",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T17:50:08Z",
+      "side": 1,
+      "message": "should probably be Args\u0026\u0026",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5061411e_15bec73e",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T17:50:08Z",
+      "side": 1,
+      "message": "std::forward\u003cArgs\u003e(args)...",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d00a915c_fbe69a4b",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T17:50:08Z",
+      "side": 1,
+      "message": "IIRC Mathieu was asking for a comment earlier explaining why they weren\u0027t used with GcRoots",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5061411e_d531ef91",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T17:50:08Z",
+      "side": 1,
+      "message": "nit: This could just be LockCountData\u0026 GetLockCountData(), so the call site doesn\u0027t have to null check",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1001893d_26c5acc2",
+        "filename": "test/088-monitor-verification/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T17:50:08Z",
+      "side": 1,
+      "message": "What does that do?",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
