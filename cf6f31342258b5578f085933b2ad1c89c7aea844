@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "704d65ae_f15c0a5b",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T01:02:17Z",
+      "side": 1,
+      "message": "nit: it\u0027s better to wrap the whole expression\n\n   else if (LIKELY(\n       !Runtime::Current()-\u003eAreExperi....\n\nif it fits?",
+      "revId": "cf6f31342258b5578f085933b2ad1c89c7aea844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
