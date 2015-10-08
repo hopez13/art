@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30fe8d70_b25a80b6",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-08T16:41:10Z",
+      "side": 1,
+      "message": "You want \"primitive array\"?",
+      "parentUuid": "704d65ae_63cf918b",
+      "range": {
+        "startLine": 951,
+        "startChar": 4,
+        "endLine": 951,
+        "endChar": 55
+      },
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30592d74_75cf3f8b",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-08T16:31:57Z",
       "side": 1,
       "message": "Intel usually prefers a \"rep xyz\" for this, as performance is similar as long as you don\u0027t unroll heavily, but the code is a lot tighter.",
+      "range": {
+        "startLine": 1159,
+        "startChar": 0,
+        "endLine": 1168,
+        "endChar": 17
+      },
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3065adc4_7a387999",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-08T16:41:10Z",
+      "side": 1,
+      "message": "Isn\u0027t there are lot of requirements for using rep (fixed registers, ...). For now, I\u0027d rather keep it our own implementation in case I say bogus things about read barrier and poisoning.",
+      "parentUuid": "30592d74_75cf3f8b",
       "range": {
         "startLine": 1159,
         "startChar": 0,
