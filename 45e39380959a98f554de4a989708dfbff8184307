@@ -25,6 +25,46 @@
     },
     {
       "key": {
+        "uuid": "30fe8d70_f254088d",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-08T18:53:52Z",
+      "side": 1,
+      "message": "Split this to two separate checks for source and destination. Create a helper function IsArrayLengthOf(length, array) that also checks for array-\u003eIsNewArray() \u0026\u0026 array-\u003eInputAt(0) \u003d\u003d length.\n\nThere will be an extra call to the virtual IsArrayLength(). Should we annotate all As\u003cX\u003e() methods with the gcc attribute pure to let the compiler optimize away extra calls?",
+      "range": {
+        "startLine": 1080,
+        "startChar": 0,
+        "endLine": 1088,
+        "endChar": 5
+      },
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5307d7f_b67828b5",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-08T18:53:52Z",
+      "side": 1,
+      "message": "Bad indentation.",
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5307d7f_56875410",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 3
@@ -88,6 +128,98 @@
         "startChar": 4,
         "endLine": 951,
         "endChar": 55
+      },
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "459c212a_db8313cb",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-08T18:53:52Z",
+      "side": 1,
+      "message": "naming conventions: src_pos",
+      "range": {
+        "startLine": 980,
+        "startChar": 11,
+        "endLine": 980,
+        "endChar": 17
+      },
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5307d7f_d6ecc4c6",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-08T18:53:52Z",
+      "side": 1,
+      "message": "dest_pos",
+      "range": {
+        "startLine": 982,
+        "startChar": 11,
+        "endLine": 982,
+        "endChar": 18
+      },
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0079550_b3df2270",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-08T18:53:52Z",
+      "side": 1,
+      "message": "src_pos_constant; this is derived from srcPos, not src.",
+      "range": {
+        "startLine": 1001,
+        "startChar": 12,
+        "endLine": 1001,
+        "endChar": 24
+      },
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70700519_c7c3e067",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-08T18:53:52Z",
+      "side": 1,
+      "message": "You may have unpoisoned one or both above.",
+      "range": {
+        "startLine": 1100,
+        "startChar": 0,
+        "endLine": 1101,
+        "endChar": 26
       },
       "revId": "45e39380959a98f554de4a989708dfbff8184307",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
