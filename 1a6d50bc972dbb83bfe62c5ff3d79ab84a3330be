@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1001893d_4671d013",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T18:41:03Z",
+      "side": 1,
+      "message": "nit: preface with \"verifier: \" or \"class linker: \" (the former makes more sense to me, but the latter is more consistent with the file name)",
+      "revId": "1a6d50bc972dbb83bfe62c5ff3d79ab84a3330be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90673931_5715e7c3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T18:41:03Z",
+      "side": 1,
+      "message": "Mention some things that are missing?",
+      "revId": "1a6d50bc972dbb83bfe62c5ff3d79ab84a3330be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0435d80_a8a33420",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T18:41:03Z",
+      "side": 1,
+      "message": "We probably don\u0027t need to mention the high level bug (0653) in these commits, it will generate too much traffic over time and spam people who might not care. That one is probably best left open to just comments from other teams.\n\nMentioning 8811 is good though.",
+      "revId": "1a6d50bc972dbb83bfe62c5ff3d79ab84a3330be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
