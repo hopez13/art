@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d03c51f4_6bcf6c8b",
+        "filename": "runtime/base/hash_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-08T21:25:05Z",
+      "side": 1,
+      "message": "You don\u0027t need std:: if you have using std::swap I thought?",
+      "range": {
+        "startLine": 402,
+        "startChar": 4,
+        "endLine": 402,
+        "endChar": 9
+      },
+      "revId": "15da953d73b36ca1006c0cab36349abfda914c77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
