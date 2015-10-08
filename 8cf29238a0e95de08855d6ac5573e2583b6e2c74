@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b06c3d16_b6172811",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-08T10:02:49Z",
+      "side": 1,
+      "message": "It seems to be commonly indirectly included. However, for flounder it isn\u0027t and that\u0027s how I found the invalid \u0026references_buffer[0] in the generic non-litte-endian branch which I previously assumed to be unused.",
+      "parentUuid": "f00235ba_183205dd",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 19
+      },
+      "revId": "8cf29238a0e95de08855d6ac5573e2583b6e2c74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "459c212a_7bfc3fa2",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-08T09:49:47Z",
       "side": 1,
       "message": "You can actually replace this with IfTrueSuccessor(). It\u0027s safer anyway...",
+      "range": {
+        "startLine": 800,
+        "startChar": 41,
+        "endLine": 800,
+        "endChar": 59
+      },
+      "revId": "8cf29238a0e95de08855d6ac5573e2583b6e2c74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70fba586_6c283b24",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-08T10:02:49Z",
+      "side": 1,
+      "message": "You mean if_block-\u003eGetLastInstruction()-\u003eAsIf()-\u003eIfTrueSuccessor()?",
+      "parentUuid": "459c212a_7bfc3fa2",
       "range": {
         "startLine": 800,
         "startChar": 41,
