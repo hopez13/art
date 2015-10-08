@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "30fe8d70_72c49895",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-08T18:10:33Z",
+      "side": 1,
+      "message": "Mac doesn\u0027t provide endian.h, https://android-review.googlesource.com/175052 .",
+      "parentUuid": "b06c3d16_b6172811",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 19
+      },
+      "revId": "8cf29238a0e95de08855d6ac5573e2583b6e2c74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "459c212a_7bfc3fa2",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 4
