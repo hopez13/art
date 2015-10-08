@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "f00235ba_183205dd",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-10-08T09:49:47Z",
+      "side": 1,
+      "message": "Is this needed?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 19
+      },
+      "revId": "8cf29238a0e95de08855d6ac5573e2583b6e2c74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "459c212a_7bfc3fa2",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-10-08T09:49:47Z",
+      "side": 1,
+      "message": "You can actually replace this with IfTrueSuccessor(). It\u0027s safer anyway...",
+      "range": {
+        "startLine": 800,
+        "startChar": 41,
+        "endLine": 800,
+        "endChar": 59
+      },
+      "revId": "8cf29238a0e95de08855d6ac5573e2583b6e2c74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70700519_84856699",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-10-08T09:49:47Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 801,
+        "startChar": 41,
+        "endLine": 801,
+        "endChar": 54
+      },
+      "revId": "8cf29238a0e95de08855d6ac5573e2583b6e2c74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0435d80_1edb8dd8",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 4
