@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "5061411e_50ae8d0a",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2557,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T18:46:55Z",
+      "side": 1,
+      "message": "Ok, do you think it would make sense to add that in a comment somewhere?\n\n  // Potentially throws a MonitorStateException, clearing the previous exception\n\nAlthough it\u0027s pretty easy to get to now by just looking in the .cc file for LockCountData, so maybe people can just look at the source.",
+      "parentUuid": "90673931_b7b0bb6c",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90673931_375dcb0b",
         "filename": "runtime/stack.cc",
         "patchSetId": 11
@@ -244,6 +262,24 @@
     },
     {
       "key": {
+        "uuid": "d03c51f4_48226eef",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T18:46:55Z",
+      "side": 1,
+      "message": "Oh, I see it now. Perhaps it might be slightly better if it was here instead :) ?",
+      "parentUuid": "105c2963_0eba37aa",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5061411e_d531ef91",
         "filename": "runtime/stack.h",
         "patchSetId": 11
@@ -279,6 +315,24 @@
     },
     {
       "key": {
+        "uuid": "30592d74_b0df25ea",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T18:46:55Z",
+      "side": 1,
+      "message": "No, we\u0027re not averse to that currently, and we never were because it\u0027s not a parameter.\n\nSome people might disagree, in which case it should at least say \"// Returns a not-null pointer to...\"\n\nbut my personal philosophy is why repeat something in a comment obvious from the signature? :)",
+      "parentUuid": "5061411e_300dd104",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1001893d_26c5acc2",
         "filename": "test/088-monitor-verification/src/Main.java",
         "patchSetId": 11
@@ -308,6 +362,24 @@
       "side": 1,
       "message": "What it states in the name. If asserts aren\u0027t disabled, it will check that the call-site is managed code, not interpreted.",
       "parentUuid": "1001893d_26c5acc2",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5061411e_10bb754e",
+        "filename": "test/088-monitor-verification/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T18:46:55Z",
+      "side": 1,
+      "message": "Oh, that was confusing to me because \"managed\" just usually means anything not native (i.e. any executed java code is managed code). Perhaps there is a terminology in Art I\u0027m not familiar with yet.\n\nAlternatively, this could be \"assertIsCompiled\" to be less ambiguous.",
+      "parentUuid": "b0435d80_2890c4d5",
       "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
