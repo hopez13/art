@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "5061411e_f537cba8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-08T18:11:18Z",
+      "side": 1,
+      "message": "\"Fix race...\"?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 4
+      },
+      "revId": "8ebf8adca887c00f4c8b6c7b45f21f84a9ffa2bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "105c2963_8e9ac768",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-08T18:11:18Z",
+      "side": 1,
+      "message": "I think if we see \"freeNativeStorage: 101\" in the output as expected and just miss the \"intr\" message, it\u0027s possible that we called interrupt() right after the watcher called freeNativeStorage() for dataB but right before the watcher blocks on remove() in the next iteration of the loop. \n\nThat may be an OK case because the watcher did what it needed to do but just exited without blocking, though it suggests things were slower than expected. In this case, just removing the \"intr\" print code may be an OK fix.\n\nIf we don\u0027t see \"freeNativeStorage: 101\" in the output, then it was just too slow and should be seen as a failure as the watcher didn\u0027t do all it intended to do. I\u0027m not sure how to fix that. Maybe just increase the sleep time?\n\nI don\u0027t think we\u0027ve seen this sort of failure cases. Maybe just decrease the parallelism (the -j value) when running the test?\n\nIn any case, the test is inherently timing-dependent as there\u0027s no timing guarantee on when the phantom reference gets enqueued in this queue after the GC run.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 68
+      },
+      "revId": "8ebf8adca887c00f4c8b6c7b45f21f84a9ffa2bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b06c3d16_b640c8f7",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -64,6 +110,29 @@
         "startChar": 12,
         "endLine": 18,
         "endChar": 18
+      },
+      "revId": "8ebf8adca887c00f4c8b6c7b45f21f84a9ffa2bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0435d80_088b4818",
+        "filename": "test/079-phantom/src/Bitmap.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-08T18:11:18Z",
+      "side": 1,
+      "message": "I think if the watcher isn\u0027t blocking in remove when this interrupt is called, it may not get an InterruptedException, in which case the watcher could infinite-loop and never terminate. So, mQuit seems to be still necessary.",
+      "range": {
+        "startLine": 150,
+        "startChar": 8,
+        "endLine": 150,
+        "endChar": 17
       },
       "revId": "8ebf8adca887c00f4c8b6c7b45f21f84a9ffa2bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
