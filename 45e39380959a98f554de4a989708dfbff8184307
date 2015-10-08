@@ -22,6 +22,29 @@
       "revId": "45e39380959a98f554de4a989708dfbff8184307",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30592d74_75cf3f8b",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-08T16:31:57Z",
+      "side": 1,
+      "message": "Intel usually prefers a \"rep xyz\" for this, as performance is similar as long as you don\u0027t unroll heavily, but the code is a lot tighter.",
+      "range": {
+        "startLine": 1159,
+        "startChar": 0,
+        "endLine": 1168,
+        "endChar": 17
+      },
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
