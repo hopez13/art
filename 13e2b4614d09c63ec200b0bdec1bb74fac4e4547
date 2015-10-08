@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "704d65ae_315dd20b",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1051763
+      },
+      "writtenOn": "2015-10-08T02:47:05Z",
+      "side": 1,
+      "message": "Only all unclaimed signals will be blocked before invoking this handler. And the signal mask will be restored immediately after this handler.",
+      "parentUuid": "b5398a03_89b48108",
+      "range": {
+        "startLine": 417,
+        "startChar": 35,
+        "endLine": 417,
+        "endChar": 78
+      },
+      "revId": "13e2b4614d09c63ec200b0bdec1bb74fac4e4547",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1548969f_c4603441",
         "filename": "test/115-native-bridge/nativebridge.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-09-30T23:07:47Z",
       "side": 1,
       "message": "Why did you need to special case these two?",
+      "range": {
+        "startLine": 424,
+        "startChar": 51,
+        "endLine": 424,
+        "endChar": 86
+      },
+      "revId": "13e2b4614d09c63ec200b0bdec1bb74fac4e4547",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d00a915c_784c7033",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1051763
+      },
+      "writtenOn": "2015-10-08T02:47:05Z",
+      "side": 1,
+      "message": "These two are used by glibc for NPTL. Linux kernel won\u0027t use them. And they cannot be blocked.",
+      "parentUuid": "1548969f_c4603441",
       "range": {
         "startLine": 424,
         "startChar": 51,
