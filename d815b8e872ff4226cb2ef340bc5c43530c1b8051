@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "90673931_14becd3e",
+        "filename": "test/088-monitor-verification/src/TwoPath.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-08T17:02:42Z",
+      "side": 1,
+      "message": "This code is derived from already existing code. In such situations I was told to keep the old copyright date.",
+      "parentUuid": "459c212a_1bc65b77",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "d815b8e872ff4226cb2ef340bc5c43530c1b8051",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70700519_2452f2d4",
         "filename": "test/088-monitor-verification/src/TwoPath.java",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-08T07:52:28Z",
       "side": 1,
       "message": "may not -\u003e explain why it may not (in other words in which conditions can we verify it, and which conditions can we not).",
+      "range": {
+        "startLine": 22,
+        "startChar": 71,
+        "endLine": 23,
+        "endChar": 52
+      },
+      "revId": "d815b8e872ff4226cb2ef340bc5c43530c1b8051",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30592d74_75bc5fac",
+        "filename": "test/088-monitor-verification/src/TwoPath.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-08T17:02:42Z",
+      "side": 1,
+      "message": "Clarified the comment.",
+      "parentUuid": "70700519_2452f2d4",
       "range": {
         "startLine": 22,
         "startChar": 71,
