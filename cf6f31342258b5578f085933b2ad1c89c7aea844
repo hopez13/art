@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2ae8da64_a2b83eaf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 25
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-08T22:39:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d00a915c_ce315692",
+      "revId": "cf6f31342258b5578f085933b2ad1c89c7aea844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "704d65ae_f15c0a5b",
         "filename": "compiler/dex/quick/quick_compiler.cc",
         "patchSetId": 25
@@ -71,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "eaf16251_e082c2ff",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 4970,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-08T22:39:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "105c2963_ceaf9f69",
+      "revId": "cf6f31342258b5578f085933b2ad1c89c7aea844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90673931_37230b4c",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 25
@@ -106,6 +142,30 @@
       "side": 1,
       "message": "I think Andreas was mentioning something about the access flags being mutated by only one thread (which already holds a lock?) when the class is being cobbled together, but after the class is shared between multiple threads it\u0027s never mutated again.\n\nSo yeah I definitely agree and think we should be both correct and consistent here.",
       "parentUuid": "90673931_37230b4c",
+      "range": {
+        "startLine": 234,
+        "startChar": 14,
+        "endLine": 234,
+        "endChar": 34
+      },
+      "revId": "cf6f31342258b5578f085933b2ad1c89c7aea844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0536a9c7_0928299c",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-08T22:39:36Z",
+      "side": 1,
+      "message": "\u003e but after the class is shared between multiple threads it\u0027s never mutated again\n\nExcept for setting this bit.",
+      "parentUuid": "d00a915c_8ea3ce20",
       "range": {
         "startLine": 234,
         "startChar": 14,
