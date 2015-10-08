@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "3065adc4_9a71cd6f",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-08T17:13:50Z",
+      "side": 1,
+      "message": "I think it\u0027s time to use helper methods for the different intrinsics.",
+      "range": {
+        "startLine": 1065,
+        "startChar": 13,
+        "endLine": 1065,
+        "endChar": 72
+      },
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5307d7f_56875410",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-08T17:13:50Z",
+      "side": 1,
+      "message": "when can src_pos or dest_post be null?",
+      "range": {
+        "startLine": 925,
+        "startChar": 7,
+        "endLine": 925,
+        "endChar": 14
+      },
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "704d65ae_63cf918b",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 3
@@ -89,6 +135,52 @@
         "startChar": 0,
         "endLine": 1168,
         "endChar": 17
+      },
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f00235ba_185845be",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1686,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-08T17:13:50Z",
+      "side": 1,
+      "message": "Isn\u0027t this equivalent to !IsPrimitiveArrayClass()?",
+      "range": {
+        "startLine": 1686,
+        "startChar": 11,
+        "endLine": 1686,
+        "endChar": 82
+      },
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "459c212a_bbd087d3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1698,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-08T17:13:50Z",
+      "side": 1,
+      "message": "I\u0027d use a big \u0026\u0026 with one condition on each line.",
+      "range": {
+        "startLine": 1698,
+        "startChar": 4,
+        "endLine": 1698,
+        "endChar": 6
       },
       "revId": "45e39380959a98f554de4a989708dfbff8184307",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
