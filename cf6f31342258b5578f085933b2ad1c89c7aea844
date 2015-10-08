@@ -34,6 +34,29 @@
       "revId": "cf6f31342258b5578f085933b2ad1c89c7aea844",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90673931_37230b4c",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-08T18:30:46Z",
+      "side": 1,
+      "message": "We don\u0027t take locks in GetAccessFlags() but we do take the object lock in these two set functions. But we don\u0027t take the object lock in HasDefaultMethods() and HasBeenRecursivelyInitialized().\n\nIs this sound?",
+      "range": {
+        "startLine": 234,
+        "startChar": 14,
+        "endLine": 234,
+        "endChar": 34
+      },
+      "revId": "cf6f31342258b5578f085933b2ad1c89c7aea844",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
