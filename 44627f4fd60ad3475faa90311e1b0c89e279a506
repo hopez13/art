@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "90673931_b7b0bb6c",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2557,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-08T18:31:14Z",
+      "side": 1,
+      "message": "The last one.",
+      "parentUuid": "504861a0_24691374",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90673931_375dcb0b",
         "filename": "runtime/stack.cc",
         "patchSetId": 11
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "90673931_571e8701",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-08T18:31:14Z",
+      "side": 1,
+      "message": "1) The constructor would be the wrong way (that is the cause, not the suppressed exception).\n\n2) The definition isn\u0027t clear (it never is with suppressed exceptions).\n\n3) Suppressed exceptions are a lot of work to get right. I think for simplicity it\u0027s enough to tell people they screwed up with locks, as it should not be common.",
+      "parentUuid": "90673931_375dcb0b",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d00a915c_5b888661",
         "filename": "runtime/stack.cc",
         "patchSetId": 11
@@ -47,6 +83,24 @@
       "writtenOn": "2015-10-08T17:50:08Z",
       "side": 1,
       "message": "DCHECK obj not null?\n\nWhy does it need self?",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90673931_97281f25",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1099,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-08T18:31:14Z",
+      "side": 1,
+      "message": "Because I don\u0027t want to put in Thread::Current().",
+      "parentUuid": "d00a915c_5b888661",
       "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -172,6 +226,24 @@
     },
     {
       "key": {
+        "uuid": "105c2963_0eba37aa",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-08T18:31:14Z",
+      "side": 1,
+      "message": "The comment is in the class description.",
+      "parentUuid": "d00a915c_fbe69a4b",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5061411e_d531ef91",
         "filename": "runtime/stack.h",
         "patchSetId": 11
@@ -189,6 +261,24 @@
     },
     {
       "key": {
+        "uuid": "5061411e_300dd104",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-08T18:31:14Z",
+      "side": 1,
+      "message": "We modify the data, so it must be a non-const ref, and I thought we\u0027re still averse to that?",
+      "parentUuid": "5061411e_d531ef91",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1001893d_26c5acc2",
         "filename": "test/088-monitor-verification/src/Main.java",
         "patchSetId": 11
@@ -200,6 +290,24 @@
       "writtenOn": "2015-10-08T17:50:08Z",
       "side": 1,
       "message": "What does that do?",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0435d80_2890c4d5",
+        "filename": "test/088-monitor-verification/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-08T18:31:14Z",
+      "side": 1,
+      "message": "What it states in the name. If asserts aren\u0027t disabled, it will check that the call-site is managed code, not interpreted.",
+      "parentUuid": "1001893d_26c5acc2",
       "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
