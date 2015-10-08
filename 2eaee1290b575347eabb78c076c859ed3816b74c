@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "d03c51f4_59724372",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 5660,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-08T01:02:17Z",
+      "side": 1,
+      "message": "Yes, IIRC he only uses CopyFrom to copy the ArtMethod.",
+      "parentUuid": "b0435d80_0d251dc1",
+      "range": {
+        "startLine": 5660,
+        "startChar": 17,
+        "endLine": 5660,
+        "endChar": 25
+      },
+      "revId": "2eaee1290b575347eabb78c076c859ed3816b74c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30592d74_4f242d83",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 24
