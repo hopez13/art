@@ -46,6 +46,30 @@
       "revId": "386062d13ce20d036555a9e24b73a67b4156b5cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70664538_b701e21c",
+        "filename": "test/536-checker-needs-access-check/src2/other/InaccessibleClassProxy.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-08T13:49:48Z",
+      "side": 1,
+      "message": "Just discussed with Calin, it\u0027s only because of our build rules.",
+      "parentUuid": "3065adc4_1a35bdc4",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 1
+      },
+      "revId": "386062d13ce20d036555a9e24b73a67b4156b5cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
