@@ -22,6 +22,30 @@
       "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a154685_c5093a6a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-09T11:52:44Z",
+      "side": 1,
+      "message": "Yes, we will BoundType a NewInstance if it\u0027s unresolved and used in an instanceof statement\n  \nExample:\n\nUnresolvedClasss c \u003d new UnresolvedClass();\n\nif (c instanceof Clazz) {\n  // Here we will insert a BoundType for c.\n}\n\nNote (as an optimization) that BoundType should not influence is_singleton_ or  is_singleton_and_not_returned_. It\u0027s a synthetic use that\u0027s added for convenience and ease of design. You can just consider the transitive chain and go to the uses of the BoundType to see if you need to reset is_singleton.",
+      "parentUuid": "2a27faf5_aae96fe1",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 7
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
