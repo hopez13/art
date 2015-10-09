@@ -22,6 +22,30 @@
       "revId": "15da953d73b36ca1006c0cab36349abfda914c77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6afbb286_8c0f676f",
+        "filename": "runtime/base/hash_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-09T09:28:20Z",
+      "side": 1,
+      "message": "No, I don\u0027t need it. I just prefer to have it anyway. That using-declaration is intended for function objects where I do need the ADL with fall-back.",
+      "parentUuid": "d03c51f4_6bcf6c8b",
+      "range": {
+        "startLine": 402,
+        "startChar": 4,
+        "endLine": 402,
+        "endChar": 9
+      },
+      "revId": "15da953d73b36ca1006c0cab36349abfda914c77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
