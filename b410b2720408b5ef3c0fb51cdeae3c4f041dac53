@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "054dc959_14e91a71",
+        "filename": "runtime/stack.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-09T03:49:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "451b415b_061bbc3c",
+      "revId": "b410b2720408b5ef3c0fb51cdeae3c4f041dac53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a526bd9a_a9bd5917",
         "filename": "runtime/stack.h",
         "patchSetId": 12
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "451b415b_267c38ed",
+        "filename": "runtime/stack.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-09T03:49:03Z",
+      "side": 1,
+      "message": "I think that is a double indication. Check already states that it does work.\n\nNormally I wouldn\u0027t even have done the bool return, that is just to be able to optimize away dead code at the call-site.",
+      "parentUuid": "a526bd9a_a9bd5917",
+      "range": {
+        "startLine": 106,
+        "startChar": 7,
+        "endLine": 106,
+        "endChar": 31
+      },
+      "revId": "b410b2720408b5ef3c0fb51cdeae3c4f041dac53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8521b987_283fa383",
         "filename": "runtime/stack.h",
         "patchSetId": 12
@@ -53,6 +95,30 @@
       "writtenOn": "2015-10-09T01:34:13Z",
       "side": 1,
       "message": "Can this be\n\n  const mirror::Object*\n\n?",
+      "range": {
+        "startLine": 130,
+        "startChar": 30,
+        "endLine": 130,
+        "endChar": 45
+      },
+      "revId": "b410b2720408b5ef3c0fb51cdeae3c4f041dac53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0536a9c7_8cbee7a1",
+        "filename": "runtime/stack.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-09T03:49:03Z",
+      "side": 1,
+      "message": "No. The entries could be changed by the visitor, so the visitors take non-const pointers. I prefer to be non-const here instead of having a const-cast.",
+      "parentUuid": "8521b987_283fa383",
       "range": {
         "startLine": 130,
         "startChar": 30,
