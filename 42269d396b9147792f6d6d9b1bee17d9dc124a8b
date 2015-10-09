@@ -45,6 +45,29 @@
       "revId": "42269d396b9147792f6d6d9b1bee17d9dc124a8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eaba42ed_fe1659ce",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-09T23:15:21Z",
+      "side": 1,
+      "message": "This is bad. The original test could be inlined, making the branch simple and possibly easier to predict, this can\u0027t.\n\nWhy not (!Invokable()) { Throw... ?",
+      "range": {
+        "startLine": 127,
+        "startChar": 22,
+        "endLine": 127,
+        "endChar": 63
+      },
+      "revId": "42269d396b9147792f6d6d9b1bee17d9dc124a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
