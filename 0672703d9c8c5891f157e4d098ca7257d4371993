@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "8a154685_65c7a674",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T09:28:55Z",
+      "side": 1,
+      "message": "What bothers me really is the alignment concerns. Why should allocation sites care about allocation alignments?",
+      "parentUuid": "d00a915c_29abc1b2",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 93
+      },
+      "revId": "0672703d9c8c5891f157e4d098ca7257d4371993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70664538_d4357c13",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "This way is preferred because the arguments are aligned to the (\n\nIt\u0027s always preferable to align to the (, {, etc over doing a \"i give up, so just wrap and indent 4 spaces\" type of alignment.\n\n----\nAs for something like\n\n   var \u003d foo(x,\n             y,\n             z)\n\nThat doesn\u0027t actually fit because the \"\u003d ...\" part of the expression is pretty long.\n\nI can update the guide if this was stated ambiguous earlier?",
       "parentUuid": "70664538_d4357c13",
+      "range": {
+        "startLine": 247,
+        "startChar": 8,
+        "endLine": 247,
+        "endChar": 65
+      },
+      "revId": "0672703d9c8c5891f157e4d098ca7257d4371993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aadf6a22_fed7a11a",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T09:28:55Z",
+      "side": 1,
+      "message": "What I\u0027m suggesting is:\n\ninit_lm \u003d new () ArtLambdaMethod(\n  called_method,\n  captured,\n  ...)\n\nWhy is it always preferable to align to the \u0027(\u0027?",
+      "parentUuid": "b0435d80_0d0d1d04",
       "range": {
         "startLine": 247,
         "startChar": 8,
