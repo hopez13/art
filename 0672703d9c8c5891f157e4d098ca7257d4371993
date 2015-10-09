@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "e55355fb_d9c8a73d",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-09T17:53:41Z",
+      "side": 1,
+      "message": "Well, I can move it to LeakingAllocator, not a problem.\n\n-----\n\nIn general though doing a \n\n  new (some_ptr) T(...)\n\nthe alignof(*some_ptr) should be at least as much as alignof(T)\n\notherwise the in-place new is unsound (undefined behavior).",
+      "parentUuid": "8a154685_65c7a674",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 93
+      },
+      "revId": "0672703d9c8c5891f157e4d098ca7257d4371993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70664538_d4357c13",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 1
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "What I\u0027m suggesting is:\n\ninit_lm \u003d new () ArtLambdaMethod(\n  called_method,\n  captured,\n  ...)\n\nWhy is it always preferable to align to the \u0027(\u0027?",
       "parentUuid": "b0435d80_0d0d1d04",
+      "range": {
+        "startLine": 247,
+        "startChar": 8,
+        "endLine": 247,
+        "endChar": 65
+      },
+      "revId": "0672703d9c8c5891f157e4d098ca7257d4371993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45426131_bfa49ffb",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-09T17:53:41Z",
+      "side": 1,
+      "message": "That\u0027s just the rule we have in the style guide, always align to the ( of the expression you are in if possible. \n\nThe indent 4 spaces to the right thing is only when one of the args can\u0027t fit cause maybe the parameter name or the function name is too long.\n\nAndreas wanted a consistent set of guidelines for how to indent and this provides a simple clear-cut \"priority A,B,C\" set of indentation rules.",
+      "parentUuid": "aadf6a22_fed7a11a",
       "range": {
         "startLine": 247,
         "startChar": 8,
