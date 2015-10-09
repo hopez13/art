@@ -96,6 +96,47 @@
     },
     {
       "key": {
+        "uuid": "45426131_5adae946",
+        "filename": "runtime/stack.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-09T18:03:34Z",
+      "side": 1,
+      "message": "That\u0027s subtle.",
+      "parentUuid": "8538d9b1_f64f36a0",
+      "range": {
+        "startLine": 118,
+        "startChar": 11,
+        "endLine": 118,
+        "endChar": 44
+      },
+      "revId": "e2ea41e5a5104890e277a809baff57a8abe1975a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45426131_7ad7a51b",
+        "filename": "runtime/stack.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-09T18:03:34Z",
+      "side": 1,
+      "message": "nit: add /*inout*/ to \u0026obj since it\u0027s non-obvious the obj is changing",
+      "revId": "e2ea41e5a5104890e277a809baff57a8abe1975a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "451b415b_6cba8faa",
         "filename": "runtime/stack.h",
         "patchSetId": 13
