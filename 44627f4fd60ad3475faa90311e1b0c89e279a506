@@ -231,6 +231,24 @@
     },
     {
       "key": {
+        "uuid": "8521b987_2be87ddb",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-09T03:49:03Z",
+      "side": 1,
+      "message": "The visitors are also free to modify the content of the objects. So I don\u0027t think that\u0027s right, either.",
+      "parentUuid": "0536a9c7_4cf5cfae",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5061411e_75cf3be0",
         "filename": "runtime/stack.h",
         "patchSetId": 11
