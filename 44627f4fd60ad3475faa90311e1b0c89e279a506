@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "451b415b_462214bc",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 2557,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-09T01:21:04Z",
+      "side": 1,
+      "message": "I\u0027d rather not repeat the comment on the declaration, if possible. The \"Check\" in the name hopefully tells enough about the exception.",
+      "parentUuid": "5061411e_50ae8d0a",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90673931_375dcb0b",
         "filename": "runtime/stack.cc",
         "patchSetId": 11
@@ -142,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "eaf16251_60bd9214",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-09T01:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30592d74_158d23bb",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "504861a0_64c03bb3",
         "filename": "runtime/stack.h",
         "patchSetId": 11
@@ -153,6 +189,24 @@
       "writtenOn": "2015-10-08T17:50:08Z",
       "side": 1,
       "message": "can obj be const?\nDCHECK for self being null?",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e55355fb_93e51ec2",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-09T01:21:04Z",
+      "side": 1,
+      "message": "Doesn\u0027t make sense. It goes into the vector, which is mutable because of GC.",
+      "parentUuid": "504861a0_64c03bb3",
       "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -176,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "0536a9c7_89eed92b",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-09T01:21:04Z",
+      "side": 1,
+      "message": "obj can be const (with a const-cast for error printing, which I think is OK), we handle null internally. self shouldn\u0027t be.",
+      "parentUuid": "5061411e_75cf3be0",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "504861a0_84a8e7fb",
         "filename": "runtime/stack.h",
         "patchSetId": 11
@@ -187,6 +259,24 @@
       "writtenOn": "2015-10-08T17:50:08Z",
       "side": 1,
       "message": "So apparently this can throw but nothing mentions that, I was under the impression the existing interpreter convention was\n\n   bool FunctionNameOrThrow(args)\n\nand it would return false and set the exception, otherwise return true.\n\nAlso Nicolas has remarked in the past that the name/comment should mention if it throws.",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8538d9b1_50dad246",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-09T01:21:04Z",
+      "side": 1,
+      "message": "There are many functions in the interpreter that do *not* follow this, so I feel I haven\u0027t violated anything. Especially the call-site of this doesn\u0027t follow the convention.\n\nI\u0027ll change the name, but I don\u0027t think the return type is valuable if the call site is written in a different way (as are a lot of bytecode parts that may or may not throw).",
+      "parentUuid": "504861a0_84a8e7fb",
       "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -210,6 +300,24 @@
     },
     {
       "key": {
+        "uuid": "e55355fb_b3ea228f",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-09T01:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "704d65ae_037e8d6d",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5061411e_15bec73e",
         "filename": "runtime/stack.h",
         "patchSetId": 11
@@ -221,6 +329,24 @@
       "writtenOn": "2015-10-08T17:50:08Z",
       "side": 1,
       "message": "std::forward\u003cArgs\u003e(args)...",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "054dc959_540c827a",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-09T01:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5061411e_15bec73e",
       "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -280,6 +406,24 @@
     },
     {
       "key": {
+        "uuid": "8538d9b1_b02216ee",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-09T01:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d03c51f4_48226eef",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5061411e_d531ef91",
         "filename": "runtime/stack.h",
         "patchSetId": 11
@@ -333,6 +477,24 @@
     },
     {
       "key": {
+        "uuid": "eaf16251_80a1b6ee",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-09T01:21:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30592d74_b0df25ea",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1001893d_26c5acc2",
         "filename": "test/088-monitor-verification/src/Main.java",
         "patchSetId": 11
@@ -380,6 +542,24 @@
       "side": 1,
       "message": "Oh, that was confusing to me because \"managed\" just usually means anything not native (i.e. any executed java code is managed code). Perhaps there is a terminology in Art I\u0027m not familiar with yet.\n\nAlternatively, this could be \"assertIsCompiled\" to be less ambiguous.",
       "parentUuid": "b0435d80_2890c4d5",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a526bd9a_c9dff5e7",
+        "filename": "test/088-monitor-verification/src/Main.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-09T01:21:04Z",
+      "side": 1,
+      "message": "A follow-up maybe, this is shared between multiple tests.",
+      "parentUuid": "5061411e_10bb754e",
       "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
