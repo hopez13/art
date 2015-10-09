@@ -22,6 +22,30 @@
       "revId": "d45c0dd484b2952192ea8fd8f86888dbd6011ac1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cad81e3d_5f4a4b93",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1307,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-09T11:38:24Z",
+      "side": 1,
+      "message": "It can\u0027t. Null can happen when compile unresolved classes (e.g. if the super class is unresolved).\n\nWe have a lacking design here because:\n- technically we can\u0027t assume anything if we get back a null here\n- but because we don\u0027t inline we still know that this should return true.\n\nThis creates an implicit assumption about how things work... so I preferred to eliminate it and return false.\n\nIsOutermostCompilingClass is only used for optimizing invokes if we are the referrer. We don\u0027t use that info anyway when we need access checks since we go to the runtime. \n\n\nWe can continue the discussion offline, as it will be more efficient I think :)",
+      "parentUuid": "2a27faf5_0afb5baa",
+      "range": {
+        "startLine": 1306,
+        "startChar": 0,
+        "endLine": 1307,
+        "endChar": 68
+      },
+      "revId": "d45c0dd484b2952192ea8fd8f86888dbd6011ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
