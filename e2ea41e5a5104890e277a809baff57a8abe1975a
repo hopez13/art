@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "a526bd9a_8f925d51",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-09T17:25:47Z",
+      "side": 1,
+      "message": "The thread safety analysis is used for mutexes but not for monitors?",
+      "range": {
+        "startLine": 1096,
+        "startChar": 31,
+        "endLine": 1097,
+        "endChar": 30
+      },
+      "revId": "e2ea41e5a5104890e277a809baff57a8abe1975a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eaf16251_064ede54",
+        "filename": "runtime/stack.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-09T17:25:47Z",
+      "side": 1,
+      "message": "Would \"mirror::Object* obj : monitors_\" work as well?",
+      "range": {
+        "startLine": 118,
+        "startChar": 11,
+        "endLine": 118,
+        "endChar": 44
+      },
+      "revId": "e2ea41e5a5104890e277a809baff57a8abe1975a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "451b415b_6cba8faa",
+        "filename": "runtime/stack.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-09T17:25:47Z",
+      "side": 1,
+      "message": "Add a comment that says this contains GC roots?",
+      "range": {
+        "startLine": 404,
+        "startChar": 2,
+        "endLine": 404,
+        "endChar": 15
+      },
+      "revId": "e2ea41e5a5104890e277a809baff57a8abe1975a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a6d3aed_7afbd9a9",
         "filename": "test/088-monitor-verification/src/TwoPath.java",
         "patchSetId": 13
