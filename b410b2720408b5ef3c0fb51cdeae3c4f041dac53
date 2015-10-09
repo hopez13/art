@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "8538d9b1_b67e8ea0",
+        "filename": "runtime/stack.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-09T18:16:53Z",
+      "side": 1,
+      "message": "Usually functions have verbs in their name for what they\u0027re doing. AllMonitorsReleasedOrThrow sounds weird to me.",
+      "parentUuid": "e55355fb_79d17bd6",
+      "range": {
+        "startLine": 106,
+        "startChar": 7,
+        "endLine": 106,
+        "endChar": 31
+      },
+      "revId": "b410b2720408b5ef3c0fb51cdeae3c4f041dac53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8521b987_283fa383",
         "filename": "runtime/stack.h",
         "patchSetId": 12
