@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa1a0ab2_4628b2bc",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-10-09T12:39:19Z",
+      "side": 1,
+      "message": "TryCompile will also turn kArm into kThumb2. Do you not need that?",
+      "range": {
+        "startLine": 855,
+        "startChar": 32,
+        "endLine": 855,
+        "endChar": 68
+      },
+      "revId": "e299d9cf14d361afd85863de037ad034ae78056d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a154685_8550e23e",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-10-09T12:39:19Z",
+      "side": 1,
+      "message": "Argh, I overlooked this too when I made you move the check here, didn\u0027t I? Sorry...",
+      "range": {
+        "startLine": 855,
+        "startChar": 6,
+        "endLine": 855,
+        "endChar": 31
+      },
+      "revId": "e299d9cf14d361afd85863de037ad034ae78056d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
