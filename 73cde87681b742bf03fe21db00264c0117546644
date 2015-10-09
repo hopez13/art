@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e55355fb_24018a1c",
+        "filename": "runtime/stack.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-09T20:02:07Z",
+      "side": 1,
+      "message": "The -1 should go into the callsite of VisitMonitors because it only makes sense for RootVisitor\n\nnit: the /*inout*/ stuff doesn\u0027t need spaces, although lint might complain so just put a NOLINT then :).",
+      "revId": "73cde87681b742bf03fe21db00264c0117546644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
