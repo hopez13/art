@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6afbb286_2c7bd3b3",
+        "filename": "runtime/base/hash_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-09T11:24:46Z",
+      "side": 1,
+      "message": "Has lint gone mad? \"Single-argument constructors should be marked explicit.\" I\u0027m very explicitly constructing a copy here! And an explicit copy constructor would be useless.",
+      "range": {
+        "startLine": 261,
+        "startChar": 4,
+        "endLine": 261,
+        "endChar": 31
+      },
+      "revId": "a38a7e73e1c1c9c8158094de642eb32af7755d25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
