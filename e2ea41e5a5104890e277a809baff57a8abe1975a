@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "2ae8da64_48de33c6",
+        "filename": "runtime/stack.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-09T18:16:53Z",
+      "side": 1,
+      "message": "Added a comment to the loop.",
+      "parentUuid": "45426131_5adae946",
+      "range": {
+        "startLine": 118,
+        "startChar": 11,
+        "endLine": 118,
+        "endChar": 44
+      },
+      "revId": "e2ea41e5a5104890e277a809baff57a8abe1975a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45426131_7ad7a51b",
         "filename": "runtime/stack.h",
         "patchSetId": 13
@@ -131,6 +155,24 @@
       "writtenOn": "2015-10-09T18:03:34Z",
       "side": 1,
       "message": "nit: add /*inout*/ to \u0026obj since it\u0027s non-obvious the obj is changing",
+      "revId": "e2ea41e5a5104890e277a809baff57a8abe1975a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a526bd9a_6f07e1e5",
+        "filename": "runtime/stack.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-09T18:16:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45426131_7ad7a51b",
       "revId": "e2ea41e5a5104890e277a809baff57a8abe1975a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
