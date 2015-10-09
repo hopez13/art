@@ -46,6 +46,30 @@
       "revId": "d45c0dd484b2952192ea8fd8f86888dbd6011ac1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a0fce78_237beab3",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1307,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:32:16Z",
+      "side": 1,
+      "message": "OK, so I guess the main problem is that GetOuterMethodClass can be null right? Which sounds bogus knowing that we\u0027re compiling it. Should you also add that as a comment?",
+      "parentUuid": "cad81e3d_5f4a4b93",
+      "range": {
+        "startLine": 1306,
+        "startChar": 0,
+        "endLine": 1307,
+        "endChar": 68
+      },
+      "revId": "d45c0dd484b2952192ea8fd8f86888dbd6011ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
