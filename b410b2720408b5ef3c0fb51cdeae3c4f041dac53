@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "e55355fb_79d17bd6",
+        "filename": "runtime/stack.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-09T18:03:34Z",
+      "side": 1,
+      "message": "Not sure if it\u0027s used terminology like that elsewhere, but to me \"Check\" sounds like it will either CHECK or DCHECK fail out instead of doing a throw.\n\nIf the \u0027Check\u0027 in the name is a sticking point, perhaps \"AllMonitorsReleasedOrThrow\" ?",
+      "parentUuid": "451b415b_267c38ed",
+      "range": {
+        "startLine": 106,
+        "startChar": 7,
+        "endLine": 106,
+        "endChar": 31
+      },
+      "revId": "b410b2720408b5ef3c0fb51cdeae3c4f041dac53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8521b987_283fa383",
         "filename": "runtime/stack.h",
         "patchSetId": 12
