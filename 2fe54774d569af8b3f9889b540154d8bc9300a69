@@ -46,6 +46,627 @@
       "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa1a0ab2_c6f022c2",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "reference_?",
+      "range": {
+        "startLine": 98,
+        "startChar": 22,
+        "endLine": 98,
+        "endChar": 26
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a6d3aed_5a1ff5a2",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "position_?",
+      "range": {
+        "startLine": 99,
+        "startChar": 9,
+        "endLine": 99,
+        "endChar": 13
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a0fce78_e3da7243",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "DISALLOW_COPY_AND_ASSIGN (here and all other classes below)",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 2
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a6d3aed_fae60910",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "Nit: one per line",
+      "range": {
+        "startLine": 114,
+        "startChar": 15,
+        "endLine": 115,
+        "endChar": 48
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6afbb286_cc5a0f5b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "Isn\u0027t that IsInstanceOrStaticField?",
+      "range": {
+        "startLine": 136,
+        "startChar": 7,
+        "endLine": 136,
+        "endChar": 22
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cad81e3d_1ff603c4",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "Maybe explain why too?",
+      "range": {
+        "startLine": 174,
+        "startChar": 57,
+        "endLine": 174,
+        "endChar": 85
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a27faf5_4a1ef3a4",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "Add DCHECK_EQ(i, ref_info-\u003eGetPosition()) ?",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 24
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cad81e3d_3ffbc7aa",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "method -\u003e a method",
+      "range": {
+        "startLine": 218,
+        "startChar": 5,
+        "endLine": 218,
+        "endChar": 11
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a6d3aed_9af34dcd",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "Add a comment why i doesn\u0027t go to the last and why j started a i + 1.",
+      "range": {
+        "startLine": 258,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 60
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a27faf5_8a0f4b6f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "Add a comment of what index2 and what index2 are.",
+      "range": {
+        "startLine": 295,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 69
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca557e3a_577a0cac",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "position",
+      "range": {
+        "startLine": 302,
+        "startChar": 19,
+        "endLine": 302,
+        "endChar": 22
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a27faf5_2a1f3fa4",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "This comment belongs to where you actually update the matrix.",
+      "range": {
+        "startLine": 309,
+        "startChar": 55,
+        "endLine": 310,
+        "endChar": 44
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a149288_2492d253",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "GetOrCreate?",
+      "range": {
+        "startLine": 341,
+        "startChar": 17,
+        "endLine": 341,
+        "endChar": 23
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6afbb286_ac3ce3fe",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "GetOrCreate?",
+      "range": {
+        "startLine": 351,
+        "startChar": 16,
+        "endLine": 351,
+        "endChar": 22
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a154685_05fb52aa",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "Why is that not set in the HeapLocation constructor?",
+      "range": {
+        "startLine": 363,
+        "startChar": 0,
+        "endLine": 367,
+        "endChar": 45
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a154685_45054a59",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "This does not seem to describe the line below.",
+      "range": {
+        "startLine": 390,
+        "startChar": 49,
+        "endLine": 391,
+        "endChar": 51
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca557e3a_976b04df",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "cannot",
+      "range": {
+        "startLine": 420,
+        "startChar": 14,
+        "endLine": 420,
+        "endChar": 17
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a27faf5_ea0c077c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "ops -\u003e operations.",
+      "range": {
+        "startLine": 450,
+        "startChar": 7,
+        "endLine": 450,
+        "endChar": 23
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a154685_a5e99ee1",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "Add DCHECK(!graph-\u003eIsDebuggable()).",
+      "range": {
+        "startLine": 530,
+        "startChar": 0,
+        "endLine": 530,
+        "endChar": 47
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a27faf5_0a451b84",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "More concrete example? Is that:\n\nint[] a \u003d foo();\nif () {\n  a[0] \u003d 2;\n} else {\n  a[0] \u003d 2;\n}\n\n// use a[0] \u003c---- going to be replaced with 2?",
+      "range": {
+        "startLine": 558,
+        "startChar": 21,
+        "endLine": 559,
+        "endChar": 27
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca557e3a_f76880e3",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "Mention that this is because of I/F and D/L array aliasing. Could you also mention the bug (I think there is one already).",
+      "range": {
+        "startLine": 611,
+        "startChar": 0,
+        "endLine": 611,
+        "endChar": 64
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a0fce78_c3f016c2",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "Maybe write it:\n\nif (heap_value \u003d\u003d kDefaultHeapValue \u0026\u0026 GetDefaultValue(value-\u003eGetType()) \u003d\u003d value {\n  return true;\n}\n\nreturn false.",
+      "range": {
+        "startLine": 628,
+        "startChar": 0,
+        "endLine": 631,
+        "endChar": 54
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a149288_4470ae9b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "This does not look right.",
+      "range": {
+        "startLine": 669,
+        "startChar": 0,
+        "endLine": 674,
+        "endChar": 7
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a149288_a48402d6",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "Please add a comment for this case.",
+      "range": {
+        "startLine": 683,
+        "startChar": 11,
+        "endLine": 683,
+        "endChar": 33
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a27faf5_6ac8173a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "I\u0027d drop this and handle it in MayAlias?",
+      "range": {
+        "startLine": 684,
+        "startChar": 0,
+        "endLine": 684,
+        "endChar": 48
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a149288_247bf2b3",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "Nit: one per line.",
+      "range": {
+        "startLine": 727,
+        "startChar": 21,
+        "endLine": 728,
+        "endChar": 69
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a0fce78_83e61e0f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-09T14:46:37Z",
+      "side": 1,
+      "message": "Nit: one per line",
+      "range": {
+        "startLine": 735,
+        "startChar": 21,
+        "endLine": 736,
+        "endChar": 74
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
