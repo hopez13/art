@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8538d9b1_f64f36a0",
+        "filename": "runtime/stack.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-09T18:00:44Z",
+      "side": 1,
+      "message": "Then I would have to test and write back to the vector, if it changed.",
+      "parentUuid": "eaf16251_064ede54",
+      "range": {
+        "startLine": 118,
+        "startChar": 11,
+        "endLine": 118,
+        "endChar": 44
+      },
+      "revId": "e2ea41e5a5104890e277a809baff57a8abe1975a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "451b415b_6cba8faa",
         "filename": "runtime/stack.h",
         "patchSetId": 13
@@ -83,6 +107,30 @@
       "writtenOn": "2015-10-09T17:25:47Z",
       "side": 1,
       "message": "Add a comment that says this contains GC roots?",
+      "range": {
+        "startLine": 404,
+        "startChar": 2,
+        "endLine": 404,
+        "endChar": 15
+      },
+      "revId": "e2ea41e5a5104890e277a809baff57a8abe1975a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "054dc959_5736441d",
+        "filename": "runtime/stack.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-09T18:00:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "451b415b_6cba8faa",
       "range": {
         "startLine": 404,
         "startChar": 2,
