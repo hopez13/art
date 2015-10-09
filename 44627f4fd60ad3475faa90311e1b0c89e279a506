@@ -249,6 +249,24 @@
     },
     {
       "key": {
+        "uuid": "2ae8da64_688d7702",
+        "filename": "runtime/stack.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-09T18:03:34Z",
+      "side": 1,
+      "message": "What do the visitors do other than move the pointer?\n\nI know in read barrier you can one of the color bits to mark it as moved.\n\nIf those are the only two ways it can \"mutate\", it\u0027s still \"logically const\".\n\nI can see how that might be a larger change though, it\u0027s better to use non-const then to use const-cast, so this is probably perfectly fine to leave it like this in this CL (no change needed).\n\nIn the long run it would be better if the GC visitor interfaces were const and non-const separated.",
+      "parentUuid": "8521b987_2be87ddb",
+      "revId": "44627f4fd60ad3475faa90311e1b0c89e279a506",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5061411e_75cf3be0",
         "filename": "runtime/stack.h",
         "patchSetId": 11
