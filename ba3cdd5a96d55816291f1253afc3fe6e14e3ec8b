@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "451b415b_9841c122",
+        "filename": "runtime/verifier/register_line.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-10T04:21:12Z",
+      "side": 1,
+      "message": "I believe this is correct, and I don\u0027t need two passes. Even if I find an alias for v0 in v1, but v1 itself needs to be reset to zero, it won\u0027t find v0 as an alias partner anymore and complain.",
+      "range": {
+        "startLine": 455,
+        "startChar": 10,
+        "endLine": 460,
+        "endChar": 62
+      },
+      "revId": "ba3cdd5a96d55816291f1253afc3fe6e14e3ec8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
