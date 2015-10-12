@@ -22,6 +22,30 @@
       "revId": "25bdb30462c3023a2fbaae5aeec4d94fc925f191",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfb7aeb4_47108ed7",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-12T17:57:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f30ba11_42a6d2ff",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 43
+      },
+      "revId": "25bdb30462c3023a2fbaae5aeec4d94fc925f191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
