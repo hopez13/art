@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f30ba11_42a6d2ff",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-12T17:42:43Z",
+      "side": 1,
+      "message": "Consider putting this into the h file, and use it in the class-linker?",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 43
+      },
+      "revId": "25bdb30462c3023a2fbaae5aeec4d94fc925f191",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
