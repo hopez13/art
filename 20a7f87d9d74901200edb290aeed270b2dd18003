@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aadf6a22_9e83fd94",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1110,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-12T11:12:32Z",
+      "side": 1,
+      "message": "Doesn\u0027t \"TypedObjectArray\" imply \"NonPrimitiveArray\"? (Has this already been unpoisoned?)",
+      "range": {
+        "startLine": 1110,
+        "startChar": 6,
+        "endLine": 1110,
+        "endChar": 43
+      },
+      "revId": "20a7f87d9d74901200edb290aeed270b2dd18003",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
