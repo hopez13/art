@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ff32061b_c7a2f26d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2284,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-12T21:41:30Z",
+      "side": 1,
+      "message": "The problem is the compiler will just put asm calls to the entrypoints even if they are not invocable. This works with abstract methods since they will have this bridge as their entrypoint which will throw the appropriate exception. The problem we have is that we create the conflict method by copying an interface method. The interface method might have code though so we need to make sure that we don\u0027t get a call to this code.",
+      "parentUuid": "bfb7aeb4_6d4d7135",
+      "range": {
+        "startLine": 2278,
+        "startChar": 0,
+        "endLine": 2284,
+        "endChar": 1
+      },
+      "revId": "d3fbeb1290a5e1a2868cd28c04aef10e4a364b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfb7aeb4_6d26d187",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-12T21:04:55Z",
       "side": 1,
       "message": "This doesn\u0027t really help you. Once the verifier gets run, the methods will be marked preverified (this only forms a tri-state with the class\u0027 preverified flag).",
+      "range": {
+        "startLine": 5726,
+        "startChar": 6,
+        "endLine": 5726,
+        "endChar": 80
+      },
+      "revId": "d3fbeb1290a5e1a2868cd28c04aef10e4a364b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f30ba11_c89fa3d4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5726,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-12T21:41:30Z",
+      "side": 1,
+      "message": "No. See class.cc we will only mark invocable methods as preverified. We need this because this is copied from an interface method which might have already been (correctly) preverified.",
+      "parentUuid": "bfb7aeb4_6d26d187",
       "range": {
         "startLine": 5726,
         "startChar": 6,
