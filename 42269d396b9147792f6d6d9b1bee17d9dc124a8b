@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0536a9c7_dd696bbc",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-12T21:41:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8538d9b1_1c84e1d2",
+      "range": {
+        "startLine": 205,
+        "startChar": 16,
+        "endLine": 205,
+        "endChar": 17
+      },
+      "revId": "42269d396b9147792f6d6d9b1bee17d9dc124a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a526bd9a_75ab32c7",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "0536a9c7_fd6e2fc1",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-12T21:41:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a526bd9a_75ab32c7",
+      "range": {
+        "startLine": 648,
+        "startChar": 23,
+        "endLine": 648,
+        "endChar": 24
+      },
+      "revId": "42269d396b9147792f6d6d9b1bee17d9dc124a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eaba42ed_fe1659ce",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-10-09T23:15:21Z",
       "side": 1,
       "message": "This is bad. The original test could be inlined, making the branch simple and possibly easier to predict, this can\u0027t.\n\nWhy not (!Invokable()) { Throw... ?",
+      "range": {
+        "startLine": 127,
+        "startChar": 22,
+        "endLine": 127,
+        "endChar": 63
+      },
+      "revId": "42269d396b9147792f6d6d9b1bee17d9dc124a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e55355fb_ca7e07a2",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-12T21:41:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eaba42ed_fe1659ce",
       "range": {
         "startLine": 127,
         "startChar": 22,
