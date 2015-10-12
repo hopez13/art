@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff13e649_594de334",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4721,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-12T19:50:25Z",
+      "side": 1,
+      "message": "Should we rely on GVN calling HBinaryOperation::OrderInputs()? (And check only InputAt(1) and avoid the extra index calculations below.)",
+      "range": {
+        "startLine": 4721,
+        "startChar": 2,
+        "endLine": 4721,
+        "endChar": 57
+      },
+      "revId": "18cd75c8415f2e98012cc7108129f8200e8854d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
