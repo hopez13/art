@@ -22,6 +22,30 @@
       "revId": "20a7f87d9d74901200edb290aeed270b2dd18003",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a149288_44726e15",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1110,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-12T11:16:57Z",
+      "side": 1,
+      "message": "Yup, good catch, I added a test.",
+      "parentUuid": "aadf6a22_9e83fd94",
+      "range": {
+        "startLine": 1110,
+        "startChar": 6,
+        "endLine": 1110,
+        "endChar": 43
+      },
+      "revId": "20a7f87d9d74901200edb290aeed270b2dd18003",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
