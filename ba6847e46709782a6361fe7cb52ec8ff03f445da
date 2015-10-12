@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bfb7aeb4_90b31a3a",
+        "filename": "runtime/monitor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-12T23:23:53Z",
+      "side": 1,
+      "message": "You shouldn\u0027t annotate this if you don\u0027t update all the callers...",
+      "range": {
+        "startLine": 69,
+        "startChar": 6,
+        "endLine": 69,
+        "endChar": 40
+      },
+      "revId": "ba6847e46709782a6361fe7cb52ec8ff03f445da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
