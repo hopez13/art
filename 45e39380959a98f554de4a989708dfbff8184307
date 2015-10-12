@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9f290a88_2e51c749",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-12T10:49:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3065adc4_9a71cd6f",
+      "range": {
+        "startLine": 1065,
+        "startChar": 13,
+        "endLine": 1065,
+        "endChar": 72
+      },
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30fe8d70_f254088d",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-08T18:53:52Z",
       "side": 1,
       "message": "Split this to two separate checks for source and destination. Create a helper function IsArrayLengthOf(length, array) that also checks for array-\u003eIsNewArray() \u0026\u0026 array-\u003eInputAt(0) \u003d\u003d length.\n\nThere will be an extra call to the virtual IsArrayLength(). Should we annotate all As\u003cX\u003e() methods with the gcc attribute pure to let the compiler optimize away extra calls?",
+      "range": {
+        "startLine": 1080,
+        "startChar": 0,
+        "endLine": 1088,
+        "endChar": 5
+      },
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff8686d4_814c3ab3",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-12T10:49:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30fe8d70_f254088d",
       "range": {
         "startLine": 1080,
         "startChar": 0,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "9f290a88_0e560b42",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-12T10:49:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5307d7f_b67828b5",
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5307d7f_56875410",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 3
@@ -76,6 +142,30 @@
       "writtenOn": "2015-10-08T17:13:50Z",
       "side": 1,
       "message": "when can src_pos or dest_post be null?",
+      "range": {
+        "startLine": 925,
+        "startChar": 7,
+        "endLine": 925,
+        "endChar": 14
+      },
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a149288_84b10638",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-12T10:49:18Z",
+      "side": 1,
+      "message": "If they are not constants.",
+      "parentUuid": "a5307d7f_56875410",
       "range": {
         "startLine": 925,
         "startChar": 7,
@@ -158,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "7f4d3685_8502e245",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 980,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-12T10:49:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "459c212a_db8313cb",
+      "range": {
+        "startLine": 980,
+        "startChar": 11,
+        "endLine": 980,
+        "endChar": 17
+      },
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5307d7f_d6ecc4c6",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 3
@@ -169,6 +283,30 @@
       "writtenOn": "2015-10-08T18:53:52Z",
       "side": 1,
       "message": "dest_pos",
+      "range": {
+        "startLine": 982,
+        "startChar": 11,
+        "endLine": 982,
+        "endChar": 18
+      },
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca557e3a_f7040095",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-12T10:49:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5307d7f_d6ecc4c6",
       "range": {
         "startLine": 982,
         "startChar": 11,
@@ -204,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "6a149288_e4aefad5",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-12T10:49:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0079550_b3df2270",
+      "range": {
+        "startLine": 1001,
+        "startChar": 12,
+        "endLine": 1001,
+        "endChar": 24
+      },
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70700519_c7c3e067",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 3
@@ -215,6 +377,30 @@
       "writtenOn": "2015-10-08T18:53:52Z",
       "side": 1,
       "message": "You may have unpoisoned one or both above.",
+      "range": {
+        "startLine": 1100,
+        "startChar": 0,
+        "endLine": 1101,
+        "endChar": 26
+      },
+      "revId": "45e39380959a98f554de4a989708dfbff8184307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff8686d4_2151ae49",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-12T10:49:18Z",
+      "side": 1,
+      "message": "Good point. I\u0027ll unpoison them if one of the object is any is typed \u0027Object\u0027.",
+      "parentUuid": "70700519_c7c3e067",
       "range": {
         "startLine": 1100,
         "startChar": 0,
