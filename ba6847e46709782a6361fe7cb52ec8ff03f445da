@@ -22,6 +22,30 @@
       "revId": "ba6847e46709782a6361fe7cb52ec8ff03f445da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf3c0ef3_a5388a98",
+        "filename": "runtime/monitor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-12T23:32:14Z",
+      "side": 1,
+      "message": "+1, isn\u0027t there an assert suspensions are allowed or similar?",
+      "parentUuid": "bfb7aeb4_90b31a3a",
+      "range": {
+        "startLine": 69,
+        "startChar": 6,
+        "endLine": 69,
+        "endChar": 40
+      },
+      "revId": "ba6847e46709782a6361fe7cb52ec8ff03f445da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
