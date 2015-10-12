@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "bfb7aeb4_6d4d7135",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2284,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-12T21:09:17Z",
+      "side": 1,
+      "message": "The runtime can live without a compiler, so the comment is a bit weird and connects things a bit tighter than I\u0027d like. But maybe I just misunderstand what you mean by \"direct invoke.\"",
+      "range": {
+        "startLine": 2278,
+        "startChar": 0,
+        "endLine": 2284,
+        "endChar": 1
+      },
+      "revId": "d3fbeb1290a5e1a2868cd28c04aef10e4a364b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfb7aeb4_6d26d187",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
