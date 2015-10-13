@@ -355,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "ff8686d4_81799af9",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-13T21:24:23Z",
+      "side": 1,
+      "message": "But I\u0027d like to see in the comment why 32 and 8 are related.",
+      "parentUuid": "1f30ba11_25263886",
+      "range": {
+        "startLine": 174,
+        "startChar": 57,
+        "endLine": 174,
+        "endChar": 85
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a27faf5_4a1ef3a4",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 6
@@ -1013,6 +1037,30 @@
     },
     {
       "key": {
+        "uuid": "7f4d3685_250a0ea6",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-13T21:24:23Z",
+      "side": 1,
+      "message": "Yes please :-)",
+      "parentUuid": "7fa9b65d_cb55698d",
+      "range": {
+        "startLine": 558,
+        "startChar": 21,
+        "endLine": 559,
+        "endChar": 27
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca557e3a_f76880e3",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 6
@@ -1142,6 +1190,30 @@
       "side": 1,
       "message": "Strange, thought I corrected that already. Changed the second redundant_store to false.\n\nAlso since this isn\u0027t array element, I/F or J/D aliasing cannot really happen anyway? Maybe I should just delete the type checking here?",
       "parentUuid": "6a149288_4470ae9b",
+      "range": {
+        "startLine": 669,
+        "startChar": 0,
+        "endLine": 674,
+        "endChar": 7
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a149288_4a971711",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-13T21:24:23Z",
+      "side": 1,
+      "message": "yeah i/F and J/D do not affect fields. So removing the check sgtm.",
+      "parentUuid": "dfb462b2_d1ac3675",
       "range": {
         "startLine": 669,
         "startChar": 0,
