@@ -22,6 +22,69 @@
       "revId": "05d73170c0c069aa85677ec985b53d759b5d837b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fae6a64_6076ce9a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 2829,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-13T21:23:59Z",
+      "side": 1,
+      "message": "would this be cleaner with GetValueUnsigned?",
+      "range": {
+        "startLine": 2829,
+        "startChar": 41,
+        "endLine": 2829,
+        "endChar": 49
+      },
+      "revId": "05d73170c0c069aa85677ec985b53d759b5d837b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfb462b2_72446532",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 2834,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-13T21:23:59Z",
+      "side": 1,
+      "message": "see 2829",
+      "range": {
+        "startLine": 2834,
+        "startChar": 41,
+        "endLine": 2834,
+        "endChar": 49
+      },
+      "revId": "05d73170c0c069aa85677ec985b53d759b5d837b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfb462b2_f2e6159a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 2948,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-13T21:23:59Z",
+      "side": 1,
+      "message": "Why is it all copy-paste?\n\nThe only thing different is GetCondition, GetOppositeCondition, Compute. It could be refactored into common base class using CRTP.",
+      "revId": "05d73170c0c069aa85677ec985b53d759b5d837b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
