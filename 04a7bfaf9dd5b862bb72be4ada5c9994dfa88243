@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fa8725b_33735217",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4993,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-13T21:38:50Z",
+      "side": 1,
+      "message": "Is this to optimize baseline? Otherwise I\u0027d assume constant folding should have taken care of this. Maybe add a comment?",
+      "range": {
+        "startLine": 4984,
+        "startChar": 2,
+        "endLine": 4993,
+        "endChar": 3
+      },
+      "revId": "04a7bfaf9dd5b862bb72be4ada5c9994dfa88243",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fa9b65d_516cc7bb",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5013,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-13T21:38:50Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 5004,
+        "startChar": 2,
+        "endLine": 5013,
+        "endChar": 3
+      },
+      "revId": "04a7bfaf9dd5b862bb72be4ada5c9994dfa88243",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
