@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bfb7aeb4_d6dc2a83",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-13T15:16:56Z",
+      "side": 1,
+      "message": "The callers (the interpreters) do not have the handle scope.\n\nAnd in case this ever gets sensitive, this setup allows us to template-specialize and not have the handle scope in case of !kMonitorCounting.",
+      "parentUuid": "ff13e649_3958efe5",
+      "range": {
+        "startLine": 86,
+        "startChar": 34,
+        "endLine": 86,
+        "endChar": 45
+      },
+      "revId": "d6c6f011d6a4430b487bd5b0017b473bbdf76e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a27faf5_edda6143",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 4
