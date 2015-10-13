@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9fae6a64_2012169f",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-13T20:52:16Z",
+      "side": 1,
+      "message": "Maybe fix this to size_t while we\u0027re at it?",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 78,
+        "endChar": 10
+      },
+      "revId": "738493f4c0c1227f615c8527560cf33be1c629c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfb462b2_72eb05a8",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-13T20:52:16Z",
+      "side": 1,
+      "message": "nit: SetSize?",
+      "revId": "738493f4c0c1227f615c8527560cf33be1c629c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
