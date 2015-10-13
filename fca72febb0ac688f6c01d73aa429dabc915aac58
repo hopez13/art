@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "3fa3be81_7d33d72f",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1885,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-13T18:10:09Z",
+      "side": 1,
+      "message": "Okay, I have added some optimization in that direction, while being careful with incorrect sign extension, as you suggested offline.\n\nAlso, if I read all the code correctly, *all* conditions at this point for MIPS64 are assumed to be int (not long), correct? We may want to generalize that in the future.\n\nFor now I propose to add a more explicit CHECK fail on the type.",
+      "parentUuid": "9fae6a64_4f48a526",
+      "range": {
+        "startLine": 1859,
+        "startChar": 0,
+        "endLine": 1885,
+        "endChar": 12
+      },
+      "revId": "fca72febb0ac688f6c01d73aa429dabc915aac58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f4d3685_e50d160c",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 9
