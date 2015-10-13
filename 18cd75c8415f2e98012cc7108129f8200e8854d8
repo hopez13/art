@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2a27faf5_4d428d23",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3439,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-13T15:33:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a27faf5_ad4d095a",
+      "range": {
+        "startLine": 3439,
+        "startChar": 8,
+        "endLine": 3439,
+        "endChar": 51
+      },
+      "revId": "18cd75c8415f2e98012cc7108129f8200e8854d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f4d3685_655da610",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "This looks shorter and better to me.",
       "parentUuid": "7f4d3685_655da610",
+      "range": {
+        "startLine": 4712,
+        "startChar": 90,
+        "endLine": 4712,
+        "endChar": 95
+      },
+      "revId": "18cd75c8415f2e98012cc7108129f8200e8854d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a149288_ca33072b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4712,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-13T15:33:42Z",
+      "side": 1,
+      "message": "Keeping Opcode param.",
+      "parentUuid": "ff13e649_fce4a503",
       "range": {
         "startLine": 4712,
         "startChar": 90,
@@ -143,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "ff8686d4_81ee7a25",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4721,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-13T15:33:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cad81e3d_62f77846",
+      "range": {
+        "startLine": 4721,
+        "startChar": 2,
+        "endLine": 4721,
+        "endChar": 57
+      },
+      "revId": "18cd75c8415f2e98012cc7108129f8200e8854d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fa65e28_8bcead90",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -178,6 +250,24 @@
     },
     {
       "key": {
+        "uuid": "9f290a88_6ea6af00",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4727,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-13T15:33:42Z",
+      "side": 1,
+      "message": "Done (expecting this to be used more widely).",
+      "parentUuid": "ff13e649_1c007949",
+      "revId": "18cd75c8415f2e98012cc7108129f8200e8854d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aadf6a22_9e7dbdec",
         "filename": "compiler/optimizing/code_generator_arm.h",
         "patchSetId": 3
@@ -207,6 +297,24 @@
       "side": 1,
       "message": "sounds like a good idea to have consistent naming.",
       "parentUuid": "aadf6a22_9e7dbdec",
+      "revId": "18cd75c8415f2e98012cc7108129f8200e8854d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a149288_8a390f0f",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-13T15:33:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fa65e28_eb0bf137",
       "revId": "18cd75c8415f2e98012cc7108129f8200e8854d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
