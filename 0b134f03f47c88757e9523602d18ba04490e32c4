@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aadf6a22_de87454e",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1398,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-13T10:29:24Z",
+      "side": 1,
+      "message": "\u003e\u003d",
+      "range": {
+        "startLine": 1398,
+        "startChar": 24,
+        "endLine": 1398,
+        "endChar": 25
+      },
+      "revId": "0b134f03f47c88757e9523602d18ba04490e32c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f290a88_6e210f6d",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1363,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-13T10:29:24Z",
+      "side": 1,
+      "message": "Go straight for the SUBS and avoid the CMP:\n\n    __ subs(temp, input_len, ShifterOperand(pos_const));\n    __ b(slow_path-\u003eGetEntryLabel(), LT);",
+      "range": {
+        "startLine": 1359,
+        "startChar": 0,
+        "endLine": 1363,
+        "endChar": 50
+      },
+      "revId": "0b134f03f47c88757e9523602d18ba04490e32c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca557e3a_9ac849a8",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1387,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-13T10:29:24Z",
+      "side": 1,
+      "message": "Reorder SUBS before BLT to get rid of the CMP.",
+      "range": {
+        "startLine": 1383,
+        "startChar": 0,
+        "endLine": 1387,
+        "endChar": 49
+      },
+      "revId": "0b134f03f47c88757e9523602d18ba04490e32c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff13e649_d99c53e2",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1422,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-13T10:29:24Z",
+      "side": 1,
+      "message": "Result is unused if src_pos.IsConstant() \u0026\u0026 dest_pos.IsConstant(). Adjust the condition to avoid the CMP in that case.",
+      "range": {
+        "startLine": 1422,
+        "startChar": 4,
+        "endLine": 1422,
+        "endChar": 38
+      },
+      "revId": "0b134f03f47c88757e9523602d18ba04490e32c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f290a88_2e42e704",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1599,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-13T10:29:24Z",
+      "side": 1,
+      "message": "Why not Address(tempN, element_size, Address::PostIndex)? These LDR/STR instructions are already 32-bit because of IP being a high register.",
+      "range": {
+        "startLine": 1596,
+        "startChar": 0,
+        "endLine": 1599,
+        "endChar": 38
+      },
+      "revId": "0b134f03f47c88757e9523602d18ba04490e32c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
