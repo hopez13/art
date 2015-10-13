@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "2a27faf5_cd5afd5a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-13T11:20:01Z",
+      "side": 1,
+      "message": "Please add a TODO that these can be merged into a single branch with the exception of \"equal or unordered\" and \"not equal\". (ARMv7-A/ARMv7-R manual, table A8-1 in section A8.3.)\n\nSimilar for arm64. (ARMv8 manual, table C1-1 in section C1.2.3.)",
+      "range": {
+        "startLine": 1163,
+        "startChar": 0,
+        "endLine": 1168,
+        "endChar": 55
+      },
+      "revId": "fca72febb0ac688f6c01d73aa429dabc915aac58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca557e3a_5aa071e5",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-13T11:20:01Z",
+      "side": 1,
+      "message": "I think we should use a temporary and do CMP low+SBC high, instead of the many jumps. I would appreciate a TODO.",
+      "range": {
+        "startLine": 1185,
+        "startChar": 0,
+        "endLine": 1186,
+        "endChar": 33
+      },
+      "revId": "fca72febb0ac688f6c01d73aa429dabc915aac58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa65e28_4b03254c",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1232,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-13T11:20:01Z",
+      "side": 1,
+      "message": "For certain combinations of val_low and final_condition, this can be always-true or always-false. Please add a TODO to optimize the code in such cases.",
+      "range": {
+        "startLine": 1231,
+        "startChar": 0,
+        "endLine": 1232,
+        "endChar": 52
+      },
+      "revId": "fca72febb0ac688f6c01d73aa429dabc915aac58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9fae6a64_4f48a526",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 9
@@ -18,6 +87,121 @@
         "startChar": 0,
         "endLine": 1885,
         "endChar": 12
+      },
+      "revId": "fca72febb0ac688f6c01d73aa429dabc915aac58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f4d3685_e50d160c",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-13T11:20:01Z",
+      "side": 1,
+      "message": "I was previously told not to submit TODO with username to AOSP.",
+      "range": {
+        "startLine": 618,
+        "startChar": 8,
+        "endLine": 618,
+        "endChar": 14
+      },
+      "revId": "fca72febb0ac688f6c01d73aa429dabc915aac58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f290a88_0e860ba8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 2827,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-13T11:20:01Z",
+      "side": 1,
+      "message": "private",
+      "range": {
+        "startLine": 2827,
+        "startChar": 2,
+        "endLine": 2827,
+        "endChar": 70
+      },
+      "revId": "fca72febb0ac688f6c01d73aa429dabc915aac58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca557e3a_daabe1c3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 2859,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-13T11:20:01Z",
+      "side": 1,
+      "message": "private",
+      "range": {
+        "startLine": 2859,
+        "startChar": 2,
+        "endLine": 2859,
+        "endChar": 71
+      },
+      "revId": "fca72febb0ac688f6c01d73aa429dabc915aac58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aadf6a22_010a2c5d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 2891,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-13T11:20:01Z",
+      "side": 1,
+      "message": "private",
+      "range": {
+        "startLine": 2891,
+        "startChar": 2,
+        "endLine": 2891,
+        "endChar": 70
+      },
+      "revId": "fca72febb0ac688f6c01d73aa429dabc915aac58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a149288_a7cb64a3",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 2923,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-13T11:20:01Z",
+      "side": 1,
+      "message": "private",
+      "range": {
+        "startLine": 2923,
+        "startChar": 2,
+        "endLine": 2923,
+        "endChar": 71
       },
       "revId": "fca72febb0ac688f6c01d73aa429dabc915aac58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
