@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3fa65e28_cb16f590",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1398,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-13T10:58:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aadf6a22_de87454e",
+      "range": {
+        "startLine": 1398,
+        "startChar": 24,
+        "endLine": 1398,
+        "endChar": 25
+      },
+      "revId": "0b134f03f47c88757e9523602d18ba04490e32c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f290a88_6e210f6d",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-13T10:29:24Z",
       "side": 1,
       "message": "Go straight for the SUBS and avoid the CMP:\n\n    __ subs(temp, input_len, ShifterOperand(pos_const));\n    __ b(slow_path-\u003eGetEntryLabel(), LT);",
+      "range": {
+        "startLine": 1359,
+        "startChar": 0,
+        "endLine": 1363,
+        "endChar": 50
+      },
+      "revId": "0b134f03f47c88757e9523602d18ba04490e32c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa65e28_2b0cd97d",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1363,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-13T10:58:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f290a88_6e210f6d",
       "range": {
         "startLine": 1359,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9f290a88_0e472b15",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1387,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-13T10:58:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca557e3a_9ac849a8",
+      "range": {
+        "startLine": 1383,
+        "startChar": 0,
+        "endLine": 1387,
+        "endChar": 49
+      },
+      "revId": "0b134f03f47c88757e9523602d18ba04490e32c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff13e649_d99c53e2",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "ff13e649_f92ef72a",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1422,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-13T10:58:33Z",
+      "side": 1,
+      "message": "Good catch. Done here in and the x64 version.",
+      "parentUuid": "ff13e649_d99c53e2",
+      "range": {
+        "startLine": 1422,
+        "startChar": 4,
+        "endLine": 1422,
+        "endChar": 38
+      },
+      "revId": "0b134f03f47c88757e9523602d18ba04490e32c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f290a88_2e42e704",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2015-10-13T10:29:24Z",
       "side": 1,
       "message": "Why not Address(tempN, element_size, Address::PostIndex)? These LDR/STR instructions are already 32-bit because of IP being a high register.",
+      "range": {
+        "startLine": 1596,
+        "startChar": 0,
+        "endLine": 1599,
+        "endChar": 38
+      },
+      "revId": "0b134f03f47c88757e9523602d18ba04490e32c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f4d3685_c5e33a88",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1599,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-13T10:58:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f290a88_2e42e704",
       "range": {
         "startLine": 1596,
         "startChar": 0,
