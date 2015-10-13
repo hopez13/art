@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "df39c202_359ae270",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 2829,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-13T21:33:21Z",
+      "side": 1,
+      "message": "It would if that was there yes. We have GetValueAsUint64() which I could use for the 64 bit case, but it would be overkill for the 32 bit; \n\nthis way, the semantics seems hopefully more clear",
+      "parentUuid": "9fae6a64_6076ce9a",
+      "range": {
+        "startLine": 2829,
+        "startChar": 41,
+        "endLine": 2829,
+        "endChar": 49
+      },
+      "revId": "05d73170c0c069aa85677ec985b53d759b5d837b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfb462b2_72446532",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 12
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "3fa3be81_8c81c6fa",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 2834,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-13T21:33:21Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "dfb462b2_72446532",
+      "range": {
+        "startLine": 2834,
+        "startChar": 41,
+        "endLine": 2834,
+        "endChar": 49
+      },
+      "revId": "05d73170c0c069aa85677ec985b53d759b5d837b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfb462b2_f2e6159a",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 12
@@ -82,6 +130,24 @@
       "writtenOn": "2015-10-13T21:23:59Z",
       "side": 1,
       "message": "Why is it all copy-paste?\n\nThe only thing different is GetCondition, GetOppositeCondition, Compute. It could be refactored into common base class using CRTP.",
+      "revId": "05d73170c0c069aa85677ec985b53d759b5d837b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fa9b65d_b183bbcb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 2948,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-13T21:33:21Z",
+      "side": 1,
+      "message": "I followed the structure used for the original comparisons. Happy to refactor if we feel this has reached a point it is not useful anymore",
+      "parentUuid": "dfb462b2_f2e6159a",
       "revId": "05d73170c0c069aa85677ec985b53d759b5d837b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
