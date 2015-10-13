@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa65e28_2bb7b911",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-10-13T08:31:13Z",
+      "side": 1,
+      "message": "This is the fix (it was a CHECK_GT before)",
+      "range": {
+        "startLine": 967,
+        "startChar": 2,
+        "endLine": 967,
+        "endChar": 10
+      },
+      "revId": "b2feaafd89813af69c65da95e0b51b1a4cecaf0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
