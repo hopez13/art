@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "df39c202_5a47d58e",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 5451,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-13T19:10:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfb462b2_cf056e28",
+      "range": {
+        "startLine": 5391,
+        "startChar": 0,
+        "endLine": 5451,
+        "endChar": 2
+      },
+      "revId": "d798580ddcbc3a9e243012beded2364ac907f17f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f30ba11_772d92c7",
         "filename": "compiler/utils/x86_64/assembler_x86_64.h",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-13T18:49:53Z",
       "side": 1,
       "message": "As you\u0027re touching things, fix indentation?",
+      "range": {
+        "startLine": 272,
+        "startChar": 0,
+        "endLine": 306,
+        "endChar": 33
+      },
+      "revId": "d798580ddcbc3a9e243012beded2364ac907f17f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfb7aeb4_c15ea67e",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-13T19:10:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f30ba11_772d92c7",
       "range": {
         "startLine": 272,
         "startChar": 0,
