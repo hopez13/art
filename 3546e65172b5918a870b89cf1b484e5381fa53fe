@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df39c202_ef570de8",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 2536,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-13T17:09:43Z",
+      "side": 1,
+      "message": "Can you add a TODO here so that we can have ExperimentalFlags be independent of Runtime?\n\ne.g. a global flag that determines whether or not experimental flags are enabled, or some flag that gets plumbed to DexFileVerifier only.\n\n(no code change needed)",
+      "revId": "3546e65172b5918a870b89cf1b484e5381fa53fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
