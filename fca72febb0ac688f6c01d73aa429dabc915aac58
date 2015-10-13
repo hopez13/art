@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dfb462b2_cf048ee5",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-13T19:42:15Z",
+      "side": 1,
+      "message": "Ok, a bit outside the scope of this CL, but I don\u0027t mind :-)\nAdded a TODO",
+      "parentUuid": "2a27faf5_cd5afd5a",
+      "range": {
+        "startLine": 1163,
+        "startChar": 0,
+        "endLine": 1168,
+        "endChar": 55
+      },
+      "revId": "fca72febb0ac688f6c01d73aa429dabc915aac58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca557e3a_5aa071e5",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-13T11:20:01Z",
       "side": 1,
       "message": "I think we should use a temporary and do CMP low+SBC high, instead of the many jumps. I would appreciate a TODO.",
+      "range": {
+        "startLine": 1185,
+        "startChar": 0,
+        "endLine": 1186,
+        "endChar": 33
+      },
+      "revId": "fca72febb0ac688f6c01d73aa429dabc915aac58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dfb462b2_8f269684",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-13T19:42:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca557e3a_5aa071e5",
       "range": {
         "startLine": 1185,
         "startChar": 0,
@@ -141,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "3fa3be81_98cd8143",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-13T19:42:15Z",
+      "side": 1,
+      "message": "You are right. Removed ldap",
+      "parentUuid": "7f4d3685_e50d160c",
+      "range": {
+        "startLine": 618,
+        "startChar": 8,
+        "endLine": 618,
+        "endChar": 14
+      },
+      "revId": "fca72febb0ac688f6c01d73aa429dabc915aac58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f290a88_0e860ba8",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 9
@@ -152,6 +224,30 @@
       "writtenOn": "2015-10-13T11:20:01Z",
       "side": 1,
       "message": "private",
+      "range": {
+        "startLine": 2827,
+        "startChar": 2,
+        "endLine": 2827,
+        "endChar": 70
+      },
+      "revId": "fca72febb0ac688f6c01d73aa429dabc915aac58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff32061b_7643d627",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 2827,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-13T19:42:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f290a88_0e860ba8",
       "range": {
         "startLine": 2827,
         "startChar": 2,
@@ -187,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "bfb7aeb4_5cd379c4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 2859,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-13T19:42:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca557e3a_daabe1c3",
+      "range": {
+        "startLine": 2859,
+        "startChar": 2,
+        "endLine": 2859,
+        "endChar": 71
+      },
+      "revId": "fca72febb0ac688f6c01d73aa429dabc915aac58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aadf6a22_010a2c5d",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 9
@@ -210,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "9fae6a64_7520d238",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 2891,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-13T19:42:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aadf6a22_010a2c5d",
+      "range": {
+        "startLine": 2891,
+        "startChar": 2,
+        "endLine": 2891,
+        "endChar": 70
+      },
+      "revId": "fca72febb0ac688f6c01d73aa429dabc915aac58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a149288_a7cb64a3",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 9
@@ -221,6 +365,30 @@
       "writtenOn": "2015-10-13T11:20:01Z",
       "side": 1,
       "message": "private",
+      "range": {
+        "startLine": 2923,
+        "startChar": 2,
+        "endLine": 2923,
+        "endChar": 71
+      },
+      "revId": "fca72febb0ac688f6c01d73aa429dabc915aac58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fa9b65d_ee25cebe",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 2923,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-13T19:42:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a149288_a7cb64a3",
       "range": {
         "startLine": 2923,
         "startChar": 2,
