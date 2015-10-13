@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9fae6a64_4f48a526",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1885,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-10-13T01:03:08Z",
+      "side": 1,
+      "message": "Loads of the immediate could be avoided if the immediate\u0027s value is in the right range (very similarly to the above cases for signed comparison). Otherwise OK.",
+      "range": {
+        "startLine": 1859,
+        "startChar": 0,
+        "endLine": 1885,
+        "endChar": 12
+      },
+      "revId": "fca72febb0ac688f6c01d73aa429dabc915aac58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
