@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "bfb7aeb4_f6528ea2",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-13T15:28:24Z",
+      "side": 1,
+      "message": "The callers don\u0027t have handle scopes.",
+      "parentUuid": "ff13e649_3958efe5",
+      "range": {
+        "startLine": 86,
+        "startChar": 34,
+        "endLine": 86,
+        "endChar": 45
+      },
+      "revId": "d6c6f011d6a4430b487bd5b0017b473bbdf76e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a27faf5_edda6143",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 4
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "3fa3be81_9299e2f0",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-13T15:28:24Z",
+      "side": 1,
+      "message": "Unnecessary, but done.",
+      "parentUuid": "2a27faf5_edda6143",
+      "range": {
+        "startLine": 91,
+        "startChar": 2,
+        "endLine": 91,
+        "endChar": 7
+      },
+      "revId": "d6c6f011d6a4430b487bd5b0017b473bbdf76e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aadf6a22_3e8f496d",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 4
@@ -107,6 +155,30 @@
       "writtenOn": "2015-10-13T08:13:36Z",
       "side": 1,
       "message": "h_ref-\u003e",
+      "range": {
+        "startLine": 103,
+        "startChar": 2,
+        "endLine": 103,
+        "endChar": 6
+      },
+      "revId": "d6c6f011d6a4430b487bd5b0017b473bbdf76e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa3be81_b2965ebc",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-13T15:28:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aadf6a22_3e8f496d",
       "range": {
         "startLine": 103,
         "startChar": 2,
