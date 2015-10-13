@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cad81e3d_82147c55",
+        "filename": "runtime/arch/stub_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-13T09:29:30Z",
+      "side": 1,
+      "message": "Do we want to add .cfi_adjust_offset?",
+      "revId": "0c452ea5175ec2f646e5dde36bd2a9f8a492ab98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cad81e3d_421a7482",
+        "filename": "runtime/arch/stub_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-13T09:29:30Z",
+      "side": 1,
+      "message": "I guess it would be an overkill to do a separate adjustment for each push/pop.",
+      "range": {
+        "startLine": 452,
+        "startChar": 9,
+        "endLine": 452,
+        "endChar": 31
+      },
+      "revId": "0c452ea5175ec2f646e5dde36bd2a9f8a492ab98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
