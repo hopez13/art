@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cf118a5_2ea2a7d3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 3485,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-13T21:36:58Z",
+      "side": 1,
+      "message": "Avoid creating a stackhandlescope and a handle in a loop (those are not cheap). Instead, create a mutable handle.",
+      "range": {
+        "startLine": 3484,
+        "startChar": 0,
+        "endLine": 3485,
+        "endChar": 41
+      },
+      "revId": "eb7c144a6aff7da673ba53d501c46f00311d4d7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff8686d4_216e8e2e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 30
+      },
+      "lineNbr": 3613,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-13T21:36:58Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3612,
+        "startChar": 0,
+        "endLine": 3613,
+        "endChar": 74
+      },
+      "revId": "eb7c144a6aff7da673ba53d501c46f00311d4d7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
