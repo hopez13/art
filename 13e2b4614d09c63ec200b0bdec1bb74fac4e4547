@@ -93,6 +93,30 @@
       "revId": "13e2b4614d09c63ec200b0bdec1bb74fac4e4547",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a149288_aa85eb0a",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-13T15:44:52Z",
+      "side": 1,
+      "message": "Devices don\u0027t use gblic... and you should not use hardcoded values. Bionic does reserve some signals though, so use SIGRTMIN in the filtering condition.",
+      "parentUuid": "d00a915c_784c7033",
+      "range": {
+        "startLine": 424,
+        "startChar": 51,
+        "endLine": 424,
+        "endChar": 86
+      },
+      "revId": "13e2b4614d09c63ec200b0bdec1bb74fac4e4547",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
