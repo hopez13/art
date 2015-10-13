@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7f4d3685_655da610",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4712,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-10-13T09:03:48Z",
+      "side": 1,
+      "message": "What about having a `InstructionKindToOpcode()` helper used within `HandleBitwiseOperation` to avoid having to pass an explicit argument here?",
+      "range": {
+        "startLine": 4712,
+        "startChar": 90,
+        "endLine": 4712,
+        "endChar": 95
+      },
+      "revId": "18cd75c8415f2e98012cc7108129f8200e8854d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff13e649_594de334",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -19,6 +42,64 @@
         "endLine": 4721,
         "endChar": 57
       },
+      "revId": "18cd75c8415f2e98012cc7108129f8200e8854d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a27faf5_0dfb75aa",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4721,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-10-13T09:03:48Z",
+      "side": 1,
+      "message": "I think relying on GVN is good.\nYou can also avoid the manual handling by locally calling `OrderInputsWithConstatOnTheRight()` if the instructon is commutative.",
+      "parentUuid": "ff13e649_594de334",
+      "range": {
+        "startLine": 4721,
+        "startChar": 2,
+        "endLine": 4721,
+        "endChar": 57
+      },
+      "revId": "18cd75c8415f2e98012cc7108129f8200e8854d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa65e28_8bcead90",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4727,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-10-13T09:03:48Z",
+      "side": 1,
+      "message": "If this type of optimization is going to be applied to other IRs you may want to consider a helper like arm64\u0027s `ARM64EncodableConstantOrRegister()`.",
+      "revId": "18cd75c8415f2e98012cc7108129f8200e8854d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aadf6a22_9e7dbdec",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-10-13T09:03:48Z",
+      "side": 1,
+      "message": "Use the same name on arm32 and arm64? (see common_arm64.h:CanEncodeConstantAsImmediate()`)",
       "revId": "18cd75c8415f2e98012cc7108129f8200e8854d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
