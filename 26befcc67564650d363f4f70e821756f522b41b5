@@ -46,6 +46,23 @@
       "revId": "26befcc67564650d363f4f70e821756f522b41b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfb7aeb4_db2533bf",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 699,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-13T00:12:08Z",
+      "side": 1,
+      "message": "What is the rationale behind putting this behind an if condition?\n\nCan we drop the \"if\"?\n\nOr make AssertThreadSuspensionIsAllowable templatized on kDebugLocking?\n\n----\nI\u0027m asking because it\u0027s confusing for those of who us aren\u0027t GC experts to know what the \"correct\" assert is to write.",
+      "revId": "26befcc67564650d363f4f70e821756f522b41b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
