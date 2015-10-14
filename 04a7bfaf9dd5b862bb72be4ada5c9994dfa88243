@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "2a27faf5_cd84bd4c",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4993,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-14T11:29:45Z",
+      "side": 1,
+      "message": "(See the checker tests with longs where I assert that there\u0027s only one and/orr/eor.)",
+      "parentUuid": "aadf6a22_6153f0c5",
+      "range": {
+        "startLine": 4984,
+        "startChar": 2,
+        "endLine": 4993,
+        "endChar": 3
+      },
+      "revId": "04a7bfaf9dd5b862bb72be4ada5c9994dfa88243",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7fa9b65d_516cc7bb",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 5
