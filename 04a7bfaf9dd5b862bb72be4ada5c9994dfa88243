@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "aadf6a22_6153f0c5",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4993,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-14T11:22:11Z",
+      "side": 1,
+      "message": "This still optimizes individual halfs of and-long where we do not do the simplification. I\u0027ve even added the \"disassembly (after)\" tests for this.",
+      "parentUuid": "9cfbd833_de2a0515",
+      "range": {
+        "startLine": 4984,
+        "startChar": 2,
+        "endLine": 4993,
+        "endChar": 3
+      },
+      "revId": "04a7bfaf9dd5b862bb72be4ada5c9994dfa88243",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7fa9b65d_516cc7bb",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 5
@@ -132,6 +156,30 @@
       "writtenOn": "2015-10-13T21:38:50Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 5004,
+        "startChar": 2,
+        "endLine": 5013,
+        "endChar": 3
+      },
+      "revId": "04a7bfaf9dd5b862bb72be4ada5c9994dfa88243",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a27faf5_8d7ac5ef",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5013,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-14T11:22:11Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "7fa9b65d_516cc7bb",
       "range": {
         "startLine": 5004,
         "startChar": 2,
