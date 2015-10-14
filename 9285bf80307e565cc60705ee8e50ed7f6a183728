@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "7fa9b65d_f89fd0d3",
+        "filename": "compiler/optimizing/boolean_simplifier.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-14T18:20:21Z",
+      "side": 1,
+      "message": "Not disagreeing. But I leave a full redesign to another CL :-)",
+      "parentUuid": "dfb462b2_3e0a36a6",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 93,
+        "endChar": 5
+      },
+      "revId": "9285bf80307e565cc60705ee8e50ed7f6a183728",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff13e649_3cf33d10",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 14
@@ -84,6 +108,30 @@
       "writtenOn": "2015-10-14T18:14:11Z",
       "side": 1,
       "message": "Indentation seems to be one space off.",
+      "range": {
+        "startLine": 1870,
+        "startChar": 0,
+        "endLine": 1871,
+        "endChar": 36
+      },
+      "revId": "9285bf80307e565cc60705ee8e50ed7f6a183728",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fa9b65d_38a6c82d",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1871,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-14T18:20:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff13e649_3cf33d10",
       "range": {
         "startLine": 1870,
         "startChar": 0,
