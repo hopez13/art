@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "dfb462b2_3e0a36a6",
+        "filename": "compiler/optimizing/boolean_simplifier.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-14T18:18:22Z",
+      "side": 1,
+      "message": "The issue is that that would couple the node classes (as now one class needs to know what the opposite class is), and node classes need to know about allocation (as you may or may not want to give an allocator etc). That\u0027s why overall the design is weird - just one class with a field would have been easier IMHO.",
+      "parentUuid": "5fa8725b_4b5df6d4",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 93,
+        "endChar": 5
+      },
+      "revId": "9285bf80307e565cc60705ee8e50ed7f6a183728",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff13e649_3cf33d10",
         "filename": "compiler/optimizing/code_generator_mips64.cc",
         "patchSetId": 14
