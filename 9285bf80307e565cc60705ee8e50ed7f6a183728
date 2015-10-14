@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff32061b_1958b618",
+        "filename": "compiler/optimizing/boolean_simplifier.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-14T18:09:35Z",
+      "side": 1,
+      "message": "Should this be transformed into a switch (on cond-\u003eAsCondition()-\u003eGetCondition())? It\u0027s a rather ugly if-else chain now.\n\n(The design also seems a bit weird to me now, making all the specific conditions sub-classes...)",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 93,
+        "endChar": 5
+      },
+      "revId": "9285bf80307e565cc60705ee8e50ed7f6a183728",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
