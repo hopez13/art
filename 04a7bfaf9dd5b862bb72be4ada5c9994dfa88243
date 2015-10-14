@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "9cfbd833_de2a0515",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4993,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-10-14T10:37:42Z",
+      "side": 1,
+      "message": "The `0xFF...` case is done in the simplifier, not in constant folding.",
+      "parentUuid": "2a27faf5_2da119ed",
+      "range": {
+        "startLine": 4984,
+        "startChar": 2,
+        "endLine": 4993,
+        "endChar": 3
+      },
+      "revId": "04a7bfaf9dd5b862bb72be4ada5c9994dfa88243",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7fa9b65d_516cc7bb",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 5
