@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f290a88_319fea61",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 5464,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-14T11:06:58Z",
+      "side": 1,
+      "message": "Use range-based loop.",
+      "range": {
+        "startLine": 5462,
+        "startChar": 0,
+        "endLine": 5464,
+        "endChar": 5
+      },
+      "revId": "994e4e7e623d9350a041b382b48562c903968b6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff8686d4_a43b8c02",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 5516,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-14T11:06:58Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "994e4e7e623d9350a041b382b48562c903968b6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff13e649_5c495148",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-14T11:06:58Z",
+      "side": 1,
+      "message": "Not enforced if AddInt32() or AddInt64() is used after AddUniqueInt32().",
+      "range": {
+        "startLine": 288,
+        "startChar": 51,
+        "endLine": 289,
+        "endChar": 50
+      },
+      "revId": "994e4e7e623d9350a041b382b48562c903968b6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
