@@ -379,6 +379,30 @@
     },
     {
       "key": {
+        "uuid": "7f2b7617_3ed5cd18",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-10-14T13:29:08Z",
+      "side": 1,
+      "message": "I changed the comment to:\n// A single uint32_t word. That\u0027s enough bits for pair-wise aliasing matrix of 8 heap locations.",
+      "parentUuid": "ff8686d4_81799af9",
+      "range": {
+        "startLine": 174,
+        "startChar": 57,
+        "endLine": 174,
+        "endChar": 85
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a27faf5_4a1ef3a4",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 6
@@ -1061,6 +1085,30 @@
     },
     {
       "key": {
+        "uuid": "5fa8725b_de50c5f5",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-10-14T13:29:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f4d3685_250a0ea6",
+      "range": {
+        "startLine": 558,
+        "startChar": 21,
+        "endLine": 559,
+        "endChar": 27
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca557e3a_f76880e3",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 6
@@ -1214,6 +1262,30 @@
       "side": 1,
       "message": "yeah i/F and J/D do not affect fields. So removing the check sgtm.",
       "parentUuid": "dfb462b2_d1ac3675",
+      "range": {
+        "startLine": 669,
+        "startChar": 0,
+        "endLine": 674,
+        "endChar": 7
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fae6a64_dbdd3746",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-10-14T13:29:08Z",
+      "side": 1,
+      "message": "I noticed there is also possibility that value is a constant int 1, but the field is a boolean. I changed to this code:\n      if (value-\u003eGetType() !\u003d type) {\n        // I/F, J/D aliasing should not happen for fields.\n        DCHECK(Primitive::IsIntegralType(value-\u003eGetType()));\n        DCHECK(!Primitive::Is64BitType(value-\u003eGetType()));\n        DCHECK(Primitive::IsIntegralType(type));\n        DCHECK(!Primitive::Is64BitType(type));\n        // Convert the type so that the future load will see the right type and can be eliminated.\n        HTypeConversion* type_conversion \u003d new (GetGraph()-\u003eGetArena()) HTypeConversion(\n            type, value, instruction-\u003eGetDexPc());\n        instruction-\u003eGetBlock()-\u003eInsertInstructionBefore(type_conversion, instruction);\n        instruction-\u003eReplaceInput(type_conversion, 1);\n        value \u003d type_conversion;\n      }\n      redundant_store \u003d true;\n\nDoes it look ok? Is the added type conversion going to be eliminated by codegen?",
+      "parentUuid": "6a149288_4a971711",
       "range": {
         "startLine": 669,
         "startChar": 0,
