@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9fae6a64_b00735e8",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-10-14T19:33:02Z",
+      "side": 1,
+      "message": "For the error messages, I convert the char* dex_location_ to an std::string. Rather than convert dex_location_ to an std::string for every error message, I factored out the conversion to this line.\n\nPerhaps I should make dex_location_ an std::string instead of a char* to avoid the confusion and potentially repeated conversion?",
+      "parentUuid": "7fa9b65d_7d77525d",
+      "range": {
+        "startLine": 668,
+        "startChar": 2,
+        "endLine": 668,
+        "endChar": 42
+      },
+      "revId": "e8d2bf9294fea587175796d1cf1ab39701084383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fa3be81_050b69f7",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-14T16:33:04Z",
       "side": 1,
       "message": "oat_file-\u003eErase()?\n\nWould be easier to re-order maybe?",
+      "range": {
+        "startLine": 703,
+        "startChar": 4,
+        "endLine": 703,
+        "endChar": 17
+      },
+      "revId": "e8d2bf9294fea587175796d1cf1ab39701084383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fa8725b_8ecf7c8e",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2015-10-14T19:33:02Z",
+      "side": 1,
+      "message": "Good catch. I\u0027ll fix this.",
+      "parentUuid": "3fa3be81_050b69f7",
       "range": {
         "startLine": 703,
         "startChar": 4,
