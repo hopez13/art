@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dfb462b2_83faed2b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 5714,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-14T13:47:29Z",
+      "side": 1,
+      "message": "Great suggestion!\nDone",
+      "parentUuid": "aadf6a22_e1238075",
+      "range": {
+        "startLine": 5709,
+        "startChar": 0,
+        "endLine": 5714,
+        "endChar": 62
+      },
+      "revId": "f80a0175ce14fe35393314dc4da2687f979de597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a149288_8ae46f99",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 14
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-14T10:54:46Z",
       "side": 1,
       "message": "Nit: static_cast\u003csize_t\u003e(-1)",
+      "range": {
+        "startLine": 5840,
+        "startChar": 26,
+        "endLine": 5840,
+        "endChar": 28
+      },
+      "revId": "f80a0175ce14fe35393314dc4da2687f979de597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fa8725b_d9d21f5c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 5840,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-14T13:47:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a149288_8ae46f99",
       "range": {
         "startLine": 5840,
         "startChar": 26,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5fa8725b_f9cfdbb0",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 5937,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-14T13:47:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aadf6a22_e18d40bf",
+      "range": {
+        "startLine": 5912,
+        "startChar": 0,
+        "endLine": 5937,
+        "endChar": 2
+      },
+      "revId": "f80a0175ce14fe35393314dc4da2687f979de597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff8686d4_c4eb30cf",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 14
@@ -88,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "1f30ba11_7f9c48aa",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 5941,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-14T13:47:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff8686d4_c4eb30cf",
+      "revId": "f80a0175ce14fe35393314dc4da2687f979de597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f4d3685_e8b60b14",
         "filename": "compiler/utils/x86/assembler_x86.h",
         "patchSetId": 14
@@ -99,6 +189,30 @@
       "writtenOn": "2015-10-14T10:54:46Z",
       "side": 1,
       "message": "You don\u0027t fully enforce this. Values added with AddUniqueInt32() are not combined with previous values but subsequent values added with AddInt32() afterwards could combine with the the unique values.",
+      "range": {
+        "startLine": 266,
+        "startChar": 51,
+        "endLine": 267,
+        "endChar": 50
+      },
+      "revId": "f80a0175ce14fe35393314dc4da2687f979de597",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fae6a64_edd396e6",
+        "filename": "compiler/utils/x86/assembler_x86.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-14T13:47:29Z",
+      "side": 1,
+      "message": "Renamed to AppendInt32",
+      "parentUuid": "7f4d3685_e8b60b14",
       "range": {
         "startLine": 266,
         "startChar": 51,
