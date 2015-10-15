@@ -16,6 +16,24 @@
       "revId": "620b454631710baa1901f4817cc0089dc66b0c77",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ae8a64_86f0cabc",
+        "filename": "test/088-monitor-verification/smali/NullLocks.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-15T15:26:41Z",
+      "side": 1,
+      "message": "Sorry, my bad. When writing it in master, I actually extended the comment on the ClearRegToLockDepth. Must have been lost when I moved to AOSP.",
+      "parentUuid": "791f1655_75e9c8af",
+      "revId": "620b454631710baa1901f4817cc0089dc66b0c77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
