@@ -1,0 +1,237 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1959ba73_c3e65c0c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2791,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:19:44Z",
+      "side": 1,
+      "message": "NULL dcheck arguments?",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ae8a64_40e152ab",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2799,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:19:44Z",
+      "side": 1,
+      "message": "It seems like it might be more readable and have less indentation if this was ?\n\n  if (supertype-\u003eIsCompileTimeVerified()) {\n    return true;\n  }\n\nand it could have a LIKELY/UNLIKELY in there to make it more clear.\n\nThoughts?",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99f12aa5_f7699273",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2800,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:19:44Z",
+      "side": 1,
+      "message": "nit: prefer \u003d over ()",
+      "range": {
+        "startLine": 2800,
+        "startChar": 25,
+        "endLine": 2800,
+        "endChar": 26
+      },
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9943ea80_6d02e156",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2807,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:19:44Z",
+      "side": 1,
+      "message": "When does this happen?",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99f12aa5_b7ba6a45",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2811,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:19:44Z",
+      "side": 1,
+      "message": "Doesn\u0027t this need to set the \"suppressed\" exception, instead of the cause?\n\n+agampe",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "996cca16_1feeefb8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2820,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:19:44Z",
+      "side": 1,
+      "message": "or at least the \"else\" could be dropped if 2799 stays as-is?",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39611e20_39a4a7f7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2875,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:19:44Z",
+      "side": 1,
+      "message": "This seems like brand new code, perhaps we can move to a separate function for readability?",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d952c250_c13db888",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2903,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:19:44Z",
+      "side": 1,
+      "message": "I\u0027m confused, can this assign multiple values, overwriting the previous supertype? In which case what is the correct-most thing?",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d952c250_01217069",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:19:44Z",
+      "side": 1,
+      "message": "so it returns true if there\u0027s a soft failure as well?",
+      "range": {
+        "startLine": 543,
+        "startChar": 70,
+        "endLine": 543,
+        "endChar": 79
+      },
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99f12aa5_976c8e85",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:19:44Z",
+      "side": 1,
+      "message": "nit: alphabetically sort annotations",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ae8a64_c07ea268",
+        "filename": "test/965-default-verify/build",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:19:44Z",
+      "side": 1,
+      "message": "mkdir -p src classes",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ae8a64_407392a3",
+        "filename": "test/965-default-verify/build",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:19:44Z",
+      "side": 1,
+      "message": "Be careful when using rm, it can delete things unintentionally..\n\n  [[ -f classes/Statics.class ]] \u0026\u0026 rm classes/Statics.class",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9bdc694_15e2b787",
+        "filename": "test/965-default-verify/build",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:19:44Z",
+      "side": 1,
+      "message": "Would you mind refactoring this? We are for sure going to have to change this to at least 24 in every file because 23 has already shipped.",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
