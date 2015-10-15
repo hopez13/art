@@ -22,6 +22,30 @@
       "revId": "94991077ed66e3c329e8bf6f594ad6d30992b092",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "399cbe29_3bc79777",
+        "filename": "compiler/optimizing/constant_area_fixups_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-15T12:28:06Z",
+      "side": 1,
+      "message": "That really isn\u0027t consistent with other classes defined in .cc files.  I don\u0027t see any benefit to putting it into an anonymous class, and like the fact that the class name has \u0027x86\u0027 in it if printed anywhere.",
+      "parentUuid": "dfb462b2_60ad68c0",
+      "range": {
+        "startLine": 25,
+        "startChar": 52,
+        "endLine": 25,
+        "endChar": 53
+      },
+      "revId": "94991077ed66e3c329e8bf6f594ad6d30992b092",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
