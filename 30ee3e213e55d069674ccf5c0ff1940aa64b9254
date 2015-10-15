@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "d90ac213_58eefdb9",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-15T10:51:21Z",
+      "side": 1,
+      "message": "My preference for backward loops is\n\n    for (int32_t i \u003d iftable_count; i !\u003d 0; ) {\n      --i;\n      ...\n    }",
+      "range": {
+        "startLine": 368,
+        "startChar": 0,
+        "endLine": 369,
+        "endChar": 32
+      },
+      "revId": "30ee3e213e55d069674ccf5c0ff1940aa64b9254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fa3be81_35b48e0a",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 1
