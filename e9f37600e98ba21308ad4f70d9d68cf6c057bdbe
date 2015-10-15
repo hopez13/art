@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "791f1655_15f85476",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1781,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-15T10:31:31Z",
+      "side": 1,
+      "message": "The status quo is we don\u0027t put usernames in TODO comments. If we want to change the policy we should have a proper discussion first (offline).",
+      "parentUuid": "b90d0e2e_97ed84e8",
+      "range": {
+        "startLine": 1781,
+        "startChar": 5,
+        "endLine": 1781,
+        "endChar": 9
+      },
+      "revId": "e9f37600e98ba21308ad4f70d9d68cf6c057bdbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f913064a_791ae7b8",
         "filename": "compiler/optimizing/codegen_test.cc",
         "patchSetId": 17
