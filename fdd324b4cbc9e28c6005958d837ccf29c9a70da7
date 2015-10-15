@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "793e36ee_fdbea7e8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-15T20:13:28Z",
+      "side": 1,
+      "message": "interesting, no idea how these got swapped :-)\n\nfixed",
+      "parentUuid": "791f1655_55836c03",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 6
+      },
+      "revId": "fdd324b4cbc9e28c6005958d837ccf29c9a70da7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9924caa5_f6b4c00b",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-15T08:02:07Z",
       "side": 1,
       "message": "!\u003d nullptr (here and throughout)",
+      "range": {
+        "startLine": 388,
+        "startChar": 18,
+        "endLine": 388,
+        "endChar": 23
+      },
+      "revId": "fdd324b4cbc9e28c6005958d837ccf29c9a70da7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9deeef4_eff9617a",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-15T20:13:28Z",
+      "side": 1,
+      "message": "Of course. Apologies, old C habits are hard to drop :-)\n\nfixed",
+      "parentUuid": "9924caa5_f6b4c00b",
       "range": {
         "startLine": 388,
         "startChar": 18,
