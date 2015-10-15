@@ -91,6 +91,30 @@
       "revId": "30ee3e213e55d069674ccf5c0ff1940aa64b9254",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9bdc694_e955d531",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-15T15:23:26Z",
+      "side": 1,
+      "message": "Argh, it swallowed my comment last night: I suggested the same. A helper with a variadic template parameter would do the trick...",
+      "parentUuid": "f913064a_f9b4b70b",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 1
+      },
+      "revId": "30ee3e213e55d069674ccf5c0ff1940aa64b9254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
