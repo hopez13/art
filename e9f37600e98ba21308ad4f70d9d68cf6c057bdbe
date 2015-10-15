@@ -22,6 +22,53 @@
       "revId": "e9f37600e98ba21308ad4f70d9d68cf6c057bdbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "591ed25a_14ca9436",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1781,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-15T10:00:25Z",
+      "side": 1,
+      "message": "We are discouraged to put the ldap in aosp. I think Aart did that in the beginning and Vladimir mentioned the same thing.",
+      "parentUuid": "797b96ad_15ab94b0",
+      "range": {
+        "startLine": 1781,
+        "startChar": 5,
+        "endLine": 1781,
+        "endChar": 9
+      },
+      "revId": "e9f37600e98ba21308ad4f70d9d68cf6c057bdbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f913064a_791ae7b8",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-15T10:00:25Z",
+      "side": 1,
+      "message": "Thanks!",
+      "range": {
+        "startLine": 765,
+        "startChar": 12,
+        "endLine": 765,
+        "endChar": 26
+      },
+      "revId": "e9f37600e98ba21308ad4f70d9d68cf6c057bdbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
