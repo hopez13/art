@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dfb462b2_60ad68c0",
+        "filename": "compiler/optimizing/constant_area_fixups_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-15T01:14:12Z",
+      "side": 1,
+      "message": "since the class is local only now (nice!), I would suggest to put it in an anonymous namespace.",
+      "range": {
+        "startLine": 25,
+        "startChar": 52,
+        "endLine": 25,
+        "endChar": 53
+      },
+      "revId": "94991077ed66e3c329e8bf6f594ad6d30992b092",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
