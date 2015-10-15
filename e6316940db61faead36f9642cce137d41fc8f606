@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9924caa5_3626b8ef",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-15T11:08:28Z",
+      "side": 0,
+      "message": "Do we need to poison this?",
+      "range": {
+        "startLine": 964,
+        "startChar": 4,
+        "endLine": 964,
+        "endChar": 48
+      },
+      "revId": "e6316940db61faead36f9642cce137d41fc8f606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
