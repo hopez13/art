@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "791f1655_75e9c8af",
+        "filename": "test/088-monitor-verification/smali/NullLocks.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-15T10:19:19Z",
+      "side": 1,
+      "message": "Maybe add another monitor-enter v0 (and monitor-exit v0/v1) to test that ClearRegToLockDepth() cleared all aliases. (I found the verifier change quite confusing before realizing this.)",
+      "revId": "620b454631710baa1901f4817cc0089dc66b0c77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
