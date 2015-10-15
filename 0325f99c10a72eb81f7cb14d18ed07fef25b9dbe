@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9550e3b_8078dcb1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:03:13Z",
+      "side": 1,
+      "message": "I think this is saying that it\u0027s just an optimization?\n\nWould it then make more sense to say \"Optimize FindInterfaceMethod by searching backwards\"?",
+      "revId": "0325f99c10a72eb81f7cb14d18ed07fef25b9dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99f12aa5_174ffe31",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:03:13Z",
+      "side": 1,
+      "message": "class linker:",
+      "revId": "0325f99c10a72eb81f7cb14d18ed07fef25b9dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9943ea80_0dbfdde6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:03:13Z",
+      "side": 1,
+      "message": "nit: make a new paragraph here",
+      "range": {
+        "startLine": 14,
+        "startChar": 17,
+        "endLine": 14,
+        "endChar": 18
+      },
+      "revId": "0325f99c10a72eb81f7cb14d18ed07fef25b9dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9550e3b_607dc89f",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:03:13Z",
+      "side": 1,
+      "message": "nit: one arg per line",
+      "range": {
+        "startLine": 374,
+        "startChar": 62,
+        "endLine": 374,
+        "endChar": 63
+      },
+      "revId": "0325f99c10a72eb81f7cb14d18ed07fef25b9dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
