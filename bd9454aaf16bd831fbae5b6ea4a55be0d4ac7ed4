@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9943ea80_9e85dd9d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2828,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-15T19:22:36Z",
+      "side": 1,
+      "message": "Done. I\u0027m not super attached to it. I honestly cannot remember why I chose to factor this out.",
+      "parentUuid": "bfb7aeb4_d58097c0",
+      "range": {
+        "startLine": 2824,
+        "startChar": 0,
+        "endLine": 2828,
+        "endChar": 1
+      },
+      "revId": "bd9454aaf16bd831fbae5b6ea4a55be0d4ac7ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f2b7617_ea0f8bb5",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 5
@@ -83,6 +107,30 @@
       "writtenOn": "2015-10-15T04:20:53Z",
       "side": 1,
       "message": "Put a description here that describes the quad-state this is...",
+      "range": {
+        "startLine": 2880,
+        "startChar": 2,
+        "endLine": 2880,
+        "endChar": 79
+      },
+      "revId": "bd9454aaf16bd831fbae5b6ea4a55be0d4ac7ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1959ba73_dd7e3f68",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2880,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-15T19:22:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f2b7617_ea0f8bb5",
       "range": {
         "startLine": 2880,
         "startChar": 2,
@@ -118,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "b9550e3b_977f84de",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2886,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-15T19:22:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fa8725b_04e4cb8f",
+      "range": {
+        "startLine": 2886,
+        "startChar": 35,
+        "endLine": 2886,
+        "endChar": 56
+      },
+      "revId": "bd9454aaf16bd831fbae5b6ea4a55be0d4ac7ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9fae6a64_c1eea1e1",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 5
@@ -129,6 +201,30 @@
       "writtenOn": "2015-10-15T04:20:53Z",
       "side": 1,
       "message": "iface cannot be null here, so please just do the verified check here.",
+      "range": {
+        "startLine": 2896,
+        "startChar": 27,
+        "endLine": 2896,
+        "endChar": 48
+      },
+      "revId": "bd9454aaf16bd831fbae5b6ea4a55be0d4ac7ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1959ba73_3a766107",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2896,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-15T19:22:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fae6a64_c1eea1e1",
       "range": {
         "startLine": 2896,
         "startChar": 27,
@@ -164,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "996cca16_966cac85",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2897,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-15T19:22:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fae6a64_e1eb9dce",
+      "range": {
+        "startLine": 2897,
+        "startChar": 14,
+        "endLine": 2897,
+        "endChar": 20
+      },
+      "revId": "bd9454aaf16bd831fbae5b6ea4a55be0d4ac7ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39759eb9_73a6a0e9",
         "filename": "runtime/class_linker.h",
         "patchSetId": 5
@@ -175,6 +295,30 @@
       "writtenOn": "2015-10-15T07:40:52Z",
       "side": 1,
       "message": "quote this too?",
+      "range": {
+        "startLine": 542,
+        "startChar": 35,
+        "endLine": 542,
+        "endChar": 40
+      },
+      "revId": "bd9454aaf16bd831fbae5b6ea4a55be0d4ac7ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ae8a64_fa0a7163",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-15T19:22:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39759eb9_73a6a0e9",
       "range": {
         "startLine": 542,
         "startChar": 35,
