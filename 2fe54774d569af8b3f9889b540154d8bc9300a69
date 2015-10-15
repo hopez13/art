@@ -1322,6 +1322,30 @@
     },
     {
       "key": {
+        "uuid": "99292a88_ce3c83fc",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-10-15T08:31:28Z",
+      "side": 1,
+      "message": "I\u0027ll do a follow-up. Added some DCHECK and a TODO.\n      if (value-\u003eGetType() !\u003d type) {\n        // I/F, J/D aliasing should not happen for fields.\n        DCHECK(Primitive::IsIntegralType(value-\u003eGetType()));\n        DCHECK(!Primitive::Is64BitType(value-\u003eGetType()));\n        DCHECK(Primitive::IsIntegralType(type));\n        DCHECK(!Primitive::Is64BitType(type));\n        // Keep the store since the corresponding load isn\u0027t eliminated due to different types.\n        // TODO: handle the different int types so that we can eliminate this store.\n        redundant_store \u003d false;\n      } else {\n        redundant_store \u003d true;\n      }",
+      "parentUuid": "6a149288_ca95c7ad",
+      "range": {
+        "startLine": 669,
+        "startChar": 0,
+        "endLine": 674,
+        "endChar": 7
+      },
+      "revId": "2fe54774d569af8b3f9889b540154d8bc9300a69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a149288_a48402d6",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 6
