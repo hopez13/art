@@ -2,6 +2,154 @@
   "comments": [
     {
       "key": {
+        "uuid": "f9bdc694_95b3076d",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:44:22Z",
+      "side": 1,
+      "message": "Why not const?",
+      "range": {
+        "startLine": 78,
+        "startChar": 52,
+        "endLine": 78,
+        "endChar": 64
+      },
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ae8a64_e0babe46",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:44:22Z",
+      "side": 1,
+      "message": "style nit: add /*out*/ for out parameters\n\n  /*out*/bool* top_test",
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9b786e1_59a1839c",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:44:22Z",
+      "side": 1,
+      "message": "style nit: document magical null parameters",
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99ae8a64_c0c1c2b5",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:44:22Z",
+      "side": 1,
+      "message": "style nit: add /*out*/ for out parameters\n\n  /*out*/HInstruction** lower",
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1959ba73_63e150ac",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:44:22Z",
+      "side": 1,
+      "message": "style nit: document magical null parameters",
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9bdc694_55ad8f08",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:44:22Z",
+      "side": 1,
+      "message": "style nit: add /*out*/ for out parameters\n\n  /*out*/HInstruction** lower",
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d952c250_61a30cee",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:44:22Z",
+      "side": 1,
+      "message": "nit: don\u0027t really need the outer-most (), return is not a function :).",
+      "range": {
+        "startLine": 371,
+        "startChar": 13,
+        "endLine": 371,
+        "endChar": 14
+      },
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39611e20_fcf05dbd",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:44:22Z",
+      "side": 1,
+      "message": "style nit: add /*out*/ for out parameters\n\n  /*out*/HInstruction** result",
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9bdc694_35149b87",
         "filename": "compiler/optimizing/induction_var_range.h",
         "patchSetId": 3
@@ -19,6 +167,57 @@
         "endLine": 84,
         "endChar": 18
       },
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1959ba73_43e24cb5",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:44:22Z",
+      "side": 1,
+      "message": "style nit: add /*out*/ for out parameters\n\n  /*out*/HInstruction** lower,\n  /*out*/HInstruction** upper",
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39611e20_5c023156",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:44:22Z",
+      "side": 1,
+      "message": "style nit: add /*out*/ for out parameters\n\n  /*out*/HInstruction** lower,\n  /*out*/HInstruction** upper",
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9bdc694_75ae930b",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T23:44:22Z",
+      "side": 1,
+      "message": "see 141",
       "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
