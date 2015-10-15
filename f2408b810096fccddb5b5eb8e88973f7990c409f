@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "791f1655_95046456",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-15T09:36:17Z",
+      "side": 1,
+      "message": "Maybe add an abstraction over this?\n\nif (WillHaveImage()) ?",
+      "range": {
+        "startLine": 148,
+        "startChar": 6,
+        "endLine": 148,
+        "endChar": 30
+      },
+      "revId": "f2408b810096fccddb5b5eb8e88973f7990c409f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39759eb9_93d57c1a",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-15T09:36:17Z",
+      "side": 1,
+      "message": "Unused?",
+      "range": {
+        "startLine": 544,
+        "startChar": 46,
+        "endLine": 544,
+        "endChar": 70
+      },
+      "revId": "f2408b810096fccddb5b5eb8e88973f7990c409f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
