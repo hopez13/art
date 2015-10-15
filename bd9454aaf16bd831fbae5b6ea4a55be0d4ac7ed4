@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "79a9d65d_c50d5a7e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2812,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-15T15:38:02Z",
+      "side": 1,
+      "message": "We don\u0027t have a ThrowNewWrappedException version for VerifyError. So this stores the old exception, and then sets it as a cause.\n\n(This is just moved code and was this way before)",
+      "parentUuid": "591ed25a_9468e4de",
+      "range": {
+        "startLine": 2805,
+        "startChar": 0,
+        "endLine": 2812,
+        "endChar": 5
+      },
+      "revId": "bd9454aaf16bd831fbae5b6ea4a55be0d4ac7ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfb7aeb4_d58097c0",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 5
