@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa3be81_75b20623",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-15T01:02:01Z",
+      "side": 1,
+      "message": "As this isn\u0027t a totally uncommonly used set of functions, this should be substantiated.",
+      "range": {
+        "startLine": 10,
+        "startChar": 42,
+        "endLine": 10,
+        "endChar": 53
+      },
+      "revId": "30ee3e213e55d069674ccf5c0ff1940aa64b9254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa3be81_35b48e0a",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-15T01:02:01Z",
+      "side": 1,
+      "message": "Why this? The counter is an int, so you can perfectly fine check i \u003e\u003d 0 in the for condition, which would also remove that if statement...",
+      "range": {
+        "startLine": 374,
+        "startChar": 4,
+        "endLine": 376,
+        "endChar": 5
+      },
+      "revId": "30ee3e213e55d069674ccf5c0ff1940aa64b9254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
