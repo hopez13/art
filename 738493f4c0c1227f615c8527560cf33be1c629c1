@@ -49,6 +49,23 @@
     },
     {
       "key": {
+        "uuid": "9943ea80_d2163416",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-15T21:52:19Z",
+      "side": 1,
+      "message": "(Old code, but curious)\n\nWhere does it use the runtime alignment options? Why can\u0027t the alignment be templatized?\n\nI mean sure it\u0027ll probably get inlined away most of the time, but what if some other code passes alignment down several functions, it might not always inline it.",
+      "revId": "738493f4c0c1227f615c8527560cf33be1c629c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9fae6a64_2012169f",
         "filename": "runtime/length_prefixed_array.h",
         "patchSetId": 12
