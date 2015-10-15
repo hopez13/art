@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99ae8a64_06705a06",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-15T17:59:19Z",
+      "side": 1,
+      "message": "Is the logic that we use the dex cache arrays in the bss section if it\u0027s found in the oat file otherwise allocate in the linear alloc?",
+      "range": {
+        "startLine": 1209,
+        "startChar": 4,
+        "endLine": 1209,
+        "endChar": 14
+      },
+      "revId": "09d0943f5efe92c1f3a6b9dbdf255adb0f960a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
