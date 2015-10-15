@@ -45,6 +45,30 @@
       "revId": "f2408b810096fccddb5b5eb8e88973f7990c409f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b90d0e2e_374fd8a9",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-15T10:23:07Z",
+      "side": 1,
+      "message": "Used: https://android-review.googlesource.com/#/c/169573/4/runtime/class_linker.cc",
+      "parentUuid": "39759eb9_93d57c1a",
+      "range": {
+        "startLine": 544,
+        "startChar": 46,
+        "endLine": 544,
+        "endChar": 70
+      },
+      "revId": "f2408b810096fccddb5b5eb8e88973f7990c409f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
