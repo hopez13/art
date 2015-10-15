@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "39611e20_332cc8d0",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-15T17:24:13Z",
+      "side": 1,
+      "message": "That is much better :). Will actually just do \u003e\u003d 0 though. I forgot this was an int32 (in a different place recently a similar loop needed to use a size_t which is unsigned).",
+      "parentUuid": "d90ac213_58eefdb9",
+      "range": {
+        "startLine": 368,
+        "startChar": 0,
+        "endLine": 369,
+        "endChar": 32
+      },
+      "revId": "30ee3e213e55d069674ccf5c0ff1940aa64b9254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3fa3be81_35b48e0a",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2015-10-15T01:02:01Z",
       "side": 1,
       "message": "Why this? The counter is an int, so you can perfectly fine check i \u003e\u003d 0 in the for condition, which would also remove that if statement...",
+      "range": {
+        "startLine": 374,
+        "startChar": 4,
+        "endLine": 376,
+        "endChar": 5
+      },
+      "revId": "30ee3e213e55d069674ccf5c0ff1940aa64b9254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9943ea80_1eeeedb8",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-15T17:24:13Z",
+      "side": 1,
+      "message": "Done. I was still in the mindset of class_linker where similar loops usually use size_t.",
+      "parentUuid": "3fa3be81_35b48e0a",
       "range": {
         "startLine": 374,
         "startChar": 4,
@@ -106,6 +154,30 @@
       "side": 1,
       "message": "Argh, it swallowed my comment last night: I suggested the same. A helper with a variadic template parameter would do the trick...",
       "parentUuid": "f913064a_f9b4b70b",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 1
+      },
+      "revId": "30ee3e213e55d069674ccf5c0ff1940aa64b9254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "996cca16_d6b584b4",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-15T17:24:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9bdc694_e955d531",
       "range": {
         "startLine": 380,
         "startChar": 0,
