@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "f9d4e6d4_310fd048",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-15T15:30:22Z",
+      "side": 1,
+      "message": "The note is about _when_ and _why_ we actually get here. Not about what checks we do.",
+      "parentUuid": "99c5aa26_2e19a7bf",
+      "range": {
+        "startLine": 893,
+        "startChar": 6,
+        "endLine": 894,
+        "endChar": 79
+      },
+      "revId": "147ec166bc7b329c4ade694d611cfa0420726d4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df39c202_a0f50f84",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 3
