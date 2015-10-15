@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f913064a_d96e93ec",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-15T13:07:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "791f1655_95046456",
+      "range": {
+        "startLine": 148,
+        "startChar": 6,
+        "endLine": 148,
+        "endChar": 30
+      },
+      "revId": "f2408b810096fccddb5b5eb8e88973f7990c409f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39759eb9_93d57c1a",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 4
