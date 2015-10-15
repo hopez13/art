@@ -46,6 +46,30 @@
       "revId": "94991077ed66e3c329e8bf6f594ad6d30992b092",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39759eb9_73830004",
+        "filename": "compiler/optimizing/constant_area_fixups_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-15T12:35:34Z",
+      "side": 1,
+      "message": "I think we are fine leaving it in x86 namespace. It\u0027s consistent with all the other similar cases.",
+      "parentUuid": "399cbe29_3bc79777",
+      "range": {
+        "startLine": 25,
+        "startChar": 52,
+        "endLine": 25,
+        "endChar": 53
+      },
+      "revId": "94991077ed66e3c329e8bf6f594ad6d30992b092",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
