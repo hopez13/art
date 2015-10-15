@@ -45,6 +45,29 @@
       "revId": "30ee3e213e55d069674ccf5c0ff1940aa64b9254",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f913064a_f9b4b70b",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-15T07:35:55Z",
+      "side": 1,
+      "message": "Can\u0027t you templatize this guy? The two versions look very similar, is it just the parameter type that changes?",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 1
+      },
+      "revId": "30ee3e213e55d069674ccf5c0ff1940aa64b9254",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
