@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "99d92a72_0e1e8b2c",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-16T17:30:00Z",
+      "side": 1,
+      "message": "Const-correctness should be followed, https://google-styleguide.googlecode.com/svn/trunk/cppguide.html#Use_of_const\n\n   If a function does not modify an argument passed by reference or by pointer, that argument should be const.",
+      "parentUuid": "1959ba73_c3b77c25",
+      "range": {
+        "startLine": 78,
+        "startChar": 52,
+        "endLine": 78,
+        "endChar": 64
+      },
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ae8a64_e0babe46",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 3
@@ -113,6 +137,24 @@
       "side": 1,
       "message": "well, the reason for this wrapper method is that i can reuse code without exposing all the internals to the public API\n\nadding tons of /**/ on this line does not really add much value I feel, since you can read below what it does",
       "parentUuid": "f9b786e1_59a1839c",
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79d47637_0dec5178",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-16T17:30:00Z",
+      "side": 1,
+      "message": "Well that\u0027s just the style that google has always recommended (we\u0027re just more strict about the word \u0027consider\u0027).\n\nhttps://google-styleguide.googlecode.com/svn/trunk/cppguide.html#Implementation_Comments\n\n\u003e When you pass in a null pointer, boolean, or literal integer values to functions, you should consider adding a comment about what they are, or make your code self-documenting by using constants\n\n-----\n\nIn terms of readability, this function is forwarding the call from line 107 to another function on line 353, that\u0027s a few page scrolls on even a 30\" monitor.\n\nWhat\u0027s worse is that \"GenerateCode\" right under this one looks like it\u0027s *almost* the right thing except the parameter count is off (it has 1 less than the actual 1 you are calling here), which makes it even more confusing.",
+      "parentUuid": "99f12aa5_a26ce684",
       "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
