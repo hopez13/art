@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "39b03e09_3bb977b1",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-16T16:46:37Z",
+      "side": 1,
+      "message": "Personal preference: do not mix important information with a side note.",
+      "parentUuid": "b9f26ee4_6fdcf146",
+      "range": {
+        "startLine": 284,
+        "startChar": 65,
+        "endLine": 284,
+        "endChar": 84
+      },
+      "revId": "1d773bc8ca9643580592c3746061de72add6b0b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39de7e5b_6bdce146",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "19cc5a7c_02a86a4c",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-16T16:46:37Z",
+      "side": 1,
+      "message": "Requested by Igor.",
+      "parentUuid": "39de7e5b_6bdce146",
+      "range": {
+        "startLine": 440,
+        "startChar": 30,
+        "endLine": 440,
+        "endChar": 34
+      },
+      "revId": "1d773bc8ca9643580592c3746061de72add6b0b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99d92a72_ae13f79f",
         "filename": "runtime/oat_file.h",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-10-16T16:11:49Z",
       "side": 1,
       "message": "Please add a comment. Could also go into the cc file if you added End() as a parameter.",
+      "range": {
+        "startLine": 290,
+        "startChar": 2,
+        "endLine": 291,
+        "endChar": 70
+      },
+      "revId": "1d773bc8ca9643580592c3746061de72add6b0b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19cc5a7c_82739aa2",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-16T16:46:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99d92a72_ae13f79f",
       "range": {
         "startLine": 290,
         "startChar": 2,
