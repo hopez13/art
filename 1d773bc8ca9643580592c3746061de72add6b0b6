@@ -102,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "79d47637_ad6f7d2a",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-16T18:16:30Z",
+      "side": 1,
+      "message": "It\u0027s the segment that says which (mapped or created) part is writable, so you\u0027ll have to find the segment the symbol is in.\n\nI don\u0027t think we should add additional complexity that a normal linker doesn\u0027t provide. This is the fallback path, and we already have to trust the linker in the mainline path (where we have to use dlsym).",
+      "parentUuid": "99020a8c_666ace1b",
+      "revId": "1d773bc8ca9643580592c3746061de72add6b0b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99d92a72_2e6a6768",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 1
