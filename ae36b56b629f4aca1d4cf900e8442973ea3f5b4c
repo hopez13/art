@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d97c82f3_48f53fef",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-16T16:52:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b90b4ea8_67e77209",
+      "range": {
+        "startLine": 52,
+        "startChar": 18,
+        "endLine": 52,
+        "endChar": 19
+      },
+      "revId": "ae36b56b629f4aca1d4cf900e8442973ea3f5b4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99d92a72_0e920b50",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f9cea675_017f8a65",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-16T16:52:39Z",
+      "side": 1,
+      "message": "Actually, the constant was there before, and I wanted to ask you why you added it :-) Is that to workaround the code alignment?",
+      "parentUuid": "99d92a72_0e920b50",
+      "range": {
+        "startLine": 84,
+        "startChar": 73,
+        "endLine": 84,
+        "endChar": 75
+      },
+      "revId": "ae36b56b629f4aca1d4cf900e8442973ea3f5b4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79d47637_adc41d2a",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2015-10-16T16:50:11Z",
       "side": 1,
       "message": "It might be cleaner if we didn\u0027t have to cast from mirror::Object*",
+      "range": {
+        "startLine": 89,
+        "startChar": 20,
+        "endLine": 89,
+        "endChar": 46
+      },
+      "revId": "ae36b56b629f4aca1d4cf900e8442973ea3f5b4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59141288_642dea62",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-16T16:52:39Z",
+      "side": 1,
+      "message": "Are you suggesting another AllocNonvirtual method?",
+      "parentUuid": "79d47637_adc41d2a",
       "range": {
         "startLine": 89,
         "startChar": 20,
