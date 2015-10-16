@@ -120,6 +120,24 @@
     },
     {
       "key": {
+        "uuid": "79d47637_30f1a6c0",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-16T18:27:52Z",
+      "side": 1,
+      "message": "NP, not asking for extra complexity, just trying to understand the situation better since I\u0027m not overly familiar with our elf files.\n\nLets discuss offline since the code seems fine.",
+      "parentUuid": "79d47637_ad6f7d2a",
+      "revId": "1d773bc8ca9643580592c3746061de72add6b0b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99d92a72_2e6a6768",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 1
