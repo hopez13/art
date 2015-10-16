@@ -93,6 +93,30 @@
       "revId": "885832c0433d5363fdbf866eae9b2e399bf0b0c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79d47637_cdf769b8",
+        "filename": "compiler/jni/quick/mips64/calling_convention_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-16T15:53:15Z",
+      "side": 1,
+      "message": "Yeah, the optimizing compiler doesn\u0027t use this. Neither does it use BuildFrame from the assembler, it builds the frame manually itself. So RA is marked as a callee-save there.",
+      "parentUuid": "39b03e09_5b88c323",
+      "range": {
+        "startLine": 154,
+        "startChar": 38,
+        "endLine": 154,
+        "endChar": 39
+      },
+      "revId": "885832c0433d5363fdbf866eae9b2e399bf0b0c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
