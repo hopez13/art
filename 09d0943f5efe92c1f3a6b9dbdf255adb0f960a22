@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "19cc5a7c_421fd2a6",
+        "filename": "compiler/oat_writer.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-16T16:02:26Z",
+      "side": 1,
+      "message": "Done, cleanup in https://android-review.googlesource.com/177170 .",
+      "parentUuid": "39611e20_3923077a",
+      "revId": "09d0943f5efe92c1f3a6b9dbdf255adb0f960a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ae8a64_06705a06",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 7
@@ -90,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "f99ce675_31f870a9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-16T16:02:26Z",
+      "side": 1,
+      "message": "Fixed constness. (Though that introduced const_cast\u003c\u003es to OatFile::ElfFileOpen() because ElfFile::FindDynamicSymbolAddress() returns const uint8_t*.)",
+      "parentUuid": "99ae8a64_f502828a",
+      "range": {
+        "startLine": 1209,
+        "startChar": 4,
+        "endLine": 1209,
+        "endChar": 14
+      },
+      "revId": "09d0943f5efe92c1f3a6b9dbdf255adb0f960a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9550e3b_ddae3bd2",
         "filename": "runtime/oat.cc",
         "patchSetId": 7
@@ -101,6 +143,30 @@
       "writtenOn": "2015-10-15T22:28:14Z",
       "side": 1,
       "message": "Was it warning here? That shouldn\u0027t really be necessary because InstructionSet fits into a char and va_arg functions automatically promote anything smaller than an int, into an int.",
+      "range": {
+        "startLine": 163,
+        "startChar": 56,
+        "endLine": 163,
+        "endChar": 67
+      },
+      "revId": "09d0943f5efe92c1f3a6b9dbdf255adb0f960a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79155682_45e1caab",
+        "filename": "runtime/oat.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-16T16:02:26Z",
+      "side": 1,
+      "message": "I prefer to be explicit instead of relying on some arcane rules for promoting \"...\" arguments.",
+      "parentUuid": "b9550e3b_ddae3bd2",
       "range": {
         "startLine": 163,
         "startChar": 56,
@@ -136,6 +202,30 @@
     },
     {
       "key": {
+        "uuid": "f9cea675_c1e3e2f9",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-16T16:02:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1927faf5_30769007",
+      "range": {
+        "startLine": 524,
+        "startChar": 72,
+        "endLine": 524,
+        "endChar": 75
+      },
+      "revId": "09d0943f5efe92c1f3a6b9dbdf255adb0f960a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9550e3b_dd891b67",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 7
@@ -147,6 +237,24 @@
       "writtenOn": "2015-10-15T22:28:14Z",
       "side": 1,
       "message": "style nit: 4 space indentation when the expression wraps",
+      "revId": "09d0943f5efe92c1f3a6b9dbdf255adb0f960a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "390f5e7a_a3db5a4e",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-16T16:02:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9550e3b_dd891b67",
       "revId": "09d0943f5efe92c1f3a6b9dbdf255adb0f960a22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -170,6 +278,24 @@
     },
     {
       "key": {
+        "uuid": "f99ce675_71c75876",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-16T16:02:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1927faf5_f08cf878",
+      "revId": "09d0943f5efe92c1f3a6b9dbdf255adb0f960a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1959ba73_80f57af2",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 7
@@ -187,6 +313,24 @@
     },
     {
       "key": {
+        "uuid": "59141288_044a3698",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-16T16:02:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1959ba73_80f57af2",
+      "revId": "09d0943f5efe92c1f3a6b9dbdf255adb0f960a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9550e3b_3d765707",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 7
@@ -198,6 +342,30 @@
       "writtenOn": "2015-10-15T22:28:14Z",
       "side": 1,
       "message": "zu",
+      "range": {
+        "startLine": 559,
+        "startChar": 85,
+        "endLine": 559,
+        "endChar": 87
+      },
+      "revId": "09d0943f5efe92c1f3a6b9dbdf255adb0f960a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "991a0ab3_86e3cafa",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-16T16:02:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9550e3b_3d765707",
       "range": {
         "startLine": 559,
         "startChar": 85,
