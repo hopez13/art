@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "79155682_65c5e625",
+        "filename": "runtime/length_prefixed_array.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-16T09:13:16Z",
+      "side": 1,
+      "message": "The only use case where we have alignment !\u003d alignof(T) is for ArtMethod when cross-compiling with host and target having different pointer size.",
+      "parentUuid": "9943ea80_d2163416",
+      "revId": "738493f4c0c1227f615c8527560cf33be1c629c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9fae6a64_2012169f",
         "filename": "runtime/length_prefixed_array.h",
         "patchSetId": 12
