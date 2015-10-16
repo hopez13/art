@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "99020a8c_666ace1b",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-16T18:05:58Z",
+      "side": 1,
+      "message": "Doesn\u0027t the elf file have knowledge of what regions are writable or not (is it due to mmap flags)? \n\nWe could then have a const and non-const version, the non-const version can DCHECK that the region is writable.",
+      "parentUuid": "79d47637_ed3fc551",
+      "revId": "1d773bc8ca9643580592c3746061de72add6b0b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99d92a72_2e6a6768",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 1
