@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "79d47637_ed3fc551",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-16T17:57:13Z",
+      "side": 1,
+      "message": "Because most symbols aren\u0027t in writable regions, so it\u0027s the conservative assumption, and it should be the job of the caller to use additional knowledge...",
+      "parentUuid": "b9f26ee4_8f72759e",
+      "revId": "1d773bc8ca9643580592c3746061de72add6b0b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99d92a72_2e6a6768",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 1
