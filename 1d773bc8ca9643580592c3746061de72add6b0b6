@@ -49,6 +49,40 @@
     },
     {
       "key": {
+        "uuid": "b9f26ee4_8f72759e",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-16T17:42:31Z",
+      "side": 1,
+      "message": "Why not fix elf file not to return a const?",
+      "revId": "1d773bc8ca9643580592c3746061de72add6b0b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99d92a72_2e6a6768",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-16T17:42:31Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "1d773bc8ca9643580592c3746061de72add6b0b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39de7e5b_6bdce146",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 1
