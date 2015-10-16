@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1959ba73_c3b77c25",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-16T01:30:55Z",
+      "side": 1,
+      "message": "no reason, other than that I never see us use that?",
+      "parentUuid": "f9bdc694_95b3076d",
+      "range": {
+        "startLine": 78,
+        "startChar": 52,
+        "endLine": 78,
+        "endChar": 64
+      },
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ae8a64_e0babe46",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2015-10-15T23:44:22Z",
       "side": 1,
       "message": "style nit: add /*out*/ for out parameters\n\n  /*out*/bool* top_test",
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99f12aa5_625b1ee1",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-16T01:30:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99ae8a64_e0babe46",
       "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "99f12aa5_a26ce684",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-16T01:30:55Z",
+      "side": 1,
+      "message": "well, the reason for this wrapper method is that i can reuse code without exposing all the internals to the public API\n\nadding tons of /**/ on this line does not really add much value I feel, since you can read below what it does",
+      "parentUuid": "f9b786e1_59a1839c",
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ae8a64_c0c1c2b5",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 3
@@ -70,6 +130,24 @@
       "writtenOn": "2015-10-15T23:44:22Z",
       "side": 1,
       "message": "style nit: add /*out*/ for out parameters\n\n  /*out*/HInstruction** lower",
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1959ba73_a3b40822",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-16T01:30:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99ae8a64_c0c1c2b5",
       "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "996cca16_8a7f5b31",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-16T01:30:55Z",
+      "side": 1,
+      "message": "see above",
+      "parentUuid": "1959ba73_63e150ac",
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9bdc694_55ad8f08",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 3
@@ -104,6 +200,24 @@
       "writtenOn": "2015-10-15T23:44:22Z",
       "side": 1,
       "message": "style nit: add /*out*/ for out parameters\n\n  /*out*/HInstruction** lower",
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99f12aa5_026a1a67",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-16T01:30:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9bdc694_55ad8f08",
       "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -133,6 +247,30 @@
     },
     {
       "key": {
+        "uuid": "39611e20_1cd6f9b1",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-16T01:30:55Z",
+      "side": 1,
+      "message": "Ah, but look carefully, the ( is closed much earlier\n\nI have add a comment to make this more clear",
+      "parentUuid": "d952c250_61a30cee",
+      "range": {
+        "startLine": 371,
+        "startChar": 13,
+        "endLine": 371,
+        "endChar": 14
+      },
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39611e20_fcf05dbd",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 3
@@ -144,6 +282,24 @@
       "writtenOn": "2015-10-15T23:44:22Z",
       "side": 1,
       "message": "style nit: add /*out*/ for out parameters\n\n  /*out*/HInstruction** result",
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79c3965a_b56c6085",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-16T01:30:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39611e20_fcf05dbd",
       "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -190,6 +346,24 @@
     },
     {
       "key": {
+        "uuid": "79c3965a_f58fb8b8",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-16T01:30:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1959ba73_43e24cb5",
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39611e20_5c023156",
         "filename": "compiler/optimizing/induction_var_range.h",
         "patchSetId": 3
@@ -207,6 +381,24 @@
     },
     {
       "key": {
+        "uuid": "79c3965a_155c34da",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-16T01:30:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39611e20_5c023156",
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9bdc694_75ae930b",
         "filename": "compiler/optimizing/induction_var_range.h",
         "patchSetId": 3
@@ -218,6 +410,24 @@
       "writtenOn": "2015-10-15T23:44:22Z",
       "side": 1,
       "message": "see 141",
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1959ba73_63a310ee",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-16T01:30:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9bdc694_75ae930b",
       "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
