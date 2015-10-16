@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d97c82f3_08e267b4",
+        "filename": "compiler/jni/quick/mips64/calling_convention_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-16T13:27:31Z",
+      "side": 1,
+      "message": "Done (RA instead of LR).",
+      "parentUuid": "39611e20_7cc72d9f",
+      "range": {
+        "startLine": 152,
+        "startChar": 12,
+        "endLine": 152,
+        "endChar": 13
+      },
+      "revId": "885832c0433d5363fdbf866eae9b2e399bf0b0c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ae8a64_fb02738a",
         "filename": "compiler/jni/quick/mips64/calling_convention_mips64.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-16T04:25:40Z",
       "side": 1,
       "message": "Do you know if this also fixes currently unconditional register block in CodeGeneratorMIPS64::SetupBlockedRegisters()? I remember I couldn\u0027t find the culprit last time I looked at it.",
+      "range": {
+        "startLine": 154,
+        "startChar": 38,
+        "endLine": 154,
+        "endChar": 39
+      },
+      "revId": "885832c0433d5363fdbf866eae9b2e399bf0b0c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39b03e09_5b88c323",
+        "filename": "compiler/jni/quick/mips64/calling_convention_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-16T13:27:31Z",
+      "side": 1,
+      "message": "I don\u0027t think this fix has anything to do with it.",
+      "parentUuid": "99ae8a64_fb02738a",
       "range": {
         "startLine": 154,
         "startChar": 38,
