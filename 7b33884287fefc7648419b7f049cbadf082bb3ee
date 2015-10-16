@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99d92a72_ceb2c369",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-16T17:42:31Z",
+      "side": 1,
+      "message": ":)",
+      "revId": "7b33884287fefc7648419b7f049cbadf082bb3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39de7e5b_eb8c510e",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-16T17:42:31Z",
+      "side": 1,
+      "message": "Might be good to mention that \n\na) reads sizeof(T) bytes\nb) updates \u0027oat\u0027 by the number of bytes read.\n\nIt was fairly un-intuitive to me until I read the entire implementation.",
+      "revId": "7b33884287fefc7648419b7f049cbadf082bb3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39de7e5b_cbe635c7",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-16T17:42:31Z",
+      "side": 1,
+      "message": "minor: is it normal to stick in statics in a random place in the file (instead of near the top)?",
+      "revId": "7b33884287fefc7648419b7f049cbadf082bb3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99020a8c_66540e8e",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-16T17:42:31Z",
+      "side": 1,
+      "message": "DCHECK for non-null args?",
+      "revId": "7b33884287fefc7648419b7f049cbadf082bb3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99d92a72_eec69fd3",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-16T17:42:31Z",
+      "side": 1,
+      "message": "Perhaps \n\n  static_assert(std::is_trivial\u003cT\u003e::value,\n                \"T must be a trivial type\");\n\nTo make it clear people shouldn\u0027t be doing this with something like a std::string ?",
+      "revId": "7b33884287fefc7648419b7f049cbadf082bb3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59e3321f_2c383394",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-16T17:42:31Z",
+      "side": 1,
+      "message": "Doesn\u0027t really matter to me, but the standards-compliant way to do this is with memcpy\n\n   memcpy(value, oat, sizeof(T));\n\nwhich is also shorter by 1 line of code and doesn\u0027t have ugly reinterpret casts",
+      "revId": "7b33884287fefc7648419b7f049cbadf082bb3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
