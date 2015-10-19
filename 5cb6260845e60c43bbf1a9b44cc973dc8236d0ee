@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f91146d4_de1dc106",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-19T17:23:35Z",
+      "side": 1,
+      "message": "If possible, wrap this line to keep it \u003c\u003d 100 columns?",
+      "range": {
+        "startLine": 433,
+        "startChar": 91,
+        "endLine": 433,
+        "endChar": 92
+      },
+      "revId": "5cb6260845e60c43bbf1a9b44cc973dc8236d0ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
