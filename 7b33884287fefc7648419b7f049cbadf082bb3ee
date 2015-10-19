@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "595892e5_a4446231",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-19T15:20:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39de7e5b_eb8c510e",
+      "revId": "7b33884287fefc7648419b7f049cbadf082bb3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39de7e5b_cbe635c7",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 2
@@ -88,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "59fc12c5_a4c4422a",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-19T15:20:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99020a8c_66540e8e",
+      "revId": "7b33884287fefc7648419b7f049cbadf082bb3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99d92a72_eec69fd3",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 2
@@ -105,6 +141,24 @@
     },
     {
       "key": {
+        "uuid": "99476aec_feed21bc",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-19T15:20:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99d92a72_eec69fd3",
+      "revId": "7b33884287fefc7648419b7f049cbadf082bb3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59e3321f_2c383394",
         "filename": "runtime/oat_file.cc",
         "patchSetId": 2
@@ -116,6 +170,24 @@
       "writtenOn": "2015-10-16T17:42:31Z",
       "side": 1,
       "message": "Doesn\u0027t really matter to me, but the standards-compliant way to do this is with memcpy\n\n   memcpy(value, oat, sizeof(T));\n\nwhich is also shorter by 1 line of code and doesn\u0027t have ugly reinterpret casts",
+      "revId": "7b33884287fefc7648419b7f049cbadf082bb3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f936a66e_e1ba66ab",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-19T15:20:28Z",
+      "side": 1,
+      "message": "Keeping as is.",
+      "parentUuid": "59e3321f_2c383394",
       "revId": "7b33884287fefc7648419b7f049cbadf082bb3ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
