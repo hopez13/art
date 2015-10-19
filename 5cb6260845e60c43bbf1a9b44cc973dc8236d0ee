@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "99020a8c_5ab5651b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6374,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-19T19:31:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9ec2e3d_85d6a622",
+      "revId": "5cb6260845e60c43bbf1a9b44cc973dc8236d0ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d90802ae_62099aff",
         "filename": "runtime/class_linker.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2015-10-19T18:30:42Z",
       "side": 1,
       "message": "nit: REQUIRES before SHARED_REQUIRES alphabetically",
+      "revId": "5cb6260845e60c43bbf1a9b44cc973dc8236d0ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f91146d4_55f1afbe",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-19T19:31:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d90802ae_62099aff",
       "revId": "5cb6260845e60c43bbf1a9b44cc973dc8236d0ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "b90b4ea8_496a3869",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-19T19:31:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9ec2e3d_a5f76ab8",
+      "revId": "5cb6260845e60c43bbf1a9b44cc973dc8236d0ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f91146d4_de1dc106",
         "filename": "runtime/native/dalvik_system_DexFile.cc",
         "patchSetId": 1
@@ -64,6 +118,30 @@
       "writtenOn": "2015-10-19T17:23:35Z",
       "side": 1,
       "message": "If possible, wrap this line to keep it \u003c\u003d 100 columns?",
+      "range": {
+        "startLine": 433,
+        "startChar": 91,
+        "endLine": 433,
+        "endChar": 92
+      },
+      "revId": "5cb6260845e60c43bbf1a9b44cc973dc8236d0ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d90802ae_62b51a1c",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-19T19:31:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f91146d4_de1dc106",
       "range": {
         "startLine": 433,
         "startChar": 91,
