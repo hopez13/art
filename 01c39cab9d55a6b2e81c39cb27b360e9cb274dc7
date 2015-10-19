@@ -45,6 +45,30 @@
       "revId": "01c39cab9d55a6b2e81c39cb27b360e9cb274dc7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9ec2e3d_bf0f7748",
+        "filename": "test/115-native-bridge/nativebridge.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1051763
+      },
+      "writtenOn": "2015-10-19T02:53:55Z",
+      "side": 1,
+      "message": "\u003e\u003e bool can_be_block \u003d ((signum !\u003d SIGKILL) \u0026\u0026 (signum !\u003d SIGSTOP)) || is_valid_rt_sig;\n\nThis statement should be incorrect.",
+      "parentUuid": "b90d0e2e_b7ee4872",
+      "range": {
+        "startLine": 424,
+        "startChar": 54,
+        "endLine": 424,
+        "endChar": 105
+      },
+      "revId": "01c39cab9d55a6b2e81c39cb27b360e9cb274dc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
