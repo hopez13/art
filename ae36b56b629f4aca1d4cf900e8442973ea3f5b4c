@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "79d47637_5c8689a8",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-19T15:21:51Z",
+      "side": 1,
+      "message": "Don\u0027t remember, I think it used to have a greater alignment than sizoef(void*)",
+      "parentUuid": "f9cea675_017f8a65",
+      "range": {
+        "startLine": 84,
+        "startChar": 73,
+        "endLine": 84,
+        "endChar": 75
+      },
+      "revId": "ae36b56b629f4aca1d4cf900e8442973ea3f5b4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79d47637_adc41d2a",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 3
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "Are you suggesting another AllocNonvirtual method?",
       "parentUuid": "79d47637_adc41d2a",
+      "range": {
+        "startLine": 89,
+        "startChar": 20,
+        "endLine": 89,
+        "endChar": 46
+      },
+      "revId": "ae36b56b629f4aca1d4cf900e8442973ea3f5b4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f26ee4_23ee02e3",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-19T15:21:51Z",
+      "side": 1,
+      "message": "Or maybe just changing the DlMalloc space to use void* instead of Object*. Though that may be more cleanup than needed, I\u0027d wait to see what Hiroshi thinks.",
+      "parentUuid": "59141288_642dea62",
       "range": {
         "startLine": 89,
         "startChar": 20,
