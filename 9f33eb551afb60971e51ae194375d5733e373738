@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d90802ae_6214fa0c",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-19T18:33:38Z",
+      "side": 1,
+      "message": "+1\n\nIt\u0027s not standards-legal but gcc/clang support it, I do agree it should use MEMBER_OFFSET for readability (since I didn\u0027t even realize this is what it was doing before).",
+      "parentUuid": "d93d624e_c0f63e43",
+      "range": {
+        "startLine": 403,
+        "startChar": 42,
+        "endLine": 403,
+        "endChar": 70
+      },
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39de7e5b_3f6a8f68",
         "filename": "runtime/art_method.cc",
         "patchSetId": 5
