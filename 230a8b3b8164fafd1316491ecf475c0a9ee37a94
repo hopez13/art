@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b9ec2e3d_48dcb346",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-19T19:43:55Z",
+      "side": 1,
+      "message": "yes, good point. in the code above we had to create a sub from it, so the second made sense, but here it is really just the only one.",
+      "parentUuid": "99020a8c_ba98d9b5",
+      "range": {
+        "startLine": 416,
+        "startChar": 48,
+        "endLine": 416,
+        "endChar": 54
+      },
+      "revId": "230a8b3b8164fafd1316491ecf475c0a9ee37a94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f91146d4_5563ef1a",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 5
@@ -36,6 +60,24 @@
       "writtenOn": "2015-10-19T19:40:57Z",
       "side": 1,
       "message": "Looks like 4 more spaces needed. Why sub 1 here?",
+      "revId": "230a8b3b8164fafd1316491ecf475c0a9ee37a94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79fd56bf_5ffaf36f",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-19T19:43:55Z",
+      "side": 1,
+      "message": "in a loop like \nfor (int i \u003d 0; i \u003c TC; i++)\n       a[i]\n\nthe min value is 0, and the max value is TC-1\n(also see line 195)",
+      "parentUuid": "f91146d4_5563ef1a",
       "revId": "230a8b3b8164fafd1316491ecf475c0a9ee37a94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
