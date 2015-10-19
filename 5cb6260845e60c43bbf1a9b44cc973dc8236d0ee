@@ -2,6 +2,57 @@
   "comments": [
     {
       "key": {
+        "uuid": "b9ec2e3d_85d6a622",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6374,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-19T18:30:42Z",
+      "side": 1,
+      "message": "nit: DCHECK args for null?",
+      "revId": "5cb6260845e60c43bbf1a9b44cc973dc8236d0ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d90802ae_62099aff",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-19T18:30:42Z",
+      "side": 1,
+      "message": "nit: REQUIRES before SHARED_REQUIRES alphabetically",
+      "revId": "5cb6260845e60c43bbf1a9b44cc973dc8236d0ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9ec2e3d_a5f76ab8",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-19T18:30:42Z",
+      "side": 1,
+      "message": "nit: DCHECK not null?",
+      "revId": "5cb6260845e60c43bbf1a9b44cc973dc8236d0ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f91146d4_de1dc106",
         "filename": "runtime/native/dalvik_system_DexFile.cc",
         "patchSetId": 1
