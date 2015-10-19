@@ -69,6 +69,30 @@
       "revId": "dbda28dc06d9ef1c31b8549fe439e31785bcd480",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b90b4ea8_e42593e2",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-19T21:04:59Z",
+      "side": 1,
+      "message": "RemapAtEnd() would let us split an existing MemMap for this sort of situation. It is currently used to split a mem map into the zygote space and the non-moving space at the zygote fork time. It\u0027s worth considering using it?",
+      "parentUuid": "595892e5_a45a22db",
+      "range": {
+        "startLine": 52,
+        "startChar": 26,
+        "endLine": 52,
+        "endChar": 34
+      },
+      "revId": "dbda28dc06d9ef1c31b8549fe439e31785bcd480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
