@@ -71,6 +71,52 @@
     },
     {
       "key": {
+        "uuid": "b90b4ea8_098fa072",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2067,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-19T20:24:25Z",
+      "side": 1,
+      "message": "here and below, see changes in 64 bit version to deal with new unsigned cases as well",
+      "range": {
+        "startLine": 2067,
+        "startChar": 19,
+        "endLine": 2067,
+        "endChar": 20
+      },
+      "revId": "0f72aade765b073cbe152b1872644e8526e12d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9ec2e3d_88ab5b4b",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2446,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-19T20:24:25Z",
+      "side": 1,
+      "message": "please change this as just modified elsewhere to accept constants as well:\n\nHInstruction* cond \u003d deoptimize-\u003eInputAt(0);\nif (!cond-\u003eIsCondition() || cond-\u003eAsCondition()-\u003eNeedsMaterialization()) {\n  ....",
+      "range": {
+        "startLine": 2446,
+        "startChar": 15,
+        "endLine": 2446,
+        "endChar": 26
+      },
+      "revId": "0f72aade765b073cbe152b1872644e8526e12d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e52b121_9a723da6",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 3
