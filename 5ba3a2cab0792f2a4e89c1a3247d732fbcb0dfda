@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b940aed4_dfba9bab",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-19T14:08:59Z",
+      "side": 1,
+      "message": "done for the OatQuickMethodHeader. Making the function const is another large refactoring that should be done in another change.",
+      "parentUuid": "59fc12c5_c414de5a",
+      "range": {
+        "startLine": 440,
+        "startChar": 2,
+        "endLine": 440,
+        "endChar": 23
+      },
+      "revId": "5ba3a2cab0792f2a4e89c1a3247d732fbcb0dfda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f936a66e_2107ee33",
         "filename": "runtime/oat_quick_method_header.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-19T13:34:30Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "5ba3a2cab0792f2a4e89c1a3247d732fbcb0dfda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595892e5_e491fa21",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-19T14:08:59Z",
+      "side": 1,
+      "message": "Code was copied from old code, so AFAIK we can keep the date.",
+      "parentUuid": "f936a66e_2107ee33",
       "range": {
         "startLine": 2,
         "startChar": 17,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "99476aec_7e2111b2",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-19T14:08:59Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "39f75ee3_c34a9640",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "5ba3a2cab0792f2a4e89c1a3247d732fbcb0dfda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d93d624e_20b92ab1",
         "filename": "runtime/stack.h",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2015-10-19T13:36:21Z",
       "side": 1,
       "message": "const OatQuickMethodHeader*",
+      "range": {
+        "startLine": 727,
+        "startChar": 2,
+        "endLine": 727,
+        "endChar": 23
+      },
+      "revId": "5ba3a2cab0792f2a4e89c1a3247d732fbcb0dfda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d93d624e_60a1726b",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-19T14:08:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d93d624e_20b92ab1",
       "range": {
         "startLine": 727,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "f936a66e_01150a54",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-19T14:08:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d91642dc_b86d79bb",
+      "range": {
+        "startLine": 809,
+        "startChar": 2,
+        "endLine": 809,
+        "endChar": 23
+      },
+      "revId": "5ba3a2cab0792f2a4e89c1a3247d732fbcb0dfda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d91642dc_5853fdfe",
         "filename": "runtime/utils.cc",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2015-10-19T13:34:30Z",
       "side": 1,
       "message": "This is doing less checks than stack::AssertPcIsWithinQuickCode. What\u0027s the difference?",
+      "range": {
+        "startLine": 1095,
+        "startChar": 12,
+        "endLine": 1095,
+        "endChar": 31
+      },
+      "revId": "5ba3a2cab0792f2a4e89c1a3247d732fbcb0dfda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595172a7_3c1e312d",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-19T14:08:59Z",
+      "side": 1,
+      "message": "Don\u0027t know, it was like this before.\n\nI guess it has to do with the code here is for stack dumping after a crash/ANR. So we are less careful about which code is being executed. Note that if we return false from this method, then we\u0027re just going to emit \"???\".",
+      "parentUuid": "d91642dc_5853fdfe",
       "range": {
         "startLine": 1095,
         "startChar": 12,
