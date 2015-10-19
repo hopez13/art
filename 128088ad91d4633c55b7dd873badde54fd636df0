@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79fd56bf_65a1a66b",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-19T18:17:37Z",
+      "side": 1,
+      "message": "Scary. Can we get any DCHECKs to range check this?\n\n(before we just start reading stuff which could be potentially garbage in line 405?)",
+      "revId": "128088ad91d4633c55b7dd873badde54fd636df0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f26ee4_2f06e9ee",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-19T18:17:37Z",
+      "side": 1,
+      "message": "What about moving this to arch-specific directories? This seems like it\u0027s leaking concerns that the runtime doesn\u0027t normally need to be aware of.",
+      "revId": "128088ad91d4633c55b7dd873badde54fd636df0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
