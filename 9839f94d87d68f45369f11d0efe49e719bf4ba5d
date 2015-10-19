@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "595892e5_04d0d6d6",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-19T13:50:38Z",
+      "side": 1,
+      "message": "DCHECK that we are jit-ing.\n\nAdd a comment why we don\u0027t care about verification.",
+      "range": {
+        "startLine": 636,
+        "startChar": 4,
+        "endLine": 636,
+        "endChar": 8
+      },
+      "revId": "9839f94d87d68f45369f11d0efe49e719bf4ba5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99476aec_9e097d45",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-19T13:50:38Z",
+      "side": 1,
+      "message": "same comment about dchecking that we jit.\n\nalso, add an explanation why we don\u0027t care about verification failures.",
+      "range": {
+        "startLine": 856,
+        "startChar": 4,
+        "endLine": 856,
+        "endChar": 8
+      },
+      "revId": "9839f94d87d68f45369f11d0efe49e719bf4ba5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b940aed4_bf0eb748",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-19T13:50:38Z",
+      "side": 1,
+      "message": "One per line. It reads better.",
+      "range": {
+        "startLine": 83,
+        "startChar": 9,
+        "endLine": 83,
+        "endChar": 63
+      },
+      "revId": "9839f94d87d68f45369f11d0efe49e719bf4ba5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d93d624e_c0e07eab",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-19T13:50:38Z",
+      "side": 1,
+      "message": "Add documentation.",
+      "range": {
+        "startLine": 64,
+        "startChar": 11,
+        "endLine": 64,
+        "endChar": 21
+      },
+      "revId": "9839f94d87d68f45369f11d0efe49e719bf4ba5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
