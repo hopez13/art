@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "59fc12c5_c414de5a",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-19T13:36:21Z",
+      "side": 1,
+      "message": "const OatQuickMethodHeader*\n\n(Maybe also make the function const along with all other getters?)",
+      "range": {
+        "startLine": 440,
+        "startChar": 2,
+        "endLine": 440,
+        "endChar": 23
+      },
+      "revId": "5ba3a2cab0792f2a4e89c1a3247d732fbcb0dfda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f936a66e_2107ee33",
         "filename": "runtime/oat_quick_method_header.cc",
         "patchSetId": 4
@@ -41,6 +64,52 @@
         "startChar": 17,
         "endLine": 2,
         "endChar": 21
+      },
+      "revId": "5ba3a2cab0792f2a4e89c1a3247d732fbcb0dfda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d93d624e_20b92ab1",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-19T13:36:21Z",
+      "side": 1,
+      "message": "const OatQuickMethodHeader*",
+      "range": {
+        "startLine": 727,
+        "startChar": 2,
+        "endLine": 727,
+        "endChar": 23
+      },
+      "revId": "5ba3a2cab0792f2a4e89c1a3247d732fbcb0dfda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d91642dc_b86d79bb",
+        "filename": "runtime/stack.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-19T13:36:21Z",
+      "side": 1,
+      "message": "const OatQuickMethodHeader*",
+      "range": {
+        "startLine": 809,
+        "startChar": 2,
+        "endLine": 809,
+        "endChar": 23
       },
       "revId": "5ba3a2cab0792f2a4e89c1a3247d732fbcb0dfda",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
