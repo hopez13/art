@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "595172a7_5f720fd0",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5407,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T13:18:55Z",
+      "side": 1,
+      "message": "ShifterOperand may not be able to hold lower_bound. Use\n\n  __ AddConstant(key_reg, value_reg, -lower_bound);",
+      "range": {
+        "startLine": 5407,
+        "startChar": 6,
+        "endLine": 5407,
+        "endChar": 62
+      },
+      "revId": "d4237e143ee78dd738f3031911126d3cc69963f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99476aec_9e43bd0a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5413,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T13:18:55Z",
+      "side": 1,
+      "message": "ShifterOperand may not be able to hold num_entries-1. Use\n\n  __ CmpConstant(key_reg, num_entries - 1);\n\nand implement the CmpConstant() helper.",
+      "range": {
+        "startLine": 5413,
+        "startChar": 4,
+        "endLine": 5413,
+        "endChar": 53
+      },
+      "revId": "d4237e143ee78dd738f3031911126d3cc69963f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f936a66e_613e5685",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5417,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T13:18:55Z",
+      "side": 1,
+      "message": "You don\u0027t need table_base_reg anymore, so you should reuse that register instead of temp_reg here. Then you should allocate one less temporary in LocationsBuilderARM::VisitPackedSwitch() if lower_bound \u003d\u003d 0.",
+      "range": {
+        "startLine": 5417,
+        "startChar": 4,
+        "endLine": 5417,
+        "endChar": 70
+      },
+      "revId": "d4237e143ee78dd738f3031911126d3cc69963f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b940aed4_df5b7be2",
+        "filename": "compiler/utils/arm/assembler_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T13:18:55Z",
+      "side": 1,
+      "message": "If you\u0027re getting \"labels\" by value, you should std::move(labels).",
+      "range": {
+        "startLine": 83,
+        "startChar": 86,
+        "endLine": 83,
+        "endChar": 92
+      },
+      "revId": "d4237e143ee78dd738f3031911126d3cc69963f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f936a66e_411eb22d",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T13:18:55Z",
+      "side": 1,
+      "message": "I followed the ARMv7-A/ARMv7-R manual for naming in the other functions. If we want to continue doing so, this should be rd.",
+      "range": {
+        "startLine": 416,
+        "startChar": 55,
+        "endLine": 416,
+        "endChar": 57
+      },
+      "revId": "d4237e143ee78dd738f3031911126d3cc69963f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b940aed4_bf5a37db",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T13:18:55Z",
+      "side": 1,
+      "message": "rd",
+      "range": {
+        "startLine": 423,
+        "startChar": 55,
+        "endLine": 423,
+        "endChar": 57
+      },
+      "revId": "d4237e143ee78dd738f3031911126d3cc69963f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595892e5_e4a81ace",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2012,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T13:18:55Z",
+      "side": 1,
+      "message": "Unnecessary restriction.",
+      "range": {
+        "startLine": 2012,
+        "startChar": 10,
+        "endLine": 2012,
+        "endChar": 30
+      },
+      "revId": "d4237e143ee78dd738f3031911126d3cc69963f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595172a7_3f92a350",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3606,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T13:18:55Z",
+      "side": 1,
+      "message": "std::move(labels)",
+      "range": {
+        "startLine": 3606,
+        "startChar": 28,
+        "endLine": 3606,
+        "endChar": 34
+      },
+      "revId": "d4237e143ee78dd738f3031911126d3cc69963f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d91642dc_38e6494a",
+        "filename": "compiler/utils/arm/assembler_thumb2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T13:18:55Z",
+      "side": 1,
+      "message": "Unnecessary restriction: ADD register, encoding T2, allows m\u003d\u003d15 if n!\u003d15.\n(Note that kLiteral64KiB has this restriction because of the 16-bit LDR rX, [rX].)",
+      "range": {
+        "startLine": 440,
+        "startChar": 37,
+        "endLine": 440,
+        "endChar": 42
+      },
+      "revId": "d4237e143ee78dd738f3031911126d3cc69963f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99476aec_9e2c1d68",
+        "filename": "compiler/utils/arm/assembler_thumb2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T13:18:55Z",
+      "side": 1,
+      "message": "I don\u0027t think the default argument makes sense, given it\u0027s unavailable for high registers.",
+      "range": {
+        "startLine": 473,
+        "startChar": 76,
+        "endLine": 473,
+        "endChar": 91
+      },
+      "revId": "d4237e143ee78dd738f3031911126d3cc69963f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595172a7_7f882b24",
+        "filename": "compiler/utils/arm/assembler_thumb2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T13:18:55Z",
+      "side": 1,
+      "message": "I don\u0027t think the default argument makes sense, given it\u0027s unavailable for high registers.",
+      "range": {
+        "startLine": 509,
+        "startChar": 77,
+        "endLine": 509,
+        "endChar": 96
+      },
+      "revId": "d4237e143ee78dd738f3031911126d3cc69963f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59fc12c5_64708a56",
+        "filename": "compiler/utils/arm/assembler_thumb2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T13:18:55Z",
+      "side": 1,
+      "message": "Unnecessary restriction.",
+      "range": {
+        "startLine": 512,
+        "startChar": 65,
+        "endLine": 512,
+        "endChar": 90
+      },
+      "revId": "d4237e143ee78dd738f3031911126d3cc69963f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
