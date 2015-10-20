@@ -763,6 +763,24 @@
     },
     {
       "key": {
+        "uuid": "b9ec2e3d_cb271882",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T20:41:15Z",
+      "side": 1,
+      "message": "Like thus:\n\n   struct CompiledCode alignas(uint8_t) {\n     OatQuickMethodHeader* GetHeader() {\n       return this - MEMBER_OFFSET(OatQuickMethodHeader, code_);\n     }\n     // ... other helpers here that make sense\n\n     ....\n     ....\n     uint8_t code_[0];\n\n     DISALLOW_COPY_AND_ASSIGN(CompiledCode);\n   }\n\n   const CompiledCode* GetCode() const { \n     return code_;\n   }",
+      "parentUuid": "f936a66e_613ad6b1",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f91146d4_b2836199",
         "filename": "runtime/oat_quick_method_header.h",
         "patchSetId": 5
@@ -792,6 +810,24 @@
       "side": 1,
       "message": "why? we may emit 1 byte methods.",
       "parentUuid": "f91146d4_b2836199",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99f3ea1a_f37c92a5",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T20:41:15Z",
+      "side": 1,
+      "message": "Never mind, I was very tired yesterday and I thought this was doing a dereference (I thought it was using code_[0])",
+      "parentUuid": "19345a65_6572e0d0",
       "revId": "9f33eb551afb60971e51ae194375d5733e373738",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -952,6 +988,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "595172a7_9f13b7a0",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99020a8c_501e6176",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T20:41:15Z",
+      "side": 1,
+      "message": "This seems like it needs to be in an arch specific directory.",
+      "parentUuid": "99476aec_def70541",
       "revId": "9f33eb551afb60971e51ae194375d5733e373738",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -1122,6 +1176,30 @@
       "side": 1,
       "message": "i disagree on the misleading (let\u0027s take this offline).\n\n(Also, the [-1] doesn\u0027t scare you?)",
       "parentUuid": "b9ec2e3d_45177e12",
+      "range": {
+        "startLine": 864,
+        "startChar": 23,
+        "endLine": 865,
+        "endChar": 35
+      },
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9ec2e3d_ab38d495",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T20:41:15Z",
+      "side": 1,
+      "message": "The -1 probably shouldn\u0027t be there either if it\u0027s playing a trick on a flexible array element.",
+      "parentUuid": "595172a7_fff75bb7",
       "range": {
         "startLine": 864,
         "startChar": 23,
