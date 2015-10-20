@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d91642dc_58a21d1a",
+        "filename": "runtime/arch/context.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "Code was moved from stack.h to context.h. So yeah.",
+      "parentUuid": "39de7e5b_ff7527fa",
+      "range": {
+        "startLine": 44,
+        "startChar": 46,
+        "endLine": 44,
+        "endChar": 72
+      },
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d90802ae_82a24e17",
         "filename": "runtime/arch/context.h",
         "patchSetId": 5
@@ -53,6 +77,42 @@
       "writtenOn": "2015-10-20T10:01:16Z",
       "side": 1,
       "message": "Also, doesn\u0027t this hinder cross-compilation?",
+      "parentUuid": "d90802ae_82a24e17",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19345a65_05ee74b8",
+        "filename": "runtime/arch/context.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "Code was just moved. And no this is not run through cross-compilation.",
+      "parentUuid": "19345a65_c5a5eca9",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59fc12c5_041e762c",
+        "filename": "runtime/arch/context.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "Code moved from stack.h to context.h.",
       "parentUuid": "d90802ae_82a24e17",
       "revId": "9f33eb551afb60971e51ae194375d5733e373738",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -107,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "d91642dc_b8ac990e",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "We\u0027re using zero-length array quite heavily in the code base.\n\nNote that this is getting the method header from the code. Code was using [-1] before, which isn\u0027t great either. But I\u0027ll add a helper in a follow-up cl.",
+      "parentUuid": "d90802ae_6214fa0c",
+      "range": {
+        "startLine": 403,
+        "startChar": 42,
+        "endLine": 403,
+        "endChar": 70
+      },
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39de7e5b_3f6a8f68",
         "filename": "runtime/art_method.cc",
         "patchSetId": 5
@@ -118,6 +202,24 @@
       "writtenOn": "2015-10-19T18:17:37Z",
       "side": 1,
       "message": "What happened to all the validations? :(",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59fc12c5_2421726a",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "Wasn\u0027t there before. Unit testing make them annoying. The TODO is here to say I\u0027ll clean it up.",
+      "parentUuid": "39de7e5b_3f6a8f68",
       "revId": "9f33eb551afb60971e51ae194375d5733e373738",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -141,6 +243,24 @@
     },
     {
       "key": {
+        "uuid": "b940aed4_7f090fff",
+        "filename": "runtime/exception_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "Do we all agree on this? I thought some prefered the fewer line options. And I\u0027d say we should avoid double indentations as much as we can. I think we should discuss about it, as it has been the style for a while.",
+      "parentUuid": "99f3ea1a_c1c6e4d3",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79fd56bf_54677a4f",
         "filename": "runtime/exception_test.cc",
         "patchSetId": 5
@@ -152,6 +272,24 @@
       "writtenOn": "2015-10-19T19:00:23Z",
       "side": 1,
       "message": "see 190",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d91642dc_789fe1d2",
+        "filename": "runtime/exception_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "79fd56bf_54677a4f",
       "revId": "9f33eb551afb60971e51ae194375d5733e373738",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -181,6 +319,30 @@
     },
     {
       "key": {
+        "uuid": "595172a7_9fc17764",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "ditto.",
+      "parentUuid": "b9ec2e3d_a563eace",
+      "range": {
+        "startLine": 255,
+        "startChar": 24,
+        "endLine": 255,
+        "endChar": 25
+      },
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39de7e5b_9fcbc3aa",
         "filename": "runtime/oat_quick_method_header.cc",
         "patchSetId": 5
@@ -192,6 +354,24 @@
       "writtenOn": "2015-10-19T19:00:23Z",
       "side": 1,
       "message": "see 95",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595892e5_442d6e2f",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "Code was moved.",
+      "parentUuid": "39de7e5b_9fcbc3aa",
       "revId": "9f33eb551afb60971e51ae194375d5733e373738",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -215,6 +395,24 @@
     },
     {
       "key": {
+        "uuid": "39f75ee3_a6968816",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "d90802ae_626d1a7f",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9f26ee4_fef2cdc9",
         "filename": "runtime/oat_quick_method_header.cc",
         "patchSetId": 5
@@ -226,6 +424,24 @@
       "writtenOn": "2015-10-19T19:00:23Z",
       "side": 1,
       "message": "nit: using over typedef\n\n(I would also think you would want a more specific name, such as PcToDexIt instead of just \"It\")",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b940aed4_3f0387df",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "b9f26ee4_fef2cdc9",
       "revId": "9f33eb551afb60971e51ae194375d5733e373738",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -249,6 +465,24 @@
     },
     {
       "key": {
+        "uuid": "b940aed4_df229b74",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "39de7e5b_dfc14b8c",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9f26ee4_befc459d",
         "filename": "runtime/oat_quick_method_header.cc",
         "patchSetId": 5
@@ -260,6 +494,24 @@
       "writtenOn": "2015-10-19T19:00:23Z",
       "side": 1,
       "message": "Why not \"HasMappingTable\" ?",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d91642dc_d8186d19",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "Being compiled with optimizing just ends up not requiring a mapping table. You may be confused by the comment, but Quick required a mapping table for implementing ToNativeQuickPc.",
+      "parentUuid": "b9f26ee4_befc459d",
       "revId": "9f33eb551afb60971e51ae194375d5733e373738",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -283,6 +535,24 @@
     },
     {
       "key": {
+        "uuid": "b940aed4_9f2c1368",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "What struct? OatQuickMethodHeader? The return value is just pointing in the inlined code.",
+      "parentUuid": "b9ec2e3d_45e5be8e",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b90b4ea8_09d1e0b9",
         "filename": "runtime/oat_quick_method_header.cc",
         "patchSetId": 5
@@ -294,6 +564,24 @@
       "writtenOn": "2015-10-19T19:00:23Z",
       "side": 1,
       "message": "nit: prefer \u003d over construction",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f936a66e_2134cebe",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "code was moved.",
+      "parentUuid": "b90b4ea8_09d1e0b9",
       "revId": "9f33eb551afb60971e51ae194375d5733e373738",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -317,6 +605,24 @@
     },
     {
       "key": {
+        "uuid": "f936a66e_e1d026b8",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "f91146d4_f24439e4",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99f3ea1a_212a2819",
         "filename": "runtime/oat_quick_method_header.cc",
         "patchSetId": 5
@@ -328,6 +634,24 @@
       "writtenOn": "2015-10-19T19:00:23Z",
       "side": 1,
       "message": "see 64",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d91642dc_f81d3106",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "99f3ea1a_212a2819",
       "revId": "9f33eb551afb60971e51ae194375d5733e373738",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -351,6 +675,24 @@
     },
     {
       "key": {
+        "uuid": "19345a65_4569dce0",
+        "filename": "runtime/oat_quick_method_header.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "Looks like the -1 for returning an error. But all users apparently pass the \u0027abort_on_failure\u0027 flag. May be worth revisiting.",
+      "parentUuid": "99020a8c_7a54a18d",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99020a8c_3a4e2900",
         "filename": "runtime/oat_quick_method_header.h",
         "patchSetId": 5
@@ -362,6 +704,24 @@
       "writtenOn": "2015-10-19T19:00:23Z",
       "side": 1,
       "message": "nit: Please include comments for public member functions",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b940aed4_1f06c3ee",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "Code was moved. I started adding comment, but methods are so short that the names already describe what\u0027s happening.\n\nWhat would you suggest on putting?",
+      "parentUuid": "99020a8c_3a4e2900",
       "revId": "9f33eb551afb60971e51ae194375d5733e373738",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -385,6 +745,24 @@
     },
     {
       "key": {
+        "uuid": "f936a66e_613ad6b1",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "How would you type code? const void*? uintptr_t?",
+      "parentUuid": "39de7e5b_df16ebd0",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f91146d4_b2836199",
         "filename": "runtime/oat_quick_method_header.h",
         "patchSetId": 5
@@ -402,6 +780,24 @@
     },
     {
       "key": {
+        "uuid": "19345a65_6572e0d0",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "why? we may emit 1 byte methods.",
+      "parentUuid": "f91146d4_b2836199",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b90b4ea8_a972d49d",
         "filename": "runtime/oat_quick_method_header.h",
         "patchSetId": 5
@@ -413,6 +809,24 @@
       "writtenOn": "2015-10-19T19:00:23Z",
       "side": 1,
       "message": "Consider a DCHECK code_size_ is at least as large as sizeof(uintptr_t)?",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595892e5_a4278250",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "b90b4ea8_a972d49d",
       "revId": "9f33eb551afb60971e51ae194375d5733e373738",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -472,6 +886,42 @@
     },
     {
       "key": {
+        "uuid": "d91642dc_9822f541",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "kRuntimeISA is always Arm, but we generate code for thumb. Added a comment.",
+      "parentUuid": "595172a7_dfc7ff76",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d93d624e_80b8364f",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "Added a comment.",
+      "parentUuid": "79d47637_c7f1824d",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f91146d4_329091d6",
         "filename": "runtime/oat_quick_method_header.h",
         "patchSetId": 5
@@ -489,6 +939,24 @@
     },
     {
       "key": {
+        "uuid": "f936a66e_8137dac4",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "the code is inlined in the struct, it\u0027s not an uintptr_t.",
+      "parentUuid": "f91146d4_329091d6",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79fd56bf_dff703b8",
         "filename": "runtime/quick/quick_method_frame_info.h",
         "patchSetId": 5
@@ -500,6 +968,30 @@
       "writtenOn": "2015-10-19T19:00:23Z",
       "side": 1,
       "message": "Is that going to work with cross-compiling?",
+      "range": {
+        "startLine": 54,
+        "startChar": 32,
+        "endLine": 54,
+        "endChar": 45
+      },
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d93d624e_40c22ebb",
+        "filename": "runtime/quick/quick_method_frame_info.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "Code was moved. And OatQuickMethodHeader is not used for cross compiling.",
+      "parentUuid": "79fd56bf_dff703b8",
       "range": {
         "startLine": 54,
         "startChar": 32,
@@ -535,6 +1027,30 @@
     },
     {
       "key": {
+        "uuid": "b940aed4_7f14af0c",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f936a66e_a13f7ea0",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 2
+      },
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9ec2e3d_45177e12",
         "filename": "runtime/stack.cc",
         "patchSetId": 5
@@ -546,6 +1062,30 @@
       "writtenOn": "2015-10-19T19:00:23Z",
       "side": 1,
       "message": "nit: misleading indentation\n\n\n   uint32_t code_size \u003d \n       reinterpret_cast\u003cconst OatQuickMethodHeader*\u003e(\n           EntryPointToCodePointer(code))\n       [-1].code_size;\n\n(or better yet introduce a temp variable)",
+      "range": {
+        "startLine": 864,
+        "startChar": 23,
+        "endLine": 865,
+        "endChar": 35
+      },
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595172a7_fff75bb7",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "i disagree on the misleading (let\u0027s take this offline).\n\n(Also, the [-1] doesn\u0027t scare you?)",
+      "parentUuid": "b9ec2e3d_45177e12",
       "range": {
         "startLine": 864,
         "startChar": 23,
@@ -581,6 +1121,30 @@
     },
     {
       "key": {
+        "uuid": "f936a66e_01d66ab1",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "Code was moved. \"code\" being hexa makes sense. code_size, meh?",
+      "parentUuid": "99476aec_7e37d1c5",
+      "range": {
+        "startLine": 870,
+        "startChar": 6,
+        "endLine": 870,
+        "endChar": 8
+      },
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f936a66e_4131d2cd",
         "filename": "runtime/stack.cc",
         "patchSetId": 5
@@ -592,6 +1156,30 @@
       "writtenOn": "2015-10-20T10:01:16Z",
       "side": 1,
       "message": "What about:\n\n  uint32_t refs \u003d std::count(shorty + 1, shorty + shorty_len, \u0027L\u0027);\n\n?",
+      "range": {
+        "startLine": 937,
+        "startChar": 2,
+        "endLine": 942,
+        "endChar": 3
+      },
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f936a66e_c1df22c3",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 942,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "Code was moved. Probably worth considering.",
+      "parentUuid": "f936a66e_4131d2cd",
       "range": {
         "startLine": 937,
         "startChar": 2,
@@ -627,6 +1215,30 @@
     },
     {
       "key": {
+        "uuid": "b940aed4_5f176b12",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 993,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "Code was moved. But I agree it\u0027s misleading. Done.",
+      "parentUuid": "99f3ea1a_01f56cef",
+      "range": {
+        "startLine": 992,
+        "startChar": 30,
+        "endLine": 993,
+        "endChar": 78
+      },
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59fc12c5_a443220a",
         "filename": "runtime/stack.cc",
         "patchSetId": 5
@@ -638,6 +1250,24 @@
       "writtenOn": "2015-10-20T10:01:16Z",
       "side": 1,
       "message": "\u003c\u003c std::boolalpha",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595892e5_8439266f",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "good catch. done.",
+      "parentUuid": "59fc12c5_a443220a",
       "revId": "9f33eb551afb60971e51ae194375d5733e373738",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -661,6 +1291,24 @@
     },
     {
       "key": {
+        "uuid": "d91642dc_782a811a",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "595892e5_642aea1a",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f91146d4_f2a8b9cd",
         "filename": "runtime/utils.cc",
         "patchSetId": 5
@@ -678,6 +1326,24 @@
     },
     {
       "key": {
+        "uuid": "19345a65_e5e830af",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "Code was moved. This is for handling ANRs and crash. I guess at this point those runtime asserts are not needed.",
+      "parentUuid": "f91146d4_f2a8b9cd",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b90b4ea8_c92ce868",
         "filename": "runtime/utils.cc",
         "patchSetId": 5
@@ -689,6 +1355,24 @@
       "writtenOn": "2015-10-19T19:00:23Z",
       "side": 1,
       "message": "nit: misleading indentation",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99476aec_1e348dbe",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T10:07:24Z",
+      "side": 1,
+      "message": "ditto on not agreeing.",
+      "parentUuid": "b90b4ea8_c92ce868",
       "revId": "9f33eb551afb60971e51ae194375d5733e373738",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
