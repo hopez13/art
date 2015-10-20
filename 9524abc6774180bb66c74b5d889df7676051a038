@@ -46,6 +46,30 @@
       "revId": "9524abc6774180bb66c74b5d889df7676051a038",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d952c250_9e0afd62",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-20T00:57:54Z",
+      "side": 1,
+      "message": "template \u003ctypename... Args\u003e foo bar(Args\u0026\u0026 args) {\n   return real_bar(std::forward(args...));\n}",
+      "parentUuid": "99f12aa5_9455ac33",
+      "range": {
+        "startLine": 355,
+        "startChar": 10,
+        "endLine": 355,
+        "endChar": 22
+      },
+      "revId": "9524abc6774180bb66c74b5d889df7676051a038",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
