@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "79fd56bf_64507ff1",
+        "filename": "runtime/base/scoped_arena_containers.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T18:00:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39f75ee3_e6e120b1",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 68
+      },
+      "revId": "390b6b6e3a0fb3af0fa40e73df77702b2b344bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d91642dc_d8adcd0d",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-20T11:26:38Z",
       "side": 1,
       "message": "Should the AOT compiler explicitly request CreateFindClassDefIndex()? I don\u0027t like adding another dependency on Runtime. DexFile should not know that there is a Runtime.",
+      "range": {
+        "startLine": 422,
+        "startChar": 0,
+        "endLine": 425,
+        "endChar": 3
+      },
+      "revId": "390b6b6e3a0fb3af0fa40e73df77702b2b344bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79d47637_6f2180b2",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T18:00:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d91642dc_d8adcd0d",
       "range": {
         "startLine": 422,
         "startChar": 0,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "b9ec2e3d_54728acf",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T18:00:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19345a65_e57d90a3",
+      "revId": "390b6b6e3a0fb3af0fa40e73df77702b2b344bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "595172a7_5fb52f04",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 3
@@ -76,6 +142,30 @@
       "writtenOn": "2015-10-20T11:26:38Z",
       "side": 1,
       "message": "Why the cast? AllocArray\u003c\u003e() returns correctly typed pointer.\n\nstd::unitialized_fill_n().",
+      "range": {
+        "startLine": 709,
+        "startChar": 0,
+        "endLine": 710,
+        "endChar": 60
+      },
+      "revId": "390b6b6e3a0fb3af0fa40e73df77702b2b344bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79fd56bf_84e5bb91",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T18:00:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "595172a7_5fb52f04",
       "range": {
         "startLine": 709,
         "startChar": 0,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "d90802ae_45345dbf",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T18:00:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59fc12c5_443b4e93",
+      "range": {
+        "startLine": 732,
+        "startChar": 37,
+        "endLine": 732,
+        "endChar": 52
+      },
+      "revId": "390b6b6e3a0fb3af0fa40e73df77702b2b344bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19345a65_c5c96c43",
         "filename": "runtime/verifier/reg_type.h",
         "patchSetId": 3
@@ -122,6 +236,30 @@
       "writtenOn": "2015-10-20T11:26:38Z",
       "side": 1,
       "message": "::operator new",
+      "range": {
+        "startLine": 283,
+        "startChar": 11,
+        "endLine": 283,
+        "endChar": 17
+      },
+      "revId": "390b6b6e3a0fb3af0fa40e73df77702b2b344bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39de7e5b_6080783b",
+        "filename": "runtime/verifier/reg_type.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T18:00:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19345a65_c5c96c43",
       "range": {
         "startLine": 283,
         "startChar": 11,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "f91146d4_a1e78907",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T18:00:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b940aed4_bf831799",
+      "range": {
+        "startLine": 167,
+        "startChar": 2,
+        "endLine": 167,
+        "endChar": 50
+      },
+      "revId": "390b6b6e3a0fb3af0fa40e73df77702b2b344bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d91642dc_98f435f5",
         "filename": "runtime/verifier/reg_type_cache.cc",
         "patchSetId": 3
@@ -174,6 +336,24 @@
     },
     {
       "key": {
+        "uuid": "f91146d4_0194157f",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T18:00:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d91642dc_98f435f5",
+      "revId": "390b6b6e3a0fb3af0fa40e73df77702b2b344bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f936a66e_610c1611",
         "filename": "runtime/verifier/reg_type_cache.cc",
         "patchSetId": 3
@@ -185,6 +365,30 @@
       "writtenOn": "2015-10-20T11:26:38Z",
       "side": 1,
       "message": "Nit: Arena allocations are rounded up to 8 bytes, so we may as well start with 64 bits instead of 32.",
+      "range": {
+        "startLine": 341,
+        "startChar": 23,
+        "endLine": 341,
+        "endChar": 24
+      },
+      "revId": "390b6b6e3a0fb3af0fa40e73df77702b2b344bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39111e0a_b3f218c9",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T18:00:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f936a66e_610c1611",
       "range": {
         "startLine": 341,
         "startChar": 23,
@@ -220,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "39de7e5b_145c55d9",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T18:00:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "595172a7_9f4e57aa",
+      "range": {
+        "startLine": 581,
+        "startChar": 37,
+        "endLine": 581,
+        "endChar": 43
+      },
+      "revId": "390b6b6e3a0fb3af0fa40e73df77702b2b344bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b940aed4_3f9067d6",
         "filename": "runtime/verifier/register_line-inl.h",
         "patchSetId": 3
@@ -231,6 +459,30 @@
       "writtenOn": "2015-10-20T11:26:38Z",
       "side": 1,
       "message": "MEMBER_OFFSET(RegisterLine, line_)",
+      "range": {
+        "startLine": 186,
+        "startChar": 44,
+        "endLine": 186,
+        "endChar": 64
+      },
+      "revId": "390b6b6e3a0fb3af0fa40e73df77702b2b344bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9ec2e3d_9407f231",
+        "filename": "runtime/verifier/register_line-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T18:00:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b940aed4_3f9067d6",
       "range": {
         "startLine": 186,
         "startChar": 44,
@@ -266,6 +518,30 @@
     },
     {
       "key": {
+        "uuid": "39de7e5b_408d7c71",
+        "filename": "runtime/verifier/register_line-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T18:00:47Z",
+      "side": 1,
+      "message": "What do you mean?",
+      "parentUuid": "595172a7_3f60630c",
+      "range": {
+        "startLine": 194,
+        "startChar": 70,
+        "endLine": 194,
+        "endChar": 79
+      },
+      "revId": "390b6b6e3a0fb3af0fa40e73df77702b2b344bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "595892e5_44d1ee54",
         "filename": "runtime/verifier/register_line-inl.h",
         "patchSetId": 3
@@ -289,6 +565,30 @@
     },
     {
       "key": {
+        "uuid": "d90802ae_e527d181",
+        "filename": "runtime/verifier/register_line-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T18:00:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "595892e5_44d1ee54",
+      "range": {
+        "startLine": 196,
+        "startChar": 2,
+        "endLine": 196,
+        "endChar": 30
+      },
+      "revId": "390b6b6e3a0fb3af0fa40e73df77702b2b344bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "595892e5_e4c1fa8b",
         "filename": "runtime/verifier/register_line.h",
         "patchSetId": 3
@@ -300,6 +600,30 @@
       "writtenOn": "2015-10-20T11:26:38Z",
       "side": 1,
       "message": "Please, change this to line_[1].",
+      "range": {
+        "startLine": 396,
+        "startChar": 2,
+        "endLine": 396,
+        "endChar": 20
+      },
+      "revId": "390b6b6e3a0fb3af0fa40e73df77702b2b344bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f91146d4_61f191bf",
+        "filename": "runtime/verifier/register_line.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T18:00:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "595892e5_e4c1fa8b",
       "range": {
         "startLine": 396,
         "startChar": 2,
