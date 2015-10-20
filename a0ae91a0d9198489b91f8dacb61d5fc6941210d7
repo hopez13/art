@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9f26ee4_8e0cae11",
+        "filename": "compiler/utils/dedupe_set-inl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T21:36:36Z",
+      "side": 1,
+      "message": "Why does this need to instantiate a new one for each of those template parameters? This just leads to slower compile times, and is considered suboptimal C++ best practices.\n\nCan we reduce the # of template parameters further?",
+      "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f91146d4_b710ebd3",
+        "filename": "compiler/utils/dedupe_set-inl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T21:36:36Z",
+      "side": 1,
+      "message": "See 44",
+      "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79d47637_65bf61e6",
+        "filename": "compiler/utils/dedupe_set-inl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T21:36:36Z",
+      "side": 1,
+      "message": "This will be instantiated multiple times for the same T since it\u0027s dependent on DedupeSet. That\u0027s unlikely the desired behavior, consider pulling this out to a separate struct.",
+      "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f26ee4_4e212669",
+        "filename": "compiler/utils/dedupe_set-inl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T21:36:36Z",
+      "side": 1,
+      "message": "See 112",
+      "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f91146d4_77039390",
+        "filename": "compiler/utils/dedupe_set-inl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T21:36:36Z",
+      "side": 1,
+      "message": "See 112",
+      "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "791716fc_3b3edf83",
+        "filename": "compiler/utils/dedupe_set-inl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T21:36:36Z",
+      "side": 1,
+      "message": "See 112",
+      "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79d47637_05f89da8",
+        "filename": "compiler/utils/dedupe_set.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T21:36:36Z",
+      "side": 1,
+      "message": "nit: public member functions ought to have a comment",
+      "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
