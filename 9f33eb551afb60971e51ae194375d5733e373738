@@ -781,6 +781,24 @@
     },
     {
       "key": {
+        "uuid": "595892e5_67218cb2",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T20:45:28Z",
+      "side": 1,
+      "message": "You forgot a\n\n  static_assert(sizeof(CompiledCode) \u003d\u003d sizeof(uint8_t), \"...\")\n\notherwise the pointer arithmetic still fails.\n\nAlso, we already have a class called CompiledCode.",
+      "parentUuid": "b9ec2e3d_cb271882",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f91146d4_b2836199",
         "filename": "runtime/oat_quick_method_header.h",
         "patchSetId": 5
