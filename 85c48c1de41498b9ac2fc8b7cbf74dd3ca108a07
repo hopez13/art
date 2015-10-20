@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "595892e5_478b3022",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T17:20:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99476aec_3e67099f",
+      "range": {
+        "startLine": 411,
+        "startChar": 10,
+        "endLine": 411,
+        "endChar": 16
+      },
+      "revId": "85c48c1de41498b9ac2fc8b7cbf74dd3ca108a07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "595172a7_3f5aa311",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-20T15:56:20Z",
       "side": 1,
       "message": "This is not a boolean expression. I remember we\u0027ve been bitten by using non-boolean expr as condition once. Prefer\n\n  ((1 \u003c\u003c reg) \u0026 register_mask) !\u003d 0",
+      "range": {
+        "startLine": 413,
+        "startChar": 16,
+        "endLine": 413,
+        "endChar": 42
+      },
+      "revId": "85c48c1de41498b9ac2fc8b7cbf74dd3ca108a07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59fc12c5_c4ef3e23",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T17:20:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "595172a7_3f5aa311",
       "range": {
         "startLine": 413,
         "startChar": 16,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "39f75ee3_e6c6c0d3",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T17:20:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "595172a7_bf6d53bb",
+      "range": {
+        "startLine": 419,
+        "startChar": 40,
+        "endLine": 419,
+        "endChar": 49
+      },
+      "revId": "85c48c1de41498b9ac2fc8b7cbf74dd3ca108a07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99476aec_dec625d4",
         "filename": "runtime/quick_exception_handler.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-10-20T15:56:20Z",
       "side": 1,
       "message": "Identation is off",
+      "range": {
+        "startLine": 430,
+        "startChar": 64,
+        "endLine": 433,
+        "endChar": 64
+      },
+      "revId": "85c48c1de41498b9ac2fc8b7cbf74dd3ca108a07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59fc12c5_a4f442f4",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T17:20:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99476aec_dec625d4",
       "range": {
         "startLine": 430,
         "startChar": 64,
