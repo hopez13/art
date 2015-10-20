@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b9f26ee4_e427e081",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2791,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-20T00:39:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1959ba73_c3e65c0c",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ae8a64_40e152ab",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 7
@@ -30,6 +48,24 @@
       "writtenOn": "2015-10-15T23:19:44Z",
       "side": 1,
       "message": "It seems like it might be more readable and have less indentation if this was ?\n\n  if (supertype-\u003eIsCompileTimeVerified()) {\n    return true;\n  }\n\nand it could have a LIKELY/UNLIKELY in there to make it more clear.\n\nThoughts?",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79d47637_1997ee47",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2799,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-20T00:39:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99ae8a64_40e152ab",
       "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "d90802ae_1274698c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2800,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-20T00:39:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99f12aa5_f7699273",
+      "range": {
+        "startLine": 2800,
+        "startChar": 25,
+        "endLine": 2800,
+        "endChar": 26
+      },
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9943ea80_6d02e156",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 7
@@ -70,6 +130,24 @@
       "writtenOn": "2015-10-15T23:19:44Z",
       "side": 1,
       "message": "When does this happen?",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79d47637_b9a57aaa",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2807,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-20T00:39:49Z",
+      "side": 1,
+      "message": "during VerifyClass call.",
+      "parentUuid": "9943ea80_6d02e156",
       "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "79fd56bf_ce9d12ae",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2811,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-20T00:39:49Z",
+      "side": 1,
+      "message": "Maintaining current behavior.",
+      "parentUuid": "99f12aa5_b7ba6a45",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "996cca16_1feeefb8",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 7
@@ -104,6 +200,24 @@
       "writtenOn": "2015-10-15T23:19:44Z",
       "side": 1,
       "message": "or at least the \"else\" could be dropped if 2799 stays as-is?",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99f3ea1a_f22ad0b1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2820,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-20T00:39:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "996cca16_1feeefb8",
       "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -127,6 +241,24 @@
     },
     {
       "key": {
+        "uuid": "b9ec2e3d_f9c63778",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2875,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-20T00:39:49Z",
+      "side": 1,
+      "message": "Thats what I did. It replaces the previous code with calls to AttemptSupertypeVerification.",
+      "parentUuid": "39611e20_39a4a7f7",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d952c250_c13db888",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 7
@@ -138,6 +270,24 @@
       "writtenOn": "2015-10-15T23:19:44Z",
       "side": 1,
       "message": "I\u0027m confused, can this assign multiple values, overwriting the previous supertype? In which case what is the correct-most thing?",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79d47637_197ece9f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2903,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-20T00:39:49Z",
+      "side": 1,
+      "message": "Yes. It will put in the first supertype that fails verification into the variable so error messages work.",
+      "parentUuid": "d952c250_c13db888",
       "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -167,6 +317,30 @@
     },
     {
       "key": {
+        "uuid": "b9f26ee4_4438ec94",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-20T00:39:49Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "d952c250_01217069",
+      "range": {
+        "startLine": 543,
+        "startChar": 70,
+        "endLine": 543,
+        "endChar": 79
+      },
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99f12aa5_976c8e85",
         "filename": "runtime/class_linker.h",
         "patchSetId": 7
@@ -178,6 +352,24 @@
       "writtenOn": "2015-10-15T23:19:44Z",
       "side": 1,
       "message": "nit: alphabetically sort annotations",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79fd56bf_aea2d6e7",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-20T00:39:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99f12aa5_976c8e85",
       "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -201,6 +393,24 @@
     },
     {
       "key": {
+        "uuid": "99020a8c_7bdca346",
+        "filename": "test/965-default-verify/build",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-20T00:39:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99ae8a64_c07ea268",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ae8a64_407392a3",
         "filename": "test/965-default-verify/build",
         "patchSetId": 7
@@ -218,6 +428,24 @@
     },
     {
       "key": {
+        "uuid": "79d47637_f9ed42bc",
+        "filename": "test/965-default-verify/build",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-20T00:39:49Z",
+      "side": 1,
+      "message": "This is no different than what i have...",
+      "parentUuid": "99ae8a64_407392a3",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9bdc694_15e2b787",
         "filename": "test/965-default-verify/build",
         "patchSetId": 7
@@ -229,6 +457,24 @@
       "writtenOn": "2015-10-15T23:19:44Z",
       "side": 1,
       "message": "Would you mind refactoring this? We are for sure going to have to change this to at least 24 in every file because 23 has already shipped.",
+      "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99f3ea1a_7237e013",
+        "filename": "test/965-default-verify/build",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-20T00:39:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9bdc694_15e2b787",
       "revId": "1b262cf1b4aecb996c2c0e1892d682adad41130a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
