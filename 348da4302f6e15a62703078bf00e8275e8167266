@@ -71,6 +71,78 @@
     },
     {
       "key": {
+        "uuid": "595172a7_ffcbdbda",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-20T19:12:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b940aed4_ffc19f8b",
+      "range": {
+        "startLine": 9,
+        "startChar": 24,
+        "endLine": 9,
+        "endChar": 34
+      },
+      "revId": "348da4302f6e15a62703078bf00e8275e8167266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19345a65_259cd8db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-20T19:12:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59fc12c5_84f946ee",
+      "range": {
+        "startLine": 9,
+        "startChar": 13,
+        "endLine": 9,
+        "endChar": 16
+      },
+      "revId": "348da4302f6e15a62703078bf00e8275e8167266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f936a66e_a10bfeaa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-20T19:12:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19345a65_e55b50e2",
+      "range": {
+        "startLine": 9,
+        "startChar": 40,
+        "endLine": 9,
+        "endChar": 53
+      },
+      "revId": "348da4302f6e15a62703078bf00e8275e8167266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "595892e5_04645648",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 2
@@ -106,6 +178,30 @@
       "side": 1,
       "message": "Maybe mention this in a comment?",
       "parentUuid": "595892e5_04645648",
+      "range": {
+        "startLine": 534,
+        "startChar": 8,
+        "endLine": 534,
+        "endChar": 19
+      },
+      "revId": "348da4302f6e15a62703078bf00e8275e8167266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d91642dc_fb820bff",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-20T19:12:23Z",
+      "side": 1,
+      "message": "obsolete. after thinking more about this, the graphs should be very small and running the propagation again should be cheap.",
+      "parentUuid": "d93d624e_2308546a",
       "range": {
         "startLine": 534,
         "startChar": 8,
@@ -164,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "19345a65_859fe4d1",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-20T19:12:23Z",
+      "side": 1,
+      "message": "I find it clearer like this since related things stay together (adding dependents to the worklist)",
+      "parentUuid": "f936a66e_e1ea6615",
+      "range": {
+        "startLine": 96,
+        "startChar": 4,
+        "endLine": 96,
+        "endChar": 43
+      },
+      "revId": "348da4302f6e15a62703078bf00e8275e8167266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f936a66e_214e0e00",
         "filename": "compiler/optimizing/reference_type_propagation.h",
         "patchSetId": 2
@@ -187,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "595172a7_dfc61fd4",
+        "filename": "compiler/optimizing/reference_type_propagation.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-20T19:12:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f936a66e_214e0e00",
+      "range": {
+        "startLine": 38,
+        "startChar": 59,
+        "endLine": 38,
+        "endChar": 68
+      },
+      "revId": "348da4302f6e15a62703078bf00e8275e8167266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19345a65_6570a056",
         "filename": "compiler/optimizing/reference_type_propagation.h",
         "patchSetId": 2
@@ -198,6 +342,30 @@
       "writtenOn": "2015-10-20T17:34:22Z",
       "side": 1,
       "message": "a",
+      "range": {
+        "startLine": 40,
+        "startChar": 32,
+        "endLine": 40,
+        "endChar": 37
+      },
+      "revId": "348da4302f6e15a62703078bf00e8275e8167266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f936a66e_01174ace",
+        "filename": "compiler/optimizing/reference_type_propagation.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-20T19:12:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19345a65_6570a056",
       "range": {
         "startLine": 40,
         "startChar": 32,
