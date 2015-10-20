@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d90802ae_28eca078",
+        "filename": "runtime/base/stl_util.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T18:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f936a66e_41e6b24a",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 2
+      },
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19345a65_65bbc04c",
         "filename": "runtime/verifier/method_verifier.h",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b9ec2e3d_48866ea8",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T18:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19345a65_65bbc04c",
+      "range": {
+        "startLine": 127,
+        "startChar": 2,
+        "endLine": 127,
+        "endChar": 77
+      },
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b940aed4_5fb8cb16",
         "filename": "runtime/verifier/reg_type_cache.cc",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2015-10-20T18:34:48Z",
       "side": 1,
       "message": "This is in bits, so 64. Also use plural in the comment.",
+      "range": {
+        "startLine": 342,
+        "startChar": 23,
+        "endLine": 342,
+        "endChar": 24
+      },
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9ec2e3d_085bc6e1",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T18:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b940aed4_5fb8cb16",
       "range": {
         "startLine": 342,
         "startChar": 23,
