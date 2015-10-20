@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "595892e5_24615239",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T14:23:08Z",
+      "side": 1,
+      "message": "Worth adding a check in the graph_checker.cc?",
+      "range": {
+        "startLine": 498,
+        "startChar": 0,
+        "endLine": 500,
+        "endChar": 3
+      },
+      "revId": "25faf19a14896e3f5ee9f1ef8db01c557eb078b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f936a66e_017aea42",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1643,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T14:23:08Z",
+      "side": 1,
+      "message": "Maybe we need to do this at the end, and have a check in ReplaceWith that the parameter is in the same graph?",
+      "range": {
+        "startLine": 1643,
+        "startChar": 0,
+        "endLine": 1643,
+        "endChar": 40
+      },
+      "revId": "25faf19a14896e3f5ee9f1ef8db01c557eb078b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
