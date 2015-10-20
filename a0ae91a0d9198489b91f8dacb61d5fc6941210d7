@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d91642dc_bbf7b386",
+        "filename": "compiler/utils/dedupe_set-inl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T22:22:27Z",
+      "side": 1,
+      "message": "I prefer the encapsulation, keeping implementation details as private members.\n\nI could move this out of DedupeSet\u003c\u003e into a namespace \"detail\", if you think it\u0027s better.",
+      "parentUuid": "b9f26ee4_8e0cae11",
+      "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f91146d4_b710ebd3",
         "filename": "compiler/utils/dedupe_set-inl.h",
         "patchSetId": 16
@@ -30,6 +48,24 @@
       "writtenOn": "2015-10-20T21:36:36Z",
       "side": 1,
       "message": "See 44",
+      "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d93d624e_6372dcd0",
+        "filename": "compiler/utils/dedupe_set-inl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T22:22:27Z",
+      "side": 1,
+      "message": "This one actually uses InKey, StoreKey and Alloc (and there is a discrepancy between DedupeSet\u003c\u003e taking a HashType and HashSet\u003c\u003e always using size_t), so I\u0027d like to keep it in DedupeSet\u003c\u003e.",
+      "parentUuid": "f91146d4_b710ebd3",
       "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "d91642dc_5bfd3765",
+        "filename": "compiler/utils/dedupe_set-inl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T22:22:27Z",
+      "side": 1,
+      "message": "What is the overhead of that instantiation (besides debug symbols and compile time), assuming all member functions will be inlined? I would expect none.",
+      "parentUuid": "79d47637_65bf61e6",
+      "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9f26ee4_4e212669",
         "filename": "compiler/utils/dedupe_set-inl.h",
         "patchSetId": 16
@@ -64,6 +118,24 @@
       "writtenOn": "2015-10-20T21:36:36Z",
       "side": 1,
       "message": "See 112",
+      "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b940aed4_42bc74ef",
+        "filename": "compiler/utils/dedupe_set-inl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T22:22:27Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "b9f26ee4_4e212669",
       "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "59fc12c5_04d8b676",
+        "filename": "compiler/utils/dedupe_set-inl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T22:22:27Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "f91146d4_77039390",
+      "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "791716fc_3b3edf83",
         "filename": "compiler/utils/dedupe_set-inl.h",
         "patchSetId": 16
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "595892e5_c7bac0ab",
+        "filename": "compiler/utils/dedupe_set-inl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T22:22:27Z",
+      "side": 1,
+      "message": "I\u0027ll actually use the InKey and StoreKey in ShardPred with the next patch set.",
+      "parentUuid": "791716fc_3b3edf83",
+      "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79d47637_05f89da8",
         "filename": "compiler/utils/dedupe_set.h",
         "patchSetId": 16
@@ -115,6 +223,24 @@
       "writtenOn": "2015-10-20T21:36:36Z",
       "side": 1,
       "message": "nit: public member functions ought to have a comment",
+      "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595892e5_e7bfbc98",
+        "filename": "compiler/utils/dedupe_set.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T22:22:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79d47637_05f89da8",
       "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
