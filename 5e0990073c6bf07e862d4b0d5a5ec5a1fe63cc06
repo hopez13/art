@@ -289,6 +289,24 @@
     },
     {
       "key": {
+        "uuid": "39111e0a_88c523c4",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T22:21:17Z",
+      "side": 1,
+      "message": "Well, the size has to be stored somewhere right if we actually wanted to call the destructor on each element in T, in which case it might as well be in the arena.\n\nThat being said we only need to call the destructor on elements that are non-trivial, and hence only need the overhead for non-trivial types.\n\n  // Slow path, user-defined destructor in self or in a field\n  // This can also be used for debugging\n  template \u003ctypename T, typename\u003dvoid\u003e\n  T* AllocateArray(size_t count) {\n    size_t actual_size \u003d sizeof(T) * count;\n    actual_size +\u003d sizeof(size_t);\n\n    uint8_t* ptr \u003d actual_allocator(actual_size);\n\n    *(size_t*)ptr \u003d count;\n    return (T*)(ptr + sizeof(size_t));\n  }\n\n  // Fast path, no user-defined destructors anywhere\n  template \u003ctypename T, typename \u003d \n                        typename std::enable_if\u003cstd::is_trivial\u003cT\u003e\u003e::type\u003e::type\u003e\n  T* AllocateArray(size_t count) {\n    size_t actual_size \u003d sizeof(T) * count;\n\n    uint8_t* ptr \u003d actual_allocator(actual_size);\n\n    return (T*)ptr;\n  }\n\n(except implemented with proper style, and the deleters could be done analogously)",
+      "parentUuid": "19345a65_2537f87d",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d90802ae_48211469",
         "filename": "runtime/verifier/reg_type-inl.h",
         "patchSetId": 4
