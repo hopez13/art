@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "99020a8c_40db3276",
+        "filename": "runtime/base/scoped_arena_containers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T02:49:04Z",
+      "side": 1,
+      "message": "Can you clarify? This is used for arenas which do not support deleting. We could write some magic values into the object debug builds?",
+      "parentUuid": "99f3ea1a_47d14455",
+      "revId": "dfaef77e32f4e8b5fcbc18197ac7967680ab4b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39de7e5b_0512e6de",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "79fd56bf_ce0bd2aa",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T02:49:04Z",
+      "side": 1,
+      "message": "Another CL.",
+      "parentUuid": "39de7e5b_0512e6de",
+      "revId": "dfaef77e32f4e8b5fcbc18197ac7967680ab4b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99f3ea1a_e73e9053",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2015-10-19T23:47:25Z",
       "side": 1,
       "message": "needs to have an overload that takes a unique_ptr",
+      "revId": "dfaef77e32f4e8b5fcbc18197ac7967680ab4b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99f3ea1a_5259046e",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T02:49:04Z",
+      "side": 1,
+      "message": "Another CL.",
+      "parentUuid": "99f3ea1a_e73e9053",
       "revId": "dfaef77e32f4e8b5fcbc18197ac7967680ab4b55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -76,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "b90b4ea8_ba18d0bc",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T02:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39de7e5b_8506d69e",
+      "range": {
+        "startLine": 1419,
+        "startChar": 26,
+        "endLine": 1419,
+        "endChar": 33
+      },
+      "revId": "dfaef77e32f4e8b5fcbc18197ac7967680ab4b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d90802ae_af3e5a52",
         "filename": "runtime/dex_file_verifier.h",
         "patchSetId": 1
@@ -87,6 +165,30 @@
       "writtenOn": "2015-10-19T23:16:25Z",
       "side": 1,
       "message": "Why? This removes both tracking as well as duplicates checking.",
+      "range": {
+        "startLine": 179,
+        "startChar": 2,
+        "endLine": 179,
+        "endChar": 61
+      },
+      "revId": "dfaef77e32f4e8b5fcbc18197ac7967680ab4b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79fd56bf_8e0efa77",
+        "filename": "runtime/dex_file_verifier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T02:49:04Z",
+      "side": 1,
+      "message": "It was showing up in the profile, unordered_set is 25% faster. I\u0027ll add AllocationTracingUnorderedSet.",
+      "parentUuid": "d90802ae_af3e5a52",
       "range": {
         "startLine": 179,
         "startChar": 2,
@@ -146,6 +248,54 @@
     },
     {
       "key": {
+        "uuid": "99f3ea1a_12265cee",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T02:49:04Z",
+      "side": 1,
+      "message": "Currently we allocate only the interesting lines, doing all the lines might increase RAM usage. Worth investigating later though.",
+      "parentUuid": "b90b4ea8_1f746e8c",
+      "range": {
+        "startLine": 127,
+        "startChar": 2,
+        "endLine": 127,
+        "endChar": 33
+      },
+      "revId": "dfaef77e32f4e8b5fcbc18197ac7967680ab4b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b90b4ea8_9a0e2c78",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T02:49:04Z",
+      "side": 1,
+      "message": "malloc is expensive",
+      "parentUuid": "f91146d4_0b46743c",
+      "range": {
+        "startLine": 127,
+        "startChar": 2,
+        "endLine": 127,
+        "endChar": 33
+      },
+      "revId": "dfaef77e32f4e8b5fcbc18197ac7967680ab4b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79d47637_d60b75aa",
         "filename": "runtime/verifier/method_verifier.h",
         "patchSetId": 1
@@ -157,6 +307,30 @@
       "writtenOn": "2015-10-19T23:47:25Z",
       "side": 1,
       "message": "nit: return a reference here so it\u0027s clear it\u0027s not-null",
+      "range": {
+        "startLine": 280,
+        "startChar": 22,
+        "endLine": 280,
+        "endChar": 23
+      },
+      "revId": "dfaef77e32f4e8b5fcbc18197ac7967680ab4b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d90802ae_f278b583",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T02:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79d47637_d60b75aa",
       "range": {
         "startLine": 280,
         "startChar": 22,
@@ -192,6 +366,30 @@
     },
     {
       "key": {
+        "uuid": "99020a8c_40645249",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T02:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79d47637_d6da55d5",
+      "range": {
+        "startLine": 731,
+        "startChar": 2,
+        "endLine": 731,
+        "endChar": 32
+      },
+      "revId": "dfaef77e32f4e8b5fcbc18197ac7967680ab4b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39de7e5b_055c26d9",
         "filename": "runtime/verifier/reg_type.cc",
         "patchSetId": 1
@@ -203,6 +401,30 @@
       "writtenOn": "2015-10-19T23:16:25Z",
       "side": 1,
       "message": "Potentially not zero-terminated.",
+      "range": {
+        "startLine": 338,
+        "startChar": 79,
+        "endLine": 338,
+        "endChar": 85
+      },
+      "revId": "dfaef77e32f4e8b5fcbc18197ac7967680ab4b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f26ee4_44210c69",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T02:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39de7e5b_055c26d9",
       "range": {
         "startLine": 338,
         "startChar": 79,
@@ -261,6 +483,30 @@
     },
     {
       "key": {
+        "uuid": "79d47637_796f12e9",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T02:49:04Z",
+      "side": 1,
+      "message": "You\u0027re right, I just deleted the +1.",
+      "parentUuid": "b9f26ee4_c413bc9f",
+      "range": {
+        "startLine": 167,
+        "startChar": 57,
+        "endLine": 167,
+        "endChar": 60
+      },
+      "revId": "dfaef77e32f4e8b5fcbc18197ac7967680ab4b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b90b4ea8_dfd01686",
         "filename": "runtime/verifier/reg_type_cache.cc",
         "patchSetId": 1
@@ -272,6 +518,24 @@
       "writtenOn": "2015-10-19T23:47:25Z",
       "side": 1,
       "message": "How is this safe? I don\u0027t see any requirements that \"descriptor\" is not freed after the call to From.\n\nStringPiece doesn\u0027t make a copy of the string so it could quickly end up storing a bunch of dangling pointers into the verifier.",
+      "revId": "dfaef77e32f4e8b5fcbc18197ac7967680ab4b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39de7e5b_c0a04c9c",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T02:49:04Z",
+      "side": 1,
+      "message": "Should I add a comment? The other idea is pass the arena allcoator to every RegType constructor but that seemed invasive.",
+      "parentUuid": "b90b4ea8_dfd01686",
       "revId": "dfaef77e32f4e8b5fcbc18197ac7967680ab4b55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -295,6 +559,24 @@
     },
     {
       "key": {
+        "uuid": "99f3ea1a_72924051",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T02:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9f26ee4_441eac76",
+      "revId": "dfaef77e32f4e8b5fcbc18197ac7967680ab4b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79d47637_96b84d18",
         "filename": "runtime/verifier/register_line-inl.h",
         "patchSetId": 1
@@ -306,6 +588,24 @@
       "writtenOn": "2015-10-19T23:47:25Z",
       "side": 1,
       "message": "return std::unique_ptr",
+      "revId": "dfaef77e32f4e8b5fcbc18197ac7967680ab4b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39de7e5b_a07c20a4",
+        "filename": "runtime/verifier/register_line-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T02:49:04Z",
+      "side": 1,
+      "message": "That doesn\u0027t work, I could maybe use a ArenaUniquePtr.",
+      "parentUuid": "79d47637_96b84d18",
       "revId": "dfaef77e32f4e8b5fcbc18197ac7967680ab4b55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -329,6 +629,24 @@
     },
     {
       "key": {
+        "uuid": "99f3ea1a_326f18ea",
+        "filename": "runtime/verifier/register_line.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T02:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39de7e5b_45db4e76",
+      "revId": "dfaef77e32f4e8b5fcbc18197ac7967680ab4b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99020a8c_e078de83",
         "filename": "runtime/verifier/register_line.h",
         "patchSetId": 1
@@ -340,6 +658,30 @@
       "writtenOn": "2015-10-19T23:16:25Z",
       "side": 1,
       "message": "Why? This was intentionally hidden. Just make the typedef public (and prefer the C++11 style \"using\").",
+      "range": {
+        "startLine": 379,
+        "startChar": 2,
+        "endLine": 383,
+        "endChar": 76
+      },
+      "revId": "dfaef77e32f4e8b5fcbc18197ac7967680ab4b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d90802ae_725045f1",
+        "filename": "runtime/verifier/register_line.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T02:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99020a8c_e078de83",
       "range": {
         "startLine": 379,
         "startChar": 2,
