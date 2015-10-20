@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "79d47637_a5a2e916",
+        "filename": "compiler/utils/dedupe_set-inl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T22:37:03Z",
+      "side": 1,
+      "message": "Completely agreed it should be encapsulated as a private member.\n\nA detail namespace would be a bit cleaner and faster too, but I\u0027m not feeling strongly about this, just thought I\u0027d point it out.",
+      "parentUuid": "d91642dc_bbf7b386",
+      "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f91146d4_b710ebd3",
         "filename": "compiler/utils/dedupe_set-inl.h",
         "patchSetId": 16
@@ -72,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "39de7e5b_2ac24aba",
+        "filename": "compiler/utils/dedupe_set-inl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T22:37:03Z",
+      "side": 1,
+      "message": "Hmm, maybe we can fix HashSet at some point in the future.\n\nAnyway just thought I\u0027d point it out, not feeling strongly about this :).",
+      "parentUuid": "d93d624e_6372dcd0",
+      "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79d47637_65bf61e6",
         "filename": "compiler/utils/dedupe_set-inl.h",
         "patchSetId": 16
@@ -101,6 +137,24 @@
       "side": 1,
       "message": "What is the overhead of that instantiation (besides debug symbols and compile time), assuming all member functions will be inlined? I would expect none.",
       "parentUuid": "79d47637_65bf61e6",
+      "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "791716fc_9ee601c6",
+        "filename": "compiler/utils/dedupe_set-inl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T22:37:03Z",
+      "side": 1,
+      "message": "I\u0027m not feeling strongly about this, just thought I\u0027d point it out.\n\n----\n\nWell, no runtime overhead, if it\u0027s all inlined. Even if it\u0027s not inlined we can get lucky with ICF (identical code folding).\n\nIt\u0027s basically down to the compile time though, it\u0027s best practices for extensive template code.\n\nhttps://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#Rt-scary  T.61\n\n----\n\nAnyway it could add up quickly for any kind of moderate template metaprogramming (which I can see this is not doing).",
+      "parentUuid": "d91642dc_5bfd3765",
       "revId": "a0ae91a0d9198489b91f8dacb61d5fc6941210d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
