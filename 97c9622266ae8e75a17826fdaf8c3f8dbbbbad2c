@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "b940aed4_9f0bb3ab",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-20T16:39:33Z",
+      "side": 1,
+      "message": "I see; the PLOG macro uses __FILE__ and __LINE__ indeed.  However, couldn\u0027t we get the location information from a stack trace in a debugger, if this were implemented as a function?  I\u0027m fine with the macro, so it\u0027s your call.",
+      "parentUuid": "d93d624e_83d92058",
+      "range": {
+        "startLine": 32,
+        "startChar": 8,
+        "endLine": 32,
+        "endChar": 24
+      },
+      "revId": "97c9622266ae8e75a17826fdaf8c3f8dbbbbad2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b940aed4_bff9d7ed",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 7
