@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "d91642dc_18002581",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T11:51:55Z",
+      "side": 1,
+      "message": "The instruction is being modified, as its predecessor and successor will be changed....\n\nOur (non formal) rule for this code base is that IR nodes are heavily manipulated so don\u0027t pay the mental fatigue of knowing whether you should pass them const\u0026, const* or *.",
+      "parentUuid": "99d92a72_0e1e8b2c",
+      "range": {
+        "startLine": 78,
+        "startChar": 52,
+        "endLine": 78,
+        "endChar": 64
+      },
+      "revId": "5dfc17bc5fcda7030b513f4ca2f136604ae089ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99ae8a64_e0babe46",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 3
