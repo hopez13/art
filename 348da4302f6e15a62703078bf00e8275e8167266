@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "595892e5_04645648",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-20T14:23:25Z",
+      "side": 1,
+      "message": "I\u0027ll do some experiments to see if it worth doing this at every level. For now it\u0027s good enough do it just at the outermost level.",
+      "range": {
+        "startLine": 534,
+        "startChar": 8,
+        "endLine": 534,
+        "endChar": 19
+      },
+      "revId": "348da4302f6e15a62703078bf00e8275e8167266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d93d624e_20b28a35",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-20T14:23:25Z",
+      "side": 1,
+      "message": "I weighted if I should maintain the returned value in the inliner and run the type propagation from the top level (optimizing_compiler.cc) and I think the current form is better.Holding instructions around, between passes, would be error prone and mess up the current structure.",
+      "range": {
+        "startLine": 535,
+        "startChar": 31,
+        "endLine": 535,
+        "endChar": 40
+      },
+      "revId": "348da4302f6e15a62703078bf00e8275e8167266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
