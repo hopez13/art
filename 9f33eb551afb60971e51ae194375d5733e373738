@@ -922,6 +922,24 @@
     },
     {
       "key": {
+        "uuid": "595172a7_9f13b7a0",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-20T10:36:46Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we test for both instruction sets then?  Something like:\n\n  // When the runtime architecture is ARM, `kRuntime` is set to `kArm`\n  // (not `kThumb2`), *but* we always generate code for the Thumb-2\n  // instruction set anyway.  Thumb-2 code addresses have the bottom\n  // bit set to 1.\n  return (kRuntimeISA \u003d\u003d kARM || kRuntimeISA \u003d\u003d kThumb2)\n      ? /* ... */ : /* ... */;\n\nOr maybe ensure we do not use `kThumb2` at all?\n\n  // When the runtime architecture is ARM, `kRuntime` is set to `kArm`\n  // (not `kThumb2`), *but* we always generate code for the Thumb-2\n  // instruction set anyway.  Thumb-2 code addresses have the bottom\n  // bit set to 1.\n  DCHECK_NE(kRuntimeISA, kThumb2);\n  return (kRuntimeISA \u003d\u003d kARM) ? /* ... */ : /* ... */;",
+      "parentUuid": "d93d624e_80b8364f",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f91146d4_329091d6",
         "filename": "runtime/oat_quick_method_header.h",
         "patchSetId": 5
@@ -1133,6 +1151,30 @@
       "side": 1,
       "message": "Code was moved. \"code\" being hexa makes sense. code_size, meh?",
       "parentUuid": "99476aec_7e37d1c5",
+      "range": {
+        "startLine": 870,
+        "startChar": 6,
+        "endLine": 870,
+        "endChar": 8
+      },
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99476aec_7ee27189",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-20T10:36:46Z",
+      "side": 1,
+      "message": "Yes, I meant `code_size` only, sorry.  I think a decimal value is easier to grasp, but that\u0027s your call.",
+      "parentUuid": "f936a66e_01d66ab1",
       "range": {
         "startLine": 870,
         "startChar": 6,
