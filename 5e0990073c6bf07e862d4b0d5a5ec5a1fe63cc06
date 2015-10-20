@@ -235,6 +235,24 @@
     },
     {
       "key": {
+        "uuid": "f936a66e_41fd52ca",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T20:36:16Z",
+      "side": 1,
+      "message": "Yes, that\u0027s because we don\u0027t track the size of the array. And it\u0027s indeed a simple array and the first element doesn\u0027t know how many elements are there, so we cannot do the GetSizeOf() trick without overhead either.",
+      "parentUuid": "f91146d4_776f13e9",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d90802ae_48211469",
         "filename": "runtime/verifier/reg_type-inl.h",
         "patchSetId": 4
