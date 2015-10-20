@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "59e3321f_359cf2db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-20T00:57:54Z",
+      "side": 1,
+      "message": "It is not an optimization. It simply makes the error messages more likely to have the actual interface we want in them and the search order more consistent throughout.",
+      "parentUuid": "b9550e3b_8078dcb1",
+      "revId": "0325f99c10a72eb81f7cb14d18ed07fef25b9dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99f12aa5_174ffe31",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2015-10-15T23:03:13Z",
       "side": 1,
       "message": "class linker:",
+      "revId": "0325f99c10a72eb81f7cb14d18ed07fef25b9dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d90802ae_52ef816f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-20T00:57:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99f12aa5_174ffe31",
       "revId": "0325f99c10a72eb81f7cb14d18ed07fef25b9dbe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "f91146d4_e64eb7aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-20T00:57:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9943ea80_0dbfdde6",
+      "range": {
+        "startLine": 14,
+        "startChar": 17,
+        "endLine": 14,
+        "endChar": 18
+      },
+      "revId": "0325f99c10a72eb81f7cb14d18ed07fef25b9dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9550e3b_607dc89f",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 3
@@ -70,6 +130,30 @@
       "writtenOn": "2015-10-15T23:03:13Z",
       "side": 1,
       "message": "nit: one arg per line",
+      "range": {
+        "startLine": 374,
+        "startChar": 62,
+        "endLine": 374,
+        "endChar": 63
+      },
+      "revId": "0325f99c10a72eb81f7cb14d18ed07fef25b9dbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b90b4ea8_fae648c6",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-20T00:57:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9550e3b_607dc89f",
       "range": {
         "startLine": 374,
         "startChar": 62,
