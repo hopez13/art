@@ -217,6 +217,24 @@
     },
     {
       "key": {
+        "uuid": "f91146d4_776f13e9",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T20:30:25Z",
+      "side": 1,
+      "message": "Ah, I think it\u0027s because the size is untracked right?\n\nThe type being allocated knows the size though, so we can ask for it.\n\n  template \u003ctypename T\u003e\n  void delete(T* ptr) {\n    size_t array_size \u003d ptr-\u003eGetSizeOf();\n    // made up deleter function\n    // that can mark the bits as unallocated\n    ArenaDeleteArray(ptr, array_size);\n  }\n\n  struct InstructionFlags {\n    size_t GetSizeOf() const {\n      return sizeof(*this) + instruction_length_;\n    }\n  }\n\nThat would work for release modes.\n\nIf it\u0027s debug/memcheck only then we don\u0027t even need to do this, just store the size in the preheader.\n\n   ---------------------------------\n   | arena ptr | array size | data |\n   ---------------------------------\n                            ^\n                            |\n                          unique_ptr.get()\n\n(and of course it can use a custom deleter)",
+      "parentUuid": "791716fc_1851699d",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d90802ae_48211469",
         "filename": "runtime/verifier/reg_type-inl.h",
         "patchSetId": 4
