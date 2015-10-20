@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99476aec_3e67099f",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-10-20T15:56:20Z",
+      "side": 1,
+      "message": "CHECK to be sure we never set a vreg wih an unknown value.",
+      "range": {
+        "startLine": 411,
+        "startChar": 10,
+        "endLine": 411,
+        "endChar": 16
+      },
+      "revId": "85c48c1de41498b9ac2fc8b7cbf74dd3ca108a07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595172a7_3f5aa311",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-10-20T15:56:20Z",
+      "side": 1,
+      "message": "This is not a boolean expression. I remember we\u0027ve been bitten by using non-boolean expr as condition once. Prefer\n\n  ((1 \u003c\u003c reg) \u0026 register_mask) !\u003d 0",
+      "range": {
+        "startLine": 413,
+        "startChar": 16,
+        "endLine": 413,
+        "endChar": 42
+      },
+      "revId": "85c48c1de41498b9ac2fc8b7cbf74dd3ca108a07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595172a7_bf6d53bb",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-10-20T15:56:20Z",
+      "side": 1,
+      "message": "For null / 0, I\u0027d consider the vreg is a reference so the shadow frame is properly set.",
+      "range": {
+        "startLine": 419,
+        "startChar": 40,
+        "endLine": 419,
+        "endChar": 49
+      },
+      "revId": "85c48c1de41498b9ac2fc8b7cbf74dd3ca108a07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99476aec_dec625d4",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-10-20T15:56:20Z",
+      "side": 1,
+      "message": "Identation is off",
+      "range": {
+        "startLine": 430,
+        "startChar": 64,
+        "endLine": 433,
+        "endChar": 64
+      },
+      "revId": "85c48c1de41498b9ac2fc8b7cbf74dd3ca108a07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
