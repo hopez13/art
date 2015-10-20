@@ -1230,6 +1230,30 @@
     },
     {
       "key": {
+        "uuid": "5916d201_743a28ff",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-20T20:46:48Z",
+      "side": 1,
+      "message": "No, it\u0027s not playing a trick.\n\nThat\u0027s how we used to go from the entry point to the OatQuickMethodHeader. I removed most of uses, but this one remained. I plan on removing it in another change.",
+      "parentUuid": "b9ec2e3d_ab38d495",
+      "range": {
+        "startLine": 864,
+        "startChar": 23,
+        "endLine": 865,
+        "endChar": 35
+      },
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99476aec_7e37d1c5",
         "filename": "runtime/stack.cc",
         "patchSetId": 5
