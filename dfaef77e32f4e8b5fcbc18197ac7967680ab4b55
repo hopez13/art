@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "39111e0a_0740e61c",
+        "filename": "runtime/base/scoped_arena_containers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T18:56:01Z",
+      "side": 1,
+      "message": "I added the memory tool support. I am not sure of a good way to implement the ref counting stuff since the DestroyOnlyUniquePtr is no longer coupled with areans.",
+      "parentUuid": "99f3ea1a_98abad4b",
+      "revId": "dfaef77e32f4e8b5fcbc18197ac7967680ab4b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39de7e5b_0512e6de",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 1
