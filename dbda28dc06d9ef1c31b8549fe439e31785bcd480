@@ -2,6 +2,190 @@
   "comments": [
     {
       "key": {
+        "uuid": "f936a66e_a1da1ed4",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-20T10:23:14Z",
+      "side": 1,
+      "message": "Nit: Move the TODO to its own line.",
+      "range": {
+        "startLine": 155,
+        "startChar": 39,
+        "endLine": 155,
+        "endChar": 90
+      },
+      "revId": "dbda28dc06d9ef1c31b8549fe439e31785bcd480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39f75ee3_869b8c40",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-20T10:23:14Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be simpler (and faster) to pass `compiled_method` instead?",
+      "range": {
+        "startLine": 243,
+        "startChar": 47,
+        "endLine": 247,
+        "endChar": 86
+      },
+      "revId": "dbda28dc06d9ef1c31b8549fe439e31785bcd480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595892e5_44548e8d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-20T10:23:14Z",
+      "side": 1,
+      "message": "/* create_bitmap */ true",
+      "range": {
+        "startLine": 364,
+        "startChar": 34,
+        "endLine": 364,
+        "endChar": 38
+      },
+      "revId": "dbda28dc06d9ef1c31b8549fe439e31785bcd480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19345a65_05151454",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-20T10:23:14Z",
+      "side": 1,
+      "message": "/* can_move_object */ false",
+      "range": {
+        "startLine": 364,
+        "startChar": 40,
+        "endLine": 364,
+        "endChar": 45
+      },
+      "revId": "dbda28dc06d9ef1c31b8549fe439e31785bcd480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39f75ee3_469eb42f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-20T10:23:14Z",
+      "side": 1,
+      "message": "/* create_bitmaps */ true",
+      "range": {
+        "startLine": 584,
+        "startChar": 58,
+        "endLine": 584,
+        "endChar": 62
+      },
+      "revId": "dbda28dc06d9ef1c31b8549fe439e31785bcd480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b940aed4_3f1e272d",
+        "filename": "runtime/gc/space/dlmalloc_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-20T10:23:14Z",
+      "side": 1,
+      "message": "/* create_bitmaps */ true",
+      "range": {
+        "startLine": 106,
+        "startChar": 66,
+        "endLine": 106,
+        "endChar": 70
+      },
+      "revId": "dbda28dc06d9ef1c31b8549fe439e31785bcd480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595172a7_7fe4ab02",
+        "filename": "runtime/gc/space/dlmalloc_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-20T10:23:14Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 162,
+        "startChar": 82,
+        "endLine": 162,
+        "endChar": 86
+      },
+      "revId": "dbda28dc06d9ef1c31b8549fe439e31785bcd480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d93d624e_a0a77a29",
+        "filename": "runtime/gc/space/dlmalloc_space.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-20T10:23:14Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 166,
+        "startChar": 43,
+        "endLine": 166,
+        "endChar": 47
+      },
+      "revId": "dbda28dc06d9ef1c31b8549fe439e31785bcd480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99f3ea1a_de488528",
         "filename": "runtime/gc/space/malloc_space.cc",
         "patchSetId": 5
@@ -18,6 +202,52 @@
         "startChar": 10,
         "endLine": 59,
         "endChar": 14
+      },
+      "revId": "dbda28dc06d9ef1c31b8549fe439e31785bcd480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f936a66e_81e27a86",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-20T10:23:14Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 105
+      },
+      "revId": "dbda28dc06d9ef1c31b8549fe439e31785bcd480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595172a7_1ff1e7bf",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-20T10:23:14Z",
+      "side": 1,
+      "message": "Nit: move TODO on its own line.",
+      "range": {
+        "startLine": 47,
+        "startChar": 37,
+        "endLine": 47,
+        "endChar": 62
       },
       "revId": "dbda28dc06d9ef1c31b8549fe439e31785bcd480",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -137,6 +367,29 @@
         "startChar": 26,
         "endLine": 52,
         "endChar": 34
+      },
+      "revId": "dbda28dc06d9ef1c31b8549fe439e31785bcd480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f936a66e_21efee70",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-20T10:23:14Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we DCHECK that the return value of the call to `mprotect` is zero (here and below)?",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 61
       },
       "revId": "dbda28dc06d9ef1c31b8549fe439e31785bcd480",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
