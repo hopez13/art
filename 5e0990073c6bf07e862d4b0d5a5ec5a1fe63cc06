@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b9f26ee4_9be50e92",
+        "filename": "runtime/base/scoped_arena_containers.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T23:02:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79d47637_2a1a46b8",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f936a66e_41e6b24a",
         "filename": "runtime/base/stl_util.h",
         "patchSetId": 4
@@ -83,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "79d47637_aa3e3681",
+        "filename": "runtime/base/stl_util.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T23:02:22Z",
+      "side": 1,
+      "message": "Needing to remember to use ~T() everywhere is more of an antipattern IMO.",
+      "parentUuid": "79d47637_ea779ebe",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9ec2e3d_489f8ed2",
         "filename": "runtime/dex_instruction.h",
         "patchSetId": 4
@@ -100,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "99020a8c_2daf0ed0",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T23:02:22Z",
+      "side": 1,
+      "message": "Showed up in profile, the other ones are already inlined.",
+      "parentUuid": "b9ec2e3d_489f8ed2",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39de7e5b_77d95b55",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 4
@@ -111,6 +165,24 @@
       "writtenOn": "2015-10-20T19:05:17Z",
       "side": 1,
       "message": "This isn\u0027t very clean, this should be brought out to a helper\n\n   unique_ptr\u003cT\u003e MakeArenaArrayZeroed\u003cT\u003e(arena, size);",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f91146d4_d74ebfaa",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T23:02:22Z",
+      "side": 1,
+      "message": "Seems like overkill.",
+      "parentUuid": "39de7e5b_77d95b55",
       "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -325,6 +397,60 @@
     },
     {
       "key": {
+        "uuid": "99f3ea1a_13abfeb0",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T23:02:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9ec2e3d_28232a48",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "791716fc_3efd2d67",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T23:02:22Z",
+      "side": 1,
+      "message": "If you want to call the destructor on each element, its probably better to use a ScopedArenaVector?",
+      "parentUuid": "39111e0a_88c523c4",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39111e0a_8d37f57b",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T23:02:22Z",
+      "side": 1,
+      "message": "Seems not worth it.",
+      "parentUuid": "595172a7_7fb82b4e",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d90802ae_48211469",
         "filename": "runtime/verifier/reg_type-inl.h",
         "patchSetId": 4
@@ -336,6 +462,24 @@
       "writtenOn": "2015-10-20T19:05:17Z",
       "side": 1,
       "message": "Where is the delete operator that takes the arena?",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d90802ae_6363d91b",
+        "filename": "runtime/verifier/reg_type-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T23:02:22Z",
+      "side": 1,
+      "message": "I don\u0027t think that is required, after looking at ArenaObject.",
+      "parentUuid": "d90802ae_48211469",
       "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -359,6 +503,24 @@
     },
     {
       "key": {
+        "uuid": "b9ec2e3d_6b3a4cb1",
+        "filename": "runtime/verifier/reg_type.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T23:02:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "791716fc_78633d1b",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39111e0a_6731dace",
         "filename": "runtime/verifier/reg_type_cache.cc",
         "patchSetId": 4
@@ -376,6 +538,24 @@
     },
     {
       "key": {
+        "uuid": "79d47637_8a6dba81",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T23:02:22Z",
+      "side": 1,
+      "message": "Its in the arena, when the arena goes out of scope it gets cleaned up.",
+      "parentUuid": "39111e0a_6731dace",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "99f3ea1a_b8278982",
         "filename": "runtime/verifier/reg_type_cache.cc",
         "patchSetId": 4
@@ -387,6 +567,30 @@
       "writtenOn": "2015-10-20T19:05:17Z",
       "side": 1,
       "message": "nit: magic numbers deserve a constant, or at the very least a comment",
+      "range": {
+        "startLine": 274,
+        "startChar": 25,
+        "endLine": 274,
+        "endChar": 27
+      },
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "791716fc_9893b999",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T23:02:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99f3ea1a_b8278982",
       "range": {
         "startLine": 274,
         "startChar": 25,
@@ -470,6 +674,30 @@
     },
     {
       "key": {
+        "uuid": "79d47637_ca274250",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T23:02:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39de7e5b_7480393b",
+      "range": {
+        "startLine": 342,
+        "startChar": 23,
+        "endLine": 342,
+        "endChar": 24
+      },
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "791716fc_786cddf2",
         "filename": "runtime/verifier/reg_type_cache.cc",
         "patchSetId": 4
@@ -481,6 +709,30 @@
       "writtenOn": "2015-10-20T19:05:17Z",
       "side": 1,
       "message": "AddEntry should take a unique_ptr so it\u0027s clear it\u0027s taking over ownership",
+      "range": {
+        "startLine": 389,
+        "startChar": 9,
+        "endLine": 389,
+        "endChar": 17
+      },
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9ec2e3d_8b35109d",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T23:02:22Z",
+      "side": 1,
+      "message": "Overkill",
+      "parentUuid": "791716fc_786cddf2",
       "range": {
         "startLine": 389,
         "startChar": 9,
@@ -510,6 +762,24 @@
     },
     {
       "key": {
+        "uuid": "79d47637_4a90f2d6",
+        "filename": "runtime/verifier/reg_type_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T23:02:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "791716fc_783a1dff",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79d47637_6a95ee36",
         "filename": "runtime/verifier/reg_type_test.cc",
         "patchSetId": 4
@@ -527,6 +797,24 @@
     },
     {
       "key": {
+        "uuid": "39111e0a_0df5a5ef",
+        "filename": "runtime/verifier/reg_type_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T23:02:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79d47637_6a95ee36",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9f26ee4_9b53cefe",
         "filename": "runtime/verifier/register_line-inl.h",
         "patchSetId": 4
@@ -538,6 +826,30 @@
       "writtenOn": "2015-10-20T19:05:17Z",
       "side": 1,
       "message": "nit: indentation needs 4 more spaces",
+      "range": {
+        "startLine": 187,
+        "startChar": 43,
+        "endLine": 187,
+        "endChar": 44
+      },
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39111e0a_ed1029d5",
+        "filename": "runtime/verifier/register_line-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T23:02:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9f26ee4_9b53cefe",
       "range": {
         "startLine": 187,
         "startChar": 43,
@@ -573,6 +885,30 @@
     },
     {
       "key": {
+        "uuid": "39de7e5b_97a28717",
+        "filename": "runtime/verifier/register_line.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T23:02:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f91146d4_9cbbcc4b",
+      "range": {
+        "startLine": 62,
+        "startChar": 48,
+        "endLine": 62,
+        "endChar": 56
+      },
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9ec2e3d_48b5ce1b",
         "filename": "runtime/verifier/register_line.h",
         "patchSetId": 4
@@ -584,6 +920,24 @@
       "writtenOn": "2015-10-20T19:05:17Z",
       "side": 1,
       "message": "nit: public method missing comments?",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39111e0a_2d034191",
+        "filename": "runtime/verifier/register_line.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T23:02:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9ec2e3d_48b5ce1b",
       "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
