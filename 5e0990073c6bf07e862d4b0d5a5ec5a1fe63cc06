@@ -199,6 +199,24 @@
     },
     {
       "key": {
+        "uuid": "791716fc_1851699d",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T20:18:24Z",
+      "side": 1,
+      "message": "Not sure what you mean, can you elaborate?\n\nMy original thought (comments in stl_util.h) was that we only introduce extra overhead for either debug or memory checking modes (i.e. no overhead for release / no memory check).",
+      "parentUuid": "595172a7_7fb82b4e",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d90802ae_48211469",
         "filename": "runtime/verifier/reg_type-inl.h",
         "patchSetId": 4
