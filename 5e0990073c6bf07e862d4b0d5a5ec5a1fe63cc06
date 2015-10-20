@@ -181,6 +181,24 @@
     },
     {
       "key": {
+        "uuid": "595172a7_7fb82b4e",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T19:19:42Z",
+      "side": 1,
+      "message": "Do you want all array allocations on the arena to take additional 4B/8B, so that we can implement the ArenaDelete\u003cT[]\u003e specialization? If alignof(T)\u003d\u003d8, it\u0027s 8B also on 32-bit architectures.",
+      "parentUuid": "b9ec2e3d_28232a48",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d90802ae_48211469",
         "filename": "runtime/verifier/reg_type-inl.h",
         "patchSetId": 4
