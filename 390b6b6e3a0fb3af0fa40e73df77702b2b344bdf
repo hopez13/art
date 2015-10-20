@@ -542,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "59fc12c5_44034e90",
+        "filename": "runtime/verifier/register_line-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T18:34:48Z",
+      "side": 1,
+      "message": "What I meant: Define a new value in the ArenaAllocKind enumeration and pass it to Adapter() here instead of the default kArenaAllocSTL, define it\u0027s description in ArenaAllocatorStatsImpl\u003ckCount\u003e::kAllocNames. Also use the new kind in other places where you use the arena in verifier.\n\nOn a second thought, it\u0027s actually pretty useless because the verifier has its own ArenaStack, so its allocations will not be mixed with anything else. (Unless you want to distinguish between different verifier allocations by actually using multiple kinds.)",
+      "parentUuid": "39de7e5b_408d7c71",
+      "range": {
+        "startLine": 194,
+        "startChar": 70,
+        "endLine": 194,
+        "endChar": 79
+      },
+      "revId": "390b6b6e3a0fb3af0fa40e73df77702b2b344bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "595892e5_44d1ee54",
         "filename": "runtime/verifier/register_line-inl.h",
         "patchSetId": 3
