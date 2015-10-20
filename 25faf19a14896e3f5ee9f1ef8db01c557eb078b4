@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b940aed4_7f67cf4f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-20T19:15:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f936a66e_6154168e",
+      "range": {
+        "startLine": 11,
+        "startChar": 7,
+        "endLine": 11,
+        "endChar": 11
+      },
+      "revId": "25faf19a14896e3f5ee9f1ef8db01c557eb078b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "595892e5_24615239",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "Yes. I\u0027ll add a check.",
       "parentUuid": "595892e5_24615239",
+      "range": {
+        "startLine": 498,
+        "startChar": 0,
+        "endLine": 500,
+        "endChar": 3
+      },
+      "revId": "25faf19a14896e3f5ee9f1ef8db01c557eb078b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595172a7_5fbbef4b",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-20T19:15:24Z",
+      "side": 1,
+      "message": "We already have a check. It didn\u0027t fail because `return_replacement` was not actively use after this stage.",
+      "parentUuid": "39f75ee3_a6f1e84d",
       "range": {
         "startLine": 498,
         "startChar": 0,
@@ -119,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "595172a7_bfd55374",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1643,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-20T19:15:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d91642dc_1864a548",
+      "range": {
+        "startLine": 1643,
+        "startChar": 0,
+        "endLine": 1643,
+        "endChar": 40
+      },
+      "revId": "25faf19a14896e3f5ee9f1ef8db01c557eb078b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f936a66e_81511a9f",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -130,6 +202,30 @@
       "writtenOn": "2015-10-20T17:27:02Z",
       "side": 1,
       "message": "latter",
+      "range": {
+        "startLine": 1748,
+        "startChar": 71,
+        "endLine": 1748,
+        "endChar": 76
+      },
+      "revId": "25faf19a14896e3f5ee9f1ef8db01c557eb078b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5916d201_5460cc0c",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1748,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-20T19:15:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f936a66e_81511a9f",
       "range": {
         "startLine": 1748,
         "startChar": 71,
