@@ -566,6 +566,30 @@
     },
     {
       "key": {
+        "uuid": "99f3ea1a_98344dc1",
+        "filename": "runtime/verifier/register_line-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-20T18:56:01Z",
+      "side": 1,
+      "message": "I added kArenaAllocVerifier.",
+      "parentUuid": "59fc12c5_44034e90",
+      "range": {
+        "startLine": 194,
+        "startChar": 70,
+        "endLine": 194,
+        "endChar": 79
+      },
+      "revId": "390b6b6e3a0fb3af0fa40e73df77702b2b344bdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "595892e5_44d1ee54",
         "filename": "runtime/verifier/register_line-inl.h",
         "patchSetId": 3
