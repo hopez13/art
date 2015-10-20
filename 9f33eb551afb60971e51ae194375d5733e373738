@@ -454,6 +454,24 @@
     },
     {
       "key": {
+        "uuid": "59fc12c5_84482627",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-20T10:04:46Z",
+      "side": 1,
+      "message": "We have a mess with kArm and kThumb2. We use kArm in some places but we always mean Thumb2.",
+      "parentUuid": "595172a7_dfc7ff76",
+      "revId": "9f33eb551afb60971e51ae194375d5733e373738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f91146d4_329091d6",
         "filename": "runtime/oat_quick_method_header.h",
         "patchSetId": 5
