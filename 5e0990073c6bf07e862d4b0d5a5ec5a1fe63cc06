@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "79d47637_2a1a46b8",
+        "filename": "runtime/base/scoped_arena_containers.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T19:05:17Z",
+      "side": 1,
+      "message": "?",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f936a66e_41e6b24a",
         "filename": "runtime/base/stl_util.h",
         "patchSetId": 4
@@ -43,6 +60,57 @@
         "endLine": 148,
         "endChar": 2
       },
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79d47637_ea779ebe",
+        "filename": "runtime/base/stl_util.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T19:05:17Z",
+      "side": 1,
+      "message": "IMHO DestroyOnlyUniquePtr is an anti-pattern because this isn\u0027t Java and freeing memory is actually important to maintain sanity.\n\nThere should be an ArenaUniquePtr or UniquePtrArena (whatever you want to call it) which works *only* by deleting within the arena.\n\nDebug/valgrind modes could store the arena as an extra field (2x pointers instead of 1) so it can deallocate on the arena.\n\n(the arena pointer can be stored by allocating +sizeof(void*) more and storing it in the pre-header, which wastes space in debug mode in return for better safety. maybe there\u0027s an even better way to get back to the arena pointer from the address, vmarko might know).\n\n  debug memory layout of a debug arena object:\n\n  |-------------------------------------|\n  | arena ptr |  allocated memory  .... |\n  |-------------------------------------|\n              ^\n              |\n             unique ptr points here\n\nDouble deletes should be checked, not actually deleting should be checked.",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9ec2e3d_489f8ed2",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T19:05:17Z",
+      "side": 1,
+      "message": "Why only this?",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39de7e5b_77d95b55",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T19:05:17Z",
+      "side": 1,
+      "message": "This isn\u0027t very clean, this should be brought out to a helper\n\n   unique_ptr\u003cT\u003e MakeArenaArrayZeroed\u003cT\u003e(arena, size);",
       "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -96,6 +164,97 @@
     },
     {
       "key": {
+        "uuid": "b9ec2e3d_28232a48",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T19:05:17Z",
+      "side": 1,
+      "message": "This needs to be an arena unique ptr",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d90802ae_48211469",
+        "filename": "runtime/verifier/reg_type-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T19:05:17Z",
+      "side": 1,
+      "message": "Where is the delete operator that takes the arena?",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "791716fc_78633d1b",
+        "filename": "runtime/verifier/reg_type.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T19:05:17Z",
+      "side": 1,
+      "message": "Delete operator taking arena?",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39111e0a_6731dace",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T19:05:17Z",
+      "side": 1,
+      "message": "Who is responsible for cleaning up the string then?",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99f3ea1a_b8278982",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T19:05:17Z",
+      "side": 1,
+      "message": "nit: magic numbers deserve a constant, or at the very least a comment",
+      "range": {
+        "startLine": 274,
+        "startChar": 25,
+        "endLine": 274,
+        "endChar": 27
+      },
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b940aed4_5fb8cb16",
         "filename": "runtime/verifier/reg_type_cache.cc",
         "patchSetId": 4
@@ -137,6 +296,150 @@
         "endLine": 342,
         "endChar": 24
       },
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39de7e5b_7480393b",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T19:05:17Z",
+      "side": 1,
+      "message": "nit: please no magic numbers in our code base, put the 2 into scoped arena as a constexpr with a comment.",
+      "parentUuid": "b940aed4_5fb8cb16",
+      "range": {
+        "startLine": 342,
+        "startChar": 23,
+        "endLine": 342,
+        "endChar": 24
+      },
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "791716fc_786cddf2",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T19:05:17Z",
+      "side": 1,
+      "message": "AddEntry should take a unique_ptr so it\u0027s clear it\u0027s taking over ownership",
+      "range": {
+        "startLine": 389,
+        "startChar": 9,
+        "endLine": 389,
+        "endChar": 17
+      },
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "791716fc_783a1dff",
+        "filename": "runtime/verifier/reg_type_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T19:05:17Z",
+      "side": 1,
+      "message": "nit: comments?",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79d47637_6a95ee36",
+        "filename": "runtime/verifier/reg_type_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T19:05:17Z",
+      "side": 1,
+      "message": "Can\u0027t these 2 lines just go into the RegTypeTest struct to avoid this copy-and-paste?",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9f26ee4_9b53cefe",
+        "filename": "runtime/verifier/register_line-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T19:05:17Z",
+      "side": 1,
+      "message": "nit: indentation needs 4 more spaces",
+      "range": {
+        "startLine": 187,
+        "startChar": 43,
+        "endLine": 187,
+        "endChar": 44
+      },
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f91146d4_9cbbcc4b",
+        "filename": "runtime/verifier/register_line.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T19:05:17Z",
+      "side": 1,
+      "message": "nit: please comment on what the uints are",
+      "range": {
+        "startLine": 62,
+        "startChar": 48,
+        "endLine": 62,
+        "endChar": 56
+      },
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9ec2e3d_48b5ce1b",
+        "filename": "runtime/verifier/register_line.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-20T19:05:17Z",
+      "side": 1,
+      "message": "nit: public method missing comments?",
       "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
