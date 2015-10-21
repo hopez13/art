@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d953a2fb_d34ec6aa",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1855,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-21T19:19:29Z",
+      "side": 1,
+      "message": "I assume that there\u0027s no way to tell the register allocator to force base !\u003d expected and base !\u003d value or that it\u0027s not necessarily a good idea.\n\nDo we assume that expected !\u003d value because we specify expected \u003d\u003d EAX and value \u003d some (other) register? If so, we won\u0027t need to worry about the expected \u003d\u003d value case. Leave a comment on this?\n\nIt seems possible and legit to have expected \u003d\u003d base, if we try to cas a field held by base from base to some other value? As in CAS(base, offset, base, foo). Should we handle this case rather than crashing?",
+      "range": {
+        "startLine": 1855,
+        "startChar": 4,
+        "endLine": 1855,
+        "endChar": 13
+      },
+      "revId": "52c106059060bf2e551dd3c7179697bc399d1f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59725292_7767aa9d",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1923,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-21T19:19:29Z",
+      "side": 1,
+      "message": "Similar comments.",
+      "range": {
+        "startLine": 1923,
+        "startChar": 2,
+        "endLine": 1923,
+        "endChar": 11
+      },
+      "revId": "52c106059060bf2e551dd3c7179697bc399d1f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99784a71_99755ffc",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1957,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-21T19:19:29Z",
+      "side": 1,
+      "message": "Since we don\u0027t specify out \u003d\u003d RAX for the x86_64 case, could we have out \u003d\u003d  value? If so, should we also check (or handle) the out \u003d\u003d value case (or else the UnpoisonHeapReference below may overwrite out)?\n\nIf we could happen to have out \u003d\u003d RAX, should we also check (or handle) the expected \u003d\u003d out \u003d\u003d RAX case (or else the UnpoisonHeapReference below may overwrite out)?",
+      "range": {
+        "startLine": 1957,
+        "startChar": 19,
+        "endLine": 1957,
+        "endChar": 22
+      },
+      "revId": "52c106059060bf2e551dd3c7179697bc399d1f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
