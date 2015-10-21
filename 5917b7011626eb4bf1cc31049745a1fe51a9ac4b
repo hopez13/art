@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5947b23e_accc839c",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-21T08:14:30Z",
+      "side": 1,
+      "message": "Could that be a pointer? A reference somehow implies const for me (due to the parameter rule in the guide).",
+      "range": {
+        "startLine": 467,
+        "startChar": 2,
+        "endLine": 467,
+        "endChar": 23
+      },
+      "revId": "5917b7011626eb4bf1cc31049745a1fe51a9ac4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
