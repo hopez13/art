@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "16e8a964_822d3ace",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-21T10:29:16Z",
+      "side": 1,
+      "message": "Leftover from a bigger change.\n\nI had more changes initially but I restricted the scope of the CL.\n\nIt\u0027s easy to go to object for the return type if:\n\nSuper foo(bool cond) { return cond ? new SubclassA() : new SubclassB(); }\n\nand we should still bound the type to Super.\n\nHowever NullConstants require workarounds and I opted  not to do it here.",
+      "parentUuid": "16e8a964_62f7d6bb",
+      "range": {
+        "startLine": 515,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 92
+      },
+      "revId": "b663dbb56633bb8d3fc91200d00374607200296b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "561ea15a_945ea452",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-21T10:29:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b60d1d2e_b7bd28ee",
+      "range": {
+        "startLine": 517,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 6
+      },
+      "revId": "b663dbb56633bb8d3fc91200d00374607200296b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b60d1d2e_77c9d08a",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2015-10-21T08:29:24Z",
       "side": 1,
       "message": "How about just checking if the worklist is empty?",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 41
+      },
+      "revId": "b663dbb56633bb8d3fc91200d00374607200296b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5947b23e_2c0b336a",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-21T10:29:16Z",
+      "side": 1,
+      "message": "We wouldn\u0027t be able to differentiate between a normal pass and a limited pass where the root has no reference dependents (the worklist will still be empty).",
+      "parentUuid": "b60d1d2e_77c9d08a",
       "range": {
         "startLine": 118,
         "startChar": 0,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "391bde5c_63054250",
+        "filename": "compiler/optimizing/reference_type_propagation.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-21T10:29:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5947b23e_0cdcb745",
+      "range": {
+        "startLine": 38,
+        "startChar": 59,
+        "endLine": 38,
+        "endChar": 69
+      },
+      "revId": "b663dbb56633bb8d3fc91200d00374607200296b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79739694_b5cce09c",
         "filename": "compiler/optimizing/reference_type_propagation.h",
         "patchSetId": 3
@@ -105,6 +201,30 @@
       "writtenOn": "2015-10-21T08:29:24Z",
       "side": 1,
       "message": "start_from?",
+      "range": {
+        "startLine": 39,
+        "startChar": 32,
+        "endLine": 39,
+        "endChar": 45
+      },
+      "revId": "b663dbb56633bb8d3fc91200d00374607200296b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f97ea64f_81607a0e",
+        "filename": "compiler/optimizing/reference_type_propagation.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-21T10:29:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79739694_b5cce09c",
       "range": {
         "startLine": 39,
         "startChar": 32,
