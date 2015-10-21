@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b956eeeb_0ffd8566",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-21T15:42:39Z",
+      "side": 1,
+      "message": "Thanks, did not know proguard did that.",
+      "parentUuid": "b988aea5_ff539f4d",
+      "range": {
+        "startLine": 569,
+        "startChar": 0,
+        "endLine": 570,
+        "endChar": 57
+      },
+      "revId": "d841970f041cd390a87403da7c1d2eb2d82cebf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "561ea15a_14c85483",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-21T08:04:11Z",
       "side": 1,
       "message": "field !\u003d nullptr",
+      "range": {
+        "startLine": 654,
+        "startChar": 6,
+        "endLine": 654,
+        "endChar": 11
+      },
+      "revId": "d841970f041cd390a87403da7c1d2eb2d82cebf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9618ebd_7704102d",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-21T15:42:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "561ea15a_14c85483",
       "range": {
         "startLine": 654,
         "startChar": 6,
