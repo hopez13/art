@@ -117,6 +117,30 @@
       "revId": "6c62ddb9dee9a892ab250b65eb5e5bc889c4d19e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19337ad8_b39b0a72",
+        "filename": "runtime/base/stl_util.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-21T21:51:11Z",
+      "side": 1,
+      "message": "That seems invasive, it would require all arena allocators to add that extra bit so that the DestroyOnlyDelete can check it. Can we do that in another CL?",
+      "parentUuid": "b9618ebd_a0d020b7",
+      "range": {
+        "startLine": 156,
+        "startChar": 6,
+        "endLine": 156,
+        "endChar": 66
+      },
+      "revId": "6c62ddb9dee9a892ab250b65eb5e5bc889c4d19e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
