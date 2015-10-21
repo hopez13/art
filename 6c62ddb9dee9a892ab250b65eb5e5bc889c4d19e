@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "194a9a42_b26300cf",
+        "filename": "runtime/base/scoped_arena_containers.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-21T16:21:04Z",
+      "side": 1,
+      "message": "Accidental tab.",
+      "parentUuid": "391bde5c_c313569f",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 2
+      },
+      "revId": "6c62ddb9dee9a892ab250b65eb5e5bc889c4d19e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5947b23e_0c0e7779",
         "filename": "runtime/base/stl_util.h",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-21T10:22:43Z",
       "side": 1,
       "message": "How does that catch double-free? (It can catch use-after-free.)",
+      "range": {
+        "startLine": 156,
+        "startChar": 6,
+        "endLine": 156,
+        "endChar": 66
+      },
+      "revId": "6c62ddb9dee9a892ab250b65eb5e5bc889c4d19e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99784a71_f6df40c2",
+        "filename": "runtime/base/stl_util.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-21T16:21:04Z",
+      "side": 1,
+      "message": "The destructor is more likely to crash on the second free, but I suppose it doesn\u0027t really matter.",
+      "parentUuid": "5947b23e_0c0e7779",
       "range": {
         "startLine": 156,
         "startChar": 6,
