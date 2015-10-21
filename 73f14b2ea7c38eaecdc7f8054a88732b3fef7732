@@ -92,6 +92,30 @@
       "revId": "73f14b2ea7c38eaecdc7f8054a88732b3fef7732",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "391bde5c_230b4a6a",
+        "filename": "runtime/base/stl_util.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-21T10:22:43Z",
+      "side": 1,
+      "message": "But that\u0027s not destroying anything. The name is promising something that it cannot fulfill. That\u0027s exactly what I wanted to avoid.",
+      "parentUuid": "39de7e5b_77515b9c",
+      "range": {
+        "startLine": 156,
+        "startChar": 28,
+        "endLine": 159,
+        "endChar": 1
+      },
+      "revId": "73f14b2ea7c38eaecdc7f8054a88732b3fef7732",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
