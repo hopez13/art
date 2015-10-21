@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f97ea64f_41acb273",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-21T14:55:27Z",
+      "side": 1,
+      "message": "Nit: could you indent this similarly to other cases?",
+      "range": {
+        "startLine": 751,
+        "startChar": 0,
+        "endLine": 751,
+        "endChar": 10
+      },
+      "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b988aea5_3f50a7f0",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 5
@@ -18,6 +41,29 @@
         "startChar": 41,
         "endLine": 752,
         "endChar": 26
+      },
+      "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5947b23e_0c24b7c2",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-21T14:55:27Z",
+      "side": 1,
+      "message": "Also, why is `stats` not passed to mips::CodeGeneratorMIPS\u0027s constructor?",
+      "range": {
+        "startLine": 752,
+        "startChar": 26,
+        "endLine": 752,
+        "endChar": 27
       },
       "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -133,6 +179,29 @@
         "startChar": 9,
         "endLine": 2018,
         "endChar": 92
+      },
+      "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "962499a5_b605282d",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2174,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-21T14:55:27Z",
+      "side": 1,
+      "message": "IsUint\u003c15\u003e(rhs_imm)\n\nAlso, why not handling the values in range [max_unsigned-32767, max_unsigned] which can also be encoded as immediates in SLTIU?\n\nLikewise for the kCondBE and kCondA cases.",
+      "range": {
+        "startLine": 2174,
+        "startChar": 21,
+        "endLine": 2174,
+        "endChar": 54
       },
       "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
