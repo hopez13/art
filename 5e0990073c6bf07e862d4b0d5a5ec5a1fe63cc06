@@ -137,6 +137,24 @@
     },
     {
       "key": {
+        "uuid": "99f3ea1a_c5a8a9ce",
+        "filename": "runtime/base/stl_util.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-21T01:06:01Z",
+      "side": 1,
+      "message": "I added a memset that should cause valgrind / address sanitizer to fail.",
+      "parentUuid": "b9ec2e3d_e1f2fdc9",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9ec2e3d_489f8ed2",
         "filename": "runtime/dex_instruction.h",
         "patchSetId": 4
@@ -516,6 +534,24 @@
       "side": 1,
       "message": "Then there needs to be a check here\n\n  static_assert(std::is_trivial\u003cRegType\u003e::value,\n                \"Non-trivial types must be deleted\");\n\nAnd anyway that only works because the string was changed to a StringPiece, what if someone comes in and adds another field later? It would shift the complexity to someone else to figure out what happened to all the deletes.",
       "parentUuid": "d90802ae_6363d91b",
+      "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79d47637_e0da1fd5",
+        "filename": "runtime/verifier/reg_type-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-21T01:06:01Z",
+      "side": 1,
+      "message": "That doesn\u0027t work to virtual methods. Any ideas?",
+      "parentUuid": "b9f26ee4_3131a3cf",
       "revId": "5e0990073c6bf07e862d4b0d5a5ec5a1fe63cc06",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
