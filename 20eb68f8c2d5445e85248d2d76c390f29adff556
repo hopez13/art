@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b988aea5_3f50a7f0",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-21T14:26:52Z",
+      "side": 1,
+      "message": "Nit: all on one line.",
+      "range": {
+        "startLine": 750,
+        "startChar": 41,
+        "endLine": 752,
+        "endChar": 26
+      },
+      "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5947b23e_4c079f32",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-21T14:26:52Z",
+      "side": 1,
+      "message": "Other archs are now getting those from the instruction in EmitNativeCode. Could you do the same?",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 44
+      },
+      "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79739694_75b6c8c0",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-21T14:26:52Z",
+      "side": 1,
+      "message": "Missing braces.",
+      "range": {
+        "startLine": 698,
+        "startChar": 58,
+        "endLine": 698,
+        "endChar": 60
+      },
+      "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e8a964_4296121b",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-21T14:26:52Z",
+      "side": 1,
+      "message": "Please add comments around this.",
+      "range": {
+        "startLine": 1207,
+        "startChar": 0,
+        "endLine": 1209,
+        "endChar": 3
+      },
+      "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "962499a5_b66c08f3",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-21T14:26:52Z",
+      "side": 1,
+      "message": "Can you fix this TODO?",
+      "range": {
+        "startLine": 1224,
+        "startChar": 11,
+        "endLine": 1224,
+        "endChar": 18
+      },
+      "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79739694_95e1a4b2",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2018,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-21T14:26:52Z",
+      "side": 1,
+      "message": "Could you move the details over to here?",
+      "range": {
+        "startLine": 2018,
+        "startChar": 9,
+        "endLine": 2018,
+        "endChar": 92
+      },
+      "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e8a964_c2b7c2bc",
+        "filename": "compiler/optimizing/code_generator_mips.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-21T14:26:52Z",
+      "side": 1,
+      "message": "Stale comment applying to GenerateSuspsendCheck?",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 22
+      },
+      "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
