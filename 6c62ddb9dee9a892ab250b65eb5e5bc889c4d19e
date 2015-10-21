@@ -93,6 +93,30 @@
       "revId": "6c62ddb9dee9a892ab250b65eb5e5bc889c4d19e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9618ebd_a0d020b7",
+        "filename": "runtime/base/stl_util.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-21T21:44:26Z",
+      "side": 1,
+      "message": "It should just set a destructed bit\u003dtrue in the underlying arena memory (meaning it should\u0027ve allocated extra memory from the arena).\n\nThen this destroyer can DCHECK(destructed bit \u003d false) to prevent double frees.\n\nUse after free (not in a memory tool) would have to be done by overloading the operator-\u003e or operator* which is probably not worth the effort for the scope of this CL.",
+      "parentUuid": "99784a71_f6df40c2",
+      "range": {
+        "startLine": 156,
+        "startChar": 6,
+        "endLine": 156,
+        "endChar": 66
+      },
+      "revId": "6c62ddb9dee9a892ab250b65eb5e5bc889c4d19e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
