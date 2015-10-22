@@ -425,6 +425,30 @@
     },
     {
       "key": {
+        "uuid": "d953a2fb_44fa0e70",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2174,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-22T17:36:58Z",
+      "side": 1,
+      "message": "Thanks for generalizing this!",
+      "parentUuid": "5947b23e_2c033391",
+      "range": {
+        "startLine": 2174,
+        "startChar": 21,
+        "endLine": 2174,
+        "endChar": 54
+      },
+      "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16e8a964_c2b7c2bc",
         "filename": "compiler/optimizing/code_generator_mips.h",
         "patchSetId": 5
