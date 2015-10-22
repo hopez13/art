@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6d4f5d4_d151a4f7",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-22T20:05:58Z",
+      "side": 1,
+      "message": "It doesn\u0027t really explain what the definition is, can we move this to arena header and put a comment explaining why it\u0027s 8 (as opposed to 4, 3,2,1, or any other arbitrary int)?",
+      "revId": "d5a86a688d095e92484fae52e7b9dba49600edcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
