@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "369ccd29_81b43e57",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-10-22T23:41:40Z",
+      "side": 1,
+      "message": "MIPS32 optimizing compiler has just been accepted, so this pair of calls (DelayEmittingAdvancePCs() and EmitDelayedAdvancePCs()) needs to be added into the MIPS32 version as well.\n\nIn order to test this on MIPS32 you should go to MipsAssembler::PromoteBranches() and change branch.PromoteIfNeeded() to branch.PromoteIfNeeded(128). This change will cause many branches to become long and therefore require CFI record updates. This is how I hit a failure in test 137-cfi.",
+      "range": {
+        "startLine": 391,
+        "startChar": 0,
+        "endLine": 391,
+        "endChar": 32
+      },
+      "revId": "6bbb11268a579b3d181d8a7548c384411e4c81ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3675adb9_f9b60f62",
+        "filename": "compiler/utils/assembler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-10-22T23:41:40Z",
+      "side": 1,
+      "message": "I\u0027m not sure it\u0027s a very good idea to move it here, because it ties the generic assembler to a particular type of labels. MIPS uses a different type for label and does not need label position adjustments of this kind.\n\nIf you want to keep this method here, there should be a [D]CHECK() and/or a comment on the applicability of this method to different architectures.",
+      "range": {
+        "startLine": 319,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 3
+      },
+      "revId": "6bbb11268a579b3d181d8a7548c384411e4c81ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
