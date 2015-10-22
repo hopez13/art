@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "993daaa1_08a3bbee",
+        "filename": "runtime/base/stl_util.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-22T16:53:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16e8a964_25c8b883",
+      "range": {
+        "startLine": 157,
+        "startChar": 6,
+        "endLine": 157,
+        "endChar": 97
+      },
+      "revId": "616eab5d56474da63ffa0abb0b299d3c306b35a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f97ea64f_e1a78628",
         "filename": "runtime/base/stl_util.h",
         "patchSetId": 11
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d953a2fb_3967f350",
+        "filename": "runtime/base/stl_util.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-22T16:53:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f97ea64f_e1a78628",
+      "range": {
+        "startLine": 168,
+        "startChar": 28,
+        "endLine": 168,
+        "endChar": 31
+      },
+      "revId": "616eab5d56474da63ffa0abb0b299d3c306b35a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16e8a964_65cec095",
         "filename": "runtime/verifier/method_verifier.h",
         "patchSetId": 11
@@ -59,6 +107,30 @@
       "writtenOn": "2015-10-22T09:59:14Z",
       "side": 1,
       "message": "This is also wrong. This will destroy the first flags but not the rest. I know the destructor is trivial but it\u0027s conceptually very wrong.\n\nLet\u0027s use a raw pointer for this CL and we can change this later if we come up with an acceptable wrapper. DestroyOnlyUniquePtr\u003cInstructionFlags\u003e is not acceptable and DestroyOnlyUniquePtr\u003cInstructionFlags[]\u003e is unimplementable without overhead.",
+      "range": {
+        "startLine": 732,
+        "startChar": 2,
+        "endLine": 732,
+        "endChar": 53
+      },
+      "revId": "616eab5d56474da63ffa0abb0b299d3c306b35a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f935c6bb_d855f9ac",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-22T16:53:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16e8a964_65cec095",
       "range": {
         "startLine": 732,
         "startChar": 2,
