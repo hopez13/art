@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "79739694_759088d7",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1855,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-22T08:23:33Z",
+      "side": 1,
+      "message": "I don\u0027t think we need to say to the register allocator that base should be different than value. If it\u0027s two different objects they will indeed be different. If it\u0027s the same, it\u0027s more the job of the code here to handle it than the register allocator to provide two different locations for the same object.\n\nAnd because we ask expected to be in EAX, the current guarantees given by the register allocator is that base and value will be in a different one.",
+      "parentUuid": "d953a2fb_d34ec6aa",
+      "range": {
+        "startLine": 1855,
+        "startChar": 4,
+        "endLine": 1855,
+        "endChar": 13
+      },
+      "revId": "52c106059060bf2e551dd3c7179697bc399d1f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59725292_7767aa9d",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 2
@@ -59,6 +83,30 @@
       "writtenOn": "2015-10-21T19:19:29Z",
       "side": 1,
       "message": "Since we don\u0027t specify out \u003d\u003d RAX for the x86_64 case, could we have out \u003d\u003d  value? If so, should we also check (or handle) the out \u003d\u003d value case (or else the UnpoisonHeapReference below may overwrite out)?\n\nIf we could happen to have out \u003d\u003d RAX, should we also check (or handle) the expected \u003d\u003d out \u003d\u003d RAX case (or else the UnpoisonHeapReference below may overwrite out)?",
+      "range": {
+        "startLine": 1957,
+        "startChar": 19,
+        "endLine": 1957,
+        "endChar": 22
+      },
+      "revId": "52c106059060bf2e551dd3c7179697bc399d1f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5947b23e_8cf7c741",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1957,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-22T08:23:33Z",
+      "side": 1,
+      "message": "Right now, out !\u003d value because the default is that out and value may overlap so cannot have the same register.",
+      "parentUuid": "99784a71_99755ffc",
       "range": {
         "startLine": 1957,
         "startChar": 19,
