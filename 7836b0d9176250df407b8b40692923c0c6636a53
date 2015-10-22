@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "561ea15a_340d90be",
+        "filename": "runtime/base/scoped_arena_containers.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-22T17:16:42Z",
+      "side": 1,
+      "message": "Obsolete comment, remove.",
+      "range": {
+        "startLine": 214,
+        "startChar": 6,
+        "endLine": 214,
+        "endChar": 90
+      },
+      "revId": "7836b0d9176250df407b8b40692923c0c6636a53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "391bde5c_f7f72885",
+        "filename": "runtime/base/scoped_arena_containers.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-22T17:16:42Z",
+      "side": 1,
+      "message": "Add\n\n    // Declare but do not define a partial specialization for T[].\n    // This is to prevent accidental use of this unsupported use case.\n    template \u003ctypename T\u003e\n    class ArenaDelete\u003cT[]\u003e;",
+      "revId": "7836b0d9176250df407b8b40692923c0c6636a53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
