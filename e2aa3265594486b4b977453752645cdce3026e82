@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "79739694_f8180dbe",
+        "filename": "runtime/base/stringpiece.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-22T18:10:46Z",
+      "side": 1,
+      "message": "That looks like ignoring the tail and stopping on embedded zeros (we want \"x\\0y\" \u003c \"x\\0z\").",
+      "parentUuid": "19337ad8_c4cb52db",
+      "revId": "e2aa3265594486b4b977453752645cdce3026e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3942fe30_df2c0b69",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 2
