@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "d6661112_5b5db7d4",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2162,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-10-22T23:15:38Z",
+      "side": 1,
+      "message": "Overly complicated.\n\n  if (use_imm \u0026\u0026 IsInt\u003c16\u003e(rhs_imm)) {\n\nis sufficient.",
+      "range": {
+        "startLine": 2160,
+        "startChar": 0,
+        "endLine": 2162,
+        "endChar": 85
+      },
+      "revId": "f652cecb984c104d44a0223c3c98400ef8ed8ce2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6661112_3b4a431e",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2168,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-10-22T23:15:38Z",
+      "side": 1,
+      "message": "Unnecessary subtraction as it does not modify the 16 least significant bits, which sltiu uses. IOW, we don\u0027t need the if/else.",
+      "range": {
+        "startLine": 2168,
+        "startChar": 37,
+        "endLine": 2168,
+        "endChar": 84
+      },
+      "revId": "f652cecb984c104d44a0223c3c98400ef8ed8ce2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5947b23e_acc1e38c",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 6
@@ -66,6 +112,52 @@
         "startChar": 6,
         "endLine": 2169,
         "endChar": 9
+      },
+      "revId": "f652cecb984c104d44a0223c3c98400ef8ed8ce2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3675adb9_b9589717",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2191,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-10-22T23:15:38Z",
+      "side": 1,
+      "message": "IsInt\u003c16\u003e(rhs_imm + 1) is sufficient",
+      "range": {
+        "startLine": 2190,
+        "startChar": 10,
+        "endLine": 2191,
+        "endChar": 86
+      },
+      "revId": "f652cecb984c104d44a0223c3c98400ef8ed8ce2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56a1415d_bf32b38a",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2199,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-10-22T23:15:38Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2199,
+        "startChar": 40,
+        "endLine": 2199,
+        "endChar": 88
       },
       "revId": "f652cecb984c104d44a0223c3c98400ef8ed8ce2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
