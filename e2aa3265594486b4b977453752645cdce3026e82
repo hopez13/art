@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "56a1415d_df89bf28",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-22T21:24:36Z",
+      "side": 1,
+      "message": "std::lower_bound would work but that does extra comparisons since it does not use an integer comparator.",
+      "parentUuid": "16d269e7_d22be41a",
+      "revId": "e2aa3265594486b4b977453752645cdce3026e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3942fe30_df2c0b69",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 2
