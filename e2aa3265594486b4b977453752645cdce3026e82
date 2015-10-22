@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "16d269e7_92b79cbd",
+        "filename": "runtime/base/stringpiece.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-22T19:50:03Z",
+      "side": 1,
+      "message": "I\u0027m glad you brought this up. I think this needs to be fixed.\n\nRight now operator\u003d\u003d uses strncmp so it will treat \"x\\0y\" \u003d\u003d \"x\\0z\"\n\nLet\u0027s make both of them consistent, why don\u0027t we?\n\n----\nI would weakly vote for using the operator\u003d\u003d behavior because a) it\u0027s what we were already doing and what the rest of the code relies on, b) it\u0027s a string which means 0-terminated in C++ land, c) we would want to call it a vectorpiece or similar if it was just arbitrary byte array slice.",
+      "parentUuid": "79739694_f8180dbe",
+      "revId": "e2aa3265594486b4b977453752645cdce3026e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3942fe30_df2c0b69",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 2
