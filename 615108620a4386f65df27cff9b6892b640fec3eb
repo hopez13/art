@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "561ea15a_d451bc9e",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-22T15:45:39Z",
+      "side": 1,
+      "message": "add: we currently don\u0027t implement finding the common type and we merge to Object.",
+      "range": {
+        "startLine": 515,
+        "startChar": 72,
+        "endLine": 515,
+        "endChar": 94
+      },
+      "revId": "615108620a4386f65df27cff9b6892b640fec3eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5947b23e_4ce95f1a",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-22T15:45:39Z",
+      "side": 1,
+      "message": "I suggest adding a new Run method for this case, to avoid the boolean field in ReferenceTypePropagation",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 536,
+        "endChar": 22
+      },
+      "revId": "615108620a4386f65df27cff9b6892b640fec3eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
