@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "16e8a964_627c76e5",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1855,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-22T10:40:18Z",
+      "side": 1,
+      "message": "As Nicolas said, because we\u0027re assigning EAX to `expected` (line 1817), other automatically assigned locations should not use it.\n\nI have added comments to document these assertions.\n\nI also added the following assertion:\n\n  DCHECK_NE(value, expected);\n\n(as well as an explanation).",
+      "parentUuid": "d953a2fb_d34ec6aa",
+      "range": {
+        "startLine": 1855,
+        "startChar": 4,
+        "endLine": 1855,
+        "endChar": 13
+      },
+      "revId": "52c106059060bf2e551dd3c7179697bc399d1f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59725292_7767aa9d",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 2
@@ -60,6 +84,30 @@
       "writtenOn": "2015-10-21T19:19:29Z",
       "side": 1,
       "message": "Similar comments.",
+      "range": {
+        "startLine": 1923,
+        "startChar": 2,
+        "endLine": 1923,
+        "endChar": 11
+      },
+      "revId": "52c106059060bf2e551dd3c7179697bc399d1f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "962499a5_96310cd2",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1923,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-22T10:40:18Z",
+      "side": 1,
+      "message": "I added comments here as well to explain the assertions.",
+      "parentUuid": "59725292_7767aa9d",
       "range": {
         "startLine": 1923,
         "startChar": 2,
@@ -106,6 +154,30 @@
       "writtenOn": "2015-10-22T08:23:33Z",
       "side": 1,
       "message": "Right now, out !\u003d value because the default is that out and value may overlap so cannot have the same register.",
+      "parentUuid": "99784a71_99755ffc",
+      "range": {
+        "startLine": 1957,
+        "startChar": 19,
+        "endLine": 1957,
+        "endChar": 22
+      },
+      "revId": "52c106059060bf2e551dd3c7179697bc399d1f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f97ea64f_c11d2207",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1957,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-22T10:40:18Z",
+      "side": 1,
+      "message": "I have added more assertions (with explanations) to cover these cases.",
       "parentUuid": "99784a71_99755ffc",
       "range": {
         "startLine": 1957,
