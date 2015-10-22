@@ -243,6 +243,24 @@
     },
     {
       "key": {
+        "uuid": "f6d4f5d4_110decbd",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-22T20:52:35Z",
+      "side": 1,
+      "message": "What do you mean dangling pointers? The arena is held live for the duration of verification. That would have to mean that someone made a string piece escape the verifier.",
+      "parentUuid": "56a1415d_5cc61dd7",
+      "revId": "fcb6d2c149fc063ef964b559f22eef1de83de57d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d953a2fb_44e20e89",
         "filename": "runtime/verifier/reg_type_cache.cc",
         "patchSetId": 13
