@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d6661112_18aae5aa",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-22T18:41:48Z",
+      "side": 1,
+      "message": "Clarify?",
+      "parentUuid": "194a9a42_277268cf",
+      "revId": "fcb6d2c149fc063ef964b559f22eef1de83de57d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d953a2fb_4485aed1",
         "filename": "runtime/base/scoped_arena_allocator.h",
         "patchSetId": 13
@@ -30,6 +48,30 @@
       "writtenOn": "2015-10-22T18:07:10Z",
       "side": 1,
       "message": "nit: enum class for new code\n\nit probably wouldn\u0027t hurt to specify the exact type size either.",
+      "range": {
+        "startLine": 35,
+        "startChar": 5,
+        "endLine": 35,
+        "endChar": 17
+      },
+      "revId": "fcb6d2c149fc063ef964b559f22eef1de83de57d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f66f95e4_99bd9bee",
+        "filename": "runtime/base/scoped_arena_allocator.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-22T18:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d953a2fb_4485aed1",
       "range": {
         "startLine": 35,
         "startChar": 5,
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "369ccd29_9b082b6b",
+        "filename": "runtime/base/scoped_arena_containers.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-22T18:41:48Z",
+      "side": 1,
+      "message": "Yes, hopefully it would crash.",
+      "parentUuid": "3942fe30_7f67979d",
+      "revId": "fcb6d2c149fc063ef964b559f22eef1de83de57d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "369ccd29_5bc9438a",
         "filename": "runtime/base/scoped_arena_containers.h",
         "patchSetId": 13
@@ -70,6 +130,24 @@
       "writtenOn": "2015-10-22T18:07:10Z",
       "side": 1,
       "message": ".\n\n  void operator()(T* ptr) const \u003d delete\n\nwould likely have a better error message",
+      "revId": "fcb6d2c149fc063ef964b559f22eef1de83de57d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56a1415d_5c1b7dba",
+        "filename": "runtime/base/scoped_arena_containers.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-22T18:41:48Z",
+      "side": 1,
+      "message": "Seems fien to me, not sure if vmarko will complain.",
+      "parentUuid": "369ccd29_5bc9438a",
       "revId": "fcb6d2c149fc063ef964b559f22eef1de83de57d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "f66f95e4_7920c7e3",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-22T18:41:48Z",
+      "side": 1,
+      "message": "You mean return ArenaUniquePtr? That doesnt help much since we don\u0027t have a StringPiece that holds ArenaUniquePtr.",
+      "parentUuid": "56a1415d_9cd6e524",
+      "revId": "fcb6d2c149fc063ef964b559f22eef1de83de57d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d953a2fb_44e20e89",
         "filename": "runtime/verifier/reg_type_cache.cc",
         "patchSetId": 13
@@ -104,6 +200,24 @@
       "writtenOn": "2015-10-22T18:07:10Z",
       "side": 1,
       "message": "nit: magic number 8",
+      "revId": "fcb6d2c149fc063ef964b559f22eef1de83de57d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f935c6bb_2340a66b",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-22T18:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d953a2fb_44e20e89",
       "revId": "fcb6d2c149fc063ef964b559f22eef1de83de57d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
