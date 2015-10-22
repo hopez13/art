@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "56a1415d_bc67219e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-22T20:05:58Z",
+      "side": 1,
+      "message": "Ah, yeah, rebase.. fun.",
+      "parentUuid": "b60d1d2e_9761043c",
+      "revId": "fcb6d2c149fc063ef964b559f22eef1de83de57d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d953a2fb_4485aed1",
         "filename": "runtime/base/scoped_arena_allocator.h",
         "patchSetId": 13
@@ -201,6 +219,24 @@
       "side": 1,
       "message": "You mean return ArenaUniquePtr? That doesnt help much since we don\u0027t have a StringPiece that holds ArenaUniquePtr.",
       "parentUuid": "56a1415d_9cd6e524",
+      "revId": "fcb6d2c149fc063ef964b559f22eef1de83de57d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56a1415d_5cc61dd7",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-22T20:05:58Z",
+      "side": 1,
+      "message": "This is just very scary because the \"ptr\" on 167 is never freed explicitly so I\u0027m worried about dangling pointers to the arena\u0027s memory pool later.\n\n------\n\nWhat if we had an ArenaStringPiece that e.g. held an ArenaUniquePtr?\n\nFor example\n\n   struct ArenaStringPiece : public StringPiece {\n       ArenaStringPiece() {\n           StringPiece::ptr_ \u003d string_data_.get();\n           StringPiece::length_ \u003d strlen(StringPiece::ptr_);\n       }\n       // + move and assign-move operators\n     private:\n       ArenaUniquePtr\u003cconst char\u003e string_data_;\n   }",
+      "parentUuid": "f66f95e4_7920c7e3",
       "revId": "fcb6d2c149fc063ef964b559f22eef1de83de57d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
