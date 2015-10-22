@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "99784a71_25dfb874",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1855,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-22T17:35:44Z",
+      "side": 1,
+      "message": "It sounds like since we specify expected \u003d\u003d EAX, the register allocator won\u0027t assign the others, base and value to EAX. Good.",
+      "parentUuid": "16e8a964_627c76e5",
+      "range": {
+        "startLine": 1855,
+        "startChar": 4,
+        "endLine": 1855,
+        "endChar": 13
+      },
+      "revId": "52c106059060bf2e551dd3c7179697bc399d1f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59725292_7767aa9d",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 2
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "I have added more assertions (with explanations) to cover these cases.",
       "parentUuid": "99784a71_99755ffc",
+      "range": {
+        "startLine": 1957,
+        "startChar": 19,
+        "endLine": 1957,
+        "endChar": 22
+      },
+      "revId": "52c106059060bf2e551dd3c7179697bc399d1f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19337ad8_8435da9c",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1957,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-22T17:35:44Z",
+      "side": 1,
+      "message": "Okay, thanks.",
+      "parentUuid": "f97ea64f_c11d2207",
       "range": {
         "startLine": 1957,
         "startChar": 19,
