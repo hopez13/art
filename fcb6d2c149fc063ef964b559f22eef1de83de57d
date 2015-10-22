@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "194a9a42_277268cf",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-22T18:07:10Z",
+      "side": 1,
+      "message": "Why? This seems to introduce unnecessary complexity.",
+      "revId": "fcb6d2c149fc063ef964b559f22eef1de83de57d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d953a2fb_4485aed1",
+        "filename": "runtime/base/scoped_arena_allocator.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-22T18:07:10Z",
+      "side": 1,
+      "message": "nit: enum class for new code\n\nit probably wouldn\u0027t hurt to specify the exact type size either.",
+      "range": {
+        "startLine": 35,
+        "startChar": 5,
+        "endLine": 35,
+        "endChar": 17
+      },
+      "revId": "fcb6d2c149fc063ef964b559f22eef1de83de57d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3942fe30_7f67979d",
+        "filename": "runtime/base/scoped_arena_containers.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-22T18:07:10Z",
+      "side": 1,
+      "message": "Would you mind explaining how this will help? There\u0027s nothing here that checks for kMagicFill, are we just hoping this will corrupt the data leading to a crash?",
+      "revId": "fcb6d2c149fc063ef964b559f22eef1de83de57d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "369ccd29_5bc9438a",
+        "filename": "runtime/base/scoped_arena_containers.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-22T18:07:10Z",
+      "side": 1,
+      "message": ".\n\n  void operator()(T* ptr) const \u003d delete\n\nwould likely have a better error message",
+      "revId": "fcb6d2c149fc063ef964b559f22eef1de83de57d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56a1415d_9cd6e524",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-22T18:07:10Z",
+      "side": 1,
+      "message": "Can you wrap this with ArenaUniquePtr ?",
+      "revId": "fcb6d2c149fc063ef964b559f22eef1de83de57d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d953a2fb_44e20e89",
+        "filename": "runtime/verifier/reg_type_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-22T18:07:10Z",
+      "side": 1,
+      "message": "nit: magic number 8",
+      "revId": "fcb6d2c149fc063ef964b559f22eef1de83de57d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
