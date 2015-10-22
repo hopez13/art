@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f97ea64f_61c536c1",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1397,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-22T09:43:48Z",
+      "side": 1,
+      "message": "This can be handled by CMN.",
+      "range": {
+        "startLine": 1397,
+        "startChar": 8,
+        "endLine": 1397,
+        "endChar": 55
+      },
+      "revId": "5f4a9cec95797227800bace8340d28549d0745b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e8a964_25af98bb",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3415,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-22T09:43:48Z",
+      "side": 1,
+      "message": "This can be handled by CMN.",
+      "range": {
+        "startLine": 3415,
+        "startChar": 8,
+        "endLine": 3415,
+        "endChar": 63
+      },
+      "revId": "5f4a9cec95797227800bace8340d28549d0745b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
