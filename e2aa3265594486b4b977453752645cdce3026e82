@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19337ad8_c4cb52db",
+        "filename": "runtime/base/stringpiece.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-22T17:48:53Z",
+      "side": 1,
+      "message": "Why not just \n\n   return strncmp(data(), rhs.data(), std::min(size(), rhs.size())\n\n(which is very similar to what operator\u003d\u003d already does).",
+      "revId": "e2aa3265594486b4b977453752645cdce3026e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3942fe30_df2c0b69",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-22T17:48:53Z",
+      "side": 1,
+      "message": "This can overflow, please fix\n\n   size_t mid \u003d low + ((high - low) / 2);\n\nhttp://googleresearch.blogspot.com/2006/06/extra-extra-read-all-about-it-nearly.html",
+      "revId": "e2aa3265594486b4b977453752645cdce3026e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
