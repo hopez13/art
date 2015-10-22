@@ -46,6 +46,30 @@
       "revId": "f652cecb984c104d44a0223c3c98400ef8ed8ce2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e8a964_651800fd",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2169,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-22T17:30:29Z",
+      "side": 1,
+      "message": "I would prefer a Java or Smali-based run-test, making use of arch-specific Checker assertions, if possible.  Thanks in advance!",
+      "parentUuid": "7938f6b0_300b866a",
+      "range": {
+        "startLine": 2160,
+        "startChar": 6,
+        "endLine": 2169,
+        "endChar": 9
+      },
+      "revId": "f652cecb984c104d44a0223c3c98400ef8ed8ce2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
