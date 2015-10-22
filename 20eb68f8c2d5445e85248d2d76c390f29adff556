@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "79739694_75a8884e",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-10-22T16:52:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f97ea64f_41acb273",
+      "range": {
+        "startLine": 751,
+        "startChar": 0,
+        "endLine": 751,
+        "endChar": 10
+      },
+      "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b988aea5_3f50a7f0",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 5
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "7938f6b0_6d7ff564",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-10-22T16:52:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5947b23e_0c24b7c2",
+      "range": {
+        "startLine": 752,
+        "startChar": 26,
+        "endLine": 752,
+        "endChar": 27
+      },
+      "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5947b23e_4c079f32",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 5
@@ -82,6 +130,30 @@
       "writtenOn": "2015-10-21T14:26:52Z",
       "side": 1,
       "message": "Other archs are now getting those from the instruction in EmitNativeCode. Could you do the same?",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 44
+      },
+      "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e8a964_02e48a93",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-10-22T16:52:05Z",
+      "side": 1,
+      "message": "Done. As well as for TypeCheckSlowPathMIPS.",
+      "parentUuid": "5947b23e_4c079f32",
       "range": {
         "startLine": 158,
         "startChar": 0,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "f97ea64f_21532e00",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-10-22T16:52:05Z",
+      "side": 1,
+      "message": "Done. If this is what you had in mind?",
+      "parentUuid": "79739694_75b6c8c0",
+      "range": {
+        "startLine": 698,
+        "startChar": 58,
+        "endLine": 698,
+        "endChar": 60
+      },
+      "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16e8a964_4296121b",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 5
@@ -128,6 +224,30 @@
       "writtenOn": "2015-10-21T14:26:52Z",
       "side": 1,
       "message": "Please add comments around this.",
+      "range": {
+        "startLine": 1207,
+        "startChar": 0,
+        "endLine": 1209,
+        "endChar": 3
+      },
+      "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7938f6b0_eda205e9",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-10-22T16:52:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16e8a964_4296121b",
       "range": {
         "startLine": 1207,
         "startChar": 0,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "391bde5c_5708fc6a",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-10-22T16:52:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "962499a5_b66c08f3",
+      "range": {
+        "startLine": 1224,
+        "startChar": 11,
+        "endLine": 1224,
+        "endChar": 18
+      },
+      "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79739694_95e1a4b2",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 5
@@ -174,6 +318,30 @@
       "writtenOn": "2015-10-21T14:26:52Z",
       "side": 1,
       "message": "Could you move the details over to here?",
+      "range": {
+        "startLine": 2018,
+        "startChar": 9,
+        "endLine": 2018,
+        "endChar": 92
+      },
+      "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f97ea64f_01faaae0",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2018,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-10-22T16:52:05Z",
+      "side": 1,
+      "message": "Removed as the comment was unnecessary.",
+      "parentUuid": "79739694_95e1a4b2",
       "range": {
         "startLine": 2018,
         "startChar": 9,
@@ -209,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "5947b23e_2c033391",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2174,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-10-22T16:52:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "962499a5_b605282d",
+      "range": {
+        "startLine": 2174,
+        "startChar": 21,
+        "endLine": 2174,
+        "endChar": 54
+      },
+      "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16e8a964_c2b7c2bc",
         "filename": "compiler/optimizing/code_generator_mips.h",
         "patchSetId": 5
@@ -220,6 +412,30 @@
       "writtenOn": "2015-10-21T14:26:52Z",
       "side": 1,
       "message": "Stale comment applying to GenerateSuspsendCheck?",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 22
+      },
+      "revId": "20eb68f8c2d5445e85248d2d76c390f29adff556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "962499a5_b61e4873",
+        "filename": "compiler/optimizing/code_generator_mips.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-10-22T16:52:05Z",
+      "side": 1,
+      "message": "Yes, copy-pasted from MIPS64. Removed here and in MIPS64.",
+      "parentUuid": "16e8a964_c2b7c2bc",
       "range": {
         "startLine": 219,
         "startChar": 0,
