@@ -34,6 +34,24 @@
       "revId": "307dac9ac366ebb454d5e68d5681189b15035854",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6d4f5d4_b1eae05b",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-22T20:07:10Z",
+      "side": 1,
+      "message": "I\u0027m sure that it is correct, that\u0027s why I\u0027m asking why it needs to be explicit? Why doesn\u0027t the implicit destruction order work?",
+      "parentUuid": "79739694_1859496f",
+      "revId": "307dac9ac366ebb454d5e68d5681189b15035854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
