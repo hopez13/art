@@ -34,6 +34,24 @@
       "revId": "751ceba2de5c786bb834cef874fba90dd87b3a75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96c57926_ee9cff36",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1023201
+      },
+      "writtenOn": "2015-10-23T17:40:36Z",
+      "side": 1,
+      "message": "I did not check if the order is right or if there are other usages, but yes I was wondering if we could not just remove   HOST_JACK_CLASSPATH_DEPENDENCIES and just append to ART_TEST_HOST_RUN_TEST_DEPENDENCIES instead.",
+      "parentUuid": "b6defdf4_cfad7d71",
+      "revId": "751ceba2de5c786bb834cef874fba90dd87b3a75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
