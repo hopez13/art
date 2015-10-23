@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d6d53101_40634ed0",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5402,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T18:54:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76c00516_4d75198a",
+      "range": {
+        "startLine": 5402,
+        "startChar": 4,
+        "endLine": 5402,
+        "endChar": 16
+      },
+      "revId": "af7df69c0973bfb0582ac89a1c920b4127846905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76c00516_6d7a557b",
         "filename": "compiler/utils/arm/assembler_arm.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-23T12:35:54Z",
       "side": 1,
       "message": "Still needs a std::move(), named parameter \"labels\" is considered an lvalue here despite the \u0026\u0026.",
+      "range": {
+        "startLine": 83,
+        "startChar": 88,
+        "endLine": 83,
+        "endChar": 94
+      },
+      "revId": "af7df69c0973bfb0582ac89a1c920b4127846905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36e4cdf6_9bd6abd6",
+        "filename": "compiler/utils/arm/assembler_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T18:54:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76c00516_6d7a557b",
       "range": {
         "startLine": 83,
         "startChar": 88,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f6b795e1_99895b2a",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1397,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T18:54:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6db7104_502dacca",
+      "range": {
+        "startLine": 1397,
+        "startChar": 4,
+        "endLine": 1397,
+        "endChar": 58
+      },
+      "revId": "af7df69c0973bfb0582ac89a1c920b4127846905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6b7ddb4_a705ca53",
         "filename": "compiler/utils/arm/assembler_arm32.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2015-10-23T12:35:54Z",
       "side": 1,
       "message": "rn",
+      "range": {
+        "startLine": 1398,
+        "startChar": 10,
+        "endLine": 1398,
+        "endChar": 12
+      },
+      "revId": "af7df69c0973bfb0582ac89a1c920b4127846905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36e4cdf6_fbcdef41",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1398,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T18:54:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6b7ddb4_a705ca53",
       "range": {
         "startLine": 1398,
         "startChar": 10,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d6d53101_606852aa",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T18:54:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56cf8147_6c325b2c",
+      "range": {
+        "startLine": 259,
+        "startChar": 29,
+        "endLine": 259,
+        "endChar": 43
+      },
+      "revId": "af7df69c0973bfb0582ac89a1c920b4127846905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6defdf4_0f4e25ab",
         "filename": "compiler/utils/arm/assembler_thumb2.cc",
         "patchSetId": 3
@@ -134,6 +254,24 @@
     },
     {
       "key": {
+        "uuid": "76dac536_7d31d7ba",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1921,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T18:54:20Z",
+      "side": 1,
+      "message": "Yeah, this should be unreachable.",
+      "parentUuid": "b6defdf4_0f4e25ab",
+      "revId": "af7df69c0973bfb0582ac89a1c920b4127846905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96c57926_0ea06b99",
         "filename": "compiler/utils/arm/assembler_thumb2.cc",
         "patchSetId": 3
@@ -145,6 +283,30 @@
       "writtenOn": "2015-10-23T12:35:54Z",
       "side": 1,
       "message": "This should be kNoRegister. Or we could use the ShifterOperandCanAlwaysHold() added by Nicolas.",
+      "range": {
+        "startLine": 3435,
+        "startChar": 28,
+        "endLine": 3435,
+        "endChar": 30
+      },
+      "revId": "af7df69c0973bfb0582ac89a1c920b4127846905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76dac536_dd1f4b27",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3435,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T18:54:20Z",
+      "side": 1,
+      "message": "I\u0027d rather keep this in line with AddConstant. Changed the (unused) rd to kNoRegister.",
+      "parentUuid": "96c57926_0ea06b99",
       "range": {
         "startLine": 3435,
         "startChar": 28,
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "f6ceb575_0136aaa8",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3439,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T18:54:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6b451b2_e89cf336",
+      "range": {
+        "startLine": 3439,
+        "startChar": 4,
+        "endLine": 3439,
+        "endChar": 66
+      },
+      "revId": "af7df69c0973bfb0582ac89a1c920b4127846905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6b451b2_88a9b753",
         "filename": "compiler/utils/arm/assembler_thumb2.cc",
         "patchSetId": 3
@@ -191,6 +377,30 @@
       "writtenOn": "2015-10-23T12:35:54Z",
       "side": 1,
       "message": "rn",
+      "range": {
+        "startLine": 3440,
+        "startChar": 10,
+        "endLine": 3440,
+        "endChar": 12
+      },
+      "revId": "af7df69c0973bfb0582ac89a1c920b4127846905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6b795e1_39edafbb",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3440,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T18:54:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6b451b2_88a9b753",
       "range": {
         "startLine": 3440,
         "startChar": 10,
@@ -226,6 +436,30 @@
     },
     {
       "key": {
+        "uuid": "f6b795e1_1911cb6a",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3669,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T18:54:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6defdf4_cf57bd3a",
+      "range": {
+        "startLine": 3669,
+        "startChar": 28,
+        "endLine": 3669,
+        "endChar": 69
+      },
+      "revId": "af7df69c0973bfb0582ac89a1c920b4127846905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96c57926_ae903748",
         "filename": "compiler/utils/arm/assembler_thumb2.cc",
         "patchSetId": 3
@@ -237,6 +471,24 @@
       "writtenOn": "2015-10-23T12:35:54Z",
       "side": 1,
       "message": "The 32-bit ADD does not permit PC as input, only as output, so this would have to use\n\n    SUB ip, pc, #0  # special case of ADR\n    ADD pc, ip, reg.",
+      "revId": "af7df69c0973bfb0582ac89a1c920b4127846905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36e4cdf6_9b3eab81",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3688,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T18:54:20Z",
+      "side": 1,
+      "message": "Yes, which is pretty annoying, which is why it\u0027s not implemented until we need it. I added your code sequence as a comment.\n\nDo you want me to implement this?",
+      "parentUuid": "96c57926_ae903748",
       "revId": "af7df69c0973bfb0582ac89a1c920b4127846905",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -260,6 +512,24 @@
     },
     {
       "key": {
+        "uuid": "16b509da_da5bc512",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3696,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T18:54:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96ae5964_0627faec",
+      "revId": "af7df69c0973bfb0582ac89a1c920b4127846905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6b451b2_28c9ab40",
         "filename": "compiler/utils/arm/assembler_thumb2.h",
         "patchSetId": 3
@@ -271,6 +541,30 @@
       "writtenOn": "2015-10-23T12:35:54Z",
       "side": 1,
       "message": "This is creating an extra temporary. You could add the \u0026\u0026 as in std::forward\u003cstd::vector\u003cLabel*\u003e\u0026\u0026\u003e(labels) but I\u0027d prefer simply std::move(labels). (And that will take care of the line length limit.)",
+      "range": {
+        "startLine": 653,
+        "startChar": 20,
+        "endLine": 653,
+        "endChar": 61
+      },
+      "revId": "af7df69c0973bfb0582ac89a1c920b4127846905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36e4cdf6_db359376",
+        "filename": "compiler/utils/arm/assembler_thumb2.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T18:54:20Z",
+      "side": 1,
+      "message": "+iam. I thought this was the correct usage for forwarding.",
+      "parentUuid": "d6b451b2_28c9ab40",
       "range": {
         "startLine": 653,
         "startChar": 20,
