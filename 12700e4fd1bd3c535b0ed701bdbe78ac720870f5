@@ -93,6 +93,29 @@
       "revId": "12700e4fd1bd3c535b0ed701bdbe78ac720870f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6b795e1_5c15f183",
+        "filename": "runtime/verifier/reg_type_test.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T21:27:44Z",
+      "side": 1,
+      "message": "*allocator should be enough, no? Same below.",
+      "range": {
+        "startLine": 49,
+        "startChar": 27,
+        "endLine": 49,
+        "endChar": 37
+      },
+      "revId": "12700e4fd1bd3c535b0ed701bdbe78ac720870f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
