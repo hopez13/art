@@ -166,6 +166,40 @@
     },
     {
       "key": {
+        "uuid": "36e4cdf6_417a767a",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-23T22:08:17Z",
+      "side": 1,
+      "message": "Do you want to clear the live bitmap? If this is not done, the things which end up marked will be held live permanantly in future GCs.",
+      "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36e4cdf6_6196921b",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-23T22:08:17Z",
+      "side": 1,
+      "message": "Is there a race here with multiple JIT compiler threads where a thread could compile a method, set the entry point, but not have the live/mark bit set?",
+      "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36e4cdf6_2111ea6a",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 3
@@ -254,6 +288,46 @@
         "endLine": 372,
         "endChar": 30
       },
+      "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76dac536_83272252",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-23T22:08:17Z",
+      "side": 1,
+      "message": "Sort alphabetically.",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 23
+      },
+      "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96df3923_81a47cf7",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-23T22:08:17Z",
+      "side": 1,
+      "message": "GUARDED_BY(lock_)?",
       "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
