@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "f69a3588_e1cda697",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-23T22:16:42Z",
+      "side": 1,
+      "message": "Ah good to know, will change to AtomicTestAndSet then, thanks!",
+      "parentUuid": "76dac536_038072c0",
+      "range": {
+        "startLine": 297,
+        "startChar": 15,
+        "endLine": 297,
+        "endChar": 18
+      },
+      "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16b509da_fa8ec9bc",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 3
@@ -183,6 +207,24 @@
     },
     {
       "key": {
+        "uuid": "56b5c1f6_7cb4990a",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-23T22:16:42Z",
+      "side": 1,
+      "message": "Yeah that was the intent of the Clear call below on the individual bit. Should I use Bitmap::Clear() for clearing everything?",
+      "parentUuid": "36e4cdf6_417a767a",
+      "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36e4cdf6_6196921b",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 3
@@ -200,6 +242,24 @@
     },
     {
       "key": {
+        "uuid": "1683491e_8ab3ab22",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-23T22:16:42Z",
+      "side": 1,
+      "message": "Good catch. Adding a WaitForPotentialGCToComplete or maybe just marking the bit if we see a GC when setting an entry point should fix it. WDYT?",
+      "parentUuid": "36e4cdf6_6196921b",
+      "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36e4cdf6_2111ea6a",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 3
@@ -211,6 +271,30 @@
       "writtenOn": "2015-10-23T21:55:21Z",
       "side": 1,
       "message": "Iterating over this is probably not safe since the ArtMethod pointers may have been class unloaded, any idea how to deal with this? Maybe I should add a sweeping phase that removes ArtMethods that have an unmarked class loader.",
+      "range": {
+        "startLine": 363,
+        "startChar": 19,
+        "endLine": 363,
+        "endChar": 35
+      },
+      "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7671e51a_85b3a222",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-23T22:16:42Z",
+      "side": 1,
+      "message": "Two options I think:\n1) We don\u0027t do much with the ArtMethod if the bit is not set: we clear the counter of the method and we dcheck the entrypoint. We could decide on not doing anything by removing the dcheck and have a different strategy for counting again in the interpreter.\n2) We could have a hook when the class loader is being deleted to clear the methods in the cache.",
+      "parentUuid": "36e4cdf6_2111ea6a",
       "range": {
         "startLine": 363,
         "startChar": 19,
@@ -282,6 +366,30 @@
       "side": 1,
       "message": "Hiroshi means that you alrady know the live bit is not set since that is what is checked in the condition.",
       "parentUuid": "7671e51a_25a58edc",
+      "range": {
+        "startLine": 372,
+        "startChar": 25,
+        "endLine": 372,
+        "endChar": 30
+      },
+      "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d67c51f3_a8d95b56",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-23T22:16:42Z",
+      "side": 1,
+      "message": "Yup got things mixed up, this should have been in the if branch.",
+      "parentUuid": "96df3923_21af2806",
       "range": {
         "startLine": 372,
         "startChar": 25,
