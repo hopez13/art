@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6db7104_30534852",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-23T11:06:02Z",
+      "side": 1,
+      "message": "-\u003e class BacktraceMap",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 35
+      },
+      "revId": "4205f3dd96b77fc3a0c1832ee30d4ad00891415f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6b7ddb4_8708c66a",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-23T11:06:02Z",
+      "side": 1,
+      "message": "How about moving this to utils.cc?",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 1
+      },
+      "revId": "4205f3dd96b77fc3a0c1832ee30d4ad00891415f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56cf8147_8c08e76a",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-23T11:06:02Z",
+      "side": 1,
+      "message": "What do you win here? That if a thread is doing things on behalf of others, it\u0027s only called once for all these threads?",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 51
+      },
+      "revId": "4205f3dd96b77fc3a0c1832ee30d4ad00891415f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56cf8147_ec0bab65",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1107,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-23T11:06:02Z",
+      "side": 1,
+      "message": "existing?",
+      "range": {
+        "startLine": 1107,
+        "startChar": 64,
+        "endLine": 1107,
+        "endChar": 67
+      },
+      "revId": "4205f3dd96b77fc3a0c1832ee30d4ad00891415f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
