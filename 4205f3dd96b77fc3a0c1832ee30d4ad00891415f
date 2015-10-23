@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "96ae5964_06c4da29",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-23T16:16:55Z",
+      "side": 1,
+      "message": "OH yeah, forgot that the closure creation was only once, and not by all threads running the closure.",
+      "parentUuid": "b6699de6_00526ca2",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 51
+      },
+      "revId": "4205f3dd96b77fc3a0c1832ee30d4ad00891415f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56cf8147_ec0bab65",
         "filename": "runtime/utils.cc",
         "patchSetId": 2
