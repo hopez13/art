@@ -52,6 +52,24 @@
       "revId": "307dac9ac366ebb454d5e68d5681189b15035854",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6defdf4_8fd69524",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-23T09:07:54Z",
+      "side": 1,
+      "message": "The explanation is right below, we don\u0027t want to shut everything down. (It takes time.)",
+      "parentUuid": "f6d4f5d4_b1eae05b",
+      "revId": "307dac9ac366ebb454d5e68d5681189b15035854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
