@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6ceb575_8483a899",
+        "filename": "runtime/base/stl_util.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T21:15:34Z",
+      "side": 1,
+      "message": "Why is this here?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 20
+      },
+      "revId": "12700e4fd1bd3c535b0ed701bdbe78ac720870f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16b509da_ddd01fdb",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T21:15:34Z",
+      "side": 1,
+      "message": "What is this doing here?",
+      "range": {
+        "startLine": 581,
+        "startChar": 0,
+        "endLine": 582,
+        "endChar": 66
+      },
+      "revId": "12700e4fd1bd3c535b0ed701bdbe78ac720870f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
