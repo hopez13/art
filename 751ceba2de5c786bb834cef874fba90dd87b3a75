@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5614e187_4410ae63",
+        "filename": "build/Android.common_path.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1023201
+      },
+      "writtenOn": "2015-10-23T17:11:21Z",
+      "side": 1,
+      "message": "Is there a reason not to fill in directly ART_TEST_HOST_RUN_TEST_DEPENDENCIES (and equivalent target if there is)?",
+      "revId": "751ceba2de5c786bb834cef874fba90dd87b3a75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
