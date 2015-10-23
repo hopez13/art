@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "166d09ed_0eda9b49",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T16:05:08Z",
+      "side": 1,
+      "message": "I think in the cc files we normally include the things, even if we don\u0027t need the full definition just yet. But will change.",
+      "parentUuid": "d6db7104_30534852",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 35
+      },
+      "revId": "4205f3dd96b77fc3a0c1832ee30d4ad00891415f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6b7ddb4_8708c66a",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 2
@@ -59,6 +83,30 @@
       "writtenOn": "2015-10-23T11:06:02Z",
       "side": 1,
       "message": "What do you win here? That if a thread is doing things on behalf of others, it\u0027s only called once for all these threads?",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 51
+      },
+      "revId": "4205f3dd96b77fc3a0c1832ee30d4ad00891415f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6699de6_00526ca2",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T16:05:08Z",
+      "side": 1,
+      "message": "You parse /proc/self/maps only once now.",
+      "parentUuid": "56cf8147_8c08e76a",
       "range": {
         "startLine": 181,
         "startChar": 0,
