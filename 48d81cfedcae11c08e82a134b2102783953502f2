@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6ceb575_21a00ecc",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T17:48:39Z",
+      "side": 1,
+      "message": "Yeah, I think this should be done, as this path isn\u0027t really kosher.",
+      "range": {
+        "startLine": 431,
+        "startChar": 24,
+        "endLine": 431,
+        "endChar": 64
+      },
+      "revId": "48d81cfedcae11c08e82a134b2102783953502f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96df3923_debd85ed",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T17:48:39Z",
+      "side": 1,
+      "message": "Prefer C++11:\n\n using CodeCacheBitmap \u003d ...;",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 77
+      },
+      "revId": "48d81cfedcae11c08e82a134b2102783953502f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6d53101_40f7ceba",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T17:48:39Z",
+      "side": 1,
+      "message": "Is this really a good idea? It sounds like it may complicate booting a phone with this. Should we rather modify the run-test script to configure a small size for the tests?",
+      "range": {
+        "startLine": 51,
+        "startChar": 61,
+        "endLine": 51,
+        "endChar": 68
+      },
+      "revId": "48d81cfedcae11c08e82a134b2102783953502f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
