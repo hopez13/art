@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f66f95e4_9349f4a4",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T16:12:08Z",
+      "side": 1,
+      "message": "Why is this a unique_ptr? This is data owned by the oat file, potentially, and can\u0027t be deleted.",
+      "range": {
+        "startLine": 1279,
+        "startChar": 2,
+        "endLine": 1279,
+        "endChar": 17
+      },
+      "revId": "2454ccb9ca21fb0115e932c9c4370203c38218d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
