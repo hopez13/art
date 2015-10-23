@@ -307,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "96df3923_84f80a30",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-23T23:00:25Z",
+      "side": 1,
+      "message": "If the ArtMethod\u0027s linear alloc has been freed then it could cause corruption to clear the counter. I think clearing ArtMethods as we perform unloading might be OK. I\u0027ll try to implement that soon.",
+      "parentUuid": "7671e51a_85b3a222",
+      "range": {
+        "startLine": 363,
+        "startChar": 19,
+        "endLine": 363,
+        "endChar": 35
+      },
+      "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56e941ce_bce0c180",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 3
@@ -390,6 +414,30 @@
       "side": 1,
       "message": "Yup got things mixed up, this should have been in the if branch.",
       "parentUuid": "96df3923_21af2806",
+      "range": {
+        "startLine": 372,
+        "startChar": 25,
+        "endLine": 372,
+        "endChar": 30
+      },
+      "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6ceb575_2aa0e3cb",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-23T23:00:25Z",
+      "side": 1,
+      "message": "I think its better to clear the whole bitmap at the end of the GC since that will madvise dirty pages in the bitmap.",
+      "parentUuid": "d67c51f3_a8d95b56",
       "range": {
         "startLine": 372,
         "startChar": 25,
