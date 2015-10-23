@@ -140,6 +140,30 @@
       "revId": "616eab5d56474da63ffa0abb0b299d3c306b35a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6b795e1_bc860d17",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-23T21:41:46Z",
+      "side": 1,
+      "message": "Why not specialize the ArenaDelete more. Right now the specialization forbids any array type, but we could use is_trivially_destructible (and explicitly don\u0027t do anything).",
+      "parentUuid": "f935c6bb_d855f9ac",
+      "range": {
+        "startLine": 732,
+        "startChar": 2,
+        "endLine": 732,
+        "endChar": 53
+      },
+      "revId": "616eab5d56474da63ffa0abb0b299d3c306b35a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
