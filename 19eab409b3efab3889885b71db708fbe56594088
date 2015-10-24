@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1698a98e_02f2cacb",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-24T13:35:36Z",
+      "side": 1,
+      "message": "How often do you think this is going to be expanded? If it\u0027s ony once, *2 sounds ok. But if it will need more, it might be too agressive.",
+      "range": {
+        "startLine": 585,
+        "startChar": 0,
+        "endLine": 585,
+        "endChar": 57
+      },
+      "revId": "19eab409b3efab3889885b71db708fbe56594088",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
