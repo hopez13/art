@@ -574,6 +574,30 @@
       "revId": "af7df69c0973bfb0582ac89a1c920b4127846905",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6ae1193_217f349c",
+        "filename": "compiler/utils/arm/assembler_thumb2.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-24T01:12:18Z",
+      "side": 1,
+      "message": "std::forward should only be used with forwarding references (templated references that \"look like\" T\u0026\u0026)\n\nwhen it\u0027s not templated like this, std::move is strongly preferred\n\n   JumpTable(std::move(labels), ...\n\nthe reason we don\u0027t need the \u0026\u0026 for forward inside of templated code is because the T already has it\n\n   foo( 0 + 1 );\n\n   template\u003ctypename T\u003e\n   void foo(T\u0026\u0026 bar) {\n     // T \u003d\u003d int\u0026\u0026 already\n     // but bar is an lvalue to an rvalue reference\n     // int\u0026\u0026 \u0026\u0026 bar \u003d\u003d int\u0026\u0026 bar\n   }\n\nIn fact using std::forward should only be necessary when we know for sure the function being forwarded to can take a multitude of lvalue and rvalue references overloads, otherwise it\u0027s just obscuring the intent.",
+      "parentUuid": "36e4cdf6_db359376",
+      "range": {
+        "startLine": 653,
+        "startChar": 20,
+        "endLine": 653,
+        "endChar": 61
+      },
+      "revId": "af7df69c0973bfb0582ac89a1c920b4127846905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
