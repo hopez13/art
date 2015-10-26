@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "7671e51a_e531b6d0",
+        "filename": "runtime/gc/accounting/bitmap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-26T18:12:39Z",
+      "side": 1,
+      "message": "Yeah agree. But it requires the cleanup Hiroshi mentions, so in another change.",
+      "parentUuid": "7671e51a_6546a63c",
+      "range": {
+        "startLine": 95,
+        "startChar": 15,
+        "endLine": 95,
+        "endChar": 32
+      },
+      "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76dac536_5d717b0b",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 3
