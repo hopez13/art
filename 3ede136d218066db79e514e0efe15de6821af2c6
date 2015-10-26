@@ -46,6 +46,52 @@
       "revId": "3ede136d218066db79e514e0efe15de6821af2c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36e4cdf6_271c957a",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1593,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-26T22:10:14Z",
+      "side": 1,
+      "message": "Either (D)CHECK_NE(offset, 0u), or put a comment why it behaves correctly for that case.",
+      "range": {
+        "startLine": 1593,
+        "startChar": 2,
+        "endLine": 1593,
+        "endChar": 45
+      },
+      "revId": "3ede136d218066db79e514e0efe15de6821af2c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6d53101_1a59ad1a",
+        "filename": "runtime/dex_file_verifier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-26T22:10:14Z",
+      "side": 1,
+      "message": "Comments, please.",
+      "range": {
+        "startLine": 178,
+        "startChar": 2,
+        "endLine": 201,
+        "endChar": 76
+      },
+      "revId": "3ede136d218066db79e514e0efe15de6821af2c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
