@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16b509da_2f11d96a",
+        "filename": "runtime/base/dchecked_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-26T20:07:53Z",
+      "side": 1,
+      "message": "I\u0027d almost rather this would\u0027ve been a #if \u003c c++14 conditional, at least that way it\u0027s more visible once the entire codebase goes to C++14.\n\nvmarko might have more to say about it.",
+      "revId": "05ff5a4ad666d9eb583ff343c1cbba886d7621b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
