@@ -1,0 +1,250 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6d8bd3b_19d45b1b",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-26T20:30:39Z",
+      "side": 1,
+      "message": "If you copy the default method while setting up the vtable, is the declaring class still pointing to the interface the method came from originally?",
+      "revId": "475618b68f397740f5a56453e9e1b83e2b5c4c86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76d48537_96c73276",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-26T20:30:39Z",
+      "side": 1,
+      "message": "sp: sentinel",
+      "range": {
+        "startLine": 144,
+        "startChar": 44,
+        "endLine": 144,
+        "endChar": 52
+      },
+      "revId": "475618b68f397740f5a56453e9e1b83e2b5c4c86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36e4cdf6_e4862b18",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-26T20:30:39Z",
+      "side": 1,
+      "message": "nit: this should be an adjective like the rest\n\n   IsDefaultConflicting",
+      "range": {
+        "startLine": 147,
+        "startChar": 7,
+        "endLine": 147,
+        "endChar": 24
+      },
+      "revId": "475618b68f397740f5a56453e9e1b83e2b5c4c86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36e4cdf6_a410a364",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 4745,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-26T20:30:39Z",
+      "side": 1,
+      "message": "nit: comments for what this does?",
+      "revId": "475618b68f397740f5a56453e9e1b83e2b5c4c86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76d48537_36f07ebc",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 4762,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-26T20:30:39Z",
+      "side": 1,
+      "message": "Why not starting at ifstart?",
+      "range": {
+        "startLine": 4762,
+        "startChar": 18,
+        "endLine": 4762,
+        "endChar": 29
+      },
+      "revId": "475618b68f397740f5a56453e9e1b83e2b5c4c86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6b795e1_6d7e7d36",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 4850,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-26T20:30:39Z",
+      "side": 1,
+      "message": "nit: one arg per line",
+      "range": {
+        "startLine": 4849,
+        "startChar": 45,
+        "endLine": 4850,
+        "endChar": 64
+      },
+      "revId": "475618b68f397740f5a56453e9e1b83e2b5c4c86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6b795e1_8d83d199",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 5100,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-26T20:30:39Z",
+      "side": 1,
+      "message": "nit: FindSameNameAndSignatureMethod ?",
+      "range": {
+        "startLine": 5100,
+        "startChar": 18,
+        "endLine": 5100,
+        "endChar": 36
+      },
+      "revId": "475618b68f397740f5a56453e9e1b83e2b5c4c86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6d8bd3b_19061b5f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 5221,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-26T20:30:39Z",
+      "side": 1,
+      "message": "If this is taking advantage of the topological order, it should probably have a DCHECK.",
+      "revId": "475618b68f397740f5a56453e9e1b83e2b5c4c86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56e941ce_cb3b0190",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 5238,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-26T20:30:39Z",
+      "side": 1,
+      "message": "Do we need a DCHECK or UNIMPLEMENTED(FATAL) somewhere to check when it\u0027s incorrect?",
+      "range": {
+        "startLine": 5238,
+        "startChar": 70,
+        "endLine": 5238,
+        "endChar": 90
+      },
+      "revId": "475618b68f397740f5a56453e9e1b83e2b5c4c86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76d48537_760f2675",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 5562,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-26T20:30:39Z",
+      "side": 1,
+      "message": "Comments?",
+      "revId": "475618b68f397740f5a56453e9e1b83e2b5c4c86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6d53101_af15e50c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 5566,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-26T20:30:39Z",
+      "side": 1,
+      "message": "nit: ArtMethod",
+      "range": {
+        "startLine": 5566,
+        "startChar": 15,
+        "endLine": 5566,
+        "endChar": 19
+      },
+      "revId": "475618b68f397740f5a56453e9e1b83e2b5c4c86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96df3923_58d505a5",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-26T20:30:39Z",
+      "side": 1,
+      "message": "nit: please have comments for public member functions",
+      "revId": "475618b68f397740f5a56453e9e1b83e2b5c4c86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
