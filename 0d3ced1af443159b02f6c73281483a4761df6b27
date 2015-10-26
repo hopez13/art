@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1698a98e_628636e2",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-26T18:12:39Z",
+      "side": 1,
+      "message": "It is too drastic. We\u0027ll need to tune this later.",
+      "parentUuid": "b6b19df3_f7c0a0b3",
+      "range": {
+        "startLine": 393,
+        "startChar": 2,
+        "endLine": 401,
+        "endChar": 3
+      },
+      "revId": "0d3ced1af443159b02f6c73281483a4761df6b27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7671e51a_4568caa9",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-26T17:15:36Z",
       "side": 1,
       "message": "If you are at this, can you append the unit a the end (KB, MB, Bytes ...)? Or at least mention it in the docs.",
+      "range": {
+        "startLine": 57,
+        "startChar": 9,
+        "endLine": 57,
+        "endChar": 22
+      },
+      "revId": "0d3ced1af443159b02f6c73281483a4761df6b27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56b5c1f6_3cb851ab",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-26T18:12:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7671e51a_4568caa9",
       "range": {
         "startLine": 57,
         "startChar": 9,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "36920d67_4bdd45f3",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-26T18:12:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f69a3588_41c452c6",
+      "range": {
+        "startLine": 60,
+        "startChar": 9,
+        "endLine": 60,
+        "endChar": 22
+      },
+      "revId": "0d3ced1af443159b02f6c73281483a4761df6b27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56b5c1f6_1c1c7579",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2015-10-26T17:15:36Z",
       "side": 1,
       "message": "Just for clarity, I\u0027ll add a note mentioning that this is not the total number of compiled methods during lifetime (due to gc)",
+      "range": {
+        "startLine": 62,
+        "startChar": 2,
+        "endLine": 62,
+        "endChar": 47
+      },
+      "revId": "0d3ced1af443159b02f6c73281483a4761df6b27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6b19df3_57222c44",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-26T18:12:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56b5c1f6_1c1c7579",
       "range": {
         "startLine": 62,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "1683491e_0a75fb8a",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-26T18:12:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36b04d09_7bfc9f69",
+      "range": {
+        "startLine": 118,
+        "startChar": 11,
+        "endLine": 118,
+        "endChar": 29
+      },
+      "revId": "0d3ced1af443159b02f6c73281483a4761df6b27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16c1896c_7aa01969",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 5
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "d67c51f3_a8da3b7f",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-26T18:12:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16c1896c_7aa01969",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 2
+      },
+      "revId": "0d3ced1af443159b02f6c73281483a4761df6b27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6b19df3_f767c09c",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 5
@@ -151,6 +295,30 @@
       "writtenOn": "2015-10-26T17:15:36Z",
       "side": 1,
       "message": "Unrelated to this change, but could you be more precise what this guards in the comments? (especially since now it\u0027s getting used in anatoanalisys)",
+      "range": {
+        "startLine": 139,
+        "startChar": 2,
+        "endLine": 139,
+        "endChar": 23
+      },
+      "revId": "0d3ced1af443159b02f6c73281483a4761df6b27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1698a98e_22802ec1",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-26T18:12:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6b19df3_f767c09c",
       "range": {
         "startLine": 139,
         "startChar": 2,
