@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7671e51a_6546a63c",
+        "filename": "runtime/gc/accounting/bitmap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-26T17:15:36Z",
+      "side": 1,
+      "message": "it\u0027s unfortunate to need keeping this here...",
+      "parentUuid": "16c1896c_fa9f898c",
+      "range": {
+        "startLine": 95,
+        "startChar": 15,
+        "endLine": 95,
+        "endChar": 32
+      },
+      "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76dac536_5d717b0b",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 3
