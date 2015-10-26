@@ -16,6 +16,24 @@
       "revId": "7b05e17db15879b486f3299a9a41ac17b87700f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36e4cdf6_3596804c",
+        "filename": "runtime/base/scoped_arena_allocator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-26T15:30:58Z",
+      "side": 1,
+      "message": "Arena alloc api doesn\u0027t have a parameter for alignment.",
+      "parentUuid": "b6d8bd3b_288c6f0b",
+      "revId": "7b05e17db15879b486f3299a9a41ac17b87700f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
