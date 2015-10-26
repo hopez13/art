@@ -46,6 +46,30 @@
       "revId": "41d09c823ee22989bf5e7720b7562e8de6e0d7a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6ae1193_a7b8b416",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-26T19:04:59Z",
+      "side": 1,
+      "message": "Do (will) we have -verbose:jit passed to the zygote startup? If not, this won\u0027t be logged. I had meant to ask whether you\u0027d like to have this log enabled even without -verbose:jit.",
+      "parentUuid": "f69a3588_61299622",
+      "range": {
+        "startLine": 369,
+        "startChar": 24,
+        "endLine": 369,
+        "endChar": 34
+      },
+      "revId": "41d09c823ee22989bf5e7720b7562e8de6e0d7a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
