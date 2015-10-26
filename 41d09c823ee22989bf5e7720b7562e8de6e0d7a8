@@ -22,6 +22,30 @@
       "revId": "41d09c823ee22989bf5e7720b7562e8de6e0d7a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f69a3588_61299622",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-26T18:56:14Z",
+      "side": 1,
+      "message": "I made the assumption !kIsDebugBuild \u003d\u003d production. What do you mean by production?",
+      "parentUuid": "96df3923_f8617113",
+      "range": {
+        "startLine": 369,
+        "startChar": 24,
+        "endLine": 369,
+        "endChar": 34
+      },
+      "revId": "41d09c823ee22989bf5e7720b7562e8de6e0d7a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
