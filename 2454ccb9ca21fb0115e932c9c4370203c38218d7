@@ -22,6 +22,30 @@
       "revId": "2454ccb9ca21fb0115e932c9c4370203c38218d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6b795e1_6215ac84",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2015-10-26T11:16:22Z",
+      "side": 1,
+      "message": "No, the instance of TypeLookupTable is not owned by oat file. The member TypeLookupTable::entries_ is owned by oat file at runtime but does not owned at compile time.",
+      "parentUuid": "f66f95e4_9349f4a4",
+      "range": {
+        "startLine": 1279,
+        "startChar": 2,
+        "endLine": 1279,
+        "endChar": 17
+      },
+      "revId": "2454ccb9ca21fb0115e932c9c4370203c38218d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
