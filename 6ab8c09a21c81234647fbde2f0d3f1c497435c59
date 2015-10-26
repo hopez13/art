@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d6ae1193_2774a456",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-26T18:09:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6ae1193_87df30c3",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 8
+      },
+      "revId": "6ab8c09a21c81234647fbde2f0d3f1c497435c59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56e941ce_f006e8ee",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 1
