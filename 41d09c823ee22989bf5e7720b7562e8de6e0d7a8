@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96df3923_f8617113",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-26T18:53:54Z",
+      "side": 1,
+      "message": "This is still printed when verbose log is enabled, which I\u0027m not sure is enabled in production. Is this as intended?",
+      "range": {
+        "startLine": 369,
+        "startChar": 24,
+        "endLine": 369,
+        "endChar": 34
+      },
+      "revId": "41d09c823ee22989bf5e7720b7562e8de6e0d7a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
