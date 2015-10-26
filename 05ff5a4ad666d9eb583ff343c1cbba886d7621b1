@@ -16,6 +16,24 @@
       "revId": "05ff5a4ad666d9eb583ff343c1cbba886d7621b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6ae1193_f26a6865",
+        "filename": "runtime/base/dchecked_vector.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-26T21:10:31Z",
+      "side": 1,
+      "message": "I suggested that to Dan, but I think the comment is enough.\n\nIn the end this is short-term, and should be reverted once we move (back) to Clang...\n\nDan, did you make the current compiler bug a blocking issue on this bug?",
+      "parentUuid": "16b509da_2f11d96a",
+      "revId": "05ff5a4ad666d9eb583ff343c1cbba886d7621b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
