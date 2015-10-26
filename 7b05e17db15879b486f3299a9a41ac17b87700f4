@@ -34,6 +34,24 @@
       "revId": "7b05e17db15879b486f3299a9a41ac17b87700f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6ae1193_e7b70cbc",
+        "filename": "runtime/base/scoped_arena_allocator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-26T17:22:06Z",
+      "side": 1,
+      "message": "Ok, so why isnt\u0027 this using max_align_t ?",
+      "parentUuid": "36e4cdf6_3596804c",
+      "revId": "7b05e17db15879b486f3299a9a41ac17b87700f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
