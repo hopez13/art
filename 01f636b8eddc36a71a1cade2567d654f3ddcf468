@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6b19df3_b73b8890",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1464,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-10-26T13:58:15Z",
+      "side": 1,
+      "message": "Load aquire seems a better solution to me. Alternatively DMB ISHLD after the ldr would also work.",
+      "range": {
+        "startLine": 1452,
+        "startChar": 0,
+        "endLine": 1464,
+        "endChar": 21
+      },
+      "revId": "01f636b8eddc36a71a1cade2567d654f3ddcf468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36920d67_6b7e819d",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1470,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-10-26T13:58:15Z",
+      "side": 1,
+      "message": "#if THREAD_LOCAL_ALLOC_STACK_END_OFFSET !\u003d (THREAD_LOCAL_ALLOC_STACK_TOP_OFFSET + __SIZEOF_POINTER__)\n#error \"The assumption below that we can use ldrd from the STACK_TOP is invalid.\"\n#endif\n\nldrd, x3, x4, [xSELF, #THREAD_LOCAL_ALLOC_STACK_TOP_OFFSET]",
+      "revId": "01f636b8eddc36a71a1cade2567d654f3ddcf468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36b04d09_5b3e83f2",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1531,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-10-26T13:58:15Z",
+      "side": 1,
+      "message": "And with the above dmb this can be an dmb ishst",
+      "revId": "01f636b8eddc36a71a1cade2567d654f3ddcf468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
