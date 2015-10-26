@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "36b04d09_1bed9be4",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-26T14:27:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f69a3588_e1cda697",
+      "range": {
+        "startLine": 297,
+        "startChar": 15,
+        "endLine": 297,
+        "endChar": 18
+      },
+      "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16b509da_fa8ec9bc",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 3
@@ -167,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "36b04d09_fb1aefb5",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-26T14:27:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16b509da_fa8ec9bc",
+      "range": {
+        "startLine": 312,
+        "startChar": 7,
+        "endLine": 312,
+        "endChar": 10
+      },
+      "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6b795e1_b94e1f56",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 3
@@ -178,6 +226,30 @@
       "writtenOn": "2015-10-23T19:25:01Z",
       "side": 1,
       "message": "Would we want to LOG instead VLOG if a non-debug build? This should happen rarely in production but if it happens, it may be worth warning as performance could degrade noticeably and someone may want to know about?",
+      "range": {
+        "startLine": 326,
+        "startChar": 2,
+        "endLine": 326,
+        "endChar": 6
+      },
+      "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36b04d09_db1f33a4",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-26T14:27:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6b795e1_b94e1f56",
       "range": {
         "startLine": 326,
         "startChar": 2,
@@ -225,6 +297,24 @@
     },
     {
       "key": {
+        "uuid": "36b04d09_bb146789",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-26T14:27:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56b5c1f6_7cb4990a",
+      "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36e4cdf6_6196921b",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 3
@@ -254,6 +344,24 @@
       "side": 1,
       "message": "Good catch. Adding a WaitForPotentialGCToComplete or maybe just marking the bit if we see a GC when setting an entry point should fix it. WDYT?",
       "parentUuid": "36e4cdf6_6196921b",
+      "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1698a98e_e2312627",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-26T14:27:19Z",
+      "side": 1,
+      "message": "Actually, I don\u0027t think we have a problem. We only set the entry point when we have the lock. And we only have the lock if there is no collection in progress. I added a DCHECK in CommitCode.",
+      "parentUuid": "1683491e_8ab3ab22",
       "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -319,6 +427,30 @@
       "side": 1,
       "message": "If the ArtMethod\u0027s linear alloc has been freed then it could cause corruption to clear the counter. I think clearing ArtMethods as we perform unloading might be OK. I\u0027ll try to implement that soon.",
       "parentUuid": "7671e51a_85b3a222",
+      "range": {
+        "startLine": 363,
+        "startChar": 19,
+        "endLine": 363,
+        "endChar": 35
+      },
+      "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16c1896c_da1f25a4",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-26T14:27:19Z",
+      "side": 1,
+      "message": "Turns out it\u0027s more the changing of all entry points to interpreter that will be problematic. I\u0027ve added the hook form the class loader destructor.",
+      "parentUuid": "96df3923_84f80a30",
       "range": {
         "startLine": 363,
         "startChar": 19,
@@ -501,6 +633,30 @@
       "writtenOn": "2015-10-23T19:25:01Z",
       "side": 1,
       "message": "Do you mind changing this to \"Read()\" (enabling the read barrier)? Or I\u0027ll make this change separately.",
+      "range": {
+        "startLine": 89,
+        "startChar": 53,
+        "endLine": 89,
+        "endChar": 74
+      },
+      "revId": "30a27db1a95500f039bccfacfe908783d133e3bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36b04d09_9b19abc1",
+        "filename": "runtime/jit/profiling_info.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-26T14:27:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6d53101_20d00ab6",
       "range": {
         "startLine": 89,
         "startChar": 53,
