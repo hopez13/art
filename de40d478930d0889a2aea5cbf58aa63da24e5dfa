@@ -22,6 +22,30 @@
       "revId": "de40d478930d0889a2aea5cbf58aa63da24e5dfa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36e4cdf6_554cec5a",
+        "filename": "runtime/verifier/method_verifier-inl.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-26T16:51:03Z",
+      "side": 1,
+      "message": "http://en.cppreference.com/w/cpp/memory/unique_ptr/operator_at",
+      "parentUuid": "d6ae1193_47a518db",
+      "range": {
+        "startLine": 42,
+        "startChar": 9,
+        "endLine": 42,
+        "endChar": 27
+      },
+      "revId": "de40d478930d0889a2aea5cbf58aa63da24e5dfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
