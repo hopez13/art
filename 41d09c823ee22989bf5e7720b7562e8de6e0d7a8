@@ -70,6 +70,30 @@
       "revId": "41d09c823ee22989bf5e7720b7562e8de6e0d7a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6b19df3_57f4ecf4",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-26T19:08:11Z",
+      "side": 1,
+      "message": "So the !kIsDebugBuild will make sure we get the log in production. I thought you wanted to disable the logging for the debug build where we put the code cache under a lot of stress?",
+      "parentUuid": "d6ae1193_a7b8b416",
+      "range": {
+        "startLine": 369,
+        "startChar": 24,
+        "endLine": 369,
+        "endChar": 34
+      },
+      "revId": "41d09c823ee22989bf5e7720b7562e8de6e0d7a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
