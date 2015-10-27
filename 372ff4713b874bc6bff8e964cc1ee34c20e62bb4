@@ -45,6 +45,29 @@
       "revId": "372ff4713b874bc6bff8e964cc1ee34c20e62bb4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36920d67_2bd559a6",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-27T11:17:56Z",
+      "side": 1,
+      "message": "This comment seems misplaced (and oddly already there).",
+      "range": {
+        "startLine": 187,
+        "startChar": 52,
+        "endLine": 187,
+        "endChar": 79
+      },
+      "revId": "372ff4713b874bc6bff8e964cc1ee34c20e62bb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
