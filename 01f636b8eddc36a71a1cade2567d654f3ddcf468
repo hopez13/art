@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "96df3923_dbccacc1",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1464,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-10-27T17:26:43Z",
+      "side": 1,
+      "message": "Serban, there are three things we are comparing here. 1) ldr + the \u0027fake dependence\u0027 eor/add + no dmb (as is in this CL currently), 2) ldra, 3) ldr+dmb ishld. Are you saying that 2) is better than 3) or that 2) and 3) are better than 1) or something else?\n\nThe measurement was on a Nexus 5, which uses the arm32 version of this code, where 1) was faster than 3) for me.",
+      "parentUuid": "f69a3588_e1924696",
+      "range": {
+        "startLine": 1452,
+        "startChar": 0,
+        "endLine": 1464,
+        "endChar": 21
+      },
+      "revId": "01f636b8eddc36a71a1cade2567d654f3ddcf468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36920d67_6b7e819d",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
