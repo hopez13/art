@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36f76de3_c3a976d0",
+        "filename": "runtime/lookup_table.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-27T22:28:54Z",
+      "side": 1,
+      "message": "Why is the file named lookup_table, when this is a type lookup table?",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 21
+      },
+      "revId": "27022d9bc21a024799cb496ba190514434b99427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
