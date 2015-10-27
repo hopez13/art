@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d6d53101_47c6fdd6",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-27T16:25:11Z",
+      "side": 1,
+      "message": "There is not really any order here, but I agree it could be moved. It makes most sense then to move it after 35c, since it is a variant of this format that Igor came up with.",
+      "parentUuid": "16c1896c_bad911e2",
+      "range": {
+        "startLine": 821,
+        "startChar": 4,
+        "endLine": 821,
+        "endChar": 27
+      },
+      "revId": "372ff4713b874bc6bff8e964cc1ee34c20e62bb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16c1896c_9ade4dc6",
         "filename": "dexdump/dexdump.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b6d8bd3b_6b202ce4",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-27T16:25:11Z",
+      "side": 1,
+      "message": "This is not my format at all, I fully agree with any improvements. But I kept the file close to the original and now follow that style (I would suggest to leave a formatting cleanup to later, and then for the full file)",
+      "parentUuid": "16c1896c_9ade4dc6",
+      "range": {
+        "startLine": 827,
+        "startChar": 0,
+        "endLine": 831,
+        "endChar": 11
+      },
+      "revId": "372ff4713b874bc6bff8e964cc1ee34c20e62bb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36920d67_2bd559a6",
         "filename": "runtime/dex_instruction.h",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2015-10-27T11:17:56Z",
       "side": 1,
       "message": "This comment seems misplaced (and oddly already there).",
+      "range": {
+        "startLine": 187,
+        "startChar": 52,
+        "endLine": 187,
+        "endChar": 79
+      },
+      "revId": "372ff4713b874bc6bff8e964cc1ee34c20e62bb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76d48537_e2310c27",
+        "filename": "runtime/dex_instruction.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-27T16:25:11Z",
+      "side": 1,
+      "message": "The comment was there already to explain the 6 I suppose :-)\nI leave it to Igor to come up with the final format (since this is subject to change still)",
+      "parentUuid": "36920d67_2bd559a6",
       "range": {
         "startLine": 187,
         "startChar": 52,
