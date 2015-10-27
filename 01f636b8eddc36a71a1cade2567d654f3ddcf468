@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f69a3588_e1924696",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1464,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-10-27T11:20:46Z",
+      "side": 1,
+      "message": "Load acquire and store release have a finer granularity when compared to their ldr/str + dmbs equivalents, regarding memory ordering.\n\nFuture CPU implementations might decide to exploit this and to optimise even further the acquire-release path.\n\nTherefore the acuqire-release path seems better to me.\n\nFor curiosity what have you measure this on?",
+      "parentUuid": "f6ceb575_2ad45e1b",
+      "range": {
+        "startLine": 1452,
+        "startChar": 0,
+        "endLine": 1464,
+        "endChar": 21
+      },
+      "revId": "01f636b8eddc36a71a1cade2567d654f3ddcf468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36920d67_6b7e819d",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -114,6 +138,24 @@
       "side": 1,
       "message": "ldp does not seems to work as the offset is out of the supported range.\n\nart/runtime/arch/arm64/quick_entrypoints_arm64.S:1474:23: error: index must be a multiple of 8 in range [-512, 504].\n    ldp x3, x4, [x19, #(((128 + 150 * 8) + 3 * 8) + 34 * 8)]",
       "parentUuid": "16b509da_f4d9787c",
+      "revId": "01f636b8eddc36a71a1cade2567d654f3ddcf468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56b5c1f6_5c4f9d53",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1470,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-10-27T11:20:46Z",
+      "side": 1,
+      "message": "I did mean ldp. Sorry for the confusion.",
+      "parentUuid": "b6d8bd3b_99f94bed",
       "revId": "01f636b8eddc36a71a1cade2567d654f3ddcf468",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
