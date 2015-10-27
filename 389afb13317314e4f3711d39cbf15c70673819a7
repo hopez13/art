@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6ceb575_fe3b188f",
+        "filename": "compiler/optimizing/induction_var_analysis.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-27T20:28:49Z",
+      "side": 1,
+      "message": "Nit: One per line?",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 22
+      },
+      "revId": "389afb13317314e4f3711d39cbf15c70673819a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6d8bd3b_6be82c93",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-27T20:28:49Z",
+      "side": 1,
+      "message": "Any particular reason why you made this void? Why not leave it as bool?",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 59
+      },
+      "revId": "389afb13317314e4f3711d39cbf15c70673819a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76d48537_a26c24bd",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-27T20:28:49Z",
+      "side": 1,
+      "message": "Nit: I would do \n\n  if (!GenerateCode(...)) {\n    LOG(FATAL) \u003c\u003c \"Some description\";\n  }\n\nCHECKs IMO are better used as assertions of state not an assertion that something finishes successfully...",
+      "range": {
+        "startLine": 118,
+        "startChar": 2,
+        "endLine": 118,
+        "endChar": 81
+      },
+      "revId": "389afb13317314e4f3711d39cbf15c70673819a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36e4cdf6_d8cf4cb3",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-10-27T20:28:49Z",
+      "side": 1,
+      "message": "See check comment above.",
+      "range": {
+        "startLine": 130,
+        "startChar": 2,
+        "endLine": 130,
+        "endChar": 83
+      },
+      "revId": "389afb13317314e4f3711d39cbf15c70673819a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
