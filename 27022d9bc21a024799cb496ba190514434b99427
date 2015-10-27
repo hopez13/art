@@ -71,6 +71,52 @@
     },
     {
       "key": {
+        "uuid": "b640bdd4_a2d9c0e1",
+        "filename": "runtime/lookup_table.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-27T22:53:16Z",
+      "side": 1,
+      "message": "Language.",
+      "range": {
+        "startLine": 74,
+        "startChar": 10,
+        "endLine": 75,
+        "endChar": 85
+      },
+      "revId": "27022d9bc21a024799cb496ba190514434b99427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56fce1c4_e776bc06",
+        "filename": "runtime/lookup_table.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-27T22:53:16Z",
+      "side": 1,
+      "message": "Duplicate private?",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 9
+      },
+      "revId": "27022d9bc21a024799cb496ba190514434b99427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76fd65bf_68fcdb69",
         "filename": "runtime/lookup_table.h",
         "patchSetId": 4
@@ -87,6 +133,29 @@
         "startChar": 2,
         "endLine": 133,
         "endChar": 27
+      },
+      "revId": "27022d9bc21a024799cb496ba190514434b99427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "565141a7_3fb5c3b3",
+        "filename": "runtime/lookup_table_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-27T22:53:16Z",
+      "side": 1,
+      "message": "DexFile:kNoDexFileIndex, same below.",
+      "range": {
+        "startLine": 48,
+        "startChar": 12,
+        "endLine": 48,
+        "endChar": 23
       },
       "revId": "27022d9bc21a024799cb496ba190514434b99427",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
