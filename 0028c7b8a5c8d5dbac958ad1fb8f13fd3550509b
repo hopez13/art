@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "d6d53101_f55b3a12",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-27T00:32:15Z",
+      "side": 1,
+      "message": "Same as in inliner...",
+      "parentUuid": "7671e51a_45f36a55",
+      "range": {
+        "startLine": 55,
+        "startChar": 51,
+        "endLine": 55,
+        "endChar": 53
+      },
+      "revId": "0028c7b8a5c8d5dbac958ad1fb8f13fd3550509b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56b5c1f6_dc904d20",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 2
@@ -59,6 +83,30 @@
       "writtenOn": "2015-10-26T23:43:06Z",
       "side": 1,
       "message": "Likewise, its this related to this CL?",
+      "range": {
+        "startLine": 43,
+        "startChar": 56,
+        "endLine": 43,
+        "endChar": 58
+      },
+      "revId": "0028c7b8a5c8d5dbac958ad1fb8f13fd3550509b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76d48537_1c036128",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-27T00:32:15Z",
+      "side": 1,
+      "message": "Yes. String.equals (the non-loop part) wasn\u0027t being inlined for being too large...",
+      "parentUuid": "56b5c1f6_dc904d20",
       "range": {
         "startLine": 43,
         "startChar": 56,
