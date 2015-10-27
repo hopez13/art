@@ -52,6 +52,47 @@
       "revId": "7b05e17db15879b486f3299a9a41ac17b87700f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36b04d09_3baa9747",
+        "filename": "runtime/base/scoped_arena_allocator.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-27T11:46:30Z",
+      "side": 1,
+      "message": "Historical reasons and the fact that I wasn\u0027t aware of max_align_t.",
+      "parentUuid": "d6ae1193_e7b70cbc",
+      "revId": "7b05e17db15879b486f3299a9a41ac17b87700f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56b5c1f6_1c80f5c0",
+        "filename": "runtime/base/scoped_arena_containers.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-27T11:46:30Z",
+      "side": 1,
+      "message": "You kept my comment and yet you added a definition. How many times do I need to repeat that _this doesn\u0027t make any sense_!?!",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 2
+      },
+      "revId": "7b05e17db15879b486f3299a9a41ac17b87700f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
