@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36e4cdf6_7a9f10a5",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-27T00:40:05Z",
+      "side": 1,
+      "message": "kMaxVarArgRegs25x",
+      "range": {
+        "startLine": 823,
+        "startChar": 15,
+        "endLine": 823,
+        "endChar": 16
+      },
+      "revId": "4f4fa2bbaad168ab562ab3abd754a8fad19b72e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6b795e1_f3bd10ed",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-27T00:40:05Z",
+      "side": 1,
+      "message": "kLambdaVirtualRegisterWidth\n\n(this can probably be renamed to kVarArgVRegCWidth25x or something along those lines, and moved to dex_instruction.h)\n\nIn the upcoming revision it won\u0027t be 25x anymore, and in fact I\u0027m not sure if we\u0027ll even want to keep this constant since it was a quick fix to make the Invoke work which expects all the register pairs to be explicit.",
+      "range": {
+        "startLine": 828,
+        "startChar": 41,
+        "endLine": 828,
+        "endChar": 42
+      },
+      "revId": "4f4fa2bbaad168ab562ab3abd754a8fad19b72e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16b509da_244c9b04",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-27T00:40:05Z",
+      "side": 1,
+      "message": "kLambdaVirtualRegisterWidth",
+      "range": {
+        "startLine": 830,
+        "startChar": 43,
+        "endLine": 830,
+        "endChar": 44
+      },
+      "revId": "4f4fa2bbaad168ab562ab3abd754a8fad19b72e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
