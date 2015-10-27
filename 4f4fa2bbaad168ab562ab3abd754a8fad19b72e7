@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "16b509da_44134fe3",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-27T01:02:35Z",
+      "side": 1,
+      "message": "Ah, I followed the old-style from L778 for consistency, but I might as well clean both up :-)",
+      "parentUuid": "36e4cdf6_7a9f10a5",
+      "range": {
+        "startLine": 823,
+        "startChar": 15,
+        "endLine": 823,
+        "endChar": 16
+      },
+      "revId": "4f4fa2bbaad168ab562ab3abd754a8fad19b72e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6b795e1_f3bd10ed",
         "filename": "dexdump/dexdump.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "56e941ce_1138b601",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-27T01:02:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6b795e1_f3bd10ed",
+      "range": {
+        "startLine": 828,
+        "startChar": 41,
+        "endLine": 828,
+        "endChar": 42
+      },
+      "revId": "4f4fa2bbaad168ab562ab3abd754a8fad19b72e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16b509da_244c9b04",
         "filename": "dexdump/dexdump.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-10-27T00:40:05Z",
       "side": 1,
       "message": "kLambdaVirtualRegisterWidth",
+      "range": {
+        "startLine": 830,
+        "startChar": 43,
+        "endLine": 830,
+        "endChar": 44
+      },
+      "revId": "4f4fa2bbaad168ab562ab3abd754a8fad19b72e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6b795e1_93c85486",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-27T01:02:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16b509da_244c9b04",
       "range": {
         "startLine": 830,
         "startChar": 43,
