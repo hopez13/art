@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16c1896c_bad911e2",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-27T09:41:35Z",
+      "side": 1,
+      "message": "Any particular reason for placing this case here, instead of placing it e.g. after the `k22c` case (i.e. between lines 750 and 751)?",
+      "range": {
+        "startLine": 821,
+        "startChar": 4,
+        "endLine": 821,
+        "endChar": 27
+      },
+      "revId": "372ff4713b874bc6bff8e964cc1ee34c20e62bb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16c1896c_9ade4dc6",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-27T09:41:35Z",
+      "side": 1,
+      "message": "What about something like:\n\n  fprintf(gOutFile, (i \u003d\u003d 0 ? \"v%d\" : \", v%d\"), arg[Instruction::kLambdaVirtualRegisterWidth + i]);\n\n?  Or even:\n\n  fprintf(gOutFile, \"%sv%d\", (i \u003d\u003d 0 ? \"\" : \", \"), arg[Instruction::kLambdaVirtualRegisterWidth + i]);\n\n?",
+      "range": {
+        "startLine": 827,
+        "startChar": 0,
+        "endLine": 831,
+        "endChar": 11
+      },
+      "revId": "372ff4713b874bc6bff8e964cc1ee34c20e62bb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
