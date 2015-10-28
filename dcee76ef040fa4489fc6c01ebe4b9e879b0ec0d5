@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "769c85d8_76b3663a",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-28T23:28:04Z",
+      "side": 1,
+      "message": "This is exactly the same logic as on line 669 after applying De Morgan\u0027s law, can you please refactor it to use a single variable?",
+      "range": {
+        "startLine": 680,
+        "startChar": 17,
+        "endLine": 680,
+        "endChar": 48
+      },
+      "revId": "dcee76ef040fa4489fc6c01ebe4b9e879b0ec0d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6d35d95_90cd3a99",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3669,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-28T23:28:04Z",
+      "side": 1,
+      "message": "nit: const",
+      "range": {
+        "startLine": 3669,
+        "startChar": 2,
+        "endLine": 3669,
+        "endChar": 6
+      },
+      "revId": "dcee76ef040fa4489fc6c01ebe4b9e879b0ec0d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "769c85d8_56b0ea2b",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3670,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-10-28T23:28:04Z",
+      "side": 1,
+      "message": "Why?",
+      "revId": "dcee76ef040fa4489fc6c01ebe4b9e879b0ec0d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
