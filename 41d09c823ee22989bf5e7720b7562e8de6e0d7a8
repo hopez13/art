@@ -118,6 +118,30 @@
       "revId": "41d09c823ee22989bf5e7720b7562e8de6e0d7a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "968f39ad_1eddad41",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-28T15:44:07Z",
+      "side": 1,
+      "message": "I was just testing an eng build, and I see this message a lot. It\u0027s very spammy. Interesting is that VLOG(jit) does not log anything so I\u0027m not sure what\u0027s happening.",
+      "parentUuid": "b6d8bd3b_ce286b21",
+      "range": {
+        "startLine": 369,
+        "startChar": 24,
+        "endLine": 369,
+        "endChar": 34
+      },
+      "revId": "41d09c823ee22989bf5e7720b7562e8de6e0d7a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
