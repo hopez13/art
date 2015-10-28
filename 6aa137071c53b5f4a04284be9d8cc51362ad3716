@@ -22,6 +22,30 @@
       "revId": "6aa137071c53b5f4a04284be9d8cc51362ad3716",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56c4e1d1_ea976383",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-28T21:54:53Z",
+      "side": 1,
+      "message": "Otherwise, as soon as things are re-ordered a bit, this can actually break. You should not force alignment of pointer-sized values to 4, ever. The right value is 8 on 64-bit. For C code it wouldn\u0027t matter - the compiler will put in an unaligned load, if necessary. But we assume in managed code that entrypoints can be loaded with a simple load.\n\nIt works right now because the 64-bit tls before-hand always aligns large enough. But for example for my read-only entrypoints prototype, things had to be reordered, and lo and behold, things were broken.\n\n\nI don\u0027t think either of these paragraphs should be in the commit message, though. Maybe you can help to condense it?",
+      "parentUuid": "b688bda5_fff63f8b",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 50
+      },
+      "revId": "6aa137071c53b5f4a04284be9d8cc51362ad3716",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
