@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f684f55e_d1436484",
+        "filename": "compiler/utils/arm/assembler_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-28T11:23:30Z",
+      "side": 1,
+      "message": "We\u0027re adding them in order, are we not?\nMaybe it would be more explicit if we used BindTrackedLabel() instead of Bind()+AddTrackedLabel().",
+      "range": {
+        "startLine": 927,
+        "startChar": 4,
+        "endLine": 927,
+        "endChar": 92
+      },
+      "revId": "52dbfe8979036228bb1b79127c74f5429fd0f760",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "762ba517_f548d8a0",
+        "filename": "compiler/utils/arm/assembler_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 935,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-28T11:23:30Z",
+      "side": 1,
+      "message": "If we use BindTrackedLabel(), it will be obvious that there are no duplicates as we cannot Bind() a label twice.",
+      "range": {
+        "startLine": 935,
+        "startChar": 34,
+        "endLine": 935,
+        "endChar": 80
+      },
+      "revId": "52dbfe8979036228bb1b79127c74f5429fd0f760",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
