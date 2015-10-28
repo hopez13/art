@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d685318b_00c8e683",
+        "filename": "compiler/utils/arm/assembler_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-28T15:53:15Z",
+      "side": 1,
+      "message": "No, they don\u0027t need to be block labels. We just require that the caller uses BindTrackedLabel() instead of Bind(). And we can DCHECK() that.",
+      "parentUuid": "96cad9dc_66628e19",
+      "range": {
+        "startLine": 927,
+        "startChar": 4,
+        "endLine": 927,
+        "endChar": 92
+      },
+      "revId": "52dbfe8979036228bb1b79127c74f5429fd0f760",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "762ba517_f548d8a0",
         "filename": "compiler/utils/arm/assembler_arm.cc",
         "patchSetId": 5
