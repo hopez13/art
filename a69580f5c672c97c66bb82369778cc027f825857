@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d68b716e_5073ecd3",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-28T14:54:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6199d10_970ac435",
+      "range": {
+        "startLine": 43,
+        "startChar": 60,
+        "endLine": 43,
+        "endChar": 69
+      },
+      "revId": "a69580f5c672c97c66bb82369778cc027f825857",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16826951_528a141e",
         "filename": "runtime/jit/profiling_info.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-28T14:43:36Z",
       "side": 1,
       "message": "I\u0027d name this `allow_gc` or something similar. `is_compiler_task` kinda implies knowledge about how instrumentation works which is not really needed at this stage.",
+      "range": {
+        "startLine": 44,
+        "startChar": 59,
+        "endLine": 44,
+        "endChar": 75
+      },
+      "revId": "a69580f5c672c97c66bb82369778cc027f825857",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "762ba517_d5103c69",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-28T14:54:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16826951_528a141e",
       "range": {
         "startLine": 44,
         "startChar": 59,
@@ -87,6 +135,54 @@
         "startChar": 60,
         "endLine": 49,
         "endChar": 76
+      },
+      "revId": "a69580f5c672c97c66bb82369778cc027f825857",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f61f95ee_59e46394",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-28T14:54:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3625ad43_d3e7f4db",
+      "range": {
+        "startLine": 49,
+        "startChar": 60,
+        "endLine": 49,
+        "endChar": 76
+      },
+      "revId": "a69580f5c672c97c66bb82369778cc027f825857",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d68b716e_106d64ed",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-28T14:54:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96301980_36b5f8b3",
+      "range": {
+        "startLine": 49,
+        "startChar": 44,
+        "endLine": 49,
+        "endChar": 52
       },
       "revId": "a69580f5c672c97c66bb82369778cc027f825857",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
