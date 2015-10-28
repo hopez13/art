@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d63d314e_63a3bc1e",
+        "filename": "runtime/lookup_table.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-28T00:09:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b640bdd4_421c747a",
+      "range": {
+        "startLine": 59,
+        "startChar": 24,
+        "endLine": 59,
+        "endChar": 37
+      },
+      "revId": "27022d9bc21a024799cb496ba190514434b99427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b640bdd4_221ff071",
         "filename": "runtime/lookup_table.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-27T22:48:38Z",
       "side": 1,
       "message": "Typo.",
+      "range": {
+        "startLine": 76,
+        "startChar": 85,
+        "endLine": 76,
+        "endChar": 90
+      },
+      "revId": "27022d9bc21a024799cb496ba190514434b99427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "964739ec_01842c0a",
+        "filename": "runtime/lookup_table.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-28T00:09:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b640bdd4_221ff071",
       "range": {
         "startLine": 76,
         "startChar": 85,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7642c5df_20204466",
+        "filename": "runtime/lookup_table.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-28T00:09:54Z",
+      "side": 1,
+      "message": "Renamed the file.",
+      "parentUuid": "36f76de3_c3a976d0",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 21
+      },
+      "revId": "27022d9bc21a024799cb496ba190514434b99427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b640bdd4_a2d9c0e1",
         "filename": "runtime/lookup_table.h",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2015-10-27T22:53:16Z",
       "side": 1,
       "message": "Language.",
+      "range": {
+        "startLine": 74,
+        "startChar": 10,
+        "endLine": 75,
+        "endChar": 85
+      },
+      "revId": "27022d9bc21a024799cb496ba190514434b99427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b640bdd4_428f94b9",
+        "filename": "runtime/lookup_table.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-28T00:09:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b640bdd4_a2d9c0e1",
       "range": {
         "startLine": 74,
         "startChar": 10,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d63d314e_03b43054",
+        "filename": "runtime/lookup_table.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-28T00:09:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56fce1c4_e776bc06",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 9
+      },
+      "revId": "27022d9bc21a024799cb496ba190514434b99427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76fd65bf_68fcdb69",
         "filename": "runtime/lookup_table.h",
         "patchSetId": 4
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "36f76de3_c69aa46d",
+        "filename": "runtime/lookup_table.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-28T00:09:54Z",
+      "side": 1,
+      "message": "Leave it as DexFile for now? No need to rush into generalizing it.",
+      "parentUuid": "76fd65bf_68fcdb69",
+      "range": {
+        "startLine": 133,
+        "startChar": 2,
+        "endLine": 133,
+        "endChar": 27
+      },
+      "revId": "27022d9bc21a024799cb496ba190514434b99427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "565141a7_3fb5c3b3",
         "filename": "runtime/lookup_table_test.cc",
         "patchSetId": 4
@@ -151,6 +295,30 @@
       "writtenOn": "2015-10-27T22:53:16Z",
       "side": 1,
       "message": "DexFile:kNoDexFileIndex, same below.",
+      "range": {
+        "startLine": 48,
+        "startChar": 12,
+        "endLine": 48,
+        "endChar": 23
+      },
+      "revId": "27022d9bc21a024799cb496ba190514434b99427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16342965_48bb33f8",
+        "filename": "runtime/lookup_table_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-28T00:09:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "565141a7_3fb5c3b3",
       "range": {
         "startLine": 48,
         "startChar": 12,
