@@ -68,6 +68,29 @@
       "revId": "6d14aeaafe6b9fb95b6227b715518e1a66bb95cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76fd65bf_0b3201d5",
+        "filename": "runtime/type_lookup_table.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2015-10-28T08:06:18Z",
+      "side": 1,
+      "message": "Why would not inline this method?\nIt used only in DexFile::FindClassDef(const char*) and called very often during app launch.",
+      "range": {
+        "startLine": 44,
+        "startChar": 11,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "6d14aeaafe6b9fb95b6227b715518e1a66bb95cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
