@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6199d10_970ac435",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-28T14:43:36Z",
+      "side": 1,
+      "message": "add:\n... or if it\u0027s not needed (because method doesn\u0027t have virtual invocations)\n\nOtherwise it takes a bit to see why you return true.",
+      "range": {
+        "startLine": 43,
+        "startChar": 60,
+        "endLine": 43,
+        "endChar": 69
+      },
+      "revId": "a69580f5c672c97c66bb82369778cc027f825857",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16826951_528a141e",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-28T14:43:36Z",
+      "side": 1,
+      "message": "I\u0027d name this `allow_gc` or something similar. `is_compiler_task` kinda implies knowledge about how instrumentation works which is not really needed at this stage.",
+      "range": {
+        "startLine": 44,
+        "startChar": 59,
+        "endLine": 44,
+        "endChar": 75
+      },
+      "revId": "a69580f5c672c97c66bb82369778cc027f825857",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96301980_36b5f8b3",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-28T14:43:36Z",
+      "side": 1,
+      "message": "nit, one per line.",
+      "range": {
+        "startLine": 49,
+        "startChar": 44,
+        "endLine": 49,
+        "endChar": 52
+      },
+      "revId": "a69580f5c672c97c66bb82369778cc027f825857",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3625ad43_d3e7f4db",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-28T14:43:36Z",
+      "side": 1,
+      "message": "document why you need this.",
+      "range": {
+        "startLine": 49,
+        "startChar": 60,
+        "endLine": 49,
+        "endChar": 76
+      },
+      "revId": "a69580f5c672c97c66bb82369778cc027f825857",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
