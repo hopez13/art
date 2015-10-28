@@ -200,6 +200,24 @@
       "revId": "01f636b8eddc36a71a1cade2567d654f3ddcf468",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96cad9dc_e9d931e1",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1531,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2015-10-28T19:01:33Z",
+      "side": 1,
+      "message": "That\u0027s what Hiroshi started with.  This does seem faster for now, in a place where it matters.  We should probably revisit once we have a faster acquire load implementation.\n\nI think we all agree that the acquire load would be cleaner. But in spite of my reputation for hating performance :-), I think that wins here.",
+      "parentUuid": "36b04d09_5b3e83f2",
+      "revId": "01f636b8eddc36a71a1cade2567d654f3ddcf468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
