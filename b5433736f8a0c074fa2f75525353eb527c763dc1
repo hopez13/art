@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d6d0d18a_88fd1723",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-28T17:42:49Z",
+      "side": 1,
+      "message": "Good question. No bug, but the old code was too conservative. I found a few test cases where a definition went from one loop to another, but neither loop was nested in the other. The new implementation detects that too.\n\nI even have a unit test for that, but without the BCE part that is a bit harder to test exactly. So if you are okay, I will add that unit test to the other CL.",
+      "parentUuid": "16826951_92787cb1",
+      "range": {
+        "startLine": 28,
+        "startChar": 57,
+        "endLine": 28,
+        "endChar": 81
+      },
+      "revId": "b5433736f8a0c074fa2f75525353eb527c763dc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16826951_b27d80a0",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-28T14:44:38Z",
       "side": 1,
       "message": "why this change?",
+      "range": {
+        "startLine": 155,
+        "startChar": 59,
+        "endLine": 155,
+        "endChar": 63
+      },
+      "revId": "b5433736f8a0c074fa2f75525353eb527c763dc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7621e584_45068a38",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-28T17:42:49Z",
+      "side": 1,
+      "message": "See the other file. When we just had the TC expression, it made sense to just use b (just like neg). Now that we have top test and TC, I thought the a/b order was a bit more logical.",
+      "parentUuid": "16826951_b27d80a0",
       "range": {
         "startLine": 155,
         "startChar": 59,
