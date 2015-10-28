@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f636b56e_27aa9e47",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-28T03:02:28Z",
+      "side": 1,
+      "message": "Wouldn\u0027t this mean reading out of bounds? The check should be before you read the lookup_table_offset.",
+      "range": {
+        "startLine": 553,
+        "startChar": 4,
+        "endLine": 558,
+        "endChar": 5
+      },
+      "revId": "6d14aeaafe6b9fb95b6227b715518e1a66bb95cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "964739ec_04a51adb",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-28T03:02:28Z",
+      "side": 1,
+      "message": "Where\u0027s the check that this isn\u0027t out of bounds? And where do we ensure that the complete table isn\u0027t running over End()?",
+      "range": {
+        "startLine": 559,
+        "startChar": 4,
+        "endLine": 561,
+        "endChar": 18
+      },
+      "revId": "6d14aeaafe6b9fb95b6227b715518e1a66bb95cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56fce1c4_8dc8493e",
+        "filename": "runtime/type_lookup_table.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-28T03:02:28Z",
+      "side": 1,
+      "message": "This needs to change. This can potentially read out of bounds (see the comment in oat_file). (I think it\u0027s fine to check here, where you can have logic for the size, and then return nullptr on failure.)",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 49
+      },
+      "revId": "6d14aeaafe6b9fb95b6227b715518e1a66bb95cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
