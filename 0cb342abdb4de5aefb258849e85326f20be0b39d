@@ -226,6 +226,30 @@
     },
     {
       "key": {
+        "uuid": "76c565cc_0538f2b3",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-28T17:04:45Z",
+      "side": 1,
+      "message": "Yes, I think the new table is strictly superior to the old index since it has less probing, less comparisons, similar or better memory usage.",
+      "parentUuid": "768ac5a0_fd000750",
+      "range": {
+        "startLine": 497,
+        "startChar": 0,
+        "endLine": 502,
+        "endChar": 3
+      },
+      "revId": "0cb342abdb4de5aefb258849e85326f20be0b39d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f66795cb_59be63e9",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 6
