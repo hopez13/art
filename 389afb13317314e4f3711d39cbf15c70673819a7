@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f6d955b5_8f923995",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1122,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-28T21:16:14Z",
+      "side": 1,
+      "message": "This is preventing the need to patch env uses with a phi node later (see code below). However, I want to get rid of this restriction.",
+      "parentUuid": "d6d53101_ea2198b4",
+      "range": {
+        "startLine": 1122,
+        "startChar": 33,
+        "endLine": 1122,
+        "endChar": 66
+      },
+      "revId": "389afb13317314e4f3711d39cbf15c70673819a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96df3923_3e7f3e9c",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-27T23:53:22Z",
       "side": 1,
       "message": "Nit: i think it\u0027s safe to assume this without a DCHECK",
+      "range": {
+        "startLine": 1126,
+        "startChar": 8,
+        "endLine": 1126,
+        "endChar": 41
+      },
+      "revId": "389afb13317314e4f3711d39cbf15c70673819a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6d35d95_2db4f909",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-28T21:16:14Z",
+      "side": 1,
+      "message": "Ok.",
+      "parentUuid": "96df3923_3e7f3e9c",
       "range": {
         "startLine": 1126,
         "startChar": 8,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "76c565cc_ebf12596",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-28T21:16:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76d48537_e217cccc",
+      "range": {
+        "startLine": 1231,
+        "startChar": 21,
+        "endLine": 1231,
+        "endChar": 33
+      },
+      "revId": "389afb13317314e4f3711d39cbf15c70673819a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96df3923_9ec93243",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2015-10-27T23:53:22Z",
       "side": 1,
       "message": "Please document the purpose of this argument in the comment above, it\u0027s not obvious what it does without digging into the code.",
+      "range": {
+        "startLine": 1260,
+        "startChar": 57,
+        "endLine": 1260,
+        "endChar": 75
+      },
+      "revId": "389afb13317314e4f3711d39cbf15c70673819a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6d35d95_0db1351a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-28T21:16:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96df3923_9ec93243",
       "range": {
         "startLine": 1260,
         "startChar": 57,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "56c4e1d1_aa460b3b",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1304,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-28T21:16:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6b795e1_aea24b17",
+      "range": {
+        "startLine": 1304,
+        "startChar": 15,
+        "endLine": 1304,
+        "endChar": 45
+      },
+      "revId": "389afb13317314e4f3711d39cbf15c70673819a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "565141a7_3fb0632b",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 6
@@ -128,6 +248,30 @@
       "writtenOn": "2015-10-27T23:53:22Z",
       "side": 1,
       "message": "Nit: could you share this with BoundsCheckElimination? You could make it a method on LoopInformation.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 80
+      },
+      "revId": "389afb13317314e4f3711d39cbf15c70673819a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7621e584_a8cab3d5",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-10-28T21:16:14Z",
+      "side": 1,
+      "message": "Excellent idea! Will do.",
+      "parentUuid": "565141a7_3fb0632b",
       "range": {
         "startLine": 25,
         "startChar": 0,
