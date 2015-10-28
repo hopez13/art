@@ -49,6 +49,47 @@
     },
     {
       "key": {
+        "uuid": "76c565cc_85922295",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-10-28T19:19:18Z",
+      "side": 1,
+      "message": "Can you add a DCHECK when this function returns true, instruction dominates loop\u0027s header to make sure instruction is really relevant to loop?",
+      "parentUuid": "d6d0d18a_88fd1723",
+      "range": {
+        "startLine": 28,
+        "startChar": 57,
+        "endLine": 28,
+        "endChar": 81
+      },
+      "revId": "b5433736f8a0c074fa2f75525353eb527c763dc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6d35d95_c7753ef9",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-10-28T19:19:18Z",
+      "side": 1,
+      "message": "when U \u003c 12?",
+      "revId": "b5433736f8a0c074fa2f75525353eb527c763dc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16826951_b27d80a0",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 1
