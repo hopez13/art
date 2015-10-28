@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "96cad9dc_66628e19",
+        "filename": "compiler/utils/arm/assembler_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-28T15:35:22Z",
+      "side": 1,
+      "message": "Only if you accept that switch targets are always and forever block labels. Then the jump table must not push the labels and rely on them being corrected. That\u0027s actually how it\u0027s implemented right now, but an argument would be that it\u0027s more defensive if the jump table makes all case targets tracked.",
+      "parentUuid": "f684f55e_d1436484",
+      "range": {
+        "startLine": 927,
+        "startChar": 4,
+        "endLine": 927,
+        "endChar": 92
+      },
+      "revId": "52dbfe8979036228bb1b79127c74f5429fd0f760",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "762ba517_f548d8a0",
         "filename": "compiler/utils/arm/assembler_arm.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-28T11:23:30Z",
       "side": 1,
       "message": "If we use BindTrackedLabel(), it will be obvious that there are no duplicates as we cannot Bind() a label twice.",
+      "range": {
+        "startLine": 935,
+        "startChar": 34,
+        "endLine": 935,
+        "endChar": 80
+      },
+      "revId": "52dbfe8979036228bb1b79127c74f5429fd0f760",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6d0d18a_28e6ab0d",
+        "filename": "compiler/utils/arm/assembler_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 935,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-28T15:35:22Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "762ba517_f548d8a0",
       "range": {
         "startLine": 935,
         "startChar": 34,
