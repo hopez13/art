@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "569941f8_7c6a39d7",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-28T17:59:15Z",
+      "side": 1,
+      "message": "There\u0027s more places in this file where it\u0027d be nice to abstract away the -1.",
+      "range": {
+        "startLine": 131,
+        "startChar": 34,
+        "endLine": 131,
+        "endChar": 62
+      },
+      "revId": "c301e07e39d09a1e8403e88699132815e997b6da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f67eb54f_21588e69",
+        "filename": "runtime/stack.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-28T17:59:15Z",
+      "side": 1,
+      "message": "I\u0027d rather have this in the StackMap code instead. The -1 is specific to it.",
+      "range": {
+        "startLine": 701,
+        "startChar": 9,
+        "endLine": 701,
+        "endChar": 34
+      },
+      "revId": "c301e07e39d09a1e8403e88699132815e997b6da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f67eb54f_815f9a4e",
+        "filename": "test/541-regression-inlined-deopt/info.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-28T17:59:15Z",
+      "side": 1,
+      "message": "Explain also why it had to be a smali test?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 38
+      },
+      "revId": "c301e07e39d09a1e8403e88699132815e997b6da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
