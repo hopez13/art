@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "562a227b_6ec0efa1",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-29T21:44:36Z",
+      "side": 1,
+      "message": "The one that is writing values into the options?\n\nThe style is:\n\n if (invalid case) {\n   Usage();\n }\n options :\u003d value\n\nThis only works because you assume Usage never returns. Otherwise you get *no* warning that your values are BS...",
+      "parentUuid": "968f39ad_fe82c195",
+      "range": {
+        "startLine": 71,
+        "startChar": 2,
+        "endLine": 71,
+        "endChar": 22
+      },
+      "revId": "b84b6ffb80cb0fada47f49ae9c1d444d2d0d446f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d63612de_327db097",
         "filename": "runtime/utils.h",
         "patchSetId": 1
