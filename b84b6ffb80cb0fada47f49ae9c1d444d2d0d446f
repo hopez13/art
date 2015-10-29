@@ -22,6 +22,29 @@
       "revId": "b84b6ffb80cb0fada47f49ae9c1d444d2d0d446f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d63612de_327db097",
+        "filename": "runtime/utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-29T20:56:46Z",
+      "side": 1,
+      "message": "Thats a dangling pointer isn\u0027t it? I think the substr result goes out of scope at the end of the statement.",
+      "range": {
+        "startLine": 337,
+        "startChar": 29,
+        "endLine": 337,
+        "endChar": 64
+      },
+      "revId": "b84b6ffb80cb0fada47f49ae9c1d444d2d0d446f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
