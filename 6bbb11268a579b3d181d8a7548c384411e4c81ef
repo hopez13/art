@@ -45,6 +45,30 @@
       "revId": "6bbb11268a579b3d181d8a7548c384411e4c81ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6b451b2_a837db13",
+        "filename": "compiler/utils/assembler.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-29T12:41:49Z",
+      "side": 1,
+      "message": "Moved back to assembler_arm.h.",
+      "parentUuid": "3675adb9_f9b60f62",
+      "range": {
+        "startLine": 319,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 3
+      },
+      "revId": "6bbb11268a579b3d181d8a7548c384411e4c81ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
