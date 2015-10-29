@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "b6199d10_375f3851",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1464,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-10-29T11:50:59Z",
+      "side": 1,
+      "message": "Sorry for the confusion. What I am saying is that 2) should always be preferred over 3), and as I mentioned future CPU versions will probably optimise this even further.\n\nThe comparison between 1) and 2) is debatable. The best way of comparing is writing a very directed ubenchmark, and even so there are CPU variants out there that decided to implement 2) as 3) for simplicity.\n\nTherefore I think 1), the variant that you are currently using is the best in this case.",
+      "parentUuid": "96df3923_dbccacc1",
+      "range": {
+        "startLine": 1452,
+        "startChar": 0,
+        "endLine": 1464,
+        "endChar": 21
+      },
+      "revId": "01f636b8eddc36a71a1cade2567d654f3ddcf468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36920d67_6b7e819d",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
