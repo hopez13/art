@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56ab01f0_559a9ee0",
+        "filename": "compiler/optimizing/nodes_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-10-29T03:25:35Z",
+      "side": 1,
+      "message": "If I remove this DCHECK, I can remove the corresponding test in x86_memory_gen.cc",
+      "revId": "89305b58ef5bd6d811a63d3639097b3bf8bcb205",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
