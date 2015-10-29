@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f67eb54f_213fae7f",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-10-29T20:21:16Z",
+      "side": 1,
+      "message": "I\u0027m thinking to move this and the related data to the code_cache and maybe save some space and lock acquiring. However that will require syncing with the GC and adds complexity to an already complex class. Let me know what you think.",
+      "range": {
+        "startLine": 76,
+        "startChar": 7,
+        "endLine": 76,
+        "endChar": 24
+      },
+      "revId": "1a8f33a11290b6da29ce2eea9fe12d93571aca73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
