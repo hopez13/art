@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "d63612de_7291f876",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-29T21:47:05Z",
+      "side": 1,
+      "message": "(Just to make it clear: I\u0027m not advocating for LOG(FATAL), though I think it would be consistent. But you need to fix up the other functions if you change the behavior of Usage()).",
+      "parentUuid": "562a227b_6ec0efa1",
+      "range": {
+        "startLine": 71,
+        "startChar": 2,
+        "endLine": 71,
+        "endChar": 22
+      },
+      "revId": "b84b6ffb80cb0fada47f49ae9c1d444d2d0d446f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d63612de_327db097",
         "filename": "runtime/utils.h",
         "patchSetId": 1
