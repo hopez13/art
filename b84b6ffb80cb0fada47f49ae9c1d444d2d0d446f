@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6195673_13ae2ca9",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-29T20:11:18Z",
+      "side": 1,
+      "message": "This isn\u0027t safe, is it? The parsing code is written in a way that assumes Usage terminates.",
+      "range": {
+        "startLine": 71,
+        "startChar": 2,
+        "endLine": 71,
+        "endChar": 22
+      },
+      "revId": "b84b6ffb80cb0fada47f49ae9c1d444d2d0d446f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
