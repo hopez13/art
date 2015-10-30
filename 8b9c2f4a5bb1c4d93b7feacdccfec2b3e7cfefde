@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f66795cb_f9ad7709",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-30T10:26:26Z",
+      "side": 1,
+      "message": "Could we refactor this to use a type-safer alternative (maybe later in another CL), such as using an std::vector\u003cchar*\u003e (or std::vector\u003cstring\u003e); or better, a variadic function template, e.g:\n\n  template\u003ctypename... Params\u003e\n  NO_RETURN static void Usage(const std::string \u0026str_format,\n                              Params... parameters) {\n    // ...\n  }\n\n?",
+      "range": {
+        "startLine": 67,
+        "startChar": 28,
+        "endLine": 67,
+        "endChar": 48
+      },
+      "revId": "8b9c2f4a5bb1c4d93b7feacdccfec2b3e7cfefde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "968f39ad_decfc5e4",
+        "filename": "runtime/utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-30T10:26:26Z",
+      "side": 1,
+      "message": "Duplicate #include.\n\nAlso, this list is not sorted.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 17
+      },
+      "revId": "8b9c2f4a5bb1c4d93b7feacdccfec2b3e7cfefde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
