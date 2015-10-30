@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5625c29e_1c219dde",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-30T03:12:06Z",
+      "side": 1,
+      "message": "Just sorted.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 28
+      },
+      "revId": "701566aaae098d5aab9d912e2003a18d44fb850d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7643a650_55693ca0",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-30T03:12:06Z",
+      "side": 1,
+      "message": "This shall remain for now.\n\nThe follow-up code uses the intrinsic type to state whether an invoke needs an environment. This is important for inlining and the case of String.equals - in which case not having the intrinsic may produce broken code (e.g., if a GC happens in String.equals).  (The CL will be merged either this week or next week.)\n\nRight now this is obviously not very granular, but this is the easiest part for now. Please consider String.equals as one of the first intrinsics to implement (or we can make the check here more granular).",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 3
+      },
+      "revId": "701566aaae098d5aab9d912e2003a18d44fb850d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
