@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "569941f8_dffb3fa3",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-30T15:04:38Z",
+      "side": 1,
+      "message": "Add a check that we\u0027re not jit here too.",
+      "range": {
+        "startLine": 85,
+        "startChar": 79,
+        "endLine": 85,
+        "endChar": 80
+      },
+      "revId": "3a6ebc36d0c021e5965680910cbde546000c048e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "768ac5a0_5dc49bc6",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-30T15:04:38Z",
+      "side": 1,
+      "message": "Move this just after direct_code !\u003d 0u",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 46
+      },
+      "revId": "3a6ebc36d0c021e5965680910cbde546000c048e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
