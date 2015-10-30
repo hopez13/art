@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "760e462a_3aba1d30",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-30T02:50:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "166509c4_9aae2d07",
+      "range": {
+        "startLine": 532,
+        "startChar": 0,
+        "endLine": 535,
+        "endChar": 5
+      },
+      "revId": "cc0ab5617213ca1426e55d091d9845deba02781c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3694cdc0_bba927d1",
         "filename": "compiler/utils/arm/assembler_arm.h",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-29T17:21:45Z",
       "side": 1,
       "message": "This is the main public API, so I wouldn\u0027t call it a \"shorthand\". I\u0027d suggest \"Bind a Label that needs to be updated by the assembler in FinalizeCode() if its position changes due to branch/literal fixup.\"",
+      "range": {
+        "startLine": 1060,
+        "startChar": 2,
+        "endLine": 1060,
+        "endChar": 58
+      },
+      "revId": "cc0ab5617213ca1426e55d091d9845deba02781c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96401a44_53771670",
+        "filename": "compiler/utils/arm/assembler_arm.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-30T02:50:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3694cdc0_bba927d1",
       "range": {
         "startLine": 1060,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "161fca56_9d8367e7",
+        "filename": "compiler/utils/arm/assembler_arm.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1075,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-30T02:50:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "968f39ad_fe3001ba",
+      "range": {
+        "startLine": 1072,
+        "startChar": 0,
+        "endLine": 1075,
+        "endChar": 3
+      },
+      "revId": "cc0ab5617213ca1426e55d091d9845deba02781c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "569941f8_fcad6909",
         "filename": "compiler/utils/arm/assembler_arm32.cc",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2015-10-29T17:21:45Z",
       "side": 1,
       "message": "We have no fixups on arm32 and GetAdjustedPosition() is UNSUPPORTED, so I would drop this. Either add a short note instead or drop the whole FinalizeCode() override.)",
+      "range": {
+        "startLine": 1619,
+        "startChar": 2,
+        "endLine": 1619,
+        "endChar": 26
+      },
+      "revId": "cc0ab5617213ca1426e55d091d9845deba02781c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d63612de_7b16732a",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1619,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-10-30T02:50:07Z",
+      "side": 1,
+      "message": "I\u0027ll keep the override with a note. I don\u0027t think it\u0027s a good idea to not keep this somewhat symmetrical - in case we do end up with an actually well-supported arm32 assembler.",
+      "parentUuid": "569941f8_fcad6909",
       "range": {
         "startLine": 1619,
         "startChar": 2,
