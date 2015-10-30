@@ -262,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "768ac5a0_1d3f737f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-30T12:02:15Z",
+      "side": 1,
+      "message": "I\u0027ll try the strategy with a new entry point in a future CL.",
+      "parentUuid": "f5586271_14524c03",
+      "range": {
+        "startLine": 390,
+        "startChar": 4,
+        "endLine": 390,
+        "endChar": 27
+      },
+      "revId": "62731d76afcebf3e6857cd98586e2ce5f1f9a115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a46156bd_c0d50f25",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
