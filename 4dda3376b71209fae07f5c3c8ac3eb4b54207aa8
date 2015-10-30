@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "569941f8_9f2c57d1",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-30T16:52:36Z",
+      "side": 1,
+      "message": "Why not Jialc(indirect_reg, offset)?",
+      "range": {
+        "startLine": 858,
+        "startChar": 0,
+        "endLine": 859,
+        "endChar": 27
+      },
+      "revId": "4dda3376b71209fae07f5c3c8ac3eb4b54207aa8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
