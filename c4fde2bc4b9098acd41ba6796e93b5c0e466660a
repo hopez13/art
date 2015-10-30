@@ -22,6 +22,30 @@
       "revId": "c4fde2bc4b9098acd41ba6796e93b5c0e466660a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9555663b_20a3cb12",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4338,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-10-30T12:02:15Z",
+      "side": 1,
+      "message": "You mean, the one from lines 4268–4270? It is a bit redundant, as it is a static_assert.  On the other hand, it\u0027s inexpensive, as it\u0027s a static_assert, and it is good to keep it close to the offset computation (e.g., if one copy and paste code).\n\nI\u0027ve added it in PS8 (here and in the x86-64 code generator).",
+      "parentUuid": "354d9aaf_cbe6811b",
+      "range": {
+        "startLine": 4338,
+        "startChar": 77,
+        "endLine": 4338,
+        "endChar": 84
+      },
+      "revId": "c4fde2bc4b9098acd41ba6796e93b5c0e466660a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
