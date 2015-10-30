@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "569941f8_9fc8d789",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-30T14:22:58Z",
+      "side": 1,
+      "message": "Would it be so bad to not do this when we compile, but just visit the list of compiled/profiled methods from the code cache when we need to?",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 16
+      },
+      "revId": "1a8f33a11290b6da29ce2eea9fe12d93571aca73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "569941f8_bfcd9398",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-30T14:22:58Z",
+      "side": 1,
+      "message": "Why do you need this?",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 46
+      },
+      "revId": "1a8f33a11290b6da29ce2eea9fe12d93571aca73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f67eb54f_213fae7f",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 6
@@ -18,6 +64,98 @@
         "startChar": 7,
         "endLine": 76,
         "endChar": 24
+      },
+      "revId": "1a8f33a11290b6da29ce2eea9fe12d93571aca73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b688bda5_623b7801",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-30T14:22:58Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 565,
+        "startChar": 76,
+        "endLine": 565,
+        "endChar": 79
+      },
+      "revId": "1a8f33a11290b6da29ce2eea9fe12d93571aca73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d685318b_005c66d5",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-30T14:22:58Z",
+      "side": 1,
+      "message": "Is that always called? I doubt we used to start the profiler all the time.",
+      "range": {
+        "startLine": 564,
+        "startChar": 25,
+        "endLine": 565,
+        "endChar": 15
+      },
+      "revId": "1a8f33a11290b6da29ce2eea9fe12d93571aca73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "166509c4_3d551b32",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-30T14:22:58Z",
+      "side": 1,
+      "message": "what\u0027s this?",
+      "range": {
+        "startLine": 575,
+        "startChar": 18,
+        "endLine": 575,
+        "endChar": 40
+      },
+      "revId": "1a8f33a11290b6da29ce2eea9fe12d93571aca73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b688bda5_a2958040",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-10-30T14:22:58Z",
+      "side": 1,
+      "message": "That\u0027s a hack, right?",
+      "range": {
+        "startLine": 221,
+        "startChar": 2,
+        "endLine": 221,
+        "endChar": 21
       },
       "revId": "1a8f33a11290b6da29ce2eea9fe12d93571aca73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
