@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "760e462a_ddbafbfb",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-30T18:44:28Z",
+      "side": 1,
+      "message": "Move this outside the if?",
+      "range": {
+        "startLine": 78,
+        "startChar": 25,
+        "endLine": 79,
+        "endChar": 9
+      },
+      "revId": "959f36afc008bf40f5bd490f9a973dec141302d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36204e91_294d3518",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-30T18:44:28Z",
+      "side": 1,
+      "message": "DCHECK_EQ?",
+      "range": {
+        "startLine": 83,
+        "startChar": 10,
+        "endLine": 83,
+        "endChar": 16
+      },
+      "revId": "959f36afc008bf40f5bd490f9a973dec141302d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "161fca56_c35d8058",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-30T18:44:28Z",
+      "side": 1,
+      "message": "Maybe OK to change this to DCHECK?",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 9
+      },
+      "revId": "959f36afc008bf40f5bd490f9a973dec141302d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7643a650_9e2c61d5",
+        "filename": "runtime/mirror/object_array-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-30T18:44:28Z",
+      "side": 1,
+      "message": "Nice catch.",
+      "range": {
+        "startLine": 273,
+        "startChar": 0,
+        "endLine": 273,
+        "endChar": 6
+      },
+      "revId": "959f36afc008bf40f5bd490f9a973dec141302d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
