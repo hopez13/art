@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5625c29e_3f9b2b99",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-30T18:55:00Z",
+      "side": 1,
+      "message": "Is it safe to maybe read the read barrier pointer before to avoid the CAS if it is non white? Not sure if this would be a speedup though.",
+      "range": {
+        "startLine": 73,
+        "startChar": 18,
+        "endLine": 73,
+        "endChar": 45
+      },
+      "revId": "959f36afc008bf40f5bd490f9a973dec141302d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760e462a_ddbafbfb",
         "filename": "runtime/gc/collector/concurrent_copying-inl.h",
         "patchSetId": 1
@@ -64,6 +87,29 @@
         "startChar": 4,
         "endLine": 101,
         "endChar": 9
+      },
+      "revId": "959f36afc008bf40f5bd490f9a973dec141302d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "161fca56_23fd545e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1984,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-10-30T18:55:00Z",
+      "side": 1,
+      "message": "For MarkNonMoving, to_ref is always from_ref right? Can\u0027t you just return from_ref and remove the to_ref variable.",
+      "range": {
+        "startLine": 1984,
+        "startChar": 18,
+        "endLine": 1984,
+        "endChar": 24
       },
       "revId": "959f36afc008bf40f5bd490f9a973dec141302d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
