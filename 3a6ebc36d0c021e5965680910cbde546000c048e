@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "166509c4_1d8a171d",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-30T15:08:08Z",
+      "side": 1,
+      "message": "I\u0027ll add the DCHECK() to the appropriate kinds. For example, kDirectAddress would be OK but kDirectAddressWithFixup would not.",
+      "parentUuid": "569941f8_dffb3fa3",
+      "range": {
+        "startLine": 85,
+        "startChar": 79,
+        "endLine": 85,
+        "endChar": 80
+      },
+      "revId": "3a6ebc36d0c021e5965680910cbde546000c048e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "768ac5a0_5dc49bc6",
         "filename": "compiler/optimizing/sharpening.cc",
         "patchSetId": 6
