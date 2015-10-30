@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "167c2956_c217e2cc",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-30T15:40:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "166509c4_1d8a171d",
+      "range": {
+        "startLine": 85,
+        "startChar": 79,
+        "endLine": 85,
+        "endChar": 80
+      },
+      "revId": "3a6ebc36d0c021e5965680910cbde546000c048e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "768ac5a0_5dc49bc6",
         "filename": "compiler/optimizing/sharpening.cc",
         "patchSetId": 6
@@ -60,6 +84,30 @@
       "writtenOn": "2015-10-30T15:04:38Z",
       "side": 1,
       "message": "Move this just after direct_code !\u003d 0u",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 46
+      },
+      "revId": "3a6ebc36d0c021e5965680910cbde546000c048e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f66795cb_59dae371",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-10-30T15:40:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "768ac5a0_5dc49bc6",
       "range": {
         "startLine": 110,
         "startChar": 0,
