@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5625c29e_fdfff81a",
+        "filename": "test/run-test",
+        "patchSetId": 5
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-02T21:32:58Z",
+      "side": 1,
+      "message": "It\u0027s actually 4.1 and later, not 4 and later (line 360).\n\nI only wanted to raise this issue because I\u0027m not sure what our buildbot servers are running, it would be good to avoid another python3-type of problem.\n\nAs far as I know nobody is trying to support running art on mac os x anymore..",
+      "revId": "e75373a2228f7c05a353d2a676bffc8efa8cf1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "161fca56_943d79a3",
+        "filename": "test/run-test",
+        "patchSetId": 5
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-02T21:32:58Z",
+      "side": 1,
+      "message": "Usually people just hardcode the FD on older bashes, e.g. 9 and 10.\n\nAnyway my point is the {fd} syntax doesn\u0027t work period on \u003c4.1 versions, so for example line 382 is still broken on older bashes.",
+      "revId": "e75373a2228f7c05a353d2a676bffc8efa8cf1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "760e462a_f182886c",
+        "filename": "tools/cpplint.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-02T21:32:58Z",
+      "side": 1,
+      "message": "I don\u0027t suppose we can glue the docstrings here somehow?",
+      "revId": "e75373a2228f7c05a353d2a676bffc8efa8cf1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6195673_f2bcc189",
+        "filename": "tools/cpplint.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 3973,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-02T21:32:58Z",
+      "side": 1,
+      "message": "copy and pasted of line above?",
+      "revId": "e75373a2228f7c05a353d2a676bffc8efa8cf1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
