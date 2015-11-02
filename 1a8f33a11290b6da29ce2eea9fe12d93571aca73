@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "968f39ad_616d30ed",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-02T15:53:31Z",
+      "side": 1,
+      "message": "It makes the flow more complicated as I\u0027ll need to keep track of potential updates in the code cache. I\u0027d rather keep related things together and not spread the concerns.\n\nThe other alternative I consider is to keep last profiling data around. That trades speed for space.\n\nBut given the amount of locks that we request when compiling I don\u0027t think that will make a big difference, but I didn\u0027t benchmark..",
+      "parentUuid": "569941f8_9fc8d789",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 16
+      },
+      "revId": "1a8f33a11290b6da29ce2eea9fe12d93571aca73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "569941f8_bfcd9398",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-10-30T14:22:58Z",
       "side": 1,
       "message": "Why do you need this?",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 46
+      },
+      "revId": "1a8f33a11290b6da29ce2eea9fe12d93571aca73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "968f39ad_a1e738dc",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-02T15:53:31Z",
+      "side": 1,
+      "message": "AddMethodInfo asks for the ArtMethod\u0027s DexFile which needs the mutator lock.",
+      "parentUuid": "569941f8_bfcd9398",
       "range": {
         "startLine": 176,
         "startChar": 0,
@@ -117,6 +165,54 @@
     },
     {
       "key": {
+        "uuid": "968f39ad_c1ec44c1",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-02T15:53:31Z",
+      "side": 1,
+      "message": "Yes. It is not obvious but StartProfiler eventually checks if the profiler flag is enabled. If it\u0027s not it doesn\u0027t start one.",
+      "parentUuid": "d685318b_005c66d5",
+      "range": {
+        "startLine": 564,
+        "startChar": 25,
+        "endLine": 565,
+        "endChar": 15
+      },
+      "revId": "1a8f33a11290b6da29ce2eea9fe12d93571aca73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b688bda5_45b11e19",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-02T15:53:31Z",
+      "side": 1,
+      "message": "I assume you refer to the second phrase. Done. If not, why do you want it removed?",
+      "parentUuid": "b688bda5_623b7801",
+      "range": {
+        "startLine": 565,
+        "startChar": 76,
+        "endLine": 565,
+        "endChar": 79
+      },
+      "revId": "1a8f33a11290b6da29ce2eea9fe12d93571aca73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "166509c4_3d551b32",
         "filename": "runtime/native/dalvik_system_VMRuntime.cc",
         "patchSetId": 6
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "b688bda5_25b41a0a",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-02T15:53:31Z",
+      "side": 1,
+      "message": "I rephrased the comment.",
+      "parentUuid": "166509c4_3d551b32",
+      "range": {
+        "startLine": 575,
+        "startChar": 18,
+        "endLine": 575,
+        "endChar": 40
+      },
+      "revId": "1a8f33a11290b6da29ce2eea9fe12d93571aca73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b688bda5_a2958040",
         "filename": "runtime/runtime.cc",
         "patchSetId": 6
@@ -151,6 +271,30 @@
       "writtenOn": "2015-10-30T14:22:58Z",
       "side": 1,
       "message": "That\u0027s a hack, right?",
+      "range": {
+        "startLine": 221,
+        "startChar": 2,
+        "endLine": 221,
+        "endChar": 21
+      },
+      "revId": "1a8f33a11290b6da29ce2eea9fe12d93571aca73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "166509c4_1d55b78a",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-02T15:53:31Z",
+      "side": 1,
+      "message": "Yes. Fixed.",
+      "parentUuid": "b688bda5_a2958040",
       "range": {
         "startLine": 221,
         "startChar": 2,
