@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "569941f8_7f36aba9",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1461,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-02T12:09:49Z",
+      "side": 1,
+      "message": "Just discussed with Vladimir. I think the comment is confusing. For me it implies preventing instruction re-ordering, whereas it\u0027s really about memory system reordering (and all that is implied with CPU cache and multicore).\n\nSerban, can you confirm?",
+      "parentUuid": "167c2956_c548cca1",
+      "range": {
+        "startLine": 1458,
+        "startChar": 65,
+        "endLine": 1461,
+        "endChar": 72
+      },
+      "revId": "01f636b8eddc36a71a1cade2567d654f3ddcf468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6b19df3_b73b8890",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
