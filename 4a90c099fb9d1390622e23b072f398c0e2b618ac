@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "36204e91_210309ec",
+        "filename": "build/Android.common_test.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-02T18:16:34Z",
+      "side": 1,
+      "message": "I am honestly not sure but the rules for how make parses stuff is not very clear. I figured I would leave them to be consistent with the way that the echos are.",
+      "parentUuid": "3694cdc0_41559630",
+      "range": {
+        "startLine": 123,
+        "startChar": 28,
+        "endLine": 123,
+        "endChar": 36
+      },
+      "revId": "4a90c099fb9d1390622e23b072f398c0e2b618ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d685318b_608c5276",
         "filename": "test/run-test",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2015-11-02T11:46:46Z",
       "side": 1,
       "message": "I would add a comment here:\n\n  # Allocate file descriptors `real_stdout` and `real_stderr` and redirect\n  # them respectively to the the shell\u0027s standard output (file descriptor 1)\n  # and error output (file descriptor 2).",
+      "revId": "4a90c099fb9d1390622e23b072f398c0e2b618ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6195673_9c780412",
+        "filename": "test/run-test",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-02T18:16:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d685318b_608c5276",
       "revId": "4a90c099fb9d1390622e23b072f398c0e2b618ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "562a227b_681b3f51",
+        "filename": "tools/cpplint.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-02T18:16:34Z",
+      "side": 1,
+      "message": "It doesn\u0027t seem we have in the past...",
+      "parentUuid": "968f39ad_c11fe4a3",
+      "revId": "4a90c099fb9d1390622e23b072f398c0e2b618ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6627eec_c99b51e3",
         "filename": "tools/cpplint.py",
         "patchSetId": 3
@@ -70,6 +130,30 @@
       "writtenOn": "2015-11-02T11:46:46Z",
       "side": 1,
       "message": "Nit: Don\u0027t",
+      "range": {
+        "startLine": 120,
+        "startChar": 6,
+        "endLine": 120,
+        "endChar": 11
+      },
+      "revId": "4a90c099fb9d1390622e23b072f398c0e2b618ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96401a44_df0c27c4",
+        "filename": "tools/cpplint.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-02T18:16:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6627eec_c99b51e3",
       "range": {
         "startLine": 120,
         "startChar": 6,
