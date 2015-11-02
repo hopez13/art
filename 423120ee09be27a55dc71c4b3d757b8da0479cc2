@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "f66795cb_5cd1f1db",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-02T22:22:20Z",
+      "side": 1,
+      "message": "Oh, I skipped the zygote compaction in the sentence. Sorry, bogus comment.",
+      "parentUuid": "f6195673_dfb9ce97",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 20
+      },
+      "revId": "423120ee09be27a55dc71c4b3d757b8da0479cc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f66795cb_9c1aa9b5",
         "filename": "runtime/gc/collector/concurrent_copying-inl.h",
         "patchSetId": 2
