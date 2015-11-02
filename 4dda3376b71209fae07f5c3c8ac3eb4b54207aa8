@@ -46,6 +46,30 @@
       "revId": "4dda3376b71209fae07f5c3c8ac3eb4b54207aa8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "166509c4_9df8e733",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-02T10:16:16Z",
+      "side": 1,
+      "message": "Is that a requirement of the mips64 C/C++ ABI?\n(The compiled Java ABI could deviate from that if it\u0027s beneficial.)",
+      "parentUuid": "96401a44_244c4a53",
+      "range": {
+        "startLine": 858,
+        "startChar": 0,
+        "endLine": 859,
+        "endChar": 27
+      },
+      "revId": "4dda3376b71209fae07f5c3c8ac3eb4b54207aa8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
