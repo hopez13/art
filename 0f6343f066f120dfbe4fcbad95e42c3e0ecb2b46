@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d63612de_524b895d",
+        "filename": "tools/cpplint.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-02T19:11:51Z",
+      "side": 1,
+      "message": "You need to wrap all the cpp lint changes with these # BEGIN / # END guards, that way when we merge later we can run an automatic script over it to do the merge.",
+      "revId": "0f6343f066f120dfbe4fcbad95e42c3e0ecb2b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
