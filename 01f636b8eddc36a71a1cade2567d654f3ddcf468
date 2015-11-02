@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b688bda5_02ae2c05",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1461,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-02T10:27:43Z",
+      "side": 1,
+      "message": "So for my understanding, we worry about the situation:\n\nThread1 (executing this stub): load the access flags\nThread2 (executing the clinit): set the flags and initialize the class.\nThread1: load the status flags\n\nRight?\n\nBut by loading the access flags, we have loaded into our CPU cache the page where the class is. So the read of the status flag will go through the cache. Still correct?\n\nSo I understand that if the threads have run on the same CPU, it is definitely a CPU reordering problem.\n\nI\u0027m also curious what happens if we do this dependency trick, but Thread1 and Thread2 run on two different cpus. Say Thread1 loads the status flag, but the access flags is not on the same page (is that possible?), but has been loaded somehow before in our cpu cache. Could it be that even after reading the status flag, reading the access flag could still be garbage?",
+      "parentUuid": "167c2956_85ede4e6",
+      "range": {
+        "startLine": 1458,
+        "startChar": 65,
+        "endLine": 1461,
+        "endChar": 72
+      },
+      "revId": "01f636b8eddc36a71a1cade2567d654f3ddcf468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6b19df3_b73b8890",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
