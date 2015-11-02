@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "161fca56_7453fdbf",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-02T23:28:09Z",
+      "side": 1,
+      "message": "\u0027this method\u0027 -\u003e \u0027in the HInvokeVirtual and HInvokeInterface calls\u0027?",
+      "range": {
+        "startLine": 357,
+        "startChar": 60,
+        "endLine": 358,
+        "endChar": 13
+      },
+      "revId": "b6d8280e0662ef01bcd7eac3ff9fbacfd759d8bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "562a227b_b52cdfd4",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 5825,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-02T23:28:09Z",
+      "side": 1,
+      "message": "Do we want to have \"default: UNREACHABLE()\"?",
+      "range": {
+        "startLine": 5825,
+        "startChar": 4,
+        "endLine": 5825,
+        "endChar": 5
+      },
+      "revId": "b6d8280e0662ef01bcd7eac3ff9fbacfd759d8bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7643a650_8ccb1676",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 4512,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-02T23:28:09Z",
+      "side": 1,
+      "message": "This is CanCall() in the x86 code gen. As intended?",
+      "range": {
+        "startLine": 4512,
+        "startChar": 31,
+        "endLine": 4512,
+        "endChar": 61
+      },
+      "revId": "b6d8280e0662ef01bcd7eac3ff9fbacfd759d8bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "161fca56_8f90c6c3",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 5212,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-02T23:28:09Z",
+      "side": 1,
+      "message": "We don\u0027t have this code in the x86 code gen. As intended?",
+      "range": {
+        "startLine": 5210,
+        "startChar": 0,
+        "endLine": 5212,
+        "endChar": 3
+      },
+      "revId": "b6d8280e0662ef01bcd7eac3ff9fbacfd759d8bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "765c8636_7cf53def",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 1371,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-02T23:28:09Z",
+      "side": 1,
+      "message": "Is this true? I didn\u0027t think this was the case. Calling the read barrier slow path won\u0027t trigger a GC or a read barrier isn\u0027t a suspend point.",
+      "range": {
+        "startLine": 1370,
+        "startChar": 0,
+        "endLine": 1371,
+        "endChar": 24
+      },
+      "revId": "b6d8280e0662ef01bcd7eac3ff9fbacfd759d8bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "760e462a_d1f2e401",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 1381,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-02T23:28:09Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1380,
+        "startChar": 0,
+        "endLine": 1381,
+        "endChar": 45
+      },
+      "revId": "b6d8280e0662ef01bcd7eac3ff9fbacfd759d8bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "765c8636_3cffc5d1",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 4498,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-02T23:28:09Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 4497,
+        "startChar": 0,
+        "endLine": 4498,
+        "endChar": 51
+      },
+      "revId": "b6d8280e0662ef01bcd7eac3ff9fbacfd759d8bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d63612de_2dd78642",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 5181,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-02T23:28:09Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 5181,
+        "startChar": 0,
+        "endLine": 5181,
+        "endChar": 69
+      },
+      "revId": "b6d8280e0662ef01bcd7eac3ff9fbacfd759d8bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "161fca56_d423f182",
+        "filename": "runtime/runtime_options.def",
+        "patchSetId": 12
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-02T23:28:09Z",
+      "side": 1,
+      "message": "The reason we don\u0027t need to set this to true for arm/arm64 is that we now disable the optimizing compiler for non-x86, non-x86-64 cases and the optimizing run-tests still work as if -Xint is given. Correct?",
+      "range": {
+        "startLine": 83,
+        "startChar": 74,
+        "endLine": 83,
+        "endChar": 79
+      },
+      "revId": "b6d8280e0662ef01bcd7eac3ff9fbacfd759d8bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
