@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "5625c29e_bdef4018",
+        "filename": "build/Android.common_test.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-02T22:20:54Z",
+      "side": 1,
+      "message": "Now it will only print the first line.\n\n    [ 96% 5715/5906] build test-art-host-run-test-debug-prebuild-interpreter-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-461-get-reference-vreg32\n\nI don\u0027t believe that the other lines give much useful information in general since they just say that the test passes. The only case where that would be useful is if a test deadlocks during building or running but even today we have a timeout and would need `ps` anyway since we do things with high -js. Furthermore unless you are actually modifying the tests all you likely care about is which ones pass/fail. Knowing that one goes back to run them individually to figure out errors.\n\nI think it makes sense because all of this information is generally superfluous and distracting. There are so many tests and they go by so fast that there is no way to tell what failed until the whole run is done anyway and right now, even with a large scrollback (mine is 5x the default) it is very possible that any errors would be too far back to see.\n\nAlso by making the log smaller it makes it much easier to jump directly to the error message in the buildbots.\n\nRemember this only is a major change when the test passes. If it fails we still get the failure message printed.",
+      "parentUuid": "96401a44_0a85cf2d",
+      "revId": "233d1a6bd84a6f006e1bae353235ec6f9a925fca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760e462a_001c8c53",
         "filename": "test/run-test",
         "patchSetId": 2
