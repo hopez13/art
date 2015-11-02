@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "166509c4_9d5c67db",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1461,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-11-02T12:50:22Z",
+      "side": 1,
+      "message": "Nicolas, to add to Vladimir\u0027s answer - page/ cache line locality does not really matter here, and we should not rely on it for such situations.\n\nHere is my favourite presentation on memory ordering:\nhttp://events.linuxfoundation.org/sites/events/files/slides/weak-to-weedy.pdf",
+      "parentUuid": "167c2956_c548cca1",
+      "range": {
+        "startLine": 1458,
+        "startChar": 65,
+        "endLine": 1461,
+        "endChar": 72
+      },
+      "revId": "01f636b8eddc36a71a1cade2567d654f3ddcf468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6b19df3_b73b8890",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
