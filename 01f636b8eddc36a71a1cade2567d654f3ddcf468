@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "167c2956_85ede4e6",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1461,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-11-02T10:17:52Z",
+      "side": 1,
+      "message": "No it is not a compiler issues. It is a fake dependency between x3 and x2 that prevents the CPU from reordering the\n#MIRROR_CLASS_STATUS_OFFSET and #MIRROR_CLASS_ACCESS_FLAGS_OFFSET loads to #MIRROR_CLASS_ACCESS_FLAGS_OFFSET and #MIRROR_CLASS_STATUS_OFFSET.\n\nAs mentioned in the comments a load-acquire would be cleaner.",
+      "parentUuid": "569941f8_bffd9322",
+      "range": {
+        "startLine": 1458,
+        "startChar": 65,
+        "endLine": 1461,
+        "endChar": 72
+      },
+      "revId": "01f636b8eddc36a71a1cade2567d654f3ddcf468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6b19df3_b73b8890",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
