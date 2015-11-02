@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "f6195673_52f7f5b6",
+        "filename": "build/Android.common_test.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-02T21:18:15Z",
+      "side": 1,
+      "message": "The tests are still noted as being run by the normal make output. IMO this is no different with this than what we get for normal build rules. For example we see: \n\n    [ 12% 505/4186] build test-art-host-run-test-debug-prebuild-default-relocate-ntrace-cms-checkjni-image-npictest-ndebuggable-123-compiler-regressions-mt64\n\ninstead of the RUNNING...PASSED for 6 lines.\n\nIf a test is being skipped it will be noted at the end. I don\u0027t feel that these notes give any real useful information. It is easy to check if a test is skipped at the end or by looking in Android.run-test.mk.\n\nI think this is desirable because right now if I run a clean test-art-host I cannot even see a full listing of all passed/skipped tests because it went past my scrollback (of 5000 lines)",
+      "parentUuid": "760e462a_11b3bc11",
+      "revId": "233d1a6bd84a6f006e1bae353235ec6f9a925fca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760e462a_001c8c53",
         "filename": "test/run-test",
         "patchSetId": 2
