@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f6195673_526c95a0",
+        "filename": "test/run-test",
+        "patchSetId": 5
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-02T22:20:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5625c29e_fdfff81a",
+      "revId": "e75373a2228f7c05a353d2a676bffc8efa8cf1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "161fca56_943d79a3",
         "filename": "test/run-test",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2015-11-02T21:32:58Z",
       "side": 1,
       "message": "Usually people just hardcode the FD on older bashes, e.g. 9 and 10.\n\nAnyway my point is the {fd} syntax doesn\u0027t work period on \u003c4.1 versions, so for example line 382 is still broken on older bashes.",
+      "revId": "e75373a2228f7c05a353d2a676bffc8efa8cf1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "760e462a_11d73c42",
+        "filename": "test/run-test",
+        "patchSetId": 5
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-02T22:20:54Z",
+      "side": 1,
+      "message": "It seems to work fine for me.\n\n    allight@wenix:~/aosp/art$ echo ${BASH_VERSINFO[@]}\n    3 2 0 2 release x86_64-unknown-linux-gnu\n    allight@wenix:~/aosp/art$ ./test/run-test --host --quiet --stream 000\n    Cannot use --stream without --trace.\n    allight@wenix:~/aosp/art$ ./test/run-test --host 000\n    /home/allight/aosp/art/test/000-nop:  building...\n    /home/allight/aosp/art/test/000-nop: running...\n    /home/allight/aosp/art/test/000-nop: succeeded!\n    allight@wenix:~/aosp/art$ ./test/run-test --host --quiet 000\n    allight@wenix:~/aosp/art$ echo $?\n    0\n    allight@wenix:~/aosp/art$ echo abc \u003e\u003e test/000-nop/expected.txt \n    allight@wenix:~/aosp/art$ ./test/run-test --host --quiet 000\n    /home/allight/aosp/art/test/000-nop: FAILED!\n     \n    #################### info\n    # This is a sample no-op test, which does at least serve to verify that the\n    # test harness is working.\n    #################### diffs\n    --- expected.txt\t2015-11-02 14:06:44.671607633 -0800\n    +++ output.txt\t2015-11-02 14:06:48.195596452 -0800\n    @@ -1,2 +1 @@\n     Blort.\n    -abc\n    ####################\n \n    000-nop files left in /tmp/allight/test-40515 on host\n\nI built bash 3.2.0 from source I pulled off the gnu ftp server. It is from 06.",
+      "parentUuid": "161fca56_943d79a3",
       "revId": "e75373a2228f7c05a353d2a676bffc8efa8cf1dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "765c8636_7c91bd76",
+        "filename": "tools/cpplint.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-02T22:20:54Z",
+      "side": 1,
+      "message": "Not that I know of.",
+      "parentUuid": "760e462a_f182886c",
+      "revId": "e75373a2228f7c05a353d2a676bffc8efa8cf1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6195673_f2bcc189",
         "filename": "tools/cpplint.py",
         "patchSetId": 5
@@ -64,6 +118,24 @@
       "writtenOn": "2015-11-02T21:32:58Z",
       "side": 1,
       "message": "copy and pasted of line above?",
+      "revId": "e75373a2228f7c05a353d2a676bffc8efa8cf1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "562a227b_a38b883f",
+        "filename": "tools/cpplint.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 3973,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-02T22:20:54Z",
+      "side": 1,
+      "message": "No its at 1 less indent (the \u0027# \u0027 makes it line up coincidentally).",
+      "parentUuid": "f6195673_f2bcc189",
       "revId": "e75373a2228f7c05a353d2a676bffc8efa8cf1dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
