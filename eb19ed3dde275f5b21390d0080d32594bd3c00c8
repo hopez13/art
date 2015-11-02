@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "765c8636_b6ad16f3",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-02T16:33:12Z",
+      "side": 1,
+      "message": "That isn\u0027t in the header file...",
+      "range": {
+        "startLine": 125,
+        "startChar": 24,
+        "endLine": 125,
+        "endChar": 29
+      },
+      "revId": "eb19ed3dde275f5b21390d0080d32594bd3c00c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5625c29e_cb58f580",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-02T16:33:12Z",
+      "side": 1,
+      "message": "Comment here about -1. Consider moving -1 to a named constant, too.",
+      "range": {
+        "startLine": 92,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 38
+      },
+      "revId": "eb19ed3dde275f5b21390d0080d32594bd3c00c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
