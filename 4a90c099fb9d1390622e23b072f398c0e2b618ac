@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3694cdc0_41559630",
+        "filename": "build/Android.common_test.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-02T11:46:46Z",
+      "side": 1,
+      "message": "Are these parentheses required?",
+      "range": {
+        "startLine": 123,
+        "startChar": 28,
+        "endLine": 123,
+        "endChar": 36
+      },
+      "revId": "4a90c099fb9d1390622e23b072f398c0e2b618ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d685318b_608c5276",
+        "filename": "test/run-test",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-02T11:46:46Z",
+      "side": 1,
+      "message": "I would add a comment here:\n\n  # Allocate file descriptors `real_stdout` and `real_stderr` and redirect\n  # them respectively to the the shell\u0027s standard output (file descriptor 1)\n  # and error output (file descriptor 2).",
+      "revId": "4a90c099fb9d1390622e23b072f398c0e2b618ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "968f39ad_c11fe4a3",
+        "filename": "tools/cpplint.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-02T11:46:46Z",
+      "side": 1,
+      "message": "Note that changes to cpplint should be merged upstream as well.",
+      "revId": "4a90c099fb9d1390622e23b072f398c0e2b618ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6627eec_c99b51e3",
+        "filename": "tools/cpplint.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-02T11:46:46Z",
+      "side": 1,
+      "message": "Nit: Don\u0027t",
+      "range": {
+        "startLine": 120,
+        "startChar": 6,
+        "endLine": 120,
+        "endChar": 11
+      },
+      "revId": "4a90c099fb9d1390622e23b072f398c0e2b618ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
