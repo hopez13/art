@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "f66795cb_9c7e299d",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1461,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-11-02T12:58:56Z",
+      "side": 1,
+      "message": "Yes, it prevents memory system reordering. We basically make sure that the CPU always executes the 2nd load (CLASS_ACCESS_FLAGS) after the first one (CLASS_STATUS) which for a weak memory model, such as ARM might be possible.\n\nIn the same time, on the producer side (clinit) we make sure that at the end of the clinit procedure all the memory operations are visible in the inner-sharable domain, by flushing the CPU caches.",
+      "parentUuid": "569941f8_7f36aba9",
+      "range": {
+        "startLine": 1458,
+        "startChar": 65,
+        "endLine": 1461,
+        "endChar": 72
+      },
+      "revId": "01f636b8eddc36a71a1cade2567d654f3ddcf468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6b19df3_b73b8890",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
