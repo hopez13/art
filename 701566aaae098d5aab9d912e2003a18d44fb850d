@@ -69,6 +69,30 @@
       "revId": "701566aaae098d5aab9d912e2003a18d44fb850d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36204e91_571c87a6",
+        "filename": "compiler/optimizing/intrinsics.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-11-02T21:45:47Z",
+      "side": 1,
+      "message": "I\u0027ve submitted an implementation of String.equals for review but the code still uses this test. Should the test be removed as part of the String.equals CL? Thanks.",
+      "parentUuid": "7643a650_55693ca0",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 3
+      },
+      "revId": "701566aaae098d5aab9d912e2003a18d44fb850d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
