@@ -193,6 +193,30 @@
     },
     {
       "key": {
+        "uuid": "760e462a_2671e878",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1461,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2015-11-02T17:35:58Z",
+      "side": 1,
+      "message": "Class::SetStatus does a SetField32Volatile, which should do either a release store or a dmb ish before actually setting the status.\n\nThat should suffice. On a CPU, there should never be a reason to actually flush the cache for memory consistency between CPUs. To zeroth order approximation, the cache coherence protocol (MESI or the like) should basically ensure sufficient ordering for actual memory system (CPU data caches and DRAM) accesses.  The role of fences/barriers is usually primarily to prevent reordering due to out-of-order execution and store buffers.\n\nMy impression is that the above is a good mental model, though I\u0027ve been told by hardware architects that it is not 100% correct.  But a full flush on a CPU cache is way too expensive to be practical for this kind of use.  (Although GPUs apparently do something along those lines.  And actual cache flushes become much more of an issue on systems with non-volatile byte-addressable memory.)",
+      "parentUuid": "968f39ad_613b7001",
+      "range": {
+        "startLine": 1458,
+        "startChar": 65,
+        "endLine": 1461,
+        "endChar": 72
+      },
+      "revId": "01f636b8eddc36a71a1cade2567d654f3ddcf468",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6b19df3_b73b8890",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
