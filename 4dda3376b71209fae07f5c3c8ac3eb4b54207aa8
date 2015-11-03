@@ -94,6 +94,30 @@
       "revId": "4dda3376b71209fae07f5c3c8ac3eb4b54207aa8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d685318b_0310f062",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-03T09:01:43Z",
+      "side": 1,
+      "message": "CodeGeneratorMIPS::GenerateStaticOrDirectCall will either go to a Java method including a Jni stub or a stub from runtime/arch/entrypoints. In those we can save things that the underlying runtime ABI will use.",
+      "parentUuid": "d63612de_687d7c96",
+      "range": {
+        "startLine": 858,
+        "startChar": 0,
+        "endLine": 859,
+        "endChar": 27
+      },
+      "revId": "4dda3376b71209fae07f5c3c8ac3eb4b54207aa8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
