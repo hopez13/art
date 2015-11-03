@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7643a650_5dcdd6af",
+        "filename": "compiler/optimizing/primitive_type_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-03T23:52:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f66795cb_7ca7957e",
+      "range": {
+        "startLine": 45,
+        "startChar": 32,
+        "endLine": 45,
+        "endChar": 37
+      },
+      "revId": "886fdcee2dbfa819eb3add6be0f7e14076e7c2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "568142c7_b6e748ff",
         "filename": "compiler/optimizing/primitive_type_propagation.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-03T09:46:05Z",
       "side": 1,
       "message": "How about reversing the condition and returning true with a comment why it is ok?",
+      "range": {
+        "startLine": 71,
+        "startChar": 2,
+        "endLine": 71,
+        "endChar": 90
+      },
+      "revId": "886fdcee2dbfa819eb3add6be0f7e14076e7c2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d63612de_63211ade",
+        "filename": "compiler/optimizing/primitive_type_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-03T23:52:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "568142c7_b6e748ff",
       "range": {
         "startLine": 71,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7643a650_01592c82",
+        "filename": "compiler/optimizing/primitive_type_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-03T23:52:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "166509c4_e04db6ae",
+      "range": {
+        "startLine": 95,
+        "startChar": 2,
+        "endLine": 95,
+        "endChar": 13
+      },
+      "revId": "886fdcee2dbfa819eb3add6be0f7e14076e7c2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f66795cb_5caad147",
         "filename": "compiler/optimizing/primitive_type_propagation.cc",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2015-11-03T09:46:05Z",
       "side": 1,
       "message": "Explain why you don\u0027t need both methods to run.",
+      "range": {
+        "startLine": 102,
+        "startChar": 6,
+        "endLine": 102,
+        "endChar": 55
+      },
+      "revId": "886fdcee2dbfa819eb3add6be0f7e14076e7c2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6195673_067a5fcc",
+        "filename": "compiler/optimizing/primitive_type_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-03T23:52:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f66795cb_5caad147",
       "range": {
         "startLine": 102,
         "startChar": 6,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "7643a650_c12204e6",
+        "filename": "compiler/optimizing/primitive_type_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-03T23:52:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "367ccea3_35b490a8",
+      "range": {
+        "startLine": 160,
+        "startChar": 72,
+        "endLine": 162,
+        "endChar": 25
+      },
+      "revId": "886fdcee2dbfa819eb3add6be0f7e14076e7c2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d685318b_631ffc70",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 7
@@ -128,6 +248,30 @@
       "writtenOn": "2015-11-03T09:46:05Z",
       "side": 1,
       "message": "Can\u0027t this just be run at line 117?",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 32
+      },
+      "revId": "886fdcee2dbfa819eb3add6be0f7e14076e7c2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36204e91_0305ad54",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-03T23:52:19Z",
+      "side": 1,
+      "message": "That\u0027s an interesting point. Let\u0027s see.... Steps 6 and 7 don\u0027t consider/change phi liveness at all. So the question is whether step 8, replacement of phis in environments, is independent of the order or whether it is redundant after this CL.\n\nI think the answer is no, however. \n\nImagine having two phi equivalents - int \u0026 float. Float has an instruction use, int is used in the environment of a BoundsCheck dominating the float use (sounds like that shouldn\u0027t be too difficult to construct). If we run EliminateDeadPhis before step 8, the int equivalent will be removed and the BoundsCheck\u0027s environment will contain null in the respective vreg. If the BoundsCheck causes a deopt, the interpreter will be initialized with the don\u0027t care value. That doesn\u0027t matter since we\u0027ll throw anyway, but imagine wrapping that in try/catch.\n\nI\u0027ve added a test case that does something like that. When I run EliminateDeadPhis before step 8, I can get the runtime to crash during exception delivery.",
+      "parentUuid": "d685318b_631ffc70",
       "range": {
         "startLine": 160,
         "startChar": 0,
