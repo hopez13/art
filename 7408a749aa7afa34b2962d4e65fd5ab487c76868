@@ -70,6 +70,30 @@
       "revId": "7408a749aa7afa34b2962d4e65fd5ab487c76868",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "166509c4_80323ad3",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-03T15:01:52Z",
+      "side": 1,
+      "message": "IIRC, it only works on one of our compilers (gcc or clang).",
+      "parentUuid": "d685318b_4313d826",
+      "range": {
+        "startLine": 396,
+        "startChar": 24,
+        "endLine": 396,
+        "endChar": 43
+      },
+      "revId": "7408a749aa7afa34b2962d4e65fd5ab487c76868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
