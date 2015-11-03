@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5625c29e_b35acf5c",
+        "filename": "test/run-test",
+        "patchSetId": 8
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-03T01:22:44Z",
+      "side": 1,
+      "message": "Nit: Please rephrase this comment. \"We leave it as 2\" makes sense in the context of this patch but not when reading the file as a whole. \"Direct to stderr so usage is not printed if --quiet is set.\".",
+      "range": {
+        "startLine": 616,
+        "startChar": 14,
+        "endLine": 616,
+        "endChar": 59
+      },
+      "revId": "faa507ecd93e597241d917d9b2df5423c8065e5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7643a650_87a411ca",
+        "filename": "test/run-test",
+        "patchSetId": 8
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-03T01:22:44Z",
+      "side": 1,
+      "message": "Leave as was? Other lines (764, 735, 801) use the same thing.",
+      "range": {
+        "startLine": 786,
+        "startChar": 4,
+        "endLine": 786,
+        "endChar": 7
+      },
+      "revId": "faa507ecd93e597241d917d9b2df5423c8065e5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
