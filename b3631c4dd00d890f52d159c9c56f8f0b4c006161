@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "568142c7_f6c940d2",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-03T18:55:10Z",
+      "side": 1,
+      "message": "If -\u003e It",
+      "range": {
+        "startLine": 536,
+        "startChar": 7,
+        "endLine": 536,
+        "endChar": 9
+      },
+      "revId": "b3631c4dd00d890f52d159c9c56f8f0b4c006161",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "367ccea3_9801194a",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-03T18:55:10Z",
+      "side": 1,
+      "message": "Not sure I understand. We lose the non-null information by doing this.",
+      "range": {
+        "startLine": 537,
+        "startChar": 76,
+        "endLine": 538,
+        "endChar": 31
+      },
+      "revId": "b3631c4dd00d890f52d159c9c56f8f0b4c006161",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "367ccea3_b8fe5585",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-03T18:55:10Z",
+      "side": 1,
+      "message": "How about setting the type first, and then if we realize the type has been refined, do the type propagation. That would avoid duplicating the code line 567.",
+      "range": {
+        "startLine": 553,
+        "startChar": 0,
+        "endLine": 562,
+        "endChar": 61
+      },
+      "revId": "b3631c4dd00d890f52d159c9c56f8f0b4c006161",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "968f39ad_61e8d016",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-03T18:55:10Z",
+      "side": 1,
+      "message": "Add a comment why you can end up here.",
+      "range": {
+        "startLine": 119,
+        "startChar": 42,
+        "endLine": 119,
+        "endChar": 81
+      },
+      "revId": "b3631c4dd00d890f52d159c9c56f8f0b4c006161",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
