@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6627eec_ece063eb",
+        "filename": "tools/cpplint.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-03T09:53:30Z",
+      "side": 1,
+      "message": "Please change this to\n\n  android-added\n\nin every place where you only added (not modified nor removed) lines, here and below.",
+      "range": {
+        "startLine": 565,
+        "startChar": 12,
+        "endLine": 565,
+        "endChar": 27
+      },
+      "revId": "a4c521a3f94c83d35eb8ec414e8986b3eabad77e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
