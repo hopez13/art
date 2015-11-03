@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f66795cb_7ca7957e",
+        "filename": "compiler/optimizing/primitive_type_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-03T09:46:05Z",
+      "side": 1,
+      "message": "give an example (int/long?).",
+      "range": {
+        "startLine": 45,
+        "startChar": 32,
+        "endLine": 45,
+        "endChar": 37
+      },
+      "revId": "886fdcee2dbfa819eb3add6be0f7e14076e7c2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "568142c7_b6e748ff",
+        "filename": "compiler/optimizing/primitive_type_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-03T09:46:05Z",
+      "side": 1,
+      "message": "How about reversing the condition and returning true with a comment why it is ok?",
+      "range": {
+        "startLine": 71,
+        "startChar": 2,
+        "endLine": 71,
+        "endChar": 90
+      },
+      "revId": "886fdcee2dbfa819eb3add6be0f7e14076e7c2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "166509c4_e04db6ae",
+        "filename": "compiler/optimizing/primitive_type_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-03T09:46:05Z",
+      "side": 1,
+      "message": "What does this \"return true\" mean at this level? That we haven\u0027t seen any conflicts between the phi and its inputs? Please add a comment.",
+      "range": {
+        "startLine": 95,
+        "startChar": 2,
+        "endLine": 95,
+        "endChar": 13
+      },
+      "revId": "886fdcee2dbfa819eb3add6be0f7e14076e7c2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f66795cb_5caad147",
+        "filename": "compiler/optimizing/primitive_type_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-03T09:46:05Z",
+      "side": 1,
+      "message": "Explain why you don\u0027t need both methods to run.",
+      "range": {
+        "startLine": 102,
+        "startChar": 6,
+        "endLine": 102,
+        "endChar": 55
+      },
+      "revId": "886fdcee2dbfa819eb3add6be0f7e14076e7c2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "367ccea3_35b490a8",
+        "filename": "compiler/optimizing/primitive_type_propagation.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-03T09:46:05Z",
+      "side": 1,
+      "message": "Should you add \"and transitively users of those users\"? Then it\u0027s easier to understand why you need to add to the worklist instead of just marking them dead here.",
+      "range": {
+        "startLine": 160,
+        "startChar": 72,
+        "endLine": 162,
+        "endChar": 25
+      },
+      "revId": "886fdcee2dbfa819eb3add6be0f7e14076e7c2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d685318b_631ffc70",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-03T09:46:05Z",
+      "side": 1,
+      "message": "Can\u0027t this just be run at line 117?",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 32
+      },
+      "revId": "886fdcee2dbfa819eb3add6be0f7e14076e7c2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
