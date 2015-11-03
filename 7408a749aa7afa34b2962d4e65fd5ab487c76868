@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "367ccea3_d5b3dc56",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-03T15:42:04Z",
+      "side": 1,
+      "message": "if",
+      "range": {
+        "startLine": 16,
+        "startChar": 12,
+        "endLine": 16,
+        "endChar": 14
+      },
+      "revId": "7408a749aa7afa34b2962d4e65fd5ab487c76868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "968f39ad_6139b097",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 2
@@ -90,6 +113,29 @@
         "startChar": 24,
         "endLine": 396,
         "endChar": 43
+      },
+      "revId": "7408a749aa7afa34b2962d4e65fd5ab487c76868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f675d6b9_d37c54cb",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-03T15:42:04Z",
+      "side": 1,
+      "message": "Please elaborate on the fact that the modifying thread holds exclusive lock, so other threads cannot iterate (i.e. read the data of the list) at the same time but they do keep iterators that need to remain valid.",
+      "range": {
+        "startLine": 520,
+        "startChar": 0,
+        "endLine": 521,
+        "endChar": 38
       },
       "revId": "7408a749aa7afa34b2962d4e65fd5ab487c76868",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
