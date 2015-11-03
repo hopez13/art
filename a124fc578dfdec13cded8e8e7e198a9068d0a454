@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "968f39ad_41abd45b",
+        "filename": "compiler/common_compiler_test.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-03T11:20:59Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 118,
+        "startChar": 38,
+        "endLine": 118,
+        "endChar": 41
+      },
+      "revId": "a124fc578dfdec13cded8e8e7e198a9068d0a454",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b688bda5_8506c65c",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-03T11:20:59Z",
+      "side": 1,
+      "message": "Why doens\u0027t kForceReadBarrier imply kUseReadBarrier?",
+      "range": {
+        "startLine": 676,
+        "startChar": 6,
+        "endLine": 676,
+        "endChar": 42
+      },
+      "revId": "a124fc578dfdec13cded8e8e7e198a9068d0a454",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "167c2956_65b8e0ac",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-03T11:20:59Z",
+      "side": 1,
+      "message": "Move that one up (otherwise it feels like being applied GetGraph()-\u003eGetBlocks()).",
+      "range": {
+        "startLine": 159,
+        "startChar": 27,
+        "endLine": 159,
+        "endChar": 79
+      },
+      "revId": "a124fc578dfdec13cded8e8e7e198a9068d0a454",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "568142c7_567034e7",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-03T11:20:59Z",
+      "side": 1,
+      "message": "I think we should drop this for now. It will make the implementation much simpler and the review much easier.",
+      "range": {
+        "startLine": 215,
+        "startChar": 37,
+        "endLine": 215,
+        "endChar": 68
+      },
+      "revId": "a124fc578dfdec13cded8e8e7e198a9068d0a454",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "167c2956_0510f462",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-03T11:20:59Z",
+      "side": 1,
+      "message": "What is this? Please add a comment.",
+      "revId": "a124fc578dfdec13cded8e8e7e198a9068d0a454",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "569941f8_dfc5ff97",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-03T11:20:59Z",
+      "side": 1,
+      "message": "is provided.",
+      "range": {
+        "startLine": 414,
+        "startChar": 18,
+        "endLine": 414,
+        "endChar": 26
+      },
+      "revId": "a124fc578dfdec13cded8e8e7e198a9068d0a454",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3694cdc0_a1173ae6",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-03T11:20:59Z",
+      "side": 1,
+      "message": "Maybe just say \" for array accesses...\"",
+      "range": {
+        "startLine": 414,
+        "startChar": 1,
+        "endLine": 416,
+        "endChar": 65
+      },
+      "revId": "a124fc578dfdec13cded8e8e7e198a9068d0a454",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
