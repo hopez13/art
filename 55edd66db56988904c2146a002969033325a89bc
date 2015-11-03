@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d63612de_40996c3b",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-03T23:33:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "569941f8_22ddea41",
+      "range": {
+        "startLine": 785,
+        "startChar": 7,
+        "endLine": 785,
+        "endChar": 35
+      },
+      "revId": "55edd66db56988904c2146a002969033325a89bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d685318b_2325f4c0",
         "filename": "compiler/image_writer.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-03T09:26:33Z",
       "side": 1,
       "message": "IsInBootImageSpace?",
+      "range": {
+        "startLine": 337,
+        "startChar": 7,
+        "endLine": 337,
+        "endChar": 21
+      },
+      "revId": "55edd66db56988904c2146a002969033325a89bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "765c8636_c6d69772",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-03T23:33:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d685318b_2325f4c0",
       "range": {
         "startLine": 337,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "96401a44_7a8e6618",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-03T23:33:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "167b4aaf_74a448c9",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 13
+      },
+      "revId": "55edd66db56988904c2146a002969033325a89bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "568142c7_f6ddc030",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-11-03T09:26:33Z",
       "side": 1,
       "message": "Part of this cl? Otherwise explain why.",
+      "range": {
+        "startLine": 629,
+        "startChar": 0,
+        "endLine": 629,
+        "endChar": 56
+      },
+      "revId": "55edd66db56988904c2146a002969033325a89bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36204e91_e8d3ae28",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-03T23:33:38Z",
+      "side": 1,
+      "message": "There is an assert about image base in the image writer, I should look at the existing image and use that.",
+      "parentUuid": "568142c7_f6ddc030",
       "range": {
         "startLine": 629,
         "startChar": 0,
