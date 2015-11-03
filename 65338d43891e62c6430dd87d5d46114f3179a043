@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "968f39ad_41a03410",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-03T16:39:34Z",
+      "side": 1,
+      "message": "It\u0027s not really enabled/disabled, it\u0027s just that the listener does listen to the event. Calling it AddListenerToIfListening does not sound super great...",
+      "parentUuid": "d63612de_40128c71",
+      "range": {
+        "startLine": 390,
+        "startChar": 12,
+        "endLine": 390,
+        "endChar": 17
+      },
+      "revId": "65338d43891e62c6430dd87d5d46114f3179a043",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5625c29e_96410140",
         "filename": "runtime/instrumentation.h",
         "patchSetId": 3
