@@ -139,6 +139,24 @@
       "revId": "e75373a2228f7c05a353d2a676bffc8efa8cf1dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "166509c4_20588e69",
+        "filename": "tools/cpplint.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 3973,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-03T09:53:30Z",
+      "side": 1,
+      "message": "Maybe move line 3973 before line 3971 to make this change more explicit?  Or use \n\n  BEGIN android-added\n\ninstead?",
+      "parentUuid": "562a227b_a38b883f",
+      "revId": "e75373a2228f7c05a353d2a676bffc8efa8cf1dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
