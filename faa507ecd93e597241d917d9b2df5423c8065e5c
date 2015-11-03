@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d63612de_832c0143",
+        "filename": "test/run-test",
+        "patchSetId": 8
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-03T01:26:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5625c29e_b35acf5c",
+      "range": {
+        "startLine": 616,
+        "startChar": 14,
+        "endLine": 616,
+        "endChar": 59
+      },
+      "revId": "faa507ecd93e597241d917d9b2df5423c8065e5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7643a650_87a411ca",
         "filename": "test/run-test",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-03T01:22:44Z",
       "side": 1,
       "message": "Leave as was? Other lines (764, 735, 801) use the same thing.",
+      "range": {
+        "startLine": 786,
+        "startChar": 4,
+        "endLine": 786,
+        "endChar": 7
+      },
+      "revId": "faa507ecd93e597241d917d9b2df5423c8065e5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7643a650_e72f5dc8",
+        "filename": "test/run-test",
+        "patchSetId": 8
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-03T01:26:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7643a650_87a411ca",
       "range": {
         "startLine": 786,
         "startChar": 4,
