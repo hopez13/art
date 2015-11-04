@@ -281,6 +281,30 @@
       "revId": "886fdcee2dbfa819eb3add6be0f7e14076e7c2e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56af8261_c6d9e24d",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-04T09:25:14Z",
+      "side": 1,
+      "message": "Thanks for the test case. So how about moving step 8 just after step 5, and call EliminateDeadPhis just after this? Then write the comment you just said here.",
+      "parentUuid": "36204e91_0305ad54",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 32
+      },
+      "revId": "886fdcee2dbfa819eb3add6be0f7e14076e7c2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
