@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "d630d214_c2d9424e",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-04T08:36:00Z",
+      "side": 1,
+      "message": "My Eclipse IDE tells me \u0027have_invoke_virtual_or_interface_listeners_\u0027 is not initialized here. Could you please add the initialization too?",
+      "range": {
+        "startLine": 68,
+        "startChar": 17,
+        "endLine": 68,
+        "endChar": 32
+      },
+      "revId": "fe495697081771012f4dfba66e60068646c07e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76df26f3_55ed9ce5",
         "filename": "test/545-tracing-and-jit/src/Main.java",
         "patchSetId": 5
@@ -18,6 +41,53 @@
         "startChar": 18,
         "endLine": 30,
         "endChar": 19
+      },
+      "revId": "fe495697081771012f4dfba66e60068646c07e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "963adaf4_c0077e5d",
+        "filename": "test/545-tracing-and-jit/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-04T08:36:00Z",
+      "side": 1,
+      "message": "Some methods have a 4-spaces indent, others have a 2-spaces indent.\n\nThe Google Java style guide recommends 2 spaces for block indentation (4.2) and 4 spaces for line continuation (4.5.2)",
+      "parentUuid": "76df26f3_55ed9ce5",
+      "range": {
+        "startLine": 30,
+        "startChar": 18,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "fe495697081771012f4dfba66e60068646c07e31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96b57aae_e8d6331b",
+        "filename": "test/545-tracing-and-jit/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-04T08:36:00Z",
+      "side": 1,
+      "message": "Move into the try. It is not covered by the finally so you may not delete the file if that call throws an exception.",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 41
       },
       "revId": "fe495697081771012f4dfba66e60068646c07e31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
