@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "763d66ed_df4e3b40",
+        "filename": "compiler/dex/verified_method.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-04T14:59:23Z",
+      "side": 1,
+      "message": "is not invokable",
+      "range": {
+        "startLine": 317,
+        "startChar": 57,
+        "endLine": 317,
+        "endChar": 68
+      },
+      "revId": "daa80223aea53f07bbb6bc1dc826b743ddc6310d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "763d66ed_1f90a3c1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 1952,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-04T14:59:23Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 1952,
+        "startChar": 2,
+        "endLine": 1952,
+        "endChar": 9
+      },
+      "revId": "daa80223aea53f07bbb6bc1dc826b743ddc6310d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16c34a5c_d4863cf8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 5264,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-04T14:59:23Z",
+      "side": 1,
+      "message": "Not sure I understand: is there a possible bug or can this just be improved later?",
+      "range": {
+        "startLine": 5264,
+        "startChar": 81,
+        "endLine": 5264,
+        "endChar": 90
+      },
+      "revId": "daa80223aea53f07bbb6bc1dc826b743ddc6310d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16c34a5c_f48338e5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 5344,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-04T14:59:23Z",
+      "side": 1,
+      "message": "than",
+      "range": {
+        "startLine": 5344,
+        "startChar": 56,
+        "endLine": 5344,
+        "endChar": 60
+      },
+      "revId": "daa80223aea53f07bbb6bc1dc826b743ddc6310d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6befe8e_29fd2d5e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 5368,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-04T14:59:23Z",
+      "side": 1,
+      "message": "See",
+      "range": {
+        "startLine": 5368,
+        "startChar": 17,
+        "endLine": 5368,
+        "endChar": 19
+      },
+      "revId": "daa80223aea53f07bbb6bc1dc826b743ddc6310d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d659b274_3a7021e7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 5372,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-04T14:59:23Z",
+      "side": 1,
+      "message": "Full stop",
+      "range": {
+        "startLine": 5372,
+        "startChar": 59,
+        "endLine": 5372,
+        "endChar": 64
+      },
+      "revId": "daa80223aea53f07bbb6bc1dc826b743ddc6310d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16c34a5c_947cc4ca",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 762,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-04T14:59:23Z",
+      "side": 1,
+      "message": "Make it a pure enum:\n\n  enum class Type",
+      "range": {
+        "startLine": 762,
+        "startChar": 4,
+        "endLine": 762,
+        "endChar": 13
+      },
+      "revId": "daa80223aea53f07bbb6bc1dc826b743ddc6310d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "763d66ed_3f8be798",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 768,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-04T14:59:23Z",
+      "side": 1,
+      "message": "Not required, more than one argument",
+      "range": {
+        "startLine": 768,
+        "startChar": 4,
+        "endLine": 768,
+        "endChar": 12
+      },
+      "revId": "daa80223aea53f07bbb6bc1dc826b743ddc6310d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16c34a5c_b479c0d9",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-04T14:59:23Z",
+      "side": 1,
+      "message": "ArtMethod* const ?",
+      "range": {
+        "startLine": 771,
+        "startChar": 5,
+        "endLine": 771,
+        "endChar": 14
+      },
+      "revId": "daa80223aea53f07bbb6bc1dc826b743ddc6310d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56af8261_266f9606",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-04T14:59:23Z",
+      "side": 1,
+      "message": "const Type ?",
+      "range": {
+        "startLine": 772,
+        "startChar": 4,
+        "endLine": 772,
+        "endChar": 8
+      },
+      "revId": "daa80223aea53f07bbb6bc1dc826b743ddc6310d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
