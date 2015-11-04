@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "76df26f3_2348e207",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-04T17:22:11Z",
+      "side": 1,
+      "message": "I suppose that is true, there could be some of those classes sneaking into the app image. Seems OK for now, but we may want to avoid this in the future.",
+      "parentUuid": "96b57aae_a8e7dbfe",
+      "range": {
+        "startLine": 785,
+        "startChar": 7,
+        "endLine": 786,
+        "endChar": 24
+      },
+      "revId": "63c61dea8c057d097b6881f9250a5646ceca5409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d630d214_22f2aec7",
         "filename": "compiler/image_test.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-04T09:18:13Z",
       "side": 1,
       "message": "/*compiling_boot_image*/",
+      "range": {
+        "startLine": 92,
+        "startChar": 27,
+        "endLine": 92,
+        "endChar": 31
+      },
+      "revId": "63c61dea8c057d097b6881f9250a5646ceca5409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6bb729e_1393b63f",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-04T17:22:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d630d214_22f2aec7",
       "range": {
         "startLine": 92,
         "startChar": 27,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d6bb729e_33983a59",
+        "filename": "compiler/oat_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-04T17:22:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6ca3638_0bf7fdb7",
+      "range": {
+        "startLine": 114,
+        "startChar": 23,
+        "endLine": 114,
+        "endChar": 28
+      },
+      "revId": "63c61dea8c057d097b6881f9250a5646ceca5409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d630d214_82f73ab6",
         "filename": "test/etc/run-test-jar",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-11-04T09:18:13Z",
       "side": 1,
       "message": "Why just for prebuild?",
+      "range": {
+        "startLine": 370,
+        "startChar": 28,
+        "endLine": 370,
+        "endChar": 33
+      },
+      "revId": "63c61dea8c057d097b6881f9250a5646ceca5409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76df26f3_431ba6fe",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-04T17:22:11Z",
+      "side": 1,
+      "message": "One step at a time, just wanted to get some test coverage.",
+      "parentUuid": "d630d214_82f73ab6",
       "range": {
         "startLine": 370,
         "startChar": 28,
