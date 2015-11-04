@@ -140,6 +140,30 @@
       "revId": "667cb65830dc74136f5f05a8fe9549d561e8a589",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56af8261_a69f061e",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-04T17:07:44Z",
+      "side": 1,
+      "message": "yes, the temp folder, will always be there. Confirmed in init.rc.",
+      "parentUuid": "f6ca3638_eb8391b7",
+      "range": {
+        "startLine": 174,
+        "startChar": 45,
+        "endLine": 174,
+        "endChar": 61
+      },
+      "revId": "667cb65830dc74136f5f05a8fe9549d561e8a589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
