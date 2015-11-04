@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "56c6a231_1795deb1",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3764,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-11-04T17:42:04Z",
+      "side": 1,
+      "message": "Volatile must be done in one move.  This optimization may do a long or double assignment of a constant in 2 moves.  That isn\u0027t legal.  I could further check the value to see if it fits in int32, which would help a bit more, but volatile is quite rare in any case.  I could use RegisterOrInt32LongConstant, but that doesn\u0027t handle FP.",
+      "parentUuid": "76b806a7_e7266295",
+      "range": {
+        "startLine": 3764,
+        "startChar": 8,
+        "endLine": 3764,
+        "endChar": 19
+      },
+      "revId": "b9b3613c61721804d10492cce278221d0fda0298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "963adaf4_403d2ea0",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 3
@@ -59,6 +83,30 @@
       "writtenOn": "2015-11-04T17:35:31Z",
       "side": 1,
       "message": "Why can\u0027t you use RegisterOrInt32LongConstant?",
+      "range": {
+        "startLine": 3771,
+        "startChar": 37,
+        "endLine": 3771,
+        "endChar": 54
+      },
+      "revId": "b9b3613c61721804d10492cce278221d0fda0298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16a98a5f_18ff55d1",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3771,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-11-04T17:42:04Z",
+      "side": 1,
+      "message": "I will do that.",
+      "parentUuid": "d630d214_4241b23c",
       "range": {
         "startLine": 3771,
         "startChar": 37,
