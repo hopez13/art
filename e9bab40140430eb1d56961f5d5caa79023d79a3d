@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16d0aae3_bbddd35f",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-04T17:27:09Z",
+      "side": 1,
+      "message": "This does take a lock, maybe that would regress the interpreter too much?",
+      "range": {
+        "startLine": 103,
+        "startChar": 26,
+        "endLine": 103,
+        "endChar": 40
+      },
+      "revId": "e9bab40140430eb1d56961f5d5caa79023d79a3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
