@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "96b57aae_e8c953d2",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-04T18:11:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56c6a231_5764c6c9",
+      "range": {
+        "startLine": 86,
+        "startChar": 18,
+        "endLine": 86,
+        "endChar": 24
+      },
+      "revId": "e9bab40140430eb1d56961f5d5caa79023d79a3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56c6a231_7769c2a0",
         "filename": "runtime/jit/jit_instrumentation.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d630d214_a2319ee8",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-04T18:11:02Z",
+      "side": 1,
+      "message": "Yes, it\u0027s at line 85 already.",
+      "parentUuid": "56c6a231_7769c2a0",
+      "range": {
+        "startLine": 91,
+        "startChar": 13,
+        "endLine": 91,
+        "endChar": 53
+      },
+      "revId": "e9bab40140430eb1d56961f5d5caa79023d79a3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16d0aae3_bbddd35f",
         "filename": "runtime/jit/jit_instrumentation.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-11-04T17:27:09Z",
       "side": 1,
       "message": "This does take a lock, maybe that would regress the interpreter too much?",
+      "range": {
+        "startLine": 103,
+        "startChar": 26,
+        "endLine": 103,
+        "endChar": 40
+      },
+      "revId": "e9bab40140430eb1d56961f5d5caa79023d79a3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16c34a5c_7482c8b8",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-04T18:11:02Z",
+      "side": 1,
+      "message": "Good point, we should avoid it. I\u0027ve rewritten the code to now remove the listener at shutdown, so entering this method ensures thread pool cannot be null.",
+      "parentUuid": "16d0aae3_bbddd35f",
       "range": {
         "startLine": 103,
         "startChar": 26,
