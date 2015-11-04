@@ -22,6 +22,30 @@
       "revId": "9b982391c5d4a60e7e4d458d561f51c0927ffd0d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "763d66ed_9f3153e9",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2102,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-04T15:00:57Z",
+      "side": 1,
+      "message": "Thanks for reporting this!  Indeed, I had moved this code (loading the hidden argument) in PS4 on x86-64 after the read barrier because the register where the hidden argument was loaded (RAX on x86-64) was clobbered by the read barrier slow path.\n\nI did not think this issue could happen with XMM7 on x86, so I did not move that code for this target.  This is fixed in PS15.",
+      "parentUuid": "36c12e1a_6d5335c0",
+      "range": {
+        "startLine": 2102,
+        "startChar": 12,
+        "endLine": 2102,
+        "endChar": 16
+      },
+      "revId": "9b982391c5d4a60e7e4d458d561f51c0927ffd0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
