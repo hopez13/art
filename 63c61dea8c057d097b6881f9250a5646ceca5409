@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96b57aae_a8e7dbfe",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-04T09:18:13Z",
+      "side": 1,
+      "message": "-\u003e Classes not in the boot image must be in the app image.\n\nActually is that true? could that descriptor be part of the boot classpath but not in the boot image?",
+      "range": {
+        "startLine": 785,
+        "startChar": 7,
+        "endLine": 786,
+        "endChar": 24
+      },
+      "revId": "63c61dea8c057d097b6881f9250a5646ceca5409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d630d214_22f2aec7",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-04T09:18:13Z",
+      "side": 1,
+      "message": "/*compiling_boot_image*/",
+      "range": {
+        "startLine": 92,
+        "startChar": 27,
+        "endLine": 92,
+        "endChar": 31
+      },
+      "revId": "63c61dea8c057d097b6881f9250a5646ceca5409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6ca3638_0bf7fdb7",
+        "filename": "compiler/oat_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-04T09:18:13Z",
+      "side": 1,
+      "message": "/*compiling_boot_image*/",
+      "range": {
+        "startLine": 114,
+        "startChar": 23,
+        "endLine": 114,
+        "endChar": 28
+      },
+      "revId": "63c61dea8c057d097b6881f9250a5646ceca5409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d630d214_82f73ab6",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 2
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-04T09:18:13Z",
+      "side": 1,
+      "message": "Why just for prebuild?",
+      "range": {
+        "startLine": 370,
+        "startChar": 28,
+        "endLine": 370,
+        "endChar": 33
+      },
+      "revId": "63c61dea8c057d097b6881f9250a5646ceca5409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
