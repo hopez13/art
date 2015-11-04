@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "56af8261_668eee18",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-04T13:56:16Z",
+      "side": 1,
+      "message": "You got me confused here, \u003c is correct.\n\nThis just defines ordering and std::is_sorted() allows equal elements. The comparison is\n\n  if (cmp(next, prev)) { return false; }",
+      "parentUuid": "763d66ed_7f228f95",
+      "range": {
+        "startLine": 68,
+        "startChar": 20,
+        "endLine": 68,
+        "endChar": 21
+      },
+      "revId": "5a0aa0bb7c7fee9db9063d31395a1c22967ded62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36c12e1a_b05896d6",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 6
