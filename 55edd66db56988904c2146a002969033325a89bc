@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "56c6a231_37feda23",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-04T17:22:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d630d214_c24e62bb",
+      "range": {
+        "startLine": 69,
+        "startChar": 54,
+        "endLine": 70,
+        "endChar": 74
+      },
+      "revId": "55edd66db56988904c2146a002969033325a89bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6ca3638_cb63351d",
         "filename": "compiler/image_writer.h",
         "patchSetId": 1
@@ -83,6 +107,30 @@
       "writtenOn": "2015-11-04T14:17:42Z",
       "side": 1,
       "message": "IsInAppImage()? Given the different requirements of boot and app images, we should pedantically rename everything that could create confusion.",
+      "range": {
+        "startLine": 86,
+        "startChar": 33,
+        "endLine": 86,
+        "endChar": 47
+      },
+      "revId": "55edd66db56988904c2146a002969033325a89bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76df26f3_c3ef9617",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-04T17:22:11Z",
+      "side": 1,
+      "message": "Already added IsInBootImage.",
+      "parentUuid": "f6ca3638_cb63351d",
       "range": {
         "startLine": 86,
         "startChar": 33,
