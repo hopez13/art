@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16c34a5c_b48380b8",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-04T20:20:17Z",
+      "side": 1,
+      "message": "Outdated name. With IsBootImage(), the first part of the comment can be dropped.",
+      "range": {
+        "startLine": 785,
+        "startChar": 7,
+        "endLine": 785,
+        "endChar": 14
+      },
+      "revId": "213154cab1a85ff0248eba1a7d65102deb218012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6befe8e_c96d71dc",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-04T20:20:17Z",
+      "side": 1,
+      "message": "I guess you can get away with this radical change because all callers first check IsBootImage()?",
+      "range": {
+        "startLine": 787,
+        "startChar": 4,
+        "endLine": 787,
+        "endChar": 15
+      },
+      "revId": "213154cab1a85ff0248eba1a7d65102deb218012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76b806a7_c730fec5",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2106,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-04T20:20:17Z",
+      "side": 1,
+      "message": "I would break the line here, not at the ||.",
+      "range": {
+        "startLine": 2106,
+        "startChar": 33,
+        "endLine": 2106,
+        "endChar": 34
+      },
+      "revId": "213154cab1a85ff0248eba1a7d65102deb218012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d659b274_faa22967",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-04T20:20:17Z",
+      "side": 1,
+      "message": "Remove the trailing underscore.",
+      "range": {
+        "startLine": 95,
+        "startChar": 32,
+        "endLine": 95,
+        "endChar": 33
+      },
+      "revId": "213154cab1a85ff0248eba1a7d65102deb218012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d630d214_82f9fa3c",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-04T20:20:17Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 345,
+        "startChar": 38,
+        "endLine": 345,
+        "endChar": 43
+      },
+      "revId": "213154cab1a85ff0248eba1a7d65102deb218012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76b806a7_c7579ed7",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1361,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-04T20:20:17Z",
+      "side": 1,
+      "message": "So the app image will be right after the boot.oat?",
+      "range": {
+        "startLine": 1361,
+        "startChar": 8,
+        "endLine": 1361,
+        "endChar": 97
+      },
+      "revId": "213154cab1a85ff0248eba1a7d65102deb218012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
