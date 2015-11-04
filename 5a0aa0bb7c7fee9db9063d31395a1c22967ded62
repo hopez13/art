@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "b6befe8e_c9e011ec",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-04T10:08:52Z",
+      "side": 1,
+      "message": "Add a kConstant for this.",
+      "range": {
+        "startLine": 288,
+        "startChar": 23,
+        "endLine": 288,
+        "endChar": 25
+      },
+      "revId": "5a0aa0bb7c7fee9db9063d31395a1c22967ded62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56af8261_66f26ec9",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-04T10:08:52Z",
+      "side": 1,
+      "message": "why the need now?",
+      "range": {
+        "startLine": 300,
+        "startChar": 2,
+        "endLine": 300,
+        "endChar": 10
+      },
+      "revId": "5a0aa0bb7c7fee9db9063d31395a1c22967ded62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "963adaf4_00596682",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-04T10:08:52Z",
+      "side": 1,
+      "message": "SetEnabled(enabled)",
+      "range": {
+        "startLine": 309,
+        "startChar": 0,
+        "endLine": 312,
+        "endChar": 5
+      },
+      "revId": "5a0aa0bb7c7fee9db9063d31395a1c22967ded62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6befe8e_89ea19c8",
+        "filename": "compiler/utils/assembler.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-04T10:08:52Z",
+      "side": 1,
+      "message": "ReleaseStreamAndPrepareForDelayedAdvancePC?",
+      "range": {
+        "startLine": 312,
+        "startChar": 65,
+        "endLine": 312,
+        "endChar": 76
+      },
+      "revId": "5a0aa0bb7c7fee9db9063d31395a1c22967ded62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36c12e1a_10c08a4e",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 6
