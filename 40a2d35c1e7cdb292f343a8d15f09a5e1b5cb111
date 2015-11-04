@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6923665_6e4a0faa",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-04T21:50:46Z",
+      "side": 1,
+      "message": "R2+ only and available IFF codegen_-\u003eGetInstructionSetFeatures().IsMipsIsaRevGreaterThanEqual2() is true. You need a version for when it\u0027s false (pre-R2).",
+      "range": {
+        "startLine": 240,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 21
+      },
+      "revId": "40a2d35c1e7cdb292f343a8d15f09a5e1b5cb111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76a726c0_b2fffe1b",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-04T21:50:46Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 246,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 22
+      },
+      "revId": "40a2d35c1e7cdb292f343a8d15f09a5e1b5cb111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36892e3b_301946c8",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-04T21:50:46Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 254,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 25
+      },
+      "revId": "40a2d35c1e7cdb292f343a8d15f09a5e1b5cb111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
