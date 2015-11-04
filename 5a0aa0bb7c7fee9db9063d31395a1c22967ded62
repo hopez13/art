@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "56af8261_c64ec2bb",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-04T12:25:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6befe8e_c9e011ec",
+      "range": {
+        "startLine": 288,
+        "startChar": 23,
+        "endLine": 288,
+        "endChar": 25
+      },
+      "revId": "5a0aa0bb7c7fee9db9063d31395a1c22967ded62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56af8261_66f26ec9",
         "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-04T10:08:52Z",
       "side": 1,
       "message": "why the need now?",
+      "range": {
+        "startLine": 300,
+        "startChar": 2,
+        "endLine": 300,
+        "endChar": 10
+      },
+      "revId": "5a0aa0bb7c7fee9db9063d31395a1c22967ded62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16c34a5c_54c06c4f",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-04T12:25:12Z",
+      "side": 1,
+      "message": "This constructor _can_ be called with a single argument, so it should be explicit. The fact that lint ignores the default argument and misses this case is no justification to leave out the \"explicit\".",
+      "parentUuid": "56af8261_66f26ec9",
       "range": {
         "startLine": 300,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "76b806a7_875d2659",
+        "filename": "compiler/dwarf/debug_frame_opcode_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-04T12:25:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "963adaf4_00596682",
+      "range": {
+        "startLine": 309,
+        "startChar": 0,
+        "endLine": 312,
+        "endChar": 5
+      },
+      "revId": "5a0aa0bb7c7fee9db9063d31395a1c22967ded62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6befe8e_89ea19c8",
         "filename": "compiler/utils/assembler.h",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2015-11-04T10:08:52Z",
       "side": 1,
       "message": "ReleaseStreamAndPrepareForDelayedAdvancePC?",
+      "range": {
+        "startLine": 312,
+        "startChar": 65,
+        "endLine": 312,
+        "endChar": 76
+      },
+      "revId": "5a0aa0bb7c7fee9db9063d31395a1c22967ded62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96b57aae_48897f0d",
+        "filename": "compiler/utils/assembler.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-04T12:25:12Z",
+      "side": 1,
+      "message": "Done. You really like very very long function names.",
+      "parentUuid": "b6befe8e_89ea19c8",
       "range": {
         "startLine": 312,
         "startChar": 65,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "763d66ed_7f228f95",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-04T12:25:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36c12e1a_10c08a4e",
+      "range": {
+        "startLine": 68,
+        "startChar": 20,
+        "endLine": 68,
+        "endChar": 21
+      },
+      "revId": "5a0aa0bb7c7fee9db9063d31395a1c22967ded62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36c12e1a_b05896d6",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 6
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "d659b274_7af739b7",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-04T12:25:12Z",
+      "side": 1,
+      "message": "No, this part comes before any adjust pc whether from normal code or EmitBranches(). It is emitted for pc\u003d0 and it is currently empty.",
+      "parentUuid": "36c12e1a_b05896d6",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 62
+      },
+      "revId": "5a0aa0bb7c7fee9db9063d31395a1c22967ded62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16d0aae3_8040a689",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 6
@@ -151,6 +295,30 @@
       "writtenOn": "2015-11-04T01:59:00Z",
       "side": 1,
       "message": "This assumes that the selected entry should be followed by the entry immediately adjacent to it in the vector. Shouldn\u0027t we also calculate the next entry using the same (somewhat complicated) logic as in the above to calculate entry? Essentially, the next iteration of the loop will calculate this next entry for us, but it will be too late.",
+      "range": {
+        "startLine": 97,
+        "startChar": 73,
+        "endLine": 97,
+        "endChar": 83
+      },
+      "revId": "5a0aa0bb7c7fee9db9063d31395a1c22967ded62",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "763d66ed_9f6af3c0",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-04T12:25:12Z",
+      "side": 1,
+      "message": "This is the piece of the stream that is tied to this pc. It doesn\u0027t matter whether the next advance was in-order or out-of-order. And while the pcs here can be split into two monotonic ranges, the stream positions are monotonic for the whole range.",
+      "parentUuid": "16d0aae3_8040a689",
       "range": {
         "startLine": 97,
         "startChar": 73,
