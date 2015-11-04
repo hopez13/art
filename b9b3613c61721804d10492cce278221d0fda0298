@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76b806a7_e7266295",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3764,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-04T17:35:31Z",
+      "side": 1,
+      "message": "Add a comment why you special case volatile.",
+      "range": {
+        "startLine": 3764,
+        "startChar": 8,
+        "endLine": 3764,
+        "endChar": 19
+      },
+      "revId": "b9b3613c61721804d10492cce278221d0fda0298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "963adaf4_403d2ea0",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3770,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-04T17:35:31Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3770,
+        "startChar": 8,
+        "endLine": 3770,
+        "endChar": 19
+      },
+      "revId": "b9b3613c61721804d10492cce278221d0fda0298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d630d214_4241b23c",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3771,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-04T17:35:31Z",
+      "side": 1,
+      "message": "Why can\u0027t you use RegisterOrInt32LongConstant?",
+      "range": {
+        "startLine": 3771,
+        "startChar": 37,
+        "endLine": 3771,
+        "endChar": 54
+      },
+      "revId": "b9b3613c61721804d10492cce278221d0fda0298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
