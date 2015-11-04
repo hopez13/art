@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b69d1e72_5493223e",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-04T21:37:17Z",
+      "side": 1,
+      "message": "Unnecessary. Branches to labels get their delay/forbidden slot filled on MIPS32 (currently with NOPs).",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 11
+      },
+      "revId": "19cfcdf2b0c33d64195245d7dfcefa754c3c8250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36892e3b_6da055c3",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-04T21:37:17Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 11
+      },
+      "revId": "19cfcdf2b0c33d64195245d7dfcefa754c3c8250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36892e3b_ad815d22",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-04T21:37:17Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 11
+      },
+      "revId": "19cfcdf2b0c33d64195245d7dfcefa754c3c8250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d683721b_8a848b33",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-04T21:37:17Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 11
+      },
+      "revId": "19cfcdf2b0c33d64195245d7dfcefa754c3c8250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "568ea242_31af8ac0",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-04T21:37:17Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 11
+      },
+      "revId": "19cfcdf2b0c33d64195245d7dfcefa754c3c8250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b69d1e72_947caaca",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-04T21:37:17Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 11
+      },
+      "revId": "19cfcdf2b0c33d64195245d7dfcefa754c3c8250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1698aa84_efdd1d5f",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-04T21:37:17Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 11
+      },
+      "revId": "19cfcdf2b0c33d64195245d7dfcefa754c3c8250",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
