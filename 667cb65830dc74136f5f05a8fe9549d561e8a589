@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "56af8261_86a20a67",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-04T17:05:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56af8261_c698023b",
+      "range": {
+        "startLine": 7,
+        "startChar": 20,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "667cb65830dc74136f5f05a8fe9549d561e8a589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6befe8e_697805a8",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d659b274_fa0b4937",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-04T17:05:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6befe8e_697805a8",
+      "range": {
+        "startLine": 9,
+        "startChar": 8,
+        "endLine": 9,
+        "endChar": 14
+      },
+      "revId": "667cb65830dc74136f5f05a8fe9549d561e8a589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76b806a7_e7ff421b",
         "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-11-04T17:02:30Z",
       "side": 1,
       "message": "Is that guaranteed to be here?",
+      "range": {
+        "startLine": 174,
+        "startChar": 45,
+        "endLine": 174,
+        "endChar": 61
+      },
+      "revId": "667cb65830dc74136f5f05a8fe9549d561e8a589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6ca3638_eb8391b7",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-04T17:05:31Z",
+      "side": 1,
+      "message": "Yes, should be. But I need to confirm it as well.",
+      "parentUuid": "76b806a7_e7ff421b",
       "range": {
         "startLine": 174,
         "startChar": 45,
