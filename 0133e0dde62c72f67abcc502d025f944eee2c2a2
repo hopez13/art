@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b637de6a_c1fba2a1",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4207,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-05T10:29:11Z",
+      "side": 1,
+      "message": "You\u0027ve dropped the long in a constant here?",
+      "range": {
+        "startLine": 4207,
+        "startChar": 34,
+        "endLine": 4207,
+        "endChar": 50
+      },
+      "revId": "0133e0dde62c72f67abcc502d025f944eee2c2a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b637de6a_61e176ed",
+        "filename": "compiler/optimizing/locations.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-05T10:29:11Z",
+      "side": 1,
+      "message": "constant !\u003d nullptr",
+      "range": {
+        "startLine": 53,
+        "startChar": 6,
+        "endLine": 53,
+        "endChar": 14
+      },
+      "revId": "0133e0dde62c72f67abcc502d025f944eee2c2a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6127ed6_c93f5107",
+        "filename": "compiler/optimizing/locations.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-05T10:29:11Z",
+      "side": 1,
+      "message": "constant !\u003d nullptr",
+      "range": {
+        "startLine": 64,
+        "startChar": 6,
+        "endLine": 64,
+        "endChar": 14
+      },
+      "revId": "0133e0dde62c72f67abcc502d025f944eee2c2a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
