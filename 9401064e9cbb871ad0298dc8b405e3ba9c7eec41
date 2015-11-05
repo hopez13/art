@@ -22,6 +22,30 @@
       "revId": "9401064e9cbb871ad0298dc8b405e3ba9c7eec41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6127ed6_6936252a",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-05T13:44:29Z",
+      "side": 1,
+      "message": "The RoundUp is not required and it never was.  The whole non-linear scaling was just over-optimization.",
+      "parentUuid": "b65c3e65_cd57a9d7",
+      "range": {
+        "startLine": 463,
+        "startChar": 6,
+        "endLine": 463,
+        "endChar": 35
+      },
+      "revId": "9401064e9cbb871ad0298dc8b405e3ba9c7eec41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
