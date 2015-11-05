@@ -22,6 +22,30 @@
       "revId": "6bf6e438cd4746effce0b26d504c54100191c988",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e42a25_ac92e338",
+        "filename": "test/455-set-vreg/set_vreg_jni.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-05T10:51:03Z",
+      "side": 0,
+      "message": "Actually, the SetVRegFromDebugger was meant to be used by the debugger only :)\n\nBut I don\u0027t see anything debugger-specific in the code. Maybe we should also rename it SetVReg then (and remove the old SetVReg)",
+      "parentUuid": "d60ff2af_4ad7d317",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 40
+      },
+      "revId": "6bf6e438cd4746effce0b26d504c54100191c988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

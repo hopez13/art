@@ -22,6 +22,30 @@
       "revId": "097a90bd0a918f67fc0a5e6b6e60e76bb484921d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e42a25_8c972729",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-05T10:51:03Z",
+      "side": 1,
+      "message": "Yeah, I realized that lately. At the moment, the debugger is the only user of the SetVReg... API (the GC updates the pointer directly without going through this API IIRC).\n\nThis would also remove the SetVRegFromQuickCode btw.",
+      "parentUuid": "b637de6a_61dad643",
+      "range": {
+        "startLine": 489,
+        "startChar": 0,
+        "endLine": 507,
+        "endChar": 1
+      },
+      "revId": "097a90bd0a918f67fc0a5e6b6e60e76bb484921d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
