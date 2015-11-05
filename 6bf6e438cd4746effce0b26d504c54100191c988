@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d60ff2af_4ad7d317",
+        "filename": "test/455-set-vreg/set_vreg_jni.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-05T10:14:20Z",
+      "side": 0,
+      "message": "We should change this test to SetVRegFromDebugger and make this test pass for optimizing (see Android.run-test.mk:463)",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 40
+      },
+      "revId": "6bf6e438cd4746effce0b26d504c54100191c988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

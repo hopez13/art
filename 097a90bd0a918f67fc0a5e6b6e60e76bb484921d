@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b637de6a_61dad643",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-05T10:14:20Z",
+      "side": 1,
+      "message": "Do we still need this? It\u0027s unsupported for optimizing, so if it\u0027s only tests using it, I think we should just remove it.",
+      "range": {
+        "startLine": 489,
+        "startChar": 0,
+        "endLine": 507,
+        "endChar": 1
+      },
+      "revId": "097a90bd0a918f67fc0a5e6b6e60e76bb484921d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
