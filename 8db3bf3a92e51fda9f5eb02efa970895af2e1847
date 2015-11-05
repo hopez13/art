@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "760c86c0_87970629",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1319,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-05T11:25:23Z",
+      "side": 1,
+      "message": "nit: parens",
+      "range": {
+        "startLine": 1319,
+        "startChar": 29,
+        "endLine": 1319,
+        "endChar": 50
+      },
+      "revId": "8db3bf3a92e51fda9f5eb02efa970895af2e1847",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e42a25_2c5ef353",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-05T11:25:23Z",
+      "side": 1,
+      "message": "bits: parens",
+      "range": {
+        "startLine": 1226,
+        "startChar": 28,
+        "endLine": 1226,
+        "endChar": 47
+      },
+      "revId": "8db3bf3a92e51fda9f5eb02efa970895af2e1847",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b637de6a_e13a6619",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1192,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-05T11:25:23Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1192,
+        "startChar": 27,
+        "endLine": 1192,
+        "endChar": 48
+      },
+      "revId": "8db3bf3a92e51fda9f5eb02efa970895af2e1847",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
