@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "568ea242_55695ba0",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-11-05T21:57:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56c6a231_14487c07",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 19
+      },
+      "revId": "e0e8dacc8fa80e6083c5a6b1efa67f520bcdb902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b65c3e65_626f8c05",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "76a726c0_e42f00c8",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-11-05T21:57:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b65c3e65_626f8c05",
+      "range": {
+        "startLine": 408,
+        "startChar": 0,
+        "endLine": 422,
+        "endChar": 1
+      },
+      "revId": "e0e8dacc8fa80e6083c5a6b1efa67f520bcdb902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6bb729e_10c64c1d",
         "filename": "compiler/utils/mips/assembler_mips.h",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-11-04T03:46:08Z",
       "side": 1,
       "message": "Move to between Nor() and Bitswap().",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 39
+      },
+      "revId": "e0e8dacc8fa80e6083c5a6b1efa67f520bcdb902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1698aa84_c9e776d0",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-11-05T21:57:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6bb729e_10c64c1d",
       "range": {
         "startLine": 165,
         "startChar": 0,
