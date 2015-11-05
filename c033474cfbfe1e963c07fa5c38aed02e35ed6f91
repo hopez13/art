@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6345268_62dad643",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-05T10:24:11Z",
+      "side": 1,
+      "message": "This is more than just checking a Contains property. And I\u0027m not sure I understand the name, are we talking about a class loaded by the boot class loader? And whether the app image should contain it?",
+      "range": {
+        "startLine": 581,
+        "startChar": 19,
+        "endLine": 581,
+        "endChar": 54
+      },
+      "revId": "c033474cfbfe1e963c07fa5c38aed02e35ed6f91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36fe8ebd_85fb82a2",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-05T10:24:11Z",
+      "side": 1,
+      "message": "What static fields? Are the class intialized at dex2oat time? Who does that?",
+      "range": {
+        "startLine": 600,
+        "startChar": 0,
+        "endLine": 600,
+        "endChar": 43
+      },
+      "revId": "c033474cfbfe1e963c07fa5c38aed02e35ed6f91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d60ff2af_2ad49f10",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-05T10:24:11Z",
+      "side": 1,
+      "message": "So if you have:\n\nclass  A {\n  static Class a \u003d A.class;\n}\n\nor:\n\nclass A {\n  static Object a \u003d new A();\n}\n\nWe won\u0027t put A in the image space?",
+      "range": {
+        "startLine": 611,
+        "startChar": 0,
+        "endLine": 611,
+        "endChar": 82
+      },
+      "revId": "c033474cfbfe1e963c07fa5c38aed02e35ed6f91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36fe8ebd_65e1a6ed",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-05T10:24:11Z",
+      "side": 1,
+      "message": "-\u003e Cache the boot image space in this class for faster lookups.",
+      "range": {
+        "startLine": 397,
+        "startChar": 5,
+        "endLine": 397,
+        "endChar": 39
+      },
+      "revId": "c033474cfbfe1e963c07fa5c38aed02e35ed6f91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36fe8ebd_45deaa2d",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-05T10:24:11Z",
+      "side": 1,
+      "message": "A bit more comments please?",
+      "range": {
+        "startLine": 435,
+        "startChar": 5,
+        "endLine": 435,
+        "endChar": 34
+      },
+      "revId": "c033474cfbfe1e963c07fa5c38aed02e35ed6f91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
