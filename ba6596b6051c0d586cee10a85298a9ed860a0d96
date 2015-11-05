@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "568ea242_c27912d9",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-05T01:56:41Z",
+      "side": 1,
+      "message": "Thanks, sorry for leaving this in.",
+      "parentUuid": "568ea242_d78636f8",
+      "range": {
+        "startLine": 58,
+        "startChar": 5,
+        "endLine": 58,
+        "endChar": 11
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d69a9277_389051c2",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-05T00:27:01Z",
       "side": 1,
       "message": "Why not just use the constructor?",
+      "range": {
+        "startLine": 890,
+        "startChar": 24,
+        "endLine": 890,
+        "endChar": 30
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d69a9277_fb8de3e4",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-05T01:56:41Z",
+      "side": 1,
+      "message": "That is using the constructor, it\u0027s pretty much the same thing as doing hs(self).",
+      "parentUuid": "d69a9277_389051c2",
       "range": {
         "startLine": 890,
         "startChar": 24,
@@ -117,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "b69d1e72_171c3cf8",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-05T01:56:41Z",
+      "side": 1,
+      "message": "4 is probably right",
+      "parentUuid": "96a49abb_d64474fa",
+      "range": {
+        "startLine": 929,
+        "startChar": 5,
+        "endLine": 929,
+        "endChar": 12
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d683721b_edb4410f",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 2
@@ -151,6 +223,30 @@
       "writtenOn": "2015-11-05T00:27:01Z",
       "side": 1,
       "message": "I think we prefer ATTRIBUTE_UNUSED. Also what do you mean by delete the class?",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 8
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b69d1e72_970f4cb7",
+        "filename": "runtime/lambda/box_class_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-05T01:56:41Z",
+      "side": 1,
+      "message": "I left this boilerplate code just in case I need to call anything else manually to say that it was \"now safe to delete the class\" (i.e. to drop the reference)\n\nI was initially envisioning it to hold weak reference to the classes, but since it\u0027s now storing strong references it probably never needs to worry about it.",
+      "parentUuid": "d683721b_6d77711e",
       "range": {
         "startLine": 35,
         "startChar": 2,
@@ -278,6 +374,30 @@
     },
     {
       "key": {
+        "uuid": "b69d1e72_5716c4d7",
+        "filename": "runtime/lambda/box_class_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-05T01:56:41Z",
+      "side": 1,
+      "message": "Yeah I had them line up (across multiple fields) in another file that I copied/pasted this from. I\u0027ll fix it.",
+      "parentUuid": "b69d1e72_f72c18d6",
+      "range": {
+        "startLine": 110,
+        "startChar": 19,
+        "endLine": 110,
+        "endChar": 54
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36892e3b_536a5cf6",
         "filename": "runtime/lambda/box_table.cc",
         "patchSetId": 2
@@ -289,6 +409,30 @@
       "writtenOn": "2015-11-05T00:27:01Z",
       "side": 1,
       "message": "This means that class_loader may be a stale pointer.",
+      "range": {
+        "startLine": 117,
+        "startChar": 8,
+        "endLine": 117,
+        "endChar": 29
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36892e3b_93e84414",
+        "filename": "runtime/lambda/box_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-05T01:56:41Z",
+      "side": 1,
+      "message": "Ok, I\u0027ll move this to under line 127",
+      "parentUuid": "36892e3b_536a5cf6",
       "range": {
         "startLine": 117,
         "startChar": 8,
