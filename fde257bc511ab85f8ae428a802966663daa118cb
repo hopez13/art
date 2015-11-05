@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b69d1e72_b75e10c3",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1072808
+      },
+      "writtenOn": "2015-11-05T01:45:01Z",
+      "side": 1,
+      "message": "Elements array is not the first field in dex_cache_resolved_types_, at least length_ field before the elements array. Why set offset to 0?",
+      "range": {
+        "startLine": 819,
+        "startChar": 11,
+        "endLine": 819,
+        "endChar": 12
+      },
+      "revId": "fde257bc511ab85f8ae428a802966663daa118cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56c6a231_77a462c9",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 1072808
+      },
+      "writtenOn": "2015-11-05T01:45:01Z",
+      "side": 1,
+      "message": "Hi, element of thread local allocation stack is StackReference (32bit),why store 64bit data to thread_local_alloc_stack_top?",
+      "revId": "fde257bc511ab85f8ae428a802966663daa118cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
