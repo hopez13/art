@@ -1,0 +1,418 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "568ea242_d78636f8",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-05T00:27:01Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 58,
+        "startChar": 5,
+        "endLine": 58,
+        "endChar": 11
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d69a9277_389051c2",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-05T00:27:01Z",
+      "side": 1,
+      "message": "Why not just use the constructor?",
+      "range": {
+        "startLine": 890,
+        "startChar": 24,
+        "endLine": 890,
+        "endChar": 30
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96a49abb_56316498",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 911,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-05T00:27:01Z",
+      "side": 1,
+      "message": "Use CHECK instead of log fatal here?",
+      "range": {
+        "startLine": 911,
+        "startChar": 10,
+        "endLine": 911,
+        "endChar": 38
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b686fe2b_8f9e59d4",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-05T00:27:01Z",
+      "side": 1,
+      "message": "And here",
+      "range": {
+        "startLine": 917,
+        "startChar": 10,
+        "endLine": 917,
+        "endChar": 39
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96a49abb_d64474fa",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-05T00:27:01Z",
+      "side": 1,
+      "message": "I thought the correct indentation here was 4, is 8 actually right?",
+      "range": {
+        "startLine": 929,
+        "startChar": 5,
+        "endLine": 929,
+        "endChar": 12
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d683721b_edb4410f",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 930,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-05T00:27:01Z",
+      "side": 1,
+      "message": "AssertPendingException",
+      "range": {
+        "startLine": 930,
+        "startChar": 6,
+        "endLine": 930,
+        "endChar": 40
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d683721b_6d77711e",
+        "filename": "runtime/lambda/box_class_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-05T00:27:01Z",
+      "side": 1,
+      "message": "I think we prefer ATTRIBUTE_UNUSED. Also what do you mean by delete the class?",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 8
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d683721b_d0bc74e1",
+        "filename": "runtime/lambda/box_class_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-05T00:27:01Z",
+      "side": 1,
+      "message": "That is safe.",
+      "range": {
+        "startLine": 86,
+        "startChar": 9,
+        "endLine": 86,
+        "endChar": 13
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b69d1e72_1770bce6",
+        "filename": "runtime/lambda/box_class_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-05T00:27:01Z",
+      "side": 1,
+      "message": "You don\u0027t need to manually free heap objects. Having the destructor be completely empty seems OK with me.",
+      "range": {
+        "startLine": 106,
+        "startChar": 4,
+        "endLine": 106,
+        "endChar": 15
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6923665_91eafc99",
+        "filename": "runtime/lambda/box_class_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-05T00:27:01Z",
+      "side": 1,
+      "message": "You can just leave this uncommented, it works with NO_THREAD_SAFETY_ANALYSIS",
+      "range": {
+        "startLine": 84,
+        "startChar": 36,
+        "endLine": 84,
+        "endChar": 76
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "568ea242_f79fb21c",
+        "filename": "runtime/lambda/box_class_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-05T00:27:01Z",
+      "side": 1,
+      "message": "2 spaces",
+      "range": {
+        "startLine": 101,
+        "startChar": 22,
+        "endLine": 101,
+        "endChar": 24
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b69d1e72_f72c18d6",
+        "filename": "runtime/lambda/box_class_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-05T00:27:01Z",
+      "side": 1,
+      "message": "Strange indentation",
+      "range": {
+        "startLine": 110,
+        "startChar": 19,
+        "endLine": 110,
+        "endChar": 54
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36892e3b_536a5cf6",
+        "filename": "runtime/lambda/box_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-05T00:27:01Z",
+      "side": 1,
+      "message": "This means that class_loader may be a stale pointer.",
+      "range": {
+        "startLine": 117,
+        "startChar": 8,
+        "endLine": 117,
+        "endChar": 29
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b69d1e72_3775c0d7",
+        "filename": "runtime/lambda/box_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-05T00:27:01Z",
+      "side": 1,
+      "message": "Is indenting the GUARDED_BY required?",
+      "range": {
+        "startLine": 145,
+        "startChar": 19,
+        "endLine": 145,
+        "endChar": 61
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b686fe2b_0fc0a9a0",
+        "filename": "runtime/lambda/shorty_field_type.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-05T00:27:01Z",
+      "side": 1,
+      "message": "Indentation",
+      "range": {
+        "startLine": 316,
+        "startChar": 3,
+        "endLine": 318,
+        "endChar": 2
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1698aa84_db581f81",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-05T00:27:01Z",
+      "side": 1,
+      "message": "What is the point of these parens?",
+      "range": {
+        "startLine": 369,
+        "startChar": 27,
+        "endLine": 369,
+        "endChar": 45
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6923665_b1953801",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-05T00:27:01Z",
+      "side": 1,
+      "message": "Extra spaace",
+      "range": {
+        "startLine": 53,
+        "startChar": 66,
+        "endLine": 53,
+        "endChar": 67
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "568ea242_772742a4",
+        "filename": "runtime/native/java_lang_reflect_Method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-05T00:27:01Z",
+      "side": 1,
+      "message": "Line too long now.",
+      "range": {
+        "startLine": 82,
+        "startChar": 97,
+        "endLine": 82,
+        "endChar": 109
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
