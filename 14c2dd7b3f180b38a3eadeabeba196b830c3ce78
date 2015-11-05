@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "96a49abb_591c37a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-05T05:36:08Z",
+      "side": 1,
+      "message": "This is the new message. I added \"and makes the following change:\" after the above \"This reverts ...\".",
+      "parentUuid": "760e462a_40aeffa9",
+      "range": {
+        "startLine": 11,
+        "startChar": 13,
+        "endLine": 11,
+        "endChar": 21
+      },
+      "revId": "14c2dd7b3f180b38a3eadeabeba196b830c3ce78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "161fca56_ca08ec3d",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-03T00:48:44Z",
       "side": 1,
       "message": "document output parameter; below the name out_is_finalizable is used",
+      "range": {
+        "startLine": 216,
+        "startChar": 27,
+        "endLine": 216,
+        "endChar": 28
+      },
+      "revId": "14c2dd7b3f180b38a3eadeabeba196b830c3ce78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1698aa84_1b162729",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-05T05:36:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "161fca56_ca08ec3d",
       "range": {
         "startLine": 216,
         "startChar": 27,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "96a49abb_794adba9",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-05T05:36:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "765c8636_73a44bc9",
+      "range": {
+        "startLine": 141,
+        "startChar": 51,
+        "endLine": 141,
+        "endChar": 62
+      },
+      "revId": "14c2dd7b3f180b38a3eadeabeba196b830c3ce78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "367ccea3_950b2439",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "36d5ae33_4dded92d",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-05T05:36:08Z",
+      "side": 1,
+      "message": "I redid the logic. Now each merge (or loop head) will make sure stores in predecessors are kept if the merge generates kUnknownHeapValue.",
+      "parentUuid": "367ccea3_950b2439",
+      "range": {
+        "startLine": 547,
+        "startChar": 0,
+        "endLine": 547,
+        "endChar": 34
+      },
+      "revId": "14c2dd7b3f180b38a3eadeabeba196b830c3ce78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7643a650_ec0982b1",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2015-11-03T00:48:44Z",
       "side": 1,
       "message": "Just curious, do we make any hard guarantees on calling finalize()? Without knowing more on the inner workings of our system, this test feels a bit fragile?",
+      "range": {
+        "startLine": 520,
+        "startChar": 28,
+        "endLine": 520,
+        "endChar": 31
+      },
+      "revId": "14c2dd7b3f180b38a3eadeabeba196b830c3ce78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b69d1e72_f7209878",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-05T05:36:08Z",
+      "side": 1,
+      "message": "I copied this code pattern from a libcore test. I don\u0027t think finalize() has strong guarantees. But this is good enough for internal testing.",
+      "parentUuid": "7643a650_ec0982b1",
       "range": {
         "startLine": 520,
         "startChar": 28,
