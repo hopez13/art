@@ -281,6 +281,30 @@
       "revId": "213154cab1a85ff0248eba1a7d65102deb218012",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b69d1e72_f755f845",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1361,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-05T00:04:23Z",
+      "side": 1,
+      "message": "Align by page size, for safety? (Not sure that all the important sections at the end are always page-size aligned in our oat files) At least add a DCHECK.",
+      "parentUuid": "36892e3b_3075c6d7",
+      "range": {
+        "startLine": 1361,
+        "startChar": 8,
+        "endLine": 1361,
+        "endChar": 97
+      },
+      "revId": "213154cab1a85ff0248eba1a7d65102deb218012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
