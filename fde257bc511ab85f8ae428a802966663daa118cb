@@ -49,6 +49,46 @@
     },
     {
       "key": {
+        "uuid": "f6ca3638_ebc951d2",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-05T10:55:43Z",
+      "side": 1,
+      "message": "Insert a comment why we don\u0027t need any synchronization on x86.",
+      "revId": "fde257bc511ab85f8ae428a802966663daa118cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6f796df_6308826f",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-05T10:55:43Z",
+      "side": 1,
+      "message": "Use %rcx instead and reorder the code below to update THREAD_LOCAL_ALLOC_STACK_TOP_OFFSET(%r8) as the first thing at \"point of no slow path\". That way you can reuse %rcx instead of reloading ROSALLOC_SLOT_NEXT_OFFSET(%rax) into %rdx.",
+      "range": {
+        "startLine": 832,
+        "startChar": 11,
+        "endLine": 832,
+        "endChar": 57
+      },
+      "revId": "fde257bc511ab85f8ae428a802966663daa118cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56c6a231_77a462c9",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 1
@@ -78,6 +118,29 @@
       "side": 1,
       "message": "Yes, it seems like a bug.",
       "parentUuid": "56c6a231_77a462c9",
+      "revId": "fde257bc511ab85f8ae428a802966663daa118cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6345268_22eb6ecf",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 883,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-05T10:55:43Z",
+      "side": 1,
+      "message": "dec (ROSALLOC_RUN_FREE_LIST_OFFSET + ROSALLOC_RUN_FREE_LIST_SIZE_OFFSET)(%r9)",
+      "range": {
+        "startLine": 881,
+        "startChar": 0,
+        "endLine": 883,
+        "endChar": 90
+      },
       "revId": "fde257bc511ab85f8ae428a802966663daa118cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
