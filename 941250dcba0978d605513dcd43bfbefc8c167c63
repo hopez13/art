@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b686fe2b_43aa7a47",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-11-05T21:54:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6bb729e_b03bc0c5",
+      "range": {
+        "startLine": 301,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 22
+      },
+      "revId": "941250dcba0978d605513dcd43bfbefc8c167c63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6bb729e_50284476",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f6923665_8571d67a",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-11-05T21:54:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6bb729e_50284476",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 25
+      },
+      "revId": "941250dcba0978d605513dcd43bfbefc8c167c63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6335e1f_070dfa14",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-11-04T05:27:26Z",
       "side": 1,
       "message": "[Just a comment, not necessarily something actionable.]\nThis will generate over 128 bytes of code. Perhaps, an implementation with a loop of 3 iterations would be more balanced in terms of code size vs performance.",
+      "range": {
+        "startLine": 339,
+        "startChar": 0,
+        "endLine": 371,
+        "endChar": 33
+      },
+      "revId": "941250dcba0978d605513dcd43bfbefc8c167c63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "568ea242_55423b22",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-11-05T21:54:00Z",
+      "side": 1,
+      "message": "Noted but, per our discussion, will leave until we have a chance to do benchmarking.",
+      "parentUuid": "b6335e1f_070dfa14",
       "range": {
         "startLine": 339,
         "startChar": 0,
