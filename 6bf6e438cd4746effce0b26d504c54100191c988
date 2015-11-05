@@ -46,6 +46,30 @@
       "revId": "6bf6e438cd4746effce0b26d504c54100191c988",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6f796df_23028a4d",
+        "filename": "test/455-set-vreg/set_vreg_jni.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-05T10:58:04Z",
+      "side": 0,
+      "message": "Renaming SetVRegFromDebugger to SetVReg and removing the SetVReg sound good to me.",
+      "parentUuid": "16e42a25_ac92e338",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 40
+      },
+      "revId": "6bf6e438cd4746effce0b26d504c54100191c988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
