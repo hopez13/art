@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "1698aa84_fdbce8e0",
+        "filename": "compiler/optimizing/common_dominator_finder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-06T17:59:56Z",
+      "side": 1,
+      "message": "I\u0027m not a fan of future use claims. I\u0027d prefer if you kept it simple (the algorithm can be written as FindCommonDominator and DominatorChainLength helper functions) and later modified it, or used straight away.\n\nI take it that means you want to keep a CommonDominatorFinder instance per block in the ComputeDominanceInformation function to save one ChainLength call and some equalize iterations. But then you\u0027re trading back speed for space. It would be good to get some numbers on that, perhaps focusing mainly on the pathological cases, to find the right balance.",
+      "parentUuid": "56030291_a6b9e63c",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 10
+      },
+      "revId": "ea7b702783baaa433e2ae188d69091ff1fc1dd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6127ed6_69b4e53f",
         "filename": "compiler/optimizing/common_dominator_finder.h",
         "patchSetId": 2
