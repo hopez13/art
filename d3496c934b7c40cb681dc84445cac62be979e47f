@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d60ff2af_4aca33c8",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-06T13:48:06Z",
+      "side": 1,
+      "message": "not sure how this got here...",
+      "parentUuid": "d630d214_e29f261d",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 64
+      },
+      "revId": "d3496c934b7c40cb681dc84445cac62be979e47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96b57aae_883a17a2",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-06T11:36:53Z",
       "side": 1,
       "message": "Does it matter?",
+      "range": {
+        "startLine": 102,
+        "startChar": 2,
+        "endLine": 102,
+        "endChar": 8
+      },
+      "revId": "d3496c934b7c40cb681dc84445cac62be979e47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6345268_a2477ef7",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-06T13:48:06Z",
+      "side": 1,
+      "message": "obsolete",
+      "parentUuid": "96b57aae_883a17a2",
       "range": {
         "startLine": 102,
         "startChar": 2,
