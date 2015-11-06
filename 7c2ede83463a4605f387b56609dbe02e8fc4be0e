@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96a49abb_57af9bbe",
+        "filename": "runtime/simulator/code_simulator_arm64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1076443
+      },
+      "writtenOn": "2015-11-06T08:56:49Z",
+      "side": 1,
+      "message": "We don\u0027t need this any more with VIXL 1.11.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 50
+      },
+      "revId": "7c2ede83463a4605f387b56609dbe02e8fc4be0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d69a9277_4f7d42ff",
+        "filename": "runtime/simulator/code_simulator_arm64.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1076443
+      },
+      "writtenOn": "2015-11-06T08:56:49Z",
+      "side": 1,
+      "message": "Same as above.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 51
+      },
+      "revId": "7c2ede83463a4605f387b56609dbe02e8fc4be0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
