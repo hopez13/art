@@ -472,6 +472,30 @@
     },
     {
       "key": {
+        "uuid": "b6127ed6_8cfba7a2",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-06T20:43:28Z",
+      "side": 1,
+      "message": "Even if we don\u0027t actually use exceptions, it neatly documents the ownership.",
+      "parentUuid": "b637de6a_a41b0caf",
+      "range": {
+        "startLine": 318,
+        "startChar": 4,
+        "endLine": 318,
+        "endChar": 12
+      },
+      "revId": "548a7d3cec5e5832865a24adc22a48f5176c9715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760c86c0_e71b6200",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 1
