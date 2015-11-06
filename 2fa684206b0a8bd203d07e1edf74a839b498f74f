@@ -22,6 +22,30 @@
       "revId": "2fa684206b0a8bd203d07e1edf74a839b498f74f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56030291_e6bfde1f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-06T12:46:43Z",
+      "side": 0,
+      "message": "How do you want to stack-allocate the variable-size vector?\n\n(Usually, this would be an 8 byte allocation per call but it would be more for methods with high number of blocks - exactly those that eat most memory and make most calls here.)",
+      "parentUuid": "56030291_c6dd0295",
+      "range": {
+        "startLine": 198,
+        "startChar": 2,
+        "endLine": 198,
+        "endChar": 16
+      },
+      "revId": "2fa684206b0a8bd203d07e1edf74a839b498f74f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

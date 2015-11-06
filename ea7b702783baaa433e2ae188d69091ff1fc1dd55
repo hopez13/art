@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "56030291_a6b9e63c",
+        "filename": "compiler/optimizing/common_dominator_finder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-06T12:46:43Z",
+      "side": 1,
+      "message": "No, this is exactly as intended even if it\u0027s not yet fully used in this CL.",
+      "parentUuid": "760c86c0_27f3ba08",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 10
+      },
+      "revId": "ea7b702783baaa433e2ae188d69091ff1fc1dd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6127ed6_69b4e53f",
         "filename": "compiler/optimizing/common_dominator_finder.h",
         "patchSetId": 2
@@ -59,6 +83,30 @@
       "writtenOn": "2015-11-06T11:57:18Z",
       "side": 1,
       "message": "I find it slightly hard to read the code with block and block2 names.",
+      "range": {
+        "startLine": 40,
+        "startChar": 7,
+        "endLine": 40,
+        "endChar": 13
+      },
+      "revId": "ea7b702783baaa433e2ae188d69091ff1fc1dd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d60ff2af_eabfa71f",
+        "filename": "compiler/optimizing/common_dominator_finder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-06T12:46:43Z",
+      "side": 1,
+      "message": "We\u0027re working with two interchangeable blocks here, so what else would you name them?",
+      "parentUuid": "b6127ed6_69b4e53f",
       "range": {
         "startLine": 40,
         "startChar": 7,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "96173ad8_f8ca1172",
+        "filename": "compiler/optimizing/common_dominator_finder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-06T12:46:43Z",
+      "side": 1,
+      "message": "That\u0027s purely a matter of style. Note that the !\u003d nullptr is enforced throughout this function, so I find an extra DCHECK(dominator_ !\u003d nullptr) at the end unnecessary.",
+      "parentUuid": "d6345268_c235e285",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 46,
+        "endChar": 5
+      },
+      "revId": "ea7b702783baaa433e2ae188d69091ff1fc1dd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6127ed6_c9c4f1b6",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 2
@@ -105,6 +177,30 @@
       "writtenOn": "2015-11-06T11:57:18Z",
       "side": 1,
       "message": "I find it hard to understand this comment. Could you try rephrase it?",
+      "range": {
+        "startLine": 183,
+        "startChar": 8,
+        "endLine": 185,
+        "endChar": 67
+      },
+      "revId": "ea7b702783baaa433e2ae188d69091ff1fc1dd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e42a25_2f594583",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-06T12:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6127ed6_c9c4f1b6",
       "range": {
         "startLine": 183,
         "startChar": 8,
