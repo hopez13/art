@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6345268_a5a8e89d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1946,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T16:12:51Z",
+      "side": 1,
+      "message": "Add a comment that we need to update the use node of inputs after the current method, as the index has changed.",
+      "range": {
+        "startLine": 1946,
+        "startChar": 0,
+        "endLine": 1946,
+        "endChar": 70
+      },
+      "revId": "1d881019916a68aedb3ce4673901bbbc6e1911ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56030291_a6cc46b5",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1958,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T16:12:51Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1955,
+        "startChar": 0,
+        "endLine": 1958,
+        "endChar": 3
+      },
+      "revId": "1d881019916a68aedb3ce4673901bbbc6e1911ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96173ad8_981bd5af",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3423,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T16:12:51Z",
+      "side": 1,
+      "message": "This seems like we moved from an optimized version to an unoptimized. Does this actually happen? Should you DCHECK that it does not instead?",
+      "range": {
+        "startLine": 3423,
+        "startChar": 15,
+        "endLine": 3423,
+        "endChar": 70
+      },
+      "revId": "1d881019916a68aedb3ce4673901bbbc6e1911ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
