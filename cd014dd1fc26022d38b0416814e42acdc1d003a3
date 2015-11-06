@@ -16,6 +16,627 @@
       "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56030291_86626aba",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "pointers :( How about using the block header id?",
+      "range": {
+        "startLine": 515,
+        "startChar": 22,
+        "endLine": 515,
+        "endChar": 38
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e42a25_aff655b8",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 518,
+        "startChar": 22,
+        "endLine": 518,
+        "endChar": 38
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b637de6a_41ab12dd",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "Maybe add a comment that we are going to use this HDeoptimize to refine the range of the length?",
+      "range": {
+        "startLine": 1101,
+        "startChar": 0,
+        "endLine": 1101,
+        "endChar": 39
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "760c86c0_673bf27a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1122,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "Explain why there are such restrictions.",
+      "range": {
+        "startLine": 1122,
+        "startChar": 6,
+        "endLine": 1122,
+        "endChar": 64
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "760c86c0_4738ee7b",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1206,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "const\u0026?",
+      "range": {
+        "startLine": 1206,
+        "startChar": 27,
+        "endLine": 1206,
+        "endChar": 39
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "760c86c0_2745faf3",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "isn\u0027t that the reverse? \"Use analysis for static bce only if loop is finite\"",
+      "range": {
+        "startLine": 1224,
+        "startChar": 27,
+        "endLine": 1224,
+        "endChar": 60
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d61d32f8_7adef92d",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1231,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "we try",
+      "range": {
+        "startLine": 1231,
+        "startChar": 66,
+        "endLine": 1231,
+        "endChar": 84
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56030291_66588e09",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1232,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "by adding?",
+      "range": {
+        "startLine": 1232,
+        "startChar": 34,
+        "endLine": 1232,
+        "endChar": 45
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6127ed6_69862584",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1233,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "will?",
+      "range": {
+        "startLine": 1233,
+        "startChar": 17,
+        "endLine": 1233,
+        "endChar": 20
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e42a25_6fe18ded",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1237,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "HBoundsCheck?",
+      "range": {
+        "startLine": 1237,
+        "startChar": 21,
+        "endLine": 1237,
+        "endChar": 33
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b637de6a_613bb67a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1245,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "line too long",
+      "range": {
+        "startLine": 1245,
+        "startChar": 100,
+        "endLine": 1245,
+        "endChar": 102
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d60ff2af_aa5d2ffc",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1251,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "this sounds too generic. Maybe be more precise: \"or ... if we know the the lower bound of upper.",
+      "range": {
+        "startLine": 1251,
+        "startChar": 12,
+        "endLine": 1251,
+        "endChar": 28
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36fe8ebd_8514a21d",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "Update the comment line 1250 that it\u0027s actually:\nif (lower \u003e upper) deopt;\nif (upper \u003e\u003d length) deopt",
+      "range": {
+        "startLine": 1257,
+        "startChar": 0,
+        "endLine": 1260,
+        "endChar": 90
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6127ed6_49836172",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1284,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "How about doing this in a follow-up cl?",
+      "range": {
+        "startLine": 1283,
+        "startChar": 0,
+        "endLine": 1284,
+        "endChar": 88
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9609fab1_0b8441ed",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1317,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 1317,
+        "startChar": 0,
+        "endLine": 1317,
+        "endChar": 48
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e42a25_0fe8c9ce",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1319,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "As a side effect, this will put the (obj \u003d\u003d null) deopt instruction. You\u0027re doing the CanHandleLength line 1247 as the last check, so you\u0027re fine, but still, this looks brittle.",
+      "range": {
+        "startLine": 1319,
+        "startChar": 0,
+        "endLine": 1319,
+        "endChar": 75
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d61d32f8_da1385a7",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1335,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 1335,
+        "startChar": 0,
+        "endLine": 1335,
+        "endChar": 47
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6127ed6_097d6949",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1351,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "can?",
+      "range": {
+        "startLine": 1351,
+        "startChar": 30,
+        "endLine": 1351,
+        "endChar": 43
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b637de6a_a1477ef7",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1352,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 1352,
+        "startChar": 80,
+        "endLine": 1352,
+        "endChar": 90
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d60ff2af_6a585709",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1354,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "in",
+      "range": {
+        "startLine": 1354,
+        "startChar": 67,
+        "endLine": 1354,
+        "endChar": 69
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d60ff2af_4a5593cd",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1357,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "line too long",
+      "range": {
+        "startLine": 1357,
+        "startChar": 100,
+        "endLine": 1357,
+        "endChar": 101
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6345268_62cdf6dd",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1362,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "Can a loop be somehow changed from finite to infinite? If not, we could put that flag in the HLoopInformation.",
+      "range": {
+        "startLine": 1359,
+        "startChar": 0,
+        "endLine": 1362,
+        "endChar": 7
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6345268_42d47268",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1389,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "I think it always has. Did you see cases it did not?",
+      "range": {
+        "startLine": 1389,
+        "startChar": 0,
+        "endLine": 1389,
+        "endChar": 36
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d60ff2af_aa940fb6",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1466,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "Also explain why you ended up in that situation. An example might help.",
+      "range": {
+        "startLine": 1465,
+        "startChar": 0,
+        "endLine": 1466,
+        "endChar": 72
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d60ff2af_6a9f37d2",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1509,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "This looks misplaced.",
+      "range": {
+        "startLine": 1506,
+        "startChar": 2,
+        "endLine": 1509,
+        "endChar": 25
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56030291_c68f42a1",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1544,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "const\u0026?",
+      "range": {
+        "startLine": 1544,
+        "startChar": 2,
+        "endLine": 1544,
+        "endChar": 22
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d61d32f8_5a08d56e",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T10:56:26Z",
+      "side": 1,
+      "message": "Add a comment what you want to achieve with this?",
+      "range": {
+        "startLine": 556,
+        "startChar": 6,
+        "endLine": 556,
+        "endChar": 11
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
