@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "d69a9277_921bd1fd",
+        "filename": "compiler/optimizing/common_dominator_finder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-06T18:28:35Z",
+      "side": 1,
+      "message": "Nit: May I suggest a change of naming that would emphasize that this computes a common dominator for an arbitrary-sized set of blocks:\n - class: CommonDominator\n - static CommonDominator: ForPair\n - instance CommonDominator: just Get, or GetCommonDominator\n - instance Update: AddBlock",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 27
+      },
+      "revId": "ea7b702783baaa433e2ae188d69091ff1fc1dd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760c86c0_27f3ba08",
         "filename": "compiler/optimizing/common_dominator_finder.h",
         "patchSetId": 2
@@ -120,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "1698aa84_5d75fcd5",
+        "filename": "compiler/optimizing/common_dominator_finder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-06T18:28:35Z",
+      "side": 1,
+      "message": "Okay, I see your motivation now. I thought you were gonna keep blocks.size() array of these in ComputeDominatorInformation.",
+      "parentUuid": "b637de6a_644f44b8",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 10
+      },
+      "revId": "ea7b702783baaa433e2ae188d69091ff1fc1dd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6127ed6_69b4e53f",
         "filename": "compiler/optimizing/common_dominator_finder.h",
         "patchSetId": 2
@@ -155,6 +202,30 @@
       "side": 1,
       "message": "We\u0027re working with two interchangeable blocks here, so what else would you name them?",
       "parentUuid": "b6127ed6_69b4e53f",
+      "range": {
+        "startLine": 40,
+        "startChar": 7,
+        "endLine": 40,
+        "endChar": 13
+      },
+      "revId": "ea7b702783baaa433e2ae188d69091ff1fc1dd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b686fe2b_55c5cfaf",
+        "filename": "compiler/optimizing/common_dominator_finder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-06T18:28:35Z",
+      "side": 1,
+      "message": "+1. How about \u0027new_block\u0027 for the parameter and \u0027old_dominator\u0027 for the other one.",
+      "parentUuid": "d60ff2af_eabfa71f",
       "range": {
         "startLine": 40,
         "startChar": 7,
