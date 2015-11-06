@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d61d32f8_5ada1543",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T09:30:03Z",
+      "side": 1,
+      "message": "Why does the app image bother with them?",
+      "parentUuid": "568ea242_6b22f695",
+      "range": {
+        "startLine": 581,
+        "startChar": 19,
+        "endLine": 581,
+        "endChar": 54
+      },
+      "revId": "c033474cfbfe1e963c07fa5c38aed02e35ed6f91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36fe8ebd_85fb82a2",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 6
