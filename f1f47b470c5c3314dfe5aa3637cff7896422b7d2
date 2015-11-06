@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "760c86c0_0a567b51",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-06T20:43:28Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 413,
+        "startChar": 18,
+        "endLine": 413,
+        "endChar": 46
+      },
+      "revId": "f1f47b470c5c3314dfe5aa3637cff7896422b7d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d61d32f8_da594542",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-06T20:43:28Z",
+      "side": 1,
+      "message": "Also log output_offset_ and byte_count. Move the output_offset_ update after the write.",
+      "range": {
+        "startLine": 460,
+        "startChar": 8,
+        "endLine": 460,
+        "endChar": 59
+      },
+      "revId": "f1f47b470c5c3314dfe5aa3637cff7896422b7d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d60ff2af_4a823327",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-06T20:43:28Z",
+      "side": 1,
+      "message": "Add UNREACHABLE().",
+      "revId": "f1f47b470c5c3314dfe5aa3637cff7896422b7d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56030291_e677de1e",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-06T20:43:28Z",
+      "side": 1,
+      "message": "Also log offset, whence and output_offset_. Prepare the expected offset above but store it in output_offset_ only after the seek.\n\nYou can also DCHECK() on success that expected offset equals the result of the Seek().",
+      "range": {
+        "startLine": 483,
+        "startChar": 8,
+        "endLine": 483,
+        "endChar": 53
+      },
+      "revId": "f1f47b470c5c3314dfe5aa3637cff7896422b7d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
