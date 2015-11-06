@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "16e42a25_2f0ca54f",
+        "filename": "compiler/dwarf/headers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-06T20:12:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d61d32f8_dad625e8",
+      "range": {
+        "startLine": 83,
+        "startChar": 14,
+        "endLine": 83,
+        "endChar": 55
+      },
+      "revId": "548a7d3cec5e5832865a24adc22a48f5176c9715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76df26f3_c358f6d7",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "https://android-review.googlesource.com/180422 moved .dydsym, .dynstr, .hash after .rodata, .text, [.bss].",
       "parentUuid": "76df26f3_c358f6d7",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 2
+      },
+      "revId": "548a7d3cec5e5832865a24adc22a48f5176c9715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d61d32f8_bafc9162",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-06T20:12:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9609fab1_cbdbc90f",
       "range": {
         "startLine": 35,
         "startChar": 0,
@@ -118,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "56030291_66108ed8",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-06T20:12:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b65c3e65_6d713d78",
+      "range": {
+        "startLine": 57,
+        "startChar": 8,
+        "endLine": 57,
+        "endChar": 11
+      },
+      "revId": "548a7d3cec5e5832865a24adc22a48f5176c9715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d61d32f8_3aff2184",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 1
@@ -129,6 +201,30 @@
       "writtenOn": "2015-11-06T15:38:30Z",
       "side": 1,
       "message": "I think we shouldn\u0027t even try to write (or seek) if we have a prior failure.",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 29
+      },
+      "revId": "548a7d3cec5e5832865a24adc22a48f5176c9715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6127ed6_29e14d1c",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-06T20:12:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d61d32f8_3aff2184",
       "range": {
         "startLine": 163,
         "startChar": 0,
@@ -164,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "16e42a25_6f6e2dd9",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-06T20:12:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d61d32f8_fa2689f8",
+      "range": {
+        "startLine": 192,
+        "startChar": 9,
+        "endLine": 192,
+        "endChar": 22
+      },
+      "revId": "548a7d3cec5e5832865a24adc22a48f5176c9715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16e42a25_2f5ee553",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 1
@@ -175,6 +295,30 @@
       "writtenOn": "2015-11-06T15:38:30Z",
       "side": 1,
       "message": "I\u0027d prefer this to be done by an explicit call to Write(). (Start() shouldn\u0027t be virtual.)\n\nThe Write() below should D/CHECK() that the first call is for an empty name.",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 213,
+        "endChar": 26
+      },
+      "revId": "548a7d3cec5e5832865a24adc22a48f5176c9715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e42a25_4f6b71c7",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-06T20:12:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16e42a25_2f5ee553",
       "range": {
         "startLine": 210,
         "startChar": 0,
@@ -210,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "760c86c0_8a494bb6",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-06T20:12:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56030291_0659dad9",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 31
+      },
+      "revId": "548a7d3cec5e5832865a24adc22a48f5176c9715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6345268_42ab12dd",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 1
@@ -221,6 +389,30 @@
       "writtenOn": "2015-11-06T15:38:30Z",
       "side": 1,
       "message": "Fits on a single line. Same several times below.",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 40
+      },
+      "revId": "548a7d3cec5e5832865a24adc22a48f5176c9715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e42a25_2f6825c8",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-06T20:12:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6345268_42ab12dd",
       "range": {
         "startLine": 266,
         "startChar": 0,
@@ -256,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "b637de6a_a41b0caf",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-06T20:12:20Z",
+      "side": 1,
+      "message": "Done.  But why?  Exception safety? :-)",
+      "parentUuid": "b6127ed6_e9bfb51f",
+      "range": {
+        "startLine": 318,
+        "startChar": 4,
+        "endLine": 318,
+        "endChar": 12
+      },
+      "revId": "548a7d3cec5e5832865a24adc22a48f5176c9715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760c86c0_e71b6200",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 1
@@ -267,6 +483,30 @@
       "writtenOn": "2015-11-06T15:38:30Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 328,
+        "startChar": 4,
+        "endLine": 328,
+        "endChar": 14
+      },
+      "revId": "548a7d3cec5e5832865a24adc22a48f5176c9715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96173ad8_58645d25",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-06T20:12:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "760c86c0_e71b6200",
       "range": {
         "startLine": 328,
         "startChar": 4,
@@ -302,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "b6127ed6_0cd1f720",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-06T20:12:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6345268_e2902676",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 335,
+        "endChar": 5
+      },
+      "revId": "548a7d3cec5e5832865a24adc22a48f5176c9715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6127ed6_e9269561",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 1
@@ -319,6 +583,24 @@
     },
     {
       "key": {
+        "uuid": "9609fab1_4b9c79db",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-06T20:12:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6127ed6_e9269561",
+      "revId": "548a7d3cec5e5832865a24adc22a48f5176c9715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6345268_424232ed",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 1
@@ -330,6 +612,24 @@
       "writtenOn": "2015-11-06T15:38:30Z",
       "side": 1,
       "message": "Flush()?",
+      "revId": "548a7d3cec5e5832865a24adc22a48f5176c9715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6127ed6_ecec63ec",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-06T20:12:20Z",
+      "side": 1,
+      "message": "OutputStream does not have a Flush method.\nI was also surprised.",
+      "parentUuid": "d6345268_424232ed",
       "revId": "548a7d3cec5e5832865a24adc22a48f5176c9715",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -359,6 +659,30 @@
     },
     {
       "key": {
+        "uuid": "b637de6a_c42090dd",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-06T20:12:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d61d32f8_7a335938",
+      "range": {
+        "startLine": 450,
+        "startChar": 42,
+        "endLine": 450,
+        "endChar": 47
+      },
+      "revId": "548a7d3cec5e5832865a24adc22a48f5176c9715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6127ed6_495fe1c0",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 1
@@ -370,6 +694,30 @@
       "writtenOn": "2015-11-06T15:38:30Z",
       "side": 1,
       "message": "Interleaving this with the other headers prevents merging. It should be in its own loop.",
+      "range": {
+        "startLine": 617,
+        "startChar": 0,
+        "endLine": 631,
+        "endChar": 9
+      },
+      "revId": "548a7d3cec5e5832865a24adc22a48f5176c9715",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d60ff2af_8a9f0b82",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-06T20:12:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6127ed6_495fe1c0",
       "range": {
         "startLine": 617,
         "startChar": 0,
