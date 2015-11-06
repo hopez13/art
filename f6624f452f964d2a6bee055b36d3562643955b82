@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "f6923665_d70e2f4a",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-06T02:46:04Z",
+      "side": 1,
+      "message": "// R6",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 53
+      },
+      "revId": "f6624f452f964d2a6bee055b36d3562643955b82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36892e3b_42dc4008",
         "filename": "compiler/utils/mips/assembler_mips.h",
         "patchSetId": 2
@@ -36,6 +59,29 @@
       "writtenOn": "2015-11-06T02:41:40Z",
       "side": 1,
       "message": "These don\u0027t belong in the middle of branch-related instructions, please move to before seleqz/selnez.",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 51
+      },
+      "revId": "f6624f452f964d2a6bee055b36d3562643955b82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "568ea242_8e15701b",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-06T02:46:04Z",
+      "side": 1,
+      "message": "// R2",
       "range": {
         "startLine": 187,
         "startChar": 0,
