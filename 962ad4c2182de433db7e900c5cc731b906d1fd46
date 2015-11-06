@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d60ff2af_0aa0bb5d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T11:36:53Z",
+      "side": 1,
+      "message": "not so much, you\u0027re just going to fill it.",
+      "range": {
+        "startLine": 560,
+        "startChar": 42,
+        "endLine": 560,
+        "endChar": 49
+      },
+      "revId": "962ad4c2182de433db7e900c5cc731b906d1fd46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "760c86c0_0759d6d9",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T11:36:53Z",
+      "side": 1,
+      "message": "extra line",
+      "revId": "962ad4c2182de433db7e900c5cc731b906d1fd46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b637de6a_c103a29a",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T11:36:53Z",
+      "side": 1,
+      "message": "Just use a buffer stream that dumps at every 4096 or what not? I was sort of assuming the default ::read and ::write would do this for you, or maybe some other stl data structure.",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 28
+      },
+      "revId": "962ad4c2182de433db7e900c5cc731b906d1fd46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d60ff2af_ea71e77c",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T11:36:53Z",
+      "side": 1,
+      "message": "We already have a class named like this.",
+      "range": {
+        "startLine": 58,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 21
+      },
+      "revId": "962ad4c2182de433db7e900c5cc731b906d1fd46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d61d32f8_9a442d9d",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T11:36:53Z",
+      "side": 1,
+      "message": "Not so much, you\u0027re going to fill it.",
+      "range": {
+        "startLine": 60,
+        "startChar": 42,
+        "endLine": 60,
+        "endChar": 45
+      },
+      "revId": "962ad4c2182de433db7e900c5cc731b906d1fd46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d61d32f8_ba49f1b5",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T11:36:53Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 8
+      },
+      "revId": "962ad4c2182de433db7e900c5cc731b906d1fd46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "760c86c0_c7f97eed",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T11:36:53Z",
+      "side": 1,
+      "message": "directory",
+      "range": {
+        "startLine": 574,
+        "startChar": 47,
+        "endLine": 574,
+        "endChar": 50
+      },
+      "revId": "962ad4c2182de433db7e900c5cc731b906d1fd46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6345268_e226e661",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T11:36:53Z",
+      "side": 1,
+      "message": "use?",
+      "range": {
+        "startLine": 574,
+        "startChar": 27,
+        "endLine": 574,
+        "endChar": 30
+      },
+      "revId": "962ad4c2182de433db7e900c5cc731b906d1fd46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6127ed6_09d44967",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T11:36:53Z",
+      "side": 1,
+      "message": "exist",
+      "range": {
+        "startLine": 576,
+        "startChar": 15,
+        "endLine": 576,
+        "endChar": 21
+      },
+      "revId": "962ad4c2182de433db7e900c5cc731b906d1fd46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
