@@ -25,6 +25,52 @@
     },
     {
       "key": {
+        "uuid": "b637de6a_41f0f2f8",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-06T12:07:33Z",
+      "side": 1,
+      "message": "add (because dead code is not verified...)",
+      "range": {
+        "startLine": 339,
+        "startChar": 70,
+        "endLine": 341,
+        "endChar": 22
+      },
+      "revId": "a259a988218d538231824c3c43d9afd590bc729d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e42a25_af44159c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-06T12:07:33Z",
+      "side": 1,
+      "message": "Nit (for the future). I find large blobs of text comments harder to read. Usually a format with bullet points and some new lines in between `goal`,`return`,`notes` makes things cleaner/clearer/easier to parse :)",
+      "range": {
+        "startLine": 840,
+        "startChar": 2,
+        "endLine": 846,
+        "endChar": 80
+      },
+      "revId": "a259a988218d538231824c3c43d9afd590bc729d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760c86c0_e726c261",
         "filename": "test/546-regression-simplify-catch/smali/TestCase.smali",
         "patchSetId": 4
