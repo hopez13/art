@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "760c86c0_87bee620",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T09:43:56Z",
+      "side": 1,
+      "message": "I\u0027d drop. We should just do what we think is right. Looks like you decided on it being true.",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 76
+      },
+      "revId": "48bebee711e9688e7d065cba7db35bceb5916275",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "760c86c0_67b41240",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2922,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T09:43:56Z",
+      "side": 1,
+      "message": "Since this is on already failed classes, I don\u0027t have a problem running it again.",
+      "range": {
+        "startLine": 2922,
+        "startChar": 0,
+        "endLine": 2922,
+        "endChar": 35
+      },
+      "revId": "48bebee711e9688e7d065cba7db35bceb5916275",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
