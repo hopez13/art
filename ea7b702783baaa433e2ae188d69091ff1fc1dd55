@@ -22,6 +22,98 @@
       "revId": "ea7b702783baaa433e2ae188d69091ff1fc1dd55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "760c86c0_27f3ba08",
+        "filename": "compiler/optimizing/common_dominator_finder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-06T11:57:18Z",
+      "side": 1,
+      "message": "also private.",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 10
+      },
+      "revId": "ea7b702783baaa433e2ae188d69091ff1fc1dd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6127ed6_69b4e53f",
+        "filename": "compiler/optimizing/common_dominator_finder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-06T11:57:18Z",
+      "side": 1,
+      "message": "I find it slightly hard to read the code with block and block2 names.",
+      "range": {
+        "startLine": 40,
+        "startChar": 7,
+        "endLine": 40,
+        "endChar": 13
+      },
+      "revId": "ea7b702783baaa433e2ae188d69091ff1fc1dd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6345268_c235e285",
+        "filename": "compiler/optimizing/common_dominator_finder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-06T11:57:18Z",
+      "side": 1,
+      "message": "why not \n\nif (block \u003d\u003d dominator_) { return; }\n\nand DCHECK at the end of the function that domniator_ !\u003d nullptr (such that you have an invariant)",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 46,
+        "endChar": 5
+      },
+      "revId": "ea7b702783baaa433e2ae188d69091ff1fc1dd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6127ed6_c9c4f1b6",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-06T11:57:18Z",
+      "side": 1,
+      "message": "I find it hard to understand this comment. Could you try rephrase it?",
+      "range": {
+        "startLine": 183,
+        "startChar": 8,
+        "endLine": 185,
+        "endChar": 67
+      },
+      "revId": "ea7b702783baaa433e2ae188d69091ff1fc1dd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

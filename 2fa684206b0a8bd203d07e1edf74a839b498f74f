@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56030291_c6dd0295",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-06T11:57:18Z",
+      "side": 0,
+      "message": "This is a bit vector. I woudn\u0027t have expected to take so much allocated space. How much do you save? What if we stack allocated it and not use the arena?",
+      "range": {
+        "startLine": 198,
+        "startChar": 2,
+        "endLine": 198,
+        "endChar": 16
+      },
+      "revId": "2fa684206b0a8bd203d07e1edf74a839b498f74f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
