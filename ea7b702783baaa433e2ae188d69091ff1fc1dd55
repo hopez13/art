@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "b637de6a_644f44b8",
+        "filename": "compiler/optimizing/common_dominator_finder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-06T18:09:34Z",
+      "side": 1,
+      "message": "This CL was split out of https://android-review.googlesource.com/180842 . There would be no point in doing so if another refactoring was needed immediately in that CL anyway.\n\nTrading speed for space? What space? 8B/16B on the stack is absolutely irrelevant; assuming it\u0027s even stored on the stack and not scalarized and promoted.",
+      "parentUuid": "1698aa84_fdbce8e0",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 10
+      },
+      "revId": "ea7b702783baaa433e2ae188d69091ff1fc1dd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6127ed6_69b4e53f",
         "filename": "compiler/optimizing/common_dominator_finder.h",
         "patchSetId": 2
