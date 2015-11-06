@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "16e42a25_6fdaad43",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T09:35:22Z",
+      "side": 1,
+      "message": "Nevermind, just saw the other CLs with comments on the method.",
+      "parentUuid": "d61d32f8_5ada1543",
+      "range": {
+        "startLine": 581,
+        "startChar": 19,
+        "endLine": 581,
+        "endChar": 54
+      },
+      "revId": "c033474cfbfe1e963c07fa5c38aed02e35ed6f91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36fe8ebd_85fb82a2",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 6
