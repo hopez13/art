@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "d61d32f8_9a7c2d9c",
+        "filename": "compiler/optimizing/common_dominator_finder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-06T19:03:24Z",
+      "side": 1,
+      "message": "I\u0027ll keep the \"Update\", I find it more descriptive. This is not a container.",
+      "parentUuid": "d69a9277_921bd1fd",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 27
+      },
+      "revId": "ea7b702783baaa433e2ae188d69091ff1fc1dd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760c86c0_27f3ba08",
         "filename": "compiler/optimizing/common_dominator_finder.h",
         "patchSetId": 2
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "+1. How about \u0027new_block\u0027 for the parameter and \u0027old_dominator\u0027 for the other one.",
       "parentUuid": "d60ff2af_eabfa71f",
+      "range": {
+        "startLine": 40,
+        "startChar": 7,
+        "endLine": 40,
+        "endChar": 13
+      },
+      "revId": "ea7b702783baaa433e2ae188d69091ff1fc1dd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e42a25_cf5e4128",
+        "filename": "compiler/optimizing/common_dominator_finder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-06T19:03:24Z",
+      "side": 1,
+      "message": "The moment I start equalizing the chain lengths (line 50), those names don\u0027t make sense anymore.",
+      "parentUuid": "b686fe2b_55c5cfaf",
       "range": {
         "startLine": 40,
         "startChar": 7,
