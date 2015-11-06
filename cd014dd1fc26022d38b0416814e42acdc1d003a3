@@ -617,6 +617,52 @@
     },
     {
       "key": {
+        "uuid": "d60ff2af_ca762373",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1582,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-06T11:44:05Z",
+      "side": 1,
+      "message": "Add more explanations about what breaks SSA.",
+      "range": {
+        "startLine": 1582,
+        "startChar": 5,
+        "endLine": 1582,
+        "endChar": 28
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56030291_c6762273",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-06T11:44:05Z",
+      "side": 1,
+      "message": "`final` is not so expressive. `after_bce` is much more revealing.",
+      "range": {
+        "startLine": 498,
+        "startChar": 82,
+        "endLine": 498,
+        "endChar": 87
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d61d32f8_5a08d56e",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 12
