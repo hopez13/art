@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d683721b_91fe7b21",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2813,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-06T22:41:00Z",
+      "side": 1,
+      "message": "Its already mentioned near the definition. I don\u0027t think we really need to repeat it.",
+      "parentUuid": "760c86c0_c7c4deb6",
+      "range": {
+        "startLine": 2813,
+        "startChar": 17,
+        "endLine": 2813,
+        "endChar": 38
+      },
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b686fe2b_feef8516",
         "filename": "test/965-default-verify/smali/Main.smali",
         "patchSetId": 10
@@ -36,6 +60,24 @@
       "writtenOn": "2015-11-06T02:18:34Z",
       "side": 1,
       "message": "What was it throwing before this CL?",
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b69d1e72_7de1e2be",
+        "filename": "test/965-default-verify/smali/Main.smali",
+        "patchSetId": 10
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-06T22:41:00Z",
+      "side": 1,
+      "message": "It just would not compile if verification was turned on. Interpreter/verify:none would work just fine.",
+      "parentUuid": "b686fe2b_feef8516",
       "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
