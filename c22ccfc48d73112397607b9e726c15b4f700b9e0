@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d60ff2af_0a38bba8",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-06T09:53:46Z",
+      "side": 1,
+      "message": "I realized today that InvokeRuntime always calls RecordPcInfo, and after Tuesday\u0027s discussion, I think we probably do not need it.  I\u0027ll update this in the next patch set.",
+      "range": {
+        "startLine": 559,
+        "startChar": 4,
+        "endLine": 562,
+        "endChar": 37
+      },
+      "revId": "c22ccfc48d73112397607b9e726c15b4f700b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
