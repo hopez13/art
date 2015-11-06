@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1698aa84_9d71247b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-06T19:36:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9609fab1_eb21ede2",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 10
+      },
+      "revId": "a259a988218d538231824c3c43d9afd590bc729d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b637de6a_41f0f2f8",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-06T12:07:33Z",
       "side": 1,
       "message": "add (because dead code is not verified...)",
+      "range": {
+        "startLine": 339,
+        "startChar": 70,
+        "endLine": 341,
+        "endChar": 22
+      },
+      "revId": "a259a988218d538231824c3c43d9afd590bc729d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1698aa84_1dde145b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-06T19:36:25Z",
+      "side": 1,
+      "message": "Rephrased.",
+      "parentUuid": "b637de6a_41f0f2f8",
       "range": {
         "startLine": 339,
         "startChar": 70,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b69d1e72_c668403c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-06T19:36:25Z",
+      "side": 1,
+      "message": "I\u0027m not happy with the comments on the Split* functions either. Would be good if we came up with names for these Split* methods that better explained what they\u0027re intended for. Happy to receive suggestions!",
+      "parentUuid": "16e42a25_af44159c",
+      "range": {
+        "startLine": 840,
+        "startChar": 2,
+        "endLine": 846,
+        "endChar": 80
+      },
+      "revId": "a259a988218d538231824c3c43d9afd590bc729d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760c86c0_e726c261",
         "filename": "test/546-regression-simplify-catch/smali/TestCase.smali",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2015-11-06T09:52:35Z",
       "side": 1,
       "message": "add \"dead\" (here and below)?",
+      "range": {
+        "startLine": 18,
+        "startChar": 33,
+        "endLine": 18,
+        "endChar": 34
+      },
+      "revId": "a259a988218d538231824c3c43d9afd590bc729d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d683721b_bf26eb93",
+        "filename": "test/546-regression-simplify-catch/smali/TestCase.smali",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-06T19:36:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "760c86c0_e726c261",
       "range": {
         "startLine": 18,
         "startChar": 33,
