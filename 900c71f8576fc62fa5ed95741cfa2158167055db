@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "760c86c0_c7c4deb6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2813,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-06T09:41:46Z",
+      "side": 1,
+      "message": "Maybe also add a comment that CompileTimeVerified implies Verified? That is, the compiler has nothing do do with it.",
+      "range": {
+        "startLine": 2813,
+        "startChar": 17,
+        "endLine": 2813,
+        "endChar": 38
+      },
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b686fe2b_feef8516",
         "filename": "test/965-default-verify/smali/Main.smali",
         "patchSetId": 10
