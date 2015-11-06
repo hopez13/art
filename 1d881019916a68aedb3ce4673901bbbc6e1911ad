@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "760c86c0_4adeb32d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1946,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-06T16:32:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6345268_a5a8e89d",
+      "range": {
+        "startLine": 1946,
+        "startChar": 0,
+        "endLine": 1946,
+        "endChar": 70
+      },
+      "revId": "1d881019916a68aedb3ce4673901bbbc6e1911ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56030291_a6cc46b5",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "760c86c0_2aeb7fcf",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1958,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-06T16:32:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56030291_a6cc46b5",
+      "range": {
+        "startLine": 1955,
+        "startChar": 0,
+        "endLine": 1958,
+        "endChar": 3
+      },
+      "revId": "1d881019916a68aedb3ce4673901bbbc6e1911ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96173ad8_981bd5af",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2015-11-06T16:12:51Z",
       "side": 1,
       "message": "This seems like we moved from an optimized version to an unoptimized. Does this actually happen? Should you DCHECK that it does not instead?",
+      "range": {
+        "startLine": 3423,
+        "startChar": 15,
+        "endLine": 3423,
+        "endChar": 70
+      },
+      "revId": "1d881019916a68aedb3ce4673901bbbc6e1911ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9609fab1_0b21e17a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3423,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-06T16:32:03Z",
+      "side": 1,
+      "message": "It may not be happening now but it\u0027s not the invoke\u0027s responsibility to enforce that.",
+      "parentUuid": "96173ad8_981bd5af",
       "range": {
         "startLine": 3423,
         "startChar": 15,
