@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b637de6a_c4c41065",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-06T16:01:50Z",
+      "side": 1,
+      "message": "code",
+      "range": {
+        "startLine": 457,
+        "startChar": 49,
+        "endLine": 457,
+        "endChar": 54
+      },
+      "revId": "d9c03b701a24cb612e8e7069fabaf015590de85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6345268_4263125c",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-06T16:01:50Z",
+      "side": 1,
+      "message": "Or you could use SafeMap::find ?\n\n  return method_code_map_.find(method) !\u003d method_code_map_.end()",
+      "range": {
+        "startLine": 122,
+        "startChar": 2,
+        "endLine": 127,
+        "endChar": 15
+      },
+      "revId": "d9c03b701a24cb612e8e7069fabaf015590de85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
