@@ -2,6 +2,245 @@
   "comments": [
     {
       "key": {
+        "uuid": "568ea242_dc348fda",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-07T02:32:26Z",
+      "side": 1,
+      "message": "nit: 0u",
+      "range": {
+        "startLine": 149,
+        "startChar": 54,
+        "endLine": 149,
+        "endChar": 56
+      },
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b69d1e72_307301ce",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4664,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-07T02:32:26Z",
+      "side": 1,
+      "message": "Can we omit this (and just go from one conflict method to another) logically?\n\n   // Don\u0027t generate another conflict method to reduce memory use as an optimization.",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36712e54_0df55179",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4670,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-07T02:32:26Z",
+      "side": 1,
+      "message": "add \n\n    // go to the next vtable method",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1698aa84_2402d84c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4671,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-07T02:32:26Z",
+      "side": 1,
+      "message": "// No conflict, but method is abstract",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1698aa84_a4c08850",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4672,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-07T02:32:26Z",
+      "side": 1,
+      "message": "What if it was already abstract?\n\nIt seems like it could be just like the above case, we can skip it if it was already abstract (as an optimization to avoid making more methods).",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6923665_1ef0ccf7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4674,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-07T02:32:26Z",
+      "side": 1,
+      "message": "// Found a default method implementation",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b620be2e_6d6e3dd9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4746,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-07T02:32:26Z",
+      "side": 1,
+      "message": "Using \"declares\" here makes it more straight forward when reading the implementation.\n\n(alternatively this whole sentence could just say \"Determine if the given target method is overridden by any other methods in the given list\")",
+      "range": {
+        "startLine": 4746,
+        "startChar": 76,
+        "endLine": 4746,
+        "endChar": 85
+      },
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1698aa84_a4f8886f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4780,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-07T02:32:26Z",
+      "side": 1,
+      "message": "// Skip ifstart since our current interface obviously can\u0027t override itself",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d683721b_f47fa541",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4786,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-07T02:32:26Z",
+      "side": 1,
+      "message": "Can you change this to be const? It seems like that should be ok.\n\n(Also 4764 can then also become const)",
+      "range": {
+        "startLine": 4786,
+        "startChar": 26,
+        "endLine": 4786,
+        "endChar": 49
+      },
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1698aa84_a4a408e1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4856,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-07T02:32:26Z",
+      "side": 1,
+      "message": "This could mention that we have a potential default conflict, but then if another method overrides it (e.g. an abstract method), then it\u0027s not actually a conflict.",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6923665_99fdb660",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4871,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-07T02:32:26Z",
+      "side": 1,
+      "message": "Add // chosen_iface \u003d\u003d null",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b620be2e_8dcab1c5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4876,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-07T02:32:26Z",
+      "side": 1,
+      "message": "Don\u0027t set this as the chosen interface if something else is overriding it (because that other interface would be potentially chosen instead if it was default). If the other interface had the abstract method then we wouldn\u0027t select this interface as chosen anyway since the abstract method masks it.",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36892e3b_0ff25c91",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4881,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-07T02:32:26Z",
+      "side": 1,
+      "message": "Add // chosen_iface \u003d\u003d null\n\nThis could be in the same level as the previous else if (by nesting it)",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "568ea242_ba3426d9",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 18
@@ -18,6 +257,132 @@
         "startChar": 25,
         "endLine": 5522,
         "endChar": 34
+      },
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5676a24b_6e0f2f47",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-07T02:32:26Z",
+      "side": 1,
+      "message": "Add:\n\n or the default method implementation remains the same, or an abstract method stayed abstract.",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b69d1e72_d0dd5531",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-07T02:32:26Z",
+      "side": 1,
+      "message": "Consider replacing with:\n\n  When a non-default method becomes a default method, or a default method becomes a different default method.",
+      "range": {
+        "startLine": 728,
+        "startChar": 25,
+        "endLine": 728,
+        "endChar": 34
+      },
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6923665_9e82fcb5",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-07T02:32:26Z",
+      "side": 1,
+      "message": "This sentence as-is could be removed entirely since it\u0027s overly specific (for example missing a default method implementing an abstract directly or indirectly).",
+      "range": {
+        "startLine": 726,
+        "startChar": 69,
+        "endLine": 728,
+        "endChar": 34
+      },
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d683721b_547871a7",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-07T02:32:26Z",
+      "side": 1,
+      "message": "Add:\n\n   When a method translation is unnecessary (case #1), we don\u0027t put it into the default_translation maps. So an instance of MethodTranslation must be in one of #2-#4.",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b686fe2b_86f8fb6f",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-07T02:32:26Z",
+      "side": 1,
+      "message": "nit: add /*translation*/",
+      "range": {
+        "startLine": 740,
+        "startChar": 48,
+        "endLine": 740,
+        "endChar": 55
+      },
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36712e54_ad20bddb",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-07T02:32:26Z",
+      "side": 1,
+      "message": "nit: add /*translation*/",
+      "range": {
+        "startLine": 745,
+        "startChar": 48,
+        "endLine": 745,
+        "endChar": 55
       },
       "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
