@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f6923665_5946ee56",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-07T03:56:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "760c86c0_87bee620",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 76
+      },
+      "revId": "48bebee711e9688e7d065cba7db35bceb5916275",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760c86c0_67b41240",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-06T09:43:56Z",
       "side": 1,
       "message": "Since this is on already failed classes, I don\u0027t have a problem running it again.",
+      "range": {
+        "startLine": 2922,
+        "startChar": 0,
+        "endLine": 2922,
+        "endChar": 35
+      },
+      "revId": "48bebee711e9688e7d065cba7db35bceb5916275",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36712e54_10bd6ada",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2922,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-07T03:56:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "760c86c0_67b41240",
       "range": {
         "startLine": 2922,
         "startChar": 0,
