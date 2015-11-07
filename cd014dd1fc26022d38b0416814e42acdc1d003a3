@@ -111,6 +111,23 @@
     },
     {
       "key": {
+        "uuid": "d69a9277_a8a944b9",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1123,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-07T00:18:46Z",
+      "side": 1,
+      "message": "Is it done by licm? Maybe try bce before licm and get this for free?",
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760c86c0_4738ee7b",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 12
@@ -151,6 +168,23 @@
         "endLine": 1224,
         "endChar": 60
       },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b620be2e_e2d81ca7",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-07T00:18:46Z",
+      "side": 1,
+      "message": "Should we always set try_dynamic_bce\u0027s value? If it\u0027s not an induction variable, it should be set to false?",
       "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -272,6 +306,23 @@
     },
     {
       "key": {
+        "uuid": "f6923665_e3ba8dfb",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-07T00:18:46Z",
+      "side": 1,
+      "message": "Can you make it clear it\u0027s unsigned comparisons?",
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d60ff2af_aa5d2ffc",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 12
@@ -289,6 +340,23 @@
         "endLine": 1251,
         "endChar": 28
       },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1698aa84_e18602ca",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1253,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-07T00:18:46Z",
+      "side": 1,
+      "message": "I think combining is still nice. Maybe we can find a way to combine the HDeoptimize instructions?",
       "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -335,6 +403,23 @@
         "endLine": 1284,
         "endChar": 88
       },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6923665_3ec6686f",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1287,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-07T00:18:46Z",
+      "side": 1,
+      "message": "Loop header can have successor outside the loop. Can deopt approach still benefit accesses in loop header?",
       "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -542,6 +627,23 @@
         "endLine": 1389,
         "endChar": 36
       },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b69d1e72_fd65d260",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1425,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-07T00:18:46Z",
+      "side": 1,
+      "message": "The old code has an example of the transformation of some source code which is still helpful so it\u0027s better to be kept, including phi insertion and explanation of the strong guarantee that no deoptimization is triggered if the loop body itself doesn\u0027t throw AIOOBE.\nThe combining part can be modified/done later.",
       "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
