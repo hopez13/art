@@ -310,6 +310,30 @@
     },
     {
       "key": {
+        "uuid": "56030291_c902b521",
+        "filename": "compiler/optimizing/common_dominator_finder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-09T13:59:34Z",
+      "side": 1,
+      "message": "assuming that\u0027s not design for multi-threaded then:\nyou could use `new_dominator` for block, and just `dominator_` instead of block2?",
+      "parentUuid": "16e42a25_cf5e4128",
+      "range": {
+        "startLine": 40,
+        "startChar": 7,
+        "endLine": 40,
+        "endChar": 13
+      },
+      "revId": "ea7b702783baaa433e2ae188d69091ff1fc1dd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6345268_c235e285",
         "filename": "compiler/optimizing/common_dominator_finder.h",
         "patchSetId": 2
@@ -345,6 +369,30 @@
       "side": 1,
       "message": "That\u0027s purely a matter of style. Note that the !\u003d nullptr is enforced throughout this function, so I find an extra DCHECK(dominator_ !\u003d nullptr) at the end unnecessary.",
       "parentUuid": "d6345268_c235e285",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 46,
+        "endChar": 5
+      },
+      "revId": "ea7b702783baaa433e2ae188d69091ff1fc1dd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d61d32f8_1a525de7",
+        "filename": "compiler/optimizing/common_dominator_finder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-09T13:59:34Z",
+      "side": 1,
+      "message": "somehow it\u0027s style, but my view is that\n - you don\u0027t have to think about \"can the dominator_ really be null?\" \n - I don\u0027t have transitively to see what this tests actually do (i.e. block \u003d\u003d dominator_)",
+      "parentUuid": "96173ad8_f8ca1172",
       "range": {
         "startLine": 44,
         "startChar": 1,
