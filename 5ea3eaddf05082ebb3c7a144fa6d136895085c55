@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b6b19e59_5113d441",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1964,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-09T20:55:09Z",
+      "side": 1,
+      "message": "How about moving this code below the would-be read barrier call locations to avoid XMM7 getting clobbered like we did in a previous PS?",
+      "range": {
+        "startLine": 1961,
+        "startChar": 0,
+        "endLine": 1964,
+        "endChar": 28
+      },
+      "revId": "5ea3eaddf05082ebb3c7a144fa6d136895085c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f611560a_d39994ef",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -110,6 +133,29 @@
         "startChar": 2,
         "endLine": 4720,
         "endChar": 6
+      },
+      "revId": "5ea3eaddf05082ebb3c7a144fa6d136895085c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76bba63b_ef53011d",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2127,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-09T20:55:09Z",
+      "side": 1,
+      "message": "How about moving this code below the would-be read barrier call locations to avoid RAX getting clobbered like we did in a previous PS?",
+      "range": {
+        "startLine": 2125,
+        "startChar": 0,
+        "endLine": 2127,
+        "endChar": 68
       },
       "revId": "5ea3eaddf05082ebb3c7a144fa6d136895085c55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
