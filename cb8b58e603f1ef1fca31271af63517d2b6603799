@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b6127ed6_0c8457ed",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-09T10:34:19Z",
+      "side": 1,
+      "message": "I thought the guideline was 80 characters per line for comments.",
+      "parentUuid": "36892e3b_f9e08219",
+      "range": {
+        "startLine": 387,
+        "startChar": 5,
+        "endLine": 387,
+        "endChar": 19
+      },
+      "revId": "cb8b58e603f1ef1fca31271af63517d2b6603799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b686fe2b_6be3d058",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "56030291_e921f1e2",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-09T10:34:19Z",
+      "side": 1,
+      "message": "Are we talking about the same compiler?",
+      "parentUuid": "b686fe2b_6be3d058",
+      "range": {
+        "startLine": 397,
+        "startChar": 25,
+        "endLine": 397,
+        "endChar": 26
+      },
+      "revId": "cb8b58e603f1ef1fca31271af63517d2b6603799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760c86c0_4a611314",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2015-11-09T09:08:29Z",
       "side": 1,
       "message": "explain that\u0027s because we cannot HGoto the exit block.",
+      "range": {
+        "startLine": 401,
+        "startChar": 76,
+        "endLine": 401,
+        "endChar": 81
+      },
+      "revId": "cb8b58e603f1ef1fca31271af63517d2b6603799",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d60ff2af_8dfba5a2",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-09T10:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "760c86c0_4a611314",
       "range": {
         "startLine": 401,
         "startChar": 76,
