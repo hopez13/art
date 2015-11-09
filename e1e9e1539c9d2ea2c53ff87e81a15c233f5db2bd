@@ -22,6 +22,29 @@
       "revId": "e1e9e1539c9d2ea2c53ff87e81a15c233f5db2bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76bba63b_0f0da5bd",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 988,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-09T21:54:09Z",
+      "side": 1,
+      "message": "btw, do we know why this breaks?",
+      "range": {
+        "startLine": 988,
+        "startChar": 27,
+        "endLine": 988,
+        "endChar": 60
+      },
+      "revId": "e1e9e1539c9d2ea2c53ff87e81a15c233f5db2bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
