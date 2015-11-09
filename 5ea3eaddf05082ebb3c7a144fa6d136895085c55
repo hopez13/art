@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b60c3eef_790a27a7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1964,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-09T21:13:30Z",
+      "side": 1,
+      "message": "Or not as we aren\u0027t going to add the read barrier calls.",
+      "parentUuid": "b6b19e59_5113d441",
+      "range": {
+        "startLine": 1961,
+        "startChar": 0,
+        "endLine": 1964,
+        "endChar": 28
+      },
+      "revId": "5ea3eaddf05082ebb3c7a144fa6d136895085c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f611560a_d39994ef",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
