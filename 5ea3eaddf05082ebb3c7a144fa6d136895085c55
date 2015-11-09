@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f611560a_d39994ef",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1981,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-09T20:49:05Z",
+      "side": 1,
+      "message": "This is subtle, but can you change this to \"the concurrent copying collector may not in the future.\" as we don\u0027t rule doing this in the same concurrent copying collector without introducing a different collector?",
+      "range": {
+        "startLine": 1980,
+        "startChar": 59,
+        "endLine": 1981,
+        "endChar": 22
+      },
+      "revId": "5ea3eaddf05082ebb3c7a144fa6d136895085c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1617cafd_d4d17c4e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4093,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-09T20:49:05Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 4092,
+        "startChar": 59,
+        "endLine": 4093,
+        "endChar": 22
+      },
+      "revId": "5ea3eaddf05082ebb3c7a144fa6d136895085c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b60c3eef_790d0714",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4146,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-09T20:49:05Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 4146,
+        "startChar": 2,
+        "endLine": 4146,
+        "endChar": 6
+      },
+      "revId": "5ea3eaddf05082ebb3c7a144fa6d136895085c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76bba63b_4f096d3f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4548,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-09T20:49:05Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 4548,
+        "startChar": 2,
+        "endLine": 4548,
+        "endChar": 6
+      },
+      "revId": "5ea3eaddf05082ebb3c7a144fa6d136895085c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96b81a3f_f04760f6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4720,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-09T20:49:05Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 4720,
+        "startChar": 2,
+        "endLine": 4720,
+        "endChar": 6
+      },
+      "revId": "5ea3eaddf05082ebb3c7a144fa6d136895085c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
