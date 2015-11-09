@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d60ff2af_0de8d5ce",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-09T20:15:56Z",
+      "side": 1,
+      "message": "((ldist + rdist) \u0026 (reg_bits - 1)) \u003d\u003d 0\n\nand drop the \u0026 (reg_bits - 1) on the previous two lines.",
+      "range": {
+        "startLine": 90,
+        "startChar": 6,
+        "endLine": 90,
+        "endChar": 33
+      },
+      "revId": "c04e93be89f77abeac0d2e4ee8eb2d515b1360bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e42a25_92c4dc63",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-09T20:15:56Z",
+      "side": 1,
+      "message": "Can you rewrite this so that we do two separate checks if both shl and ushr are the result of a sub? This currently misses this case:\n\n    int a \u003d x - y;\n    int b \u003d (z \u003c\u003c a) | (z \u003e\u003e\u003e (32 - a));",
+      "range": {
+        "startLine": 116,
+        "startChar": 2,
+        "endLine": 116,
+        "endChar": 46
+      },
+      "revId": "c04e93be89f77abeac0d2e4ee8eb2d515b1360bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6345268_051bd451",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-09T20:15:56Z",
+      "side": 1,
+      "message": "Given that + and ^ are equivalent to | in this particular context, we could do the same for them. And I think it\u0027s not far fetched to expect the +, though I really wouldn\u0027t expect anyone to use the ^.",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 1
+      },
+      "revId": "c04e93be89f77abeac0d2e4ee8eb2d515b1360bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e42a25_d21824c6",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-09T20:15:56Z",
+      "side": 1,
+      "message": "V?",
+      "range": {
+        "startLine": 59,
+        "startChar": 10,
+        "endLine": 59,
+        "endChar": 13
+      },
+      "revId": "c04e93be89f77abeac0d2e4ee8eb2d515b1360bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e42a25_72da9043",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-09T20:15:56Z",
+      "side": 1,
+      "message": "Is the second input really allowed to be long? It looks odd. And kMaxLongShiftValue being 64-bit also looks odd.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 3
+      },
+      "revId": "c04e93be89f77abeac0d2e4ee8eb2d515b1360bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
