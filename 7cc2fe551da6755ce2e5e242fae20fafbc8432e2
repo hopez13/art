@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "76bba63b_2fda2942",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T21:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "568ea242_dc348fda",
+      "range": {
+        "startLine": 149,
+        "startChar": 54,
+        "endLine": 149,
+        "endChar": 56
+      },
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b69d1e72_307301ce",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 18
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "760646d1_f74ac058",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4664,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T21:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b69d1e72_307301ce",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36712e54_0df55179",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 18
@@ -53,6 +95,24 @@
       "writtenOn": "2015-11-07T02:32:26Z",
       "side": 1,
       "message": "add \n\n    // go to the next vtable method",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76bba63b_8ff195c5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4670,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T21:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36712e54_0df55179",
       "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -93,6 +153,24 @@
     },
     {
       "key": {
+        "uuid": "d6ae12f9_f244889d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4672,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T21:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1698aa84_a4c08850",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6923665_1ef0ccf7",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 18
@@ -104,6 +182,24 @@
       "writtenOn": "2015-11-07T02:32:26Z",
       "side": 1,
       "message": "// Found a default method implementation",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6ae12f9_5221147a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4674,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T21:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6923665_1ef0ccf7",
       "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -133,6 +229,30 @@
     },
     {
       "key": {
+        "uuid": "56a22212_0e6bebc7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4746,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T21:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b620be2e_6d6e3dd9",
+      "range": {
+        "startLine": 4746,
+        "startChar": 76,
+        "endLine": 4746,
+        "endChar": 85
+      },
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1698aa84_a4f8886f",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 18
@@ -144,6 +264,24 @@
       "writtenOn": "2015-11-07T02:32:26Z",
       "side": 1,
       "message": "// Skip ifstart since our current interface obviously can\u0027t override itself",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6b19e59_91f37c5b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4780,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T21:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1698aa84_a4f8886f",
       "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -173,6 +311,30 @@
     },
     {
       "key": {
+        "uuid": "760646d1_37bef8f1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4786,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T21:27:14Z",
+      "side": 1,
+      "message": "Can\u0027t GetName call modifies the comparator.",
+      "parentUuid": "d683721b_f47fa541",
+      "range": {
+        "startLine": 4786,
+        "startChar": 26,
+        "endLine": 4786,
+        "endChar": 49
+      },
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1698aa84_a4a408e1",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 18
@@ -184,6 +346,24 @@
       "writtenOn": "2015-11-07T02:32:26Z",
       "side": 1,
       "message": "This could mention that we have a potential default conflict, but then if another method overrides it (e.g. an abstract method), then it\u0027s not actually a conflict.",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96b81a3f_d3c4e664",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4856,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T21:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1698aa84_a4a408e1",
       "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -207,6 +387,24 @@
     },
     {
       "key": {
+        "uuid": "76bba63b_6f68b1c9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4871,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T21:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6923665_99fdb660",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b620be2e_8dcab1c5",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 18
@@ -224,6 +422,24 @@
     },
     {
       "key": {
+        "uuid": "b6b19e59_710d3814",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4876,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T21:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b620be2e_8dcab1c5",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36892e3b_0ff25c91",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 18
@@ -235,6 +451,24 @@
       "writtenOn": "2015-11-07T02:32:26Z",
       "side": 1,
       "message": "Add // chosen_iface \u003d\u003d null\n\nThis could be in the same level as the previous else if (by nesting it)",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f611560a_135f8cc1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 4881,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T21:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36892e3b_0ff25c91",
       "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -264,6 +498,30 @@
     },
     {
       "key": {
+        "uuid": "b60c3eef_79f50779",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 5522,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T21:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "568ea242_ba3426d9",
+      "range": {
+        "startLine": 5522,
+        "startChar": 25,
+        "endLine": 5522,
+        "endChar": 34
+      },
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5676a24b_6e0f2f47",
         "filename": "runtime/class_linker.h",
         "patchSetId": 18
@@ -275,6 +533,24 @@
       "writtenOn": "2015-11-07T02:32:26Z",
       "side": 1,
       "message": "Add:\n\n or the default method implementation remains the same, or an abstract method stayed abstract.",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6b19e59_f11be8ad",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T21:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5676a24b_6e0f2f47",
       "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -327,6 +603,30 @@
     },
     {
       "key": {
+        "uuid": "d6ae12f9_3208d06e",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T21:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6923665_9e82fcb5",
+      "range": {
+        "startLine": 726,
+        "startChar": 69,
+        "endLine": 728,
+        "endChar": 34
+      },
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d683721b_547871a7",
         "filename": "runtime/class_linker.h",
         "patchSetId": 18
@@ -338,6 +638,24 @@
       "writtenOn": "2015-11-07T02:32:26Z",
       "side": 1,
       "message": "Add:\n\n   When a method translation is unnecessary (case #1), we don\u0027t put it into the default_translation maps. So an instance of MethodTranslation must be in one of #2-#4.",
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f611560a_535bc462",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T21:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d683721b_547871a7",
       "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -367,6 +685,30 @@
     },
     {
       "key": {
+        "uuid": "76bba63b_0fd76518",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T21:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b686fe2b_86f8fb6f",
+      "range": {
+        "startLine": 740,
+        "startChar": 48,
+        "endLine": 740,
+        "endChar": 55
+      },
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36712e54_ad20bddb",
         "filename": "runtime/class_linker.h",
         "patchSetId": 18
@@ -378,6 +720,30 @@
       "writtenOn": "2015-11-07T02:32:26Z",
       "side": 1,
       "message": "nit: add /*translation*/",
+      "range": {
+        "startLine": 745,
+        "startChar": 48,
+        "endLine": 745,
+        "endChar": 55
+      },
+      "revId": "7cc2fe551da6755ce2e5e242fae20fafbc8432e2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6b19e59_512d94ce",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T21:27:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36712e54_ad20bddb",
       "range": {
         "startLine": 745,
         "startChar": 48,
