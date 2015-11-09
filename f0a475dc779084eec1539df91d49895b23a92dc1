@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d66b7268_0d5eb553",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3809,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-11-09T18:56:40Z",
+      "side": 1,
+      "message": "Can this be a Register instead? WOuld clean up some of the AsRegister\u003cRegister\u003e",
+      "range": {
+        "startLine": 3809,
+        "startChar": 65,
+        "endLine": 3809,
+        "endChar": 73
+      },
+      "revId": "f0a475dc779084eec1539df91d49895b23a92dc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6923665_20800663",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3852,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-11-09T18:56:40Z",
+      "side": 1,
+      "message": "temp.AsRegister\u003cRegister\u003e?",
+      "range": {
+        "startLine": 3852,
+        "startChar": 72,
+        "endLine": 3852,
+        "endChar": 76
+      },
+      "revId": "f0a475dc779084eec1539df91d49895b23a92dc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
