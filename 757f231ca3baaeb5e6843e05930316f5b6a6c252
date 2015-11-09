@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9609fab1_8ebeff20",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3801,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-09T18:50:20Z",
+      "side": 1,
+      "message": "Simplified.",
+      "parentUuid": "d61d32f8_daece5ec",
+      "range": {
+        "startLine": 3801,
+        "startChar": 0,
+        "endLine": 3801,
+        "endChar": 81
+      },
+      "revId": "757f231ca3baaeb5e6843e05930316f5b6a6c252",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d61d32f8_3ad16121",
         "filename": "compiler/optimizing/code_generator_x86.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-06T10:21:26Z",
       "side": 1,
       "message": "rel-\u003erelative",
+      "range": {
+        "startLine": 426,
+        "startChar": 47,
+        "endLine": 426,
+        "endChar": 49
+      },
+      "revId": "757f231ca3baaeb5e6843e05930316f5b6a6c252",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6345268_450a3cfe",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-09T18:50:20Z",
+      "side": 1,
+      "message": "Done (also for arm64).",
+      "parentUuid": "d61d32f8_3ad16121",
       "range": {
         "startLine": 426,
         "startChar": 47,
@@ -259,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "56030291_a94ad957",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-09T18:50:20Z",
+      "side": 1,
+      "message": "Done, will upload that change later after I deal with the ClinitCheck pruning.",
+      "parentUuid": "d60ff2af_ea6327c1",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 3
+      },
+      "revId": "757f231ca3baaeb5e6843e05930316f5b6a6c252",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9609fab1_2b302529",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 2
@@ -293,6 +365,30 @@
       "writtenOn": "2015-11-06T10:21:26Z",
       "side": 1,
       "message": "Looks like we could have a regression test for this?\n\nClass e \u003d Foo.class;\nFoo.bar()\n\nIf Foo cannot be resolved, the dex pc will be wrong, as it will be attributed to the Foo.bar call, and not the Foo.class.",
+      "range": {
+        "startLine": 103,
+        "startChar": 9,
+        "endLine": 103,
+        "endChar": 51
+      },
+      "revId": "757f231ca3baaeb5e6843e05930316f5b6a6c252",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6345268_652ae05d",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-09T18:50:20Z",
+      "side": 1,
+      "message": "This is a bit more complicated, so I\u0027ll create a separate CL and try to catch all cases.",
+      "parentUuid": "760c86c0_a730ca96",
       "range": {
         "startLine": 103,
         "startChar": 9,
