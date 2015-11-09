@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96173ad8_985d15fd",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-09T20:59:07Z",
+      "side": 1,
+      "message": "These two std::move()s are unnecessary and confusing.",
+      "range": {
+        "startLine": 86,
+        "startChar": 8,
+        "endLine": 87,
+        "endChar": 51
+      },
+      "revId": "fc56bb59909f387bc54d51490136aaa6d15b40c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96173ad8_b86259ba",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-09T20:59:07Z",
+      "side": 1,
+      "message": "These conditional branch tests look all the same. You should refactor this to share the code.",
+      "revId": "fc56bb59909f387bc54d51490136aaa6d15b40c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6127ed6_ac5d4bfc",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-09T20:59:07Z",
+      "side": 1,
+      "message": "Can you add a few tests for the branch expansion? (High kAdduCount1/kAdduCount2.) At least for one conditional branch and one call. The kOffset28 for unconditional branch looks pretty far and I\u0027m not sure we want to allocate that much memory and stress the gcc assembler.",
+      "revId": "fc56bb59909f387bc54d51490136aaa6d15b40c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
