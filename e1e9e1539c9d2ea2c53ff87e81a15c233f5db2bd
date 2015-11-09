@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1617cafd_b77202c7",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-09T21:48:34Z",
+      "side": 1,
+      "message": "Good point. Seems like we probably do or else we could get a false CAS failure.",
+      "range": {
+        "startLine": 961,
+        "startChar": 5,
+        "endLine": 961,
+        "endChar": 9
+      },
+      "revId": "e1e9e1539c9d2ea2c53ff87e81a15c233f5db2bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
