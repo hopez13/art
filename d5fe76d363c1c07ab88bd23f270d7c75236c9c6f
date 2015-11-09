@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d61d32f8_9a5d0dfd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-09T13:51:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56030291_a91bf9ae",
+      "range": {
+        "startLine": 9,
+        "startChar": 45,
+        "endLine": 9,
+        "endChar": 59
+      },
+      "revId": "d5fe76d363c1c07ab88bd23f270d7c75236c9c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b637de6a_84bda885",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-09T10:33:04Z",
       "side": 1,
       "message": "Fits on one line.",
+      "range": {
+        "startLine": 186,
+        "startChar": 7,
+        "endLine": 187,
+        "endChar": 74
+      },
+      "revId": "d5fe76d363c1c07ab88bd23f270d7c75236c9c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6345268_e5591042",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-09T13:51:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b637de6a_84bda885",
       "range": {
         "startLine": 186,
         "startChar": 7,
