@@ -69,6 +69,30 @@
       "revId": "c22ccfc48d73112397607b9e726c15b4f700b9e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "760646d1_f77c809c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-09T19:44:00Z",
+      "side": 1,
+      "message": "Not sure I understand the thing with RecordPcInfo. Can you clarify?",
+      "parentUuid": "d60ff2af_0a38bba8",
+      "range": {
+        "startLine": 559,
+        "startChar": 4,
+        "endLine": 562,
+        "endChar": 37
+      },
+      "revId": "c22ccfc48d73112397607b9e726c15b4f700b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
