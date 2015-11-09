@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b637de6a_c4b3b0c0",
+        "filename": "runtime/base/statistics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-09T09:30:04Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 10
+      },
+      "revId": "d21f496f7f2162f0d55cc4f52d0961a5d0946cfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6345268_4556bc52",
         "filename": "runtime/base/statistics.h",
         "patchSetId": 1
@@ -18,6 +41,29 @@
         "startChar": 11,
         "endLine": 55,
         "endChar": 15
+      },
+      "revId": "d21f496f7f2162f0d55cc4f52d0961a5d0946cfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6127ed6_6c7d13c4",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-09T09:30:04Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer if you moved that out of stack_map.h, and only use it in oatdump.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 28
       },
       "revId": "d21f496f7f2162f0d55cc4f52d0961a5d0946cfd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
