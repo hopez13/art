@@ -90,6 +90,30 @@
     },
     {
       "key": {
+        "uuid": "16e42a25_8fbef920",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2813,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-09T09:39:45Z",
+      "side": 1,
+      "message": "Where? there\u0027s no notion of compilation at the definition.",
+      "parentUuid": "d683721b_91fe7b21",
+      "range": {
+        "startLine": 2813,
+        "startChar": 17,
+        "endLine": 2813,
+        "endChar": 38
+      },
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5676a24b_0eeb0bcf",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 10
@@ -135,6 +159,29 @@
       "writtenOn": "2015-11-07T00:10:50Z",
       "side": 1,
       "message": "Maybe add some kind of subscript (\"A\")?",
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9609fab1_4e05a753",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2896,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-09T09:39:45Z",
+      "side": 1,
+      "message": "I don\u0027t understand this. A soft failure is only useful for the compiler. At runtime, we should either hard-fail or pass.",
+      "range": {
+        "startLine": 2895,
+        "startChar": 42,
+        "endLine": 2896,
+        "endChar": 25
+      },
       "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -221,6 +268,29 @@
       "writtenOn": "2015-11-07T00:10:50Z",
       "side": 1,
       "message": "CHECK for exception?",
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16e42a25_4fb1314e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2916,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-09T09:39:45Z",
+      "side": 1,
+      "message": "Soft fail should be fine.",
+      "range": {
+        "startLine": 2916,
+        "startChar": 11,
+        "endLine": 2916,
+        "endChar": 29
+      },
       "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
