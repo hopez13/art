@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d683721b_8a98005b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T18:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b686fe2b_eb4420fa",
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760c86c0_c7c4deb6",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 10
@@ -114,6 +132,54 @@
     },
     {
       "key": {
+        "uuid": "36712e54_736b98c7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2813,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T18:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16e42a25_8fbef920",
+      "range": {
+        "startLine": 2813,
+        "startChar": 17,
+        "endLine": 2813,
+        "endChar": 38
+      },
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "568ea242_3c6593ef",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2813,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T18:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d683721b_94c58961",
+      "range": {
+        "startLine": 2813,
+        "startChar": 17,
+        "endLine": 2813,
+        "endChar": 38
+      },
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5676a24b_0eeb0bcf",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 10
@@ -131,6 +197,24 @@
     },
     {
       "key": {
+        "uuid": "d683721b_f486c5f7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2816,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T18:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5676a24b_0eeb0bcf",
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96a49abb_10def95a",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 10
@@ -142,6 +226,24 @@
       "writtenOn": "2015-11-07T00:10:50Z",
       "side": 1,
       "message": "Consider an assert here that we have a pending exception?",
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b686fe2b_c663d31c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2892,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T18:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96a49abb_10def95a",
       "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -188,6 +290,24 @@
     },
     {
       "key": {
+        "uuid": "b620be2e_4dba59e4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2896,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T18:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d683721b_d1d39351",
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1698aa84_61edb2e6",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 10
@@ -199,6 +319,30 @@
       "writtenOn": "2015-11-07T00:10:50Z",
       "side": 1,
       "message": "Let\u0027s clarify this:\n\n* When an interface is initialized directly (because of accessing a static on it), it must not initialize its superinterfaces directly.\n\n* We are allowed to recursively verify this regardless, but we choose not to do it for optimization (especially since they may never get used).",
+      "range": {
+        "startLine": 2898,
+        "startChar": 5,
+        "endLine": 2899,
+        "endChar": 43
+      },
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36712e54_cd2189e3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2899,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T18:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1698aa84_61edb2e6",
       "range": {
         "startLine": 2898,
         "startChar": 5,
@@ -234,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "b620be2e_8dd71117",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2901,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T18:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "568ea242_1cd45711",
+      "range": {
+        "startLine": 2901,
+        "startChar": 5,
+        "endLine": 2901,
+        "endChar": 10
+      },
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1698aa84_41f27692",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 10
@@ -245,6 +413,30 @@
       "writtenOn": "2015-11-07T00:10:50Z",
       "side": 1,
       "message": ".\n\n   if ((supertype.Get() \u003d\u003d nullptr || supertype-\u003eIsVerified() // See (A)\n       \u0026\u0026 !klass-Interface()) { // See (B)",
+      "range": {
+        "startLine": 2902,
+        "startChar": 6,
+        "endLine": 2902,
+        "endChar": 59
+      },
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1698aa84_01b14e4e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2902,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T18:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1698aa84_41f27692",
       "range": {
         "startLine": 2902,
         "startChar": 6,
@@ -274,6 +466,24 @@
     },
     {
       "key": {
+        "uuid": "568ea242_1c3ff7b4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2914,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T18:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b686fe2b_26baefe2",
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16e42a25_4fb1314e",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 10
@@ -285,6 +495,30 @@
       "writtenOn": "2015-11-09T09:39:45Z",
       "side": 1,
       "message": "Soft fail should be fine.",
+      "range": {
+        "startLine": 2916,
+        "startChar": 11,
+        "endLine": 2916,
+        "endChar": 29
+      },
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d66b7268_4a6c934e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2916,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T18:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16e42a25_4fb1314e",
       "range": {
         "startLine": 2916,
         "startChar": 11,
@@ -314,6 +548,24 @@
     },
     {
       "key": {
+        "uuid": "d66b7268_6a69573d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2923,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T18:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1698aa84_a1af9a54",
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1698aa84_a154fa06",
         "filename": "runtime/class_linker.h",
         "patchSetId": 10
@@ -337,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "f6923665_5e1974c6",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T18:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1698aa84_a154fa06",
+      "range": {
+        "startLine": 555,
+        "startChar": 70,
+        "endLine": 556,
+        "endChar": 20
+      },
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "568ea242_9c7da799",
         "filename": "test/965-default-verify/smali/Iface.smali",
         "patchSetId": 10
@@ -348,6 +624,30 @@
       "writtenOn": "2015-11-07T00:10:50Z",
       "side": 1,
       "message": "verificationSoftFail",
+      "range": {
+        "startLine": 36,
+        "startChar": 15,
+        "endLine": 36,
+        "endChar": 31
+      },
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6923665_805ffa23",
+        "filename": "test/965-default-verify/smali/Iface.smali",
+        "patchSetId": 10
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-09T18:27:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "568ea242_9c7da799",
       "range": {
         "startLine": 36,
         "startChar": 15,
