@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "56030291_e93a1119",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-09T08:25:55Z",
+      "side": 1,
+      "message": "Not sure. Currently Instrumention::IsDeoptimized(method) is used to know whether we did deoptimize a method, explicitly I mean. So I\u0027d prefer we keep it this way for the moment.",
+      "parentUuid": "760c86c0_8afb8ba2",
+      "range": {
+        "startLine": 181,
+        "startChar": 53,
+        "endLine": 181,
+        "endChar": 91
+      },
+      "revId": "d9c03b701a24cb612e8e7069fabaf015590de85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d683721b_649b0698",
         "filename": "runtime/art_method.cc",
         "patchSetId": 1
