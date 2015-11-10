@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b0e2f2a_3af69dbc",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-10T23:28:23Z",
+      "side": 1,
+      "message": "I suggest using GenRotateRight()\u0027s code (with bugfixes/improvements in the relevant patch) as the common part here. The only difference will be the conditional change of shift to -shift at the beginning (note: you don\u0027t need shift to be int32_t, uint32_t will do just as well in our case).",
+      "range": {
+        "startLine": 820,
+        "startChar": 0,
+        "endLine": 888,
+        "endChar": 7
+      },
+      "revId": "0ecb9aec50d35ff5d81fbb241676d8ada0ce875d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96d1fa8e_fcb9f13b",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-10T23:28:23Z",
+      "side": 1,
+      "message": "Implement similarly to GenRotateRight(). Again, it\u0027s probably worth abandoning this 2nd patch altogether and implementing both rotate methods in the first one since they share most of the logic.",
+      "range": {
+        "startLine": 900,
+        "startChar": 0,
+        "endLine": 938,
+        "endChar": 21
+      },
+      "revId": "0ecb9aec50d35ff5d81fbb241676d8ada0ce875d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
