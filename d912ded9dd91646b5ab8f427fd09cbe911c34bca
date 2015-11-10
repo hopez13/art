@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "76d4867d_d64faa66",
+        "filename": "runtime/os_linux.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2015-11-10T22:00:15Z",
+      "side": 1,
+      "message": "Is this necessary? O_CREAT | O_TRUNC without O_EXCL will automatically zero out the previous file, so this is redundant.",
+      "revId": "d912ded9dd91646b5ab8f427fd09cbe911c34bca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56cb02e2_60d1ce20",
         "filename": "runtime/os_linux.cc",
         "patchSetId": 5
@@ -13,6 +30,24 @@
       "writtenOn": "2015-11-10T21:51:41Z",
       "side": 1,
       "message": "Perhaps O_APPEND and O_NOFOLLOW?",
+      "revId": "d912ded9dd91646b5ab8f427fd09cbe911c34bca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16c50ace_786869c9",
+        "filename": "runtime/os_linux.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1003966
+      },
+      "writtenOn": "2015-11-10T22:00:15Z",
+      "side": 1,
+      "message": "Oh, and O_CLOEXEC.",
+      "parentUuid": "56cb02e2_60d1ce20",
       "revId": "d912ded9dd91646b5ab8f427fd09cbe911c34bca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
