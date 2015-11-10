@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "76d4867d_b6d676e6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-10T21:33:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6a6b626_34eb96a1",
+      "range": {
+        "startLine": 9,
+        "startChar": 11,
+        "endLine": 9,
+        "endChar": 12
+      },
+      "revId": "595d8ff88c6d868ccb64c4bc38176eff33a4fc91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76d4867d_9b771bb7",
         "filename": "runtime/mem_map_test.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "76d4867d_f6690e02",
+        "filename": "runtime/mem_map_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-10T21:33:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76d4867d_9b771bb7",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 64
+      },
+      "revId": "595d8ff88c6d868ccb64c4bc38176eff33a4fc91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16ac2a06_3531d2c8",
         "filename": "runtime/mem_map_test.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2015-11-10T18:44:29Z",
       "side": 1,
       "message": "This is changing the test, no? How do you guarantee that you get the high half of the low 4 GB?",
+      "range": {
+        "startLine": 258,
+        "startChar": 3,
+        "endLine": 258,
+        "endChar": 68
+      },
+      "revId": "595d8ff88c6d868ccb64c4bc38176eff33a4fc91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16ac2a06_f5946ab7",
+        "filename": "runtime/mem_map_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-10T21:33:02Z",
+      "side": 1,
+      "message": "ART_BASE_ADDRESS + 0x1000000 is still in low 2GB I think.",
+      "parentUuid": "16ac2a06_3531d2c8",
       "range": {
         "startLine": 258,
         "startChar": 3,
