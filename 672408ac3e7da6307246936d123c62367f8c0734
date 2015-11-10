@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db11db43_7a40993a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3035,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-10T22:15:32Z",
+      "side": 1,
+      "message": "Move this before line 3038.",
+      "range": {
+        "startLine": 3035,
+        "startChar": 0,
+        "endLine": 3035,
+        "endChar": 72
+      },
+      "revId": "672408ac3e7da6307246936d123c62367f8c0734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d67c5259_8265daf0",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-10T22:15:32Z",
+      "side": 1,
+      "message": "or \"create\"? I sort of view it as a simplicity feature :)",
+      "range": {
+        "startLine": 3114,
+        "startChar": 38,
+        "endLine": 3114,
+        "endChar": 45
+      },
+      "revId": "672408ac3e7da6307246936d123c62367f8c0734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
