@@ -22,6 +22,299 @@
       "revId": "723d7f5f28c52dfa89d510985dea6426867737a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "569062ca_be41191f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-10T22:59:33Z",
+      "side": 1,
+      "message": "Maybe add that we don\u0027t want to request a temp to the register allocator, as this is a slow path, and we know we can find a caller-save register that is available.",
+      "range": {
+        "startLine": 478,
+        "startChar": 0,
+        "endLine": 494,
+        "endChar": 39
+      },
+      "revId": "723d7f5f28c52dfa89d510985dea6426867737a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56278298_e64f7e66",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-10T22:59:33Z",
+      "side": 1,
+      "message": "FindAvailableCallerSaveRegister?",
+      "range": {
+        "startLine": 495,
+        "startChar": 30,
+        "endLine": 495,
+        "endChar": 55
+      },
+      "revId": "723d7f5f28c52dfa89d510985dea6426867737a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96865a95_2086ca82",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-10T22:59:33Z",
+      "side": 1,
+      "message": "Explain why this should not happen.",
+      "range": {
+        "startLine": 573,
+        "startChar": 0,
+        "endLine": 573,
+        "endChar": 51
+      },
+      "revId": "723d7f5f28c52dfa89d510985dea6426867737a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96865a95_4083ce71",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1988,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-10T22:59:33Z",
+      "side": 1,
+      "message": "I\u0027d drop, and put the comment lines 1995-2001 at the top of this method. I feel this code as a comment can easily confuse new readers.",
+      "range": {
+        "startLine": 1988,
+        "startChar": 0,
+        "endLine": 1988,
+        "endChar": 53
+      },
+      "revId": "723d7f5f28c52dfa89d510985dea6426867737a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "569062ca_de46e533",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4104,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-10T22:59:33Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 4104,
+        "startChar": 0,
+        "endLine": 4104,
+        "endChar": 55
+      },
+      "revId": "723d7f5f28c52dfa89d510985dea6426867737a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6bf9630_434f863c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4180,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-10T22:59:33Z",
+      "side": 1,
+      "message": "Not really likewise as there is no \"low move\" for object field get.",
+      "range": {
+        "startLine": 4179,
+        "startChar": 44,
+        "endLine": 4180,
+        "endChar": 55
+      },
+      "revId": "723d7f5f28c52dfa89d510985dea6426867737a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "169a6aee_fcfd6926",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 4618,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-10T22:59:33Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 4618,
+        "startChar": 30,
+        "endLine": 4618,
+        "endChar": 67
+      },
+      "revId": "723d7f5f28c52dfa89d510985dea6426867737a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "368beea4_3d842fc0",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5821,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-10T22:59:33Z",
+      "side": 1,
+      "message": "Why did you change this?",
+      "range": {
+        "startLine": 5814,
+        "startChar": 0,
+        "endLine": 5821,
+        "endChar": 41
+      },
+      "revId": "723d7f5f28c52dfa89d510985dea6426867737a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "169a6aee_3c00b1dc",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 6072,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-10T22:59:33Z",
+      "side": 1,
+      "message": "ditto, why not keeping like before?",
+      "range": {
+        "startLine": 6070,
+        "startChar": 0,
+        "endLine": 6072,
+        "endChar": 52
+      },
+      "revId": "723d7f5f28c52dfa89d510985dea6426867737a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "368beea4_1d8773c7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 6276,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-10T22:59:33Z",
+      "side": 1,
+      "message": "How about just inlining this here?",
+      "range": {
+        "startLine": 6276,
+        "startChar": 4,
+        "endLine": 6276,
+        "endChar": 23
+      },
+      "revId": "723d7f5f28c52dfa89d510985dea6426867737a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96865a95_0071c678",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 6290,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-10T22:59:33Z",
+      "side": 1,
+      "message": "2 spaces more.",
+      "range": {
+        "startLine": 6290,
+        "startChar": 0,
+        "endLine": 6290,
+        "endChar": 4
+      },
+      "revId": "723d7f5f28c52dfa89d510985dea6426867737a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "569062ca_fe4ba13a",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-10T22:59:33Z",
+      "side": 1,
+      "message": "Comments on x86 also apply to x86_64.",
+      "revId": "723d7f5f28c52dfa89d510985dea6426867737a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b67fde4b_81ab1adc",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-10T22:59:33Z",
+      "side": 1,
+      "message": "Does that really work? the invoke-\u003eGetLocations will request locations to the inputs that may not match the calling convention. We might get lucky and that\u0027s what we\u0027re doing in our intrinsics code today, but it doesn\u0027t have to be the case in the future.",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 29
+      },
+      "revId": "723d7f5f28c52dfa89d510985dea6426867737a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
