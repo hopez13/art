@@ -140,6 +140,30 @@
       "revId": "595d8ff88c6d868ccb64c4bc38176eff33a4fc91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6da7ea7_38eb95a1",
+        "filename": "runtime/mem_map_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-10T21:45:37Z",
+      "side": 1,
+      "message": "The point is, you get a high address range something something, because of the requested size (base \u003e\u003d 0x60000000 for non-Mips).\n\nLook up the context of adding this test for specifics, I guess.",
+      "parentUuid": "16ac2a06_f5946ab7",
+      "range": {
+        "startLine": 258,
+        "startChar": 3,
+        "endLine": 258,
+        "endChar": 68
+      },
+      "revId": "595d8ff88c6d868ccb64c4bc38176eff33a4fc91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
