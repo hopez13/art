@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b67fde4b_e192263a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1964,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-10T11:44:40Z",
+      "side": 1,
+      "message": "I agree, but moving this code just before the call (line 1986) would require an extra temporary register for the first move (as `temp` is already used below), so I\u0027d rather keep it here for now.  I added a comment.\n\nNote that this code is properly moved to the right location in the CL containing the additional read barriers for HInvokeVirtual and HInvokeInterface (https://android-review.googlesource.com/#/c/180754).",
+      "parentUuid": "b60c3eef_790a27a7",
+      "range": {
+        "startLine": 1961,
+        "startChar": 0,
+        "endLine": 1964,
+        "endChar": 28
+      },
+      "revId": "5ea3eaddf05082ebb3c7a144fa6d136895085c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f611560a_d39994ef",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -60,6 +84,30 @@
       "writtenOn": "2015-11-09T20:49:05Z",
       "side": 1,
       "message": "This is subtle, but can you change this to \"the concurrent copying collector may not in the future.\" as we don\u0027t rule doing this in the same concurrent copying collector without introducing a different collector?",
+      "range": {
+        "startLine": 1980,
+        "startChar": 59,
+        "endLine": 1981,
+        "endChar": 22
+      },
+      "revId": "5ea3eaddf05082ebb3c7a144fa6d136895085c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96865a95_20088a6e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1981,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-10T11:44:40Z",
+      "side": 1,
+      "message": "Done, here and in the x86-64 code generator.",
+      "parentUuid": "f611560a_d39994ef",
       "range": {
         "startLine": 1980,
         "startChar": 59,
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "169a6aee_bc3f6107",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4093,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-10T11:44:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1617cafd_d4d17c4e",
+      "range": {
+        "startLine": 4092,
+        "startChar": 59,
+        "endLine": 4093,
+        "endChar": 22
+      },
+      "revId": "5ea3eaddf05082ebb3c7a144fa6d136895085c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b60c3eef_790d0714",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -106,6 +178,30 @@
       "writtenOn": "2015-11-09T20:49:05Z",
       "side": 1,
       "message": "const?",
+      "range": {
+        "startLine": 4146,
+        "startChar": 2,
+        "endLine": 4146,
+        "endChar": 6
+      },
+      "revId": "5ea3eaddf05082ebb3c7a144fa6d136895085c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56278298_c60d2282",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4146,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-10T11:44:40Z",
+      "side": 1,
+      "message": "`const`-qualifying local non-pointer variables is not really part of the style we use in code generators.  If the initializer of this declaration were statically know, I would of course turn it into a `constexpr` one, but `const` only adds little IMHO.",
+      "parentUuid": "b60c3eef_790d0714",
       "range": {
         "startLine": 4146,
         "startChar": 2,
@@ -141,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "d67c5259_02138aa6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4548,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-10T11:44:40Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "76bba63b_4f096d3f",
+      "range": {
+        "startLine": 4548,
+        "startChar": 2,
+        "endLine": 4548,
+        "endChar": 6
+      },
+      "revId": "5ea3eaddf05082ebb3c7a144fa6d136895085c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96b81a3f_f04760f6",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -164,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "96865a95_c03fde06",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4720,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-10T11:44:40Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "96b81a3f_f04760f6",
+      "range": {
+        "startLine": 4720,
+        "startChar": 2,
+        "endLine": 4720,
+        "endChar": 6
+      },
+      "revId": "5ea3eaddf05082ebb3c7a144fa6d136895085c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76bba63b_ef53011d",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 4
@@ -175,6 +319,30 @@
       "writtenOn": "2015-11-09T20:55:09Z",
       "side": 1,
       "message": "How about moving this code below the would-be read barrier call locations to avoid RAX getting clobbered like we did in a previous PS?",
+      "range": {
+        "startLine": 2125,
+        "startChar": 0,
+        "endLine": 2127,
+        "endChar": 68
+      },
+      "revId": "5ea3eaddf05082ebb3c7a144fa6d136895085c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b67fde4b_6187f6f4",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2127,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-10T11:44:40Z",
+      "side": 1,
+      "message": "I was thinking about this, but I kept it here to make this code similar to the one in InstructionCodeGeneratorX86::VisitInvokeInterface (see comments in compiler/optimizing/code_generator_x86.cc).  I added a comment.",
+      "parentUuid": "76bba63b_ef53011d",
       "range": {
         "startLine": 2125,
         "startChar": 0,
