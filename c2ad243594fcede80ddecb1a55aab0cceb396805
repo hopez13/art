@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b6da7ea7_4c7def48",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 4781,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-10T01:47:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16c50ace_e46b1a88",
+      "revId": "c2ad243594fcede80ddecb1a55aab0cceb396805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16c50ace_6480ca64",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 19
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "b6da7ea7_0f05a954",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 4808,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-10T01:47:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16c50ace_6480ca64",
+      "revId": "c2ad243594fcede80ddecb1a55aab0cceb396805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76d4867d_279ffad2",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 19
@@ -47,6 +83,30 @@
       "writtenOn": "2015-11-10T00:53:15Z",
       "side": 1,
       "message": "interface method",
+      "range": {
+        "startLine": 4860,
+        "startChar": 68,
+        "endLine": 4860,
+        "endChar": 77
+      },
+      "revId": "c2ad243594fcede80ddecb1a55aab0cceb396805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7689e6a7_ff62bfba",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 4860,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-10T01:47:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76d4867d_279ffad2",
       "range": {
         "startLine": 4860,
         "startChar": 68,
@@ -105,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "f6a6b626_4e4213ed",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 5141,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-10T01:47:36Z",
+      "side": 1,
+      "message": "\u003e Is the list of same name and signatures always unique here? \n\nYes.",
+      "parentUuid": "d6d7f27c_4a3833aa",
+      "range": {
+        "startLine": 5141,
+        "startChar": 80,
+        "endLine": 5141,
+        "endChar": 84
+      },
+      "revId": "c2ad243594fcede80ddecb1a55aab0cceb396805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6a6b626_2e7d07c5",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 19
@@ -116,6 +200,30 @@
       "writtenOn": "2015-11-10T00:53:15Z",
       "side": 1,
       "message": "rename to imt_conflict_method so we don\u0027t confuse this with default conflicts",
+      "range": {
+        "startLine": 5186,
+        "startChar": 19,
+        "endLine": 5186,
+        "endChar": 34
+      },
+      "revId": "c2ad243594fcede80ddecb1a55aab0cceb396805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "369daed4_505bd262",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 5186,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-10T01:47:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6a6b626_2e7d07c5",
       "range": {
         "startLine": 5186,
         "startChar": 19,
@@ -145,6 +253,24 @@
     },
     {
       "key": {
+        "uuid": "16ac2a06_0fe64945",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 5353,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-10T01:47:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76d4867d_070d96bd",
+      "revId": "c2ad243594fcede80ddecb1a55aab0cceb396805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6d7f27c_4a42f3ec",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 19
@@ -156,6 +282,24 @@
       "writtenOn": "2015-11-10T00:53:15Z",
       "side": 1,
       "message": "// Default method conflict",
+      "revId": "c2ad243594fcede80ddecb1a55aab0cceb396805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "369daed4_90db7a10",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 5380,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-10T01:47:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6d7f27c_4a42f3ec",
       "revId": "c2ad243594fcede80ddecb1a55aab0cceb396805",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -185,6 +329,30 @@
     },
     {
       "key": {
+        "uuid": "b6da7ea7_2cb4fb3e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 5384,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-10T01:47:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6d7f27c_0ae63b45",
+      "range": {
+        "startLine": 5384,
+        "startChar": 22,
+        "endLine": 5384,
+        "endChar": 25
+      },
+      "revId": "c2ad243594fcede80ddecb1a55aab0cceb396805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "369daed4_0dbbf101",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 19
@@ -202,6 +370,24 @@
     },
     {
       "key": {
+        "uuid": "76d4867d_8a686b9f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 5402,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-10T01:47:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "369daed4_0dbbf101",
+      "revId": "c2ad243594fcede80ddecb1a55aab0cceb396805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7689e6a7_5f872bf4",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 19
@@ -213,6 +399,24 @@
       "writtenOn": "2015-11-10T00:53:15Z",
       "side": 1,
       "message": "else /*current_method \u003d\u003d nullptr*/ { // Abstract method masks all defaults\n  if (vtable_impl-\u003eIsAbstract() \u0026\u0026\n      !vtable_impl-\u003eIsDefaultConflicting()) {\n    ...\n  }\n  // else don\u0027t need do anything\n}",
+      "revId": "c2ad243594fcede80ddecb1a55aab0cceb396805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6a6b626_2e62278b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 5419,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-10T01:47:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7689e6a7_5f872bf4",
       "revId": "c2ad243594fcede80ddecb1a55aab0cceb396805",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -242,6 +446,30 @@
     },
     {
       "key": {
+        "uuid": "b6da7ea7_6f02654e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 5601,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-10T01:47:36Z",
+      "side": 1,
+      "message": "No. Removed.",
+      "parentUuid": "76d4867d_0ade3b2c",
+      "range": {
+        "startLine": 5598,
+        "startChar": 12,
+        "endLine": 5601,
+        "endChar": 11
+      },
+      "revId": "c2ad243594fcede80ddecb1a55aab0cceb396805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6a6b626_ee213f91",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 19
@@ -253,6 +481,24 @@
       "writtenOn": "2015-11-10T00:53:15Z",
       "side": 1,
       "message": "// Normal default method (changed from an older default or an older abstract interface method)",
+      "revId": "c2ad243594fcede80ddecb1a55aab0cceb396805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6da7ea7_6caef3ee",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 5602,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-10T01:47:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6a6b626_ee213f91",
       "revId": "c2ad243594fcede80ddecb1a55aab0cceb396805",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -276,6 +522,24 @@
     },
     {
       "key": {
+        "uuid": "16ac2a06_6f0a6da7",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-10T01:47:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96d1fa8e_cbfb89a1",
+      "revId": "c2ad243594fcede80ddecb1a55aab0cceb396805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d6d7f27c_2a6cdf4d",
         "filename": "runtime/modifiers.h",
         "patchSetId": 19
@@ -287,6 +551,24 @@
       "writtenOn": "2015-11-10T00:53:15Z",
       "side": 1,
       "message": "Used to figure out at runtime if invoking this method will throw an exception (e.g. NME or AME)",
+      "revId": "c2ad243594fcede80ddecb1a55aab0cceb396805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6da7ea7_cc355f86",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-10T01:47:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6d7f27c_2a6cdf4d",
       "revId": "c2ad243594fcede80ddecb1a55aab0cceb396805",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -310,6 +592,24 @@
     },
     {
       "key": {
+        "uuid": "d6d7f27c_edf7817c",
+        "filename": "test/968-default-partial-compilation-generated/util-src/generate_java.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-10T01:47:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6da7ea7_4c65efed",
+      "revId": "c2ad243594fcede80ddecb1a55aab0cceb396805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "369daed4_50ff5282",
         "filename": "test/968-default-partial-compilation-generated/util-src/generate_smali.py",
         "patchSetId": 19
@@ -321,6 +621,30 @@
       "writtenOn": "2015-11-10T00:53:15Z",
       "side": 1,
       "message": "nit: two spaces",
+      "range": {
+        "startLine": 543,
+        "startChar": 39,
+        "endLine": 543,
+        "endChar": 41
+      },
+      "revId": "c2ad243594fcede80ddecb1a55aab0cceb396805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6d7f27c_4d096d3f",
+        "filename": "test/968-default-partial-compilation-generated/util-src/generate_smali.py",
+        "patchSetId": 19
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-10T01:47:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "369daed4_50ff5282",
       "range": {
         "startLine": 543,
         "startChar": 39,
