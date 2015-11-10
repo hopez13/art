@@ -296,6 +296,24 @@
     },
     {
       "key": {
+        "uuid": "56cb02e2_d51206a1",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1123,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-10T20:45:35Z",
+      "side": 1,
+      "message": "Ok, so it\u0027s not the normal hoisting. Maybe can make it more explicit in the comment/naming.\n\nThere two cases I think should be considered here:\n1) If the HArrayGet is in a branch (doesn\u0027t dominate all back edges), should we still always hoist it?\n2) If the bounds check isn\u0027t eliminated due to the deopt inserted by loop, instead by the deopt-for-constant-index case, like straightline a[1], a[2], a[3] inside a loop, then it\u0027s not correct to hoist the HArrayGet out of loop (even if it\u0027s hoisted, it should be hoisted to the loop pre-header). I\u0027m worried about this case since even if it\u0027s not done by bce here, if there is another licm phase after bce, this can happen since I don\u0027t see any dependency between the HArrayGet and the HDeoptimize currently.",
+      "parentUuid": "16ac2a06_f5f74a7c",
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760c86c0_4738ee7b",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 12
@@ -455,6 +473,24 @@
       "side": 1,
       "message": "Yes, because we may not know the exact range in terms of instruction +/- constant, but may be able to generate code for more complex cases (e.g. instruction + other_instruction).",
       "parentUuid": "76d4867d_aa156f1d",
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "369daed4_167ae2cc",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-10T20:45:35Z",
+      "side": 1,
+      "message": "My point is if it\u0027s not even an induction variable, the caller shouldn\u0027t even try to call TryDynamicBCE(). So it\u0027s better if we can return that information back.",
+      "parentUuid": "f6a6b626_74d4fe11",
       "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -836,6 +872,23 @@
         "endLine": 1260,
         "endChar": 90
       },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16ac2a06_40993e3c",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1268,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-10T20:45:35Z",
+      "side": 1,
+      "message": "The reason in the old code about early-exit, dominate-all-back-edges, etc. is more about the co-relation between deoptimization and AIOOBE instead of profitability. We want to guarantee deoptimization happens if and only if AIOOBE is thrown. So those is done on the whole loop instead of each bounds check instruction.\n\nIf it\u0027s only done case by case for each bounds check instruction, that co-relation can be broken. deopt can be inserted before an early exit is detected later, for example.\n\nIn a jit world, we can definitely relax that restriction and profile the deopt at runtime and recompile if necessary. But for static compile, I think we still want to maintain that co-relation.",
       "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -1352,6 +1405,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "b69d1e72_fd65d260",
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56cb02e2_7587d2f4",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1425,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-10T20:45:35Z",
+      "side": 1,
+      "message": "I don\u0027t see it yet. The source level example makes the transformation clear, and the explanation of the co-relation between deoptimization and throwing AIOOBE would still be nice. It makes it clear why we do early-exit detection, dominate-all-back-edges, etc. to make sure the loop really covers every index at runtime.",
+      "parentUuid": "1617cafd_3499d03d",
       "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
