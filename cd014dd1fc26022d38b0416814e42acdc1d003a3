@@ -278,6 +278,24 @@
     },
     {
       "key": {
+        "uuid": "16ac2a06_f5f74a7c",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1123,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-10T18:13:54Z",
+      "side": 1,
+      "message": "But the array get may be hoisted after the null check has been hoisted into the yes-block of the if-taken-structure. Pure LICM would hoist the instruction into the pre-header which is always executed, which would be wrong.",
+      "parentUuid": "d6d7f27c_8d26c5f7",
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760c86c0_4738ee7b",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 12
@@ -419,6 +437,24 @@
       "side": 1,
       "message": "The caller seems to always set it to true if we don\u0027t set it here, if I read it correctly.",
       "parentUuid": "36ef6e34_5dd47b68",
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6a6b626_74d4fe11",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-10T18:13:54Z",
+      "side": 1,
+      "message": "Yes, because we may not know the exact range in terms of instruction +/- constant, but may be able to generate code for more complex cases (e.g. instruction + other_instruction).",
+      "parentUuid": "76d4867d_aa156f1d",
       "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
