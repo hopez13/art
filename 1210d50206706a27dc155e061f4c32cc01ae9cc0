@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "569062ca_7e56b152",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-10T12:10:51Z",
+      "side": 1,
+      "message": "hmm, extract the use of block-\u003eGetNormalSuccessors() outside the loop. Now you create a new RefArray with every invocation and even if it\u0027s not a copy of the array you still handle do some work because of the size and the array pointer.",
+      "range": {
+        "startLine": 384,
+        "startChar": 29,
+        "endLine": 384,
+        "endChar": 57
+      },
+      "revId": "1210d50206706a27dc155e061f4c32cc01ae9cc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "169a6aee_1c369528",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-10T12:10:51Z",
+      "side": 1,
+      "message": "Document here and below that for tryblocks you can have at most one normal successor.",
+      "range": {
+        "startLine": 665,
+        "startChar": 54,
+        "endLine": 665,
+        "endChar": 56
+      },
+      "revId": "1210d50206706a27dc155e061f4c32cc01ae9cc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56278298_064f3ab8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2439,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-10T12:10:51Z",
+      "side": 1,
+      "message": "do you need to worry that now you create a RefArray with every invocation?",
+      "range": {
+        "startLine": 2439,
+        "startChar": 46,
+        "endLine": 2439,
+        "endChar": 70
+      },
+      "revId": "1210d50206706a27dc155e061f4c32cc01ae9cc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
