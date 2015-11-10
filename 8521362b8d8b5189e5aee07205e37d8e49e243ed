@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "16ac2a06_cf81e1b4",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-10T13:38:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "760c86c0_475fcec0",
+      "range": {
+        "startLine": 365,
+        "startChar": 23,
+        "endLine": 366,
+        "endChar": 54
+      },
+      "revId": "8521362b8d8b5189e5aee07205e37d8e49e243ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9609fab1_abe095bc",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-06T11:20:59Z",
       "side": 1,
       "message": "I can\u0027t parse this comment.",
+      "range": {
+        "startLine": 477,
+        "startChar": 8,
+        "endLine": 477,
+        "endChar": 61
+      },
+      "revId": "8521362b8d8b5189e5aee07205e37d8e49e243ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96d1fa8e_0bde412c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-10T13:38:32Z",
+      "side": 1,
+      "message": "Deleted this comment and added this assert.\n    if (kIsDebugBuild) {\n      // heap_values should all be kUnknownHeapValue that it is inited with.\n      for (size_t i \u003d 0; i \u003c heap_values_for_.size(); i++) {\n        DCHECK_EQ(heap_values[i], kUnknownHeapValue);\n      }\n    }",
+      "parentUuid": "9609fab1_abe095bc",
       "range": {
         "startLine": 477,
         "startChar": 8,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "16ac2a06_4fa6912c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-10T13:38:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56030291_06a67a2b",
+      "range": {
+        "startLine": 471,
+        "startChar": 1,
+        "endLine": 481,
+        "endChar": 9
+      },
+      "revId": "8521362b8d8b5189e5aee07205e37d8e49e243ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36fe8ebd_6531a6c7",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "b6da7ea7_ac590b43",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-10T13:38:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36fe8ebd_6531a6c7",
+      "range": {
+        "startLine": 534,
+        "startChar": 8,
+        "endLine": 534,
+        "endChar": 77
+      },
+      "revId": "8521362b8d8b5189e5aee07205e37d8e49e243ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56030291_e6711e7d",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 4
@@ -105,6 +201,30 @@
       "writtenOn": "2015-11-06T11:20:59Z",
       "side": 1,
       "message": "I can\u0027t parse this.",
+      "range": {
+        "startLine": 538,
+        "startChar": 7,
+        "endLine": 539,
+        "endChar": 64
+      },
+      "revId": "8521362b8d8b5189e5aee07205e37d8e49e243ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6a6b626_6e0d4f14",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-10T13:38:32Z",
+      "side": 1,
+      "message": "Delete this comment, and added this following line 532:\n        ... since a load later from the\n  // location won\u0027t be eliminated.",
+      "parentUuid": "56030291_e6711e7d",
       "range": {
         "startLine": 538,
         "startChar": 7,
