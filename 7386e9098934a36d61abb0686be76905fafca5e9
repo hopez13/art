@@ -22,6 +22,30 @@
       "revId": "7386e9098934a36d61abb0686be76905fafca5e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "169a6aee_1c121571",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-10T16:04:26Z",
+      "side": 1,
+      "message": "ArrayRef extracted and re-acquired if SplitCriticalEdge called (in PS7/8).",
+      "parentUuid": "96865a95_00b466a7",
+      "range": {
+        "startLine": 398,
+        "startChar": 10,
+        "endLine": 398,
+        "endChar": 46
+      },
+      "revId": "7386e9098934a36d61abb0686be76905fafca5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
