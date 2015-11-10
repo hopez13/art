@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "56278298_46ba128d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2615,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-10T18:22:29Z",
+      "side": 1,
+      "message": "Done.\n\nThat\u0027s how I started, it just felt a bit wasteful. But I guess the performance impact should be minimal.",
+      "parentUuid": "96865a95_800a36fb",
+      "range": {
+        "startLine": 2615,
+        "startChar": 21,
+        "endLine": 2615,
+        "endChar": 40
+      },
+      "revId": "23e51afaea26848987609d477b4b17b7ec0bfa5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96865a95_20032aec",
         "filename": "test/442-checker-constant-folding/src/Main.java",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-10T18:00:39Z",
       "side": 1,
       "message": "This looks like something Jack might optimize out (we\u0027re still using dx for Checker tests). Could you acquire the nulls through an inlined method and test the later constant folding? That seems more future-proof.",
+      "range": {
+        "startLine": 677,
+        "startChar": 0,
+        "endLine": 677,
+        "endChar": 44
+      },
+      "revId": "23e51afaea26848987609d477b4b17b7ec0bfa5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96865a95_e00f8207",
+        "filename": "test/442-checker-constant-folding/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-10T18:22:29Z",
+      "side": 1,
+      "message": "Done.\n\nBut if jack optimizes this, why wouldn\u0027t it also do some trivial inlining?",
+      "parentUuid": "96865a95_20032aec",
       "range": {
         "startLine": 677,
         "startChar": 0,
