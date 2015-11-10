@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96865a95_800a36fb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2615,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-10T18:00:39Z",
+      "side": 1,
+      "message": "How about making this Evaluate(NullConstant, NullConstant) with ATTRIBUTE_UNUSED on both nulls to  stay with the theme.",
+      "range": {
+        "startLine": 2615,
+        "startChar": 21,
+        "endLine": 2615,
+        "endChar": 40
+      },
+      "revId": "23e51afaea26848987609d477b4b17b7ec0bfa5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96865a95_20032aec",
+        "filename": "test/442-checker-constant-folding/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-10T18:00:39Z",
+      "side": 1,
+      "message": "This looks like something Jack might optimize out (we\u0027re still using dx for Checker tests). Could you acquire the nulls through an inlined method and test the later constant folding? That seems more future-proof.",
+      "range": {
+        "startLine": 677,
+        "startChar": 0,
+        "endLine": 677,
+        "endChar": 44
+      },
+      "revId": "23e51afaea26848987609d477b4b17b7ec0bfa5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
