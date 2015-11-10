@@ -93,6 +93,30 @@
       "revId": "c22ccfc48d73112397607b9e726c15b4f700b9e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db11db43_7ac7796c",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-10T11:44:40Z",
+      "side": 1,
+      "message": "InvokeRuntime always calls RecordPcInfo, which records the Dex PC, the native PC, stack maps, etc. for this code location.\n\nHowever, I think we may actually not need to record this information, as that read barrier runtime entry point call shall never fail or be interrupted IIUC (meaning we may never use that information).\n\nIn this regard, I thought calling the ReadBarrierSlow or ReadBarrierForRootSlow entry points should be no different than calling the runtime to perform, say, a type conversion (e.g. calling the F2l entry point to perform a float-to-long conversion on x86), as this operation should not fail nor be interrupted, and for which RecordPCInfo is special-cased not to record any information.\n\nI\u0027ll investigate.",
+      "parentUuid": "760646d1_f77c809c",
+      "range": {
+        "startLine": 559,
+        "startChar": 4,
+        "endLine": 562,
+        "endChar": 37
+      },
+      "revId": "c22ccfc48d73112397607b9e726c15b4f700b9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
