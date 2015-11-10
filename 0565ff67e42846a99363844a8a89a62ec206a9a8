@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96d1fa8e_b1d842a6",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-10T21:15:08Z",
+      "side": 1,
+      "message": "We already requested kOutputOverlap, so this is probably unnecessary?",
+      "range": {
+        "startLine": 497,
+        "startChar": 0,
+        "endLine": 497,
+        "endChar": 26
+      },
+      "revId": "0565ff67e42846a99363844a8a89a62ec206a9a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6da7ea7_fd71ef2a",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-10T21:15:08Z",
+      "side": 1,
+      "message": "I would not favor input \u003d 0, penalizing all other inputs. If we just drop these 3 instructions, the code should still be correct.",
+      "range": {
+        "startLine": 499,
+        "startChar": 0,
+        "endLine": 504,
+        "endChar": 23
+      },
+      "revId": "0565ff67e42846a99363844a8a89a62ec206a9a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16c50ace_f80d7981",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-10T21:15:08Z",
+      "side": 1,
+      "message": "movz out, in_hi, in_lo\nmovn out, in_lo, in_lo",
+      "range": {
+        "startLine": 514,
+        "startChar": 0,
+        "endLine": 516,
+        "endChar": 24
+      },
+      "revId": "0565ff67e42846a99363844a8a89a62ec206a9a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56cb02e2_3586fa82",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-10T21:15:08Z",
+      "side": 1,
+      "message": "I\u0027d rather not have two copies of this (here and above).",
+      "range": {
+        "startLine": 578,
+        "startChar": 0,
+        "endLine": 620,
+        "endChar": 25
+      },
+      "revId": "0565ff67e42846a99363844a8a89a62ec206a9a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
