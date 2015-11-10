@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b67fde4b_415592cd",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2712,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-10T18:36:05Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2712,
+        "startChar": 35,
+        "endLine": 2712,
+        "endChar": 61
+      },
+      "revId": "9e23df5c21bed53ead79e3131b67105abc8871e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b67fde4b_21588e08",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -16,6 +39,29 @@
       "range": {
         "startLine": 2748,
         "startChar": 11,
+        "endLine": 2748,
+        "endChar": 61
+      },
+      "revId": "9e23df5c21bed53ead79e3131b67105abc8871e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6bf9630_23036aec",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2748,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-10T18:36:05Z",
+      "side": 1,
+      "message": "Please replace with GetIntConstant(0), it will not create a kPrimBool constant anyway.",
+      "range": {
+        "startLine": 2748,
+        "startChar": 35,
         "endLine": 2748,
         "endChar": 61
       },
