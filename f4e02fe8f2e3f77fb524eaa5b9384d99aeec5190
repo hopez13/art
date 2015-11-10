@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "369daed4_56a62a2c",
+        "filename": "runtime/mem_map_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-10T21:51:36Z",
+      "side": 1,
+      "message": "Add an assert that the end is in the high part of the low 4GB?",
+      "range": {
+        "startLine": 276,
+        "startChar": 4,
+        "endLine": 276,
+        "endChar": 73
+      },
+      "revId": "f4e02fe8f2e3f77fb524eaa5b9384d99aeec5190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
