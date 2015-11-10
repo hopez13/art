@@ -332,6 +332,30 @@
     },
     {
       "key": {
+        "uuid": "169a6aee_9c15451e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2896,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-10T23:12:46Z",
+      "side": 1,
+      "message": "OK, so this path is hit during compilation too? That is during dex2oat and the best thing we have there is the soft fail?",
+      "parentUuid": "f611560a_d3ad14ad",
+      "range": {
+        "startLine": 2895,
+        "startChar": 42,
+        "endLine": 2896,
+        "endChar": 25
+      },
+      "revId": "900c71f8576fc62fa5ed95741cfa2158167055db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1698aa84_61edb2e6",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 10
