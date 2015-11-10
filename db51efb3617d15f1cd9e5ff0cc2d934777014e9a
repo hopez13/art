@@ -22,6 +22,30 @@
       "revId": "db51efb3617d15f1cd9e5ff0cc2d934777014e9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d67c5259_22b32e12",
+        "filename": "compiler/optimizing/induction_var_analysis_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-10T08:09:43Z",
+      "side": 1,
+      "message": "I\u0027m not sure I understand. The return was added, not removed.\n\nThe reason why I had to add it is because these tests were previously jumping to HExit with an HIf which is not allowed. It did not use to crash because gtests don\u0027t run GraphChecker (maybe they should) but in this CL I\u0027ve added a DCHECK into SsaBuilder that will fail. \n\nFunctionality should remain the same, it just makes the tests compliant with an invariant we enforce on the graph.",
+      "parentUuid": "9603babe_7bd4db11",
+      "range": {
+        "startLine": 72,
+        "startChar": 20,
+        "endLine": 72,
+        "endChar": 30
+      },
+      "revId": "db51efb3617d15f1cd9e5ff0cc2d934777014e9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
