@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16ac2a06_0fcac9c6",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-10T01:01:05Z",
+      "side": 1,
+      "message": "DCHECK(!low_4gb || expected_ptr \u003d\u003d nullptr);",
+      "range": {
+        "startLine": 386,
+        "startChar": 2,
+        "endLine": 387,
+        "endChar": 50
+      },
+      "revId": "5c16003dbcf4437aa6b47dbbe3ed6f650a899966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16ac2a06_afbf3520",
+        "filename": "runtime/mem_map.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-10T01:01:05Z",
+      "side": 1,
+      "message": "Not sure it\u0027s an elegant API that allows to set low_4gb and an addr. I know it simplifies the forwarding above, though.",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 118,
+        "endChar": 58
+      },
+      "revId": "5c16003dbcf4437aa6b47dbbe3ed6f650a899966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
