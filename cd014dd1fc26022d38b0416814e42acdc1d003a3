@@ -260,6 +260,24 @@
     },
     {
       "key": {
+        "uuid": "d6d7f27c_8d26c5f7",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1123,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-10T01:09:27Z",
+      "side": 1,
+      "message": "licm can still hoist non-throwing instruction after the first exception throwing instruction. HArrayGet is non-throwing (HBoundsCheck is instead).",
+      "parentUuid": "36712e54_b39900f0",
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760c86c0_4738ee7b",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 12
@@ -383,6 +401,24 @@
       "side": 1,
       "message": "If we don\u0027t know anything, I does not matter either. If you prefer, I can set it do false at L1227",
       "parentUuid": "b620be2e_e2d81ca7",
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76d4867d_aa156f1d",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-10T01:09:27Z",
+      "side": 1,
+      "message": "The caller seems to always set it to true if we don\u0027t set it here, if I read it correctly.",
+      "parentUuid": "36ef6e34_5dd47b68",
       "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
