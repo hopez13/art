@@ -942,6 +942,30 @@
     },
     {
       "key": {
+        "uuid": "56278298_263276ec",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1284,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-10T23:06:12Z",
+      "side": 1,
+      "message": "It sort of woke up my \"premature optimizations\" senses :) But your call.",
+      "parentUuid": "365a0ede_eb7465dc",
+      "range": {
+        "startLine": 1283,
+        "startChar": 0,
+        "endLine": 1284,
+        "endChar": 88
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6923665_3ec6686f",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 12
