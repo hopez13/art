@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "169a6aee_bc74c1db",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-10T13:05:42Z",
+      "side": 1,
+      "message": "I think SplitCriticalEdge() can resize the underlying container and thus invalidate the ArrayRef\u003c\u003e, so this needs to remain as it is.",
+      "parentUuid": "569062ca_7e56b152",
+      "range": {
+        "startLine": 384,
+        "startChar": 29,
+        "endLine": 384,
+        "endChar": 57
+      },
+      "revId": "1210d50206706a27dc155e061f4c32cc01ae9cc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_1c369528",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 3
@@ -59,6 +83,30 @@
       "writtenOn": "2015-11-10T12:10:51Z",
       "side": 1,
       "message": "do you need to worry that now you create a RefArray with every invocation?",
+      "range": {
+        "startLine": 2439,
+        "startChar": 46,
+        "endLine": 2439,
+        "endChar": 70
+      },
+      "revId": "1210d50206706a27dc155e061f4c32cc01ae9cc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d67c5259_8256ba4f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2439,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-10T13:05:42Z",
+      "side": 1,
+      "message": "That\u0027s just lack of trust in the compiler. That ArrayRef\u003c\u003e should be optimized away (inlining+scalarization), only the size will actually need to be calculated.\n\nThe real effect here is the EndsWithTryBoundary(), including a virtual function call but there are so many other places where we don\u0027t care about that particular overhead...",
+      "parentUuid": "56278298_064f3ab8",
       "range": {
         "startLine": 2439,
         "startChar": 46,
