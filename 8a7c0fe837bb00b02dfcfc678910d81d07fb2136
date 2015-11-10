@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d67c5259_a213bea7",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-10T11:01:43Z",
+      "side": 1,
+      "message": "So it\u0027s boolean sumplifier that tripped it? The commit message is confusing, as we seem to already run dce with try/catch.",
+      "range": {
+        "startLine": 534,
+        "startChar": 6,
+        "endLine": 534,
+        "endChar": 22
+      },
+      "revId": "8a7c0fe837bb00b02dfcfc678910d81d07fb2136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
