@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b67fde4b_21588e08",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2748,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-10T18:30:29Z",
+      "side": 1,
+      "message": "we should start thinking replacing these with GetTrue()/GetFalse() for better readability :)",
+      "range": {
+        "startLine": 2748,
+        "startChar": 11,
+        "endLine": 2748,
+        "endChar": 61
+      },
+      "revId": "9e23df5c21bed53ead79e3131b67105abc8871e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
