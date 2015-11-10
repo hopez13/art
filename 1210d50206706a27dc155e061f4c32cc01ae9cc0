@@ -164,6 +164,30 @@
       "revId": "1210d50206706a27dc155e061f4c32cc01ae9cc0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "569062ca_7e09513f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2439,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-10T15:01:20Z",
+      "side": 1,
+      "message": "We do rely on the compiler to optimize code properly. Have you tried the sluggish -O0?",
+      "parentUuid": "368beea4_dd0d0b82",
+      "range": {
+        "startLine": 2439,
+        "startChar": 46,
+        "endLine": 2439,
+        "endChar": 70
+      },
+      "revId": "1210d50206706a27dc155e061f4c32cc01ae9cc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
