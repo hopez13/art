@@ -425,6 +425,30 @@
     },
     {
       "key": {
+        "uuid": "368beea4_bd2bdf29",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5821,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-11T18:02:32Z",
+      "side": 1,
+      "message": "BTW, I just realized I could special-case the unresolved \u0026 interface cases when read barriers are off, to generate the original (slow path free) code.",
+      "parentUuid": "56278298_2638b67b",
+      "range": {
+        "startLine": 5814,
+        "startChar": 0,
+        "endLine": 5821,
+        "endChar": 41
+      },
+      "revId": "723d7f5f28c52dfa89d510985dea6426867737a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_3c00b1dc",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 7
