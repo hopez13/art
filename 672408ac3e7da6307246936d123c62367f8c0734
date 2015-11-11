@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "db11db43_1a4bdd3c",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3006,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-11T11:17:40Z",
+      "side": 1,
+      "message": "I\u0027ll keep this explicit.\n\nReadability: When I read RegisterOrConstant(), I think it allows the RA to allocate a register even for a constant if the RA wants to. And I really don\u0027t want that to happen here as we do not allocate the temp necessary to process such allocation.",
+      "parentUuid": "36220e8b_0562d28a",
+      "range": {
+        "startLine": 3006,
+        "startChar": 8,
+        "endLine": 3006,
+        "endChar": 40
+      },
+      "revId": "672408ac3e7da6307246936d123c62367f8c0734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db11db43_7a40993a",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-10T22:15:32Z",
       "side": 1,
       "message": "Move this before line 3038.",
+      "range": {
+        "startLine": 3035,
+        "startChar": 0,
+        "endLine": 3035,
+        "endChar": 72
+      },
+      "revId": "672408ac3e7da6307246936d123c62367f8c0734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b67fde4b_21d7ae41",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3035,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-11T11:17:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db11db43_7a40993a",
       "range": {
         "startLine": 3035,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d67c5259_e20f8607",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3114,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-11T11:17:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d67c5259_8265daf0",
+      "range": {
+        "startLine": 3114,
+        "startChar": 38,
+        "endLine": 3114,
+        "endChar": 45
+      },
+      "revId": "672408ac3e7da6307246936d123c62367f8c0734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b67fde4b_01d2aa51",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-11-11T11:05:11Z",
       "side": 1,
       "message": "add a comment // shift_value \u003c 32.\nThere are a lot of if-else and it will be easier to read.",
+      "range": {
+        "startLine": 3141,
+        "startChar": 10,
+        "endLine": 3141,
+        "endChar": 14
+      },
+      "revId": "672408ac3e7da6307246936d123c62367f8c0734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "569062ca_5e801564",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3141,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-11T11:17:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b67fde4b_01d2aa51",
       "range": {
         "startLine": 3141,
         "startChar": 10,
