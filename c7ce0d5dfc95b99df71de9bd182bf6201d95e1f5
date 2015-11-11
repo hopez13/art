@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "16c50ace_ae2618f7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-11T23:51:19Z",
+      "side": 1,
+      "message": "\u003e It\u0027s run with ART_TEST_QUIET by default isn\u0027t it?\n\nyeah. \n\nAs I said I feel that if you are adding or changing a test you will likely run it directly which will cause everything to be printed anyway and if you aren\u0027t writing a test you likely only care that all tests pass (or knowing which ones fail) and all the passing tests would be just noise.",
+      "parentUuid": "5b25eb9e_d9d21750",
+      "revId": "c7ce0d5dfc95b99df71de9bd182bf6201d95e1f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6da7ea7_c8a9c2bc",
         "filename": "runtime/common_runtime_test.cc",
         "patchSetId": 2
@@ -95,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "f6a6b626_6aa0925f",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1438,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-11T23:51:19Z",
+      "side": 1,
+      "message": "We would need to create a whole new file to write things to temporarily in order to do this.\n\nI could add this if you want but I really don\u0027t feel that it is too necessary. Only a few test cases set this.",
+      "parentUuid": "b6da7ea7_2b333839",
+      "revId": "c7ce0d5dfc95b99df71de9bd182bf6201d95e1f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76d4867d_44de5f2d",
         "filename": "runtime/utils.cc",
         "patchSetId": 2
@@ -106,6 +142,24 @@
       "writtenOn": "2015-11-11T23:32:00Z",
       "side": 1,
       "message": "Did you check it on the target too? Some tests might send data to logcat and spam it.",
+      "revId": "c7ce0d5dfc95b99df71de9bd182bf6201d95e1f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b0e2f2a_262208e5",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1444,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-11T23:51:19Z",
+      "side": 1,
+      "message": "I honestly don\u0027t really care about logcat spam...",
+      "parentUuid": "76d4867d_44de5f2d",
       "revId": "c7ce0d5dfc95b99df71de9bd182bf6201d95e1f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
