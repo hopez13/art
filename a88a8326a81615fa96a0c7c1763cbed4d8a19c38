@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d67c5259_22588e08",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1709,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-11T13:58:37Z",
+      "side": 1,
+      "message": "Done. (I previously had this in HandleInvoke().)",
+      "parentUuid": "569062ca_bedd9995",
+      "range": {
+        "startLine": 1709,
+        "startChar": 14,
+        "endLine": 1709,
+        "endChar": 38
+      },
+      "revId": "a88a8326a81615fa96a0c7c1763cbed4d8a19c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "368beea4_bd2cbf8a",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-11T12:08:18Z",
       "side": 1,
       "message": "this is misleading name as you don\u0027t imply the usual \"Get\" meaning.\n\nHow about HandleCurrentMethod() ? or anything similar.\n\nAlso, please document at top level what this supposed to do.",
+      "range": {
+        "startLine": 3808,
+        "startChar": 27,
+        "endLine": 3808,
+        "endChar": 64
+      },
+      "revId": "a88a8326a81615fa96a0c7c1763cbed4d8a19c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96865a95_c07c3e06",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3808,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-11T13:58:37Z",
+      "side": 1,
+      "message": "Any proposal for a better name?\n\nThis is _not_ about the current method (though we could use it for that as well).",
+      "parentUuid": "368beea4_bd2cbf8a",
       "range": {
         "startLine": 3808,
         "startChar": 27,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f6bf9630_83ae9ec0",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3824,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-11T13:58:37Z",
+      "side": 1,
+      "message": "You missed the Intrinsified() check above.",
+      "parentUuid": "368beea4_bdf3df5a",
+      "range": {
+        "startLine": 3824,
+        "startChar": 28,
+        "endLine": 3824,
+        "endChar": 46
+      },
+      "revId": "a88a8326a81615fa96a0c7c1763cbed4d8a19c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db11db43_7a6539c6",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "169a6aee_dc30ad98",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3953,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-11T13:58:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db11db43_7a6539c6",
+      "range": {
+        "startLine": 3953,
+        "startChar": 86,
+        "endLine": 3953,
+        "endChar": 88
+      },
+      "revId": "a88a8326a81615fa96a0c7c1763cbed4d8a19c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "368beea4_7d131742",
         "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
         "patchSetId": 4
@@ -105,6 +201,30 @@
       "writtenOn": "2015-11-11T12:08:18Z",
       "side": 1,
       "message": "How about we specialize this to SetCurrentMethod() ? I find InsertInputAt too generic and it\u0027s not something that we should normally do.",
+      "range": {
+        "startLine": 118,
+        "startChar": 31,
+        "endLine": 118,
+        "endChar": 44
+      },
+      "revId": "a88a8326a81615fa96a0c7c1763cbed4d8a19c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56278298_06865a82",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-11T13:58:37Z",
+      "side": 1,
+      "message": "I\u0027d rather rename GetCurrentMethodInputIndex() to GetExtraArgumentsStartIndex() but that\u0027s quite invasive, so I would do it in a standalone rename CL.",
+      "parentUuid": "368beea4_7d131742",
       "range": {
         "startLine": 118,
         "startChar": 31,
