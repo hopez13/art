@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "96865a95_c318c8c6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3808,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-11T14:41:40Z",
+      "side": 1,
+      "message": "HX86ComputeBaseMethodAddress. We\u0027re already discussing the naming of GetCurrentMethodInputIndex() elsewhere, so don\u0027t drag the line 3811 here.",
+      "parentUuid": "169a6aee_1c62158b",
+      "range": {
+        "startLine": 3808,
+        "startChar": 27,
+        "endLine": 3808,
+        "endChar": 64
+      },
+      "revId": "a88a8326a81615fa96a0c7c1763cbed4d8a19c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "368beea4_bdf3df5a",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "Right. Could you add a comment after that test? a DCHECK on slow_path with a message is equally good.",
       "parentUuid": "f6bf9630_83ae9ec0",
+      "range": {
+        "startLine": 3824,
+        "startChar": 28,
+        "endLine": 3824,
+        "endChar": 46
+      },
+      "revId": "a88a8326a81615fa96a0c7c1763cbed4d8a19c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b67fde4b_244fbcb8",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3824,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-11T14:41:40Z",
+      "side": 1,
+      "message": "I would think that the comment at line 3815 is close enough.",
+      "parentUuid": "db11db43_5addd591",
       "range": {
         "startLine": 3824,
         "startChar": 28,
@@ -297,6 +345,30 @@
       "side": 1,
       "message": "IMO GetExtraArgumentsStartIndex is worse. *ExtraArgument* doesn\u0027t tell me anything and suggest that anything could be there (which is not true, we know precisely what is there).",
       "parentUuid": "56278298_06865a82",
+      "range": {
+        "startLine": 118,
+        "startChar": 31,
+        "endLine": 118,
+        "endChar": 44
+      },
+      "revId": "a88a8326a81615fa96a0c7c1763cbed4d8a19c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "169a6aee_3c5fd1c1",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-11T14:41:40Z",
+      "side": 1,
+      "message": "\"ExtraArgument\" is deliberately supposed to _not_ tell you what it is. The very purpose of this CL is to put something else there - something architecture specific, so I wouldn\u0027t want to document that \"extra\" stuff here.",
+      "parentUuid": "36220e8b_e59f7680",
       "range": {
         "startLine": 118,
         "startChar": 31,
