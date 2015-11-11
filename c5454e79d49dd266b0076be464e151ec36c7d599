@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "76d4867d_dc76a920",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1072808
+      },
+      "writtenOn": "2015-11-11T06:52:54Z",
+      "side": 1,
+      "message": "%edx is caller save register.",
+      "parentUuid": "db11db43_1a5abd31",
+      "range": {
+        "startLine": 799,
+        "startChar": 50,
+        "endLine": 799,
+        "endChar": 54
+      },
+      "revId": "c5454e79d49dd266b0076be464e151ec36c7d599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_dc7c2d9d",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 1
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "369daed4_1c84c1bf",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 806,
+      "author": {
+        "id": 1072808
+      },
+      "writtenOn": "2015-11-11T06:52:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "169a6aee_dc7c2d9d",
+      "revId": "c5454e79d49dd266b0076be464e151ec36c7d599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36220e8b_85d882a6",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 1
@@ -53,6 +95,30 @@
       "writtenOn": "2015-11-10T20:13:33Z",
       "side": 1,
       "message": "decl %edi (or does the assembler generate DEC for this SUB anyway?)",
+      "range": {
+        "startLine": 824,
+        "startChar": 4,
+        "endLine": 824,
+        "endChar": 25
+      },
+      "revId": "c5454e79d49dd266b0076be464e151ec36c7d599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6da7ea7_5ea0f15e",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1072808
+      },
+      "writtenOn": "2015-11-11T06:52:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36220e8b_85d882a6",
       "range": {
         "startLine": 824,
         "startChar": 4,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "16ac2a06_01af3856",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1072808
+      },
+      "writtenOn": "2015-11-11T06:52:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "169a6aee_dc218d91",
+      "range": {
+        "startLine": 826,
+        "startChar": 62,
+        "endLine": 826,
+        "endChar": 66
+      },
+      "revId": "c5454e79d49dd266b0076be464e151ec36c7d599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db11db43_da6b25c4",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 1
@@ -99,6 +189,30 @@
       "writtenOn": "2015-11-10T20:13:33Z",
       "side": 1,
       "message": "Use the POISON_HEAP_REF macro.",
+      "range": {
+        "startLine": 854,
+        "startChar": 0,
+        "endLine": 856,
+        "endChar": 6
+      },
+      "revId": "c5454e79d49dd266b0076be464e151ec36c7d599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96d1fa8e_b7bf9220",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1072808
+      },
+      "writtenOn": "2015-11-11T06:52:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db11db43_da6b25c4",
       "range": {
         "startLine": 854,
         "startChar": 0,
