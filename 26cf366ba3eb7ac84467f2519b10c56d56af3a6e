@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "db11db43_dafe851f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-11T10:33:39Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 79
+      },
+      "revId": "26cf366ba3eb7ac84467f2519b10c56d56af3a6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_dc46ed33",
         "filename": "test/956-checker-lambda/build",
         "patchSetId": 2
