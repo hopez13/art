@@ -22,6 +22,30 @@
       "revId": "a1d3d10059982e22bb8f1fb034325f355b9771ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96865a95_a32744a5",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T18:58:19Z",
+      "side": 1,
+      "message": "moved this to mirror::Class.",
+      "parentUuid": "569062ca_81d15c23",
+      "range": {
+        "startLine": 633,
+        "startChar": 0,
+        "endLine": 636,
+        "endChar": 5
+      },
+      "revId": "a1d3d10059982e22bb8f1fb034325f355b9771ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
