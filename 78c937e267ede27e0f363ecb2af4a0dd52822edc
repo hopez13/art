@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36220e8b_450a0aa7",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-11T12:43:07Z",
+      "side": 1,
+      "message": "Add a comment before the if that it\u0027s only useful to do type propagation for reference and non-null returns.",
+      "range": {
+        "startLine": 537,
+        "startChar": 6,
+        "endLine": 539,
+        "endChar": 49
+      },
+      "revId": "78c937e267ede27e0f363ecb2af4a0dd52822edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b67fde4b_4169123d",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-11T12:43:07Z",
+      "side": 1,
+      "message": "ditto: it has t be a more-refined equivalent or subtype.",
+      "range": {
+        "startLine": 553,
+        "startChar": 0,
+        "endLine": 558,
+        "endChar": 59
+      },
+      "revId": "78c937e267ede27e0f363ecb2af4a0dd52822edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
