@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "569062ca_bedd9995",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1709,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T12:08:18Z",
+      "side": 1,
+      "message": "Already true (`HInvokeStaticOrDirect* invoke`)",
+      "range": {
+        "startLine": 1709,
+        "startChar": 14,
+        "endLine": 1709,
+        "endChar": 38
+      },
+      "revId": "a88a8326a81615fa96a0c7c1763cbed4d8a19c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "368beea4_bd2cbf8a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3808,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T12:08:18Z",
+      "side": 1,
+      "message": "this is misleading name as you don\u0027t imply the usual \"Get\" meaning.\n\nHow about HandleCurrentMethod() ? or anything similar.\n\nAlso, please document at top level what this supposed to do.",
+      "range": {
+        "startLine": 3808,
+        "startChar": 27,
+        "endLine": 3808,
+        "endChar": 64
+      },
+      "revId": "a88a8326a81615fa96a0c7c1763cbed4d8a19c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "368beea4_bdf3df5a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3824,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T12:08:18Z",
+      "side": 1,
+      "message": "I think I miss something. This suggests that we GenerateStaticOrDirectCall only on slow paths which is not true. Do you need to test against nullptr?",
+      "range": {
+        "startLine": 3824,
+        "startChar": 28,
+        "endLine": 3824,
+        "endChar": 46
+      },
+      "revId": "a88a8326a81615fa96a0c7c1763cbed4d8a19c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db11db43_7a6539c6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3953,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T12:08:18Z",
+      "side": 1,
+      "message": "I know this is just a propagation of what it was before, bug could you please const-ify the magic number with a suggestive name?",
+      "range": {
+        "startLine": 3953,
+        "startChar": 86,
+        "endLine": 3953,
+        "endChar": 88
+      },
+      "revId": "a88a8326a81615fa96a0c7c1763cbed4d8a19c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "368beea4_7d131742",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T12:08:18Z",
+      "side": 1,
+      "message": "How about we specialize this to SetCurrentMethod() ? I find InsertInputAt too generic and it\u0027s not something that we should normally do.",
+      "range": {
+        "startLine": 118,
+        "startChar": 31,
+        "endLine": 118,
+        "endChar": 44
+      },
+      "revId": "a88a8326a81615fa96a0c7c1763cbed4d8a19c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
