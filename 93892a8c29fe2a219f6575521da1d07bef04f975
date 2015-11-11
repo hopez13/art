@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "d67c5259_624536f3",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T16:04:30Z",
+      "side": 1,
+      "message": "Can also happen as you inline as well (we do it on multiple levels). So technically is not only \u0027after\u0027. I don\u0027t mind if you feel strongly.",
+      "parentUuid": "169a6aee_5ce1fd1a",
+      "range": {
+        "startLine": 733,
+        "startChar": 23,
+        "endLine": 733,
+        "endChar": 41
+      },
+      "revId": "93892a8c29fe2a219f6575521da1d07bef04f975",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_7cdeb95b",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 2
@@ -59,6 +83,30 @@
       "writtenOn": "2015-11-11T15:59:32Z",
       "side": 1,
       "message": "Unrelated: What\u0027s this for? There\u0027s nothing after the if. You could move the test from line 741 to the beginning of the loop and get rid of this whole nested if.",
+      "range": {
+        "startLine": 756,
+        "startChar": 0,
+        "endLine": 756,
+        "endChar": 17
+      },
+      "revId": "93892a8c29fe2a219f6575521da1d07bef04f975",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36220e8b_e8fbcba0",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T16:04:30Z",
+      "side": 1,
+      "message": "It\u0027s probably an artifact of various refactorings or a bad merge.",
+      "parentUuid": "169a6aee_7cdeb95b",
       "range": {
         "startLine": 756,
         "startChar": 0,
