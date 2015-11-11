@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6bf9630_e644c09d",
+        "filename": "test/450-checker-types/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-11T17:04:06Z",
+      "side": 1,
+      "message": "I\u0027ve thought about this lately - we should run DCE after inliner. It would get rid of redundant phis and simplify the graph (merge blocks, perhaps even remove something!) before BCE/LSE/etc.",
+      "range": {
+        "startLine": 615,
+        "startChar": 0,
+        "endLine": 615,
+        "endChar": 95
+      },
+      "revId": "617bd9255bbdb9890e9d80462d293b94ba41c1f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
