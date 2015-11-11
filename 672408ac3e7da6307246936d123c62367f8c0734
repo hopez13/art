@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d67c5259_e246a633",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3006,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T11:54:10Z",
+      "side": 1,
+      "message": "Then we should document Location::RegisterOrConstant or choose a better name. All the other code in generators assume the semantic \"if it\u0027s a constant you get a constant, otherwise you get a register\". I much prefer consistency :)",
+      "parentUuid": "db11db43_1a4bdd3c",
+      "range": {
+        "startLine": 3006,
+        "startChar": 8,
+        "endLine": 3006,
+        "endChar": 40
+      },
+      "revId": "672408ac3e7da6307246936d123c62367f8c0734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db11db43_7a40993a",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
