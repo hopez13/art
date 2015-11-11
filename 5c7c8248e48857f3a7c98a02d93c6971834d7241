@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "569062ca_fe700177",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2992,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T11:05:11Z",
+      "side": 0,
+      "message": "Keep this and if() only kOutputOverlap",
+      "range": {
+        "startLine": 2992,
+        "startChar": 37,
+        "endLine": 2992,
+        "endChar": 56
+      },
+      "revId": "5c7c8248e48857f3a7c98a02d93c6971834d7241",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

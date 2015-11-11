@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "36220e8b_0562d28a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3006,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T11:05:11Z",
+      "side": 1,
+      "message": "Same. SetInAt(1, Location::RegisterOrConstant(op-\u003eInputAt(1)) can be outside the if.",
+      "range": {
+        "startLine": 3006,
+        "startChar": 8,
+        "endLine": 3006,
+        "endChar": 40
+      },
+      "revId": "672408ac3e7da6307246936d123c62367f8c0734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db11db43_7a40993a",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -41,6 +64,29 @@
         "startChar": 38,
         "endLine": 3114,
         "endChar": 45
+      },
+      "revId": "672408ac3e7da6307246936d123c62367f8c0734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b67fde4b_01d2aa51",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3141,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T11:05:11Z",
+      "side": 1,
+      "message": "add a comment // shift_value \u003c 32.\nThere are a lot of if-else and it will be easier to read.",
+      "range": {
+        "startLine": 3141,
+        "startChar": 10,
+        "endLine": 3141,
+        "endChar": 14
       },
       "revId": "672408ac3e7da6307246936d123c62367f8c0734",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
