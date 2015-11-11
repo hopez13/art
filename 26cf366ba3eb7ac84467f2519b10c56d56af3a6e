@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "36220e8b_c5151acb",
+        "filename": "test/956-checker-lambda/build",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T12:18:04Z",
+      "side": 1,
+      "message": "Short term, we could hack and activate Jack tests if \u0027--experimental lambdas\u0027",
+      "parentUuid": "169a6aee_dc46ed33",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 20
+      },
+      "revId": "26cf366ba3eb7ac84467f2519b10c56d56af3a6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "369daed4_5cd12920",
         "filename": "test/956-checker-lambda/build",
         "patchSetId": 2
@@ -59,6 +83,30 @@
       "writtenOn": "2015-11-11T01:33:25Z",
       "side": 1,
       "message": "Probably not something we want to be doing long term.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 71
+      },
+      "revId": "26cf366ba3eb7ac84467f2519b10c56d56af3a6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "169a6aee_5c801d64",
+        "filename": "test/956-checker-lambda/build",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T12:18:04Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "369daed4_5cd12920",
       "range": {
         "startLine": 19,
         "startChar": 0,
