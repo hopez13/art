@@ -449,6 +449,30 @@
     },
     {
       "key": {
+        "uuid": "b67fde4b_a4590c43",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5821,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-11T18:38:56Z",
+      "side": 1,
+      "message": "Is that with the new entry point we discussed about? Or did you find another better solution?",
+      "parentUuid": "368beea4_bd2bdf29",
+      "range": {
+        "startLine": 5814,
+        "startChar": 0,
+        "endLine": 5821,
+        "endChar": 41
+      },
+      "revId": "723d7f5f28c52dfa89d510985dea6426867737a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_3c00b1dc",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 7
@@ -531,6 +555,30 @@
       "side": 1,
       "message": "Why?  That would be code duplication + more lines of code altogether.",
       "parentUuid": "368beea4_1d8773c7",
+      "range": {
+        "startLine": 6276,
+        "startChar": 4,
+        "endLine": 6276,
+        "endChar": 23
+      },
+      "revId": "723d7f5f28c52dfa89d510985dea6426867737a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "169a6aee_ffc47b64",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 6276,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-11T18:38:56Z",
+      "side": 1,
+      "message": "Why code duplication? It seems you\u0027re using this method only here.",
+      "parentUuid": "d67c5259_a2f49ef4",
       "range": {
         "startLine": 6276,
         "startChar": 4,
