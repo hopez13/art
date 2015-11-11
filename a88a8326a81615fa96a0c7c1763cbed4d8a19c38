@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "169a6aee_1c62158b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3808,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T14:31:55Z",
+      "side": 1,
+      "message": "But according to line 3811 you only handle the location of the GetCurrentMethodInputIndex.\n\nWhat else you handle here?",
+      "parentUuid": "96865a95_c07c3e06",
+      "range": {
+        "startLine": 3808,
+        "startChar": 27,
+        "endLine": 3808,
+        "endChar": 64
+      },
+      "revId": "a88a8326a81615fa96a0c7c1763cbed4d8a19c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "368beea4_bdf3df5a",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "You missed the Intrinsified() check above.",
       "parentUuid": "368beea4_bdf3df5a",
+      "range": {
+        "startLine": 3824,
+        "startChar": 28,
+        "endLine": 3824,
+        "endChar": 46
+      },
+      "revId": "a88a8326a81615fa96a0c7c1763cbed4d8a19c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db11db43_5addd591",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3824,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T14:31:55Z",
+      "side": 1,
+      "message": "Right. Could you add a comment after that test? a DCHECK on slow_path with a message is equally good.",
+      "parentUuid": "f6bf9630_83ae9ec0",
       "range": {
         "startLine": 3824,
         "startChar": 28,
@@ -225,6 +273,30 @@
       "side": 1,
       "message": "I\u0027d rather rename GetCurrentMethodInputIndex() to GetExtraArgumentsStartIndex() but that\u0027s quite invasive, so I would do it in a standalone rename CL.",
       "parentUuid": "368beea4_7d131742",
+      "range": {
+        "startLine": 118,
+        "startChar": 31,
+        "endLine": 118,
+        "endChar": 44
+      },
+      "revId": "a88a8326a81615fa96a0c7c1763cbed4d8a19c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36220e8b_e59f7680",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T14:31:55Z",
+      "side": 1,
+      "message": "IMO GetExtraArgumentsStartIndex is worse. *ExtraArgument* doesn\u0027t tell me anything and suggest that anything could be there (which is not true, we know precisely what is there).",
+      "parentUuid": "56278298_06865a82",
       "range": {
         "startLine": 118,
         "startChar": 31,
