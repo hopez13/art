@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "368beea4_5d0d7b13",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3006,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-11T12:33:47Z",
+      "side": 1,
+      "message": "I\u0027ve gone through all RegisterOrConstant() calls and the only place where my reading would be problematic is ARM div/rem where we check that the input is constant and then ask for RegisterOrConstant() instead of ConstantLocation(). And that\u0027s just silly. I\u0027ll fix that and check that everything works even if I rewrite RegisterOrConstant() to return RequiresRegister().",
+      "parentUuid": "d67c5259_e246a633",
+      "range": {
+        "startLine": 3006,
+        "startChar": 8,
+        "endLine": 3006,
+        "endChar": 40
+      },
+      "revId": "672408ac3e7da6307246936d123c62367f8c0734",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db11db43_7a40993a",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
