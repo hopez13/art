@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "569062ca_81d15c23",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-11T18:28:14Z",
+      "side": 1,
+      "message": "Could you avoid creating so many handles?",
+      "range": {
+        "startLine": 633,
+        "startChar": 0,
+        "endLine": 636,
+        "endChar": 5
+      },
+      "revId": "a1d3d10059982e22bb8f1fb034325f355b9771ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
