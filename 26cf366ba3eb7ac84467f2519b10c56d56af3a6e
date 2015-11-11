@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "16c50ace_b91303a8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-11T17:35:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db11db43_dafe851f",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 79
+      },
+      "revId": "26cf366ba3eb7ac84467f2519b10c56d56af3a6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_dc46ed33",
         "filename": "test/956-checker-lambda/build",
         "patchSetId": 2
@@ -107,6 +131,30 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "369daed4_5cd12920",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 71
+      },
+      "revId": "26cf366ba3eb7ac84467f2519b10c56d56af3a6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16ac2a06_73136f42",
+        "filename": "test/956-checker-lambda/build",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-11T17:35:52Z",
+      "side": 1,
+      "message": "Yes, of course this is all very temporary (hopefully :-) and I just started this so to enable Igor and me to work on lambdas with some basic testing in place.\n\nIn any case, I added a TODO just to make sure we are all aware of the temporary nature of this :-)",
+      "parentUuid": "169a6aee_5c801d64",
       "range": {
         "startLine": 19,
         "startChar": 0,
