@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "d67c5259_425592cd",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1700,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-11T14:06:34Z",
+      "side": 1,
+      "message": "Former change, but could you change this to HasPcRelativeDexCache?",
+      "range": {
+        "startLine": 1700,
+        "startChar": 53,
+        "endLine": 1700,
+        "endChar": 69
+      },
+      "revId": "f0a475dc779084eec1539df91d49895b23a92dc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d66b7268_0d5eb553",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
