@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f6bf9630_a3a91abd",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T12:51:39Z",
+      "side": 1,
+      "message": "Done. I removed the NullConstant special case. It is handled implicitly by the if-conditions below.",
+      "parentUuid": "36220e8b_450a0aa7",
+      "range": {
+        "startLine": 537,
+        "startChar": 6,
+        "endLine": 539,
+        "endChar": 49
+      },
+      "revId": "78c937e267ede27e0f363ecb2af4a0dd52822edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b67fde4b_4169123d",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-11T12:43:07Z",
       "side": 1,
       "message": "ditto: it has t be a more-refined equivalent or subtype.",
+      "range": {
+        "startLine": 553,
+        "startChar": 0,
+        "endLine": 558,
+        "endChar": 59
+      },
+      "revId": "78c937e267ede27e0f363ecb2af4a0dd52822edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96865a95_a0773a1f",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T12:51:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b67fde4b_4169123d",
       "range": {
         "startLine": 553,
         "startChar": 0,
