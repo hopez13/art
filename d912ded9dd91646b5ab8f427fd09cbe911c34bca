@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "169a6aee_3c5511cf",
+        "filename": "runtime/os_linux.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T11:14:44Z",
+      "side": 1,
+      "message": "This mirrors the same functionality as CreateEmptyFile. I refactor to make things clearer.",
+      "parentUuid": "76d4867d_d64faa66",
+      "revId": "d912ded9dd91646b5ab8f427fd09cbe911c34bca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56cb02e2_60d1ce20",
         "filename": "runtime/os_linux.cc",
         "patchSetId": 5
@@ -48,6 +66,24 @@
       "side": 1,
       "message": "Oh, and O_CLOEXEC.",
       "parentUuid": "56cb02e2_60d1ce20",
+      "revId": "d912ded9dd91646b5ab8f427fd09cbe911c34bca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6bf9630_a31bda00",
+        "filename": "runtime/os_linux.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T11:14:44Z",
+      "side": 1,
+      "message": "O_CLOEXEC is not good since tracing may start from zygote.\nO_APPEND is also not what we really want.\n\nI will wadd O_NOFOLLOW since we don\u0027t need symlinks now.\n\nIt\u0027s not necessary the goal of this CL to fix creation flags :), I can re-evaluate them in a follow up.",
+      "parentUuid": "16c50ace_786869c9",
       "revId": "d912ded9dd91646b5ab8f427fd09cbe911c34bca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
