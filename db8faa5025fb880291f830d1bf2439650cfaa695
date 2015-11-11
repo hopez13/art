@@ -176,6 +176,24 @@
       "revId": "db8faa5025fb880291f830d1bf2439650cfaa695",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6bf9630_06b0fc01",
+        "filename": "test/450-checker-types/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-11T15:18:16Z",
+      "side": 1,
+      "message": "But you\u0027ve replaced getMain with getSuper which does not do that",
+      "parentUuid": "569062ca_9ec29d81",
+      "revId": "db8faa5025fb880291f830d1bf2439650cfaa695",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
