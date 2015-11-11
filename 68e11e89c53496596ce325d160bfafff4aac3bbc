@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db11db43_5a41551c",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-11T14:50:00Z",
+      "side": 1,
+      "message": "Add a comment that edx is caller-save (the equivalent arm64 comment says registers are \"free\").",
+      "range": {
+        "startLine": 795,
+        "startChar": 4,
+        "endLine": 795,
+        "endChar": 59
+      },
+      "revId": "68e11e89c53496596ce325d160bfafff4aac3bbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
