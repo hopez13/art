@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db11db43_fa62698a",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-11T15:59:32Z",
+      "side": 1,
+      "message": "Object",
+      "range": {
+        "startLine": 723,
+        "startChar": 79,
+        "endLine": 723,
+        "endChar": 85
+      },
+      "revId": "93892a8c29fe2a219f6575521da1d07bef04f975",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "169a6aee_5ce1fd1a",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-11T15:59:32Z",
+      "side": 1,
+      "message": "after",
+      "range": {
+        "startLine": 733,
+        "startChar": 23,
+        "endLine": 733,
+        "endChar": 41
+      },
+      "revId": "93892a8c29fe2a219f6575521da1d07bef04f975",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "169a6aee_7cdeb95b",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-11T15:59:32Z",
+      "side": 1,
+      "message": "Unrelated: What\u0027s this for? There\u0027s nothing after the if. You could move the test from line 741 to the beginning of the loop and get rid of this whole nested if.",
+      "range": {
+        "startLine": 756,
+        "startChar": 0,
+        "endLine": 756,
+        "endChar": 17
+      },
+      "revId": "93892a8c29fe2a219f6575521da1d07bef04f975",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
