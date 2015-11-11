@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "7b0e2f2a_9aa48925",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-11T00:55:29Z",
+      "side": 1,
+      "message": "Java Language",
+      "range": {
+        "startLine": 7,
+        "startChar": 44,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "61e3b722892f233677d3988294e4d20a2f915ff1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "369daed4_61f0bef9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-11T00:55:29Z",
+      "side": 1,
+      "message": "consider prefixing with \"lambda: \"",
+      "revId": "61e3b722892f233677d3988294e4d20a2f915ff1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16c50ace_537d8e48",
         "filename": "test/956-checker-lambda/build",
         "patchSetId": 1
