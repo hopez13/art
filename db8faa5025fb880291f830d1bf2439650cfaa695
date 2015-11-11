@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "368beea4_3d550fcf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T15:13:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d67c5259_22cdeede",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "db8faa5025fb880291f830d1bf2439650cfaa695",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_dcfeedd2",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 1
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "db11db43_3abb4134",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T15:13:12Z",
+      "side": 1,
+      "message": "It can in the presence of inlining. We could probably handle the case and make it not happen, but it\u0027s not the goal of this CL.",
+      "parentUuid": "169a6aee_dcfeedd2",
+      "range": {
+        "startLine": 731,
+        "startChar": 0,
+        "endLine": 731,
+        "endChar": 50
+      },
+      "revId": "db8faa5025fb880291f830d1bf2439650cfaa695",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_fc03a999",
         "filename": "test/450-checker-types/src/Main.java",
         "patchSetId": 1
@@ -83,6 +131,24 @@
       "writtenOn": "2015-11-11T15:07:52Z",
       "side": 1,
       "message": "How are these tests related to null?",
+      "revId": "db8faa5025fb880291f830d1bf2439650cfaa695",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "569062ca_9ec29d81",
+        "filename": "test/450-checker-types/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-11T15:13:12Z",
+      "side": 1,
+      "message": "Previously `cond ? null : new A()` would be typed as Object. Now we will type it as A.",
+      "parentUuid": "169a6aee_fc03a999",
       "revId": "db8faa5025fb880291f830d1bf2439650cfaa695",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
