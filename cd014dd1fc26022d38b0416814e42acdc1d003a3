@@ -314,6 +314,24 @@
     },
     {
       "key": {
+        "uuid": "b6da7ea7_1572d72e",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1123,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-11T21:15:44Z",
+      "side": 1,
+      "message": "(1) I am not worried about this, since we can only hoist after null check has been eliminated, and we currently only do that statically if it is already executed, or dynamically if the null check and thus this load dominates all back edges\n(2) this is a good observation, and something that worried me too; but not for the reasons you sketched; if we generate the taken structure, than we hoist it to the true path; this is okay since we won\u0027t execute the loop otherwise; so hoisting to preheader would be wrong! but what worries me is that we have gets in the loop-body without a null check, but no way to tell later phases that they cannot be hoisted to pure preheader, but must be hoisted to true block in taken structure; currently that does not happen, but I have no good solution on preventing it. Ideas?",
+      "parentUuid": "56cb02e2_d51206a1",
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760c86c0_4738ee7b",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 12
@@ -491,6 +509,24 @@
       "side": 1,
       "message": "My point is if it\u0027s not even an induction variable, the caller shouldn\u0027t even try to call TryDynamicBCE(). So it\u0027s better if we can return that information back.",
       "parentUuid": "f6a6b626_74d4fe11",
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6da7ea7_b83ae517",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-11T21:15:44Z",
+      "side": 1,
+      "message": "Yes, I understand, but GetInductionRange() tries to get a range back in very simple terms only. So something can still be an induction but fail here. We don\u0027t have a good way to set this to false here. That\u0027s what is done by CanGenerateCode() later.\n\nI see what you want to do here, but it seems a lot of work to avoid just a bit of tests later.",
+      "parentUuid": "369daed4_167ae2cc",
       "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -895,6 +931,24 @@
     },
     {
       "key": {
+        "uuid": "7b0e2f2a_6ba9e94f",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1268,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-11T21:15:44Z",
+      "side": 1,
+      "message": "Well I think we mean the same thing. I call it \"profitable\" because using dynamic bce too aggressively would fall back to interpreter, and thus be slow. Correctness is never an issue. So I think we mean the same thing, just call it differently. If not, we can discuss offline perhaps.",
+      "parentUuid": "16ac2a06_40993e3c",
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6127ed6_49836172",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 12
@@ -954,6 +1008,30 @@
       "side": 1,
       "message": "It sort of woke up my \"premature optimizations\" senses :) But your call.",
       "parentUuid": "365a0ede_eb7465dc",
+      "range": {
+        "startLine": 1283,
+        "startChar": 0,
+        "endLine": 1284,
+        "endChar": 88
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b0e2f2a_2bfe515a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1284,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-11T21:15:44Z",
+      "side": 1,
+      "message": "Donald Knuth would probably agree with you :-)",
+      "parentUuid": "56278298_263276ec",
       "range": {
         "startLine": 1283,
         "startChar": 0,
@@ -1447,6 +1525,24 @@
       "side": 1,
       "message": "I don\u0027t see it yet. The source level example makes the transformation clear, and the explanation of the co-relation between deoptimization and throwing AIOOBE would still be nice. It makes it clear why we do early-exit detection, dominate-all-back-edges, etc. to make sure the loop really covers every index at runtime.",
       "parentUuid": "1617cafd_3499d03d",
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56cb02e2_754512f3",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1425,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-11T21:15:44Z",
+      "side": 1,
+      "message": "Oh, it should be there now. Let me repo upload.",
+      "parentUuid": "56cb02e2_7587d2f4",
       "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
