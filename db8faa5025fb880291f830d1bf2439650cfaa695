@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "56278298_46ae92ee",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-11T15:12:50Z",
+      "side": 1,
+      "message": "Would it? How about inlining? We\u0027d need to run dead/redundant phi elimination after inlining on the whole graph, which we don\u0027t do.",
+      "parentUuid": "169a6aee_dcfeedd2",
+      "range": {
+        "startLine": 731,
+        "startChar": 0,
+        "endLine": 731,
+        "endChar": 50
+      },
+      "revId": "db8faa5025fb880291f830d1bf2439650cfaa695",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_fc03a999",
         "filename": "test/450-checker-types/src/Main.java",
         "patchSetId": 1
