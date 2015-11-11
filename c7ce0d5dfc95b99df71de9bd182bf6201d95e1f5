@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "5b25eb9e_d9d21750",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-11T23:32:00Z",
+      "side": 1,
+      "message": "It\u0027s run with ART_TEST_QUIET by default isn\u0027t it?\n\nIf anything, I can only see that disabling ART_TEST_QUIET must happen explicitly.",
+      "parentUuid": "f6a6b626_eac48264",
+      "revId": "c7ce0d5dfc95b99df71de9bd182bf6201d95e1f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6da7ea7_c8a9c2bc",
         "filename": "runtime/common_runtime_test.cc",
         "patchSetId": 2
@@ -54,6 +72,40 @@
         "endLine": 75,
         "endChar": 3
       },
+      "revId": "c7ce0d5dfc95b99df71de9bd182bf6201d95e1f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6da7ea7_2b333839",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1438,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-11T23:32:00Z",
+      "side": 1,
+      "message": "IIRC for run-test didn\u0027t you buffer the output so we could replay it on a test failure?\n\nWhy not do the same thing here? Otherwise if it prints anything else out (that\u0027s not as a result of EXPECT/ASSERT) we will miss it [in the build logs].",
+      "revId": "c7ce0d5dfc95b99df71de9bd182bf6201d95e1f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76d4867d_44de5f2d",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1444,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-11T23:32:00Z",
+      "side": 1,
+      "message": "Did you check it on the target too? Some tests might send data to logcat and spam it.",
       "revId": "c7ce0d5dfc95b99df71de9bd182bf6201d95e1f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
