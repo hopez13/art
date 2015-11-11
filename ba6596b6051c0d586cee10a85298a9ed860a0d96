@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "b6da7ea7_232ec666",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-11T01:29:11Z",
+      "side": 1,
+      "message": "Why change this?",
+      "range": {
+        "startLine": 478,
+        "startChar": 2,
+        "endLine": 491,
+        "endChar": 3
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b0e2f2a_ba0ced50",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3256,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-11T01:29:11Z",
+      "side": 1,
+      "message": "Is anything other then kJavaLangClass allowed?",
+      "range": {
+        "startLine": 3256,
+        "startChar": 2,
+        "endLine": 3256,
+        "endChar": 39
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "568ea242_d78636f8",
         "filename": "runtime/common_runtime_test.cc",
         "patchSetId": 2
@@ -42,6 +88,29 @@
         "startChar": 5,
         "endLine": 58,
         "endChar": 11
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16c50ace_53abcedc",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-11T01:29:11Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 17
       },
       "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -530,6 +599,29 @@
         "startChar": 66,
         "endLine": 53,
         "endChar": 67
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96d1fa8e_57ba96e3",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-11T01:29:11Z",
+      "side": 1,
+      "message": "Note that I use 0x00800000 in one of my CLs. We will need to be careful merging.",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 87
       },
       "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
