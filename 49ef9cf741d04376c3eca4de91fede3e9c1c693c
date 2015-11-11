@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db11db43_5a95d562",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 3460,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-11T18:25:50Z",
+      "side": 1,
+      "message": "nit-picking, but how about UsePcRelativeDexCache?",
+      "range": {
+        "startLine": 3460,
+        "startChar": 7,
+        "endLine": 3460,
+        "endChar": 28
+      },
+      "revId": "49ef9cf741d04376c3eca4de91fede3e9c1c693c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "169a6aee_bfcaf370",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-11T18:25:50Z",
+      "side": 1,
+      "message": "This isn\u0027t replacing, is it? It\u0027s more a \"piggy-back on the ArtMethod input index to put the base\".",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 53
+      },
+      "revId": "49ef9cf741d04376c3eca4de91fede3e9c1c693c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
