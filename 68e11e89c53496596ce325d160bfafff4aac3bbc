@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5b25eb9e_fc838129",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 795,
+      "author": {
+        "id": 1072808
+      },
+      "writtenOn": "2015-11-12T03:32:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db11db43_5a41551c",
+      "range": {
+        "startLine": 795,
+        "startChar": 4,
+        "endLine": 795,
+        "endChar": 59
+      },
+      "revId": "68e11e89c53496596ce325d160bfafff4aac3bbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb3987d2_51d274dd",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-12T00:26:09Z",
       "side": 1,
       "message": "Also ebx is a caller save. So we can add a comment that edx and ebx are free and avoid \"pushl %ebx\" \"popl %ebx\" in the code.",
+      "range": {
+        "startLine": 796,
+        "startChar": 0,
+        "endLine": 796,
+        "endChar": 4
+      },
+      "revId": "68e11e89c53496596ce325d160bfafff4aac3bbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6da7ea7_86633b5b",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1072808
+      },
+      "writtenOn": "2015-11-12T03:32:52Z",
+      "side": 1,
+      "message": "http://developer.android.com/ndk/guides/abis.html says ebx is a callee saved register.I am not sure it is caller saved.",
+      "parentUuid": "bb3987d2_51d274dd",
       "range": {
         "startLine": 796,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "bb3987d2_b40aaea2",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1072808
+      },
+      "writtenOn": "2015-11-12T03:32:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96d1fa8e_52c0e1fd",
+      "range": {
+        "startLine": 801,
+        "startChar": 23,
+        "endLine": 801,
+        "endChar": 57
+      },
+      "revId": "68e11e89c53496596ce325d160bfafff4aac3bbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96d1fa8e_326badc8",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "76d4867d_7f07aa9b",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1072808
+      },
+      "writtenOn": "2015-11-12T03:32:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96d1fa8e_326badc8",
+      "range": {
+        "startLine": 819,
+        "startChar": 53,
+        "endLine": 819,
+        "endChar": 56
+      },
+      "revId": "68e11e89c53496596ce325d160bfafff4aac3bbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b25eb9e_1cad1dab",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2015-11-12T00:26:09Z",
       "side": 1,
       "message": "Insert comment:\n\n// \"Point of no slow path\". Won\u0027t go to the slow path from here on. OK to clobber eax and ecx.\"",
+      "range": {
+        "startLine": 842,
+        "startChar": 52,
+        "endLine": 843,
+        "endChar": 4
+      },
+      "revId": "68e11e89c53496596ce325d160bfafff4aac3bbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b3453db_ccbdaf84",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1072808
+      },
+      "writtenOn": "2015-11-12T03:32:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b25eb9e_1cad1dab",
       "range": {
         "startLine": 842,
         "startChar": 52,
