@@ -332,6 +332,24 @@
     },
     {
       "key": {
+        "uuid": "f6a6b626_aa1a7a4a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1123,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-12T00:25:37Z",
+      "side": 1,
+      "message": "(1) it can still happen. e.g. we execute a arr[5] in the dominator, and later do arr[4] in a branch. The bounds check will be eliminated since the first arr[5] will prove a range. Then arr[4] will be attempted to be hoisted from the branch.\n\n(2) One solution is licm after bce shouldn\u0027t try to move ArrayGet/Set. licm can take such a boolean parameter. It\u0027s too complicated for later phases to be aware of that ArrayGet/Set cannot be hoisted to pre-header. Even if it\u0027s hoisted to the taken branch, phi\u0027s need to be created. Just too much work.",
+      "parentUuid": "b6da7ea7_1572d72e",
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760c86c0_4738ee7b",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 12
@@ -943,6 +961,41 @@
       "side": 1,
       "message": "Well I think we mean the same thing. I call it \"profitable\" because using dynamic bce too aggressively would fall back to interpreter, and thus be slow. Correctness is never an issue. So I think we mean the same thing, just call it differently. If not, we can discuss offline perhaps.",
       "parentUuid": "16ac2a06_40993e3c",
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96d1fa8e_12102929",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1268,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-12T00:25:37Z",
+      "side": 1,
+      "message": "Ok, I misunderstood the code below. After reading it more carefully I think it\u0027s correct.",
+      "parentUuid": "7b0e2f2a_6ba9e94f",
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6a6b626_2a27aa92",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1276,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-12T00:25:37Z",
+      "side": 1,
+      "message": "Can you put the early exit detection in its own method? And add some comments why it\u0027s necessary. Basically to make sure low and upper are really covered by the loop at runtime so as not to generate deopt unnecessarily.",
       "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
