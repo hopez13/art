@@ -16,6 +16,24 @@
       "revId": "2cdeeba7ce63d07fb810cb8a5a3aa7b13ea8ab72",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb2e9f8f_2b49b90b",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-12T18:18:00Z",
+      "side": 1,
+      "message": "We don\u0027t need to clear for memory reasons, but to me it felt right that after the phi nodes are constructed, we no longer keep the deopt information around (so if you would use this instance again, new deopt blocks would result).\n\nI have done the renaming of the method.",
+      "parentUuid": "16ac2a06_ccbf2420",
+      "revId": "2cdeeba7ce63d07fb810cb8a5a3aa7b13ea8ab72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
