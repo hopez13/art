@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16c50ace_dfa4dc7b",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-12T22:22:32Z",
+      "side": 1,
+      "message": "Could this be private?",
+      "range": {
+        "startLine": 496,
+        "startChar": 7,
+        "endLine": 496,
+        "endChar": 34
+      },
+      "revId": "073b16c8429d302d5413e8ffc488b03b8f770780",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb2e9f8f_f16e00d6",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-12T22:22:32Z",
+      "side": 1,
+      "message": "image_file_name -\u003e boot_image_file_name?",
+      "range": {
+        "startLine": 125,
+        "startChar": 30,
+        "endLine": 125,
+        "endChar": 45
+      },
+      "revId": "073b16c8429d302d5413e8ffc488b03b8f770780",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb2e9f8f_d16b04c4",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-12T22:22:32Z",
+      "side": 1,
+      "message": "HasImageSpace -\u003e HasBootImageSpace?",
+      "range": {
+        "startLine": 663,
+        "startChar": 7,
+        "endLine": 663,
+        "endChar": 20
+      },
+      "revId": "073b16c8429d302d5413e8ffc488b03b8f770780",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
