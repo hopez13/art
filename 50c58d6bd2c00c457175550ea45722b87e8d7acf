@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96d1fa8e_88450cf6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1198,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-11-12T19:08:26Z",
+      "side": 1,
+      "message": "I think this needs to be Input(0)-\u003eGetType",
+      "range": {
+        "startLine": 1198,
+        "startChar": 15,
+        "endLine": 1198,
+        "endChar": 22
+      },
+      "revId": "50c58d6bd2c00c457175550ea45722b87e8d7acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b2a4b7b_f185e2bf",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1199,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-11-12T19:08:26Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1199,
+        "startChar": 47,
+        "endLine": 1199,
+        "endChar": 54
+      },
+      "revId": "50c58d6bd2c00c457175550ea45722b87e8d7acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b2597a9_10c06a9e",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-11-12T19:08:26Z",
+      "side": 1,
+      "message": "Input(0)-\u003eGetType",
+      "range": {
+        "startLine": 1165,
+        "startChar": 47,
+        "endLine": 1165,
+        "endChar": 54
+      },
+      "revId": "50c58d6bd2c00c457175550ea45722b87e8d7acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
