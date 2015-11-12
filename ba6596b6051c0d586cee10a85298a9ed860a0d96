@@ -951,6 +951,30 @@
     },
     {
       "key": {
+        "uuid": "5b25eb9e_05593c0b",
+        "filename": "runtime/mirror/class_loader.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-12T23:31:41Z",
+      "side": 1,
+      "message": "After some offline discussion, we have determined that this is sound and boxed lambdas will keep the classloader alive (since they are instances of classes belonging to the classloader).\n\nOn the other hand, unboxed lambdas need to get supported added to keep their classloader alive (through visiting Closure::GetTargetMethod()::GetDeclaringClass()) in a future CL when we add GC visitation support for lambda closures.",
+      "parentUuid": "3b2597a9_f3584809",
+      "range": {
+        "startLine": 89,
+        "startChar": 11,
+        "endLine": 89,
+        "endChar": 30
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6923665_b1953801",
         "filename": "runtime/modifiers.h",
         "patchSetId": 2
