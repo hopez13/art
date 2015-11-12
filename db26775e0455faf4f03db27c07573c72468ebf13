@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "368beea4_0098e858",
+        "filename": "compiler/common_compiler_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-12T23:29:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b2a4b7b_7171f2eb",
+      "range": {
+        "startLine": 227,
+        "startChar": 9,
+        "endLine": 227,
+        "endChar": 25
+      },
+      "revId": "db26775e0455faf4f03db27c07573c72468ebf13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b2597a9_d0fe621f",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-12T18:36:01Z",
       "side": 1,
       "message": "move \u0026\u0026 to the end of the last line?\n\nalso, should this be \"... \u0026\u0026 (!kEmitCompilerReadBarrier || InstructionSetSupportsReadBarrier(compiler_driver-\u003eGetInstructionSet()))) {\"?",
+      "range": {
+        "startLine": 859,
+        "startChar": 6,
+        "endLine": 859,
+        "endChar": 8
+      },
+      "revId": "db26775e0455faf4f03db27c07573c72468ebf13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6bf9630_06691c3e",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-12T23:29:14Z",
+      "side": 1,
+      "message": "Yes; it was initially written differently and I forgot to adjust it afterwards.  This is fixed in PS11.",
+      "parentUuid": "3b2597a9_d0fe621f",
       "range": {
         "startLine": 859,
         "startChar": 6,
