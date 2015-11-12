@@ -350,6 +350,24 @@
     },
     {
       "key": {
+        "uuid": "16c50ace_01161dd6",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1123,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-12T18:18:00Z",
+      "side": 1,
+      "message": "Ah okay, in combination with the scalar based version. But even then we may preload something to eagerly, but it will never have side-effects that are unforeseen, right?",
+      "parentUuid": "f6a6b626_aa1a7a4a",
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760c86c0_4738ee7b",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 12
@@ -996,6 +1014,24 @@
       "writtenOn": "2015-11-12T00:25:37Z",
       "side": 1,
       "message": "Can you put the early exit detection in its own method? And add some comments why it\u0027s necessary. Basically to make sure low and upper are really covered by the loop at runtime so as not to generate deopt unnecessarily.",
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb2e9f8f_6bf461f5",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1276,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-12T18:18:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6a6b626_2a27aa92",
       "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
