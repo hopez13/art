@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b2a4b7b_7171f2eb",
+        "filename": "compiler/common_compiler_test.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-12T18:36:01Z",
+      "side": 1,
+      "message": "\"compiler_driver_.get() !\u003d nullptr\"?",
+      "range": {
+        "startLine": 227,
+        "startChar": 9,
+        "endLine": 227,
+        "endChar": 25
+      },
+      "revId": "db26775e0455faf4f03db27c07573c72468ebf13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b2597a9_d0fe621f",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-12T18:36:01Z",
+      "side": 1,
+      "message": "move \u0026\u0026 to the end of the last line?\n\nalso, should this be \"... \u0026\u0026 (!kEmitCompilerReadBarrier || InstructionSetSupportsReadBarrier(compiler_driver-\u003eGetInstructionSet()))) {\"?",
+      "range": {
+        "startLine": 859,
+        "startChar": 6,
+        "endLine": 859,
+        "endChar": 8
+      },
+      "revId": "db26775e0455faf4f03db27c07573c72468ebf13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
