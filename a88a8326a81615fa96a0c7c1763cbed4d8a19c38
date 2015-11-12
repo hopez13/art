@@ -239,6 +239,30 @@
     },
     {
       "key": {
+        "uuid": "b67fde4b_64a9c4fc",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3824,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-12T10:45:11Z",
+      "side": 1,
+      "message": "Added a DCHECK().",
+      "parentUuid": "b67fde4b_244fbcb8",
+      "range": {
+        "startLine": 3824,
+        "startChar": 28,
+        "endLine": 3824,
+        "endChar": 46
+      },
+      "revId": "a88a8326a81615fa96a0c7c1763cbed4d8a19c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db11db43_7a6539c6",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
