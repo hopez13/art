@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "16c50ace_440303eb",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-12T19:47:10Z",
+      "side": 1,
+      "message": "? this may be resolution methods, IMT conflict, etc....",
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16c50ace_640a7ffe",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-12T19:47:10Z",
+      "side": 1,
+      "message": "Same behavior for both sides, can we only do the IsProxyMethod check for debug builds to avoid the overhead?",
+      "range": {
+        "startLine": 375,
+        "startChar": 0,
+        "endLine": 375,
+        "endChar": 60
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6da7ea7_232ec666",
         "filename": "runtime/art_method-inl.h",
         "patchSetId": 2
@@ -41,6 +81,52 @@
         "startChar": 2,
         "endLine": 3256,
         "endChar": 39
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b3453db_4f953163",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3271,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-12T19:47:10Z",
+      "side": 1,
+      "message": "Not required",
+      "range": {
+        "startLine": 3271,
+        "startChar": 2,
+        "endLine": 3271,
+        "endChar": 3
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb2e9f8f_0e5a8b31",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3289,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-12T19:47:10Z",
+      "side": 1,
+      "message": "GetOrCreateAllocatorForClassLoader is probably safer",
+      "range": {
+        "startLine": 3289,
+        "startChar": 33,
+        "endLine": 3289,
+        "endChar": 59
       },
       "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -118,6 +204,98 @@
     },
     {
       "key": {
+        "uuid": "5b25eb9e_2a288771",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-12T19:47:10Z",
+      "side": 1,
+      "message": "Should this be first_arg_reg * sizeof(uint32_t) since vregs are 4 bytes each?",
+      "range": {
+        "startLine": 1008,
+        "startChar": 33,
+        "endLine": 1008,
+        "endChar": 46
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16c50ace_c4d893a7",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1010,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-12T19:47:10Z",
+      "side": 1,
+      "message": "And here",
+      "range": {
+        "startLine": 1010,
+        "startChar": 38,
+        "endLine": 1010,
+        "endChar": 51
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b3453db_b257584f",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1017,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-12T19:47:10Z",
+      "side": 1,
+      "message": "And here",
+      "range": {
+        "startLine": 1017,
+        "startChar": 40,
+        "endLine": 1017,
+        "endChar": 53
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96d1fa8e_03fc5d98",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-12T19:47:10Z",
+      "side": 1,
+      "message": "And here",
+      "range": {
+        "startLine": 1019,
+        "startChar": 45,
+        "endLine": 1019,
+        "endChar": 58
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d69a9277_389051c2",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 2
@@ -153,6 +331,30 @@
       "side": 1,
       "message": "That is using the constructor, it\u0027s pretty much the same thing as doing hs(self).",
       "parentUuid": "d69a9277_389051c2",
+      "range": {
+        "startLine": 890,
+        "startChar": 24,
+        "endLine": 890,
+        "endChar": 30
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d683721b_70710878",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-12T19:47:10Z",
+      "side": 1,
+      "message": "But this way requires the annoying NOLINT",
+      "parentUuid": "d69a9277_fb8de3e4",
       "range": {
         "startLine": 890,
         "startChar": 24,
@@ -514,6 +716,29 @@
     },
     {
       "key": {
+        "uuid": "1698aa84_9b11376e",
+        "filename": "runtime/lambda/box_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-12T19:47:10Z",
+      "side": 1,
+      "message": "Doesn\u0027t this erase possibly invalidate the reference above?",
+      "range": {
+        "startLine": 292,
+        "startChar": 26,
+        "endLine": 292,
+        "endChar": 31
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b69d1e72_3775c0d7",
         "filename": "runtime/lambda/box_table.h",
         "patchSetId": 2
@@ -576,6 +801,29 @@
         "startChar": 27,
         "endLine": 369,
         "endChar": 45
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b25eb9e_2afd2725",
+        "filename": "runtime/mirror/class_loader.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-12T19:47:10Z",
+      "side": 1,
+      "message": "Is this safe? Can lambdas escape to other class loaders? In that case the lambda would to keep the class loader live.",
+      "range": {
+        "startLine": 89,
+        "startChar": 11,
+        "endLine": 89,
+        "endChar": 30
       },
       "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
