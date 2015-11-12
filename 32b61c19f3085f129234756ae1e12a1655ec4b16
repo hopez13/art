@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56278298_09daed41",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-12T10:33:10Z",
+      "side": 1,
+      "message": "Mention that the else case applies to two interfaces but also interface vs. unassignable class",
+      "revId": "32b61c19f3085f129234756ae1e12a1655ec4b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36220e8b_280fa347",
+        "filename": "test/450-checker-types/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-12T10:33:10Z",
+      "side": 1,
+      "message": "Can you add the remaining test cases?\n\n- classA \u003d classB\n- classA instanceof classB\n- classB instanceof classA\n- classA instanceof interfaceB\n- !(classA instanceof interfaceB)",
+      "revId": "32b61c19f3085f129234756ae1e12a1655ec4b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
