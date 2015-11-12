@@ -22,6 +22,30 @@
       "revId": "00580bdbbb119a354c94a9c19928c1dcbd14a8f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b2a4b7b_2e466736",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2980,
+      "author": {
+        "id": 1056098
+      },
+      "writtenOn": "2015-11-12T09:01:28Z",
+      "side": 1,
+      "message": "Here it should be V0, not A0 (as in MIPS32).\n\nBut the actual failure was caused by the bug in the other part of this change, 64-bit field set was failing because the 64-bit value input wasn\u0027t in the right registers (for the purpose of alignment on 32-bit architectures, the 64-bit set has a different order of parameters compared to 8/16/32-bit sets).",
+      "parentUuid": "368beea4_9df463f5",
+      "range": {
+        "startLine": 2980,
+        "startChar": 43,
+        "endLine": 2980,
+        "endChar": 57
+      },
+      "revId": "00580bdbbb119a354c94a9c19928c1dcbd14a8f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
