@@ -473,6 +473,30 @@
     },
     {
       "key": {
+        "uuid": "36220e8b_480cdf50",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5821,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-12T15:15:20Z",
+      "side": 1,
+      "message": "No, something different (and only when read barriers are disabled).  I\u0027ll give it a try, maybe in a follow-up CL.",
+      "parentUuid": "b67fde4b_a4590c43",
+      "range": {
+        "startLine": 5814,
+        "startChar": 0,
+        "endLine": 5821,
+        "endChar": 41
+      },
+      "revId": "723d7f5f28c52dfa89d510985dea6426867737a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_3c00b1dc",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 7
@@ -579,6 +603,30 @@
       "side": 1,
       "message": "Why code duplication? It seems you\u0027re using this method only here.",
       "parentUuid": "d67c5259_a2f49ef4",
+      "range": {
+        "startLine": 6276,
+        "startChar": 4,
+        "endLine": 6276,
+        "endChar": 23
+      },
+      "revId": "723d7f5f28c52dfa89d510985dea6426867737a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b67fde4b_844fa83b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 6276,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-12T15:15:20Z",
+      "side": 1,
+      "message": "Right, I didn\u0027t get that by \"inlining\" you also meant \"remove the inlined method\".  It\u0027s true that it now has a single use, but it used to have more uses, and this is also reflected in some comments (on purpose).\n\nI\u0027d like to keep this code as-is, as GenerateReadBarrier will later contain the fast path read barrier implementation and I prefer to keep the read barrier generation and the selection logic (\"shoud we generate a read barrier and/or unpoison the loaded reference?\") separated.",
+      "parentUuid": "169a6aee_ffc47b64",
       "range": {
         "startLine": 6276,
         "startChar": 4,
