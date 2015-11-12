@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "569062ca_81b79ca0",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2873,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-12T15:27:21Z",
+      "side": 1,
+      "message": "So Bind() doesn\u0027t count towards the \"single\" instruction that you can emit?\n\nBut having the Bind() before the guard would be broken because creating the guard can emit a veneer, right?",
+      "range": {
+        "startLine": 2873,
+        "startChar": 8,
+        "endLine": 2873,
+        "endChar": 31
+      },
+      "revId": "4fade1f4f33c26e3e6e2b2366154bfe3f276bb88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
