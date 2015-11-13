@@ -22,6 +22,30 @@
       "revId": "86876620d821bffa39484f30f0d63c041f451214",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b2a4b7b_7d79c312",
+        "filename": "runtime/arch/arm64/instruction_set_features_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1021113
+      },
+      "writtenOn": "2015-11-13T18:41:20Z",
+      "side": 1,
+      "message": "Correct, we dont this erratum handling for kryo either.  Updating commit text in new patch.",
+      "parentUuid": "169a6aee_ff355b85",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 50
+      },
+      "revId": "86876620d821bffa39484f30f0d63c041f451214",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
