@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76d4867d_a213c640",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-11-13T16:53:18Z",
+      "side": 1,
+      "message": "Do you want to bind if there isn\u0027t a use, or will we always have one?\n\nThis code is also different from the X86_64 version",
+      "revId": "fdc3138fbb23e14f4c5ce8361f0b597d27841958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
