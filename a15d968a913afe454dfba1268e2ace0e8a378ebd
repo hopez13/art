@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "db11db43_3d233b9b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1277,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-13T10:35:14Z",
+      "side": 1,
+      "message": "It is for Deoptimize and If but won\u0027t be for HSelect. Either way, my rationale was getting rid of magic numbers in what\u0027s meant to be a generic helper function.\n\nDCHECKing the type of `instruction` seems odd to me because it effectively restricts where the function can be called from. So every new user would have to be added to the list of allowed callers.",
+      "parentUuid": "db11db43_9d3a47c0",
+      "range": {
+        "startLine": 1277,
+        "startChar": 63,
+        "endLine": 1277,
+        "endChar": 84
+      },
+      "revId": "a15d968a913afe454dfba1268e2ace0e8a378ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b67fde4b_0759da3d",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-13T10:05:46Z",
       "side": 1,
       "message": "Checking true_fallhtough is not very intuitive here. Is that intended? Please add a comment.",
+      "range": {
+        "startLine": 1352,
+        "startChar": 7,
+        "endLine": 1352,
+        "endChar": 23
+      },
+      "revId": "a15d968a913afe454dfba1268e2ace0e8a378ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d67c5259_456bdcc6",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1352,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-13T10:35:14Z",
+      "side": 1,
+      "message": "Yes, it is intentional. I\u0027ve added a comment",
+      "parentUuid": "b67fde4b_0759da3d",
       "range": {
         "startLine": 1352,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "569062ca_a18ad891",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1387,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-13T10:35:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "569062ca_412e7467",
+      "range": {
+        "startLine": 1387,
+        "startChar": 65,
+        "endLine": 1387,
+        "endChar": 76
+      },
+      "revId": "a15d968a913afe454dfba1268e2ace0e8a378ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96865a95_06271ea4",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2015-11-13T10:05:46Z",
       "side": 1,
       "message": "comparison",
+      "range": {
+        "startLine": 1267,
+        "startChar": 20,
+        "endLine": 1267,
+        "endChar": 29
+      },
+      "revId": "a15d968a913afe454dfba1268e2ace0e8a378ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36220e8b_e84cab1d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1267,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-13T10:35:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96865a95_06271ea4",
       "range": {
         "startLine": 1267,
         "startChar": 20,
