@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "b67fde4b_2787bec7",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-13T09:46:03Z",
+      "side": 1,
+      "message": "Add a comment that this is at most the Object class, and cannot be null.",
+      "range": {
+        "startLine": 813,
+        "startChar": 0,
+        "endLine": 813,
+        "endChar": 28
+      },
+      "revId": "32b61c19f3085f129234756ae1e12a1655ec4b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36220e8b_280fa347",
         "filename": "test/450-checker-types/src/Main.java",
         "patchSetId": 4
