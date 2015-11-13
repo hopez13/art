@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "56278298_4916a533",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-13T10:50:55Z",
+      "side": 1,
+      "message": "Mark roots from all our images.",
+      "range": {
+        "startLine": 357,
+        "startChar": 7,
+        "endLine": 357,
+        "endChar": 26
+      },
+      "revId": "073b16c8429d302d5413e8ffc488b03b8f770780",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb2e9f8f_f16e00d6",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
