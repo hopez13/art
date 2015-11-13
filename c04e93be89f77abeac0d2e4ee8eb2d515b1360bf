@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b67fde4b_214faeb8",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-11-13T16:08:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d60ff2af_0de8d5ce",
+      "range": {
+        "startLine": 90,
+        "startChar": 6,
+        "endLine": 90,
+        "endChar": 33
+      },
+      "revId": "c04e93be89f77abeac0d2e4ee8eb2d515b1360bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16e42a25_92c4dc63",
         "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-09T20:15:56Z",
       "side": 1,
       "message": "Can you rewrite this so that we do two separate checks if both shl and ushr are the result of a sub? This currently misses this case:\n\n    int a \u003d x - y;\n    int b \u003d (z \u003c\u003c a) | (z \u003e\u003e\u003e (32 - a));",
+      "range": {
+        "startLine": 116,
+        "startChar": 2,
+        "endLine": 116,
+        "endChar": 46
+      },
+      "revId": "c04e93be89f77abeac0d2e4ee8eb2d515b1360bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f61b1659_49bdc5d9",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-11-13T16:08:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16e42a25_92c4dc63",
       "range": {
         "startLine": 116,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5bfc0b2b_7e177126",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-11-13T16:08:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6345268_051bd451",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 1
+      },
+      "revId": "c04e93be89f77abeac0d2e4ee8eb2d515b1360bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16e42a25_d21824c6",
         "filename": "compiler/optimizing/nodes_arm64.h",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "9bf20354_e0e40240",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-11-13T16:08:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16e42a25_d21824c6",
+      "range": {
+        "startLine": 59,
+        "startChar": 10,
+        "endLine": 59,
+        "endChar": 13
+      },
+      "revId": "c04e93be89f77abeac0d2e4ee8eb2d515b1360bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16e42a25_72da9043",
         "filename": "compiler/optimizing/nodes_arm64.h",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2015-11-09T20:15:56Z",
       "side": 1,
       "message": "Is the second input really allowed to be long? It looks odd. And kMaxLongShiftValue being 64-bit also looks odd.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 3
+      },
+      "revId": "c04e93be89f77abeac0d2e4ee8eb2d515b1360bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb005ff1_3b7c5799",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-11-13T16:08:22Z",
+      "side": 1,
+      "message": "A long distance doesn\u0027t hurt, see my comment in code_generator_arm64.cc.\n\nIn practice, for rotate patterns (e.g. (8L \u003e\u003e\u003e 2L) | (8L \u003c\u003c 62L)), one of the shifts (Shl in this case) will be eliminated long before HRor simplification could take place.\n\nI implemented it because it\u0027s pure in HBinaryOperation. Make it non-pure? return nullptr;? something else?",
+      "parentUuid": "16e42a25_72da9043",
       "range": {
         "startLine": 72,
         "startChar": 0,
