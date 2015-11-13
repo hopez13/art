@@ -22,6 +22,30 @@
       "revId": "782ea1f833ce80ee990e006bf31947508893cf7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "569062ca_61a9b0fc",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-13T11:06:55Z",
+      "side": 1,
+      "message": "Well spotted, you have a keen eye for details, sir. This comes down to how HIf and HDeoptimize call the function and what conditions they might have. Hence the DCHECKs at the top of GenerateTestAndBranch and GenerateCompareTestAndBranch.\n\nHIf will always provide non-null targets. So no problem there. HSelect will be the same story.\n\nHDeoptimize always calls this with:\n- true_branch !\u003d nullptr\n- false_branch \u003d\u003d nullptr\n- true_fallthrough \u003d\u003d false\n- false_fallthrough \u003d\u003d true\n\nThat passes the DCHECKs at the top of GenerateTestAndBranch but would fail it entered GenerateCompareTestAndBranch. However, it will never do that because the condition on HDeoptimize is either an integer comparison or a constant.\n\nDo you have an API change in mind that would make this more obvious?",
+      "parentUuid": "569062ca_219fa8d2",
+      "range": {
+        "startLine": 1331,
+        "startChar": 6,
+        "endLine": 1331,
+        "endChar": 92
+      },
+      "revId": "782ea1f833ce80ee990e006bf31947508893cf7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
