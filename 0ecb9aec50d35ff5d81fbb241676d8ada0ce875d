@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b6da7ea7_4bd78c40",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-11-13T04:50:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b0e2f2a_3af69dbc",
+      "range": {
+        "startLine": 820,
+        "startChar": 0,
+        "endLine": 888,
+        "endChar": 7
+      },
+      "revId": "0ecb9aec50d35ff5d81fbb241676d8ada0ce875d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96d1fa8e_fcb9f13b",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-10T23:28:23Z",
       "side": 1,
       "message": "Implement similarly to GenRotateRight(). Again, it\u0027s probably worth abandoning this 2nd patch altogether and implementing both rotate methods in the first one since they share most of the logic.",
+      "range": {
+        "startLine": 900,
+        "startChar": 0,
+        "endLine": 938,
+        "endChar": 21
+      },
+      "revId": "0ecb9aec50d35ff5d81fbb241676d8ada0ce875d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96d1fa8e_b920202e",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-11-13T04:50:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96d1fa8e_fcb9f13b",
       "range": {
         "startLine": 900,
         "startChar": 0,
