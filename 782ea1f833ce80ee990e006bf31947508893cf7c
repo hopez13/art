@@ -94,6 +94,30 @@
       "revId": "782ea1f833ce80ee990e006bf31947508893cf7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "569062ca_61d7f06e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-13T12:32:38Z",
+      "side": 1,
+      "message": "As I said, if you need to branch to the fallthrough, create a local Label.\n\n    Label fallthrough;\n    if (false_target \u003d\u003d nullptr) { false_target \u003d \u0026fallthrough; }\n    ...\n    if (fallthrough.IsLinked()) { __ Bind(\u0026fallthrough); }",
+      "parentUuid": "36220e8b_081027d7",
+      "range": {
+        "startLine": 1331,
+        "startChar": 6,
+        "endLine": 1331,
+        "endChar": 92
+      },
+      "revId": "782ea1f833ce80ee990e006bf31947508893cf7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
