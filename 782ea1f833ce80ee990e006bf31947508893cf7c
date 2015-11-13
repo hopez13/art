@@ -46,6 +46,30 @@
       "revId": "782ea1f833ce80ee990e006bf31947508893cf7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36220e8b_48f3ff06",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-13T11:42:31Z",
+      "side": 1,
+      "message": "What about dropping the true_fallthrough and false_fallthrough parameters and just declaring that nullptr means fallthrough? If the function needs to branch to the fallthrough target, it can use a local Label.\n\nAnd we should actually handle the \"true fallthrough\" case in GenerateCompareTestAndBranch(). That would make it future-proof and consistent with other cases around here.",
+      "parentUuid": "569062ca_61a9b0fc",
+      "range": {
+        "startLine": 1331,
+        "startChar": 6,
+        "endLine": 1331,
+        "endChar": 92
+      },
+      "revId": "782ea1f833ce80ee990e006bf31947508893cf7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
