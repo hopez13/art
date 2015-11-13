@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "569062ca_219fa8d2",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-13T10:52:43Z",
+      "side": 1,
+      "message": "GenerateTestAndBranch() allows\n\n    true_fallthrough \u003d\u003d true\n    true_target \u003d\u003d nullptr\n    false_falthrough \u003d\u003d false\n    false_target !\u003d null\n\nand then we could call GenerateCompareTestAndBranch() with true_target \u003d\u003d nullptr which is invalid.\n\nThis discrepancy seems to be at the API level, GenerateTestAndBranch() taking the true_fallthrough argument and GenerateCompareTestAndBranch() not having such parameter.",
+      "range": {
+        "startLine": 1331,
+        "startChar": 6,
+        "endLine": 1331,
+        "endChar": 92
+      },
+      "revId": "782ea1f833ce80ee990e006bf31947508893cf7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
