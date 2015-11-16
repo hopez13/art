@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9b8e83ee_63d6dceb",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-16T16:47:19Z",
+      "side": 1,
+      "message": "I don\u0027t find it that confusing. If they were out params, they\u0027d be stored into with \"*ptr\u003d\".\n\nWould you prefer me to better document that providing nullptr signals that the corresponding target is fallthrough? \n\nThat\u0027s all there is to it. For example, if the caller says true_target should be fallthrough (calls with true_target\u003d\u003dnullptr), the function internally creates one (because the generated code needs one) but does not export it. Is it that confusing that it reuses the same local variable? I don\u0027t want to pollute the code with \"internal_true_target\" stuff...",
+      "parentUuid": "9b8e83ee_837680e3",
+      "range": {
+        "startLine": 1246,
+        "startChar": 2,
+        "endLine": 1252,
+        "endChar": 3
+      },
+      "revId": "ee4749ff5908e5be024302a919430c6d1dc5ae1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_a2fd7a62",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 6
