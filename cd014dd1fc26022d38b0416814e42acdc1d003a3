@@ -386,6 +386,24 @@
     },
     {
       "key": {
+        "uuid": "3b2597a9_45cce53a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1123,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-16T21:38:59Z",
+      "side": 1,
+      "message": "Played some more with unit tests. If, in the future, we would remove the env uses test (as we should), it is possible to trigger your situation with a somewhat contrived, but nevertheless valid unit test I just wrote. So we should guard against that. Test and code coming up!",
+      "parentUuid": "3b2597a9_ea0cbe51",
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760c86c0_4738ee7b",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 12
