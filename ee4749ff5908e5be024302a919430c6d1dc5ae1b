@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "169a6aee_a2fd7a62",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1321,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-16T14:08:30Z",
+      "side": 1,
+      "message": "Remove extra spaces.",
+      "range": {
+        "startLine": 1321,
+        "startChar": 4,
+        "endLine": 1321,
+        "endChar": 6
+      },
+      "revId": "ee4749ff5908e5be024302a919430c6d1dc5ae1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96865a95_09cbb125",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-16T14:08:30Z",
+      "side": 1,
+      "message": "\"is\"",
+      "range": {
+        "startLine": 1331,
+        "startChar": 14,
+        "endLine": 1331,
+        "endChar": 15
+      },
+      "revId": "ee4749ff5908e5be024302a919430c6d1dc5ae1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b8e83ee_006a6631",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1349,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-16T14:08:30Z",
+      "side": 1,
+      "message": "Remove extra spaces.",
+      "range": {
+        "startLine": 1349,
+        "startChar": 4,
+        "endLine": 1349,
+        "endChar": 6
+      },
+      "revId": "ee4749ff5908e5be024302a919430c6d1dc5ae1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "169a6aee_c2028621",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1374,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-16T14:08:30Z",
+      "side": 1,
+      "message": "Helper function?",
+      "range": {
+        "startLine": 1373,
+        "startChar": 23,
+        "endLine": 1374,
+        "endChar": 52
+      },
+      "revId": "ee4749ff5908e5be024302a919430c6d1dc5ae1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b8e83ee_c0631e5b",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2290,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-16T14:08:30Z",
+      "side": 1,
+      "message": "These variables are not needed for the the \"both fall-through\" and \"constand condition\" cases, so move them further down.\n\nYou can also avoid the bool if you check whether fallthrough_target.IsLinked().",
+      "range": {
+        "startLine": 2289,
+        "startChar": 0,
+        "endLine": 2290,
+        "endChar": 39
+      },
+      "revId": "ee4749ff5908e5be024302a919430c6d1dc5ae1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
