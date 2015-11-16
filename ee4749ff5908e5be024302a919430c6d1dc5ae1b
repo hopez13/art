@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "169a6aee_0250ee07",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-16T16:58:05Z",
+      "side": 1,
+      "message": "+1 for Aart sugestions. \n\n(imo re-assigning to the function parameters always makes the reading harder as you need to pay special attention)",
+      "parentUuid": "5b25eb9e_b6b75da2",
+      "range": {
+        "startLine": 1246,
+        "startChar": 2,
+        "endLine": 1252,
+        "endChar": 3
+      },
+      "revId": "ee4749ff5908e5be024302a919430c6d1dc5ae1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_a2fd7a62",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 6
