@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "569062ca_04155a18",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-16T19:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56278298_09daed41",
+      "revId": "32b61c19f3085f129234756ae1e12a1655ec4b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b67fde4b_2787bec7",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 4
@@ -53,6 +71,24 @@
       "writtenOn": "2015-11-12T10:33:10Z",
       "side": 1,
       "message": "Can you add the remaining test cases?\n\n- classA \u003d classB\n- classA instanceof classB\n- classB instanceof classA\n- classA instanceof interfaceB\n- !(classA instanceof interfaceB)",
+      "revId": "32b61c19f3085f129234756ae1e12a1655ec4b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "368beea4_63d45612",
+        "filename": "test/450-checker-types/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-16T19:00:23Z",
+      "side": 1,
+      "message": "Done. I used a different test file since it started to be too convoluted.",
+      "parentUuid": "36220e8b_280fa347",
       "revId": "32b61c19f3085f129234756ae1e12a1655ec4b16",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
