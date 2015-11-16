@@ -368,6 +368,24 @@
     },
     {
       "key": {
+        "uuid": "3b2597a9_ea0cbe51",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1123,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-16T19:34:15Z",
+      "side": 1,
+      "message": "I actually tried to make a unit test that would break by doing the scalar de-optimization followed by illegal hoisting, but then realize this would never happen. You leave the deopt inside the loop body, which makes the scalar load loop variant, so it is never hoisted. So your \"barrier\" as we discussed offline, will never be violated.",
+      "parentUuid": "f6a6b626_aa1a7a4a",
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "760c86c0_4738ee7b",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 12
