@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9b8e83ee_837680e3",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-16T16:41:08Z",
+      "side": 1,
+      "message": "I find this code pattern weird:\n - what type of parameters are true/false_target? in/out/both?\n - they can\u0027t be out since you assign a local address to them. That\u0027s a bit fishy.\n - not clear who owns the pointers.\n\nMaybe docs will help but I would try to refactor the code as well.",
+      "range": {
+        "startLine": 1246,
+        "startChar": 2,
+        "endLine": 1252,
+        "endChar": 3
+      },
+      "revId": "ee4749ff5908e5be024302a919430c6d1dc5ae1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_a2fd7a62",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 6
@@ -110,6 +133,29 @@
         "startChar": 0,
         "endLine": 2290,
         "endChar": 39
+      },
+      "revId": "ee4749ff5908e5be024302a919430c6d1dc5ae1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "169a6aee_426bd6c6",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-16T16:41:08Z",
+      "side": 1,
+      "message": "nit: I\u0027d call this `Needs` to mirror the actual test.",
+      "range": {
+        "startLine": 98,
+        "startChar": 5,
+        "endLine": 98,
+        "endChar": 7
       },
       "revId": "ee4749ff5908e5be024302a919430c6d1dc5ae1b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
