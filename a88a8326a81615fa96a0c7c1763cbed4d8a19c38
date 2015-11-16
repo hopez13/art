@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "3b4e7783_a5df1e56",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3808,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-16T16:55:47Z",
+      "side": 1,
+      "message": "Hmm, I think I missed that discussion.",
+      "parentUuid": "96865a95_c318c8c6",
+      "range": {
+        "startLine": 3808,
+        "startChar": 27,
+        "endLine": 3808,
+        "endChar": 64
+      },
+      "revId": "a88a8326a81615fa96a0c7c1763cbed4d8a19c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "368beea4_bdf3df5a",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
@@ -393,6 +417,30 @@
       "side": 1,
       "message": "\"ExtraArgument\" is deliberately supposed to _not_ tell you what it is. The very purpose of this CL is to put something else there - something architecture specific, so I wouldn\u0027t want to document that \"extra\" stuff here.",
       "parentUuid": "36220e8b_e59f7680",
+      "range": {
+        "startLine": 118,
+        "startChar": 31,
+        "endLine": 118,
+        "endChar": 44
+      },
+      "revId": "a88a8326a81615fa96a0c7c1763cbed4d8a19c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db11db43_00136a76",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-16T16:55:47Z",
+      "side": 1,
+      "message": "My main concern here is: \"Do we document anywhere what the ExtraArgument can be?\". As it is now, it\u0027s an unfortunate mix between your intention to make this opaque, and the rest of the code and method names which assumes we deal with the CurrentMethodIndex.",
+      "parentUuid": "169a6aee_3c5fd1c1",
       "range": {
         "startLine": 118,
         "startChar": 31,
