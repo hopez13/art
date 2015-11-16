@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "5b25eb9e_b6b75da2",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-16T16:55:00Z",
+      "side": 1,
+      "message": "I think this fragment would be much more clear if you use a local for this rather than the parameter, and rename the incoming parameter, something like\n\nLabel* true_target \u003d (true_target_in !\u003d nullptr)\n                   ? true_target_in\n                   : \u0026fallthrough_target;\n\nwith parameter true_target_in (or a better name if you can come up with one)",
+      "parentUuid": "9b8e83ee_63d6dceb",
+      "range": {
+        "startLine": 1246,
+        "startChar": 2,
+        "endLine": 1252,
+        "endChar": 3
+      },
+      "revId": "ee4749ff5908e5be024302a919430c6d1dc5ae1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_a2fd7a62",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 6
