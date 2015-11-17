@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "fb75bfb9_965eca51",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-17T18:39:37Z",
+      "side": 1,
+      "message": "More experienced team members may chime in here, but right now nodes.h/cc seem to be the only place we have for this; we should consider having a general util place perhaps",
+      "parentUuid": "5b816bc7_791a03bd",
+      "range": {
+        "startLine": 361,
+        "startChar": 19,
+        "endLine": 361,
+        "endChar": 39
+      },
+      "revId": "824db2e92f698d132014f9aa7c37b0439419cf17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b2597a9_fbdff154",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Will use the common code from boolean_simplifier.cc",
       "parentUuid": "3b2597a9_fbdff154",
+      "range": {
+        "startLine": 364,
+        "startChar": 27,
+        "endLine": 364,
+        "endChar": 28
+      },
+      "revId": "824db2e92f698d132014f9aa7c37b0439419cf17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b6aafda_80767ce3",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-17T18:39:37Z",
+      "side": 1,
+      "message": "thanks",
+      "parentUuid": "7b6aafda_6015688c",
       "range": {
         "startLine": 364,
         "startChar": 27,
