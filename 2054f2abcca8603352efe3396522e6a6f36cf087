@@ -48,6 +48,23 @@
     },
     {
       "key": {
+        "uuid": "7b6aafda_2692283c",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2112,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-11-17T22:08:03Z",
+      "side": 1,
+      "message": "Note that cond-\u003eGetType() is sometimes kPrimInt (ptobably from a Phi)",
+      "revId": "2054f2abcca8603352efe3396522e6a6f36cf087",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb75bfb9_998d9b56",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 6
