@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "368beea4_63f53679",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-17T12:42:25Z",
+      "side": 1,
+      "message": "Should we rename this to GetVRegNonReference?",
+      "range": {
+        "startLine": 272,
+        "startChar": 32,
+        "endLine": 272,
+        "endChar": 39
+      },
+      "revId": "09687447764a4d5d810df3d02532e4b141e7f2cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
