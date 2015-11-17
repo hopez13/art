@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b25eb9e_07bb768f",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-17T21:49:22Z",
+      "side": 0,
+      "message": "Do we keep the essence of this CHECK in the new code?",
+      "range": {
+        "startLine": 140,
+        "startChar": 54,
+        "endLine": 140,
+        "endChar": 89
+      },
+      "revId": "991842a5273d20695dd5f35eb9a9e28c386c5b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b25eb9e_67146a8e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-17T21:49:22Z",
+      "side": 0,
+      "message": "Why remove this DCHECK?",
+      "range": {
+        "startLine": 303,
+        "startChar": 4,
+        "endLine": 303,
+        "endChar": 10
+      },
+      "revId": "991842a5273d20695dd5f35eb9a9e28c386c5b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

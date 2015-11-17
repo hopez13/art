@@ -1,0 +1,360 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96d1fa8e_e1801766",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-17T21:49:22Z",
+      "side": 1,
+      "message": "Can you explain how you intend to lay out app image spaces and why this definition of immune region makes sense?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 19
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76d4867d_a361fe16",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-17T21:49:22Z",
+      "side": 1,
+      "message": "What\u0027s the issue with the gaps that appending oat files solves?",
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b2597a9_01312c2e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1521,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-17T21:49:22Z",
+      "side": 1,
+      "message": "How about \"holder is in a non-immune, non-moving (or main) space\"?",
+      "range": {
+        "startLine": 1521,
+        "startChar": 20,
+        "endLine": 1521,
+        "endChar": 82
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db847bce_4c7c209a",
+        "filename": "runtime/gc/collector/immune_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-17T21:49:22Z",
+      "side": 1,
+      "message": "It seems that we can consolidate ImmuneRegion and ImmuneSpaces and remove some code.\n\nFor example, could ImmuneRegion be reduced to a pair of pointers begin and end now?",
+      "range": {
+        "startLine": 39,
+        "startChar": 6,
+        "endLine": 39,
+        "endChar": 18
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b3453db_21b2ea54",
+        "filename": "runtime/gc/collector/immune_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-17T21:49:22Z",
+      "side": 1,
+      "message": "Is this dead now?",
+      "range": {
+        "startLine": 43,
+        "startChar": 7,
+        "endLine": 43,
+        "endChar": 25
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db847bce_6c81e4b2",
+        "filename": "runtime/gc/collector/immune_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-17T21:49:22Z",
+      "side": 1,
+      "message": "Is this dead now?",
+      "range": {
+        "startLine": 45,
+        "startChar": 7,
+        "endLine": 45,
+        "endChar": 20
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db847bce_2c067c63",
+        "filename": "runtime/gc/collector/immune_spaces.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-17T21:49:22Z",
+      "side": 1,
+      "message": "Can we do this as we call AddSpace() without exposing this to the outside to be less error-prone?\n\nOr, at least maintain a flag that indicates immune_region_ and the spaces_ are in sync, and update immune_region_ lazily in GetImmuneRegion() if they are out of sync?",
+      "range": {
+        "startLine": 31,
+        "startChar": 19,
+        "endLine": 31,
+        "endChar": 44
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b2597a9_4165f421",
+        "filename": "runtime/gc/collector/immune_spaces.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-17T21:49:22Z",
+      "side": 1,
+      "message": "Not sure when this holds and when this does not hold. Can you elaborate?",
+      "range": {
+        "startLine": 42,
+        "startChar": 22,
+        "endLine": 42,
+        "endChar": 29
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b3453db_8194feb7",
+        "filename": "runtime/gc/collector/immune_spaces.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-17T21:49:22Z",
+      "side": 1,
+      "message": "Could most of this code be factored out into a new function in ImageSpace that returns the oat begin/end?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 84
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76d4867d_c7e19f1d",
+        "filename": "runtime/gc/collector/immune_spaces.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-17T21:49:22Z",
+      "side": 1,
+      "message": "Can you clarify this more? This seems to take the largest contiguous sequence of spaces at the beginning?\n\nAlso, why is this logic appropriate for the definition of what ImmuneSpaces is (a set of spaces which are not going to have any objects become marked during the GC)?\n\nWhat happens if all the spaces aren\u0027t all contiguous?\n\nWhat does it mean for a space to be ImmuneSpaces but not part of ImmuneRegion?",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 69
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b3453db_c179e614",
+        "filename": "runtime/gc/collector/immune_spaces.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-17T21:49:22Z",
+      "side": 1,
+      "message": "Would it make sense to add ContainsObject() here and avoid exposing immune_region_ to the outside?",
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b816bc7_fc5fe1bd",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-17T21:49:22Z",
+      "side": 1,
+      "message": "How about if we call this inside BindBitmaps()?",
+      "range": {
+        "startLine": 180,
+        "startChar": 2,
+        "endLine": 180,
+        "endChar": 45
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96d1fa8e_616c27a1",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-17T21:49:22Z",
+      "side": 1,
+      "message": "How about if we call this inside BindBitmaps()?",
+      "range": {
+        "startLine": 260,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 45
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b3453db_2160aa80",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-17T21:49:22Z",
+      "side": 1,
+      "message": "What space does not have a mod union table?\n\nAdd a comment?\n\nCan you assert about the existence of a mod union table based on their space type, etc.?",
+      "range": {
+        "startLine": 303,
+        "startChar": 11,
+        "endLine": 303,
+        "endChar": 12
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b3453db_41e85611",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-17T21:49:22Z",
+      "side": 1,
+      "message": "How about if we call this inside BindBitmaps()?",
+      "range": {
+        "startLine": 228,
+        "startChar": 2,
+        "endLine": 228,
+        "endChar": 45
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db847bce_8ceea871",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-17T21:49:22Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to retain the same conditions as the old code. Why?",
+      "range": {
+        "startLine": 396,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 9
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
