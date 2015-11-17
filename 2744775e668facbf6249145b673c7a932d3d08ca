@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96d1fa8e_8f07c79a",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-11-17T19:05:02Z",
+      "side": 1,
+      "message": "I am not sure about this, what is policy here? should I add new allocator tag for this map?",
+      "range": {
+        "startLine": 359,
+        "startChar": 67,
+        "endLine": 359,
+        "endChar": 92
+      },
+      "revId": "2744775e668facbf6249145b673c7a932d3d08ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
