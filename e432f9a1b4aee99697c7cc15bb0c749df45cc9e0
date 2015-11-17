@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b2a4b7b_053a56a2",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2103,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-17T23:40:57Z",
+      "side": 1,
+      "message": "you could let this fall into the code at L2114 if you set the HBoolean in another else, but perhaps the code size savings are not worth the extra complexity reading this",
+      "range": {
+        "startLine": 2103,
+        "startChar": 10,
+        "endLine": 2103,
+        "endChar": 12
+      },
+      "revId": "e432f9a1b4aee99697c7cc15bb0c749df45cc9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b2597a9_043edab6",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 5749,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-17T23:40:57Z",
+      "side": 1,
+      "message": "like it!",
+      "range": {
+        "startLine": 5749,
+        "startChar": 14,
+        "endLine": 5749,
+        "endChar": 37
+      },
+      "revId": "e432f9a1b4aee99697c7cc15bb0c749df45cc9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
