@@ -1,0 +1,325 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b67fde4b_353528d4",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1635,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-17T17:40:02Z",
+      "side": 1,
+      "message": "UNREACHABLE();",
+      "revId": "230e49a3ecb043c258a0af083916010ae047291a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b4e7783_c8834f71",
+        "filename": "compiler/optimizing/common_arm64.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-17T17:40:02Z",
+      "side": 1,
+      "message": "UNREACHABLE()",
+      "range": {
+        "startLine": 266,
+        "startChar": 6,
+        "endLine": 266,
+        "endChar": 27
+      },
+      "revId": "230e49a3ecb043c258a0af083916010ae047291a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "569062ca_64b8de03",
+        "filename": "compiler/optimizing/common_arm64.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-17T17:40:02Z",
+      "side": 1,
+      "message": "UNREACHABLE()",
+      "range": {
+        "startLine": 280,
+        "startChar": 6,
+        "endLine": 280,
+        "endChar": 28
+      },
+      "revId": "230e49a3ecb043c258a0af083916010ae047291a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56278298_ac2ba729",
+        "filename": "compiler/optimizing/common_arm64.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-17T17:40:02Z",
+      "side": 1,
+      "message": "You should also add HNeg, which is a simplified HSub with lhs\u003d\u003d0.\n\nIdea for future improvement: Introduce HArm64Bic and HArm64Eon and allow them to use shifter operands.",
+      "revId": "230e49a3ecb043c258a0af083916010ae047291a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "169a6aee_620a92a7",
+        "filename": "compiler/optimizing/common_arm64.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-17T17:40:02Z",
+      "side": 1,
+      "message": "I don\u0027t see any \"AND (extended register)\" in the manual, only ADD, SUB, CMP, CMN.",
+      "range": {
+        "startLine": 308,
+        "startChar": 33,
+        "endLine": 308,
+        "endChar": 53
+      },
+      "revId": "230e49a3ecb043c258a0af083916010ae047291a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "368beea4_e3214691",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-17T17:40:02Z",
+      "side": 1,
+      "message": "This is running after the arch-independent instruction simplifier and so SHL by 1 has already been replaced with ADD. You may want to work around that by adding extra logic in VisitAdd(), treating ADD with both inputs the same as SHL.",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 1
+      },
+      "revId": "230e49a3ecb043c258a0af083916010ae047291a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "368beea4_4332faec",
+        "filename": "compiler/optimizing/nodes_arm64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-17T17:40:02Z",
+      "side": 1,
+      "message": "This byte-to-char conversion is wrong. The code in InstructionCodeGeneratorARM64::VisitTypeConversion() uses \"UBFX Wd, Wn, #0, #16\" and I guess it assumes that the register that holds the byte has been sign-extended (otherwise, bits 8-15 would be wrong). Under the same assumption, this should be kUXTH.\n\nPlease add a test where you pass negative \"byte b\" to a non-inlined function calculating \"a + (char)b\".",
+      "range": {
+        "startLine": 46,
+        "startChar": 17,
+        "endLine": 46,
+        "endChar": 22
+      },
+      "revId": "230e49a3ecb043c258a0af083916010ae047291a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b4e7783_684fbb13",
+        "filename": "compiler/optimizing/nodes_arm64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-17T17:40:02Z",
+      "side": 1,
+      "message": "DCHECK_EQ(min_size, 2u); *op_kind \u003d kUXTH;\n\nThis branch should be merged with the \"(result_type \u003d\u003d Primitive::kPrimChar) \u0026\u0026 (input_size \u003c result_size)\" branch above.\n\nAnd you can also refactor the code gen type conversion.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 7
+      },
+      "revId": "230e49a3ecb043c258a0af083916010ae047291a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db11db43_605466a8",
+        "filename": "compiler/optimizing/nodes_arm64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-17T17:40:02Z",
+      "side": 1,
+      "message": "static_cast\u003c\u003e()\n\nAnd we usually cast to int but if you want unsigned, I don\u0027t mind.",
+      "range": {
+        "startLine": 85,
+        "startChar": 41,
+        "endLine": 85,
+        "endChar": 53
+      },
+      "revId": "230e49a3ecb043c258a0af083916010ae047291a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db11db43_804f7a12",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-17T17:40:02Z",
+      "side": 1,
+      "message": "Tag these with \"/*out*/\".",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 58
+      },
+      "revId": "230e49a3ecb043c258a0af083916010ae047291a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96865a95_94099442",
+        "filename": "test/549-checker-shifter-operand/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-17T17:40:02Z",
+      "side": 1,
+      "message": "Add another section with CHECK-NOT TypeConversion and Sub.",
+      "revId": "230e49a3ecb043c258a0af083916010ae047291a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96865a95_b4a4d87a",
+        "filename": "test/549-checker-shifter-operand/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-17T17:40:02Z",
+      "side": 1,
+      "message": "Add CHECK-NOT.",
+      "revId": "230e49a3ecb043c258a0af083916010ae047291a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56278298_4caeb3ee",
+        "filename": "test/549-checker-shifter-operand/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-17T17:40:02Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 122,
+        "startChar": 17,
+        "endLine": 122,
+        "endChar": 23
+      },
+      "revId": "230e49a3ecb043c258a0af083916010ae047291a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b4e7783_c85fcfbe",
+        "filename": "test/549-checker-shifter-operand/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-17T17:40:02Z",
+      "side": 1,
+      "message": "Currently not optimized because \"b \u003c\u003c 1\" is replaced by ADD.",
+      "range": {
+        "startLine": 157,
+        "startChar": 51,
+        "endLine": 157,
+        "endChar": 64
+      },
+      "revId": "230e49a3ecb043c258a0af083916010ae047291a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db11db43_60b0e61f",
+        "filename": "test/549-checker-shifter-operand/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-17T17:40:02Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 232,
+        "startChar": 50,
+        "endLine": 232,
+        "endChar": 63
+      },
+      "revId": "230e49a3ecb043c258a0af083916010ae047291a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
