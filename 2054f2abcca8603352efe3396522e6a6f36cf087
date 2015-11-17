@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b25eb9e_87ae6657",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-17T21:24:28Z",
+      "side": 1,
+      "message": "I believe this may crash when we have hit the integer case in this method (see my public API comment)",
+      "range": {
+        "startLine": 375,
+        "startChar": 54,
+        "endLine": 375,
+        "endChar": 74
+      },
+      "revId": "2054f2abcca8603352efe3396522e6a6f36cf087",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96d1fa8e_8155dbd0",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-17T21:24:28Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 400,
+        "startChar": 58,
+        "endLine": 400,
+        "endChar": 78
+      },
+      "revId": "2054f2abcca8603352efe3396522e6a6f36cf087",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb75bfb9_998d9b56",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 5747,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-17T21:24:28Z",
+      "side": 1,
+      "message": "You will have to document this API very carefully, since the returned instruction may or may NOT have been inserted in the HIR.\n\nSo typical clients will have to do:\n\nreplacement \u003d GetOppositeCondition(if_condition);\nif (replacement-\u003eGetBlock() \u003d\u003d nullptr) {\n   block-\u003eInsertInstructionBefore(replacement, ....);\n}\n\nWe would perhaps improve this by always inserting the instruction (when it did not call GetInt)",
+      "range": {
+        "startLine": 5747,
+        "startChar": 14,
+        "endLine": 5747,
+        "endChar": 34
+      },
+      "revId": "2054f2abcca8603352efe3396522e6a6f36cf087",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
