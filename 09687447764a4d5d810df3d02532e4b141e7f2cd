@@ -22,6 +22,30 @@
       "revId": "09687447764a4d5d810df3d02532e4b141e7f2cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d67c5259_084c8b52",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-17T14:16:35Z",
+      "side": 1,
+      "message": "I\u0027m not sure GetVRegNonReference is a good idea because it can return a reference (as a pointer). But yes, we should probably rename it to avoid the confusion. What about GetVRegPrimitive or GetVRegInt?\n\nI\u0027d prefer doing that in a different CL though. There are many references to this method, especially in both intepreters, so having a dedicated CL is probably better for review.",
+      "parentUuid": "368beea4_63f53679",
+      "range": {
+        "startLine": 272,
+        "startChar": 32,
+        "endLine": 272,
+        "endChar": 39
+      },
+      "revId": "09687447764a4d5d810df3d02532e4b141e7f2cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
