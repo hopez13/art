@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "76d4867d_47c00f50",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-11-17T19:09:25Z",
+      "side": 1,
+      "message": "You still have to ensure that it isn\u0027t FP.  Reversing FP is bad",
+      "parentUuid": "56278298_4c5cf3ca",
+      "range": {
+        "startLine": 364,
+        "startChar": 27,
+        "endLine": 364,
+        "endChar": 28
+      },
+      "revId": "824db2e92f698d132014f9aa7c37b0439419cf17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_e5f6acb9",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -214,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "5b2a4b7b_9c958766",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-11-17T19:09:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "169a6aee_e5f6acb9",
+      "range": {
+        "startLine": 410,
+        "startChar": 8,
+        "endLine": 412,
+        "endChar": 9
+      },
+      "revId": "824db2e92f698d132014f9aa7c37b0439419cf17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_45de802d",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -225,6 +273,30 @@
       "writtenOn": "2015-11-17T18:59:58Z",
       "side": 1,
       "message": "Wanna do the same thing here?",
+      "range": {
+        "startLine": 438,
+        "startChar": 0,
+        "endLine": 438,
+        "endChar": 47
+      },
+      "revId": "824db2e92f698d132014f9aa7c37b0439419cf17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db847bce_09b28a0d",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-11-17T19:09:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "169a6aee_45de802d",
       "range": {
         "startLine": 438,
         "startChar": 0,
