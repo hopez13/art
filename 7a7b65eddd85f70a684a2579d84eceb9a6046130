@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fb75bfb9_7c2e6d83",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-17T23:17:27Z",
+      "side": 1,
+      "message": "The app image is currently mapped at any arbitrary address if it can not be mapped directly after the boot oat (probably should be zygote).",
+      "parentUuid": "96d1fa8e_e1801766",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 19
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76d4867d_a361fe16",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2015-11-17T21:49:22Z",
       "side": 1,
       "message": "What\u0027s the issue with the gaps that appending oat files solves?",
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96d1fa8e_211ceff7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-17T23:17:27Z",
+      "side": 1,
+      "message": "That deals with the boot image so that we don\u0027t have to make assumptions about there being no between the app image and the zygote space. Looking at the image header generalizes the behavior.",
+      "parentUuid": "76d4867d_a361fe16",
       "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -88,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "5b25eb9e_875f86f2",
+        "filename": "runtime/gc/collector/immune_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-17T23:17:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db847bce_4c7c209a",
+      "range": {
+        "startLine": 39,
+        "startChar": 6,
+        "endLine": 39,
+        "endChar": 18
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b3453db_21b2ea54",
         "filename": "runtime/gc/collector/immune_region.h",
         "patchSetId": 2
@@ -99,6 +165,30 @@
       "writtenOn": "2015-11-17T21:49:22Z",
       "side": 1,
       "message": "Is this dead now?",
+      "range": {
+        "startLine": 43,
+        "startChar": 7,
+        "endLine": 43,
+        "endChar": 25
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db847bce_ecdc1463",
+        "filename": "runtime/gc/collector/immune_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-17T23:17:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b3453db_21b2ea54",
       "range": {
         "startLine": 43,
         "startChar": 7,
@@ -134,6 +224,30 @@
     },
     {
       "key": {
+        "uuid": "db847bce_ccdfd055",
+        "filename": "runtime/gc/collector/immune_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-17T23:17:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db847bce_6c81e4b2",
+      "range": {
+        "startLine": 45,
+        "startChar": 7,
+        "endLine": 45,
+        "endChar": 20
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db847bce_2c067c63",
         "filename": "runtime/gc/collector/immune_spaces.cc",
         "patchSetId": 2
@@ -145,6 +259,30 @@
       "writtenOn": "2015-11-17T21:49:22Z",
       "side": 1,
       "message": "Can we do this as we call AddSpace() without exposing this to the outside to be less error-prone?\n\nOr, at least maintain a flag that indicates immune_region_ and the spaces_ are in sync, and update immune_region_ lazily in GetImmuneRegion() if they are out of sync?",
+      "range": {
+        "startLine": 31,
+        "startChar": 19,
+        "endLine": 31,
+        "endChar": 44
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b3453db_64280073",
+        "filename": "runtime/gc/collector/immune_spaces.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-17T23:17:27Z",
+      "side": 1,
+      "message": "I\u0027ll just call CreateLargestImmuneRegion in AddSpace, it is complicated otherwise if the callers don\u0027t call AddSpace in address increasing order.",
+      "parentUuid": "db847bce_2c067c63",
       "range": {
         "startLine": 31,
         "startChar": 19,
@@ -180,6 +318,30 @@
     },
     {
       "key": {
+        "uuid": "db847bce_bf85d0ee",
+        "filename": "runtime/gc/collector/immune_spaces.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-17T23:17:27Z",
+      "side": 1,
+      "message": "For the boot image, it always holds. For the app image case it may not hold.",
+      "parentUuid": "3b2597a9_4165f421",
+      "range": {
+        "startLine": 42,
+        "startChar": 22,
+        "endLine": 42,
+        "endChar": 29
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b3453db_8194feb7",
         "filename": "runtime/gc/collector/immune_spaces.cc",
         "patchSetId": 2
@@ -191,6 +353,30 @@
       "writtenOn": "2015-11-17T21:49:22Z",
       "side": 1,
       "message": "Could most of this code be factored out into a new function in ImageSpace that returns the oat begin/end?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 84
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb75bfb9_3caa35ac",
+        "filename": "runtime/gc/collector/immune_spaces.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-17T23:17:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b3453db_8194feb7",
       "range": {
         "startLine": 44,
         "startChar": 0,
@@ -226,6 +412,30 @@
     },
     {
       "key": {
+        "uuid": "96d1fa8e_44ae51a9",
+        "filename": "runtime/gc/collector/immune_spaces.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-17T23:17:27Z",
+      "side": 1,
+      "message": "The immune region is just the fast path lookup, if a space is not in here, then we just go through and see that it is already marked in the the bitmap.\n\nIf the spaces aren\u0027t all continuous, then the immune region is the largest set of continuous spaces. The immune space not in the immune region is handled by the mark bitmap.",
+      "parentUuid": "76d4867d_c7e19f1d",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 69
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b3453db_c179e614",
         "filename": "runtime/gc/collector/immune_spaces.h",
         "patchSetId": 2
@@ -243,6 +453,24 @@
     },
     {
       "key": {
+        "uuid": "76d4867d_83e31a58",
+        "filename": "runtime/gc/collector/immune_spaces.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-17T23:17:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b3453db_c179e614",
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b816bc7_fc5fe1bd",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 2
@@ -254,6 +482,30 @@
       "writtenOn": "2015-11-17T21:49:22Z",
       "side": 1,
       "message": "How about if we call this inside BindBitmaps()?",
+      "range": {
+        "startLine": 180,
+        "startChar": 2,
+        "endLine": 180,
+        "endChar": 45
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db847bce_dfb774a1",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-17T23:17:27Z",
+      "side": 1,
+      "message": "Removed this.",
+      "parentUuid": "5b816bc7_fc5fe1bd",
       "range": {
         "startLine": 180,
         "startChar": 2,
@@ -289,6 +541,30 @@
     },
     {
       "key": {
+        "uuid": "db847bce_3f7c6099",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-17T23:17:27Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "96d1fa8e_616c27a1",
+      "range": {
+        "startLine": 260,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 45
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b3453db_2160aa80",
         "filename": "runtime/gc/collector/mark_sweep.cc",
         "patchSetId": 2
@@ -300,6 +576,30 @@
       "writtenOn": "2015-11-17T21:49:22Z",
       "side": 1,
       "message": "What space does not have a mod union table?\n\nAdd a comment?\n\nCan you assert about the existence of a mod union table based on their space type, etc.?",
+      "range": {
+        "startLine": 303,
+        "startChar": 11,
+        "endLine": 303,
+        "endChar": 12
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b6aafda_069b64e4",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-17T23:17:27Z",
+      "side": 1,
+      "message": "Currently, the app image won\u0027t have a mod union table.",
+      "parentUuid": "1b3453db_2160aa80",
       "range": {
         "startLine": 303,
         "startChar": 11,
@@ -335,6 +635,30 @@
     },
     {
       "key": {
+        "uuid": "5b25eb9e_eab841ea",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-17T23:17:27Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "1b3453db_41e85611",
+      "range": {
+        "startLine": 228,
+        "startChar": 2,
+        "endLine": 228,
+        "endChar": 45
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db847bce_8ceea871",
         "filename": "runtime/gc/collector/semi_space.cc",
         "patchSetId": 2
@@ -346,6 +670,30 @@
       "writtenOn": "2015-11-17T21:49:22Z",
       "side": 1,
       "message": "This doesn\u0027t seem to retain the same conditions as the old code. Why?",
+      "range": {
+        "startLine": 396,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 9
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b816bc7_df33f7ef",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-17T23:17:27Z",
+      "side": 1,
+      "message": "App images currently don\u0027t remembered sets or mod-union tables. Fixed the check.",
+      "parentUuid": "db847bce_8ceea871",
       "range": {
         "startLine": 396,
         "startChar": 0,
