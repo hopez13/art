@@ -22,6 +22,30 @@
       "revId": "ec1b9b9ff97c6e05e530eeed907daebda1a69834",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "169a6aee_c5f1b0c4",
+        "filename": "test/549-checker-types-merge/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-17T18:56:40Z",
+      "side": 1,
+      "message": "I\u0027ll cleaned the names a bit and added a comment that everything extends Super*.",
+      "parentUuid": "b67fde4b_d576bc72",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 44
+      },
+      "revId": "ec1b9b9ff97c6e05e530eeed907daebda1a69834",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
