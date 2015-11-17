@@ -68,6 +68,30 @@
       "revId": "2054f2abcca8603352efe3396522e6a6f36cf087",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb75bfb9_7cf18dc2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 5747,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-11-17T21:32:36Z",
+      "side": 1,
+      "message": "I didn\u0027t understand the problem with GetIntConstant before.  I\u0027m not sure of the best way to handle this.  Perhaps we should wait for Nicolas or Andreas to comment",
+      "parentUuid": "fb75bfb9_998d9b56",
+      "range": {
+        "startLine": 5747,
+        "startChar": 14,
+        "endLine": 5747,
+        "endChar": 34
+      },
+      "revId": "2054f2abcca8603352efe3396522e6a6f36cf087",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
