@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "d67c5259_e8f84739",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-17T13:12:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "169a6aee_0250ee07",
+      "range": {
+        "startLine": 1246,
+        "startChar": 2,
+        "endLine": 1252,
+        "endChar": 3
+      },
+      "revId": "ee4749ff5908e5be024302a919430c6d1dc5ae1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_a2fd7a62",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 6
@@ -120,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "3b4e7783_688a1b94",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1321,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-17T13:12:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "169a6aee_a2fd7a62",
+      "range": {
+        "startLine": 1321,
+        "startChar": 4,
+        "endLine": 1321,
+        "endChar": 6
+      },
+      "revId": "ee4749ff5908e5be024302a919430c6d1dc5ae1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96865a95_09cbb125",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 6
@@ -131,6 +179,30 @@
       "writtenOn": "2015-11-16T14:08:30Z",
       "side": 1,
       "message": "\"is\"",
+      "range": {
+        "startLine": 1331,
+        "startChar": 14,
+        "endLine": 1331,
+        "endChar": 15
+      },
+      "revId": "ee4749ff5908e5be024302a919430c6d1dc5ae1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b8e83ee_23fe94d3",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1331,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-17T13:12:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96865a95_09cbb125",
       "range": {
         "startLine": 1331,
         "startChar": 14,
@@ -189,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "368beea4_23124e71",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1374,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-17T13:12:07Z",
+      "side": 1,
+      "message": "I\u0027d love to but it\u0027s tricky - GetLabelOf is defined in each individual CodeGen class because different codegens use different Label types. Could be refactored too but it seems outside the scope of this CL.",
+      "parentUuid": "169a6aee_c2028621",
+      "range": {
+        "startLine": 1373,
+        "startChar": 23,
+        "endLine": 1374,
+        "endChar": 52
+      },
+      "revId": "ee4749ff5908e5be024302a919430c6d1dc5ae1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b8e83ee_c0631e5b",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 6
@@ -212,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "3b4e7783_488f5fa2",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2290,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-17T13:12:07Z",
+      "side": 1,
+      "message": "Done. Thanks, much neater.",
+      "parentUuid": "9b8e83ee_c0631e5b",
+      "range": {
+        "startLine": 2289,
+        "startChar": 0,
+        "endLine": 2290,
+        "endChar": 39
+      },
+      "revId": "ee4749ff5908e5be024302a919430c6d1dc5ae1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_426bd6c6",
         "filename": "compiler/optimizing/code_generator_utils.cc",
         "patchSetId": 6
@@ -223,6 +343,30 @@
       "writtenOn": "2015-11-16T16:41:08Z",
       "side": 1,
       "message": "nit: I\u0027d call this `Needs` to mirror the actual test.",
+      "range": {
+        "startLine": 98,
+        "startChar": 5,
+        "endLine": 98,
+        "endChar": 7
+      },
+      "revId": "ee4749ff5908e5be024302a919430c6d1dc5ae1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b67fde4b_55846cc0",
+        "filename": "compiler/optimizing/code_generator_utils.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-17T13:12:07Z",
+      "side": 1,
+      "message": "I would not. NeedsMaterialization makes sense when called from InsnCodeGen::VisitCondition to check whether to bail. This is used from places where you want to know if a condition has been materialized by some third party. So the query \"is materialized\" (or rather \"has been materialized\") makes more sense than \"needs to be materialized\" because that would have happened earlier.",
+      "parentUuid": "169a6aee_426bd6c6",
       "range": {
         "startLine": 98,
         "startChar": 5,
