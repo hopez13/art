@@ -92,6 +92,30 @@
       "revId": "2054f2abcca8603352efe3396522e6a6f36cf087",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db847bce_cc24b08f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 5747,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-17T21:38:50Z",
+      "side": 1,
+      "message": "Calling graph-\u003eGetIntConstant() returns an instruction that is *already* in the HIR. This can either be an already existing instruction (after consulting a cache), or otherwise an instruction inserted in the entry block.\n\nBy contrast, all other branches in GetOppositeCondition simply return a newly allocated HInstruction that still needs to be inserted in the HIR.\n\nThis is no longer a clean public API (it was still acceptable in boolean_simplifier since its use was local).",
+      "parentUuid": "fb75bfb9_7cf18dc2",
+      "range": {
+        "startLine": 5747,
+        "startChar": 14,
+        "endLine": 5747,
+        "endChar": 34
+      },
+      "revId": "2054f2abcca8603352efe3396522e6a6f36cf087",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
