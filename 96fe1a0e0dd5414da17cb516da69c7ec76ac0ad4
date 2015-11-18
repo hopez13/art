@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db847bce_dd8d3c55",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-18T02:11:12Z",
+      "side": 1,
+      "message": "I\u0027d move this common part outside if/else.",
+      "range": {
+        "startLine": 719,
+        "startChar": 0,
+        "endLine": 723,
+        "endChar": 29
+      },
+      "revId": "96fe1a0e0dd5414da17cb516da69c7ec76ac0ad4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb75bfb9_22cc50b3",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-18T02:11:12Z",
+      "side": 1,
+      "message": "Remove the empty line.",
+      "range": {
+        "startLine": 724,
+        "startChar": 0,
+        "endLine": 724,
+        "endChar": 0
+      },
+      "revId": "96fe1a0e0dd5414da17cb516da69c7ec76ac0ad4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db847bce_3d6a2832",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-18T02:11:12Z",
+      "side": 1,
+      "message": "Align under 1st argument.",
+      "range": {
+        "startLine": 750,
+        "startChar": 0,
+        "endLine": 751,
+        "endChar": 74
+      },
+      "revId": "96fe1a0e0dd5414da17cb516da69c7ec76ac0ad4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b2597a9_cf08eb04",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-18T02:11:12Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 768,
+        "startChar": 0,
+        "endLine": 769,
+        "endChar": 74
+      },
+      "revId": "96fe1a0e0dd5414da17cb516da69c7ec76ac0ad4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b6aafda_ec85efbf",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-18T02:11:12Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 786,
+        "startChar": 0,
+        "endLine": 787,
+        "endChar": 74
+      },
+      "revId": "96fe1a0e0dd5414da17cb516da69c7ec76ac0ad4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b25eb9e_2d37738e",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-11-18T02:11:12Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 804,
+        "startChar": 0,
+        "endLine": 805,
+        "endChar": 74
+      },
+      "revId": "96fe1a0e0dd5414da17cb516da69c7ec76ac0ad4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
