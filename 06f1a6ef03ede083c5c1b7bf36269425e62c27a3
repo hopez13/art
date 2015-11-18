@@ -307,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "9b8e83ee_693a3d1a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1553,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-18T21:40:48Z",
+      "side": 1,
+      "message": "Sounds to me we could relax the graph checker and just discard the kNoRegNumber.",
+      "parentUuid": "1b3453db_98a90b53",
+      "range": {
+        "startLine": 1553,
+        "startChar": 59,
+        "endLine": 1553,
+        "endChar": 65
+      },
+      "revId": "06f1a6ef03ede083c5c1b7bf36269425e62c27a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b8e83ee_e6867a83",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 19
