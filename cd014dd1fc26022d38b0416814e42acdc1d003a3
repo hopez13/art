@@ -1322,6 +1322,30 @@
     },
     {
       "key": {
+        "uuid": "db847bce_eed16422",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1319,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-18T19:18:51Z",
+      "side": 1,
+      "message": "Ah, okay, that is what you meant by brittle (I thought you worried about correctness). Yes, for that case it is important this is last. I made a comment on that in the code.",
+      "parentUuid": "3b4e7783_8b54314b",
+      "range": {
+        "startLine": 1319,
+        "startChar": 0,
+        "endLine": 1319,
+        "endChar": 75
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d61d32f8_da1385a7",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 12
@@ -1639,6 +1663,30 @@
       "side": 1,
       "message": "Yes please :) Did you find them?",
       "parentUuid": "760646d1_9718a4c5",
+      "range": {
+        "startLine": 1389,
+        "startChar": 0,
+        "endLine": 1389,
+        "endChar": 36
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db847bce_ee5ba45f",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1389,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-18T19:18:51Z",
+      "side": 1,
+      "message": "No, I made this a DCHECK already a few edits back and have not found any failing case. So I am going to assume this is as you stated.",
+      "parentUuid": "9b8e83ee_e6019ae3",
       "range": {
         "startLine": 1389,
         "startChar": 0,
