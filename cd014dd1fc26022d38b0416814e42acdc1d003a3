@@ -1298,6 +1298,30 @@
     },
     {
       "key": {
+        "uuid": "3b4e7783_8b54314b",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1319,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-18T09:58:02Z",
+      "side": 1,
+      "message": "But then you do an explicit null check with deopt, whereas before we would do an implicit null check.",
+      "parentUuid": "760646d1_57d1ec1f",
+      "range": {
+        "startLine": 1319,
+        "startChar": 0,
+        "endLine": 1319,
+        "endChar": 75
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d61d32f8_da1385a7",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 12
@@ -1591,6 +1615,30 @@
       "side": 1,
       "message": "I did. I made a note to find those cases and report to you.",
       "parentUuid": "d6345268_42d47268",
+      "range": {
+        "startLine": 1389,
+        "startChar": 0,
+        "endLine": 1389,
+        "endChar": 36
+      },
+      "revId": "cd014dd1fc26022d38b0416814e42acdc1d003a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b8e83ee_e6019ae3",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 1389,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-18T09:58:02Z",
+      "side": 1,
+      "message": "Yes please :) Did you find them?",
+      "parentUuid": "760646d1_9718a4c5",
       "range": {
         "startLine": 1389,
         "startChar": 0,
