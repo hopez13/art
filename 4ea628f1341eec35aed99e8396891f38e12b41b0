@@ -2,6 +2,161 @@
   "comments": [
     {
       "key": {
+        "uuid": "5b25eb9e_534ed014",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-18T22:11:13Z",
+      "side": 1,
+      "message": "The intention is to print the ranges of immune spaces, not just the immune region. Can we print out the ranges of all the spaces in ImmuneSpaces?",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 63
+      },
+      "revId": "4ea628f1341eec35aed99e8396891f38e12b41b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db847bce_d0767ee4",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1508,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-18T22:11:13Z",
+      "side": 1,
+      "message": "I think this should be immune_spaces_.ContainsObject(obj) rather than just checking if the object is in the immune region. We allocate a bitmap for each immune space in BindBitmaps(). Note the CC collector doesn\u0027t currently use mod union tables.",
+      "range": {
+        "startLine": 1508,
+        "startChar": 8,
+        "endLine": 1508,
+        "endChar": 44
+      },
+      "revId": "4ea628f1341eec35aed99e8396891f38e12b41b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96d1fa8e_55a439df",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1548,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-18T22:11:13Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1548,
+        "startChar": 6,
+        "endLine": 1548,
+        "endChar": 42
+      },
+      "revId": "4ea628f1341eec35aed99e8396891f38e12b41b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb75bfb9_7c4f4813",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1933,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-18T22:11:13Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1933,
+        "startChar": 8,
+        "endLine": 1933,
+        "endChar": 49
+      },
+      "revId": "4ea628f1341eec35aed99e8396891f38e12b41b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96d1fa8e_95beb1ef",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1987,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-18T22:11:13Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1987,
+        "startChar": 6,
+        "endLine": 1987,
+        "endChar": 42
+      },
+      "revId": "4ea628f1341eec35aed99e8396891f38e12b41b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76d4867d_f2ba9ae1",
+        "filename": "runtime/gc/collector/immune_spaces.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-18T22:11:13Z",
+      "side": 1,
+      "message": "Do we assume the boot image and the zygote space will *always* be part of the immune region (which I think we do)? If so, can we assert that somehow and have a comment saying that, unless we do already so? If not, my comments in concurrent_copying.cc about immune_spaces_.ContainsObject(obj) are fairly important to be addressed because heap_bitmap doesn\u0027t have a mutable mark bitmap for the boot image, for example.",
+      "range": {
+        "startLine": 31,
+        "startChar": 19,
+        "endLine": 31,
+        "endChar": 44
+      },
+      "revId": "4ea628f1341eec35aed99e8396891f38e12b41b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db847bce_10b8668f",
+        "filename": "runtime/gc/collector/immune_spaces.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-18T22:11:13Z",
+      "side": 1,
+      "message": "Also, could the app image be below (at a lower address than) the boot image? If so, does CreateLargestImmuneRegion() does the right thing (that is, compute an immune region that always covers the boot image/zygote)?",
+      "revId": "4ea628f1341eec35aed99e8396891f38e12b41b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d67c5259_e8a3e7d6",
         "filename": "runtime/gc/collector/immune_spaces.cc",
         "patchSetId": 3
@@ -41,6 +196,29 @@
         "startChar": 31,
         "endLine": 381,
         "endChar": 33
+      },
+      "revId": "4ea628f1341eec35aed99e8396891f38e12b41b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b816bc7_2b92e93b",
+        "filename": "runtime/gc/space/image_space.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-18T22:11:13Z",
+      "side": 1,
+      "message": "I guess there\u0027s a subclass to ImageSpace?",
+      "range": {
+        "startLine": 137,
+        "startChar": 1,
+        "endLine": 137,
+        "endChar": 10
       },
       "revId": "4ea628f1341eec35aed99e8396891f38e12b41b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
