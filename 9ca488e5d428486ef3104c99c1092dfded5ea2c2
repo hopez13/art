@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "169a6aee_e5922c3a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1567,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-18T09:58:02Z",
+      "side": 1,
+      "message": "Oh, this definitely sucks ;-(. +dbrazdil",
+      "range": {
+        "startLine": 1565,
+        "startChar": 85,
+        "endLine": 1567,
+        "endChar": 33
+      },
+      "revId": "9ca488e5d428486ef3104c99c1092dfded5ea2c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "569062ca_27125871",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1569,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-18T09:58:02Z",
+      "side": 1,
+      "message": "line too long.",
+      "range": {
+        "startLine": 1569,
+        "startChar": 0,
+        "endLine": 1569,
+        "endChar": 101
+      },
+      "revId": "9ca488e5d428486ef3104c99c1092dfded5ea2c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b4e7783_6b2335ec",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 1613,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-18T09:58:02Z",
+      "side": 1,
+      "message": "That\u0027s a new concept, please add more comments. I\u0027d avoid the barrier word, it\u0027s overloaded.",
+      "range": {
+        "startLine": 1613,
+        "startChar": 31,
+        "endLine": 1613,
+        "endChar": 54
+      },
+      "revId": "9ca488e5d428486ef3104c99c1092dfded5ea2c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
