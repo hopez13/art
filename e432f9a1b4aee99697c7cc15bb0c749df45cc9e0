@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "96865a95_ef44cd9d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2113,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-18T21:37:26Z",
+      "side": 1,
+      "message": "I don\u0027t understand. You\u0027re already DCHECKING it\u0027s either 0 and 1 and you return from all branches above. Where\u0027s the fallthrough?",
+      "parentUuid": "7b6aafda_4349490a",
+      "range": {
+        "startLine": 2113,
+        "startChar": 2,
+        "endLine": 2113,
+        "endChar": 3
+      },
+      "revId": "e432f9a1b4aee99697c7cc15bb0c749df45cc9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b2597a9_043edab6",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 9
