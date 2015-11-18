@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "db847bce_4e23b099",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-18T22:11:13Z",
+      "side": 1,
+      "message": "So, in the address order something like\n\n...|boot art|boot oat|zygote|app art|app oat|...\n\nif it\u0027s possible to put the app image right after zygote, and otherwise, the app image could be anywhere?\n\nAnd there can be multiple app images?",
+      "parentUuid": "fb75bfb9_7c2e6d83",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 19
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76d4867d_a361fe16",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -95,6 +119,30 @@
       "writtenOn": "2015-11-17T21:49:22Z",
       "side": 1,
       "message": "How about \"holder is in a non-immune, non-moving (or main) space\"?",
+      "range": {
+        "startLine": 1521,
+        "startChar": 20,
+        "endLine": 1521,
+        "endChar": 82
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b2a4b7b_169baee4",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1521,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-18T22:11:13Z",
+      "side": 1,
+      "message": "?",
+      "parentUuid": "3b2597a9_01312c2e",
       "range": {
         "startLine": 1521,
         "startChar": 20,
@@ -424,6 +472,30 @@
       "side": 1,
       "message": "The immune region is just the fast path lookup, if a space is not in here, then we just go through and see that it is already marked in the the bitmap.\n\nIf the spaces aren\u0027t all continuous, then the immune region is the largest set of continuous spaces. The immune space not in the immune region is handled by the mark bitmap.",
       "parentUuid": "76d4867d_c7e19f1d",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 69
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b2a4b7b_561c96f4",
+        "filename": "runtime/gc/collector/immune_spaces.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-11-18T22:11:13Z",
+      "side": 1,
+      "message": "The \"immune\" region used to (and still does) mean the largest continuous range that allows the fast path lookup. Now, the \"immune\" space set is the spaces we don\u0027t collect. I guess calling both immune) didn\u0027t seem somewhat very straightforward to me. If the immune region was renamed to something like a \"largest continuous part/region\" of the immune space set (and even dropping immune_region.h), it\u0027d be more intuitive to me. Anyhow I think I understand the intention.",
+      "parentUuid": "96d1fa8e_44ae51a9",
       "range": {
         "startLine": 46,
         "startChar": 2,
