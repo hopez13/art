@@ -355,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "96865a95_2f4f95b8",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1553,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-18T21:57:55Z",
+      "side": 1,
+      "message": "Maybe part of this CL? Or were we already doing this kNoVRegNumber-- logic in the old code?",
+      "parentUuid": "1b3453db_b3ff4858",
+      "range": {
+        "startLine": 1553,
+        "startChar": 59,
+        "endLine": 1553,
+        "endChar": 65
+      },
+      "revId": "06f1a6ef03ede083c5c1b7bf36269425e62c27a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b8e83ee_e6867a83",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 19
