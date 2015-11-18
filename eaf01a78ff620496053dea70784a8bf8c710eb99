@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96865a95_b463f8c1",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-18T12:02:24Z",
+      "side": 1,
+      "message": "If current_capacity_ is not even you\u0027ll have an off by 1 difference here compared to when the code cache is created.\n\nNot an issue in practice but consistency is nice (i.e. current_capacity_ - current_capacity_/2).\n\nI\u0027d write some helpers and constify `2` when accessing the data/code capacity.",
+      "range": {
+        "startLine": 482,
+        "startChar": 45,
+        "endLine": 482,
+        "endChar": 66
+      },
+      "revId": "eaf01a78ff620496053dea70784a8bf8c710eb99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b67fde4b_f571002b",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-18T12:02:24Z",
+      "side": 1,
+      "message": "I\u0027d be explicit and add `_bytes_` at the end.",
+      "range": {
+        "startLine": 214,
+        "startChar": 9,
+        "endLine": 214,
+        "endChar": 22
+      },
+      "revId": "eaf01a78ff620496053dea70784a8bf8c710eb99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
