@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "7b6aafda_4349490a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2113,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-11-18T20:16:42Z",
+      "side": 1,
+      "message": "Actually, this is meant to fall through, as then HBooleanNot is generated.  Otherwise, any bogus Int value would be a problem.\n\nOr do you want me to DCHECK(false) because the value isn\u0027t 0 or 1?",
+      "parentUuid": "b67fde4b_b5f4d8f4",
+      "range": {
+        "startLine": 2113,
+        "startChar": 2,
+        "endLine": 2113,
+        "endChar": 3
+      },
+      "revId": "e432f9a1b4aee99697c7cc15bb0c749df45cc9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b2597a9_043edab6",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 9
@@ -118,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "5b2a4b7b_f1026c4c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 5749,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-11-18T20:16:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "169a6aee_257df4c4",
+      "range": {
+        "startLine": 5749,
+        "startChar": 14,
+        "endLine": 5749,
+        "endChar": 37
+      },
+      "revId": "e432f9a1b4aee99697c7cc15bb0c749df45cc9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b4e7783_cb610917",
         "filename": "test/458-checker-instruction-simplification/src/Main.java",
         "patchSetId": 9
@@ -129,6 +177,24 @@
       "writtenOn": "2015-11-18T12:12:12Z",
       "side": 1,
       "message": "I understand you\u0027re trying to test the same test case you saw in the benchmark but I\u0027d much rather see simple unit tests here which exercise both NotEquals[x,0] and Equals[x,1] and the individual execution paths through InsertOppositeCondition.\n\nMy main rationale is that code like this heavily depends on the DEX code generated from Java which will be different when we switch to Jack, in which case we might end up exercising even less of the code you\u0027re adding.",
+      "revId": "e432f9a1b4aee99697c7cc15bb0c749df45cc9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb75bfb9_fc64b828",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-11-18T20:16:42Z",
+      "side": 1,
+      "message": "No, I actually wanted to test this with a simpler test case, but I was unable to create the necessary input HIR.  Note that this is the \u0027after_bce\u0027 version of the simplifier.  We don\u0027t get the matching HIR until well into the optimization.\n\nI will work on a smaller test case.",
+      "parentUuid": "3b4e7783_cb610917",
       "revId": "e432f9a1b4aee99697c7cc15bb0c749df45cc9e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
