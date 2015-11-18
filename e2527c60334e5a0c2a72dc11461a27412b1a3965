@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b4e7783_cb4a29a5",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-18T09:35:20Z",
+      "side": 1,
+      "message": "Shouldn\u0027t that be ref_info-\u003eIsSingleton instead? We could potentially support arrays as singletons too.",
+      "range": {
+        "startLine": 651,
+        "startChar": 43,
+        "endLine": 651,
+        "endChar": 75
+      },
+      "revId": "e2527c60334e5a0c2a72dc11461a27412b1a3965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b67fde4b_154d8417",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-18T09:35:20Z",
+      "side": 1,
+      "message": "one line?",
+      "range": {
+        "startLine": 709,
+        "startChar": 15,
+        "endLine": 710,
+        "endChar": 53
+      },
+      "revId": "e2527c60334e5a0c2a72dc11461a27412b1a3965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d67c5259_680a77a7",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-18T09:35:20Z",
+      "side": 1,
+      "message": "Instead of calling \"Dominates\" which is expensive, could you check if original_ref\u0027s block is in the loop? That should be a single bit check.",
+      "range": {
+        "startLine": 727,
+        "startChar": 10,
+        "endLine": 727,
+        "endChar": 64
+      },
+      "revId": "e2527c60334e5a0c2a72dc11461a27412b1a3965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "169a6aee_4533e037",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-18T09:35:20Z",
+      "side": 1,
+      "message": "I\u0027d drop that comment, or put a TODO. We\u0027re not eliminating allocations yet.",
+      "range": {
+        "startLine": 888,
+        "startChar": 0,
+        "endLine": 888,
+        "endChar": 44
+      },
+      "revId": "e2527c60334e5a0c2a72dc11461a27412b1a3965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
