@@ -236,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "96d1fa8e_f52c4d8b",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1534,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-18T19:22:55Z",
+      "side": 1,
+      "message": "Oops, missed this question. No, it applies to anything hoisted out of the loop, so we must be able to deal with all types. Note that this is one of the important factors in getting performance improvements, since it hoists what we otherwise could not hoist at all.",
+      "parentUuid": "368beea4_e36b0688",
+      "range": {
+        "startLine": 1534,
+        "startChar": 0,
+        "endLine": 1534,
+        "endChar": 89
+      },
+      "revId": "06f1a6ef03ede083c5c1b7bf36269425e62c27a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "569062ca_67a3806d",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 19
