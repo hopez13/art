@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "b67fde4b_b5f4d8f4",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2113,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-18T10:11:03Z",
+      "side": 1,
+      "message": "else {",
+      "range": {
+        "startLine": 2113,
+        "startChar": 2,
+        "endLine": 2113,
+        "endChar": 3
+      },
+      "revId": "e432f9a1b4aee99697c7cc15bb0c749df45cc9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b2597a9_043edab6",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 9
@@ -60,6 +83,29 @@
       "writtenOn": "2015-11-17T23:40:57Z",
       "side": 1,
       "message": "like it!",
+      "range": {
+        "startLine": 5749,
+        "startChar": 14,
+        "endLine": 5749,
+        "endChar": 37
+      },
+      "revId": "e432f9a1b4aee99697c7cc15bb0c749df45cc9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "169a6aee_257df4c4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 5749,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-18T10:11:03Z",
+      "side": 1,
+      "message": "Please put this method on the HGraph class.",
       "range": {
         "startLine": 5749,
         "startChar": 14,
