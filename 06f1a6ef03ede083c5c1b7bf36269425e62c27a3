@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3b2597a9_f5d5ba67",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1489,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-18T19:18:51Z",
+      "side": 1,
+      "message": "No it does not, see nodes.cc in this CL. I renamed everything in TransformLoopHeaderforBCE to be more generic (true, false etc, see nodes.cc), so that others could potentially use it too without the implied position of deopt.",
+      "parentUuid": "569062ca_47bda482",
+      "range": {
+        "startLine": 1489,
+        "startChar": 16,
+        "endLine": 1489,
+        "endChar": 41
+      },
+      "revId": "06f1a6ef03ede083c5c1b7bf36269425e62c27a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "569062ca_07cb9c25",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 19
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5b816bc7_d013e440",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1504,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-18T19:18:51Z",
+      "side": 1,
+      "message": "Apologies. I have become pretty could at keeping this border, but it seems in the last edits my eclipse border was set wrong. I went over the full file to find long lines.",
+      "parentUuid": "569062ca_07cb9c25",
+      "range": {
+        "startLine": 1504,
+        "startChar": 97,
+        "endLine": 1504,
+        "endChar": 103
+      },
+      "revId": "06f1a6ef03ede083c5c1b7bf36269425e62c27a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b8e83ee_a6a71229",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 19
@@ -59,6 +107,30 @@
       "writtenOn": "2015-11-18T12:03:38Z",
       "side": 1,
       "message": "Please keep the names consistent throughout your code, it is incredibly confusing if you don\u0027t. This is `true_block` in TransformLoopForDeoptimizationIfNeeded.",
+      "range": {
+        "startLine": 1530,
+        "startChar": 19,
+        "endLine": 1530,
+        "endChar": 24
+      },
+      "revId": "06f1a6ef03ede083c5c1b7bf36269425e62c27a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b3453db_f8a12f65",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1530,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-18T19:18:51Z",
+      "side": 1,
+      "message": "Yes, of course. I honestly don\u0027t know how I managed to get these names wrong. Must have been a back and forth edit after which I forgot to fix. Apologies. All renamed.",
+      "parentUuid": "9b8e83ee_a6a71229",
       "range": {
         "startLine": 1530,
         "startChar": 19,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "1b3453db_d89e7321",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1531,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-18T19:18:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d67c5259_a8771f1f",
+      "range": {
+        "startLine": 1531,
+        "startChar": 32,
+        "endLine": 1531,
+        "endChar": 58
+      },
+      "revId": "06f1a6ef03ede083c5c1b7bf36269425e62c27a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "368beea4_e36b0688",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 19
@@ -151,6 +247,30 @@
       "writtenOn": "2015-11-18T12:03:38Z",
       "side": 1,
       "message": "I don\u0027t think we enforce (non-catch) phis having different vreg numbers. You should be able to give kNoRegNumber to all of them. Or did you find a problem with that?",
+      "range": {
+        "startLine": 1553,
+        "startChar": 59,
+        "endLine": 1553,
+        "endChar": 65
+      },
+      "revId": "06f1a6ef03ede083c5c1b7bf36269425e62c27a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b3453db_98a90b53",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1553,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-18T19:18:51Z",
+      "side": 1,
+      "message": "Of course I started with just kNoRegNumbers. But this crashes the verifier as I mention in the comments. I hate this as much as the next person, and am open for other suggestions. For example, we could not verify synthetic phis in the same way.",
+      "parentUuid": "569062ca_67a3806d",
       "range": {
         "startLine": 1553,
         "startChar": 59,
@@ -209,6 +329,30 @@
     },
     {
       "key": {
+        "uuid": "3b2597a9_15e5e639",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1569,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-18T19:18:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96865a95_d4687ca0",
+      "range": {
+        "startLine": 1569,
+        "startChar": 29,
+        "endLine": 1569,
+        "endChar": 39
+      },
+      "revId": "06f1a6ef03ede083c5c1b7bf36269425e62c27a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56278298_8c77cb1f",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 19
@@ -220,6 +364,30 @@
       "writtenOn": "2015-11-18T12:03:38Z",
       "side": 1,
       "message": "Prepend with /* number_of_inputs */ so readers don\u0027t need to refer to the constructor.",
+      "range": {
+        "startLine": 1578,
+        "startChar": 70,
+        "endLine": 1578,
+        "endChar": 71
+      },
+      "revId": "06f1a6ef03ede083c5c1b7bf36269425e62c27a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db847bce_0e3048c3",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1578,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-18T19:18:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56278298_8c77cb1f",
       "range": {
         "startLine": 1578,
         "startChar": 70,
