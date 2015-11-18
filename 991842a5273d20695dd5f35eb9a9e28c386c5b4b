@@ -117,6 +117,30 @@
       "revId": "991842a5273d20695dd5f35eb9a9e28c386c5b4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b2597a9_849f6581",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-18T23:44:48Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "db847bce_ee13a440",
+      "range": {
+        "startLine": 303,
+        "startChar": 4,
+        "endLine": 303,
+        "endChar": 10
+      },
+      "revId": "991842a5273d20695dd5f35eb9a9e28c386c5b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

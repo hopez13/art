@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "5b25eb9e_fe0a43a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-18T23:44:48Z",
+      "side": 1,
+      "message": "Currently there can be multiple app images, the layout will be ideally\n|boot art|boot oat|zygote|non-moving|app art|\nwith |app oat| still being ASLR.",
+      "parentUuid": "db847bce_4e23b099",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 19
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76d4867d_a361fe16",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -142,6 +166,30 @@
       "writtenOn": "2015-11-18T22:11:13Z",
       "side": 1,
       "message": "?",
+      "parentUuid": "3b2597a9_01312c2e",
+      "range": {
+        "startLine": 1521,
+        "startChar": 20,
+        "endLine": 1521,
+        "endChar": 82
+      },
+      "revId": "7a7b65eddd85f70a684a2579d84eceb9a6046130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db847bce_5356f8dd",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1521,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-18T23:44:48Z",
+      "side": 1,
+      "message": "Done",
       "parentUuid": "3b2597a9_01312c2e",
       "range": {
         "startLine": 1521,
