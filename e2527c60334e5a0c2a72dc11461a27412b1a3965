@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1648aa4e_6624728c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-18T21:28:35Z",
+      "side": 1,
+      "message": "Here we are checking if it\u0027s a store, the real heap value should be unwrapped. Right now it\u0027s InstanceFieldSet only. Array singleton elements can still be aliased due to uncertainty of the index (instead of fixed offset). It must be a singleton so I have a DCHECK at below.\n\nA singleton ref also doesn\u0027t guarantee a store is in the heap value since we do the GVN-kind of thing at line 659 below. So the logic here is just as long as it\u0027s a store (even if late we add ArraySet), we just unwrap to get the real heap value.",
+      "parentUuid": "3b4e7783_cb4a29a5",
+      "range": {
+        "startLine": 651,
+        "startChar": 43,
+        "endLine": 651,
+        "endChar": 75
+      },
+      "revId": "e2527c60334e5a0c2a72dc11461a27412b1a3965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b67fde4b_154d8417",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-18T09:35:20Z",
       "side": 1,
       "message": "one line?",
+      "range": {
+        "startLine": 709,
+        "startChar": 15,
+        "endLine": 710,
+        "endChar": 53
+      },
+      "revId": "e2527c60334e5a0c2a72dc11461a27412b1a3965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b816bc7_d021a47c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-18T21:28:35Z",
+      "side": 1,
+      "message": "One line is exactly 100 chars. I\u0027ll just keep it as two lines.",
+      "parentUuid": "b67fde4b_154d8417",
       "range": {
         "startLine": 709,
         "startChar": 15,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7b6aafda_83176125",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-18T21:28:35Z",
+      "side": 1,
+      "message": "I changed it to call HLoopInformation::IsLoopInvariant() instead. I noticed the implementation of that function can be more efficient (no inner loop test). However I\u0027ll put that in a new CL.",
+      "parentUuid": "d67c5259_680a77a7",
+      "range": {
+        "startLine": 727,
+        "startChar": 10,
+        "endLine": 727,
+        "endChar": 64
+      },
+      "revId": "e2527c60334e5a0c2a72dc11461a27412b1a3965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_4533e037",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 5
@@ -88,6 +160,47 @@
         "endLine": 888,
         "endChar": 44
       },
+      "revId": "e2527c60334e5a0c2a72dc11461a27412b1a3965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b2597a9_755f8af3",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-18T21:28:35Z",
+      "side": 1,
+      "message": "I changed the comment to:\n// TODO: add new_instance to singleton_new_instances_ and enable allocation elimination.\nand deleted line 889.",
+      "parentUuid": "169a6aee_4533e037",
+      "range": {
+        "startLine": 888,
+        "startChar": 0,
+        "endLine": 888,
+        "endChar": 44
+      },
+      "revId": "e2527c60334e5a0c2a72dc11461a27412b1a3965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96d1fa8e_350425a2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 3660,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-18T21:28:35Z",
+      "side": 1,
+      "message": "I also changed this to always return true (same as old behavior) and added this comment:\n  // It may throw when called on type that\u0027s not instantiable/accessible.\n  // It can throw OOME.\n  // TODO: distinguish between the two cases so we can for example allow allocation elimination.",
       "revId": "e2527c60334e5a0c2a72dc11461a27412b1a3965",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
