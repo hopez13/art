@@ -115,6 +115,23 @@
       "revId": "e432f9a1b4aee99697c7cc15bb0c749df45cc9e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b4e7783_cb610917",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-18T12:12:12Z",
+      "side": 1,
+      "message": "I understand you\u0027re trying to test the same test case you saw in the benchmark but I\u0027d much rather see simple unit tests here which exercise both NotEquals[x,0] and Equals[x,1] and the individual execution paths through InsertOppositeCondition.\n\nMy main rationale is that code like this heavily depends on the DEX code generated from Java which will be different when we switch to Jack, in which case we might end up exercising even less of the code you\u0027re adding.",
+      "revId": "e432f9a1b4aee99697c7cc15bb0c749df45cc9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
