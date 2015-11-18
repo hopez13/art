@@ -427,6 +427,30 @@
     },
     {
       "key": {
+        "uuid": "96d1fa8e_2b984859",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1553,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-18T23:35:38Z",
+      "side": 1,
+      "message": "Yes Sir! PTAL.\n\nAlso added a unit test to make sure this is exercised in regular testing for all types",
+      "parentUuid": "b67fde4b_50839a71",
+      "range": {
+        "startLine": 1553,
+        "startChar": 59,
+        "endLine": 1553,
+        "endChar": 65
+      },
+      "revId": "06f1a6ef03ede083c5c1b7bf36269425e62c27a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b8e83ee_e6867a83",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 19
