@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d67c5259_2bbea9f1",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T18:48:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d67c5259_2be94917",
+      "range": {
+        "startLine": 885,
+        "startChar": 35,
+        "endLine": 885,
+        "endChar": 63
+      },
+      "revId": "fd2411984b557751727adf90dc4405c4400a20ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56278298_2f38897b",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-19T17:16:03Z",
       "side": 1,
       "message": "trailing spaces",
+      "range": {
+        "startLine": 893,
+        "startChar": 0,
+        "endLine": 893,
+        "endChar": 2
+      },
+      "revId": "fd2411984b557751727adf90dc4405c4400a20ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96865a95_2fd79541",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T18:48:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56278298_2f38897b",
       "range": {
         "startLine": 893,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "368beea4_e653141d",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T18:48:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "569062ca_f2ae7058",
+      "range": {
+        "startLine": 51,
+        "startChar": 38,
+        "endLine": 51,
+        "endChar": 41
+      },
+      "revId": "fd2411984b557751727adf90dc4405c4400a20ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "368beea4_06b480a7",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "569062ca_b240683b",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T18:48:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "368beea4_06b480a7",
+      "range": {
+        "startLine": 61,
+        "startChar": 40,
+        "endLine": 61,
+        "endChar": 71
+      },
+      "revId": "fd2411984b557751727adf90dc4405c4400a20ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db11db43_439a8c93",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2015-11-19T17:16:03Z",
       "side": 1,
       "message": "trailing spaces.",
+      "range": {
+        "startLine": 105,
+        "startChar": 77,
+        "endLine": 105,
+        "endChar": 78
+      },
+      "revId": "fd2411984b557751727adf90dc4405c4400a20ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96865a95_4fd4d93a",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T18:48:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db11db43_439a8c93",
       "range": {
         "startLine": 105,
         "startChar": 77,
@@ -151,6 +271,54 @@
       "writtenOn": "2015-11-19T17:16:03Z",
       "side": 1,
       "message": "I think we should handle IsFinalizable in the builder. It\u0027s a constant and I don\u0027t see any reason to postpone setting the right entrypoint until here.",
+      "range": {
+        "startLine": 106,
+        "startChar": 19,
+        "endLine": 106,
+        "endChar": 32
+      },
+      "revId": "fd2411984b557751727adf90dc4405c4400a20ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96865a95_6fe19d1b",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T18:48:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b8e83ee_e9cbadc8",
+      "range": {
+        "startLine": 106,
+        "startChar": 72,
+        "endLine": 106,
+        "endChar": 88
+      },
+      "revId": "fd2411984b557751727adf90dc4405c4400a20ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "169a6aee_70ba588d",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T18:48:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56278298_6f59a1d9",
       "range": {
         "startLine": 106,
         "startChar": 19,
