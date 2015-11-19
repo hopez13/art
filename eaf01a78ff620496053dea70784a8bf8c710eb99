@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d67c5259_4b6bedc6",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T09:27:39Z",
+      "side": 1,
+      "message": "We do make sure it\u0027s even when we initial the cache. I\u0027ve move this to a helper with comments and checks.",
+      "parentUuid": "96865a95_b463f8c1",
+      "range": {
+        "startLine": 482,
+        "startChar": 45,
+        "endLine": 482,
+        "endChar": 66
+      },
+      "revId": "eaf01a78ff620496053dea70784a8bf8c710eb99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b67fde4b_f571002b",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-18T12:02:24Z",
       "side": 1,
       "message": "I\u0027d be explicit and add `_bytes_` at the end.",
+      "range": {
+        "startLine": 214,
+        "startChar": 9,
+        "endLine": 214,
+        "endChar": 22
+      },
+      "revId": "eaf01a78ff620496053dea70784a8bf8c710eb99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96865a95_8f2d01d2",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T09:27:39Z",
+      "side": 1,
+      "message": "As agreed, putting bytes on all fields seems overly verbose. I\u0027ve added a comment on all storage related fields in this class are on the byte unit.",
+      "parentUuid": "b67fde4b_f571002b",
       "range": {
         "startLine": 214,
         "startChar": 9,
