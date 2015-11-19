@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96d1fa8e_ab139840",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-19T00:31:13Z",
+      "side": 1,
+      "message": "This just reads as a fact. State this a bit more clearly:\n\nHandle NewInstance as an invoke to deal with the implicit clinit check.\n\n(or something like that).",
+      "range": {
+        "startLine": 888,
+        "startChar": 7,
+        "endLine": 888,
+        "endChar": 19
+      },
+      "revId": "800d064d919dbe3f9aa2359edfb9ac7eee104a82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db847bce_d68d161a",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-11-19T00:31:13Z",
+      "side": 1,
+      "message": "so you basically made this another test\n\nshouldn\u0027t we keep the old test around also?",
+      "range": {
+        "startLine": 151,
+        "startChar": 9,
+        "endLine": 151,
+        "endChar": 12
+      },
+      "revId": "800d064d919dbe3f9aa2359edfb9ac7eee104a82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
