@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "3b4e7783_6e15838c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 888,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T09:13:10Z",
+      "side": 1,
+      "message": "Actually, I\u0027m working on fixing this. If you submit this before my fix, I\u0027ll update the code. Otherwise, please keep the test in the CL and submit it.",
+      "range": {
+        "startLine": 888,
+        "startChar": 7,
+        "endLine": 888,
+        "endChar": 49
+      },
+      "revId": "800d064d919dbe3f9aa2359edfb9ac7eee104a82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db847bce_d68d161a",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 2
@@ -36,6 +59,30 @@
       "writtenOn": "2015-11-19T00:31:13Z",
       "side": 1,
       "message": "so you basically made this another test\n\nshouldn\u0027t we keep the old test around also?",
+      "range": {
+        "startLine": 151,
+        "startChar": 9,
+        "endLine": 151,
+        "endChar": 12
+      },
+      "revId": "800d064d919dbe3f9aa2359edfb9ac7eee104a82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56278298_4fba258d",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T09:13:10Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "db847bce_d68d161a",
       "range": {
         "startLine": 151,
         "startChar": 9,
