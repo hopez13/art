@@ -45,6 +45,30 @@
       "revId": "99330dcddd1bd040d90d31ac1783ae63107e1ac9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b4e7783_4e2887c4",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T10:49:30Z",
+      "side": 1,
+      "message": "I think it\u0027s fine to put it here, to ensure the graph is sane after each pass.",
+      "parentUuid": "3b4e7783_6e3a231a",
+      "range": {
+        "startLine": 740,
+        "startChar": 0,
+        "endLine": 740,
+        "endChar": 44
+      },
+      "revId": "99330dcddd1bd040d90d31ac1783ae63107e1ac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
