@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b67fde4b_7b523fe8",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T21:30:46Z",
+      "side": 1,
+      "message": "Also explain here why we\u0027re not using direclty __ mfence.",
+      "range": {
+        "startLine": 443,
+        "startChar": 0,
+        "endLine": 443,
+        "endChar": 29
+      },
+      "revId": "98d6f5a9c05cf075e26a329b139d06613f606638",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db11db43_4ef633bd",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T21:30:46Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 29
+      },
+      "revId": "98d6f5a9c05cf075e26a329b139d06613f606638",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
