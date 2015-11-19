@@ -69,6 +69,30 @@
       "revId": "99330dcddd1bd040d90d31ac1783ae63107e1ac9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "569062ca_47d4c43a",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-19T10:50:53Z",
+      "side": 1,
+      "message": "Fair enough. In that case please wrap the for loop below in the if(vreg !\u003d kNoReg), otherwise somebody will end up putting something relevant to all phis underneath.",
+      "parentUuid": "3b4e7783_4e2887c4",
+      "range": {
+        "startLine": 740,
+        "startChar": 0,
+        "endLine": 740,
+        "endChar": 44
+      },
+      "revId": "99330dcddd1bd040d90d31ac1783ae63107e1ac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
