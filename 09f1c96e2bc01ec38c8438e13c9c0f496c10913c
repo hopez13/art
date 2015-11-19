@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "56278298_4f16a533",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-19T12:01:56Z",
+      "side": 1,
+      "message": "Removed. I\u0027m not sure if LICM can do that now, but this is also supposed to be future-proof, i.e. if we introduce any other code motion (including loop unrolling).",
+      "parentUuid": "169a6aee_455f60c0",
+      "range": {
+        "startLine": 162,
+        "startChar": 66,
+        "endLine": 162,
+        "endChar": 78
+      },
+      "revId": "09f1c96e2bc01ec38c8438e13c9c0f496c10913c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56278298_0f1cad53",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-19T11:43:55Z",
       "side": 1,
       "message": "The comment seems a bit off as we are not inserting anything.",
+      "range": {
+        "startLine": 167,
+        "startChar": 31,
+        "endLine": 167,
+        "endChar": 52
+      },
+      "revId": "09f1c96e2bc01ec38c8438e13c9c0f496c10913c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56278298_8feedd71",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-19T12:01:56Z",
+      "side": 1,
+      "message": "We shall do that soon: HX86ComputeBaseMethodAddress. And later something similar for ARM (32-bit).",
+      "parentUuid": "56278298_0f1cad53",
       "range": {
         "startLine": 167,
         "startChar": 31,
