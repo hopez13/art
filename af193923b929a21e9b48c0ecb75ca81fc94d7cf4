@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b6aafda_69c1c753",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-19T23:18:07Z",
+      "side": 1,
+      "message": "One of the optimization here can be:\nif (GetOutermostCompilingClass().IsSubClass(cls.Get())) {\n  return true;\n}\nsince all super classes must be initialized before a class is initialized.",
+      "revId": "af193923b929a21e9b48c0ecb75ca81fc94d7cf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b25eb9e_44dde12d",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-19T23:18:07Z",
+      "side": 1,
+      "message": "Need update here also.",
+      "range": {
+        "startLine": 93,
+        "startChar": 68,
+        "endLine": 93,
+        "endChar": 74
+      },
+      "revId": "af193923b929a21e9b48c0ecb75ca81fc94d7cf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
