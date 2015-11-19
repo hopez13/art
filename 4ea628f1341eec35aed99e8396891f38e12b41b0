@@ -337,6 +337,24 @@
     },
     {
       "key": {
+        "uuid": "fb75bfb9_926a4d94",
+        "filename": "runtime/gc/collector/immune_spaces.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-19T01:04:04Z",
+      "side": 1,
+      "message": "SpaceBitmap::Modify, it means that if we try to mark an object in the image we wont crash since it will not write the RO image bitmap memory.",
+      "parentUuid": "76d4867d_d864d527",
+      "revId": "4ea628f1341eec35aed99e8396891f38e12b41b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d67c5259_e8a3e7d6",
         "filename": "runtime/gc/collector/immune_spaces.cc",
         "patchSetId": 3
