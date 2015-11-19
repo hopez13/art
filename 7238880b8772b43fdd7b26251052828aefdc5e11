@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b8e83ee_098371bb",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T14:50:37Z",
+      "side": 1,
+      "message": "How about passing the primary oat file here?",
+      "range": {
+        "startLine": 83,
+        "startChar": 63,
+        "endLine": 83,
+        "endChar": 67
+      },
+      "revId": "7238880b8772b43fdd7b26251052828aefdc5e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b4e7783_4edbe70f",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T14:50:37Z",
+      "side": 1,
+      "message": "Infos?",
+      "range": {
+        "startLine": 115,
+        "startChar": 23,
+        "endLine": 115,
+        "endChar": 27
+      },
+      "revId": "7238880b8772b43fdd7b26251052828aefdc5e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96865a95_ef0f6d07",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T14:50:37Z",
+      "side": 1,
+      "message": "auto it: method_code_map_",
+      "range": {
+        "startLine": 600,
+        "startChar": 7,
+        "endLine": 600,
+        "endChar": 77
+      },
+      "revId": "7238880b8772b43fdd7b26251052828aefdc5e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d67c5259_2b9f89d2",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T14:50:37Z",
+      "side": 1,
+      "message": "Make that *? We put \u0027\u0026\u0027 for std stuff, but this does not have std:: prefix, so is confusing?",
+      "range": {
+        "startLine": 67,
+        "startChar": 60,
+        "endLine": 67,
+        "endChar": 72
+      },
+      "revId": "7238880b8772b43fdd7b26251052828aefdc5e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "569062ca_72eb40ce",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T14:50:37Z",
+      "side": 1,
+      "message": "SaveProfilingInfos?",
+      "range": {
+        "startLine": 38,
+        "startChar": 11,
+        "endLine": 38,
+        "endChar": 22
+      },
+      "revId": "7238880b8772b43fdd7b26251052828aefdc5e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56278298_ef62f1ba",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T14:50:37Z",
+      "side": 1,
+      "message": "Could we rely on the unicity of DexFile* ?",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 70
+      },
+      "revId": "7238880b8772b43fdd7b26251052828aefdc5e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b8e83ee_6940fd3a",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-19T14:50:37Z",
+      "side": 1,
+      "message": "DexFileToMethodsMap",
+      "range": {
+        "startLine": 58,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 18
+      },
+      "revId": "7238880b8772b43fdd7b26251052828aefdc5e11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
