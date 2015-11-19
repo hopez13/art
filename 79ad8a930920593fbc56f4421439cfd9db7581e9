@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "169a6aee_90e8c4d1",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-19T14:08:07Z",
+      "side": 1,
+      "message": "Could you write this as an \u0027else if (IsNullConst)\u0027 branch? We\u0027re already special-casing for LoadClass above, so I\u0027d stick with the same format.",
+      "revId": "79ad8a930920593fbc56f4421439cfd9db7581e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
