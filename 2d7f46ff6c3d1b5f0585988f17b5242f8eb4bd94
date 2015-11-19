@@ -22,6 +22,30 @@
       "revId": "2d7f46ff6c3d1b5f0585988f17b5242f8eb4bd94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b25eb9e_ae6b76f7",
+        "filename": "build/Android.common_test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-19T18:23:24Z",
+      "side": 1,
+      "message": "You can run the TRACE\u003dtrue tests but not the ntrace ones.",
+      "parentUuid": "db11db43_cebb63e5",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 25
+      },
+      "revId": "2d7f46ff6c3d1b5f0585988f17b5242f8eb4bd94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
