@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "569062ca_f2c59010",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-19T17:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b67fde4b_db26ebf8",
+      "range": {
+        "startLine": 504,
+        "startChar": 11,
+        "endLine": 504,
+        "endChar": 24
+      },
+      "revId": "b6345625705fff6339df9cd8882073c45924b665",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db11db43_c35c5ccc",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-19T14:45:42Z",
       "side": 1,
       "message": "ditto (the verb after is singular already)",
+      "range": {
+        "startLine": 506,
+        "startChar": 55,
+        "endLine": 506,
+        "endChar": 68
+      },
+      "revId": "b6345625705fff6339df9cd8882073c45924b665",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96865a95_6ff35d07",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-19T17:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db11db43_c35c5ccc",
       "range": {
         "startLine": 506,
         "startChar": 55,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "169a6aee_10fd945d",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-19T17:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b4e7783_8e09df40",
+      "range": {
+        "startLine": 507,
+        "startChar": 68,
+        "endLine": 507,
+        "endChar": 70
+      },
+      "revId": "b6345625705fff6339df9cd8882073c45924b665",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d67c5259_4b83ed71",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2015-11-19T14:45:42Z",
       "side": 1,
       "message": "Flip this condition? It would make more sense w.r.t to the error message to test for:\n\n  DCHECK(!is_after_pass || !IsPass(RTP))",
+      "range": {
+        "startLine": 512,
+        "startChar": 15,
+        "endLine": 512,
+        "endChar": 68
+      },
+      "revId": "b6345625705fff6339df9cd8882073c45924b665",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "368beea4_a6cbcc26",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-19T17:27:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d67c5259_4b83ed71",
       "range": {
         "startLine": 512,
         "startChar": 15,
