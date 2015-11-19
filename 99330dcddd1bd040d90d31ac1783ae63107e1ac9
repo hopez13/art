@@ -22,6 +22,29 @@
       "revId": "99330dcddd1bd040d90d31ac1783ae63107e1ac9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b4e7783_6e3a231a",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-19T10:17:49Z",
+      "side": 1,
+      "message": "Oh, okay. So it\u0027s the vreg equivalent test that you\u0027re hitting. \n\nThis is meant to verify that it is safe to use environments for try/catch and deopt. If two/three phis were generated for the same vreg, we test that their raw value is the same. Hence it does not matter which one was put in the one vreg slot of the environment.\n\nDisabling this for kNoRegNumber is one way of approaching this, but I\u0027d suggest moving the for loop into SsaBuilder as a DCHECK instead. It does not need to be enforced later.\n\nWDYT, Nicolas?",
+      "range": {
+        "startLine": 740,
+        "startChar": 0,
+        "endLine": 740,
+        "endChar": 44
+      },
+      "revId": "99330dcddd1bd040d90d31ac1783ae63107e1ac9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
