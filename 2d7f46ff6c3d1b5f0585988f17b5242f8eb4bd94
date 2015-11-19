@@ -70,6 +70,30 @@
       "revId": "2d7f46ff6c3d1b5f0585988f17b5242f8eb4bd94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db847bce_ca2ec581",
+        "filename": "build/Android.common_test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-19T18:34:16Z",
+      "side": 1,
+      "message": "previosly we would always run the \u0027*-ntrace-*\u0027 version of every test, even if ART_TEST_TRACE\u003dtrue. This makes it so that we will only run the \u0027*-ntrace-*\u0027 version of the test if ART_TEST_NO_TRACE \u003d\u003d true.\n\nBasically before if you just wanted to run all tests with --trace it would also run them all without it. With this you can make it so that the tests are only run with --trace by setting ART_TEST_NO_TRACE\u003dfalse ART_TEST_TRACE\u003dtrue.",
+      "parentUuid": "96865a95_efcccdb6",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 25
+      },
+      "revId": "2d7f46ff6c3d1b5f0585988f17b5242f8eb4bd94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
