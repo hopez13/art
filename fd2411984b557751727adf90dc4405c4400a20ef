@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d67c5259_2be94917",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-19T17:16:03Z",
+      "side": 1,
+      "message": "This is not a \"safe\" value for the entry point. As you mentioned in prepare_for_register_allocator it does not handle finalizable.\n\nIt feels wrong to be optimistic in the builder.",
+      "range": {
+        "startLine": 885,
+        "startChar": 35,
+        "endLine": 885,
+        "endChar": 63
+      },
+      "revId": "fd2411984b557751727adf90dc4405c4400a20ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56278298_2f38897b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-19T17:16:03Z",
+      "side": 1,
+      "message": "trailing spaces",
+      "range": {
+        "startLine": 893,
+        "startChar": 0,
+        "endLine": 893,
+        "endChar": 2
+      },
+      "revId": "fd2411984b557751727adf90dc4405c4400a20ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "569062ca_f2ae7058",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-19T17:16:03Z",
+      "side": 1,
+      "message": "new-instance",
+      "range": {
+        "startLine": 51,
+        "startChar": 38,
+        "endLine": 51,
+        "endChar": 41
+      },
+      "revId": "fd2411984b557751727adf90dc4405c4400a20ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "368beea4_06b480a7",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-19T17:16:03Z",
+      "side": 1,
+      "message": "nit: not the most expensive function but you could refactor it to be called just once",
+      "range": {
+        "startLine": 61,
+        "startChar": 40,
+        "endLine": 61,
+        "endChar": 71
+      },
+      "revId": "fd2411984b557751727adf90dc4405c4400a20ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db11db43_439a8c93",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-19T17:16:03Z",
+      "side": 1,
+      "message": "trailing spaces.",
+      "range": {
+        "startLine": 105,
+        "startChar": 77,
+        "endLine": 105,
+        "endChar": 78
+      },
+      "revId": "fd2411984b557751727adf90dc4405c4400a20ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b8e83ee_e9cbadc8",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-19T17:16:03Z",
+      "side": 1,
+      "message": "why does this matter? LoadClass should throw an exception if anything goes wrong.",
+      "range": {
+        "startLine": 106,
+        "startChar": 72,
+        "endLine": 106,
+        "endChar": 88
+      },
+      "revId": "fd2411984b557751727adf90dc4405c4400a20ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56278298_6f59a1d9",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-19T17:16:03Z",
+      "side": 1,
+      "message": "I think we should handle IsFinalizable in the builder. It\u0027s a constant and I don\u0027t see any reason to postpone setting the right entrypoint until here.",
+      "range": {
+        "startLine": 106,
+        "startChar": 19,
+        "endLine": 106,
+        "endChar": 32
+      },
+      "revId": "fd2411984b557751727adf90dc4405c4400a20ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
