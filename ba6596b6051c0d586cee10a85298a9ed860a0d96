@@ -65,6 +65,75 @@
     },
     {
       "key": {
+        "uuid": "db847bce_e457404e",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-19T05:57:25Z",
+      "side": 1,
+      "message": "What about runtime methods?",
+      "range": {
+        "startLine": 187,
+        "startChar": 4,
+        "endLine": 187,
+        "endChar": 28
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76d4867d_ac3566d5",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-19T05:57:25Z",
+      "side": 1,
+      "message": "Vertical whitespace.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 15
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb75bfb9_35300396",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-19T05:57:25Z",
+      "side": 1,
+      "message": "? If you want to keep it, put a note on.",
+      "range": {
+        "startLine": 347,
+        "startChar": 12,
+        "endLine": 347,
+        "endChar": 60
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b0e2f2a_ba0ced50",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -151,6 +220,52 @@
         "startChar": 33,
         "endLine": 3289,
         "endChar": 59
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96d1fa8e_26823db8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3316,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-19T05:57:25Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 3316,
+        "startChar": 100,
+        "endLine": 3316,
+        "endChar": 102
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b3453db_e83cbea5",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-19T05:57:25Z",
+      "side": 1,
+      "message": "Document why it\u0027s an array, then.",
+      "range": {
+        "startLine": 443,
+        "startChar": 8,
+        "endLine": 444,
+        "endChar": 40
       },
       "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -532,6 +647,30 @@
     },
     {
       "key": {
+        "uuid": "76d4867d_cc3c1ac0",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-19T05:57:25Z",
+      "side": 1,
+      "message": "Isn\u0027t it 4 indent? It\u0027s indented in the condition, and |Runt| \u003d 4.",
+      "parentUuid": "b69d1e72_171c3cf8",
+      "range": {
+        "startLine": 929,
+        "startChar": 5,
+        "endLine": 929,
+        "endChar": 12
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d683721b_edb4410f",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 2
@@ -548,6 +687,29 @@
         "startChar": 6,
         "endLine": 930,
         "endChar": 40
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76d4867d_0c2d9285",
+        "filename": "runtime/lambda/art_lambda_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-19T05:57:25Z",
+      "side": 1,
+      "message": "That\u0027s not gonna work. You can\u0027t have constexpr in assembly code... :-)",
+      "range": {
+        "startLine": 94,
+        "startChar": 31,
+        "endLine": 94,
+        "endChar": 39
       },
       "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -595,6 +757,52 @@
         "startChar": 2,
         "endLine": 35,
         "endChar": 8
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76d4867d_4c278aa3",
+        "filename": "runtime/lambda/box_class_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-19T05:57:25Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 39,
+        "startChar": 100,
+        "endLine": 39,
+        "endChar": 101
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76d4867d_ac1c4655",
+        "filename": "runtime/lambda/box_class_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-19T05:57:25Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 69
       },
       "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -881,6 +1089,29 @@
     },
     {
       "key": {
+        "uuid": "7b6aafda_0fdb7045",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-19T05:57:25Z",
+      "side": 1,
+      "message": "The check on the construction side is a DCHECK.",
+      "range": {
+        "startLine": 746,
+        "startChar": 4,
+        "endLine": 746,
+        "endChar": 46
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1698aa84_db581f81",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 2
@@ -1037,6 +1268,29 @@
         "startChar": 97,
         "endLine": 82,
         "endChar": 109
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b25eb9e_4bff341c",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-19T05:57:25Z",
+      "side": 1,
+      "message": "There\u0027s no user here...",
+      "range": {
+        "startLine": 59,
+        "startChar": 2,
+        "endLine": 59,
+        "endChar": 22
       },
       "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
