@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "169a6aee_455f60c0",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-19T11:43:55Z",
+      "side": 1,
+      "message": "this worries me a bit as it implies that we are not sure :). i.e. we should DCHECK this if all the above condition is satisfied.",
+      "range": {
+        "startLine": 162,
+        "startChar": 66,
+        "endLine": 162,
+        "endChar": 78
+      },
+      "revId": "09f1c96e2bc01ec38c8438e13c9c0f496c10913c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56278298_0f1cad53",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-19T11:43:55Z",
+      "side": 1,
+      "message": "The comment seems a bit off as we are not inserting anything.",
+      "range": {
+        "startLine": 167,
+        "startChar": 31,
+        "endLine": 167,
+        "endChar": 52
+      },
+      "revId": "09f1c96e2bc01ec38c8438e13c9c0f496c10913c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
