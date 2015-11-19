@@ -118,6 +118,30 @@
       "revId": "2d7f46ff6c3d1b5f0585988f17b5242f8eb4bd94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb75bfb9_cb57b04e",
+        "filename": "build/Android.common_test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-19T18:37:18Z",
+      "side": 1,
+      "message": "\u003e Sorry, I still don\u0027t get it. How would that work for, say 001-HelloWorld?\n\nSorry didn\u0027t actually answer your question.\n\n  make test-art-host-001-HelloWorld\n    * ./run-test --host 001-HelloWorld\n  make test-art-host-001-HelloWorld ART_TEST_TRACE\u003dtrue\n    * ./run-test --host 001-HelloWorld\n    * ./run-test --host --trace 001-HelloWorld\n  make test-art-host-001 ART_TEST_TRACE\u003dtrue ART_TEST_NO_TRACE\u003dfalse\n    * ./run-test --host --trace 001-HelloWorld",
+      "parentUuid": "96865a95_efcccdb6",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 25
+      },
+      "revId": "2d7f46ff6c3d1b5f0585988f17b5242f8eb4bd94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
