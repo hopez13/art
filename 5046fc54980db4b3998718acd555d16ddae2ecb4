@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "fb75bfb9_216a0532",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1079148
+      },
+      "writtenOn": "2015-11-20T00:26:55Z",
+      "side": 1,
+      "message": "In libc++, they\u0027re constexpr functions that are just 0 and UINT32_MAX, so this is free. If you\u0027re using a C++ implementation that doesn\u0027t do this, you should find yourself a better implementation. You could just do this instead, though:\n\n  #if defined(__BIONIC__)\n  struct Arc4RandomGenerator {\n    typedef uint32_t result_type;\n    uint32_t min() { return 0; }\n    uint32_t max() { return UINT32_MAX; }\n    uint32_t operator() { return arc4random(); }\n  };\n\n  using RNG \u003d Arc4RandomGenerator;\n  #else\n  using RNG \u003d std::random_device;\n  #endif\n\nThe non-bionic case is purely for testing, right? std::random_device as used here is going to open and close /dev/urandom for every single requested random number.",
+      "parentUuid": "fb75bfb9_210e85ba",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 1
+      },
+      "revId": "5046fc54980db4b3998718acd555d16ddae2ecb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96d1fa8e_6a151718",
         "filename": "runtime/utils.h",
         "patchSetId": 3
