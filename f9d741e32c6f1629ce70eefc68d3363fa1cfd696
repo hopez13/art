@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "db11db43_6e41f71c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-20T17:35:23Z",
+      "side": 1,
+      "message": "x86 does special-handle Shl(x,1), see InstructionCodeGeneratorX86::GenerateShlLong(). This paragraph is about that particular case, not the other two shifts.",
+      "parentUuid": "169a6aee_f0a3c8d6",
+      "range": {
+        "startLine": 18,
+        "startChar": 36,
+        "endLine": 18,
+        "endChar": 39
+      },
+      "revId": "f9d741e32c6f1629ce70eefc68d3363fa1cfd696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bfc0b2b_47f624bd",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
