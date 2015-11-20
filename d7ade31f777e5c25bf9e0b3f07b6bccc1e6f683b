@@ -22,6 +22,30 @@
       "revId": "d7ade31f777e5c25bf9e0b3f07b6bccc1e6f683b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56278298_facab11f",
+        "filename": "compiler/optimizing/optimizing_compiler_stats.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-20T16:19:47Z",
+      "side": 1,
+      "message": "As I stated in the commit to make them grep friendly and as such to make it easier to collect stats.\n\nThis is a developer feature, and I\u0027m pretty sure that a simple grep in the source code will clarify things for you (doubt that will ever be needed though).",
+      "parentUuid": "569062ca_724500f3",
+      "range": {
+        "startLine": 95,
+        "startChar": 41,
+        "endLine": 95,
+        "endChar": 45
+      },
+      "revId": "d7ade31f777e5c25bf9e0b3f07b6bccc1e6f683b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
