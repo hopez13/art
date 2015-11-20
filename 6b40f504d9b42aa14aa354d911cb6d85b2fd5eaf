@@ -46,6 +46,30 @@
       "revId": "6b40f504d9b42aa14aa354d911cb6d85b2fd5eaf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b3d4fed_7f556f02",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-20T18:42:19Z",
+      "side": 1,
+      "message": "That\u0027s all I had, here. Just align and re-upload, and I\u0027ll merge it.\n\n(Sorry, I didn\u0027t check the history. For Alexey: for things like function parameters etc, we prefer to align \"inside\" the parentheses, not the \"four line from the base indent.\")",
+      "parentUuid": "1b4e13ac_5ce7dd64",
+      "range": {
+        "startLine": 238,
+        "startChar": 6,
+        "endLine": 239,
+        "endChar": 34
+      },
+      "revId": "6b40f504d9b42aa14aa354d911cb6d85b2fd5eaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
