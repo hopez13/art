@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7b246ff3_2a71ffec",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-20T22:17:26Z",
+      "side": 1,
+      "message": "Actually NeedsAccessCheck isn\u0027t that accurate. It\u0027s calling CanAccessInstantiableTypeWithoutChecks(), so it\u0027s checking both accessibility and instantiability, both can cause NewInstance to throw. Maybe we should find a better name for NeedsAccessCheck().",
+      "parentUuid": "9b8e83ee_14e704d4",
+      "range": {
+        "startLine": 881,
+        "startChar": 7,
+        "endLine": 881,
+        "endChar": 16
+      },
+      "revId": "af193923b929a21e9b48c0ecb75ca81fc94d7cf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b6aafda_69c1c753",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 3
