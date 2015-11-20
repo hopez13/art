@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb2a67bd_491c41f5",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-20T21:42:47Z",
+      "side": 1,
+      "message": "Keep the bools together.",
+      "range": {
+        "startLine": 487,
+        "startChar": 38,
+        "endLine": 489,
+        "endChar": 54
+      },
+      "revId": "fc995bbb7f35deb2fef81b05ef03f86c00702710",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b153384_e7e9dcd4",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-20T21:42:47Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 515,
+        "startChar": 12,
+        "endLine": 515,
+        "endChar": 14
+      },
+      "revId": "fc995bbb7f35deb2fef81b05ef03f86c00702710",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
