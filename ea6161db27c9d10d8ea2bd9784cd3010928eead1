@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db11db43_4ef87335",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2015-11-20T16:31:34Z",
+      "side": 1,
+      "message": "WriteName",
+      "revId": "ea6161db27c9d10d8ea2bd9784cd3010928eead1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b67fde4b_d6db220f",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2015-11-20T16:31:34Z",
+      "side": 1,
+      "message": "Handle the case when a 64bit value is spread into 2 register",
+      "revId": "ea6161db27c9d10d8ea2bd9784cd3010928eead1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b8e83ee_346b28fa",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2015-11-20T16:31:34Z",
+      "side": 1,
+      "message": "(nit): You can use DW_OP_reg\u003cn\u003e for n \u003c 32 to reduce the size of debug_loc",
+      "revId": "ea6161db27c9d10d8ea2bd9784cd3010928eead1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db11db43_0e027be7",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2015-11-20T16:31:34Z",
+      "side": 1,
+      "message": "Handle the case when a 64bit value is spread into 2 register",
+      "revId": "ea6161db27c9d10d8ea2bd9784cd3010928eead1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db11db43_eefe271f",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2015-11-20T16:31:34Z",
+      "side": 1,
+      "message": "You can use DW_OP_implicit_value instead of a full dwarf expression",
+      "revId": "ea6161db27c9d10d8ea2bd9784cd3010928eead1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
