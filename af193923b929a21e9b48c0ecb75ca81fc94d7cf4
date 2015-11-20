@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9b8e83ee_14e704d4",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-20T18:14:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b4e7783_4eb0871f",
+      "range": {
+        "startLine": 881,
+        "startChar": 7,
+        "endLine": 881,
+        "endChar": 16
+      },
+      "revId": "af193923b929a21e9b48c0ecb75ca81fc94d7cf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b6aafda_69c1c753",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 3
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "169a6aee_10a034c2",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-20T18:14:20Z",
+      "side": 1,
+      "message": "Yes, I\u0027ll reserve this to a follow-up CL.",
+      "parentUuid": "7b6aafda_69c1c753",
+      "revId": "af193923b929a21e9b48c0ecb75ca81fc94d7cf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b4e7783_ee83b329",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 3
@@ -53,6 +95,30 @@
       "writtenOn": "2015-11-20T11:15:25Z",
       "side": 1,
       "message": "Why are you no longer loading the type index and instead passing the class?\n(Same for mips, mips64, x86, x86-64.)",
+      "range": {
+        "startLine": 3194,
+        "startChar": 2,
+        "endLine": 3194,
+        "endChar": 89
+      },
+      "revId": "af193923b929a21e9b48c0ecb75ca81fc94d7cf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b8e83ee_b4f3b896",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3194,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-20T18:14:20Z",
+      "side": 1,
+      "message": "Note that it may also be the type index. Some entrypoints (resolved and initialized) take a class, others (generic and access_check) take the type index.",
+      "parentUuid": "3b4e7783_ee83b329",
       "range": {
         "startLine": 3194,
         "startChar": 2,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "56278298_1a6eadd7",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3375,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-20T18:14:20Z",
+      "side": 1,
+      "message": "Oversight, I removed the overwriting.",
+      "parentUuid": "db11db43_8e88cb0a",
+      "range": {
+        "startLine": 3375,
+        "startChar": 2,
+        "endLine": 3375,
+        "endChar": 75
+      },
+      "revId": "af193923b929a21e9b48c0ecb75ca81fc94d7cf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b25eb9e_44dde12d",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 3
@@ -99,6 +189,30 @@
       "writtenOn": "2015-11-19T23:18:07Z",
       "side": 1,
       "message": "Need update here also.",
+      "range": {
+        "startLine": 93,
+        "startChar": 68,
+        "endLine": 93,
+        "endChar": 74
+      },
+      "revId": "af193923b929a21e9b48c0ecb75ca81fc94d7cf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d67c5259_16502c08",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-20T18:14:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b25eb9e_44dde12d",
       "range": {
         "startLine": 93,
         "startChar": 68,
