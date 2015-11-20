@@ -162,6 +162,30 @@
       "revId": "4ea05e84c381453318dd80e7e5989f37b9990490",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "368beea4_26bedcf1",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-20T16:42:21Z",
+      "side": 1,
+      "message": "Little-endian. (Android doesn\u0027t support big-endian.)",
+      "parentUuid": "569062ca_927d2c4c",
+      "range": {
+        "startLine": 642,
+        "startChar": 8,
+        "endLine": 643,
+        "endChar": 53
+      },
+      "revId": "4ea05e84c381453318dd80e7e5989f37b9990490",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
