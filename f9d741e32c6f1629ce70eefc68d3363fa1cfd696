@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "3b4e7783_f985bfbf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-20T17:38:16Z",
+      "side": 1,
+      "message": "Oki. Thought you refer to the other shifts as well.",
+      "parentUuid": "db11db43_6e41f71c",
+      "range": {
+        "startLine": 18,
+        "startChar": 36,
+        "endLine": 18,
+        "endChar": 39
+      },
+      "revId": "f9d741e32c6f1629ce70eefc68d3363fa1cfd696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bfc0b2b_47f624bd",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
