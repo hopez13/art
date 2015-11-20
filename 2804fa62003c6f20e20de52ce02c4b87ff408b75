@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b816bc7_4c7c189a",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-20T01:23:00Z",
+      "side": 1,
+      "message": "seems a bit dangerous, can we use /bin/dalvikvm?",
+      "range": {
+        "startLine": 128,
+        "startChar": 25,
+        "endLine": 128,
+        "endChar": 34
+      },
+      "revId": "2804fa62003c6f20e20de52ce02c4b87ff408b75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
