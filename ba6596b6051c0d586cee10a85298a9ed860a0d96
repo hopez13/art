@@ -65,6 +65,30 @@
     },
     {
       "key": {
+        "uuid": "5b1b2bb8_09f36d5d",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T22:18:09Z",
+      "side": 1,
+      "message": "Looks like I only need to change line 451.\n\nI originally thought I might need to have a different version for lambda proxies, but I suppose not.",
+      "parentUuid": "b6da7ea7_232ec666",
+      "range": {
+        "startLine": 478,
+        "startChar": 2,
+        "endLine": 491,
+        "endChar": 3
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db847bce_e457404e",
         "filename": "runtime/art_method.h",
         "patchSetId": 2
@@ -76,6 +100,30 @@
       "writtenOn": "2015-11-19T05:57:25Z",
       "side": 1,
       "message": "What about runtime methods?",
+      "range": {
+        "startLine": 187,
+        "startChar": 4,
+        "endLine": 187,
+        "endChar": 28
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b153384_8778e8d3",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T22:18:09Z",
+      "side": 1,
+      "message": "Want me to remove these 2? They aren\u0027t used anywhere right now.\n\nThe thought was to replace most of the \"IsProxy\" calls with \"HasDexMetadata\" (or HasDexCodeItem), so I could also do that instead.",
+      "parentUuid": "db847bce_e457404e",
       "range": {
         "startLine": 187,
         "startChar": 4,
@@ -122,6 +170,30 @@
       "writtenOn": "2015-11-19T05:57:25Z",
       "side": 1,
       "message": "? If you want to keep it, put a note on.",
+      "range": {
+        "startLine": 347,
+        "startChar": 12,
+        "endLine": 347,
+        "endChar": 60
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bed97ca_50fb52a1",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T22:18:09Z",
+      "side": 1,
+      "message": "It\u0027s one and the same. But closure_ is private (IIRC) so we can\u0027t access it directly.\n\nWhat note do you want here, can you put it in verbatim?",
+      "parentUuid": "fb75bfb9_35300396",
       "range": {
         "startLine": 347,
         "startChar": 12,
@@ -705,6 +777,30 @@
       "writtenOn": "2015-11-19T05:57:25Z",
       "side": 1,
       "message": "That\u0027s not gonna work. You can\u0027t have constexpr in assembly code... :-)",
+      "range": {
+        "startLine": 94,
+        "startChar": 31,
+        "endLine": 94,
+        "endChar": 39
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b246ff3_0adb5b10",
+        "filename": "runtime/lambda/art_lambda_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T22:18:09Z",
+      "side": 1,
+      "message": "It\u0027s for the TEST_EQ statements in the support asm file, how can I reword to make it more clear?",
+      "parentUuid": "76d4867d_0c2d9285",
       "range": {
         "startLine": 94,
         "startChar": 31,
