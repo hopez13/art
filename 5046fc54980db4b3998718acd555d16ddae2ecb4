@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b3453db_b92ba628",
+        "filename": "runtime/utils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-20T00:03:17Z",
+      "side": 1,
+      "message": "Does this work?\n\n struct SpecialUniformRandomNumberGenerator {\n   typedef uint32_t result_type;\n   uint32_t min() {\n     return std::numeric_limits\u003cuint32_t\u003e::min();\n   }\n   uint32_t max() {\n     return std::numeric_limits\u003cuint32_t\u003e::max();\n   }\n   uint32_t operator()() {\n #if defined(__BIONIC__)\n     return arc4random();\n #else\n     std::random_device rd;\n     return rd();\n #endif\n   }\n }\n\n template \u003ctypename T\u003e\n T GetRandomNumber(T min, T max) {\n   std::uniform_int_distribution\u003cT\u003e dist(min, max);\n   SpecialUniformRandomNumberGenerator rd;\n   return dist(rd);\n }\n\nIt would mean a smaller change in ImageSpace, avoiding the overflow-prone math there (pushing it to the STL).",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 1
+      },
+      "revId": "5046fc54980db4b3998718acd555d16ddae2ecb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96d1fa8e_6a151718",
+        "filename": "runtime/utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-20T00:03:17Z",
+      "side": 1,
+      "message": "Use std::numeric_limits\u003cuint32_t\u003e::max() instead.",
+      "range": {
+        "startLine": 353,
+        "startChar": 40,
+        "endLine": 353,
+        "endChar": 50
+      },
+      "revId": "5046fc54980db4b3998718acd555d16ddae2ecb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
