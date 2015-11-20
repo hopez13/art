@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b440b88_7e9451b7",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-20T18:16:46Z",
+      "side": 1,
+      "message": "Does this work? I tried pkill -9 locally and it does not seem to kill my dalvikvm.",
+      "range": {
+        "startLine": 128,
+        "startChar": 2,
+        "endLine": 128,
+        "endChar": 24
+      },
+      "revId": "cd057712786418cfa53ba85fd33e8276d01d8591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
