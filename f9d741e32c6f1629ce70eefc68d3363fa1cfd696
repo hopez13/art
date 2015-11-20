@@ -34,6 +34,24 @@
       "revId": "f9d741e32c6f1629ce70eefc68d3363fa1cfd696",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d67c5259_968efcde",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-20T17:26:27Z",
+      "side": 1,
+      "message": "I\u0027m just saying that I\u0027m not aware of any place where it would help.\n\nBtw., I see code size increase (Nexus 5: boot.oat +4KiB) but I believe it\u0027s due to register allocation as add-long declares kNoOutputOverlap while shl-long conservatively says kOutputOverlap even for constant shifts. Since the current register allocator never generates partial overlap, we could use kNoOutputOverlap instead.",
+      "parentUuid": "7b5c6f36_d339b7ae",
+      "revId": "f9d741e32c6f1629ce70eefc68d3363fa1cfd696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
