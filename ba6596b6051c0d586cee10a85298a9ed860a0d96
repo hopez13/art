@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "db271bf3_8d948505",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16c50ace_440303eb",
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16c50ace_640a7ffe",
         "filename": "runtime/art_method-inl.h",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2015-11-12T19:47:10Z",
       "side": 1,
       "message": "Same behavior for both sides, can we only do the IsProxyMethod check for debug builds to avoid the overhead?",
+      "range": {
+        "startLine": 375,
+        "startChar": 0,
+        "endLine": 375,
+        "endChar": 60
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b2123e5_ab2fb561",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16c50ace_640a7ffe",
       "range": {
         "startLine": 375,
         "startChar": 0,
@@ -77,6 +119,30 @@
       "side": 1,
       "message": "Looks like I only need to change line 451.\n\nI originally thought I might need to have a different version for lambda proxies, but I suppose not.",
       "parentUuid": "b6da7ea7_232ec666",
+      "range": {
+        "startLine": 478,
+        "startChar": 2,
+        "endLine": 491,
+        "endChar": 3
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bed97ca_10db8a10",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b1b2bb8_09f36d5d",
       "range": {
         "startLine": 478,
         "startChar": 2,
@@ -159,6 +225,30 @@
     },
     {
       "key": {
+        "uuid": "3b167790_4881dfb2",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76d4867d_ac3566d5",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 15
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb75bfb9_35300396",
         "filename": "runtime/asm_support.h",
         "patchSetId": 2
@@ -194,6 +284,30 @@
       "side": 1,
       "message": "It\u0027s one and the same. But closure_ is private (IIRC) so we can\u0027t access it directly.\n\nWhat note do you want here, can you put it in verbatim?",
       "parentUuid": "fb75bfb9_35300396",
+      "range": {
+        "startLine": 347,
+        "startChar": 12,
+        "endLine": 347,
+        "endChar": 60
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b246ff3_aa6e8fd4",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bed97ca_50fb52a1",
       "range": {
         "startLine": 347,
         "startChar": 12,
@@ -299,6 +413,30 @@
     },
     {
       "key": {
+        "uuid": "1b153384_c7130041",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3289,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb2e9f8f_0e5a8b31",
+      "range": {
+        "startLine": 3289,
+        "startChar": 33,
+        "endLine": 3289,
+        "endChar": 59
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96d1fa8e_26823db8",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -322,6 +460,30 @@
     },
     {
       "key": {
+        "uuid": "3bed97ca_90949a05",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3316,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96d1fa8e_26823db8",
+      "range": {
+        "startLine": 3316,
+        "startChar": 100,
+        "endLine": 3316,
+        "endChar": 102
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b3453db_e83cbea5",
         "filename": "runtime/class_linker.h",
         "patchSetId": 2
@@ -333,6 +495,30 @@
       "writtenOn": "2015-11-19T05:57:25Z",
       "side": 1,
       "message": "Document why it\u0027s an array, then.",
+      "range": {
+        "startLine": 443,
+        "startChar": 8,
+        "endLine": 444,
+        "endChar": 40
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b2123e5_6b5f7df3",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b3453db_e83cbea5",
       "range": {
         "startLine": 443,
         "startChar": 8,
@@ -403,6 +589,30 @@
       "writtenOn": "2015-11-11T01:29:11Z",
       "side": 1,
       "message": "?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 17
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b167790_c865cff1",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16c50ace_53abcedc",
       "range": {
         "startLine": 29,
         "startChar": 0,
@@ -520,6 +730,30 @@
       "side": 1,
       "message": "Looks like 1014 should be uint32_t instead, thanks for catching this.",
       "parentUuid": "1b3453db_b257584f",
+      "range": {
+        "startLine": 1017,
+        "startChar": 40,
+        "endLine": 1017,
+        "endChar": 53
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb2a67bd_ec0c2352",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1017,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76d4867d_f959f541",
       "range": {
         "startLine": 1017,
         "startChar": 40,
@@ -743,6 +977,30 @@
     },
     {
       "key": {
+        "uuid": "1bfc537c_6f9aed93",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "I think this one\u0027s following the indent everything under the ( but then since it\u0027s a wrap, it needs to go 4 spaces more to the right.\n\n(or in other words we could just ignore the \"if (\" part and indent off the first letter where R is).\n\nSo 8 spaces seems like it could be right, doesn\u0027t really matter to me that much but I found it more intuitive than having the -\u003e at the same level as the R.",
+      "parentUuid": "76d4867d_cc3c1ac0",
+      "range": {
+        "startLine": 929,
+        "startChar": 5,
+        "endLine": 929,
+        "endChar": 12
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d683721b_edb4410f",
         "filename": "runtime/interpreter/interpreter_common.h",
         "patchSetId": 2
@@ -754,6 +1012,30 @@
       "writtenOn": "2015-11-05T00:27:01Z",
       "side": 1,
       "message": "AssertPendingException",
+      "range": {
+        "startLine": 930,
+        "startChar": 6,
+        "endLine": 930,
+        "endChar": 40
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b167790_a81cd354",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 930,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d683721b_edb4410f",
       "range": {
         "startLine": 930,
         "startChar": 6,
@@ -813,6 +1095,30 @@
     },
     {
       "key": {
+        "uuid": "db271bf3_ed3d41bb",
+        "filename": "runtime/lambda/art_lambda_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b246ff3_0adb5b10",
+      "range": {
+        "startLine": 94,
+        "startChar": 31,
+        "endLine": 94,
+        "endChar": 39
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d683721b_6d77711e",
         "filename": "runtime/lambda/box_class_table.cc",
         "patchSetId": 2
@@ -860,6 +1166,30 @@
     },
     {
       "key": {
+        "uuid": "db271bf3_2d29197a",
+        "filename": "runtime/lambda/box_class_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b69d1e72_970f4cb7",
+      "range": {
+        "startLine": 35,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 8
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76d4867d_4c278aa3",
         "filename": "runtime/lambda/box_class_table.cc",
         "patchSetId": 2
@@ -883,6 +1213,30 @@
     },
     {
       "key": {
+        "uuid": "9b2123e5_8b36318f",
+        "filename": "runtime/lambda/box_class_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76d4867d_4c278aa3",
+      "range": {
+        "startLine": 39,
+        "startChar": 100,
+        "endLine": 39,
+        "endChar": 101
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76d4867d_ac1c4655",
         "filename": "runtime/lambda/box_class_table.cc",
         "patchSetId": 2
@@ -894,6 +1248,30 @@
       "writtenOn": "2015-11-19T05:57:25Z",
       "side": 1,
       "message": "?",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 69
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b167790_48fd5f24",
+        "filename": "runtime/lambda/box_class_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76d4867d_ac1c4655",
       "range": {
         "startLine": 52,
         "startChar": 2,
@@ -952,6 +1330,30 @@
     },
     {
       "key": {
+        "uuid": "5b1b2bb8_895f5dbf",
+        "filename": "runtime/lambda/box_class_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "(Done) Destructor is empty now.",
+      "parentUuid": "b69d1e72_1770bce6",
+      "range": {
+        "startLine": 106,
+        "startChar": 4,
+        "endLine": 106,
+        "endChar": 15
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6923665_91eafc99",
         "filename": "runtime/lambda/box_class_table.h",
         "patchSetId": 2
@@ -975,6 +1377,30 @@
     },
     {
       "key": {
+        "uuid": "9b2123e5_0b2b612a",
+        "filename": "runtime/lambda/box_class_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6923665_91eafc99",
+      "range": {
+        "startLine": 84,
+        "startChar": 36,
+        "endLine": 84,
+        "endChar": 76
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "568ea242_f79fb21c",
         "filename": "runtime/lambda/box_class_table.h",
         "patchSetId": 2
@@ -986,6 +1412,30 @@
       "writtenOn": "2015-11-05T00:27:01Z",
       "side": 1,
       "message": "2 spaces",
+      "range": {
+        "startLine": 101,
+        "startChar": 22,
+        "endLine": 101,
+        "endChar": 24
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bed97ca_b08556c1",
+        "filename": "runtime/lambda/box_class_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "568ea242_f79fb21c",
       "range": {
         "startLine": 101,
         "startChar": 22,
@@ -1045,6 +1495,30 @@
     },
     {
       "key": {
+        "uuid": "1b153384_e739dcae",
+        "filename": "runtime/lambda/box_class_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b69d1e72_5716c4d7",
+      "range": {
+        "startLine": 110,
+        "startChar": 19,
+        "endLine": 110,
+        "endChar": 54
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36892e3b_536a5cf6",
         "filename": "runtime/lambda/box_table.cc",
         "patchSetId": 2
@@ -1080,6 +1554,30 @@
       "side": 1,
       "message": "Ok, I\u0027ll move this to under line 127",
       "parentUuid": "36892e3b_536a5cf6",
+      "range": {
+        "startLine": 117,
+        "startChar": 8,
+        "endLine": 117,
+        "endChar": 29
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbf69f9c_0e8feba2",
+        "filename": "runtime/lambda/box_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36892e3b_93e84414",
       "range": {
         "startLine": 117,
         "startChar": 8,
@@ -1139,6 +1637,30 @@
     },
     {
       "key": {
+        "uuid": "bb2a67bd_ac6eabd4",
+        "filename": "runtime/lambda/box_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6da7ea7_7708726f",
+      "range": {
+        "startLine": 292,
+        "startChar": 26,
+        "endLine": 292,
+        "endChar": 31
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b69d1e72_3775c0d7",
         "filename": "runtime/lambda/box_table.h",
         "patchSetId": 2
@@ -1150,6 +1672,30 @@
       "writtenOn": "2015-11-05T00:27:01Z",
       "side": 1,
       "message": "Is indenting the GUARDED_BY required?",
+      "range": {
+        "startLine": 145,
+        "startChar": 19,
+        "endLine": 145,
+        "endChar": 61
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b167790_484b9f3b",
+        "filename": "runtime/lambda/box_table.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "No, it just looks way more readable. Do you want to make it required?",
+      "parentUuid": "b69d1e72_3775c0d7",
       "range": {
         "startLine": 145,
         "startChar": 19,
@@ -1185,6 +1731,30 @@
     },
     {
       "key": {
+        "uuid": "1bfc537c_52fb54a1",
+        "filename": "runtime/lambda/shorty_field_type.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b686fe2b_0fc0a9a0",
+      "range": {
+        "startLine": 316,
+        "startChar": 3,
+        "endLine": 318,
+        "endChar": 2
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b6aafda_0fdb7045",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 2
@@ -1208,6 +1778,30 @@
     },
     {
       "key": {
+        "uuid": "3b167790_885597d2",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b6aafda_0fdb7045",
+      "range": {
+        "startLine": 746,
+        "startChar": 4,
+        "endLine": 746,
+        "endChar": 46
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1698aa84_db581f81",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 2
@@ -1219,6 +1813,30 @@
       "writtenOn": "2015-11-05T00:27:01Z",
       "side": 1,
       "message": "What is the point of these parens?",
+      "range": {
+        "startLine": 369,
+        "startChar": 27,
+        "endLine": 369,
+        "endChar": 45
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b1b2bb8_c907959b",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Guarding against macro expansions\n\n(just kidding)",
+      "parentUuid": "1698aa84_db581f81",
       "range": {
         "startLine": 369,
         "startChar": 27,
@@ -1348,6 +1966,30 @@
     },
     {
       "key": {
+        "uuid": "3b167790_088fe7a2",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96d1fa8e_57ba96e3",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 87
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "568ea242_772742a4",
         "filename": "runtime/native/java_lang_reflect_Method.cc",
         "patchSetId": 2
@@ -1371,6 +2013,30 @@
     },
     {
       "key": {
+        "uuid": "5b1b2bb8_09c7ed93",
+        "filename": "runtime/native/java_lang_reflect_Method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "568ea242_772742a4",
+      "range": {
+        "startLine": 82,
+        "startChar": 97,
+        "endLine": 82,
+        "endChar": 109
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b25eb9e_4bff341c",
         "filename": "runtime/runtime.h",
         "patchSetId": 2
@@ -1382,6 +2048,30 @@
       "writtenOn": "2015-11-19T05:57:25Z",
       "side": 1,
       "message": "There\u0027s no user here...",
+      "range": {
+        "startLine": 59,
+        "startChar": 2,
+        "endLine": 59,
+        "endChar": 22
+      },
+      "revId": "ba6596b6051c0d586cee10a85298a9ed860a0d96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbf69f9c_2ed8e7a2",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-20T23:49:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b25eb9e_4bff341c",
       "range": {
         "startLine": 59,
         "startChar": 2,
