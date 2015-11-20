@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3baaf753_2516ae27",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-20T18:33:18Z",
+      "side": 1,
+      "message": "It\u0027s more common to align this with the parentheses. So:\n\nDCHECK(type \u003d\u003d ... ||\n       type \u003d\u003d ... ||",
+      "range": {
+        "startLine": 238,
+        "startChar": 6,
+        "endLine": 239,
+        "endChar": 34
+      },
+      "revId": "6b40f504d9b42aa14aa354d911cb6d85b2fd5eaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
