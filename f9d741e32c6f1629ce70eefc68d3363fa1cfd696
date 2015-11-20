@@ -123,6 +123,24 @@
       "revId": "f9d741e32c6f1629ce70eefc68d3363fa1cfd696",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b67fde4b_16b4aaa7",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-20T17:38:32Z",
+      "side": 1,
+      "message": "Yes, flipping that returns the boot.oat to the original size. That means there are not enough Shr(x,1) and UShr(x,1) to improve the code size by 4KiB.",
+      "parentUuid": "d67c5259_968efcde",
+      "revId": "f9d741e32c6f1629ce70eefc68d3363fa1cfd696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
