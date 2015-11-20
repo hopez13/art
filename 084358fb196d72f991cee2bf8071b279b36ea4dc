@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5b1b2bb8_a94df9bf",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-11-20T21:52:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bb8efa6_8724468e",
+      "range": {
+        "startLine": 240,
+        "startChar": 6,
+        "endLine": 241,
+        "endChar": 36
+      },
+      "revId": "084358fb196d72f991cee2bf8071b279b36ea4dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b167790_a5bebeee",
         "filename": "compiler/utils/mips/assembler_mips.h",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-20T21:27:36Z",
       "side": 1,
       "message": "Assembler test for this?",
+      "range": {
+        "startLine": 139,
+        "startChar": 2,
+        "endLine": 139,
+        "endChar": 48
+      },
+      "revId": "084358fb196d72f991cee2bf8071b279b36ea4dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db271bf3_2ac29f83",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2015-11-20T21:52:41Z",
+      "side": 1,
+      "message": "I\u0027m behind on assembler tests for MIPS32. If it\u0027s okay they will be coming in a separate patch.",
+      "parentUuid": "3b167790_a5bebeee",
       "range": {
         "startLine": 139,
         "startChar": 2,
