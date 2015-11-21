@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b167790_4bad59aa",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-21T00:04:22Z",
+      "side": 1,
+      "message": "Should this maybe be m-\u003eGetInterfaceMethodIfProxy ?\n\nNot sure what would happen if you tried to return an interface method, maybe it would just break everything else.\n\nBut that\u0027s probably better than returning a proxy method here.",
+      "range": {
+        "startLine": 78,
+        "startChar": 11,
+        "endLine": 78,
+        "endChar": 12
+      },
+      "revId": "1340096c9cd76ec8f32c4f51e1b67a28a575c202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bfc537c_f26880c9",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-21T00:04:22Z",
+      "side": 1,
+      "message": "nit: This just seems like the usual path taken, despite the LIKELY on 77\n\nIMHO it should be more like\n\n  if (UNLIKELY(m-\u003eIsDefault()) { \n     ....\n     return\n  }\n\n  return m;",
+      "revId": "1340096c9cd76ec8f32c4f51e1b67a28a575c202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b153384_aa084b6e",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3301,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-21T00:04:22Z",
+      "side": 1,
+      "message": "Why?",
+      "revId": "1340096c9cd76ec8f32c4f51e1b67a28a575c202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
