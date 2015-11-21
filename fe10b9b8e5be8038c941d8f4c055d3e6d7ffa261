@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db271bf3_cd8cbde9",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-21T00:40:09Z",
+      "side": 1,
+      "message": "Missing period at the end.",
+      "range": {
+        "startLine": 1316,
+        "startChar": 74,
+        "endLine": 1316,
+        "endChar": 75
+      },
+      "revId": "fe10b9b8e5be8038c941d8f4c055d3e6d7ffa261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b246ff3_cd54bd4c",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 1385,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-11-21T00:40:09Z",
+      "side": 1,
+      "message": "It will be good to add an example like:\n  int k \u003d 0;\n  for (int i \u003d l; i \u003c u; i++) {\n    access array[k]; k++;\n  }\nthen even adding dynamic tests on k\u0027s lower and upper doesn\u0027t guarantee correctness if u is MAX_INT.",
+      "revId": "fe10b9b8e5be8038c941d8f4c055d3e6d7ffa261",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
