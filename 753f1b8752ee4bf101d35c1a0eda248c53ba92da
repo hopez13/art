@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "db271bf3_707c889a",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-21T01:07:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b167790_cbd14923",
+      "revId": "753f1b8752ee4bf101d35c1a0eda248c53ba92da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b2123e5_8e611f18",
         "filename": "Android.mk",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2015-11-21T00:06:44Z",
       "side": 1,
       "message": "Doesn\u0027t this just return a non-0 code when remount fails?",
+      "revId": "753f1b8752ee4bf101d35c1a0eda248c53ba92da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b246ff3_6de031bd",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-21T01:07:47Z",
+      "side": 1,
+      "message": "No it does not. I am not sure why but adb remount will always exit 0 AFAICT",
+      "parentUuid": "9b2123e5_8e611f18",
       "revId": "753f1b8752ee4bf101d35c1a0eda248c53ba92da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "3b167790_ab332df0",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-21T01:07:47Z",
+      "side": 1,
+      "message": "I believe so. Don\u0027t have any no-verity device though so not sure.",
+      "parentUuid": "1bfc537c_92301ce5",
+      "revId": "753f1b8752ee4bf101d35c1a0eda248c53ba92da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b153384_ea02434c",
         "filename": "Android.mk",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2015-11-21T00:06:44Z",
       "side": 1,
       "message": "spaces",
+      "revId": "753f1b8752ee4bf101d35c1a0eda248c53ba92da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b167790_cb3ae9c0",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-21T01:07:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b153384_ea02434c",
       "revId": "753f1b8752ee4bf101d35c1a0eda248c53ba92da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -93,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "fbf69f9c_d1a46426",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-21T01:07:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbf69f9c_118d4c19",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 1
+      },
+      "revId": "753f1b8752ee4bf101d35c1a0eda248c53ba92da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db271bf3_cd8afd3a",
         "filename": "Android.mk",
         "patchSetId": 1
@@ -104,6 +200,30 @@
       "writtenOn": "2015-11-21T00:06:44Z",
       "side": 1,
       "message": "spaces",
+      "range": {
+        "startLine": 395,
+        "startChar": 0,
+        "endLine": 395,
+        "endChar": 2
+      },
+      "revId": "753f1b8752ee4bf101d35c1a0eda248c53ba92da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b167790_2b29fd79",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-21T01:07:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db271bf3_cd8afd3a",
       "range": {
         "startLine": 395,
         "startChar": 0,
