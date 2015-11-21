@@ -1,0 +1,118 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b167790_cbd14923",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-21T00:06:44Z",
+      "side": 1,
+      "message": "Can we maybe not copy-and-paste the same exact ADB code 3 times?",
+      "revId": "753f1b8752ee4bf101d35c1a0eda248c53ba92da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b2123e5_8e611f18",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-21T00:06:44Z",
+      "side": 1,
+      "message": "Doesn\u0027t this just return a non-0 code when remount fails?",
+      "revId": "753f1b8752ee4bf101d35c1a0eda248c53ba92da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bfc537c_92301ce5",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-21T00:06:44Z",
+      "side": 1,
+      "message": "Is this a no-op for systems without verity?",
+      "revId": "753f1b8752ee4bf101d35c1a0eda248c53ba92da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b153384_ea02434c",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-21T00:06:44Z",
+      "side": 1,
+      "message": "spaces",
+      "revId": "753f1b8752ee4bf101d35c1a0eda248c53ba92da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbf69f9c_118d4c19",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-21T00:06:44Z",
+      "side": 1,
+      "message": "spaces",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 1
+      },
+      "revId": "753f1b8752ee4bf101d35c1a0eda248c53ba92da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db271bf3_cd8afd3a",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-21T00:06:44Z",
+      "side": 1,
+      "message": "spaces",
+      "range": {
+        "startLine": 395,
+        "startChar": 0,
+        "endLine": 395,
+        "endChar": 2
+      },
+      "revId": "753f1b8752ee4bf101d35c1a0eda248c53ba92da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
