@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fbb05f0b_a121dae1",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-23T23:42:45Z",
+      "side": 1,
+      "message": "Why is this commented out?",
+      "revId": "92554f212592976eb98b2a5f5f4939d0a890ca4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbf69f9c_4588ae09",
+        "filename": "runtime/common_throws.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-23T23:42:45Z",
+      "side": 1,
+      "message": "Sort?",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 13
+      },
+      "revId": "92554f212592976eb98b2a5f5f4939d0a890ca4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b1b2bb8_3b402b3a",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-23T23:42:45Z",
+      "side": 1,
+      "message": "Can you clarify what is broken in the comment?",
+      "range": {
+        "startLine": 539,
+        "startChar": 12,
+        "endLine": 539,
+        "endChar": 16
+      },
+      "revId": "92554f212592976eb98b2a5f5f4939d0a890ca4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b153384_f3f19aff",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 3925,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-23T23:42:45Z",
+      "side": 1,
+      "message": "I think this fails for the interpret only compiler?",
+      "range": {
+        "startLine": 3925,
+        "startChar": 30,
+        "endLine": 3925,
+        "endChar": 43
+      },
+      "revId": "92554f212592976eb98b2a5f5f4939d0a890ca4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
