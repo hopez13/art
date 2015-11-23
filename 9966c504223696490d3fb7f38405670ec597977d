@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbb8a7d5_59c7c319",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3516,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-23T12:22:47Z",
+      "side": 1,
+      "message": "The initial explanation you gave in the comments on the other CL was clearer:). Maybe you could add here as well.\n\nThe use of `-` is \"as intended, substituting SUB for ADD, see AddConstant()\".",
+      "range": {
+        "startLine": 3516,
+        "startChar": 2,
+        "endLine": 3516,
+        "endChar": 58
+      },
+      "revId": "9966c504223696490d3fb7f38405670ec597977d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
