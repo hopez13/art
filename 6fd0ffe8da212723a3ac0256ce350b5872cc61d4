@@ -22,6 +22,30 @@
       "revId": "6fd0ffe8da212723a3ac0256ce350b5872cc61d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bc4b760_152354ec",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3516,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-23T11:54:58Z",
+      "side": 1,
+      "message": "No, this is as intended, substituting SUB for ADD, see AddConstant().",
+      "parentUuid": "fb921f65_ab330937",
+      "range": {
+        "startLine": 3516,
+        "startChar": 77,
+        "endLine": 3516,
+        "endChar": 78
+      },
+      "revId": "6fd0ffe8da212723a3ac0256ce350b5872cc61d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
