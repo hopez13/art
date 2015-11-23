@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb9b478c_e18c861e",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1061696
+      },
+      "writtenOn": "2015-11-23T08:19:18Z",
+      "side": 1,
+      "message": "I think,\nYou should check ComponentType of array. (ContainsBootClassLoaderNonImageClass)\nBecause element of array could have reference to non image classes.\nif (klass-\u003eIsArrayClass()) {\n  result \u003d result || ContainsBootClassLoaderNonImageClass(klass-\u003eGetComponentType());\n}",
+      "range": {
+        "startLine": 606,
+        "startChar": 2,
+        "endLine": 606,
+        "endChar": 3
+      },
+      "revId": "5f9730a8ee5a8cc50d2921a0bba16042d30813eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
