@@ -125,6 +125,24 @@
     },
     {
       "key": {
+        "uuid": "db271bf3_f366c26c",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-23T18:12:27Z",
+      "side": 1,
+      "message": "tested with a hammerhead. It works fine. The disable-verity succeeds (though it should never even be executed since the testfile will be created and destroyed successfully).",
+      "parentUuid": "bbb8a7d5_99cb1bca",
+      "revId": "753f1b8752ee4bf101d35c1a0eda248c53ba92da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b153384_ea02434c",
         "filename": "Android.mk",
         "patchSetId": 1
