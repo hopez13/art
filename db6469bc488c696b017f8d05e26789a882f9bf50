@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9baf638f_78b3a1c2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 4306,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-23T12:06:20Z",
+      "side": 1,
+      "message": "Does this initial value matters at all? It feels like it should not. Please add a comment.",
+      "range": {
+        "startLine": 4306,
+        "startChar": 17,
+        "endLine": 4306,
+        "endChar": 21
+      },
+      "revId": "db6469bc488c696b017f8d05e26789a882f9bf50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bc96b78_96e92ca8",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -18,6 +41,29 @@
         "startChar": 0,
         "endLine": 4312,
         "endChar": 75
+      },
+      "revId": "db6469bc488c696b017f8d05e26789a882f9bf50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b80ef13_a7334a37",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 4313,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-23T12:06:20Z",
+      "side": 1,
+      "message": "what if this is object? (kPrimNot)",
+      "range": {
+        "startLine": 4313,
+        "startChar": 58,
+        "endLine": 4313,
+        "endChar": 74
       },
       "revId": "db6469bc488c696b017f8d05e26789a882f9bf50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -94,6 +140,29 @@
     },
     {
       "key": {
+        "uuid": "fbbdbfca_93977c09",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-23T12:06:20Z",
+      "side": 1,
+      "message": "you work with 3 locations in this function:\nreg_number - 1\nreg_number\nreg_number + 1\nbut we should never set all 3 of them at the same time.\n\nSo it would be nice and more readable to document in the beginning what you expect them to hold (depending on the case) and when you\u0027ll (over)write them.",
+      "range": {
+        "startLine": 684,
+        "startChar": 25,
+        "endLine": 684,
+        "endChar": 39
+      },
+      "revId": "db6469bc488c696b017f8d05e26789a882f9bf50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbbdbfca_d330142d",
         "filename": "compiler/optimizing/ssa_phi_elimination.cc",
         "patchSetId": 2
@@ -133,6 +202,29 @@
         "startChar": 11,
         "endLine": 43,
         "endChar": 25
+      },
+      "revId": "db6469bc488c696b017f8d05e26789a882f9bf50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b77ab0e_26a91651",
+        "filename": "test/550-checker-regression-wide-store/smali/TestCase.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-23T12:06:20Z",
+      "side": 1,
+      "message": "What\u0027s the use of checker here? Would any of these checker tests actually fail without this patch?",
+      "range": {
+        "startLine": 28,
+        "startChar": 3,
+        "endLine": 28,
+        "endChar": 14
       },
       "revId": "db6469bc488c696b017f8d05e26789a882f9bf50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
