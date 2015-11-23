@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "3bc4b760_358db019",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-23T14:57:50Z",
+      "side": 1,
+      "message": "\"Can\"? Is there an ambiguity in DWARF4?",
+      "range": {
+        "startLine": 322,
+        "startChar": 6,
+        "endLine": 322,
+        "endChar": 48
+      },
+      "revId": "ed31d2a07b60305d675c3642b1fa916b673b04c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bc4b760_75e568cb",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 6
@@ -53,6 +76,52 @@
     },
     {
       "key": {
+        "uuid": "fb921f65_abe6a9d4",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-23T14:57:50Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 425,
+        "startChar": 11,
+        "endLine": 425,
+        "endChar": 22
+      },
+      "revId": "ed31d2a07b60305d675c3642b1fa916b673b04c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bb2aff7_377778ba",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-23T14:57:50Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 467,
+        "startChar": 49,
+        "endLine": 467,
+        "endChar": 57
+      },
+      "revId": "ed31d2a07b60305d675c3642b1fa916b673b04c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bc96b78_b62c686e",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 6
@@ -70,6 +139,52 @@
     },
     {
       "key": {
+        "uuid": "fb921f65_4bf9c570",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-23T14:57:50Z",
+      "side": 1,
+      "message": "uint32_t?",
+      "range": {
+        "startLine": 512,
+        "startChar": 14,
+        "endLine": 512,
+        "endChar": 17
+      },
+      "revId": "ed31d2a07b60305d675c3642b1fa916b673b04c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb921f65_6bfe815b",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-23T14:57:50Z",
+      "side": 1,
+      "message": "Helper function?",
+      "range": {
+        "startLine": 513,
+        "startChar": 0,
+        "endLine": 518,
+        "endChar": 15
+      },
+      "revId": "ed31d2a07b60305d675c3642b1fa916b673b04c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9baf638f_b819b964",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 6
@@ -81,6 +196,29 @@
       "writtenOn": "2015-11-23T14:54:24Z",
       "side": 1,
       "message": "It would be nice if we can properly handle the case when a 64 bit (float) value is in a 64 bit (float) register.\nIf I understand correctly then currently you will say it is split between two S\u003cn\u003e register instead of saying it is in a D\u003cn\u003e register (with arm register names).",
+      "revId": "ed31d2a07b60305d675c3642b1fa916b673b04c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9baf638f_d8166d33",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-23T14:57:50Z",
+      "side": 1,
+      "message": "What does this mean?",
+      "range": {
+        "startLine": 534,
+        "startChar": 14,
+        "endLine": 534,
+        "endChar": 43
+      },
       "revId": "ed31d2a07b60305d675c3642b1fa916b673b04c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
