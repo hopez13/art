@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9b7da3ef_e85b535f",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-23T12:42:41Z",
+      "side": 1,
+      "message": "Done.  (sorry, I missed it in rebase)",
+      "parentUuid": "db11db43_4ef87335",
+      "revId": "ea6161db27c9d10d8ea2bd9784cd3010928eead1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b67fde4b_d6db220f",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2015-11-20T16:31:34Z",
       "side": 1,
       "message": "Handle the case when a 64bit value is spread into 2 register",
+      "revId": "ea6161db27c9d10d8ea2bd9784cd3010928eead1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbb8a7d5_99c07b00",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-23T12:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b67fde4b_d6db220f",
       "revId": "ea6161db27c9d10d8ea2bd9784cd3010928eead1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "fb921f65_2b1ab9bb",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-23T12:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b8e83ee_346b28fa",
+      "revId": "ea6161db27c9d10d8ea2bd9784cd3010928eead1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db11db43_0e027be7",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 3
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "9b7da3ef_48461f37",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-23T12:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db11db43_0e027be7",
+      "revId": "ea6161db27c9d10d8ea2bd9784cd3010928eead1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db11db43_eefe271f",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 3
@@ -81,6 +153,24 @@
       "writtenOn": "2015-11-20T16:31:34Z",
       "side": 1,
       "message": "You can use DW_OP_implicit_value instead of a full dwarf expression",
+      "revId": "ea6161db27c9d10d8ea2bd9784cd3010928eead1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbbdbfca_7314a08e",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-23T12:42:41Z",
+      "side": 1,
+      "message": "Is there any difference?\nI used implict_value in the first PS, but then I realized this is more compact and it does not have endian issues. (not that it matters, but just for my peace of mind)",
+      "parentUuid": "db11db43_eefe271f",
       "revId": "ea6161db27c9d10d8ea2bd9784cd3010928eead1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
