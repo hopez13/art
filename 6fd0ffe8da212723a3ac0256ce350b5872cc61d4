@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb921f65_ab330937",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3516,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-23T11:40:46Z",
+      "side": 1,
+      "message": "shouldn\u0027t you use `~` here?",
+      "range": {
+        "startLine": 3516,
+        "startChar": 77,
+        "endLine": 3516,
+        "endChar": 78
+      },
+      "revId": "6fd0ffe8da212723a3ac0256ce350b5872cc61d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
