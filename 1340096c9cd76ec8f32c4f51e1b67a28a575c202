@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5b1b2bb8_9a2cbd6e",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-23T17:50:22Z",
+      "side": 1,
+      "message": "No. We cannot break on proxy interface methods anyway. Also this preserves the original behavior.",
+      "parentUuid": "3b167790_4bad59aa",
+      "range": {
+        "startLine": 78,
+        "startChar": 11,
+        "endLine": 78,
+        "endChar": 12
+      },
+      "revId": "1340096c9cd76ec8f32c4f51e1b67a28a575c202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1bfc537c_f26880c9",
         "filename": "runtime/debugger.cc",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2015-11-21T00:04:22Z",
       "side": 1,
       "message": "nit: This just seems like the usual path taken, despite the LIKELY on 77\n\nIMHO it should be more like\n\n  if (UNLIKELY(m-\u003eIsDefault()) { \n     ....\n     return\n  }\n\n  return m;",
+      "revId": "1340096c9cd76ec8f32c4f51e1b67a28a575c202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb2a67bd_b2628689",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-23T17:50:22Z",
+      "side": 1,
+      "message": "No most of the methods in any given program are not copied defaults so this is the less likely path.",
+      "parentUuid": "1bfc537c_f26880c9",
       "revId": "1340096c9cd76ec8f32c4f51e1b67a28a575c202",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "5b1b2bb8_da3635be",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-23T17:50:22Z",
+      "side": 1,
+      "message": "It might be either. The IsInMethod function does the right comparison. We ensure that gBreakpoints[i].method_ is always the interface one in the constructor and the \u0027m\u0027 is most likely the copy (though it could be the original i suppose).",
+      "parentUuid": "5bc96b78_5644f49c",
+      "range": {
+        "startLine": 335,
+        "startChar": 61,
+        "endLine": 335,
+        "endChar": 71
+      },
+      "revId": "1340096c9cd76ec8f32c4f51e1b67a28a575c202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b153384_aa084b6e",
         "filename": "runtime/debugger.cc",
         "patchSetId": 1
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "3b167790_8e80ff1e",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3301,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-23T17:50:22Z",
+      "side": 1,
+      "message": "We cannot instrument all the copies of the default method since we don\u0027t know where they all are. Instead we just deoptimize everything to ensure we can see all the calls into the default method.",
+      "parentUuid": "1b153384_aa084b6e",
+      "revId": "1340096c9cd76ec8f32c4f51e1b67a28a575c202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb921f65_6b14c18e",
         "filename": "runtime/debugger.cc",
         "patchSetId": 1
@@ -93,6 +177,30 @@
       "writtenOn": "2015-11-23T07:51:20Z",
       "side": 1,
       "message": "The copy idiom is error-prone: FindFirstBreakpointForMethod also does pointer comparison, then should be updated too.",
+      "range": {
+        "startLine": 3392,
+        "startChar": 48,
+        "endLine": 3392,
+        "endChar": 76
+      },
+      "revId": "1340096c9cd76ec8f32c4f51e1b67a28a575c202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb2a67bd_125432a7",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3392,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-23T17:50:22Z",
+      "side": 1,
+      "message": "I already did. It now calls the IsInMethod(ArtMethod*) function which does the right thing.",
+      "parentUuid": "fb921f65_6b14c18e",
       "range": {
         "startLine": 3392,
         "startChar": 48,
