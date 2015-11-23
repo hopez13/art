@@ -59,6 +59,24 @@
     },
     {
       "key": {
+        "uuid": "5bc96b78_565f94f2",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-23T15:04:21Z",
+      "side": 1,
+      "message": "No, Java heap references are (for the moment) 32-bit even on 64-bit systems.",
+      "parentUuid": "3bc4b760_75e568cb",
+      "revId": "ed31d2a07b60305d675c3642b1fa916b673b04c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b7da3ef_088a6792",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 6
@@ -70,6 +88,24 @@
       "writtenOn": "2015-11-23T14:54:24Z",
       "side": 1,
       "message": "Are we storing a 64 bit value in 2 virtual register on 64 bit systems also? (Please check all location where you special case 64 bit values to make sure they work on 64 bit systems)",
+      "revId": "ed31d2a07b60305d675c3642b1fa916b673b04c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bb2aff7_175b5439",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-23T15:04:21Z",
+      "side": 1,
+      "message": "vreg refers to 32-bit dex registers.",
+      "parentUuid": "9b7da3ef_088a6792",
       "revId": "ed31d2a07b60305d675c3642b1fa916b673b04c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
