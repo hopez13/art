@@ -46,6 +46,30 @@
       "revId": "3fc7f357170311689c4c31007a5e168ddea321d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b7da3ef_68ccc33b",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-23T08:57:47Z",
+      "side": 1,
+      "message": "Can we just enable it as part of this change?",
+      "parentUuid": "9baf638f_d8302d2d",
+      "range": {
+        "startLine": 1960,
+        "startChar": 0,
+        "endLine": 1967,
+        "endChar": 57
+      },
+      "revId": "3fc7f357170311689c4c31007a5e168ddea321d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
