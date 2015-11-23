@@ -22,6 +22,30 @@
       "revId": "70fcbc86c79e50da937a50fc8fbe9748ba530904",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b1b2bb8_fa805166",
+        "filename": "test/551-implicit-null-checks/smali/TestCase.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-11-23T17:53:42Z",
+      "side": 1,
+      "message": "I did it automatically since I had bytecode from CTS tests. I will change it to JAVA tomorrow.",
+      "parentUuid": "7bb2aff7_971cc455",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 24
+      },
+      "revId": "70fcbc86c79e50da937a50fc8fbe9748ba530904",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
