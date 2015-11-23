@@ -56,6 +56,30 @@
       "revId": "f652917de5634b30c974c81d35a72871915b352a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b77ab0e_460ff278",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 1337,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-23T08:57:48Z",
+      "side": 1,
+      "message": "Nope, note that this is before register allocation, i.e. after all optimizations.",
+      "parentUuid": "bb33471f_81f61aba",
+      "range": {
+        "startLine": 1337,
+        "startChar": 71,
+        "endLine": 1337,
+        "endChar": 77
+      },
+      "revId": "f652917de5634b30c974c81d35a72871915b352a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
