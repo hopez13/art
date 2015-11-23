@@ -42,6 +42,29 @@
     },
     {
       "key": {
+        "uuid": "5bc96b78_5644f49c",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-23T07:51:20Z",
+      "side": 1,
+      "message": "For my understanding: we are interpreting a default method of an interface I on an object of type C implementing I.\nWhat is the given ArtMethod \u0027m\u0027: is it I.m or C.m ?\n\nLooking at this change, it seems to me it is C.m which is a copy of I.m + the kDefault flag. Am I right?",
+      "range": {
+        "startLine": 335,
+        "startChar": 61,
+        "endLine": 335,
+        "endChar": 71
+      },
+      "revId": "1340096c9cd76ec8f32c4f51e1b67a28a575c202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b153384_aa084b6e",
         "filename": "runtime/debugger.cc",
         "patchSetId": 1
@@ -53,6 +76,29 @@
       "writtenOn": "2015-11-21T00:04:22Z",
       "side": 1,
       "message": "Why?",
+      "revId": "1340096c9cd76ec8f32c4f51e1b67a28a575c202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb921f65_6b14c18e",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3392,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-11-23T07:51:20Z",
+      "side": 1,
+      "message": "The copy idiom is error-prone: FindFirstBreakpointForMethod also does pointer comparison, then should be updated too.",
+      "range": {
+        "startLine": 3392,
+        "startChar": 48,
+        "endLine": 3392,
+        "endChar": 76
+      },
       "revId": "1340096c9cd76ec8f32c4f51e1b67a28a575c202",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
