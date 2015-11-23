@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "db98fb91_223b8ec7",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2472,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-11-23T13:08:30Z",
+      "side": 1,
+      "message": "Most of the logic should be shared between archs, and maybe between functions.",
+      "revId": "044da80cad380162e0568cc39680b43b7849f69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b72f720_65cce63b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2515,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-11-23T13:08:30Z",
+      "side": 1,
+      "message": "The helper `HasOnlyOneNonEnvironmentUse()` was created to replace this.",
+      "range": {
+        "startLine": 2515,
+        "startChar": 6,
+        "endLine": 2515,
+        "endChar": 66
+      },
+      "revId": "044da80cad380162e0568cc39680b43b7849f69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b8e83ee_54e58cca",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -19,6 +59,40 @@
         "endLine": 3508,
         "endChar": 38
       },
+      "revId": "044da80cad380162e0568cc39680b43b7849f69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ba203be_a059da3e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-11-23T13:08:30Z",
+      "side": 1,
+      "message": "We are free to select the correct level of abstraction for IRs.\n\nCan\u0027t we achieve the same results by introducing only one new IR `MultiplyAccumulate`?\nThat IR can switch on a condition to decide whether we deal with an addition or a subtraction.\nAnd as in the ISA, `MNEG` can simply be handled by passing a constant 0 as input.\n\nWe can share that new IR between ARM and ARM64 immediately (maybe requiring new macros). Other archs (MIPS at least) that want to implement it in the future can simply modify the macros.",
+      "revId": "044da80cad380162e0568cc39680b43b7849f69c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b71b31c_a40fc244",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-11-23T13:08:30Z",
+      "side": 1,
+      "message": "This should be done in pass. Likely in `instruction_simplifier_arm64`.\n\nThat will help implementing checker tests.",
       "revId": "044da80cad380162e0568cc39680b43b7849f69c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
