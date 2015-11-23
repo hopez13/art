@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7bb2aff7_9708446f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-23T08:49:49Z",
+      "side": 1,
+      "message": "Why do you need this here? Do you need a regression test?",
+      "range": {
+        "startLine": 1960,
+        "startChar": 0,
+        "endLine": 1967,
+        "endChar": 57
+      },
+      "revId": "3fc7f357170311689c4c31007a5e168ddea321d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
