@@ -355,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "5bc96b78_5611542d",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-23T13:50:34Z",
+      "side": 1,
+      "message": "Let me know if the comment is sufficient.",
+      "parentUuid": "fb921f65_2b7639e5",
+      "range": {
+        "startLine": 684,
+        "startChar": 25,
+        "endLine": 684,
+        "endChar": 39
+      },
+      "revId": "db6469bc488c696b017f8d05e26789a882f9bf50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbbdbfca_d330142d",
         "filename": "compiler/optimizing/ssa_phi_elimination.cc",
         "patchSetId": 2
