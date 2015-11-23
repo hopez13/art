@@ -46,6 +46,30 @@
       "revId": "3346da954b27cfee3ecf0464e67bcb7fc2d7fcdc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b80ef13_876e46d5",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-23T16:37:41Z",
+      "side": 1,
+      "message": "I meant, just this line. Live registers are guaranteed to only be callee-save because of kCall.",
+      "parentUuid": "1bfc537c_bbda533e",
+      "range": {
+        "startLine": 706,
+        "startChar": 0,
+        "endLine": 706,
+        "endChar": 56
+      },
+      "revId": "3346da954b27cfee3ecf0464e67bcb7fc2d7fcdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
