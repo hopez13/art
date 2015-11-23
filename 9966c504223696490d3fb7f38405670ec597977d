@@ -22,6 +22,30 @@
       "revId": "9966c504223696490d3fb7f38405670ec597977d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b7da3ef_083c27a3",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3516,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-23T12:26:43Z",
+      "side": 1,
+      "message": "The \"as intended\" is appropriate only if you start questioning the \"-\", which you should not given a comment about SUB.",
+      "parentUuid": "bbb8a7d5_59c7c319",
+      "range": {
+        "startLine": 3516,
+        "startChar": 2,
+        "endLine": 3516,
+        "endChar": 58
+      },
+      "revId": "9966c504223696490d3fb7f38405670ec597977d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
