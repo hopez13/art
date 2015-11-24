@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bbb8a7d5_1c9e1979",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-24T16:14:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb921f65_cb5215e7",
+      "revId": "c452e59af23b6a40352bf273ec817d906b952a98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bc4b760_f5089804",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 14
@@ -30,6 +48,30 @@
       "writtenOn": "2015-11-23T21:54:01Z",
       "side": 1,
       "message": "ArtMethods?",
+      "range": {
+        "startLine": 136,
+        "startChar": 40,
+        "endLine": 136,
+        "endChar": 51
+      },
+      "revId": "c452e59af23b6a40352bf273ec817d906b952a98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbb8a7d5_3ca3ddc3",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-24T16:14:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bc4b760_f5089804",
       "range": {
         "startLine": 136,
         "startChar": 40,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "fb921f65_4bbb8532",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-24T16:14:59Z",
+      "side": 1,
+      "message": "renamed to OpenOrCreate.",
+      "parentUuid": "5b77ab0e_e6dc5e63",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 68
+      },
+      "revId": "c452e59af23b6a40352bf273ec817d906b952a98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bc4b760_1517d426",
         "filename": "runtime/jit/offline_profiling_info.cc",
         "patchSetId": 14
@@ -76,6 +142,30 @@
       "writtenOn": "2015-11-23T21:54:01Z",
       "side": 1,
       "message": "kFieldSeparator",
+      "range": {
+        "startLine": 127,
+        "startChar": 22,
+        "endLine": 127,
+        "endChar": 37
+      },
+      "revId": "c452e59af23b6a40352bf273ec817d906b952a98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b77ab0e_69c6816e",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-24T16:14:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bc4b760_1517d426",
       "range": {
         "startLine": 127,
         "startChar": 22,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "9b7da3ef_0b2341ec",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-24T16:14:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b77ab0e_26b0361f",
+      "range": {
+        "startLine": 128,
+        "startChar": 22,
+        "endLine": 128,
+        "endChar": 36
+      },
+      "revId": "c452e59af23b6a40352bf273ec817d906b952a98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b7da3ef_48737f33",
         "filename": "runtime/jit/offline_profiling_info.cc",
         "patchSetId": 14
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "7b80ef13_67c072a0",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-24T16:14:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b7da3ef_48737f33",
+      "range": {
+        "startLine": 133,
+        "startChar": 6,
+        "endLine": 133,
+        "endChar": 72
+      },
+      "revId": "c452e59af23b6a40352bf273ec817d906b952a98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b77ab0e_06ab3ab3",
         "filename": "runtime/jit/offline_profiling_info.cc",
         "patchSetId": 14
@@ -145,6 +283,30 @@
       "writtenOn": "2015-11-23T21:54:01Z",
       "side": 1,
       "message": "indentation is off.",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 41
+      },
+      "revId": "c452e59af23b6a40352bf273ec817d906b952a98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bb2aff7_174fd413",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-24T16:14:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b77ab0e_06ab3ab3",
       "range": {
         "startLine": 151,
         "startChar": 0,
