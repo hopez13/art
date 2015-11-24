@@ -22,6 +22,30 @@
       "revId": "4c8f41d75c75aabb08258697308fd7ac6652d3a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bb2aff7_1790b473",
+        "filename": "test/551-implicit-null-checks/src/TestCase.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-11-24T14:29:16Z",
+      "side": 1,
+      "message": "When I simplify all this and move it to Main.java, I get problem that dex2oat inline $opt$noinline$testGetLong. So if I understood correctly, it is ok to throw an Exception at the end of function just to prevent inlining?",
+      "parentUuid": "5b77ab0e_692201e6",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 3
+      },
+      "revId": "4c8f41d75c75aabb08258697308fd7ac6652d3a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
