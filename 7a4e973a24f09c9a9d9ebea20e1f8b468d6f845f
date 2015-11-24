@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9b7da3ef_eb36edbd",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1669,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-24T17:59:22Z",
+      "side": 1,
+      "message": "This method was already using the current dex compilation unit, so I did not want to change it. I changed the other one above as it wasn\u0027t consistent with the type index.\n\nAll in all, this is a problem around inlining that will stop inlining as soon as it sees a HLoadClass from a different dex file (because HLoadClass requires the dex cache). I plan on cleanup this up.",
+      "parentUuid": "5b77ab0e_a93079e4",
+      "range": {
+        "startLine": 1669,
+        "startChar": 17,
+        "endLine": 1669,
+        "endChar": 25
+      },
+      "revId": "7a4e973a24f09c9a9d9ebea20e1f8b468d6f845f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bbb8a7d5_5ce091bc",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-24T17:25:11Z",
       "side": 1,
       "message": "Did you mean to add this in other backends?\n\nThe message seems a bit off :) It\u0027s just something that we should not generate.",
+      "range": {
+        "startLine": 5192,
+        "startChar": 6,
+        "endLine": 5192,
+        "endChar": 73
+      },
+      "revId": "7a4e973a24f09c9a9d9ebea20e1f8b468d6f845f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9baf638f_5ba5f7db",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5192,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-24T17:59:22Z",
+      "side": 1,
+      "message": "Yeah, and it was wrong for read barriers. I removed it.",
+      "parentUuid": "bbb8a7d5_5ce091bc",
       "range": {
         "startLine": 5192,
         "startChar": 6,
