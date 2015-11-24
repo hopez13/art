@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "5b77ab0e_297649e5",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-24T14:48:00Z",
+      "side": 1,
+      "message": "I think Razvan was referring to type the referrer.\n\nEven if we end up running RTP (we don\u0027t always do it) we will not bound the type of the referrer. That\u0027s because we don\u0027t recognize the comparison patter in RTP. \n\nCould you add a TODO ? and I\u0027ll do it after we merge this.",
+      "parentUuid": "bbb8a7d5_b9bb7ffe",
+      "range": {
+        "startLine": 317,
+        "startChar": 13,
+        "endLine": 317,
+        "endChar": 20
+      },
+      "revId": "d1c6cab26642c31848402af379ee716f1b783427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbb05f0b_fe3bfdaa",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 3
