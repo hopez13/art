@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "5bc96b78_59c7c719",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-24T15:17:27Z",
+      "side": 1,
+      "message": "Oh I see. I\u0027ve added GVN support for HDeoptimize for this. I think this should be enough for avoiding multiple guards.\n\nI agree we should extend RTP to understand the guard.",
+      "parentUuid": "5b77ab0e_297649e5",
+      "range": {
+        "startLine": 317,
+        "startChar": 13,
+        "endLine": 317,
+        "endChar": 20
+      },
+      "revId": "d1c6cab26642c31848402af379ee716f1b783427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbb05f0b_fe3bfdaa",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 3
