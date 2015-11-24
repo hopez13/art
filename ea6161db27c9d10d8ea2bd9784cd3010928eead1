@@ -210,6 +210,24 @@
       "revId": "ea6161db27c9d10d8ea2bd9784cd3010928eead1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbb8a7d5_f963375a",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2015-11-24T12:06:07Z",
+      "side": 1,
+      "message": "I don\u0027t know what is expected for implicit_value, but if you prefer the current implementation (because of clarity and endianness) I am fine with it. Most likely it will be cleaner.\n\nFor floats I think your example should work but I don\u0027t know if anybody ever tested it.\n\nFor endianness I think the dwarf should be emitted in target byte order (have to check the spec) and then the consumer should deal with the byte swapping if needed. If you want to be endian independent then you also have to be careful about the case when a 64 bit value is split into 2 register (which one is the lower/higher)",
+      "parentUuid": "9b7da3ef_2ba3a5c3",
+      "revId": "ea6161db27c9d10d8ea2bd9784cd3010928eead1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
