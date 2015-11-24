@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5bc96b78_997b1fd0",
+        "filename": "test/551-implicit-null-checks/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-24T12:29:54Z",
+      "side": 1,
+      "message": "Please name this $opt$noinline$testGetLong. This way, we will get a dex2oat-time failure if the compiler manages to inline it.",
+      "range": {
+        "startLine": 32,
+        "startChar": 21,
+        "endLine": 32,
+        "endChar": 32
+      },
+      "revId": "766cec8a1c442e84b04d53bf03cecd0508c358fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b7da3ef_ab7875d3",
+        "filename": "test/551-implicit-null-checks/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-24T12:29:54Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 38,
+        "startChar": 21,
+        "endLine": 38,
+        "endChar": 32
+      },
+      "revId": "766cec8a1c442e84b04d53bf03cecd0508c358fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
