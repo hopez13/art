@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "3bc4b760_95e76443",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-24T18:41:56Z",
+      "side": 1,
+      "message": "It doesn\u0027t really matter if it\u0027s a class or a struct. I guess it\u0027s up to the codding style.\n\nBut yea, I\u0027d prefer to have these private. It doesn\u0027t look ok that anyone is to be able to modify them :)",
+      "parentUuid": "7bb2aff7_d7663c6d",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 7
+      },
+      "revId": "cb02063ee012f2ef13aaf92317b493d0b73a16f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b77ab0e_89365d28",
         "filename": "runtime/jit/profiling_info.h",
         "patchSetId": 4
