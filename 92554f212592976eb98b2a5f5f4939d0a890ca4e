@@ -175,6 +175,30 @@
       "revId": "92554f212592976eb98b2a5f5f4939d0a890ca4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbc4277e_9cfac99c",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 3925,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-11-24T00:52:15Z",
+      "side": 1,
+      "message": "Actually nevermind, I was not aware the compiler driver handled the case.",
+      "parentUuid": "fbb05f0b_61b2b256",
+      "range": {
+        "startLine": 3925,
+        "startChar": 30,
+        "endLine": 3925,
+        "endChar": 43
+      },
+      "revId": "92554f212592976eb98b2a5f5f4939d0a890ca4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
