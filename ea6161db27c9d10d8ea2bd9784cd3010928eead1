@@ -192,6 +192,24 @@
       "revId": "ea6161db27c9d10d8ea2bd9784cd3010928eead1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b7da3ef_2ba3a5c3",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-24T02:31:08Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be expected for implicit_value to store the full 4 bytes of the constant?\n\nEven if not, they both require 3 bytes minimum.  Nonetheless, the size is not really of concern.\n\nThe main reason I prefer stack_value is because it does not assume any endian.  (can we also assume little endian on host, for example?)\n\nBy the way, is this going to work for floats?  For example double constant is encoded as:\nOP_consts 0x11223344 OP_stack_value OP_piece 4 OP_consts 0x55667788 OP_stack_value OP_piece 4",
+      "parentUuid": "5b77ab0e_665a2e33",
+      "revId": "ea6161db27c9d10d8ea2bd9784cd3010928eead1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
