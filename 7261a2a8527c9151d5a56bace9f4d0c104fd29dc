@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bbc4277e_ff6417cc",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-11-24T16:55:53Z",
+      "side": 1,
+      "message": "The verifier forces it to interpreter so there aren\u0027t any. This is just because there is no plan (ATM) to ever give quick these opcodes so I make it check and bail-out explicitly for when we implement it in optimizing.",
+      "parentUuid": "5b77ab0e_49a8e59b",
+      "range": {
+        "startLine": 548,
+        "startChar": 0,
+        "endLine": 548,
+        "endChar": 72
+      },
+      "revId": "7261a2a8527c9151d5a56bace9f4d0c104fd29dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b80ef13_078a5692",
         "filename": "test/run-test",
         "patchSetId": 18
