@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbb8a7d5_5ce091bc",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5192,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-24T17:25:11Z",
+      "side": 1,
+      "message": "Did you mean to add this in other backends?\n\nThe message seems a bit off :) It\u0027s just something that we should not generate.",
+      "range": {
+        "startLine": 5192,
+        "startChar": 6,
+        "endLine": 5192,
+        "endChar": 73
+      },
+      "revId": "7a4e973a24f09c9a9d9ebea20e1f8b468d6f845f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
