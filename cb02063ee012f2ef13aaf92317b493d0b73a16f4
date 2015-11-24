@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb921f65_cb5cd5cc",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-24T14:48:00Z",
+      "side": 1,
+      "message": "In a JIT context this should never be the case. Maybe DCHECK it?",
+      "range": {
+        "startLine": 240,
+        "startChar": 6,
+        "endLine": 240,
+        "endChar": 24
+      },
+      "revId": "cb02063ee012f2ef13aaf92317b493d0b73a16f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbb8a7d5_3c1afdbb",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-24T14:48:00Z",
+      "side": 1,
+      "message": "I think we can improve the design here and it\u0027s worth a discussion.\n\nGetting the profiling_info from the ArtMethod will only work for JIT. Whereas this codepath is also used for AOT.\n\nI don\u0027t have a strong suggestion right now but we could consider passing down this info from the top level.\n\nShort term, we could also guard this around a more explicit IsJit().",
+      "range": {
+        "startLine": 241,
+        "startChar": 19,
+        "endLine": 241,
+        "endChar": 33
+      },
+      "revId": "cb02063ee012f2ef13aaf92317b493d0b73a16f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b7da3ef_4bf9b970",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-24T14:48:00Z",
+      "side": 1,
+      "message": "rather cryptic. Can we add a helper with a relevant name/documentation to the linker, or the mirror class to fetch this?",
+      "range": {
+        "startLine": 296,
+        "startChar": 2,
+        "endLine": 297,
+        "endChar": 61
+      },
+      "revId": "cb02063ee012f2ef13aaf92317b493d0b73a16f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bb2aff7_3795b864",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-24T14:48:00Z",
+      "side": 1,
+      "message": "private and friend ProfilingInfo.",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 7
+      },
+      "revId": "cb02063ee012f2ef13aaf92317b493d0b73a16f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b77ab0e_89365d28",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-24T14:48:00Z",
+      "side": 1,
+      "message": "This class is becoming a container for the jit states rather than just a storage for the profiling info. We should rename it (a later CL is fine)",
+      "range": {
+        "startLine": 134,
+        "startChar": 7,
+        "endLine": 134,
+        "endChar": 32
+      },
+      "revId": "cb02063ee012f2ef13aaf92317b493d0b73a16f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
