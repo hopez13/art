@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9baf638f_5ee085bc",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1769,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-24T18:57:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b77ab0e_0917cd26",
+      "range": {
+        "startLine": 1769,
+        "startChar": 4,
+        "endLine": 1769,
+        "endChar": 55
+      },
+      "revId": "8b2d1e2acf1260672c4d327a0433fea71c7dd291",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b7da3ef_ab55d5d1",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-24T18:41:56Z",
       "side": 1,
       "message": "add an explicit comment that we don\u0027t need clinit checks,",
+      "range": {
+        "startLine": 311,
+        "startChar": 14,
+        "endLine": 311,
+        "endChar": 24
+      },
+      "revId": "8b2d1e2acf1260672c4d327a0433fea71c7dd291",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bb2aff7_fa8245e3",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-24T18:57:03Z",
+      "side": 1,
+      "message": "Why would you think you need a clinit check? We\u0027re adding a guard for a compare.",
+      "parentUuid": "9b7da3ef_ab55d5d1",
       "range": {
         "startLine": 311,
         "startChar": 14,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "fbbdbfca_16d8baa2",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-24T18:57:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bc96b78_b9837b71",
+      "range": {
+        "startLine": 426,
+        "startChar": 68,
+        "endLine": 426,
+        "endChar": 72
+      },
+      "revId": "8b2d1e2acf1260672c4d327a0433fea71c7dd291",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bc96b78_f97df349",
         "filename": "runtime/thread.h",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2015-11-24T18:41:56Z",
       "side": 1,
       "message": "document `from_code` here as well.",
+      "range": {
+        "startLine": 854,
+        "startChar": 38,
+        "endLine": 854,
+        "endChar": 47
+      },
+      "revId": "8b2d1e2acf1260672c4d327a0433fea71c7dd291",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb921f65_8edf3b28",
+        "filename": "runtime/thread.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-24T18:57:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bc96b78_f97df349",
       "range": {
         "startLine": 854,
         "startChar": 38,
