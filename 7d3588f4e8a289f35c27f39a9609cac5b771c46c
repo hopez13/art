@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb921f65_eba43126",
+        "filename": "test/551-implicit-null-checks/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-24T08:57:16Z",
+      "side": 1,
+      "message": "Odd that you\u0027re using reflection. I can see it does defeat inlining, but we used to do other tricks instead (like throwing an exception in the test method). Are there aother reasons you\u0027re using reflection?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 3
+      },
+      "revId": "7d3588f4e8a289f35c27f39a9609cac5b771c46c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
