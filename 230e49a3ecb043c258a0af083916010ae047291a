@@ -166,6 +166,24 @@
     },
     {
       "key": {
+        "uuid": "1b71b31c_44e28e56",
+        "filename": "compiler/optimizing/common_arm64.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-11-24T14:34:01Z",
+      "side": 1,
+      "message": "The changes for `HNeg` are smaller than I expected, so I\u0027ll merge them in this patch. Others can be done later.",
+      "parentUuid": "1b06130b_62b0f21f",
+      "revId": "230e49a3ecb043c258a0af083916010ae047291a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "169a6aee_620a92a7",
         "filename": "compiler/optimizing/common_arm64.h",
         "patchSetId": 10
