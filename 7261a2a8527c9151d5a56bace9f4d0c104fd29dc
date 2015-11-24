@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7bb2aff7_ba4a8da3",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-24T16:57:25Z",
+      "side": 1,
+      "message": "Oh OK, so you\u0027re just anticipating the time when the verifier does not force it to interpreter.",
+      "parentUuid": "bbc4277e_ff6417cc",
+      "range": {
+        "startLine": 548,
+        "startChar": 0,
+        "endLine": 548,
+        "endChar": 72
+      },
+      "revId": "7261a2a8527c9151d5a56bace9f4d0c104fd29dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b80ef13_078a5692",
         "filename": "test/run-test",
         "patchSetId": 18
