@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5b77ab0e_a93079e4",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1669,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-24T17:39:38Z",
+      "side": 1,
+      "message": "Rename to outer_dex_file in line with naming the above?",
+      "range": {
+        "startLine": 1669,
+        "startChar": 17,
+        "endLine": 1669,
+        "endChar": 25
+      },
+      "revId": "7a4e973a24f09c9a9d9ebea20e1f8b468d6f845f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bbb8a7d5_5ce091bc",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 4
@@ -18,6 +41,29 @@
         "startChar": 6,
         "endLine": 5192,
         "endChar": 73
+      },
+      "revId": "7a4e973a24f09c9a9d9ebea20e1f8b468d6f845f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bc96b78_5946e736",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4890,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-24T17:39:38Z",
+      "side": 1,
+      "message": "A separate ClinitCheck elimination pass could change this from false to true but I\u0027m OK with const for now.",
+      "range": {
+        "startLine": 4890,
+        "startChar": 2,
+        "endLine": 4890,
+        "endChar": 30
       },
       "revId": "7a4e973a24f09c9a9d9ebea20e1f8b468d6f845f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
