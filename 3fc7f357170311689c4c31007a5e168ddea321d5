@@ -116,6 +116,30 @@
       "revId": "3fc7f357170311689c4c31007a5e168ddea321d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b77ab0e_c68da255",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-24T10:18:59Z",
+      "side": 1,
+      "message": "Fine by me, but I\u0027ll leave that to Aart\u0027s discretion. I think he wanted to get dynamic BCE in first.",
+      "parentUuid": "9b7da3ef_68ccc33b",
+      "range": {
+        "startLine": 1960,
+        "startChar": 0,
+        "endLine": 1967,
+        "endChar": 57
+      },
+      "revId": "3fc7f357170311689c4c31007a5e168ddea321d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
