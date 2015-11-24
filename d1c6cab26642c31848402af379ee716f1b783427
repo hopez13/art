@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7b80ef13_278f5aa3",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-24T09:30:03Z",
+      "side": 1,
+      "message": "this is likely to change.",
+      "parentUuid": "3b167790_99b16b52",
+      "range": {
+        "startLine": 312,
+        "startChar": 63,
+        "endLine": 312,
+        "endChar": 86
+      },
+      "revId": "d1c6cab26642c31848402af379ee716f1b783427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1bfc537c_a60fda44",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "bbb8a7d5_b9bb7ffe",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-24T09:30:03Z",
+      "side": 1,
+      "message": "It\u0027s done already.",
+      "parentUuid": "1bfc537c_a60fda44",
+      "range": {
+        "startLine": 317,
+        "startChar": 13,
+        "endLine": 317,
+        "endChar": 20
+      },
+      "revId": "d1c6cab26642c31848402af379ee716f1b783427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbb05f0b_fe3bfdaa",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2015-11-23T20:18:18Z",
       "side": 1,
       "message": "Instead of deopt, are you also considering keeping the original virtual invoke in a diamond shape after the guard? I just worry about path length increase of having to punt to interpreter including not resuming in compiled code after the return from the call.",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 319,
+        "endChar": 47
+      },
+      "revId": "d1c6cab26642c31848402af379ee716f1b783427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9baf638f_db0ca752",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-24T09:30:03Z",
+      "side": 1,
+      "message": "Yes we thought about it, but the deopt will take care of knowing which receivers are now seen, and if the method remaines hot, will be re-jitted.",
+      "parentUuid": "fbb05f0b_fe3bfdaa",
       "range": {
         "startLine": 318,
         "startChar": 0,
