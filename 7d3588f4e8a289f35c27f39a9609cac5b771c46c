@@ -22,6 +22,30 @@
       "revId": "7d3588f4e8a289f35c27f39a9609cac5b771c46c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbb8a7d5_f9b5f70a",
+        "filename": "test/551-implicit-null-checks/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2015-11-24T09:53:19Z",
+      "side": 1,
+      "message": "To show this bug, we have to generate NullPointerException outside of try-catch block, otherwise implicit null checks are not recorded anyway. I can do it without reflection, but then we will have 2 separate tests since we can see just one unhandled exception per test. And expected output should be something like this:\n\njava.lang.NullPointerException: Attempt to read from field \u0027long TestCase$Inner.i1\u0027 on a null object reference\n\tat TestCase$Inner.access$000(TestCase.java:18)\n\tat TestCase.get(TestCase.java:25)\n\tat Main.testGetLong(Main.java:29)\n\tat Main.main(Main.java:23)",
+      "parentUuid": "fb921f65_eba43126",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 3
+      },
+      "revId": "7d3588f4e8a289f35c27f39a9609cac5b771c46c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
