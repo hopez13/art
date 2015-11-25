@@ -2,6 +2,92 @@
   "comments": [
     {
       "key": {
+        "uuid": "fbbdbfca_19ff0b5a",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-25T17:02:10Z",
+      "side": 1,
+      "message": "Rewording suggestion:\n\n  If we cannot resolve the method\u0027s declaring class (which\n  can only happen when compiling ahead of time), bail out.",
+      "range": {
+        "startLine": 778,
+        "startChar": 74,
+        "endLine": 779,
+        "endChar": 64
+      },
+      "revId": "35c28cba82a9744e298d605151547c046e8727c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb921f65_ee219f7c",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-25T17:02:10Z",
+      "side": 1,
+      "message": "Check for incompatible class changes?",
+      "range": {
+        "startLine": 801,
+        "startChar": 5,
+        "endLine": 801,
+        "endChar": 36
+      },
+      "revId": "35c28cba82a9744e298d605151547c046e8727c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb921f65_0e3c2ba3",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-25T17:02:10Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 802,
+        "startChar": 32,
+        "endLine": 802,
+        "endChar": 63
+      },
+      "revId": "35c28cba82a9744e298d605151547c046e8727c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb921f65_ae279791",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 806,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-25T17:02:10Z",
+      "side": 1,
+      "message": "Extra blank line.",
+      "revId": "35c28cba82a9744e298d605151547c046e8727c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9baf638f_c1ae78a5",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 9
@@ -18,6 +104,121 @@
         "startChar": 0,
         "endLine": 606,
         "endChar": 89
+      },
+      "revId": "35c28cba82a9744e298d605151547c046e8727c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bb2aff7_fa4085e5",
+        "filename": "test/551-invoke-super/smali/invokesuper.smali",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-25T17:02:10Z",
+      "side": 1,
+      "message": "Nit: use the same indentation as in lines 29–32 and 38–39.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 7
+      },
+      "revId": "35c28cba82a9744e298d605151547c046e8727c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbbdbfca_79fe3f5b",
+        "filename": "test/551-invoke-super/smali/superclass.smali",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-25T17:02:10Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 7
+      },
+      "revId": "35c28cba82a9744e298d605151547c046e8727c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbb8a7d5_fceec51a",
+        "filename": "test/552-invoke-non-existent-super/info.txt",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-25T17:02:10Z",
+      "side": 1,
+      "message": "Nit: extra period.",
+      "range": {
+        "startLine": 1,
+        "startChar": 76,
+        "endLine": 1,
+        "endChar": 77
+      },
+      "revId": "35c28cba82a9744e298d605151547c046e8727c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbbdbfca_b90ff744",
+        "filename": "test/552-invoke-non-existent-super/smali/invokesuper.smali",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-25T17:02:10Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 7
+      },
+      "revId": "35c28cba82a9744e298d605151547c046e8727c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbbdbfca_d90cb352",
+        "filename": "test/552-invoke-non-existent-super/smali/superclass.smali",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-11-25T17:02:10Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 7
       },
       "revId": "35c28cba82a9744e298d605151547c046e8727c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
