@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7bb2aff7_7acc753b",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-25T10:23:11Z",
+      "side": 1,
+      "message": "Add a TODO to try using kDexCachePcRelative. It\u0027s always a valid method load kind as long as it\u0027s supported by the codegen.",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 68,
+        "endChar": 11
+      },
+      "revId": "d2b6a1f10a93441a24f8396cc0b9753afe965640",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
