@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b167790_67e5e1cb",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2015-11-25T19:57:00Z",
+      "side": 1,
+      "message": "Please describe more precisely what it does, along the lines of:\n\nEnsures that prior stores complete before subsequent loads.  May touch the top of stack.  Should not be used for ordering non-temporal stores.",
+      "range": {
+        "startLine": 444,
+        "startChar": 5,
+        "endLine": 444,
+        "endChar": 29
+      },
+      "revId": "332594b8b02a5289bf1133dc8ea1e6c4c38c09d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b2123e5_1a50bbdc",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2015-11-25T19:57:00Z",
+      "side": 1,
+      "message": "Please add comment as requested for 32-bit version.",
+      "range": {
+        "startLine": 421,
+        "startChar": 2,
+        "endLine": 421,
+        "endChar": 29
+      },
+      "revId": "332594b8b02a5289bf1133dc8ea1e6c4c38c09d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
