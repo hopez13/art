@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "9b7da3ef_6eb3ebc2",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-25T17:26:20Z",
+      "side": 1,
+      "message": "This shows an opportunity for further improvement: if there\u0027s a narrowing TypeConversion followed by a widening TypeConversion (to long, all other widening conversions are implicit), ignore the widening conversion (which is equivalent to the lack of byte-to-int in \"a + (byte)b\" with \"int a, int b\"). Perhaps a follow-up CL?",
+      "parentUuid": "fb6bff2e_a6aee8a3",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 64
+      },
+      "revId": "b1729a41873086f3f1cf5a8145072616eca62e66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9baf638f_5ea5e5db",
         "filename": "test/551-checker-shifter-operand/src/Main.java",
         "patchSetId": 13
