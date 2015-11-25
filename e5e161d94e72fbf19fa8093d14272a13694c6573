@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5b77ab0e_2c1ad7bb",
+        "filename": "test/551-invoke-super/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-25T16:39:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bc4b760_584a6159",
+      "range": {
+        "startLine": 24,
+        "startChar": 14,
+        "endLine": 24,
+        "endChar": 26
+      },
+      "revId": "e5e161d94e72fbf19fa8093d14272a13694c6573",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bc4b760_784f1d68",
         "filename": "test/552-invoke-non-existent-super/src/Main.java",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-25T16:28:37Z",
       "side": 1,
       "message": "not used in this tests.",
+      "range": {
+        "startLine": 24,
+        "startChar": 14,
+        "endLine": 24,
+        "endChar": 26
+      },
+      "revId": "e5e161d94e72fbf19fa8093d14272a13694c6573",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bc4b760_382e8582",
+        "filename": "test/552-invoke-non-existent-super/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-25T16:39:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bc4b760_784f1d68",
       "range": {
         "startLine": 24,
         "startChar": 14,
