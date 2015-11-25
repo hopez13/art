@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9baf638f_c1ae78a5",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-25T16:45:10Z",
+      "side": 1,
+      "message": "I don\u0027t understand how we get here for the new test, I would expect the code above to take the early return branch for resolved_method\u003d\u003dnullptr, or does it point to the resolution trampoline? In that case, should we check for the trampoline instead, or is the trampoline actually going to the the right thing anyway?",
+      "range": {
+        "startLine": 601,
+        "startChar": 0,
+        "endLine": 606,
+        "endChar": 89
+      },
+      "revId": "35c28cba82a9744e298d605151547c046e8727c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
