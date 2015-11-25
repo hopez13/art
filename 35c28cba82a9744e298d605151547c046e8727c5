@@ -111,6 +111,30 @@
     },
     {
       "key": {
+        "uuid": "9baf638f_01d23026",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-25T17:10:30Z",
+      "side": 1,
+      "message": "The resolved method is found, as the invoke-super is pointing to the subclass\u0027s method.\n\nThe verifier detects the problem but makes it a soft failure, which the optimizing compiler decides to not compile, but Quick does the compilation. Because there\u0027s a failure, Quick will use the invokeSuperTrampoline, and ends up there.\n\nSo when arriving here, the trampoline resolves the method the invoke-super points to, and finds it. It\u0027s only used to know the index in the vtable though, as the specification says so. But because there\u0027s no such method in the vtable, we would crash here with an array out of bounds.",
+      "parentUuid": "9baf638f_c1ae78a5",
+      "range": {
+        "startLine": 601,
+        "startChar": 0,
+        "endLine": 606,
+        "endChar": 89
+      },
+      "revId": "35c28cba82a9744e298d605151547c046e8727c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7bb2aff7_fa4085e5",
         "filename": "test/551-invoke-super/smali/invokesuper.smali",
         "patchSetId": 9
