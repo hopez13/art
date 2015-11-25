@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "fb6bff2e_46a8d49b",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-11-25T16:22:53Z",
+      "side": 1,
+      "message": "Testing for `int` is *very* important.\nIn `int_a + (char)byte_b`, because the conversion to `int` is optimized away, we end up with a type conversion from byte to *char* followed by the add. This leads to the error you spotted about UXTH vs UXTB.\n\nOn the other hand for `long_b + (char)byte_b`, we have *two* type conversions byte-\u003echar and char-\u003elong followed by the add. That means that the type transition merged into the binop is always toward `long`.\n\nThat is why I kept the `int` tests and was alternating between `int` and `long`. Instead I now have both `int` and `long` versions.\n\nNote that this also illustrates why there are still TypeConversion IRs in the `long` tests. I added better checker tests there.",
+      "parentUuid": "5bc96b78_fcb7a1a0",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 64
+      },
+      "revId": "b1729a41873086f3f1cf5a8145072616eca62e66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9baf638f_5ea5e5db",
         "filename": "test/551-checker-shifter-operand/src/Main.java",
         "patchSetId": 13
@@ -59,6 +83,24 @@
       "writtenOn": "2015-11-25T15:21:37Z",
       "side": 1,
       "message": "I guess there are no environment uses if everything gets merged, so CHECK-NOT: TypeConversion.",
+      "revId": "b1729a41873086f3f1cf5a8145072616eca62e66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ba203be_23b83490",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-11-25T16:22:53Z",
+      "side": 1,
+      "message": "See previous comment. Improved the checker test.",
+      "parentUuid": "9baf638f_5ea5e5db",
       "revId": "b1729a41873086f3f1cf5a8145072616eca62e66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -82,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "7bbe2fe4_9759843f",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-11-25T16:22:53Z",
+      "side": 1,
+      "message": "See previous comment. Improved the checker test.",
+      "parentUuid": "7b80ef13_0a297b79",
+      "revId": "b1729a41873086f3f1cf5a8145072616eca62e66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bc4b760_1872a9c9",
         "filename": "test/551-checker-shifter-operand/src/Main.java",
         "patchSetId": 13
@@ -93,6 +153,24 @@
       "writtenOn": "2015-11-25T15:21:37Z",
       "side": 1,
       "message": "CHECK-NOT: TypeConversion",
+      "revId": "b1729a41873086f3f1cf5a8145072616eca62e66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bb61305_1f00e742",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-11-25T16:22:53Z",
+      "side": 1,
+      "message": "See previous comment. Improved the checker test.",
+      "parentUuid": "3bc4b760_1872a9c9",
       "revId": "b1729a41873086f3f1cf5a8145072616eca62e66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
