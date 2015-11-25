@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "1bb61305_5f066f63",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-11-25T15:02:04Z",
+      "side": 1,
+      "message": "The `assertIntEquals()` is not needed here, but I think we should keep it for consistency.",
+      "parentUuid": "3ba757d3_c0498065",
+      "range": {
+        "startLine": 263,
+        "startChar": 4,
+        "endLine": 263,
+        "endChar": 64
+      },
+      "revId": "efce3d18b0385024da031616071b98b494630045",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7bb2aff7_1aee1973",
         "filename": "test/551-checker-shifter-operand/src/Main.java",
         "patchSetId": 12
