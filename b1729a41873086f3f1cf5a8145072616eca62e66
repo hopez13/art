@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5bac0bb5_5ed31555",
+        "filename": "compiler/optimizing/common_arm64.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-11-25T16:23:15Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "fb921f65_ae3077e4",
+      "range": {
+        "startLine": 314,
+        "startChar": 69,
+        "endLine": 314,
+        "endChar": 70
+      },
+      "revId": "b1729a41873086f3f1cf5a8145072616eca62e66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bc96b78_fcb7a1a0",
         "filename": "test/551-checker-shifter-operand/src/Main.java",
         "patchSetId": 13
