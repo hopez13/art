@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "fb6bff2e_a6aee8a3",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-11-25T16:30:49Z",
+      "side": 1,
+      "message": "Note that I understand you were maybe not suggesting to switch to `long` everywhere.",
+      "parentUuid": "fb6bff2e_46a8d49b",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 64
+      },
+      "revId": "b1729a41873086f3f1cf5a8145072616eca62e66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9baf638f_5ea5e5db",
         "filename": "test/551-checker-shifter-operand/src/Main.java",
         "patchSetId": 13
