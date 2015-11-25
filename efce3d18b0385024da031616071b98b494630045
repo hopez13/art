@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7ba54fc6_28836fea",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-11-25T14:59:09Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "bbb8a7d5_dc0bc1fe",
+      "range": {
+        "startLine": 253,
+        "startChar": 52,
+        "endLine": 253,
+        "endChar": 58
+      },
+      "revId": "efce3d18b0385024da031616071b98b494630045",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9baf638f_fe4079e5",
         "filename": "test/551-checker-shifter-operand/src/Main.java",
         "patchSetId": 12
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-25T12:31:46Z",
       "side": 1,
       "message": "What are you actually testing here? That the byte-to-int conversion is implicit and as such doesn\u0027t contribute to Arm64DataProcWithShifterOp?",
+      "range": {
+        "startLine": 263,
+        "startChar": 4,
+        "endLine": 263,
+        "endChar": 64
+      },
+      "revId": "efce3d18b0385024da031616071b98b494630045",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ba757d3_c0498065",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-11-25T14:59:09Z",
+      "side": 1,
+      "message": "Yes. I added a comment.",
+      "parentUuid": "9baf638f_fe4079e5",
       "range": {
         "startLine": 263,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3b72f720_39221737",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-11-25T14:59:09Z",
+      "side": 1,
+      "message": "I was also expecting it, but it has an environment use even though we are not compiling with `--no-optimize`.\nAdded a comment.\n\nThe folding of int-to-long into add-long is tested as part of `validateExtendLong()`. I have switched to `assertLongEquals()` here.\nI also now alternate between `int` and `long` for the left parameters.",
+      "parentUuid": "7bb2aff7_1aee1973",
+      "range": {
+        "startLine": 264,
+        "startChar": 63,
+        "endLine": 264,
+        "endChar": 75
+      },
+      "revId": "efce3d18b0385024da031616071b98b494630045",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9baf638f_9e393d82",
         "filename": "test/551-checker-shifter-operand/src/Main.java",
         "patchSetId": 12
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "bb9b478c_84138875",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-11-25T14:59:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9baf638f_9e393d82",
+      "range": {
+        "startLine": 564,
+        "startChar": 21,
+        "endLine": 564,
+        "endChar": 30
+      },
+      "revId": "efce3d18b0385024da031616071b98b494630045",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7bb2aff7_3a2e7d82",
         "filename": "test/551-checker-shifter-operand/src/Main.java",
         "patchSetId": 12
@@ -105,6 +201,30 @@
       "writtenOn": "2015-11-25T12:31:46Z",
       "side": 1,
       "message": "L",
+      "range": {
+        "startLine": 565,
+        "startChar": 21,
+        "endLine": 565,
+        "endChar": 32
+      },
+      "revId": "efce3d18b0385024da031616071b98b494630045",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb9b478c_64108468",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-11-25T14:59:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bb2aff7_3a2e7d82",
       "range": {
         "startLine": 565,
         "startChar": 21,
