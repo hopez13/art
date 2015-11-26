@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "fb6bff2e_2604b82d",
+        "filename": "test/551-checker-shifter-operand/src/Main.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-11-26T10:18:42Z",
+      "side": 1,
+      "message": "Yes I think there are general improvements that can be done around type conversions. I opened a ticket internally, so hopefully we\u0027ll take a look at that soon.",
+      "parentUuid": "9b7da3ef_6eb3ebc2",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 64
+      },
+      "revId": "b1729a41873086f3f1cf5a8145072616eca62e66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9baf638f_5ea5e5db",
         "filename": "test/551-checker-shifter-operand/src/Main.java",
         "patchSetId": 13
