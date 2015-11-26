@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b7da3ef_6e4f6b68",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2015-11-26T08:01:59Z",
+      "side": 1,
+      "message": "It seems to me that this is not correct optimization you do.\nWhat if callee save register is dead in you method but live in caller and will be used by intrinsic?\n\nYou should store and restore all callee save registers always here :(",
+      "range": {
+        "startLine": 702,
+        "startChar": 11,
+        "endLine": 702,
+        "endChar": 37
+      },
+      "revId": "10d493562ce1301e01ad703c4fcddb255d2e6b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
