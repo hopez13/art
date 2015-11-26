@@ -266,6 +266,115 @@
     },
     {
       "key": {
+        "uuid": "5b77ab0e_0c299b79",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-26T11:23:27Z",
+      "side": 1,
+      "message": "appear",
+      "range": {
+        "startLine": 248,
+        "startChar": 23,
+        "endLine": 248,
+        "endChar": 30
+      },
+      "revId": "2fd20f9ab5aa53ba55424d69b1714e68a6003493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b7da3ef_8e865f82",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-26T11:23:27Z",
+      "side": 1,
+      "message": "no colon or no inverted commas",
+      "range": {
+        "startLine": 249,
+        "startChar": 72,
+        "endLine": 249,
+        "endChar": 73
+      },
+      "revId": "2fd20f9ab5aa53ba55424d69b1714e68a6003493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b80ef13_8abe4bef",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-26T11:23:27Z",
+      "side": 1,
+      "message": "with",
+      "range": {
+        "startLine": 249,
+        "startChar": 44,
+        "endLine": 249,
+        "endChar": 47
+      },
+      "revId": "2fd20f9ab5aa53ba55424d69b1714e68a6003493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b80ef13_aabb0ffe",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-26T11:23:27Z",
+      "side": 1,
+      "message": "shouldn\u0027t you also insert into the set somewhere?",
+      "revId": "2fd20f9ab5aa53ba55424d69b1714e68a6003493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b7da3ef_0ed8afa2",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-26T11:23:27Z",
+      "side": 1,
+      "message": "Jesus, is this 1985? Why don\u0027t you use C++ streams? What this whole loop does is:\n\n  while (std::getline(instream, line)) {\n    if (!ProcessLine(line)) {\n      success \u003d false;\n      break;\n    }\n  }\n  success \u0026\u003d instream.good();",
+      "range": {
+        "startLine": 263,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 19
+      },
+      "revId": "2fd20f9ab5aa53ba55424d69b1714e68a6003493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b80ef13_aa55cfd1",
         "filename": "runtime/jit/offline_profiling_info.h",
         "patchSetId": 2
