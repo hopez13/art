@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5bc96b78_bf835b71",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-27T16:26:32Z",
+      "side": 0,
+      "message": "Fails due to locking constraint. It\u0027s not really useful anyway so I removed it.",
+      "range": {
+        "startLine": 222,
+        "startChar": 2,
+        "endLine": 222,
+        "endChar": 30
+      },
+      "revId": "31f2c155975c5794d481df03eb0947cb48d2c6b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
