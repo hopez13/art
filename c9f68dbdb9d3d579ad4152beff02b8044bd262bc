@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9b7da3ef_d124768f",
+        "filename": "compiler/buffered_output_stream.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-27T18:36:50Z",
+      "side": 1,
+      "message": "It doesn\u0027t really matter. Do you want this passed by value?",
+      "parentUuid": "fb921f65_d152c4e6",
+      "range": {
+        "startLine": 23,
+        "startChar": 71,
+        "endLine": 23,
+        "endChar": 74
+      },
+      "revId": "c9f68dbdb9d3d579ad4152beff02b8044bd262bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bc4b760_fb21677c",
         "filename": "compiler/elf_writer.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-27T18:14:12Z",
       "side": 1,
       "message": "Do you plan to use this independently as well? (i.e. not in a flow like Start/StarRoData/.../End). Otherwise why bother make them distinct and public?. For the user of this class as single Write() method seems cleaner.",
+      "range": {
+        "startLine": 54,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 25
+      },
+      "revId": "c9f68dbdb9d3d579ad4152beff02b8044bd262bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b77ab0e_8fc01d00",
+        "filename": "compiler/elf_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-27T18:36:50Z",
+      "side": 1,
+      "message": "Yes, using them independently is the plan. Well, at least for the .rodata at the moment, but if I put the rest of it (.text, .bss, etc.) together it will look very inconsistent.\n\nAnd, if we were somehow running out of memory when writing the debug info, we could move the method_infos and patch_locations out of the OatWriter and destroy the OatWriter to reclaim some memory before calling WriteDebugInfo(), WritePatchLocations().",
+      "parentUuid": "3bc4b760_fb21677c",
       "range": {
         "startLine": 54,
         "startChar": 2,
