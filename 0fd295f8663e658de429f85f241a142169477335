@@ -46,6 +46,30 @@
       "revId": "0fd295f8663e658de429f85f241a142169477335",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bb2aff7_9d1063da",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-27T12:12:07Z",
+      "side": 1,
+      "message": "Yes, they have been used for some time in Quick and the backends for Optimizing have used them from day one.",
+      "parentUuid": "9baf638f_cc614f17",
+      "range": {
+        "startLine": 70,
+        "startChar": 6,
+        "endLine": 70,
+        "endChar": 55
+      },
+      "revId": "0fd295f8663e658de429f85f241a142169477335",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
