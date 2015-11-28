@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "bbb8a7d5_e25e1c52",
+        "filename": "compiler/Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-28T08:02:12Z",
+      "side": 1,
+      "message": "Nit: Would you mind not moving the file so we do not have merge conflicts on existing CLs? :-)  However, I agree the code belongs there.  I want to move it there at some point.  I would like to chop it to smaller pieces at the same time as well.  We can bikeshed about naming at some point.",
+      "range": {
+        "startLine": 61,
+        "startChar": 1,
+        "endLine": 61,
+        "endChar": 28
+      },
+      "revId": "c9f68dbdb9d3d579ad4152beff02b8044bd262bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb921f65_d152c4e6",
         "filename": "compiler/buffered_output_stream.cc",
         "patchSetId": 3
@@ -89,6 +112,52 @@
         "startChar": 2,
         "endLine": 63,
         "endChar": 25
+      },
+      "revId": "c9f68dbdb9d3d579ad4152beff02b8044bd262bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bb2aff7_c033d436",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-28T08:02:12Z",
+      "side": 1,
+      "message": "Is there a reason to put it to temp variable first?",
+      "range": {
+        "startLine": 96,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 14
+      },
+      "revId": "c9f68dbdb9d3d579ad4152beff02b8044bd262bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b7da3ef_3178725e",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-11-28T08:02:12Z",
+      "side": 1,
+      "message": "Is the parameter just for verification?",
+      "range": {
+        "startLine": 102,
+        "startChar": 41,
+        "endLine": 102,
+        "endChar": 61
       },
       "revId": "c9f68dbdb9d3d579ad4152beff02b8044bd262bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
