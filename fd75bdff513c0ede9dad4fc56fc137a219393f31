@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fbb05f0b_fd69baa1",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1056098
+      },
+      "writtenOn": "2015-11-29T06:46:06Z",
+      "side": 1,
+      "message": "This probably needs to be done for MIPS64 as well now that MIPS64 has the same implementation of short and long branches?",
+      "range": {
+        "startLine": 511,
+        "startChar": 0,
+        "endLine": 514,
+        "endChar": 3
+      },
+      "revId": "fd75bdff513c0ede9dad4fc56fc137a219393f31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
