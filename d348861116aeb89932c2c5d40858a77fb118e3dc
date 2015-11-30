@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b77ab0e_cff13500",
+        "filename": "compiler/optimizing/dex_cache_array_fixups_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-30T16:15:28Z",
+      "side": 1,
+      "message": "ditto (see x86)",
+      "range": {
+        "startLine": 69,
+        "startChar": 52,
+        "endLine": 69,
+        "endChar": 56
+      },
+      "revId": "d348861116aeb89932c2c5d40858a77fb118e3dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb921f65_94daea3e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-30T16:15:28Z",
+      "side": 1,
+      "message": "I don\u0027t see a reason why you would need to enforce this since you\u0027re only moving up the dominator chain.",
+      "range": {
+        "startLine": 1183,
+        "startChar": 0,
+        "endLine": 1183,
+        "endChar": 32
+      },
+      "revId": "d348861116aeb89932c2c5d40858a77fb118e3dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bc96b78_aa3317f0",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-30T16:15:28Z",
+      "side": 1,
+      "message": "I would DCHECK InputCount\u003d\u003d0 to make sure we\u0027re not breaking the def-use chain.",
+      "revId": "d348861116aeb89932c2c5d40858a77fb118e3dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bb2aff7_c09af4de",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1189,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-30T16:15:28Z",
+      "side": 1,
+      "message": "Implied by 1184, also DCHECKed inside uses_it.Current()",
+      "range": {
+        "startLine": 1189,
+        "startChar": 0,
+        "endLine": 1189,
+        "endChar": 26
+      },
+      "revId": "d348861116aeb89932c2c5d40858a77fb118e3dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bc96b78_ca3053e6",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1204,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-30T16:15:28Z",
+      "side": 1,
+      "message": "\"Move to the first dominator not in a loop.\"",
+      "range": {
+        "startLine": 1204,
+        "startChar": 5,
+        "endLine": 1204,
+        "endChar": 39
+      },
+      "revId": "d348861116aeb89932c2c5d40858a77fb118e3dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b77ab0e_af5f99be",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-30T16:15:28Z",
+      "side": 1,
+      "message": "Do you actually rely on that? Looks like your code will work no matter the order of uses. I think not relying on the order is a good thing, so wouldn\u0027t mention this at all. It \"only\" affects the speed of the algorithm.",
+      "range": {
+        "startLine": 1211,
+        "startChar": 5,
+        "endLine": 1212,
+        "endChar": 78
+      },
+      "revId": "d348861116aeb89932c2c5d40858a77fb118e3dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b7da3ef_3c220937",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1215,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-30T16:15:28Z",
+      "side": 1,
+      "message": "Make a variable for better readability?",
+      "range": {
+        "startLine": 1215,
+        "startChar": 8,
+        "endLine": 1215,
+        "endChar": 37
+      },
+      "revId": "d348861116aeb89932c2c5d40858a77fb118e3dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9baf638f_671dbca1",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1228,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-30T16:15:28Z",
+      "side": 1,
+      "message": "I\u0027d drop this and only leave the second part (are next to each other). You\u0027re not helping reg alloc in any case.",
+      "range": {
+        "startLine": 1228,
+        "startChar": 9,
+        "endLine": 1228,
+        "endChar": 33
+      },
+      "revId": "d348861116aeb89932c2c5d40858a77fb118e3dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbbdbfca_472efe82",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1239,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-30T16:15:28Z",
+      "side": 1,
+      "message": "GraphChecker does this for you.",
+      "range": {
+        "startLine": 1235,
+        "startChar": 1,
+        "endLine": 1239,
+        "endChar": 3
+      },
+      "revId": "d348861116aeb89932c2c5d40858a77fb118e3dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bc4b760_ded49915",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-30T16:15:28Z",
+      "side": 1,
+      "message": "Hmm, could we insert the instruction in the entry block by default and then move it closer to the users later? I understand that you\u0027re not hitting any problems with this, but some code might DCHECK that this instruction dominates all its users before the MoveBaseIfNeeded fix-up is performed.\n\nBy inserting at the top of the entry block, the graph would be correct all the time and even if MoveBaseIfNeeded was not called at all.",
+      "range": {
+        "startLine": 100,
+        "startChar": 53,
+        "endLine": 100,
+        "endChar": 57
+      },
+      "revId": "d348861116aeb89932c2c5d40858a77fb118e3dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
