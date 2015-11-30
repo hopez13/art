@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fb921f65_b44a86a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-30T17:40:45Z",
+      "side": 1,
+      "message": "LICM runs before these instructions are created and it takes loop invariants out of loops, it doesn\u0027t move stuff that\u0027s already out of loop closer to the loop.",
+      "parentUuid": "bbb8a7d5_42c7c892",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 55
+      },
+      "revId": "d348861116aeb89932c2c5d40858a77fb118e3dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b77ab0e_cff13500",
         "filename": "compiler/optimizing/dex_cache_array_fixups_arm.cc",
         "patchSetId": 3
