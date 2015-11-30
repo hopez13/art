@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b0923b2_a8a77bcc",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-30T16:43:00Z",
+      "side": 1,
+      "message": "Maybe just delete this now? Nobody has complained recently about the few kilobytes or so increase, so it feels justified to remove this (I\u0027d also think the false settings would give the lldb guys a lot more headaches).",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 51
+      },
+      "revId": "49c4aa7f3ca0eeba35a5a78130b9cb4a18de1136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bda4b65_6eb2af0f",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-11-30T16:43:00Z",
+      "side": 1,
+      "message": "Considering the function above, is this still required to be \"public\" in a header?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 2
+      },
+      "revId": "49c4aa7f3ca0eeba35a5a78130b9cb4a18de1136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
