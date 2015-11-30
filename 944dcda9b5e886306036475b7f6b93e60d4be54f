@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7bb2aff7_80163c25",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-30T14:31:54Z",
+      "side": 1,
+      "message": "Nit: no need to put the rest in an else branch.",
+      "range": {
+        "startLine": 308,
+        "startChar": 8,
+        "endLine": 308,
+        "endChar": 14
+      },
+      "revId": "944dcda9b5e886306036475b7f6b93e60d4be54f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbb8a7d5_6294ccb7",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-11-30T14:31:54Z",
+      "side": 1,
+      "message": "Hide this inside GetLineFromBuffer? I.e. have it return -1 or new_line_pos+1.",
+      "range": {
+        "startLine": 314,
+        "startChar": 8,
+        "endLine": 314,
+        "endChar": 28
+      },
+      "revId": "944dcda9b5e886306036475b7f6b93e60d4be54f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
