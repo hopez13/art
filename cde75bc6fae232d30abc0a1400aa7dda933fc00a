@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b488bfd_de22a5e7",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-30T21:39:23Z",
+      "side": 1,
+      "message": "I believe style in structs is no _ at the end.",
+      "range": {
+        "startLine": 349,
+        "startChar": 0,
+        "endLine": 354,
+        "endChar": 27
+      },
+      "revId": "cde75bc6fae232d30abc0a1400aa7dda933fc00a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db347b68_e287c6f9",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-30T21:39:23Z",
+      "side": 1,
+      "message": "nit: one per line",
+      "range": {
+        "startLine": 357,
+        "startChar": 31,
+        "endLine": 358,
+        "endChar": 82
+      },
+      "revId": "cde75bc6fae232d30abc0a1400aa7dda933fc00a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb4cdf15_fb276ff4",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-30T21:39:23Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 368,
+        "startChar": 31,
+        "endLine": 369,
+        "endChar": 89
+      },
+      "revId": "cde75bc6fae232d30abc0a1400aa7dda933fc00a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb37c76a_a143fe94",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-30T21:39:23Z",
+      "side": 1,
+      "message": "one per line",
+      "range": {
+        "startLine": 454,
+        "startChar": 26,
+        "endLine": 456,
+        "endChar": 84
+      },
+      "revId": "cde75bc6fae232d30abc0a1400aa7dda933fc00a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
