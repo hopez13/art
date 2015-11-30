@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3bc4b760_3e1aedbb",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-30T17:32:43Z",
+      "side": 1,
+      "message": "I cannot think of anything that wouldn\u0027t be obvious from the names.",
+      "parentUuid": "9baf638f_8797302a",
+      "range": {
+        "startLine": 376,
+        "startChar": 9,
+        "endLine": 376,
+        "endChar": 33
+      },
+      "revId": "97c9764361b45407d76e2510df8d59be4f58e510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bc4b760_bedc3d34",
         "filename": "compiler/optimizing/nodes_arm.h",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "7bb2aff7_20c1f0a6",
+        "filename": "compiler/optimizing/nodes_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-30T17:32:43Z",
+      "side": 1,
+      "message": "Removed. I don\u0027t know where this copy-pasted comment comes from and how it slipped in.",
+      "parentUuid": "3bc4b760_bedc3d34",
+      "range": {
+        "startLine": 24,
+        "startChar": 27,
+        "endLine": 24,
+        "endChar": 34
+      },
+      "revId": "97c9764361b45407d76e2510df8d59be4f58e510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b77ab0e_8fd57d3b",
         "filename": "compiler/optimizing/nodes_arm.h",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2015-11-30T16:40:18Z",
       "side": 1,
       "message": "document why you are taking the min",
+      "range": {
+        "startLine": 31,
+        "startChar": 27,
+        "endLine": 31,
+        "endChar": 30
+      },
+      "revId": "97c9764361b45407d76e2510df8d59be4f58e510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbbdbfca_e739caae",
+        "filename": "compiler/optimizing/nodes_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-30T17:32:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b77ab0e_8fd57d3b",
       "range": {
         "startLine": 31,
         "startChar": 27,
