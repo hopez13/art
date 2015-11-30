@@ -70,6 +70,63 @@
       "revId": "de3a38010568737b5585c02a22e9c3233acd58af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b0923b2_0b3b21c7",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-30T21:39:27Z",
+      "side": 1,
+      "message": "nit: out parameters should be commented such as:\n \n  /*out*/\u0026from_code\n\n.",
+      "range": {
+        "startLine": 689,
+        "startChar": 63,
+        "endLine": 689,
+        "endChar": 74
+      },
+      "revId": "de3a38010568737b5585c02a22e9c3233acd58af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bd59733_90273aa4",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-30T21:39:27Z",
+      "side": 1,
+      "message": "What happens if it\u0027s from_code ?",
+      "revId": "de3a38010568737b5585c02a22e9c3233acd58af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b0923b2_0b6681fc",
+        "filename": "runtime/interpreter/interpreter.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-11-30T21:39:27Z",
+      "side": 1,
+      "message": "What\u0027s the difference between explicitly and implicitly triggering it?",
+      "revId": "de3a38010568737b5585c02a22e9c3233acd58af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
