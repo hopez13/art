@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7bb2aff7_60e20857",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-30T16:59:38Z",
+      "side": 1,
+      "message": "DCHECK that this can happen only for Phis and BoundedTypes.\n\nAlso, I think we should go even further and make sure that any instruction with an invalid type has an invalid-typed *loop*-phi parent at the top of its def-chain.\n\nThis will narrow things down on what is allowed to be untyped after the fixed point.",
+      "range": {
+        "startLine": 130,
+        "startChar": 31,
+        "endLine": 130,
+        "endChar": 61
+      },
+      "revId": "66d6c273dd64089a7438dab27a8d2734261818b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bb2aff7_40c6e4bf",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-30T16:59:38Z",
+      "side": 1,
+      "message": "no need for this.",
+      "range": {
+        "startLine": 623,
+        "startChar": 4,
+        "endLine": 623,
+        "endChar": 22
+      },
+      "revId": "66d6c273dd64089a7438dab27a8d2734261818b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
