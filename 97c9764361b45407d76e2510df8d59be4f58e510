@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9baf638f_8797302a",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-30T16:40:18Z",
+      "side": 1,
+      "message": "Some extra docs on the fields would be nice.",
+      "range": {
+        "startLine": 376,
+        "startChar": 9,
+        "endLine": 376,
+        "endChar": 33
+      },
+      "revId": "97c9764361b45407d76e2510df8d59be4f58e510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bc4b760_bedc3d34",
+        "filename": "compiler/optimizing/nodes_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-30T16:40:18Z",
+      "side": 1,
+      "message": "which value are you talking about here (I see no int32_t)? Maybe element_offset_?\n\nMention explicitly.",
+      "range": {
+        "startLine": 24,
+        "startChar": 27,
+        "endLine": 24,
+        "endChar": 34
+      },
+      "revId": "97c9764361b45407d76e2510df8d59be4f58e510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b77ab0e_8fd57d3b",
+        "filename": "compiler/optimizing/nodes_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-30T16:40:18Z",
+      "side": 1,
+      "message": "document why you are taking the min",
+      "range": {
+        "startLine": 31,
+        "startChar": 27,
+        "endLine": 31,
+        "endChar": 30
+      },
+      "revId": "97c9764361b45407d76e2510df8d59be4f58e510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
