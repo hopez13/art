@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb4cdf15_1b31fb2e",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2594,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-30T23:21:24Z",
+      "side": 0,
+      "message": "Should you update callers of this method that would only need 16bits, or are there no such callers?",
+      "range": {
+        "startLine": 2592,
+        "startChar": 0,
+        "endLine": 2594,
+        "endChar": 21
+      },
+      "revId": "883ef45b5d5a2e4005914c7b339881900976b6e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

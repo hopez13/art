@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1b5293ad_7c62791c",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-30T23:21:24Z",
+      "side": 1,
+      "message": "Don\u0027t we have a constant pool for this?",
+      "range": {
+        "startLine": 376,
+        "startChar": 69,
+        "endLine": 377,
+        "endChar": 35
+      },
+      "revId": "2c1300d4383c4e0fe057928fe43eb5bd6e67bdec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b0c6fc0_27ea9ac9",
         "filename": "compiler/optimizing/code_generator_arm.h",
         "patchSetId": 4
@@ -18,6 +41,75 @@
         "startChar": 2,
         "endLine": 380,
         "endChar": 76
+      },
+      "revId": "2c1300d4383c4e0fe057928fe43eb5bd6e67bdec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb4cdf15_bb21e7e1",
+        "filename": "compiler/optimizing/dex_cache_array_fixups_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-30T23:21:24Z",
+      "side": 1,
+      "message": "dex cache arrrays?",
+      "range": {
+        "startLine": 26,
+        "startChar": 32,
+        "endLine": 26,
+        "endChar": 49
+      },
+      "revId": "2c1300d4383c4e0fe057928fe43eb5bd6e67bdec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb4cdf15_5b378325",
+        "filename": "compiler/optimizing/dex_cache_array_fixups_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-30T23:21:24Z",
+      "side": 1,
+      "message": "GetOrCreate?",
+      "range": {
+        "startLine": 53,
+        "startChar": 26,
+        "endLine": 53,
+        "endChar": 36
+      },
+      "revId": "2c1300d4383c4e0fe057928fe43eb5bd6e67bdec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbf77fdf_a391da38",
+        "filename": "compiler/optimizing/nodes_arm.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-11-30T23:21:24Z",
+      "side": 1,
+      "message": "const DexFile\u0026?",
+      "range": {
+        "startLine": 24,
+        "startChar": 34,
+        "endLine": 24,
+        "endChar": 48
       },
       "revId": "2c1300d4383c4e0fe057928fe43eb5bd6e67bdec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
