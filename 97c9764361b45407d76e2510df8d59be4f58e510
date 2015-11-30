@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "bb37c76a_e19d867c",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-30T18:07:13Z",
+      "side": 1,
+      "message": "I was thinking more along the lines:\n- why do you need the 3 labels?\n- why is there a movw and a movt? \n- When is each one used?\n\nThis is a good place to document how the entire low level dispatch is actually done.",
+      "parentUuid": "3bc4b760_3e1aedbb",
+      "range": {
+        "startLine": 376,
+        "startChar": 9,
+        "endLine": 376,
+        "endChar": 33
+      },
+      "revId": "97c9764361b45407d76e2510df8d59be4f58e510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bc4b760_bedc3d34",
         "filename": "compiler/optimizing/nodes_arm.h",
         "patchSetId": 2
