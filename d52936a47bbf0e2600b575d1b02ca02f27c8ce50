@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b7da3ef_5ccc1db4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-30T16:23:15Z",
+      "side": 1,
+      "message": "Style: One line main commit message, followed by a blank line and then the details.\n\nWhy not split this to two changes, arm64 and arm?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 71
+      },
+      "revId": "d52936a47bbf0e2600b575d1b02ca02f27c8ce50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b80ef13_70b3c6c2",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-30T16:23:15Z",
+      "side": 1,
+      "message": "#ifdef ART_ENABLE_CODEGEN_arm",
+      "range": {
+        "startLine": 425,
+        "startChar": 0,
+        "endLine": 427,
+        "endChar": 3
+      },
+      "revId": "d52936a47bbf0e2600b575d1b02ca02f27c8ce50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9baf638f_c77848d5",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-30T16:23:15Z",
+      "side": 1,
+      "message": "#ifdef ART_ENABLE_CODEGEN_arm\n\nWe\u0027re going to have a conflict: https://android-review.googlesource.com/184116 .",
+      "range": {
+        "startLine": 439,
+        "startChar": 0,
+        "endLine": 448,
+        "endChar": 5
+      },
+      "revId": "d52936a47bbf0e2600b575d1b02ca02f27c8ce50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
