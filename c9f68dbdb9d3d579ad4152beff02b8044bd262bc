@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fb921f65_d143a4ef",
+        "filename": "compiler/Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-30T10:24:30Z",
+      "side": 1,
+      "message": "Done. Note that I also want to eventually move the other elf_writer* files (and oat_writer*, image_writer*) to linker/ .",
+      "parentUuid": "bbb8a7d5_e25e1c52",
+      "range": {
+        "startLine": 61,
+        "startChar": 1,
+        "endLine": 61,
+        "endChar": 28
+      },
+      "revId": "c9f68dbdb9d3d579ad4152beff02b8044bd262bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb921f65_d152c4e6",
         "filename": "compiler/buffered_output_stream.cc",
         "patchSetId": 3
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "It doesn\u0027t really matter. Do you want this passed by value?",
       "parentUuid": "fb921f65_d152c4e6",
+      "range": {
+        "startLine": 23,
+        "startChar": 71,
+        "endLine": 23,
+        "endChar": 74
+      },
+      "revId": "c9f68dbdb9d3d579ad4152beff02b8044bd262bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbb8a7d5_82cc803c",
+        "filename": "compiler/buffered_output_stream.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-30T10:24:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b7da3ef_d124768f",
       "range": {
         "startLine": 23,
         "startChar": 71,
@@ -142,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "5bc96b78_8afbbba0",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-30T10:24:30Z",
+      "side": 1,
+      "message": "Is there a reason not to? (It\u0027s used twice.)",
+      "parentUuid": "7bb2aff7_c033d436",
+      "range": {
+        "startLine": 96,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 14
+      },
+      "revId": "c9f68dbdb9d3d579ad4152beff02b8044bd262bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b7da3ef_3178725e",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 3
@@ -153,6 +225,30 @@
       "writtenOn": "2015-11-28T08:02:12Z",
       "side": 1,
       "message": "Is the parameter just for verification?",
+      "range": {
+        "startLine": 102,
+        "startChar": 41,
+        "endLine": 102,
+        "endChar": 61
+      },
+      "revId": "c9f68dbdb9d3d579ad4152beff02b8044bd262bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b7da3ef_fc8cf1e8",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-30T10:24:30Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "9b7da3ef_3178725e",
       "range": {
         "startLine": 102,
         "startChar": 41,
