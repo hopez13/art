@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5b77ab0e_8f39fd81",
+        "filename": "compiler/dwarf/method_debug_info.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-30T15:44:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bc96b78_6af9ff70",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 38
+      },
+      "revId": "c10b266f0d6a3feec3b6def2beeaf47478b4d18b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b77ab0e_4fbb8532",
         "filename": "compiler/elf_writer_quick.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-30T14:38:53Z",
       "side": 1,
       "message": "Could we use DCHECK_EQ here?",
+      "range": {
+        "startLine": 116,
+        "startChar": 2,
+        "endLine": 116,
+        "endChar": 7
+      },
+      "revId": "c10b266f0d6a3feec3b6def2beeaf47478b4d18b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b80ef13_3004ee2d",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-30T15:44:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b77ab0e_4fbb8532",
       "range": {
         "startLine": 116,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "bbb8a7d5_422b4829",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-30T15:44:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bc96b78_8afe5b58",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 33
+      },
+      "revId": "c10b266f0d6a3feec3b6def2beeaf47478b4d18b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bc4b760_db8d8b55",
         "filename": "compiler/vector_output_stream.h",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2015-11-30T14:38:53Z",
       "side": 1,
       "message": "cstring",
+      "range": {
+        "startLine": 23,
+        "startChar": 10,
+        "endLine": 23,
+        "endChar": 18
+      },
+      "revId": "c10b266f0d6a3feec3b6def2beeaf47478b4d18b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9baf638f_07e7a001",
+        "filename": "compiler/vector_output_stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-11-30T15:44:43Z",
+      "side": 1,
+      "message": "No, we\u0027re using the \u003c*.h\u003e.\nI think these headers have been un-deprecated in C++11 and I don\u0027t think we\u0027ve made a choice to switch from memcpy() to std::memcpy().",
+      "parentUuid": "3bc4b760_db8d8b55",
       "range": {
         "startLine": 23,
         "startChar": 10,
