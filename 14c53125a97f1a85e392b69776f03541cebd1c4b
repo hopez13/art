@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b032b91_26ea96c9",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1965,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-30T18:46:57Z",
+      "side": 1,
+      "message": "does MoveAfterCommonDominatorOfUsers makes sense?\\\nor\nMoveAfterFirstDominatorOutOfLoops?\n\n\"BeforeFirstUser\" made me think that this instruction can be after its users, which should not be possible.",
+      "range": {
+        "startLine": 1965,
+        "startChar": 7,
+        "endLine": 1965,
+        "endChar": 39
+      },
+      "revId": "14c53125a97f1a85e392b69776f03541cebd1c4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db347b68_021aeabb",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-11-30T18:46:57Z",
+      "side": 1,
+      "message": "Could you add your CL comment here as well?\n\"This brings the base closer to the first\nuse (previously, it was in the entry block) and relieves\nsome pressure on the register allocator while avoiding\nrecalculation of the base in a loop.\"\n\nDitto for arm.",
+      "range": {
+        "startLine": 140,
+        "startChar": 2,
+        "endLine": 140,
+        "endChar": 29
+      },
+      "revId": "14c53125a97f1a85e392b69776f03541cebd1c4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
