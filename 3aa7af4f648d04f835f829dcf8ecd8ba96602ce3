@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b0c6fc0_273e1ab7",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-01T12:23:20Z",
+      "side": 1,
+      "message": "Nit: the",
+      "range": {
+        "startLine": 185,
+        "startChar": 6,
+        "endLine": 185,
+        "endChar": 7
+      },
+      "revId": "3aa7af4f648d04f835f829dcf8ecd8ba96602ce3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbf77fdf_e37112c6",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-01T12:23:20Z",
+      "side": 1,
+      "message": "Urgh, annoying... How much work is it to test the \"users\"? How many are there in the first place? Can you not just inspect them manually and make the change? Otherwise I suggest switching to Python...",
+      "range": {
+        "startLine": 185,
+        "startChar": 18,
+        "endLine": 185,
+        "endChar": 97
+      },
+      "revId": "3aa7af4f648d04f835f829dcf8ecd8ba96602ce3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb4cdf15_3bb87790",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-01T12:23:20Z",
+      "side": 1,
+      "message": "Um, I think you have to insert a return into each branch. Otherwise you return 0 instead of -1.",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 283,
+        "endChar": 26
+      },
+      "revId": "3aa7af4f648d04f835f829dcf8ecd8ba96602ce3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
