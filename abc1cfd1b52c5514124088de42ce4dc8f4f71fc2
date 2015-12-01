@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bb37c76a_81103a69",
+        "filename": "compiler/optimizing/dex_cache_array_fixups_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-01T11:28:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b0c6fc0_a7f8ca6e",
+      "revId": "abc1cfd1b52c5514124088de42ce4dc8f4f71fc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb4cdf15_fb752fd8",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 7
@@ -82,6 +100,54 @@
     },
     {
       "key": {
+        "uuid": "9b3e8348_00b0a61e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1219,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-01T11:28:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b032b91_268616fa",
+      "range": {
+        "startLine": 1219,
+        "startChar": 25,
+        "endLine": 1219,
+        "endChar": 35
+      },
+      "revId": "abc1cfd1b52c5514124088de42ce4dc8f4f71fc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b488bfd_fe5f6121",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1219,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-01T11:28:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b43d7e3_3d2e2fcc",
+      "range": {
+        "startLine": 1219,
+        "startChar": 10,
+        "endLine": 1219,
+        "endChar": 21
+      },
+      "revId": "abc1cfd1b52c5514124088de42ce4dc8f4f71fc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b5293ad_fca8c94e",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 7
@@ -93,6 +159,30 @@
       "writtenOn": "2015-12-01T09:11:05Z",
       "side": 1,
       "message": "This is guaranteed by GraphChecker. So is IsControlFlow, actually, but makes sense to keep that here.",
+      "range": {
+        "startLine": 1221,
+        "startChar": 0,
+        "endLine": 1221,
+        "endChar": 34
+      },
+      "revId": "abc1cfd1b52c5514124088de42ce4dc8f4f71fc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbf77fdf_030aee33",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1221,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-01T11:28:30Z",
+      "side": 1,
+      "message": "Removed this one, kept the IsControlFlow().",
+      "parentUuid": "1b5293ad_fca8c94e",
       "range": {
         "startLine": 1221,
         "startChar": 0,
@@ -128,6 +218,30 @@
     },
     {
       "key": {
+        "uuid": "fbf77fdf_6313e276",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1959,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-01T11:28:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db347b68_420a3235",
+      "range": {
+        "startLine": 1959,
+        "startChar": 24,
+        "endLine": 1959,
+        "endChar": 27
+      },
+      "revId": "abc1cfd1b52c5514124088de42ce4dc8f4f71fc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db347b68_a2ad3e5d",
         "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
         "patchSetId": 7
@@ -139,6 +253,24 @@
       "writtenOn": "2015-12-01T09:11:05Z",
       "side": 1,
       "message": "ditto (see arm)",
+      "revId": "abc1cfd1b52c5514124088de42ce4dc8f4f71fc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b032b91_6613ee76",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-01T11:28:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db347b68_a2ad3e5d",
       "revId": "abc1cfd1b52c5514124088de42ce4dc8f4f71fc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
