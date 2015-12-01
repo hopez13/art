@@ -1,0 +1,147 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b0c6fc0_a7f8ca6e",
+        "filename": "compiler/optimizing/dex_cache_array_fixups_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-01T09:11:05Z",
+      "side": 1,
+      "message": "Nit: Add a comment that you\u0027re inserting at the top of the entry block but will move it later.",
+      "revId": "abc1cfd1b52c5514124088de42ce4dc8f4f71fc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb4cdf15_fb752fd8",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-01T09:11:05Z",
+      "side": 1,
+      "message": "Nit: For helper functions like these we typically add comments on which assumptions are inherently needed (like no side effects, cannot throw) and which are there simply because the support has not been implemented yet (no env uses, zero inputs). You could split the DCHECKs into two groups like that to make it a bit clearer why they are there.",
+      "revId": "abc1cfd1b52c5514124088de42ce4dc8f4f71fc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b43d7e3_3d2e2fcc",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1219,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-01T09:11:05Z",
+      "side": 1,
+      "message": "users",
+      "range": {
+        "startLine": 1219,
+        "startChar": 10,
+        "endLine": 1219,
+        "endChar": 21
+      },
+      "revId": "abc1cfd1b52c5514124088de42ce4dc8f4f71fc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b032b91_268616fa",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1219,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-01T09:11:05Z",
+      "side": 1,
+      "message": "`target_block`",
+      "range": {
+        "startLine": 1219,
+        "startChar": 25,
+        "endLine": 1219,
+        "endChar": 35
+      },
+      "revId": "abc1cfd1b52c5514124088de42ce4dc8f4f71fc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b5293ad_fca8c94e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1221,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-01T09:11:05Z",
+      "side": 1,
+      "message": "This is guaranteed by GraphChecker. So is IsControlFlow, actually, but makes sense to keep that here.",
+      "range": {
+        "startLine": 1221,
+        "startChar": 0,
+        "endLine": 1221,
+        "endChar": 34
+      },
+      "revId": "abc1cfd1b52c5514124088de42ce4dc8f4f71fc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db347b68_420a3235",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1959,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-01T09:11:05Z",
+      "side": 1,
+      "message": "its",
+      "range": {
+        "startLine": 1959,
+        "startChar": 24,
+        "endLine": 1959,
+        "endChar": 27
+      },
+      "revId": "abc1cfd1b52c5514124088de42ce4dc8f4f71fc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db347b68_a2ad3e5d",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-01T09:11:05Z",
+      "side": 1,
+      "message": "ditto (see arm)",
+      "revId": "abc1cfd1b52c5514124088de42ce4dc8f4f71fc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
