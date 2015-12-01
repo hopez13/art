@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b43d7e3_bdfc7f29",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2150,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-01T15:29:12Z",
+      "side": 1,
+      "message": "Not a bug but please consider using something else than a colon as a separator.\n\nChecker does not interpret it in any special way, but nonetheless it would be nice to keep the format as a list of \"attr:value\" pairs. This will print \"method_load_kind:unknown:1234\".",
+      "range": {
+        "startLine": 2150,
+        "startChar": 20,
+        "endLine": 2150,
+        "endChar": 28
+      },
+      "revId": "6f0ebed759d106098094988376563ae282121b85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b43d7e3_7dffd71b",
+        "filename": "test/552-checker-sharpening/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-01T15:29:12Z",
+      "side": 1,
+      "message": "I\u0027d suggest splitting this into two passes:\n\n1) test that there is just one base (CHECK, CHECK-NOT)\n2) test that the base is just before the If (CHECK base, CHECK-NEXT If)",
+      "revId": "6f0ebed759d106098094988376563ae282121b85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b0c6fc0_27a85af7",
+        "filename": "test/552-checker-sharpening/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-01T15:29:12Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "6f0ebed759d106098094988376563ae282121b85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b3e8348_2358547d",
+        "filename": "test/552-checker-sharpening/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-01T15:29:12Z",
+      "side": 1,
+      "message": "Any chance we could get a test with a loop too?",
+      "revId": "6f0ebed759d106098094988376563ae282121b85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
