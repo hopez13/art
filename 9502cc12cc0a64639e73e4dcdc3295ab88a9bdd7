@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "fbf77fdf_e33b52ab",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-01T14:59:53Z",
+      "side": 1,
+      "message": "I expect to be faster because there should be far fewer classes then methods (and std::map is a red-black tree).\n\nYea, that\u0027s precisely the question i\u0027m interested. (it\u0027s not in this CL cause it requires some compiler driver tweaking since we still want to generate the quick jni stubs).\n\nI could have two maps but that seemed unnecessary.\n\nDo you have strong feeling about it?",
+      "parentUuid": "5b488bfd_7eb27156",
+      "range": {
+        "startLine": 346,
+        "startChar": 3,
+        "endLine": 353,
+        "endChar": 17
+      },
+      "revId": "9502cc12cc0a64639e73e4dcdc3295ab88a9bdd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb37c76a_616f36d3",
         "filename": "runtime/jit/offline_profiling_info.h",
         "patchSetId": 9
