@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "db347b68_a50ea87a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2150,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-01T16:21:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b43d7e3_bdfc7f29",
+      "range": {
+        "startLine": 2150,
+        "startChar": 20,
+        "endLine": 2150,
+        "endChar": 28
+      },
+      "revId": "6f0ebed759d106098094988376563ae282121b85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b43d7e3_7dffd71b",
         "filename": "test/552-checker-sharpening/src/Main.java",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2015-12-01T15:29:12Z",
       "side": 1,
       "message": "I\u0027d suggest splitting this into two passes:\n\n1) test that there is just one base (CHECK, CHECK-NOT)\n2) test that the base is just before the If (CHECK base, CHECK-NEXT If)",
+      "revId": "6f0ebed759d106098094988376563ae282121b85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b5293ad_fcdc4998",
+        "filename": "test/552-checker-sharpening/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-01T16:21:56Z",
+      "side": 1,
+      "message": "Done. I didn\u0027t even know there\u0027s a \"CHECK-NEXT\".",
+      "parentUuid": "3b43d7e3_7dffd71b",
       "revId": "6f0ebed759d106098094988376563ae282121b85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "7b0c6fc0_a76c4aa0",
+        "filename": "test/552-checker-sharpening/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-01T16:21:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b0c6fc0_27a85af7",
+      "revId": "6f0ebed759d106098094988376563ae282121b85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b3e8348_2358547d",
         "filename": "test/552-checker-sharpening/src/Main.java",
         "patchSetId": 1
@@ -70,6 +130,24 @@
       "writtenOn": "2015-12-01T15:29:12Z",
       "side": 1,
       "message": "Any chance we could get a test with a loop too?",
+      "revId": "6f0ebed759d106098094988376563ae282121b85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db347b68_654e60bc",
+        "filename": "test/552-checker-sharpening/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-01T16:21:56Z",
+      "side": 1,
+      "message": "Looks a bit difficult. Do we want to rely on specific instruction ordering, such as\n\n    CHECK:      ArrayLength\n    CHECK-NEXT: X86ComputeBaseMethodAddress\n    CHECK-NEXT: Goto\n\nas a pre-header for a range-based loop?",
+      "parentUuid": "9b3e8348_2358547d",
       "revId": "6f0ebed759d106098094988376563ae282121b85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
