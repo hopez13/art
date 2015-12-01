@@ -1,0 +1,465 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9bf043de_b9ad835d",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "Why not just add \"| kDefaultMethods\" here for a smaller diff?\n\nAt any rate, having to scan is the rare case so it should be near the bottom.",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bf043de_39a2b36a",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "Probably could be more detailed to avoid having to read code\n\n  // Quick compiler won\u0027t support new instruction semantics to invoke-super into an interface method",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1be45325_f5142a92",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "dalvik",
+      "range": {
+        "startLine": 607,
+        "startChar": 41,
+        "endLine": 607,
+        "endChar": 42
+      },
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbde9f59_340cf616",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "It won\u0027t work for an array class either as far as I know",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b0923b2_ce8e37a5",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "Isn\u0027t this part of the debugger CL?",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbe987fc_f7f3180c",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "Isn\u0027t this part of the CL that reverses ordering?",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db0f1bb0_3ed5010f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 5251,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "How is this supposed to work? I thought GetVirtualMethodUnchecked looks at the direct methods, so why would this be false?\n\nIs this CL changing an invariant?",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bf38fea_35d63874",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 5312,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "See 5251",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db0f1bb0_7ee019eb",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 6562,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "?",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bd59733_1350f4dc",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "nit: document parameter name",
+      "range": {
+        "startLine": 88,
+        "startChar": 52,
+        "endLine": 88,
+        "endChar": 59
+      },
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bf043de_399073fe",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "nit: document parameter name",
+      "range": {
+        "startLine": 90,
+        "startChar": 65,
+        "endLine": 90,
+        "endChar": 69
+      },
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bf043de_f95aeb33",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "Perhaps this useful comment should go into the header file?",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b1763d8_7ee7c9d2",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "nit: Regular class (not an interface)",
+      "range": {
+        "startLine": 461,
+        "startChar": 11,
+        "endLine": 461,
+        "endChar": 34
+      },
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1be45325_b51c62a6",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "// Interface class",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbe987fc_576ae432",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "Could use a comment, I think this is saying that the invoke-super target method must be on a class that\u0027s a supertype of this one.\n\nAlso the class version of invoke-super did not allow invoke-super to degrade into invoke-virtual, does this follow the same behavior?",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bf043de_393e33b7",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "What about throwing NoSuchMethodError ?",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b1763d8_5e13e575",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "nit: indentation\n\n  return ..........foo(resolved_method,\n                       sizeof(void*));",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b0923b2_4e37e78c",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "nit: other logs don\u0027t have a space",
+      "range": {
+        "startLine": 535,
+        "startChar": 18,
+        "endLine": 535,
+        "endChar": 19
+      },
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bd59733_d3c5ccb2",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "nit: indentation\n\n   void ............foo(ArtMethod* method,\n                        size_t pointer_size) {",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb1267d6_32bc16dd",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "Should there be some kind of DCHECK that the class and the method class are related somehow through a type hierarchy?",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbde9f59_34819669",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "Not really sure what the input/output is supposed to be here?\n\nI do realize that the implementation just matches by name/signature but the documentation makes it unclear what the desirable semantics are.",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b0923b2_ee1c5bf9",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 3704,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "Why?",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bd59733_335d30c6",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 3926,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem right, optimizing should deopt instead.\n\nI thought it was already deopting for invoke-super, so what\u0027s the problem?",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7bf38fea_75e84012",
+        "filename": "runtime/verifier/method_verifier.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 626,
+        "startChar": 86,
+        "endLine": 626,
+        "endChar": 99
+      },
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bd59733_73e85812",
+        "filename": "test/969-iface-super/smali/classes.xml",
+        "patchSetId": 19
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T01:08:15Z",
+      "side": 1,
+      "message": "Why not \u003cmethods /\u003e\n?",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
