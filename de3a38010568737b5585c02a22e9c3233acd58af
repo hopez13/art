@@ -211,6 +211,24 @@
       "revId": "de3a38010568737b5585c02a22e9c3233acd58af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1be45325_c06ccea1",
+        "filename": "runtime/interpreter/interpreter.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-01T18:08:31Z",
+      "side": 1,
+      "message": "Explicit/implicit sounds fine, is this explanation documented anywhere?",
+      "parentUuid": "db347b68_c2a962b8",
+      "revId": "de3a38010568737b5585c02a22e9c3233acd58af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
