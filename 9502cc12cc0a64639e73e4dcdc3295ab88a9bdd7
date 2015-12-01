@@ -215,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "db0f1bb0_f93f83b6",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-01T16:49:08Z",
+      "side": 1,
+      "message": "It would be interesting to have data. :-) I could throw in bitsets here, in case there actually is a non-trivial amount of hot methods...",
+      "parentUuid": "1b5293ad_3ca5d11f",
+      "range": {
+        "startLine": 346,
+        "startChar": 3,
+        "endLine": 353,
+        "endChar": 17
+      },
+      "revId": "9502cc12cc0a64639e73e4dcdc3295ab88a9bdd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb37c76a_616f36d3",
         "filename": "runtime/jit/offline_profiling_info.h",
         "patchSetId": 9
