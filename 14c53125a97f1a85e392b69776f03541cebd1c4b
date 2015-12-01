@@ -45,6 +45,30 @@
       "revId": "14c53125a97f1a85e392b69776f03541cebd1c4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b488bfd_5e6f75d2",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-01T11:28:30Z",
+      "side": 1,
+      "message": "Done in MoveBaseIfNeeded().",
+      "parentUuid": "db347b68_021aeabb",
+      "range": {
+        "startLine": 140,
+        "startChar": 2,
+        "endLine": 140,
+        "endChar": 29
+      },
+      "revId": "14c53125a97f1a85e392b69776f03541cebd1c4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
