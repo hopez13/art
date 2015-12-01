@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "3b43d7e3_9df74347",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-01T15:19:40Z",
+      "side": 1,
+      "message": "No, I\u0027m saying that there\u0027s a trade-off and in this case I don\u0027t think it\u0027s worth it. One thing to remember is that we must not deduplicate the constant here. (And we would need to reimplement the Thumb2 relative patcher and Quick\u0027s PC-relative base load, so I\u0027d rather wait at least until we really ditch Quick.)\n\nIn general, I\u0027d like to use the constant pool for long/double literals and probably also float to avoid going through core registers but I\u0027m not extra keen on putting arbitrary ints there. That would need to be measured.",
+      "parentUuid": "1b5293ad_bc9801ea",
+      "range": {
+        "startLine": 376,
+        "startChar": 69,
+        "endLine": 377,
+        "endChar": 35
+      },
+      "revId": "2c1300d4383c4e0fe057928fe43eb5bd6e67bdec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b0c6fc0_27ea9ac9",
         "filename": "compiler/optimizing/code_generator_arm.h",
         "patchSetId": 4
