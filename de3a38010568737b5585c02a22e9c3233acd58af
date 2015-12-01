@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "7b0c6fc0_472d8e67",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-01T14:43:52Z",
+      "side": 1,
+      "message": "Done, and I also now check if it\u0027s already there, to avoid doing the write barrier in the SetResolvedType method.",
+      "parentUuid": "9b7da3ef_0ecd0f3a",
+      "range": {
+        "startLine": 188,
+        "startChar": 4,
+        "endLine": 190,
+        "endChar": 69
+      },
+      "revId": "de3a38010568737b5585c02a22e9c3233acd58af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b0923b2_0b3b21c7",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 7
@@ -84,6 +108,30 @@
       "writtenOn": "2015-11-30T21:39:27Z",
       "side": 1,
       "message": "nit: out parameters should be commented such as:\n \n  /*out*/\u0026from_code\n\n.",
+      "range": {
+        "startLine": 689,
+        "startChar": 63,
+        "endLine": 689,
+        "endChar": 74
+      },
+      "revId": "de3a38010568737b5585c02a22e9c3233acd58af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b032b91_2625f688",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-01T14:43:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b0923b2_0b3b21c7",
       "range": {
         "startLine": 689,
         "startChar": 63,
@@ -113,6 +161,24 @@
     },
     {
       "key": {
+        "uuid": "7b0c6fc0_673092c5",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-01T14:43:52Z",
+      "side": 1,
+      "message": "Nothing, it deopts at the point the deopt is requested. Added a comment.",
+      "parentUuid": "3bd59733_90273aa4",
+      "revId": "de3a38010568737b5585c02a22e9c3233acd58af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b0923b2_0b6681fc",
         "filename": "runtime/interpreter/interpreter.h",
         "patchSetId": 7
@@ -124,6 +190,24 @@
       "writtenOn": "2015-11-30T21:39:27Z",
       "side": 1,
       "message": "What\u0027s the difference between explicitly and implicitly triggering it?",
+      "revId": "de3a38010568737b5585c02a22e9c3233acd58af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db347b68_c2a962b8",
+        "filename": "runtime/interpreter/interpreter.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-01T14:43:52Z",
+      "side": 1,
+      "message": "explicit \u003d there is a call in the compile code to explicitly deoptimize the current frame.\n\nnon-explicit \u003d debugger requested a deopt.\n\nWe could also name them synchronous/asynchronous, but it hasn\u0027t much to do with synchronization.\n\nYou can also compare it to runtime exceptions with checked/unchecked exceptions.",
+      "parentUuid": "9b0923b2_0b6681fc",
       "revId": "de3a38010568737b5585c02a22e9c3233acd58af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
