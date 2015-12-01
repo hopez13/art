@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db0f1bb0_992767a4",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-01T17:18:54Z",
+      "side": 1,
+      "message": "I\u0027d put a TODO here. You may still want to inline, if the expected outcome is actually smaller because of call setup.",
+      "range": {
+        "startLine": 269,
+        "startChar": 6,
+        "endLine": 273,
+        "endChar": 19
+      },
+      "revId": "524bb6fb32dccf5373e77fa83869722fcdeef45d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bd59733_7634c6d8",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-01T17:18:54Z",
+      "side": 1,
+      "message": "You\u0027re calling this a lot, consider a named variable?",
+      "range": {
+        "startLine": 298,
+        "startChar": 25,
+        "endLine": 298,
+        "endChar": 43
+      },
+      "revId": "524bb6fb32dccf5373e77fa83869722fcdeef45d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b0923b2_11d34e84",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-01T17:18:54Z",
+      "side": 1,
+      "message": "Why cursor?",
+      "range": {
+        "startLine": 308,
+        "startChar": 17,
+        "endLine": 308,
+        "endChar": 24
+      },
+      "revId": "524bb6fb32dccf5373e77fa83869722fcdeef45d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db0f1bb0_99fc072a",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-01T17:18:54Z",
+      "side": 1,
+      "message": "Add comments here or in the cc file for the structure/sequence of instructions this will generate.",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 72,
+        "endChar": 42
+      },
+      "revId": "524bb6fb32dccf5373e77fa83869722fcdeef45d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb1267d6_d22a5a25",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-01T17:18:54Z",
+      "side": 1,
+      "message": "Extend the comment to note why this doesn\u0027t need a lock.\n\n(Proper way would probably be to make the code cache lock global, so that it can be explicitly referenced here...)",
+      "range": {
+        "startLine": 140,
+        "startChar": 2,
+        "endLine": 140,
+        "endChar": 55
+      },
+      "revId": "524bb6fb32dccf5373e77fa83869722fcdeef45d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
