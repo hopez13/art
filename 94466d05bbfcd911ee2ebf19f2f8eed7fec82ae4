@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1be45325_b5f582b0",
+        "filename": "test/966-default-conflict/build",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-01T00:35:59Z",
+      "side": 1,
+      "message": "Then what? We need to do custom build stuff to get the java source.",
+      "parentUuid": "7bf38fea_353ab8a3",
+      "revId": "94466d05bbfcd911ee2ebf19f2f8eed7fec82ae4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbde9f59_b4222694",
         "filename": "test/968-default-partial-compile-generated/util-src/jack-finish.sh",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2015-12-01T00:30:39Z",
       "side": 1,
       "message": "Our existing generalized run-test has support for partial compilation, can you just teach it how to do it with jack?",
+      "revId": "94466d05bbfcd911ee2ebf19f2f8eed7fec82ae4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbe987fc_b72fd033",
+        "filename": "test/968-default-partial-compile-generated/util-src/jack-finish.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-01T00:35:59Z",
+      "side": 1,
+      "message": "Jack isn\u0027t the problem. I do things this way to avoid having to teach run-test how to partial-compile an arbitrary number of times which is annoying in bash while keeping compatibility.",
+      "parentUuid": "fbde9f59_b4222694",
       "revId": "94466d05bbfcd911ee2ebf19f2f8eed7fec82ae4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
