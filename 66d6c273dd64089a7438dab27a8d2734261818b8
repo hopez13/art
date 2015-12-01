@@ -45,6 +45,30 @@
       "revId": "66d6c273dd64089a7438dab27a8d2734261818b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b488bfd_befd595e",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-01T13:40:43Z",
+      "side": 1,
+      "message": "It is needed. VisitPhi is not declared locked.",
+      "parentUuid": "7bb2aff7_40c6e4bf",
+      "range": {
+        "startLine": 623,
+        "startChar": 4,
+        "endLine": 623,
+        "endChar": 22
+      },
+      "revId": "66d6c273dd64089a7438dab27a8d2734261818b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
