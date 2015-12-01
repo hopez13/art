@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b43d7e3_5d30dbc4",
+        "filename": "test/552-checker-sharpening/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-01T16:47:15Z",
+      "side": 1,
+      "message": "Please use the same pattern used elsewhere:\n\n  public static boolean doThrow \u003d false;\n\n  if (doThrow) { throw new Error(); }\n\nRoland spent hours making it consistent everywhere. The idea is that we might want to find a different way of beating inlining in the future, and then it will be nice to be able to grep for all the places where it needs to be replaced.",
+      "range": {
+        "startLine": 25,
+        "startChar": 20,
+        "endLine": 25,
+        "endChar": 30
+      },
+      "revId": "03f86015534f98819a6bead922d6382fb66e6e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b5293ad_bcbfa11c",
+        "filename": "test/552-checker-sharpening/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-01T16:47:15Z",
+      "side": 1,
+      "message": "No need for $opt$. Doesn\u0027t do anything in this case...",
+      "range": {
+        "startLine": 27,
+        "startChar": 21,
+        "endLine": 27,
+        "endChar": 25
+      },
+      "revId": "03f86015534f98819a6bead922d6382fb66e6e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
