@@ -151,6 +151,24 @@
       "revId": "6f0ebed759d106098094988376563ae282121b85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb4cdf15_1b81fb68",
+        "filename": "test/552-checker-sharpening/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-01T16:47:15Z",
+      "side": 1,
+      "message": "I\u0027d suggest using a simple loop where you know that the body is just one block and showing that the base is not in it.\n\n  xyz; // put something here to make B1 the pre-header\n  while (true) {\n    foo();\n  }\n\nand then you can check for:\n\n  CHECK: Base\n  CHECK: begin_block\n  CHECK: Invoke\n\nor even verify all the blocks:\n\n  CHECK: begin_block  // entry block\n  CHECK: begin_block  // pre-header\n  CHECK: Base\n  CHECK: begin_block  // loop body\n  CHECK: Invoke\n  CHECK-NOT: begin_block\n\nWe should just start printing the block number with each instruction. Would make things much easier.",
+      "parentUuid": "db347b68_654e60bc",
+      "revId": "6f0ebed759d106098094988376563ae282121b85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
