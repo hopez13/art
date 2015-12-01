@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7b0c6fc0_874a6636",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-01T14:23:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbbdbfca_19ff0b5a",
+      "range": {
+        "startLine": 778,
+        "startChar": 74,
+        "endLine": 779,
+        "endChar": 64
+      },
+      "revId": "35c28cba82a9744e298d605151547c046e8727c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb921f65_ee219f7c",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-25T17:02:10Z",
       "side": 1,
       "message": "Check for incompatible class changes?",
+      "range": {
+        "startLine": 801,
+        "startChar": 5,
+        "endLine": 801,
+        "endChar": 36
+      },
+      "revId": "35c28cba82a9744e298d605151547c046e8727c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b032b91_0609da06",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-01T14:23:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb921f65_ee219f7c",
       "range": {
         "startLine": 801,
         "startChar": 5,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5b032b91_c61bc24e",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-01T14:23:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb921f65_0e3c2ba3",
+      "range": {
+        "startLine": 802,
+        "startChar": 32,
+        "endLine": 802,
+        "endChar": 63
+      },
+      "revId": "35c28cba82a9744e298d605151547c046e8727c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb921f65_ae279791",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 9
@@ -82,6 +154,24 @@
       "writtenOn": "2015-11-25T17:02:10Z",
       "side": 1,
       "message": "Extra blank line.",
+      "revId": "35c28cba82a9744e298d605151547c046e8727c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b032b91_e616be28",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 806,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-01T14:23:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb921f65_ae279791",
       "revId": "35c28cba82a9744e298d605151547c046e8727c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -158,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "fbf77fdf_a3f79a46",
+        "filename": "test/551-invoke-super/smali/invokesuper.smali",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-01T14:23:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bb2aff7_fa4085e5",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 7
+      },
+      "revId": "35c28cba82a9744e298d605151547c046e8727c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbbdbfca_79fe3f5b",
         "filename": "test/551-invoke-super/smali/superclass.smali",
         "patchSetId": 9
@@ -169,6 +283,30 @@
       "writtenOn": "2015-11-25T17:02:10Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 7
+      },
+      "revId": "35c28cba82a9744e298d605151547c046e8727c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b3e8348_a3c0e451",
+        "filename": "test/551-invoke-super/smali/superclass.smali",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-01T14:23:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbbdbfca_79fe3f5b",
       "range": {
         "startLine": 21,
         "startChar": 0,
@@ -204,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "db347b68_4208f2aa",
+        "filename": "test/552-invoke-non-existent-super/info.txt",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-01T14:23:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbb8a7d5_fceec51a",
+      "range": {
+        "startLine": 1,
+        "startChar": 76,
+        "endLine": 1,
+        "endChar": 77
+      },
+      "revId": "35c28cba82a9744e298d605151547c046e8727c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbbdbfca_b90ff744",
         "filename": "test/552-invoke-non-existent-super/smali/invokesuper.smali",
         "patchSetId": 9
@@ -227,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "5b032b91_a610c62b",
+        "filename": "test/552-invoke-non-existent-super/smali/invokesuper.smali",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-01T14:23:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbbdbfca_b90ff744",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 7
+      },
+      "revId": "35c28cba82a9744e298d605151547c046e8727c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbbdbfca_d90cb352",
         "filename": "test/552-invoke-non-existent-super/smali/superclass.smali",
         "patchSetId": 9
@@ -238,6 +424,30 @@
       "writtenOn": "2015-11-25T17:02:10Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 7
+      },
+      "revId": "35c28cba82a9744e298d605151547c046e8727c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b488bfd_1e81ed68",
+        "filename": "test/552-invoke-non-existent-super/smali/superclass.smali",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-01T14:23:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbbdbfca_d90cb352",
       "range": {
         "startLine": 21,
         "startChar": 0,
