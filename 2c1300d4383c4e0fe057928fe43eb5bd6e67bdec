@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5b032b91_06f1da8d",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-01T11:26:02Z",
+      "side": 1,
+      "message": "No, we don\u0027t. And I don\u0027t think we would benefit from this being loaded from a constant pool.",
+      "parentUuid": "1b5293ad_7c62791c",
+      "range": {
+        "startLine": 376,
+        "startChar": 69,
+        "endLine": 377,
+        "endChar": 35
+      },
+      "revId": "2c1300d4383c4e0fe057928fe43eb5bd6e67bdec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b0c6fc0_27ea9ac9",
         "filename": "compiler/optimizing/code_generator_arm.h",
         "patchSetId": 4
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "5b032b91_e6febe5b",
+        "filename": "compiler/optimizing/dex_cache_array_fixups_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-01T11:26:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb4cdf15_bb21e7e1",
+      "range": {
+        "startLine": 26,
+        "startChar": 32,
+        "endLine": 26,
+        "endChar": 49
+      },
+      "revId": "2c1300d4383c4e0fe057928fe43eb5bd6e67bdec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb4cdf15_5b378325",
         "filename": "compiler/optimizing/dex_cache_array_fixups_arm.cc",
         "patchSetId": 4
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "3b43d7e3_fd03e724",
+        "filename": "compiler/optimizing/dex_cache_array_fixups_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-01T11:26:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb4cdf15_5b378325",
+      "range": {
+        "startLine": 53,
+        "startChar": 26,
+        "endLine": 53,
+        "endChar": 36
+      },
+      "revId": "2c1300d4383c4e0fe057928fe43eb5bd6e67bdec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbf77fdf_a391da38",
         "filename": "compiler/optimizing/nodes_arm.h",
         "patchSetId": 4
@@ -105,6 +177,30 @@
       "writtenOn": "2015-11-30T23:21:24Z",
       "side": 1,
       "message": "const DexFile\u0026?",
+      "range": {
+        "startLine": 24,
+        "startChar": 34,
+        "endLine": 24,
+        "endChar": 48
+      },
+      "revId": "2c1300d4383c4e0fe057928fe43eb5bd6e67bdec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db347b68_623096c5",
+        "filename": "compiler/optimizing/nodes_arm.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-01T11:26:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbf77fdf_a391da38",
       "range": {
         "startLine": 24,
         "startChar": 34,
