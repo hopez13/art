@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7bf38fea_b59908a0",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-01T01:45:28Z",
+      "side": 1,
+      "message": "We always need to scan opcodes if we have default methods since invoke-super is never supported. It needs to be first and not here to get that behavior.",
+      "parentUuid": "9bf043de_b9ad835d",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9bf043de_39a2b36a",
         "filename": "compiler/dex/quick/quick_compiler.cc",
         "patchSetId": 19
@@ -93,6 +111,24 @@
     },
     {
       "key": {
+        "uuid": "7bf38fea_158b3441",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-01T01:45:28Z",
+      "side": 1,
+      "message": "Yes I needed it in both. This will go away with a rebase I\u0027m doing.",
+      "parentUuid": "9b0923b2_ce8e37a5",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bbe987fc_f7f3180c",
         "filename": "runtime/art_method.cc",
         "patchSetId": 19
@@ -104,6 +140,24 @@
       "writtenOn": "2015-12-01T01:08:15Z",
       "side": 1,
       "message": "Isn\u0027t this part of the CL that reverses ordering?",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3bd59733_b3a480e1",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-01T01:45:28Z",
+      "side": 1,
+      "message": "No it is not.",
+      "parentUuid": "bbe987fc_f7f3180c",
       "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -127,6 +181,24 @@
     },
     {
       "key": {
+        "uuid": "9bf043de_b99343cf",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 5251,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-01T01:45:28Z",
+      "side": 1,
+      "message": "No it looks through the virtuals table, which includes copied default methods.\n\nIt might be worth it to add another length-prefixed array to mirror::Class that is the methods that are copied from interfaces. That or rename virtual_methods_ to make it clearer that virtual methods are not all that is on this field.\n\nMaybe we could combine direct_methods_ and virtual_methods_ into one length-prefixed-array and use the freed up pointer to hold indexes into the array for where each of the tables starts. (This would also simplify searching for declared methods since we wouldn\u0027t need to do any filtering (now we filter miranda and default).) It doesn\u0027t seem like we would even need any compiler changes to this if we are smart.",
+      "parentUuid": "db0f1bb0_3ed5010f",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7bf38fea_35d63874",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 19
@@ -138,6 +210,24 @@
       "writtenOn": "2015-12-01T01:08:15Z",
       "side": 1,
       "message": "See 5251",
+      "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1be45325_35a2b26a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 5312,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-01T01:45:28Z",
+      "side": 1,
+      "message": "See above",
+      "parentUuid": "7bf38fea_35d63874",
       "revId": "aa7212dbf7cc8079980adf6598f186a838203531",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

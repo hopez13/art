@@ -16,6 +16,24 @@
       "revId": "0c32fdeaeda2a1e388e280da12662d1d18c834a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbde9f59_743a7e76",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-01T01:45:28Z",
+      "side": 0,
+      "message": "We need to copy the super-interfaces methods to be able to get invoke-super on interfaces working. The methods will no longer be identical pointer-wise (they are still the same method underneath though).",
+      "parentUuid": "9b0923b2_6e874b80",
+      "revId": "0c32fdeaeda2a1e388e280da12662d1d18c834a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
