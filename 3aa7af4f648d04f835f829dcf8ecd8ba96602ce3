@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "9b3e8348_00950663",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-01T13:08:05Z",
+      "side": 1,
+      "message": "Quite a few \"strategic\" users (e.g. oat file) and not all them have tests. I expect that will take some time to make sure that\u0027s expected (since it amounts to an internal API change).",
+      "parentUuid": "fbf77fdf_e37112c6",
+      "range": {
+        "startLine": 185,
+        "startChar": 18,
+        "endLine": 185,
+        "endChar": 97
+      },
+      "revId": "3aa7af4f648d04f835f829dcf8ecd8ba96602ce3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb37c76a_21bb6e90",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-01T13:08:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b0c6fc0_273e1ab7",
+      "range": {
+        "startLine": 185,
+        "startChar": 6,
+        "endLine": 185,
+        "endChar": 7
+      },
+      "revId": "3aa7af4f648d04f835f829dcf8ecd8ba96602ce3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb4cdf15_3bb87790",
         "filename": "runtime/jit/offline_profiling_info.cc",
         "patchSetId": 8
@@ -59,6 +107,30 @@
       "writtenOn": "2015-12-01T12:23:20Z",
       "side": 1,
       "message": "Um, I think you have to insert a return into each branch. Otherwise you return 0 instead of -1.",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 283,
+        "endChar": 26
+      },
+      "revId": "3aa7af4f648d04f835f829dcf8ecd8ba96602ce3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb4cdf15_bb8007b1",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-01T13:08:05Z",
+      "side": 1,
+      "message": "thanks.",
+      "parentUuid": "fb4cdf15_3bb87790",
       "range": {
         "startLine": 283,
         "startChar": 0,
