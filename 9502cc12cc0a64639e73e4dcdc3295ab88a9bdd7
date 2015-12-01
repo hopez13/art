@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "1b5293ad_3ca5d11f",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-01T15:13:33Z",
+      "side": 1,
+      "message": "Not so much. Those maps just feel a lot more heavy weight than just two sets of integers.",
+      "parentUuid": "fbf77fdf_e33b52ab",
+      "range": {
+        "startLine": 346,
+        "startChar": 3,
+        "endLine": 353,
+        "endChar": 17
+      },
+      "revId": "9502cc12cc0a64639e73e4dcdc3295ab88a9bdd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb37c76a_616f36d3",
         "filename": "runtime/jit/offline_profiling_info.h",
         "patchSetId": 9
