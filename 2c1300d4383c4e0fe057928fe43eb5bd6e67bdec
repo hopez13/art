@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "5b032b91_063b1ac7",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-01T13:27:37Z",
+      "side": 1,
+      "message": "Why would you think so? In theory it\u0027s one instruction less, right?",
+      "parentUuid": "5b032b91_06f1da8d",
+      "range": {
+        "startLine": 376,
+        "startChar": 69,
+        "endLine": 377,
+        "endChar": 35
+      },
+      "revId": "2c1300d4383c4e0fe057928fe43eb5bd6e67bdec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b0c6fc0_27ea9ac9",
         "filename": "compiler/optimizing/code_generator_arm.h",
         "patchSetId": 4
