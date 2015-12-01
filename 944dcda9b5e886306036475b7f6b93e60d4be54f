@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7b0c6fc0_476c6edc",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-01T11:45:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bb2aff7_80163c25",
+      "range": {
+        "startLine": 308,
+        "startChar": 8,
+        "endLine": 308,
+        "endChar": 14
+      },
+      "revId": "944dcda9b5e886306036475b7f6b93e60d4be54f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bbb8a7d5_6294ccb7",
         "filename": "runtime/jit/offline_profiling_info.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-11-30T14:31:54Z",
       "side": 1,
       "message": "Hide this inside GetLineFromBuffer? I.e. have it return -1 or new_line_pos+1.",
+      "range": {
+        "startLine": 314,
+        "startChar": 8,
+        "endLine": 314,
+        "endChar": 28
+      },
+      "revId": "944dcda9b5e886306036475b7f6b93e60d4be54f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbf77fdf_83b25ebd",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-01T11:45:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbb8a7d5_6294ccb7",
       "range": {
         "startLine": 314,
         "startChar": 8,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1b5293ad_3c6631fd",
+        "filename": "test/551-jit-profile-file/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-01T11:45:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b7da3ef_3c2be92a",
+      "range": {
+        "startLine": 71,
+        "startChar": 9,
+        "endLine": 71,
+        "endChar": 33
+      },
+      "revId": "944dcda9b5e886306036475b7f6b93e60d4be54f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9baf638f_47f198c2",
         "filename": "test/551-jit-profile-file/src/Main.java",
         "patchSetId": 6
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "fb4cdf15_1ba25b6a",
+        "filename": "test/551-jit-profile-file/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-01T11:45:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9baf638f_47f198c2",
+      "range": {
+        "startLine": 100,
+        "startChar": 8,
+        "endLine": 100,
+        "endChar": 11
+      },
+      "revId": "944dcda9b5e886306036475b7f6b93e60d4be54f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bc96b78_cabdb384",
         "filename": "test/551-jit-profile-file/src/Main.java",
         "patchSetId": 6
@@ -105,6 +201,24 @@
       "writtenOn": "2015-11-30T15:03:13Z",
       "side": 1,
       "message": "ditto",
+      "revId": "944dcda9b5e886306036475b7f6b93e60d4be54f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b43d7e3_fda8c74e",
+        "filename": "test/551-jit-profile-file/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-01T11:45:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bc96b78_cabdb384",
       "revId": "944dcda9b5e886306036475b7f6b93e60d4be54f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
