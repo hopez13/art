@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9b3e8348_63dbbc45",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-01T14:36:09Z",
+      "side": 1,
+      "message": "As I mentioned before we used it in different places like\noat_file: `Split(dex_dependencies, kDexClassPathEncodingSeparator, \u0026split)`\nparsing arguments in dex2oat and paresed_arguments,\nand a lot of tests.\n\nI don\u0027t expect things to necessarily break, but it\u0027s work orthogonal to this CL and don\u0027t want to tie up the two.\n\nI\u0027ll take care of it in a follow up.",
+      "parentUuid": "9b3e8348_63b2dc0f",
+      "range": {
+        "startLine": 184,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 99
+      },
+      "revId": "9502cc12cc0a64639e73e4dcdc3295ab88a9bdd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b43d7e3_5d6f7bd2",
         "filename": "runtime/jit/offline_profiling_info.cc",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2015-12-01T14:10:15Z",
       "side": 1,
       "message": "what\u0027s this?",
+      "range": {
+        "startLine": 217,
+        "startChar": 18,
+        "endLine": 217,
+        "endChar": 36
+      },
+      "revId": "9502cc12cc0a64639e73e4dcdc3295ab88a9bdd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b3e8348_83d84048",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-01T14:36:09Z",
+      "side": 1,
+      "message": "dangling comment. removed.",
+      "parentUuid": "3b43d7e3_5d6f7bd2",
       "range": {
         "startLine": 217,
         "startChar": 18,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "fbf77fdf_0309ce06",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-01T14:36:09Z",
+      "side": 1,
+      "message": "- faster lookups\n- I\u0027m experimenting with skipping the entire class or dex if they have no methods. The double map makes it much easier and faster.",
+      "parentUuid": "9b3e8348_23bcd4dc",
+      "range": {
+        "startLine": 346,
+        "startChar": 3,
+        "endLine": 353,
+        "endChar": 17
+      },
+      "revId": "9502cc12cc0a64639e73e4dcdc3295ab88a9bdd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb37c76a_616f36d3",
         "filename": "runtime/jit/offline_profiling_info.h",
         "patchSetId": 9
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "5b032b91_e63b5eab",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-01T14:36:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb37c76a_616f36d3",
+      "range": {
+        "startLine": 69,
+        "startChar": 5,
+        "endLine": 69,
+        "endChar": 33
+      },
+      "revId": "9502cc12cc0a64639e73e4dcdc3295ab88a9bdd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b032b91_c62d0286",
         "filename": "runtime/jit/offline_profiling_info.h",
         "patchSetId": 9
@@ -105,6 +201,30 @@
       "writtenOn": "2015-12-01T14:10:15Z",
       "side": 1,
       "message": "Returns (for consistency)",
+      "range": {
+        "startLine": 72,
+        "startChar": 5,
+        "endLine": 72,
+        "endChar": 11
+      },
+      "revId": "9502cc12cc0a64639e73e4dcdc3295ab88a9bdd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db347b68_02b0aa1e",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-01T14:36:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b032b91_c62d0286",
       "range": {
         "startLine": 72,
         "startChar": 5,
