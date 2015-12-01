@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "5b488bfd_7eb27156",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-01T14:47:13Z",
+      "side": 1,
+      "message": "Why faster lookups? You\u0027re doing two lookups, which is one extra to being faster :)\n\nSo it\u0027s the query over class id you\u0027re interested in? \"Does this class have any hot method\"?\n\nFWIW, you could still have two sets, but one is fir class ids, and the other is for method ids.",
+      "parentUuid": "fbf77fdf_0309ce06",
+      "range": {
+        "startLine": 346,
+        "startChar": 3,
+        "endLine": 353,
+        "endChar": 17
+      },
+      "revId": "9502cc12cc0a64639e73e4dcdc3295ab88a9bdd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb37c76a_616f36d3",
         "filename": "runtime/jit/offline_profiling_info.h",
         "patchSetId": 9
