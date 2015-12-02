@@ -25,6 +25,40 @@
     },
     {
       "key": {
+        "uuid": "9b868395_2365f422",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1988,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-12-02T12:47:34Z",
+      "side": 1,
+      "message": "I think this situation can occur with `add` and we would crash. This should be part of the `if` instead.\n\nAdd a test for it.",
+      "revId": "d52936a47bbf0e2600b575d1b02ca02f27c8ce50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b62afc1_9771a4c7",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2030,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-12-02T12:47:34Z",
+      "side": 1,
+      "message": "Long line.",
+      "revId": "d52936a47bbf0e2600b575d1b02ca02f27c8ce50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b80ef13_70b3c6c2",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 2
@@ -42,6 +76,142 @@
         "endLine": 427,
         "endChar": 3
       },
+      "revId": "d52936a47bbf0e2600b575d1b02ca02f27c8ce50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb94dfc2_fbfd6f5d",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-12-02T12:47:34Z",
+      "side": 1,
+      "message": "Long line.",
+      "revId": "d52936a47bbf0e2600b575d1b02ca02f27c8ce50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb68a79f_19c14b03",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-12-02T12:47:34Z",
+      "side": 1,
+      "message": "Same as in the codegen, it should be part of the `if`.",
+      "revId": "d52936a47bbf0e2600b575d1b02ca02f27c8ce50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb68a79f_39be0f80",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-12-02T12:47:34Z",
+      "side": 1,
+      "message": "Why do we have two `kind` fields?\n\nIs `kNeg` appropriate? In the other cases `GetOpKind()` indicates the type of operation between the acc and the mul, as in `acc \u003cop\u003e mul`. Now this is something different.\n\nThe `mneg` case is a special case of code generation. Nothing has changed at the IR level. So hat about leaving things as they are here and checking for the codegen optimization in the disassembly in the checker tests?",
+      "revId": "d52936a47bbf0e2600b575d1b02ca02f27c8ce50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b62afc1_b776a8ba",
+        "filename": "compiler/optimizing/instruction_simplifier_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-12-02T12:47:34Z",
+      "side": 1,
+      "message": "By sharing the IR, we should be able to share this logic.",
+      "revId": "d52936a47bbf0e2600b575d1b02ca02f27c8ce50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b908bca_7e7eb146",
+        "filename": "compiler/optimizing/multiply_accumulate_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-12-02T12:47:34Z",
+      "side": 1,
+      "message": "Does that bring more value than a checker test?\n\nAdding arm support to test/550-checker-multiply-accumulate and extending the tests with mneg would be more in line with the usual testing.",
+      "revId": "d52936a47bbf0e2600b575d1b02ca02f27c8ce50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb94dfc2_bb03e725",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1098,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-12-02T12:47:34Z",
+      "side": 1,
+      "message": "#ifdef ART_ENABLE_CODEGEN_arm\n\nSame in other places.",
+      "revId": "d52936a47bbf0e2600b575d1b02ca02f27c8ce50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db655bc5_5a58157e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1099,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-12-02T12:47:34Z",
+      "side": 1,
+      "message": "It looks like most of the logic is the same between ARM and ARM64. Also, MIPS and MIPS64 have similar instructions.\n\nSo finally we\u0027ve reached the point where we have:\n- IRs that are implemented by all archs\n- IRs that are implemented by only one arch\n- IRs that are can be shared by multiple (but not all) archs\n\nI don\u0027t think we want to handle the various IR combinations with different macros and files.\nI suggest making `MultiplyAccumulate` and arch-independent IR. To distinguish the IRs that are not created by the graph builder, maybe we can create a new macro `FOR_EACH_CONCRETE_SIMPLIFIED_INSTRUCTION` (can someone suggest a better name?) that contains those shared IRs, each having a comment indicating what architectures support it.\n\nAny opinions?",
+      "revId": "d52936a47bbf0e2600b575d1b02ca02f27c8ce50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b89cfa7_df1c1ba8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 5570,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-12-02T12:47:34Z",
+      "side": 1,
+      "message": "#ifdef ...",
       "revId": "d52936a47bbf0e2600b575d1b02ca02f27c8ce50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
