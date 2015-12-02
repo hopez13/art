@@ -69,6 +69,29 @@
       "revId": "1d2760bb6128f1bd623824ebcef5784d81b2ab85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80f5303f_7fdbef9f",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-02T22:17:38Z",
+      "side": 1,
+      "message": "So this is basically making us dependent on SafeMap being deterministic in the way it orders its keys? Not so great either...\n\nHow about just sorting the dex files?",
+      "range": {
+        "startLine": 365,
+        "startChar": 0,
+        "endLine": 368,
+        "endChar": 3
+      },
+      "revId": "1d2760bb6128f1bd623824ebcef5784d81b2ab85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
