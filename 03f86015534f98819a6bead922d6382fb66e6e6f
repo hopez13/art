@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "9b2da379_08e027ea",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2150,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-02T10:54:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0eba861_a1b71ef7",
+      "range": {
+        "startLine": 2150,
+        "startChar": 27,
+        "endLine": 2150,
+        "endChar": 28
+      },
+      "revId": "03f86015534f98819a6bead922d6382fb66e6e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b43d7e3_5d30dbc4",
         "filename": "test/552-checker-sharpening/src/Main.java",
         "patchSetId": 2
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "db339bd5_6a5c3759",
+        "filename": "test/552-checker-sharpening/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-02T10:54:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b43d7e3_5d30dbc4",
+      "range": {
+        "startLine": 25,
+        "startChar": 20,
+        "endLine": 25,
+        "endChar": 30
+      },
+      "revId": "03f86015534f98819a6bead922d6382fb66e6e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b5293ad_bcbfa11c",
         "filename": "test/552-checker-sharpening/src/Main.java",
         "patchSetId": 2
@@ -107,6 +155,30 @@
       "writtenOn": "2015-12-01T16:47:15Z",
       "side": 1,
       "message": "No need for $opt$. Doesn\u0027t do anything in this case...",
+      "range": {
+        "startLine": 27,
+        "startChar": 21,
+        "endLine": 27,
+        "endChar": 25
+      },
+      "revId": "03f86015534f98819a6bead922d6382fb66e6e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb1bff58_c3f516b0",
+        "filename": "test/552-checker-sharpening/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-02T10:54:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b5293ad_bcbfa11c",
       "range": {
         "startLine": 27,
         "startChar": 21,
