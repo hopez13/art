@@ -22,6 +22,30 @@
       "revId": "38be778cf4efbc96bea3143f35ea872e64cdb5ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db339bd5_ca6c43a2",
+        "filename": "benchmark/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2015-12-02T15:30:30Z",
+      "side": 1,
+      "message": "Stopped listing the source roots explicitly, just scanned for them automatically instead.",
+      "parentUuid": "fbde9f59_7f3017c5",
+      "range": {
+        "startLine": 26,
+        "startChar": 48,
+        "endLine": 26,
+        "endChar": 112
+      },
+      "revId": "38be778cf4efbc96bea3143f35ea872e64cdb5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
