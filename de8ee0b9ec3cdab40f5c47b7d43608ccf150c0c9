@@ -22,6 +22,30 @@
       "revId": "de8ee0b9ec3cdab40f5c47b7d43608ccf150c0c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b62afc1_f78020b2",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1600,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2015-12-02T13:09:30Z",
+      "side": 1,
+      "message": "When dex2oat compiles app it always opens oat files from bootclasspath. This code opens additional dex files passed through --runtime-arg -cp --runtime-arg file1.dex:....\nBut opened dex files will have incorrect dex_location if application compiled on the host. My change fix this. But, as Andreas mentioned, we need to track these additional dex files at runtime. I work on this problem.",
+      "parentUuid": "1b21b386_645c6a59",
+      "range": {
+        "startLine": 1598,
+        "startChar": 0,
+        "endLine": 1600,
+        "endChar": 7
+      },
+      "revId": "de8ee0b9ec3cdab40f5c47b7d43608ccf150c0c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
