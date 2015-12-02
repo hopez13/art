@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "80f5303f_9f2a33b9",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4433,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-02T14:01:06Z",
+      "side": 1,
+      "message": "I was not convinced at first, but after making this change the code looks better (and is slightly shorter!).  Thanks for the suggestion.",
+      "parentUuid": "5b1deb19_b9895ba0",
+      "range": {
+        "startLine": 4419,
+        "startChar": 0,
+        "endLine": 4433,
+        "endChar": 5
+      },
+      "revId": "f5218f548ca2709286d72d6ba04481231b34fc21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bbb18759_37656023",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-12-02T00:27:11Z",
       "side": 1,
       "message": "Similarly, would it make sense to move this code up into the kPrimNot switch case?",
+      "range": {
+        "startLine": 4945,
+        "startChar": 0,
+        "endLine": 4970,
+        "endChar": 5
+      },
+      "revId": "f5218f548ca2709286d72d6ba04481231b34fc21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80f5303f_1f7183e6",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4970,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-02T14:01:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbb18759_37656023",
       "range": {
         "startLine": 4945,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "fb421f2f_4bf4e57e",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5672,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-02T14:01:06Z",
+      "side": 1,
+      "message": "Thanks!  I should have done this earlier. :)",
+      "parentUuid": "bbb18759_17e77cd3",
+      "range": {
+        "startLine": 5672,
+        "startChar": 4,
+        "endLine": 5672,
+        "endChar": 27
+      },
+      "revId": "f5218f548ca2709286d72d6ba04481231b34fc21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b1deb19_5922c781",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-12-02T00:27:11Z",
       "side": 1,
       "message": "Side note for arm: we can use a \"fake dependence\" approach similar to CL 177010. Something like:\n\n    ldr  r1, [obj, #monitor_offset]\n    eor  r2, r1, r1   // r2 \u003d\u003d zero\n    add  src, src, r2\n    ldr  ref, [src, #0]\n\n(which is likely to be faster than a load acquire fence.)",
+      "range": {
+        "startLine": 6551,
+        "startChar": 67,
+        "endLine": 6552,
+        "endChar": 70
+      },
+      "revId": "f5218f548ca2709286d72d6ba04481231b34fc21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db339bd5_ea2747a2",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6552,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-02T14:01:06Z",
+      "side": 1,
+      "message": "Sure; will do.",
+      "parentUuid": "5b1deb19_5922c781",
       "range": {
         "startLine": 6551,
         "startChar": 67,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "80f5303f_1fe4e3cf",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6573,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-02T14:01:06Z",
+      "side": 1,
+      "message": "Good idea; done in PS2.",
+      "parentUuid": "bbb18759_748ec651",
+      "range": {
+        "startLine": 6573,
+        "startChar": 2,
+        "endLine": 6573,
+        "endChar": 50
+      },
+      "revId": "f5218f548ca2709286d72d6ba04481231b34fc21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b17f3fd_3a137977",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2015-12-02T00:27:11Z",
       "side": 1,
       "message": "Not sure if the exact location matters or not, but should this be right before the monitor word load (where we may trap if obj is null)?",
+      "range": {
+        "startLine": 6578,
+        "startChar": 2,
+        "endLine": 6578,
+        "endChar": 30
+      },
+      "revId": "f5218f548ca2709286d72d6ba04481231b34fc21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb1bff58_a3757ad9",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6578,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-02T14:01:06Z",
+      "side": 1,
+      "message": "Good catch; thanks!  Fixed in PS2.",
+      "parentUuid": "1b17f3fd_3a137977",
       "range": {
         "startLine": 6578,
         "startChar": 2,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "c0eba861_6190f630",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-02T14:01:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbb18759_948ecaa3",
+      "range": {
+        "startLine": 83,
+        "startChar": 66,
+        "endLine": 84,
+        "endChar": 17
+      },
+      "revId": "f5218f548ca2709286d72d6ba04481231b34fc21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb113f0a_991bbb4f",
         "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
         "patchSetId": 1
@@ -174,6 +342,30 @@
       "writtenOn": "2015-12-02T00:27:11Z",
       "side": 1,
       "message": "Can you add ALWAYS_INLINE to Mark() in read_barrier.h to be sure that it\u0027s inlined here?",
+      "range": {
+        "startLine": 564,
+        "startChar": 22,
+        "endLine": 564,
+        "endChar": 26
+      },
+      "revId": "f5218f548ca2709286d72d6ba04481231b34fc21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb421f2f_cbdff5f8",
+        "filename": "runtime/entrypoints/quick/quick_field_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-02T14:01:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb113f0a_991bbb4f",
       "range": {
         "startLine": 564,
         "startChar": 22,

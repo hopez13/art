@@ -46,6 +46,30 @@
       "revId": "d1744d449cf2b56af7e0896b3729fac2a414e3af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b21b386_04981637",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1669,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-02T14:01:06Z",
+      "side": 0,
+      "message": "Yes, I believe so.  I\u0027ll submit a fix in a separate CL.",
+      "parentUuid": "fba69f26_4eb85391",
+      "range": {
+        "startLine": 1669,
+        "startChar": 48,
+        "endLine": 1669,
+        "endChar": 53
+      },
+      "revId": "d1744d449cf2b56af7e0896b3729fac2a414e3af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
