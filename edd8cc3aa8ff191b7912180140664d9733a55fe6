@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b17f3fd_fd161bd6",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-02T08:12:39Z",
+      "side": 1,
+      "message": "Can probably make this a conditional step via enable_if, but I thought it easier and clearer if it was a virtual.",
+      "range": {
+        "startLine": 76,
+        "startChar": 3,
+        "endLine": 76,
+        "endChar": 74
+      },
+      "revId": "edd8cc3aa8ff191b7912180140664d9733a55fe6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ba24b12_5d22c781",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-02T08:12:39Z",
+      "side": 1,
+      "message": "I left these here to not have to make all the accessors virtual. If that\u0027s preferred to hide all of the implementation I\u0027d be happy to move them to OatFileBase.",
+      "range": {
+        "startLine": 261,
+        "startChar": 2,
+        "endLine": 279,
+        "endChar": 28
+      },
+      "revId": "edd8cc3aa8ff191b7912180140664d9733a55fe6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
