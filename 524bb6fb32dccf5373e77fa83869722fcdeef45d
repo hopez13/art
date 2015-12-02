@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a0f23453_a03ddab9",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-02T23:04:36Z",
+      "side": 1,
+      "message": "Inline what? We don\u0027t know the target. If we could have statically determined the target, we would have tried to inline it earlier (line 245).",
+      "parentUuid": "db0f1bb0_992767a4",
+      "range": {
+        "startLine": 269,
+        "startChar": 6,
+        "endLine": 273,
+        "endChar": 19
+      },
+      "revId": "524bb6fb32dccf5373e77fa83869722fcdeef45d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bd59733_7634c6d8",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2015-12-01T17:18:54Z",
       "side": 1,
       "message": "You\u0027re calling this a lot, consider a named variable?",
+      "range": {
+        "startLine": 298,
+        "startChar": 25,
+        "endLine": 298,
+        "endChar": 43
+      },
+      "revId": "524bb6fb32dccf5373e77fa83869722fcdeef45d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b21b386_a4c66294",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-02T23:04:36Z",
+      "side": 1,
+      "message": "Yes, because otherwise I need a handle, which is not so great at this point in the compiler.",
+      "parentUuid": "3bd59733_7634c6d8",
       "range": {
         "startLine": 298,
         "startChar": 25,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a0f23453_802ad66f",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-02T23:04:36Z",
+      "side": 1,
+      "message": "It\u0027s the location where things will happen. It\u0027s also named that way in a couple of helper methods in nodes.h. Do you have other suggestions?",
+      "parentUuid": "9b0923b2_11d34e84",
+      "range": {
+        "startLine": 308,
+        "startChar": 17,
+        "endLine": 308,
+        "endChar": 24
+      },
+      "revId": "524bb6fb32dccf5373e77fa83869722fcdeef45d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db0f1bb0_99fc072a",
         "filename": "compiler/optimizing/inliner.h",
         "patchSetId": 9
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "fb421f2f_8b16cd27",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-02T23:04:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db0f1bb0_99fc072a",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 72,
+        "endChar": 42
+      },
+      "revId": "524bb6fb32dccf5373e77fa83869722fcdeef45d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb1267d6_d22a5a25",
         "filename": "runtime/jit/profiling_info.h",
         "patchSetId": 9
@@ -105,6 +201,30 @@
       "writtenOn": "2015-12-01T17:18:54Z",
       "side": 1,
       "message": "Extend the comment to note why this doesn\u0027t need a lock.\n\n(Proper way would probably be to make the code cache lock global, so that it can be explicitly referenced here...)",
+      "range": {
+        "startLine": 140,
+        "startChar": 2,
+        "endLine": 140,
+        "endChar": 55
+      },
+      "revId": "524bb6fb32dccf5373e77fa83869722fcdeef45d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80f5303f_bfd8579d",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-02T23:04:36Z",
+      "side": 1,
+      "message": "Good point, added a TODO.",
+      "parentUuid": "bb1267d6_d22a5a25",
       "range": {
         "startLine": 140,
         "startChar": 2,
