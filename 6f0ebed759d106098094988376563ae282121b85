@@ -169,6 +169,24 @@
       "revId": "6f0ebed759d106098094988376563ae282121b85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb421f2f_4b030552",
+        "filename": "test/552-checker-sharpening/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-02T10:54:31Z",
+      "side": 1,
+      "message": "I don\u0027t like infinite loops, I\u0027ll go with the ArrayLength.",
+      "parentUuid": "fb4cdf15_1b81fb68",
+      "revId": "6f0ebed759d106098094988376563ae282121b85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
