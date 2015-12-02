@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "dbae3bf9_01bbb433",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-02T23:31:25Z",
+      "side": 1,
+      "message": "Ah, missed that.",
+      "parentUuid": "a0f23453_a03ddab9",
+      "range": {
+        "startLine": 269,
+        "startChar": 6,
+        "endLine": 273,
+        "endChar": 19
+      },
+      "revId": "524bb6fb32dccf5373e77fa83869722fcdeef45d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bd59733_7634c6d8",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 9
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "It\u0027s the location where things will happen. It\u0027s also named that way in a couple of helper methods in nodes.h. Do you have other suggestions?",
       "parentUuid": "9b0923b2_11d34e84",
+      "range": {
+        "startLine": 308,
+        "startChar": 17,
+        "endLine": 308,
+        "endChar": 24
+      },
+      "revId": "524bb6fb32dccf5373e77fa83869722fcdeef45d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b1deb19_05e0dcbb",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-02T23:31:25Z",
+      "side": 1,
+      "message": "It\u0027s fine, it was only a question. Cursor is just a bit weird if it\u0027s not precise (e.g., I\u0027d expected a cursor to be in the instruction stream).",
+      "parentUuid": "a0f23453_802ad66f",
       "range": {
         "startLine": 308,
         "startChar": 17,
