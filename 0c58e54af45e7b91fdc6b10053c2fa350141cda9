@@ -187,6 +187,30 @@
       "revId": "0c58e54af45e7b91fdc6b10053c2fa350141cda9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c08728d0_67258657",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-03T23:22:53Z",
+      "side": 1,
+      "message": "Perhaps you meant to say that when using b.length we should *also* be able to remove bounds check on a (since on b is straightforward in that case).\n\nThat is an interesting new test case (I tried it, and it does not work out of the box :(",
+      "parentUuid": "40933818_c3a1ea65",
+      "range": {
+        "startLine": 437,
+        "startChar": 26,
+        "endLine": 437,
+        "endChar": 27
+      },
+      "revId": "0c58e54af45e7b91fdc6b10053c2fa350141cda9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
