@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ba24b12_aec56cb3",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-12-03T04:34:39Z",
+      "side": 1,
+      "message": "In retrospect, it looks like my idea of using size_less_one (and pos_less_32 below) was not all that great as it adds confusion. This API differs from the instruction description in the assembly language reference. We should redo these instructions.",
+      "range": {
+        "startLine": 303,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 88
+      },
+      "revId": "e2f0ab258af5869c7e505cf85d855aee882b4179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fba69f26_34955100",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-12-03T04:34:39Z",
+      "side": 1,
+      "message": "See above.",
+      "range": {
+        "startLine": 309,
+        "startChar": 0,
+        "endLine": 309,
+        "endChar": 97
+      },
+      "revId": "e2f0ab258af5869c7e505cf85d855aee882b4179",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
