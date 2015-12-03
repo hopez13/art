@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "009dc025_de86a13c",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-03T23:45:29Z",
+      "side": 1,
+      "message": "I added Alex\u0027 suggestion for a test case as well, and also made sure the range analysis is able to look \"under the b.length\" to find the phi node, which can be refined to a.length, and thus n!\n\nRemoving both bound checks here statically too.\n\nThanks for the suggestion of looking into this Alex.",
+      "range": {
+        "startLine": 437,
+        "startChar": 41,
+        "endLine": 437,
+        "endChar": 42
+      },
+      "revId": "d822005576d3832ad18899b542a3da2217fd0141",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
