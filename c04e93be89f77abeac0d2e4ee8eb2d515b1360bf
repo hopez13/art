@@ -234,6 +234,30 @@
       "revId": "c04e93be89f77abeac0d2e4ee8eb2d515b1360bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb421f2f_6ee7ef00",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-03T16:10:10Z",
+      "side": 1,
+      "message": "If you don\u0027t reject this here, you should allow it everywhere. That includes InstructionCodeGeneratorARM::HandleLongRotate() where you\u0027re now using AsIntConstant() and I suggest GetInt32ValueOf() but none of them can handle long constants, so you would actually need GetInt64ValueOf().",
+      "parentUuid": "fb005ff1_3b7c5799",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 3
+      },
+      "revId": "c04e93be89f77abeac0d2e4ee8eb2d515b1360bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
