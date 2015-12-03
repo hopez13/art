@@ -92,6 +92,30 @@
       "revId": "1d2760bb6128f1bd623824ebcef5784d81b2ab85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db339bd5_0d091572",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-03T11:12:07Z",
+      "side": 1,
+      "message": "SafeMap is deterministic because it\u0027s documented (and implemented) to be equivalent to std::map which has a well defined/stable order of iterating over keys.",
+      "parentUuid": "80f5303f_7fdbef9f",
+      "range": {
+        "startLine": 365,
+        "startChar": 0,
+        "endLine": 368,
+        "endChar": 3
+      },
+      "revId": "1d2760bb6128f1bd623824ebcef5784d81b2ab85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
