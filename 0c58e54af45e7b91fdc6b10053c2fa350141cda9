@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "204d6487_071dd8ef",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1243,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-03T23:10:05Z",
+      "side": 1,
+      "message": "Probably not, but I think we can even directly return false when we set try_dynamic_bce to false (since a certain OOB implies we can never get a proper FitsIn anyway).",
+      "parentUuid": "009dc025_9ef2598f",
+      "range": {
+        "startLine": 1240,
+        "startChar": 8,
+        "endLine": 1243,
+        "endChar": 9
+      },
+      "revId": "0c58e54af45e7b91fdc6b10053c2fa350141cda9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "404ed883_28df83fb",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-12-03T22:30:02Z",
       "side": 1,
       "message": "Nit: Style: line length",
+      "range": {
+        "startLine": 420,
+        "startChar": 100,
+        "endLine": 420,
+        "endChar": 105
+      },
+      "revId": "0c58e54af45e7b91fdc6b10053c2fa350141cda9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "009dc025_1e496946",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-03T23:10:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "404ed883_28df83fb",
       "range": {
         "startLine": 420,
         "startChar": 100,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "009dc025_7e442d2f",
+        "filename": "compiler/optimizing/induction_var_range.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-03T23:10:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "204d6487_47f2b056",
+      "range": {
+        "startLine": 154,
+        "startChar": 59,
+        "endLine": 154,
+        "endChar": 87
+      },
+      "revId": "0c58e54af45e7b91fdc6b10053c2fa350141cda9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20a2c463_6239f221",
         "filename": "test/530-checker-loops/src/Main.java",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-12-03T22:30:02Z",
       "side": 1,
       "message": "why not b.length?",
+      "range": {
+        "startLine": 437,
+        "startChar": 26,
+        "endLine": 437,
+        "endChar": 27
+      },
+      "revId": "0c58e54af45e7b91fdc6b10053c2fa350141cda9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40933818_c3a1ea65",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-03T23:10:05Z",
+      "side": 1,
+      "message": "it has been made deliberately obscure to see if the range analysis still finds it; Using b.length would be too simple :-)",
+      "parentUuid": "20a2c463_6239f221",
       "range": {
         "startLine": 437,
         "startChar": 26,
