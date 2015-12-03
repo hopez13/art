@@ -164,6 +164,30 @@
       "revId": "1d2760bb6128f1bd623824ebcef5784d81b2ab85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b21b386_c7436094",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-03T11:24:23Z",
+      "side": 1,
+      "message": "Ah did not realize it was for dumping. Then I\u0027m fine with it, easiest prevails.",
+      "parentUuid": "bb36e7c5_c92ff132",
+      "range": {
+        "startLine": 365,
+        "startChar": 0,
+        "endLine": 368,
+        "endChar": 3
+      },
+      "revId": "1d2760bb6128f1bd623824ebcef5784d81b2ab85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
