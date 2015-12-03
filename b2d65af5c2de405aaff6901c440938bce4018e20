@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00486077_46c9947e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-03T21:23:10Z",
+      "side": 1,
+      "message": "typo: compiling",
+      "range": {
+        "startLine": 11,
+        "startChar": 47,
+        "endLine": 11,
+        "endChar": 55
+      },
+      "revId": "b2d65af5c2de405aaff6901c440938bce4018e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40933818_40295078",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-03T21:23:10Z",
+      "side": 1,
+      "message": "here and below: fputs is a bit faster for such cases, since you don\u0027t format",
+      "range": {
+        "startLine": 1027,
+        "startChar": 26,
+        "endLine": 1027,
+        "endChar": 34
+      },
+      "revId": "b2d65af5c2de405aaff6901c440938bce4018e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00486077_e6e2c0f3",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1160,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-03T21:23:10Z",
+      "side": 1,
+      "message": "!\u003d nullptr",
+      "range": {
+        "startLine": 1160,
+        "startChar": 8,
+        "endLine": 1160,
+        "endChar": 26
+      },
+      "revId": "b2d65af5c2de405aaff6901c440938bce4018e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0842cce_c2648267",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1177,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-03T21:23:10Z",
+      "side": 1,
+      "message": "!\u003d nullptr",
+      "range": {
+        "startLine": 1177,
+        "startChar": 29,
+        "endLine": 1177,
+        "endChar": 30
+      },
+      "revId": "b2d65af5c2de405aaff6901c440938bce4018e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0842cce_a267fe69",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1358,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-03T21:23:10Z",
+      "side": 1,
+      "message": "I would prefer the HasNext() / Next() calls here rather than hidden deeply within the methods, so that the iteration is more clear. When there are no more values, you can pass in call\n\nThat way, all logic is nicely visible here.",
+      "range": {
+        "startLine": 1358,
+        "startChar": 35,
+        "endLine": 1358,
+        "endChar": 37
+      },
+      "revId": "b2d65af5c2de405aaff6901c440938bce4018e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "204d6487_c7ad80ad",
+        "filename": "test/dexdump/StaticFields.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-03T21:23:10Z",
+      "side": 1,
+      "message": "I am not sure we want to include the source of the dex examples in this directory (was not done for others either)",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 3
+      },
+      "revId": "b2d65af5c2de405aaff6901c440938bce4018e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
