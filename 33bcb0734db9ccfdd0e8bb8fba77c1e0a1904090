@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fb421f2f_2b9b19e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-03T10:21:45Z",
+      "side": 1,
+      "message": "The run test infrastructure will add the interpreter flag anyway which will ForceInterpretOnly in which case we don\u0027t create the JIT.",
+      "parentUuid": "fb421f2f_4b0ce517",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "33bcb0734db9ccfdd0e8bb8fba77c1e0a1904090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b21b386_64ef0a18",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2015-12-02T22:21:32Z",
       "side": 1,
       "message": "Could we have a GetPrimaryDexFile to make it always work, regardless of whether there was a dex2oat step before running?\n\nNote that currently in master, we are running JIT mode out of dex files.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 6
+      },
+      "revId": "33bcb0734db9ccfdd0e8bb8fba77c1e0a1904090",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb36e7c5_49a861f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-03T10:21:45Z",
+      "side": 1,
+      "message": "I\u0027ll look to get it working in another CL.",
+      "parentUuid": "1b21b386_64ef0a18",
       "range": {
         "startLine": 11,
         "startChar": 0,
