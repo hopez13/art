@@ -247,6 +247,24 @@
       "revId": "de3a38010568737b5585c02a22e9c3233acd58af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80f5303f_bf0bb7aa",
+        "filename": "runtime/interpreter/interpreter.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-03T10:26:26Z",
+      "side": 1,
+      "message": "your can use named constants: kFromDebugger. kFromCode. I think that will clarify the doubts.",
+      "parentUuid": "bb36e7c5_29ffad1c",
+      "revId": "de3a38010568737b5585c02a22e9c3233acd58af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
