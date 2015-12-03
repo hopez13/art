@@ -22,6 +22,30 @@
       "revId": "eefc9e0d939bf59f51fc2311c16f7fb15905a0c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0f23453_803f7697",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1670,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-03T10:46:04Z",
+      "side": 1,
+      "message": "For the non volatile version (sun.misc.Unsafe.getLong), this `is_long` argument is only used to state that the output overlaps the inputs, because the generated code uses two loads.  So I guess we (almost) never generated code where the output was one of the inputs.\n\nI\u0027ll try to write a regression test.",
+      "parentUuid": "c0eba861_615d9629",
+      "range": {
+        "startLine": 1670,
+        "startChar": 62,
+        "endLine": 1670,
+        "endChar": 66
+      },
+      "revId": "eefc9e0d939bf59f51fc2311c16f7fb15905a0c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
