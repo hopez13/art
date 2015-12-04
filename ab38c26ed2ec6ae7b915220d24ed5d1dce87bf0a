@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c05c8866_39582f3a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 6540,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T18:39:00Z",
+      "side": 1,
+      "message": "Note: we always call MaybeRecordImplicitNullCheck here, which I think is incorrect.  I\u0027m working on making this dependent on a flag passed to GenerateReferenceLoadWithBakerReadBarrier.",
+      "range": {
+        "startLine": 6540,
+        "startChar": 2,
+        "endLine": 6540,
+        "endChar": 44
+      },
+      "revId": "ab38c26ed2ec6ae7b915220d24ed5d1dce87bf0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
