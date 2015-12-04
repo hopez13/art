@@ -70,6 +70,30 @@
       "revId": "eefc9e0d939bf59f51fc2311c16f7fb15905a0c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b2da379_2b1a4558",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1670,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T11:50:14Z",
+      "side": 1,
+      "message": "Actually, it was not so straightforward, as the \"out\" locations were sub-optimal.  This second issue is addressed in another CL (https://android-review.googlesource.com/#/c/184794/), as it is a different problem IMO.  So you need that other CL to actually see the bug.",
+      "parentUuid": "9b2da379_2837ab8d",
+      "range": {
+        "startLine": 1670,
+        "startChar": 62,
+        "endLine": 1670,
+        "endChar": 66
+      },
+      "revId": "eefc9e0d939bf59f51fc2311c16f7fb15905a0c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
