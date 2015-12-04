@@ -307,6 +307,30 @@
       "revId": "0c58e54af45e7b91fdc6b10053c2fa350141cda9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e06d0cee_8348c464",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-04T00:58:24Z",
+      "side": 1,
+      "message": "Not sure (I did not write the code). In any case, I don\u0027t think we overly duplicate logic now, since it is probably risky to change the simplifier to do this rewriting always.",
+      "parentUuid": "8091b00f_68ef97e2",
+      "range": {
+        "startLine": 437,
+        "startChar": 26,
+        "endLine": 437,
+        "endChar": 27
+      },
+      "revId": "0c58e54af45e7b91fdc6b10053c2fa350141cda9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
