@@ -259,6 +259,30 @@
       "revId": "0c58e54af45e7b91fdc6b10053c2fa350141cda9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "009dc025_21e52a5e",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-12-04T00:52:52Z",
+      "side": 1,
+      "message": "Oh, didn\u0027t notice it\u0027s only for constant.",
+      "parentUuid": "404ed883_2b49bd46",
+      "range": {
+        "startLine": 437,
+        "startChar": 26,
+        "endLine": 437,
+        "endChar": 27
+      },
+      "revId": "0c58e54af45e7b91fdc6b10053c2fa350141cda9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
