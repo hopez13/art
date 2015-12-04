@@ -16,6 +16,24 @@
       "revId": "30b4b13aec2f0a18ca6e1fda66aa6133b9d83e12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c05c8866_b91d5f51",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-04T20:08:27Z",
+      "side": 1,
+      "message": "There are two small benefits from allowing the internal std::map\u003c\u003e storage to be taken away from the old options instance. First, the storage of any unused or \"unreleased\" option will be freed at the end of this function instead of waiting for the caller to free it. Second, it will quickly stop anyone from erroneously using the old options instance again - without this, some values could still appear valid.",
+      "parentUuid": "e0842cce_1684ec31",
+      "revId": "30b4b13aec2f0a18ca6e1fda66aa6133b9d83e12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
