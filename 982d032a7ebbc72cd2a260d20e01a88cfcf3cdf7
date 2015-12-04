@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "004940a4_7b1a9faa",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6126,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-04T18:29:58Z",
+      "side": 1,
+      "message": "For this to be a problem, the number of values would have to be \u003e\u003d 2^31, so that a valid value would be negative after the subtraction, but the size in the packed-switch-payload is only 16-bit. (This concern will evaporate for arm when we switch to LO but maybe we should add a comment and/or DCHECK for mips.)",
+      "parentUuid": "20a9e45f_8467666a",
+      "range": {
+        "startLine": 6126,
+        "startChar": 4,
+        "endLine": 6126,
+        "endChar": 40
+      },
+      "revId": "982d032a7ebbc72cd2a260d20e01a88cfcf3cdf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b2da379_2b8325bc",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -107,6 +131,30 @@
       "side": 1,
       "message": "Are you sure? What about lower_bound \u003d\u003d MIN_VALUE and value \u003d\u003d MAX_VALUE?",
       "parentUuid": "9b2da379_2b8325bc",
+      "range": {
+        "startLine": 6129,
+        "startChar": 0,
+        "endLine": 6132,
+        "endChar": 50
+      },
+      "revId": "982d032a7ebbc72cd2a260d20e01a88cfcf3cdf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c05c8866_39ce6f3a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6132,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-04T18:29:58Z",
+      "side": 1,
+      "message": "Yes, I\u0027m sure. We\u0027re simply going through the specified number of values, starting from lower_bound. The MIN/MAX_VALUE cases are working just like the rest.",
+      "parentUuid": "e0842cce_b62d00d5",
       "range": {
         "startLine": 6129,
         "startChar": 0,
