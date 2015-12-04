@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "009dc025_0fb37556",
+        "filename": "runtime/base/variant_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-04T19:36:48Z",
+      "side": 1,
+      "message": "How would std::decay help?\n\nAs far as I know, std::decay doesn\u0027t make it decay into the base type, it just turns arrays/fp into pointers, removes the references and cv.\n\nI suppose we could support that requested use-case, it would just mean more template parameters, probably something like:\n\n  template \u003ctemplate \u003ctypename TValue\u003e TKeyActual\u003e, typename TValue\u003e\n  void Set(const TKeyActual\u003cTValue\u003e\u0026 key,\n           const TValue\u0026 value,\n           std::enable_if\u003cstd::is_same\u003cTKeyActual\u003cTValue\u003e, TKey\u003cTValue\u003e\u003e::type* \u003d nullptr) {\n     // unchanged implementation\n  }\n\nOr something like that (probably missing a few typenames), it would to enforce at compile-time that the key type belongs to this map and not some other key.\n\nThe reason I just didn\u0027t do that in the first place is because it makes the signature way more scary looking than it needs to be for most of the use-cases.\n\nHappy to support it like that, we\u0027d just want extra comments here not to scare people away.\n\n-----\nSo we should probably either properly support Base/Derived (no decay) or just remove this decay only.",
+      "parentUuid": "e030ac14_42fc1263",
+      "revId": "b77410c08bdcd76251d537ad286b74768d206314",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0842cce_f63628de",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
@@ -178,6 +196,30 @@
     },
     {
       "key": {
+        "uuid": "009dc025_ef5f29be",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-04T19:36:48Z",
+      "side": 1,
+      "message": "Well I don\u0027t think it matters too much if they use the old options anymore, with std::move it would be exactly the same performance.\n\nIf you want to force them to move then using only rvalue references is acceptable too.\n\nEither way it would be more descriptive than a pointer.",
+      "parentUuid": "004940a4_db85b3ee",
+      "range": {
+        "startLine": 849,
+        "startChar": 19,
+        "endLine": 849,
+        "endChar": 37
+      },
+      "revId": "b77410c08bdcd76251d537ad286b74768d206314",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00486077_379da089",
         "filename": "runtime/runtime.h",
         "patchSetId": 1
@@ -207,6 +249,24 @@
       "side": 1,
       "message": "Will be, see TODO comment at https://android-review.googlesource.com/#/c/184410/3/dex2oat/dex2oat.cc@1037 .",
       "parentUuid": "00486077_379da089",
+      "revId": "b77410c08bdcd76251d537ad286b74768d206314",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0842cce_7693f87e",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-04T19:36:48Z",
+      "side": 1,
+      "message": "Sounds good, anything we need to touch in parsed_options_test?",
+      "parentUuid": "004940a4_1b90bb2f",
       "revId": "b77410c08bdcd76251d537ad286b74768d206314",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
