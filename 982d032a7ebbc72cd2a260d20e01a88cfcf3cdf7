@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "20a9e45f_8467666a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6126,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-04T18:10:39Z",
+      "side": 1,
+      "message": "Using temp_reg as signed requires that kPackedSwitchCompareJumpThreshold is small. Please add a static_assert.",
+      "range": {
+        "startLine": 6126,
+        "startChar": 4,
+        "endLine": 6126,
+        "endChar": 40
+      },
+      "revId": "982d032a7ebbc72cd2a260d20e01a88cfcf3cdf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b2da379_2b8325bc",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -60,6 +83,30 @@
       "writtenOn": "2015-12-04T11:32:23Z",
       "side": 1,
       "message": "I think you can drop this if you replace the signed LT with the unsigned LO below.",
+      "range": {
+        "startLine": 6129,
+        "startChar": 0,
+        "endLine": 6132,
+        "endChar": 50
+      },
+      "revId": "982d032a7ebbc72cd2a260d20e01a88cfcf3cdf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0842cce_b62d00d5",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6132,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-04T18:10:39Z",
+      "side": 1,
+      "message": "Are you sure? What about lower_bound \u003d\u003d MIN_VALUE and value \u003d\u003d MAX_VALUE?",
+      "parentUuid": "9b2da379_2b8325bc",
       "range": {
         "startLine": 6129,
         "startChar": 0,
