@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1b21b386_eaaca3b0",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4375,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fba69f26_7a0ce517",
+      "range": {
+        "startLine": 4375,
+        "startChar": 11,
+        "endLine": 4375,
+        "endChar": 12
+      },
+      "revId": "2d6d982894c5e6694d54bdbc7cd19d1176b36552",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b17f3fd_43bf70ec",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-12-02T22:21:22Z",
       "side": 1,
       "message": "This refers to line 4862? If so, now that the code has moved up here, could this comment be simplified to something like \"Note that a potential implicit null check is handled in this GenerateArrayLoadWithBakerReadBarrier call\"?",
+      "range": {
+        "startLine": 4866,
+        "startChar": 22,
+        "endLine": 4867,
+        "endChar": 66
+      },
+      "revId": "2d6d982894c5e6694d54bdbc7cd19d1176b36552",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b2da379_cb45292a",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4867,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T14:18:53Z",
+      "side": 1,
+      "message": "Done, here and similarly in lines 4362–4365.",
+      "parentUuid": "1b17f3fd_43bf70ec",
       "range": {
         "startLine": 4866,
         "startChar": 22,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "fb1bff58_460bf4a8",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4875,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbb18759_6b141d2a",
+      "range": {
+        "startLine": 4875,
+        "startChar": 13,
+        "endLine": 4875,
+        "endChar": 14
+      },
+      "revId": "2d6d982894c5e6694d54bdbc7cd19d1176b36552",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9bb8433f_4ab5d73b",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2015-12-02T22:21:22Z",
       "side": 1,
       "message": "Same.",
+      "range": {
+        "startLine": 4880,
+        "startChar": 13,
+        "endLine": 4880,
+        "endChar": 14
+      },
+      "revId": "2d6d982894c5e6694d54bdbc7cd19d1176b36552",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0eba861_040a5869",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 4880,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9bb8433f_4ab5d73b",
       "range": {
         "startLine": 4880,
         "startChar": 13,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "fb1bff58_c6cb649b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6444,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbb18759_4b9e79d5",
+      "range": {
+        "startLine": 6444,
+        "startChar": 15,
+        "endLine": 6444,
+        "endChar": 19
+      },
+      "revId": "2d6d982894c5e6694d54bdbc7cd19d1176b36552",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b18372c_04c7401a",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "db339bd5_4d44edf8",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6598,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T14:18:53Z",
+      "side": 1,
+      "message": "I think so; added in PS4.",
+      "parentUuid": "3b18372c_04c7401a",
+      "range": {
+        "startLine": 6598,
+        "startChar": 4,
+        "endLine": 6598,
+        "endChar": 6
+      },
+      "revId": "2d6d982894c5e6694d54bdbc7cd19d1176b36552",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b18372c_04462035",
         "filename": "runtime/read_barrier-inl.h",
         "patchSetId": 3
@@ -151,6 +295,30 @@
       "writtenOn": "2015-12-02T22:21:22Z",
       "side": 1,
       "message": "I think this should be in the .h file rather than here.",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 13
+      },
+      "revId": "2d6d982894c5e6694d54bdbc7cd19d1176b36552",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0f23453_c388e808",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T14:18:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b18372c_04462035",
       "range": {
         "startLine": 193,
         "startChar": 0,
