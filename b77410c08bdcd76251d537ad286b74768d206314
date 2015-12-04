@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20a9e45f_e71adc55",
+        "filename": "runtime/base/variant_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-04T18:57:11Z",
+      "side": 1,
+      "message": "Why? It\u0027s not using forwarding references here, so I thought decay was unnecessary?\n\nI tried a few test cases with and without decay and it doesn\u0027t seem any different. Can you please share why this was causing a problem?",
+      "revId": "b77410c08bdcd76251d537ad286b74768d206314",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0842cce_f63628de",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-04T18:57:11Z",
+      "side": 1,
+      "message": "nit: document parameter name",
+      "range": {
+        "startLine": 440,
+        "startChar": 14,
+        "endLine": 440,
+        "endChar": 21
+      },
+      "revId": "b77410c08bdcd76251d537ad286b74768d206314",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "204d6487_786669d6",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-04T18:57:11Z",
+      "side": 1,
+      "message": "Why not const?",
+      "range": {
+        "startLine": 449,
+        "startChar": 21,
+        "endLine": 449,
+        "endChar": 39
+      },
+      "revId": "b77410c08bdcd76251d537ad286b74768d206314",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20a9e45f_a762a4e7",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-04T18:57:11Z",
+      "side": 1,
+      "message": "Seeing as how it clobbers a ton of stuff with releases, this could be a regular lvalue reference. For speed we can use std::move to pass it to each downcall.\n\n(It\u0027ll also make the diff smaller by not needing to change the -\u003e to a .)",
+      "range": {
+        "startLine": 849,
+        "startChar": 19,
+        "endLine": 849,
+        "endChar": 37
+      },
+      "revId": "b77410c08bdcd76251d537ad286b74768d206314",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00486077_379da089",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-04T18:57:11Z",
+      "side": 1,
+      "message": "Is anything calling this, e.g. in a test or in a real program?",
+      "revId": "b77410c08bdcd76251d537ad286b74768d206314",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
