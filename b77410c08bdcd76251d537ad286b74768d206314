@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "80561044_b733a835",
+        "filename": "runtime/base/variant_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-04T21:24:26Z",
+      "side": 1,
+      "message": "Oh, I think I understand what this intended now, you likely wanted to use std::identity here (which they removed in the final C++11 draft).\n\nBy getting the type to the right of :: it will inhibit type deduction, so just std::remove_reference\u003cTValue\u003e::type is less invasive than decay and be enough.\n\n   template \u003ctypename TValue\u003e\n   void Set(const TKey\u003cTValue\u003e\u0026 key,\n            const std::remove_reference\u003cTValue\u003e::type\u0026 value)\n   {\n     ...\n   }\n\n\nThe template-template approach I suggested would allow implicit conversions using the explicit constructor, so perhaps it\u0027s undesirable.\n\nThat being said we\u0027re most better off just putting an identity type trait into the detail namespace because remove_reference is still confusing since it does extra work. This way we can also document the intent better.\n\n  namespace detail {\n    // Use to suppress type deduction in a function argument\n    // See std::identity for more background: \n    // http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1856.html#20.2.2 - move/forward helpers\n    //\n    // e.g. \"template \u003ctypename X\u003e void bar(identity\u003cX\u003e::type foo);\n    // -\u003e bar(5); // compilation error\n    // -\u003e  bar\u003cint\u003e(5); // ok\n    template \u003ctypename T\u003e\n    struct identity {\n      using type \u003d T;\n    };\n  }\n\n   template \u003ctypename TValue\u003e\n   void Set(const TKey\u003cTValue\u003e\u0026 key,\n            const detail::identity\u003cTValue\u003e::type\u0026 value)  // never deduce TValue from typeof(value), deduce from typeof(key) instead\n   {\n     ...\n   }",
+      "parentUuid": "00a4e085_c3e8f6a6",
+      "revId": "b77410c08bdcd76251d537ad286b74768d206314",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0842cce_f63628de",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
