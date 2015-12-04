@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "404ed883_9906cb30",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6126,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-04T19:30:08Z",
+      "side": 1,
+      "message": "I never said it\u0027s a practical concern. I just think this should be documented, and a static_assert with a comment is cheap documentation + enforcement (especially since HPackedSwitch for whatever reason stores num_entries as uint32_t).",
+      "parentUuid": "004940a4_7b1a9faa",
+      "range": {
+        "startLine": 6126,
+        "startChar": 4,
+        "endLine": 6126,
+        "endChar": 40
+      },
+      "revId": "982d032a7ebbc72cd2a260d20e01a88cfcf3cdf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b2da379_2b8325bc",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -155,6 +179,30 @@
       "side": 1,
       "message": "Yes, I\u0027m sure. We\u0027re simply going through the specified number of values, starting from lower_bound. The MIN/MAX_VALUE cases are working just like the rest.",
       "parentUuid": "e0842cce_b62d00d5",
+      "range": {
+        "startLine": 6129,
+        "startChar": 0,
+        "endLine": 6132,
+        "endChar": 50
+      },
+      "revId": "982d032a7ebbc72cd2a260d20e01a88cfcf3cdf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "204d6487_784c2921",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6132,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-04T19:30:08Z",
+      "side": 1,
+      "message": "Yeah, sorry, I messed up with the adds.",
+      "parentUuid": "c05c8866_39ce6f3a",
       "range": {
         "startLine": 6129,
         "startChar": 0,
