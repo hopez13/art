@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0531454_389dc97b",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T15:04:12Z",
+      "side": 1,
+      "message": "Nit: indentation is off.",
+      "range": {
+        "startLine": 278,
+        "startChar": 2,
+        "endLine": 278,
+        "endChar": 4
+      },
+      "revId": "3474b4a9501bc55b25062e8ac5ced1d6cfdffb5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b21b386_eafae39c",
+        "filename": "compiler/linker/buffered_output_stream.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T15:04:12Z",
+      "side": 1,
+      "message": "I do not know if there is a style rule for this, but shouldn\u0027t this be\n\n  #include \"linker/buffered_output_stream.h\"\n\nso that it is consistent with the use in compiler/elf_writer_quick.cc?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 35
+      },
+      "revId": "3474b4a9501bc55b25062e8ac5ced1d6cfdffb5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00a4e085_83bafedf",
+        "filename": "compiler/linker/error_delaying_output_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T15:04:12Z",
+      "side": 1,
+      "message": "Nit: static_cast\u003coff_t\u003e(-1)",
+      "range": {
+        "startLine": 68,
+        "startChar": 27,
+        "endLine": 68,
+        "endChar": 36
+      },
+      "revId": "3474b4a9501bc55b25062e8ac5ced1d6cfdffb5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "803d30f0_bfb09702",
+        "filename": "compiler/linker/file_output_stream.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T15:04:12Z",
+      "side": 1,
+      "message": "#include \"linker/file_output_stream.h\"?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 31
+      },
+      "revId": "3474b4a9501bc55b25062e8ac5ced1d6cfdffb5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "004940a4_3b9db77b",
+        "filename": "compiler/linker/file_output_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T15:04:12Z",
+      "side": 1,
+      "message": "Likewise, \n\n  #include \"linker/output_stream.h\"\n\n?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "3474b4a9501bc55b25062e8ac5ced1d6cfdffb5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "803d30f0_3fc48767",
+        "filename": "compiler/linker/output_stream.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T15:04:12Z",
+      "side": 1,
+      "message": "#include \"linker/output_stream.h\"?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 26
+      },
+      "revId": "3474b4a9501bc55b25062e8ac5ced1d6cfdffb5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6044bc88_7ea731cf",
+        "filename": "compiler/linker/output_stream.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T15:04:12Z",
+      "side": 1,
+      "message": "Maybe remove this default case?  I think that with the current build rules, the compilers we currently use would warn us if all the enum values were not covered in the switch.",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 27
+      },
+      "revId": "3474b4a9501bc55b25062e8ac5ced1d6cfdffb5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e030ac14_e2ce0682",
+        "filename": "compiler/linker/output_stream_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T15:04:12Z",
+      "side": 1,
+      "message": "#include \"linker/file_output_stream.h\"?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 31
+      },
+      "revId": "3474b4a9501bc55b25062e8ac5ced1d6cfdffb5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0598c74_bab0b102",
+        "filename": "compiler/linker/output_stream_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T15:04:12Z",
+      "side": 1,
+      "message": "#include \"linker/vector_output_stream.h\"",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 33
+      },
+      "revId": "3474b4a9501bc55b25062e8ac5ced1d6cfdffb5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "803d30f0_7fbe0fd3",
+        "filename": "compiler/linker/vector_output_stream.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T15:04:12Z",
+      "side": 1,
+      "message": "#include \"linker/vector_output_stream.h\"?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 33
+      },
+      "revId": "3474b4a9501bc55b25062e8ac5ced1d6cfdffb5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e030ac14_22f46eb0",
+        "filename": "compiler/linker/vector_output_stream.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T15:04:12Z",
+      "side": 1,
+      "message": "Nit: indentation is off.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 2
+      },
+      "revId": "3474b4a9501bc55b25062e8ac5ced1d6cfdffb5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e030ac14_42eff2e1",
+        "filename": "compiler/linker/vector_output_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T15:04:12Z",
+      "side": 1,
+      "message": "#include \"linker/output_stream.h\"?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "3474b4a9501bc55b25062e8ac5ced1d6cfdffb5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
