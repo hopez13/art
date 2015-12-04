@@ -283,6 +283,30 @@
       "revId": "0c58e54af45e7b91fdc6b10053c2fa350141cda9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8091b00f_68ef97e2",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-04T00:55:06Z",
+      "side": 1,
+      "message": "\u003e Because in the simplifier, this rewriting is only done for constants\n\nJust out of curiosity, why? It seems like doing it for symbolics wouldn\u0027t be significantly more complicated and could be better in some ways. All I can think is so you don\u0027t need to keep track of whether symbols originate from outside of the function.",
+      "parentUuid": "404ed883_2b49bd46",
+      "range": {
+        "startLine": 437,
+        "startChar": 26,
+        "endLine": 437,
+        "endChar": 27
+      },
+      "revId": "0c58e54af45e7b91fdc6b10053c2fa350141cda9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
