@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "00a4e085_c3e8f6a6",
+        "filename": "runtime/base/variant_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-04T19:55:42Z",
+      "side": 1,
+      "message": "That completely misses the point. I want the TValue to be deduced from the \"key\" argument, never from the \"value\" argument. Deducing from each can lead to different TValue and thus to deduction failure. The std::decay\u003c\u003e serves purely to create a non-deduced context. That\u0027s why the\n\n    // NOTE: In the absence of std::omit_from_type_deduction\u003cT\u003e use std::decay\u003cT\u003e.\n\nAfter TValue is deduced from the \"key\" argument, the type of the \"value\" parameter is known and the \"value\" argument can be implicitly converted to that type if needed.",
+      "parentUuid": "009dc025_0fb37556",
+      "revId": "b77410c08bdcd76251d537ad286b74768d206314",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0842cce_f63628de",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
