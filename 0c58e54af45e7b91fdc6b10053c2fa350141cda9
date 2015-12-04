@@ -235,6 +235,30 @@
       "revId": "0c58e54af45e7b91fdc6b10053c2fa350141cda9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "404ed883_2b49bd46",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-04T00:44:56Z",
+      "side": 1,
+      "message": "Because in the simplifier, this rewriting is only done for constants, not symbolics like here (not sure why). In any case, it is good to make range analysis robust against subtle input differences.",
+      "parentUuid": "00486077_69db41a0",
+      "range": {
+        "startLine": 437,
+        "startChar": 26,
+        "endLine": 437,
+        "endChar": 27
+      },
+      "revId": "0c58e54af45e7b91fdc6b10053c2fa350141cda9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
