@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b2da379_4b53f9eb",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4116,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-04T14:21:32Z",
+      "side": 1,
+      "message": "I forgot to remove this in PS1; this is fixed in PS2.",
+      "range": {
+        "startLine": 4114,
+        "startChar": 0,
+        "endLine": 4116,
+        "endChar": 3
+      },
+      "revId": "b09777add1dcf4ee9554f48c849f84ddc88063c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
