@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e0842cce_1684ec31",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-04T19:39:56Z",
+      "side": 1,
+      "message": "Weird, don\u0027t really need this extra local, but leave it if it makes you feel more warm and fuzzy :).\n\nDo you think this will help with readability? I can suggest using this pattern more often in other CLs.",
+      "revId": "30b4b13aec2f0a18ca6e1fda66aa6133b9d83e12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
