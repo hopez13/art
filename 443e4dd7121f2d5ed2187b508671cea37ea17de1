@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "404ed883_3460feb4",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-04T22:31:07Z",
+      "side": 1,
+      "message": "do we really want this URL embedded in the code?\nThe encoding was pretty clear without it",
+      "range": {
+        "startLine": 1051,
+        "startChar": 60,
+        "endLine": 1051,
+        "endChar": 70
+      },
+      "revId": "443e4dd7121f2d5ed2187b508671cea37ea17de1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00486077_9da11367",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-04T22:31:07Z",
+      "side": 1,
+      "message": "looks like both parameters easily fit on same line as method",
+      "range": {
+        "startLine": 1082,
+        "startChar": 27,
+        "endLine": 1082,
+        "endChar": 28
+      },
+      "revId": "443e4dd7121f2d5ed2187b508671cea37ea17de1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "009dc025_b52df0d4",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1133,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-04T22:31:07Z",
+      "side": 1,
+      "message": "let\u0027s not crash dexdump fatally\nhow about just outputting this message?",
+      "range": {
+        "startLine": 1133,
+        "startChar": 40,
+        "endLine": 1133,
+        "endChar": 52
+      },
+      "revId": "443e4dd7121f2d5ed2187b508671cea37ea17de1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80561044_574b2c06",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1357,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-04T22:31:07Z",
+      "side": 1,
+      "message": "it seems cleaner to protect the Next() call also with HasNext()\n\nalso, it would be a bit cleaner to pass the values into the method, and not the iterator, but I can see why you did that to encapsulate two values; still...",
+      "range": {
+        "startLine": 1357,
+        "startChar": 28,
+        "endLine": 1357,
+        "endChar": 31
+      },
+      "revId": "443e4dd7121f2d5ed2187b508671cea37ea17de1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00486077_7dce573b",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1359,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-04T22:31:07Z",
+      "side": 1,
+      "message": "DCHECK",
+      "range": {
+        "startLine": 1359,
+        "startChar": 36,
+        "endLine": 1359,
+        "endChar": 40
+      },
+      "revId": "443e4dd7121f2d5ed2187b508671cea37ea17de1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
