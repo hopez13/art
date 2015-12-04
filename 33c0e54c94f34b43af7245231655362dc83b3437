@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "204d6487_f886d93b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1599,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-04T20:51:11Z",
+      "side": 1,
+      "message": "So by playing with an oat file I can make a class that\u0027s too small here, and randomly scribble into the heap? There aren\u0027t any checks against that here.",
+      "range": {
+        "startLine": 1599,
+        "startChar": 4,
+        "endLine": 1599,
+        "endChar": 41
+      },
+      "revId": "33c0e54c94f34b43af7245231655362dc83b3437",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
