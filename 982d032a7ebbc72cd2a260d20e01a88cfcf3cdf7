@@ -235,6 +235,52 @@
       "revId": "982d032a7ebbc72cd2a260d20e01a88cfcf3cdf7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20a2c463_7989a09f",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4263,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-12-05T02:57:25Z",
+      "side": 1,
+      "message": "Please drop the suffix.",
+      "range": {
+        "startLine": 4263,
+        "startChar": 12,
+        "endLine": 4263,
+        "endChar": 14
+      },
+      "revId": "982d032a7ebbc72cd2a260d20e01a88cfcf3cdf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0842cce_9701d620",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4271,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-12-05T02:57:25Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 4271,
+        "startChar": 12,
+        "endLine": 4271,
+        "endChar": 14
+      },
+      "revId": "982d032a7ebbc72cd2a260d20e01a88cfcf3cdf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
