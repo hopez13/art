@@ -284,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "e027ccf2_0aa23bbf",
+        "filename": "test/dexdump/StaticFields.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1076769
+      },
+      "writtenOn": "2015-12-05T02:02:57Z",
+      "side": 1,
+      "message": "Oops, I forgot to handle this comment, I personally prefer putting how-to-repro-this-file with binaries, but I\u0027m OK with either way. Removed.",
+      "parentUuid": "40933818_26d5370d",
+      "range": {
+        "startLine": 22,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 3
+      },
+      "revId": "b2d65af5c2de405aaff6901c440938bce4018e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c0be4890_8956994f",
         "filename": "test/dexdump/staticfields.xml",
         "patchSetId": 3
