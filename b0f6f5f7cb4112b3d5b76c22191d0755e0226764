@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60e03ce1_3ea2e9bf",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6447,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-12-07T15:55:50Z",
+      "side": 1,
+      "message": "Is there any way to tell that the value goes dead and we don\u0027t need a temporary?",
+      "revId": "b0f6f5f7cb4112b3d5b76c22191d0755e0226764",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
