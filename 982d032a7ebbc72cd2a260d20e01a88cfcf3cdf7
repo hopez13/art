@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "a0087464_906ad432",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1074104
+      },
+      "writtenOn": "2015-12-07T09:41:21Z",
+      "side": 1,
+      "message": "Currently, for the number from 5 to 3 will be generated as HPackedSwitch which is compare/jump implementation. For the numbers large than 6, HPackedSwitch will be replaced by H86PackedSwitch, which generates the jump tables. The graph will be look a bit different on X86, but the result should still be the same.\n\nBut it would be better for X86 to implement the compact version of compare/jump series.",
+      "parentUuid": "20a9e45f_64acaa64",
+      "range": {
+        "startLine": 95,
+        "startChar": 28,
+        "endLine": 95,
+        "endChar": 53
+      },
+      "revId": "982d032a7ebbc72cd2a260d20e01a88cfcf3cdf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20a9e45f_8467666a",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "I never said it\u0027s a practical concern. I just think this should be documented, and a static_assert with a comment is cheap documentation + enforcement (especially since HPackedSwitch for whatever reason stores num_entries as uint32_t).",
       "parentUuid": "004940a4_7b1a9faa",
+      "range": {
+        "startLine": 6126,
+        "startChar": 4,
+        "endLine": 6126,
+        "endChar": 40
+      },
+      "revId": "982d032a7ebbc72cd2a260d20e01a88cfcf3cdf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20156484_64b16ab7",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6126,
+      "author": {
+        "id": 1074104
+      },
+      "writtenOn": "2015-12-07T09:41:21Z",
+      "side": 1,
+      "message": "I think it will be fine for the below AddConstantSetFlags() to use the IP register to store the immediate, because IP is used as the destination register. For the other AddConstantSetFlags() and GenerateCompareWithImmediate(), the immediate value is constant, so we are sure the IP register won\u0027t be polluted.",
+      "parentUuid": "404ed883_9906cb30",
       "range": {
         "startLine": 6126,
         "startChar": 4,
@@ -215,6 +263,30 @@
     },
     {
       "key": {
+        "uuid": "00f7809a_ab9a092d",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6132,
+      "author": {
+        "id": 1074104
+      },
+      "writtenOn": "2015-12-07T09:41:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "204d6487_784c2921",
+      "range": {
+        "startLine": 6129,
+        "startChar": 0,
+        "endLine": 6132,
+        "endChar": 50
+      },
+      "revId": "982d032a7ebbc72cd2a260d20e01a88cfcf3cdf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb1bff58_c6ba842e",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -226,6 +298,30 @@
       "writtenOn": "2015-12-04T11:32:23Z",
       "side": 1,
       "message": "Same as ARM: use \"lo\" below and remove this branch.\n\n(But not really applicable to mips/mips64 as far as I can tell.)",
+      "range": {
+        "startLine": 4568,
+        "startChar": 0,
+        "endLine": 4571,
+        "endChar": 50
+      },
+      "revId": "982d032a7ebbc72cd2a260d20e01a88cfcf3cdf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e027ccf2_4ab6f3b0",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4571,
+      "author": {
+        "id": 1074104
+      },
+      "writtenOn": "2015-12-07T09:41:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb1bff58_c6ba842e",
       "range": {
         "startLine": 4568,
         "startChar": 0,
@@ -261,6 +357,30 @@
     },
     {
       "key": {
+        "uuid": "a02154e4_88be377d",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4263,
+      "author": {
+        "id": 1074104
+      },
+      "writtenOn": "2015-12-07T09:41:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20a2c463_7989a09f",
+      "range": {
+        "startLine": 4263,
+        "startChar": 12,
+        "endLine": 4263,
+        "endChar": 14
+      },
+      "revId": "982d032a7ebbc72cd2a260d20e01a88cfcf3cdf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0842cce_9701d620",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 1
@@ -272,6 +392,30 @@
       "writtenOn": "2015-12-05T02:57:25Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 4271,
+        "startChar": 12,
+        "endLine": 4271,
+        "endChar": 14
+      },
+      "revId": "982d032a7ebbc72cd2a260d20e01a88cfcf3cdf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20156484_44b6eeb0",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4271,
+      "author": {
+        "id": 1074104
+      },
+      "writtenOn": "2015-12-07T09:41:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0842cce_9701d620",
       "range": {
         "startLine": 4271,
         "startChar": 12,
