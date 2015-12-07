@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "e0feec6e_d2b8e491",
+        "filename": "runtime/base/variant_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-07T12:39:39Z",
+      "side": 1,
+      "message": "Added Identity\u003c\u003e to stl_util.h and cleaned up other places where I used std:decay\u003c\u003e in the past.",
+      "parentUuid": "80561044_b733a835",
+      "revId": "b77410c08bdcd76251d537ad286b74768d206314",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0842cce_f63628de",
         "filename": "runtime/runtime.cc",
         "patchSetId": 1
