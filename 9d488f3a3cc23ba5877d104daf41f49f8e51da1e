@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "80b290f4_2b89d1a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-08T17:58:32Z",
+      "side": 1,
+      "message": "Is that including this CL? The load factors we were using were too high, I adjusted them down and it provided a large reduction in time spent in the hash table:\n\nhttps://android-review.googlesource.com/#/c/176895/",
+      "parentUuid": "a02154e4_c8b2ef1e",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 57
+      },
+      "revId": "9d488f3a3cc23ba5877d104daf41f49f8e51da1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60c91c79_1c937d7f",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -113,6 +137,29 @@
       "side": 1,
       "message": "I compared the value returned by the WriteToMemory(nullptr) method. Actually it\u0027s relevant with the num_buckets_ property.\n\nYou\u0027re totally right about the table size: if the load factors are the same the size is bigger. But I investigated that we can increase the load factor of our implementation to 1 without increasing of the average amount of string comparisons. And as the result - the size is less.",
       "parentUuid": "a0af948e_e1d1bc20",
+      "revId": "9d488f3a3cc23ba5877d104daf41f49f8e51da1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0af948e_07016048",
+        "filename": "runtime/base/chain_hash_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-08T17:58:32Z",
+      "side": 1,
+      "message": "I wonder if it would be less code duplication to add a kChain template boolean to the normal hash set and just handle the places where the logic differs.",
+      "range": {
+        "startLine": 43,
+        "startChar": 6,
+        "endLine": 43,
+        "endChar": 18
+      },
       "revId": "9d488f3a3cc23ba5877d104daf41f49f8e51da1e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
