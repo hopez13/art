@@ -103,6 +103,30 @@
       "revId": "b0f6f5f7cb4112b3d5b76c22191d0755e0226764",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40db3839_11d6fc6f",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6055,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-12-08T15:10:37Z",
+      "side": 1,
+      "message": "Rewrite the whole code based on your suggestions to use compare.",
+      "parentUuid": "800b7060_4f4bad06",
+      "range": {
+        "startLine": 6055,
+        "startChar": 11,
+        "endLine": 6055,
+        "endChar": 30
+      },
+      "revId": "b0f6f5f7cb4112b3d5b76c22191d0755e0226764",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
