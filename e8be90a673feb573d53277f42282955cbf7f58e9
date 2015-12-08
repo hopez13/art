@@ -46,6 +46,30 @@
       "revId": "e8be90a673feb573d53277f42282955cbf7f58e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00622024_769d8e88",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-08T11:43:59Z",
+      "side": 0,
+      "message": "should you then modify this as:\nadb push $(ANDROID_PRODUCT_OUT)/data/* /data/\n\nIt will be more clear imo and data folder will always be there.",
+      "parentUuid": "e0feec6e_153ed60a",
+      "range": {
+        "startLine": 149,
+        "startChar": 39,
+        "endLine": 149,
+        "endChar": 43
+      },
+      "revId": "e8be90a673feb573d53277f42282955cbf7f58e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
