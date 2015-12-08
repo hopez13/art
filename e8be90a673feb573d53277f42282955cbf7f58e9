@@ -70,6 +70,30 @@
       "revId": "e8be90a673feb573d53277f42282955cbf7f58e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40edf8c8_307206ef",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-08T12:04:08Z",
+      "side": 0,
+      "message": "I think the current version is simpler.  I added a comment.\n\nBTW, I think the change in adb push/pull is due to this CL: https://android-review.googlesource.com/#/c/181047.",
+      "parentUuid": "00622024_769d8e88",
+      "range": {
+        "startLine": 149,
+        "startChar": 39,
+        "endLine": 149,
+        "endChar": 43
+      },
+      "revId": "e8be90a673feb573d53277f42282955cbf7f58e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
