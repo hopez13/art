@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "605f5ccc_a914398b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-08T23:44:52Z",
+      "side": 1,
+      "message": "Looking at this a little late, but perhaps good to document that this order is only populated in ssa liveness at the very end.\n\nIf not, a method like TransformLoopHeaderForBCE() in nodes.cc would have to update linear_order_ as well (see fix reverse post order in that method).",
+      "range": {
+        "startLine": 271,
+        "startChar": 43,
+        "endLine": 271,
+        "endChar": 44
+      },
+      "revId": "0d9f17de8f21a10702de1510b73e89d07b3b9bbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
