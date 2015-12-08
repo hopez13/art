@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a02154e4_c8b2ef1e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1085353
+      },
+      "writtenOn": "2015-12-08T16:40:02Z",
+      "side": 1,
+      "message": "The performance data for the Google Maps application (if you need I can provide the same data for other applications).\nThe legend:\nTOTAL - total amount of string comparisons for ALL FindIndex() invocations during the application launching.\nAVG - average amount of string comparisons for ONE FindIndex() invocation during the application launching.\nMAX - maximum amount of string comparisons for ONE FindIndex() invocations (the case of looking for a string which are located somewhere in the end of the chain and the chain is too long).\n\nThe results:\nthe Original solution:\nTOTAL \u003d 120683\nAVG \u003d 2.40462\nMAX \u003d 255 - there are several \"very\" long chains.\n\nour solution (with the load_factor \u003d 1):\nTOTAL: 545\nAVG: 0.06058\nmax \u003d 1\n\nHere you can see that there are very long collision chains (up to 255 elements) in the Original solution sometimes and we need to call the string comparison method each time. Meanwhile the longest chain in our table contains less amount of elements and only 1-2 of them are compared using the string comparison operation.\n\nTo measure it I added a counter inside the FindIndex() method initialized by zero and was incrementing it each time we needed to compare strings (each time the control reaches \u0027if (pred_(slot, element))\u0027 statement inside the while loop). Then I was collecting all the counter values for each FindIndex() invocation.",
+      "parentUuid": "60e03ce1_87b64cae",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 57
+      },
+      "revId": "9d488f3a3cc23ba5877d104daf41f49f8e51da1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60c91c79_1c937d7f",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "80be10e1_774dd0bf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1085353
+      },
+      "writtenOn": "2015-12-08T16:40:02Z",
+      "side": 1,
+      "message": "Actually as I understand the hash function is good enough: the average amount of string comparisons for the Original version is about 2.4. It means the chains aren\u0027t long in general. But there are several long chains, appearing quite seldom. And the main issue here (in my opinion) is not the has function used, but the approach of collision resolving. I mean there can be (and there are in practice) a lot of already busy slots between the appropriate slot (the slot corresponding the hash) and the slot we are actually placing the element. And during looking up we need to visit all of these slots (because there aren\u0027t empty ones between them). This issue also appears when we are looking for an absent element: we need to pass all slots until we meet an empty one.",
+      "parentUuid": "60c91c79_1c937d7f",
+      "revId": "9d488f3a3cc23ba5877d104daf41f49f8e51da1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0af948e_e1d1bc20",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -53,6 +95,24 @@
       "writtenOn": "2015-12-07T23:57:44Z",
       "side": 1,
       "message": "In total or just the # of components? I see the default load factor is 1.0 which could account for the smaller size.\n\nGiven equivalent load factors I would expect the chained version to be larger given the need to store edge pointer data.",
+      "revId": "9d488f3a3cc23ba5877d104daf41f49f8e51da1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "606d9c10_b909db76",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1085353
+      },
+      "writtenOn": "2015-12-08T16:40:02Z",
+      "side": 1,
+      "message": "I compared the value returned by the WriteToMemory(nullptr) method. Actually it\u0027s relevant with the num_buckets_ property.\n\nYou\u0027re totally right about the table size: if the load factors are the same the size is bigger. But I investigated that we can increase the load factor of our implementation to 1 without increasing of the average amount of string comparisons. And as the result - the size is less.",
+      "parentUuid": "a0af948e_e1d1bc20",
       "revId": "9d488f3a3cc23ba5877d104daf41f49f8e51da1e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
