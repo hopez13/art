@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "4016d890_68be5bd3",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-08T12:23:21Z",
+      "side": 1,
+      "message": "This is out-dated, it\u0027s about 1.5*num_entries+few.",
+      "range": {
+        "startLine": 45,
+        "startChar": 49,
+        "endLine": 45,
+        "endChar": 70
+      },
+      "revId": "b0f6f5f7cb4112b3d5b76c22191d0755e0226764",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60e03ce1_3ea2e9bf",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -13,6 +36,70 @@
       "writtenOn": "2015-12-07T15:55:50Z",
       "side": 1,
       "message": "Is there any way to tell that the value goes dead and we don\u0027t need a temporary?",
+      "revId": "b0f6f5f7cb4112b3d5b76c22191d0755e0226764",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4016d890_88d47712",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6447,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-08T12:23:21Z",
+      "side": 1,
+      "message": "You do need the temporary with this approach.\n\nIf you want to avoid the temporary, you could instead do\n\n    cmp value_reg, lower_bound\n    jl fallthrough\n    je successor[0]\n    cmp value_reg, lower_bound + 2\n    jl successor[1]\n    je successor[2]\n    cmp value_reg, lower_bound + 4\n    jl successor[3]\n    je successor[4]\n    ...\n\nYou could also optimize lower_bound \u003d\u003d 0 as\n\n    cmp value_reg, 1    // \u003d\u003d lower_bound + 1\n    jb successor[0]\n    je successor[1]\n    cmp value_reg, 3    // \u003d\u003d lower_bound + 3\n    jb successor[2]\n    je successor[3]\n    ...\n\n(Store the kLess/kBelow in a local variable and initialize `index` to correct value and you can keep the main loop shared for both cases.)",
+      "parentUuid": "60e03ce1_3ea2e9bf",
+      "revId": "b0f6f5f7cb4112b3d5b76c22191d0755e0226764",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4016d890_a8d7b315",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6456,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-08T12:23:21Z",
+      "side": 1,
+      "message": "index + 2 \u003c\u003d num_entries",
+      "range": {
+        "startLine": 6456,
+        "startChar": 9,
+        "endLine": 6456,
+        "endChar": 28
+      },
+      "revId": "b0f6f5f7cb4112b3d5b76c22191d0755e0226764",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "800b7060_4f4bad06",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6055,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-08T12:23:21Z",
+      "side": 1,
+      "message": "This should be \"index + 2 \u003c\u003d num_entries\". As it is, odd num_entries is broken.",
+      "range": {
+        "startLine": 6055,
+        "startChar": 11,
+        "endLine": 6055,
+        "endChar": 30
+      },
       "revId": "b0f6f5f7cb4112b3d5b76c22191d0755e0226764",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
