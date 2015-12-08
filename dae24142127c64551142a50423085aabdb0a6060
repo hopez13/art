@@ -22,6 +22,30 @@
       "revId": "dae24142127c64551142a50423085aabdb0a6060",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0342c68_6239767e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 6209,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-08T19:45:28Z",
+      "side": 1,
+      "message": "No, this needs to be checked in general (see also the CheckICCE call in line 6248). The resolve-mode is only for the cache hit case (so that, for example, you don\u0027t get a class method when you asked for invoke-interface, as the fast-path may not check that you\u0027re doing the right thing [so issues should only happen when there are soft verifier failures]).",
+      "parentUuid": "40fed8bd_6501a6e3",
+      "range": {
+        "startLine": 6209,
+        "startChar": 10,
+        "endLine": 6209,
+        "endChar": 42
+      },
+      "revId": "dae24142127c64551142a50423085aabdb0a6060",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
