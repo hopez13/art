@@ -16,6 +16,24 @@
       "revId": "2433d4e17c3006b8262a0d9421e201fc84777208",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0feec6e_95800668",
+        "filename": "imgdiag/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-08T21:24:20Z",
+      "side": 0,
+      "message": "I used the same recipe as the one used in dex2oat/Android.mk for dex2oat. I\u0027ll try to refactor in the next patch set.",
+      "parentUuid": "40d5f831_f038be20",
+      "revId": "2433d4e17c3006b8262a0d9421e201fc84777208",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
