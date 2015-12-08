@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e027ccf2_ea408737",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1076769
+      },
+      "writtenOn": "2015-12-08T03:47:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80b290f4_b7be287d",
+      "range": {
+        "startLine": 1021,
+        "startChar": 11,
+        "endLine": 1021,
+        "endChar": 17
+      },
+      "revId": "e6385fe01e2e2f24bb4ecb35470adf0f7cb097b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00e5c0f2_db3cb39f",
         "filename": "runtime/dex_file.h",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2015-12-07T18:15:44Z",
       "side": 1,
       "message": "can\u0027t say this file is very consistent, but I would add an empty line to separate the two constructors. Also, documenting the difference would be a plus (but again, this file does not set a very good example for that)",
+      "range": {
+        "startLine": 1514,
+        "startChar": 68,
+        "endLine": 1514,
+        "endChar": 70
+      },
+      "revId": "e6385fe01e2e2f24bb4ecb35470adf0f7cb097b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20fc847c_4c80dfb0",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1514,
+      "author": {
+        "id": 1076769
+      },
+      "writtenOn": "2015-12-08T03:47:10Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "00e5c0f2_db3cb39f",
       "range": {
         "startLine": 1514,
         "startChar": 68,
