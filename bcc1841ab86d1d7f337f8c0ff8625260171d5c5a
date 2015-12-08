@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "80d9b040_cecb0bcb",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6152,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-08T16:50:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "601bdcb8_a611a6db",
+      "revId": "bcc1841ab86d1d7f337f8c0ff8625260171d5c5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "601bdcb8_49ac45b2",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2015-12-08T14:18:03Z",
       "side": 1,
       "message": "Could you expand the above comments with an example when can you actually end up in this case?",
+      "range": {
+        "startLine": 6193,
+        "startChar": 20,
+        "endLine": 6193,
+        "endChar": 40
+      },
+      "revId": "bcc1841ab86d1d7f337f8c0ff8625260171d5c5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80b290f4_ab9a412d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6193,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-08T16:50:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "601bdcb8_49ac45b2",
       "range": {
         "startLine": 6193,
         "startChar": 20,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "80b290f4_cb977504",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-08T16:50:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60f2fca8_b159da0c",
+      "range": {
+        "startLine": 250,
+        "startChar": 4,
+        "endLine": 250,
+        "endChar": 24
+      },
+      "revId": "bcc1841ab86d1d7f337f8c0ff8625260171d5c5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4016d890_68a77bcf",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 2
@@ -76,6 +142,30 @@
       "writtenOn": "2015-12-08T14:18:03Z",
       "side": 1,
       "message": "on a new line?",
+      "range": {
+        "startLine": 404,
+        "startChar": 54,
+        "endLine": 404,
+        "endChar": 66
+      },
+      "revId": "bcc1841ab86d1d7f337f8c0ff8625260171d5c5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0b50cdb_0e017b48",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-08T16:50:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4016d890_68a77bcf",
       "range": {
         "startLine": 404,
         "startChar": 54,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "60c91c79_4a6b639c",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3651,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-08T16:50:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40edf8c8_b0271694",
+      "range": {
+        "startLine": 3651,
+        "startChar": 38,
+        "endLine": 3651,
+        "endChar": 40
+      },
+      "revId": "bcc1841ab86d1d7f337f8c0ff8625260171d5c5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40edf8c8_10c70abd",
         "filename": "test/800-smali/smali/b_21869691A.smali",
         "patchSetId": 2
@@ -122,6 +236,30 @@
       "writtenOn": "2015-12-08T16:23:37Z",
       "side": 1,
       "message": "I found this confusing at first. Please explain that we call B21869691C.a() here but it\u0027s resolved to B21869691B.a().",
+      "range": {
+        "startLine": 4,
+        "startChar": 31,
+        "endLine": 4,
+        "endChar": 45
+      },
+      "revId": "bcc1841ab86d1d7f337f8c0ff8625260171d5c5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60c91c79_6a601fb6",
+        "filename": "test/800-smali/smali/b_21869691A.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-08T16:50:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40edf8c8_10c70abd",
       "range": {
         "startLine": 4,
         "startChar": 31,
