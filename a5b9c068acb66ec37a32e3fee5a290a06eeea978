@@ -1,0 +1,255 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80ed303a_1fbf837b",
+        "filename": "runtime/base/array_slice.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-08T22:43:03Z",
+      "side": 1,
+      "message": "nit: comments to describe class and usage?",
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0e3a848_81a7ba29",
+        "filename": "runtime/base/array_slice.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-08T22:43:03Z",
+      "side": 1,
+      "message": "nit: public methods should have comments",
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0e0ac3e_c2cd423e",
+        "filename": "runtime/base/array_slice.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-08T22:43:03Z",
+      "side": 1,
+      "message": "Why no operator[] ?",
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00f940fe_fbb0efb5",
+        "filename": "runtime/base/array_slice.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-08T22:43:03Z",
+      "side": 1,
+      "message": "Aren\u0027t ArraySlices written to the image? size_t is not safe because it\u0027s either 32-bit or 64-bit. All fields should be of the form uintXY_t",
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0054e0af_a3569a09",
+        "filename": "runtime/base/array_slice.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-08T22:43:03Z",
+      "side": 1,
+      "message": "Why isn\u0027t this just on the class\n\n  IterationRange\u003cStrideIterator\u003cT\u003e\u003e AsRange() const {\n     ...\n  }\n\n?",
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "405a58de_a551be0c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5324,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-08T22:43:03Z",
+      "side": 1,
+      "message": "Any reason why not to just make these virtual member functions?\n\n   ArrayLike\u003cT\u003e {\n     virtual T* At(int32_t index) \u003d 0;\n   }\n   ArrayLikeSlice\u003cT\u003e : ArrayLike\u003cT\u003e\n   ArrayLikePointerArray : ArrayLike\u003cT\u003e\n\netc?",
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80ed303a_df519b0c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5344,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-08T22:43:03Z",
+      "side": 1,
+      "message": "initialization?",
+      "range": {
+        "startLine": 5344,
+        "startChar": 40,
+        "endLine": 5344,
+        "endChar": 50
+      },
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0054e0af_83235e9a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5369,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-08T22:43:03Z",
+      "side": 1,
+      "message": "nit: just initialize the fields here with \u003d or {}, then you can remove all of the constructor crud which just calls the default constructor (when the parameter is unspecified)",
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "605f5ccc_e6749e6a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5374,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-08T22:43:03Z",
+      "side": 1,
+      "message": "nit: no auto here please",
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "605f5ccc_86692a95",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5375,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-08T22:43:03Z",
+      "side": 1,
+      "message": "nit: no auto here please",
+      "range": {
+        "startLine": 5375,
+        "startChar": 2,
+        "endLine": 5375,
+        "endChar": 6
+      },
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80ed303a_5f158b21",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5381,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-08T22:43:03Z",
+      "side": 1,
+      "message": "nit: no auto here please",
+      "range": {
+        "startLine": 5381,
+        "startChar": 4,
+        "endLine": 5381,
+        "endChar": 8
+      },
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40efb832_5d091bb1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5382,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-08T22:43:03Z",
+      "side": 1,
+      "message": "(this is a reasonable use of auto)",
+      "range": {
+        "startLine": 5382,
+        "startChar": 4,
+        "endLine": 5382,
+        "endChar": 8
+      },
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0e3a848_41d5b234",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-08T22:43:03Z",
+      "side": 1,
+      "message": "So is it including declared+copied now? The comment should probably be updated. And honestly the name could be different too if that\u0027s the case, perhaps NumNewVirtualMethods or some such.\n\n(don\u0027t much have a preference for it, as long as we make it clear it has other methods in there besides declared).",
+      "range": {
+        "startLine": 773,
+        "startChar": 25,
+        "endLine": 773,
+        "endChar": 42
+      },
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
