@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00622024_5971a3e5",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3215,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-08T15:36:16Z",
+      "side": 1,
+      "message": "CodeGenerator::GetInt32ValueOf(rhs.GetConstant())",
+      "range": {
+        "startLine": 3215,
+        "startChar": 19,
+        "endLine": 3215,
+        "endChar": 65
+      },
+      "revId": "130225415ee20bd4ad8b7ac20a4ee41f1d63eac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00622024_f9886f08",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4170,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-08T15:36:16Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "130225415ee20bd4ad8b7ac20a4ee41f1d63eac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0d6b40a_63f93ca8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4185,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-08T15:36:16Z",
+      "side": 1,
+      "message": "You may have missed my comment in PS1/nodes_arm64.h. Updated version:\n\nIf you don\u0027t reject this here, you should allow it everywhere. That includes InstructionCodeGeneratorARM::HandleLongRotate() where you\u0027re now using GetInt32ValueOf() which cannot handle long constants, so you would actually need GetInt64ValueOf().",
+      "range": {
+        "startLine": 4182,
+        "startChar": 0,
+        "endLine": 4185,
+        "endChar": 3
+      },
+      "revId": "130225415ee20bd4ad8b7ac20a4ee41f1d63eac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c001e83e_d41e1238",
+        "filename": "test/541-checker-instruction-simplifier-rotate/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-08T15:36:16Z",
+      "side": 1,
+      "message": "For the CHECK-NOTs, I would go without the intrinsic specification. We don\u0027t expect any invoke here.",
+      "range": {
+        "startLine": 45,
+        "startChar": 43,
+        "endLine": 45,
+        "endChar": 71
+      },
+      "revId": "130225415ee20bd4ad8b7ac20a4ee41f1d63eac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00622024_d985b3ee",
+        "filename": "test/541-checker-instruction-simplifier-rotate/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-08T15:36:16Z",
+      "side": 1,
+      "message": "Indentation.",
+      "range": {
+        "startLine": 190,
+        "startChar": 41,
+        "endLine": 190,
+        "endChar": 44
+      },
+      "revId": "130225415ee20bd4ad8b7ac20a4ee41f1d63eac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
