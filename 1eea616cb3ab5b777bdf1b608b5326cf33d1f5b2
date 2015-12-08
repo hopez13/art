@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "60c91c79_9fce9fdc",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 993,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-08T17:52:51Z",
+      "side": 1,
+      "message": "Get rid of the temp variable?",
+      "range": {
+        "startLine": 993,
+        "startChar": 13,
+        "endLine": 993,
+        "endChar": 28
+      },
+      "revId": "1eea616cb3ab5b777bdf1b608b5326cf33d1f5b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0b808d7_d3800c69",
+        "filename": "runtime/base/array_slice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-08T17:52:51Z",
+      "side": 1,
+      "message": "Not sure I would have added this class, but since is already done, might as well merge it.",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 16
+      },
+      "revId": "1eea616cb3ab5b777bdf1b608b5326cf33d1f5b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0af948e_c7068863",
+        "filename": "runtime/base/array_slice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-08T17:52:51Z",
+      "side": 1,
+      "message": "Is it preferred to use a real constructor or provide default values for the member variables? I.e. T* array_ \u003d nullptr;",
+      "range": {
+        "startLine": 31,
+        "startChar": 17,
+        "endLine": 31,
+        "endChar": 32
+      },
+      "revId": "1eea616cb3ab5b777bdf1b608b5326cf33d1f5b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20eac4c4_30ce903a",
+        "filename": "runtime/base/array_slice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-08T17:52:51Z",
+      "side": 1,
+      "message": "This constructor seems strange, I\u0027d assume it would use start_offset for something other than just length calculation.",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 12
+      },
+      "revId": "1eea616cb3ab5b777bdf1b608b5326cf33d1f5b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60c91c79_654db072",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-08T17:52:51Z",
+      "side": 1,
+      "message": "I think we want to use 32 bits for these since there can be more 64k methods theoretically.",
+      "range": {
+        "startLine": 199,
+        "startChar": 2,
+        "endLine": 199,
+        "endChar": 15
+      },
+      "revId": "1eea616cb3ab5b777bdf1b608b5326cf33d1f5b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c001e83e_548062b0",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 1
@@ -13,6 +128,30 @@
       "writtenOn": "2015-12-08T13:56:43Z",
       "side": 1,
       "message": "Mathieu, didn\u0027t we have some concerns about the atomicity of setting the methods?",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 202,
+        "endChar": 69
+      },
+      "revId": "1eea616cb3ab5b777bdf1b608b5326cf33d1f5b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0b808d7_7393c0cc",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-08T17:52:51Z",
+      "side": 1,
+      "message": "Good catch, the main issue was that Class::VisitReferences roots happens concurrently and could happen when SetMethodsPtrUnchecked is being called. In this case, it seems like it should be OK since the Class::VisitReferences logic does not depend on copied_methods_offset_ or virtual_methods_offset_.",
+      "parentUuid": "c001e83e_548062b0",
       "range": {
         "startLine": 197,
         "startChar": 0,
