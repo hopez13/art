@@ -108,6 +108,29 @@
       "revId": "bcc1841ab86d1d7f337f8c0ff8625260171d5c5a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40edf8c8_10c70abd",
+        "filename": "test/800-smali/smali/b_21869691A.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-08T16:23:37Z",
+      "side": 1,
+      "message": "I found this confusing at first. Please explain that we call B21869691C.a() here but it\u0027s resolved to B21869691B.a().",
+      "range": {
+        "startLine": 4,
+        "startChar": 31,
+        "endLine": 4,
+        "endChar": 45
+      },
+      "revId": "bcc1841ab86d1d7f337f8c0ff8625260171d5c5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
