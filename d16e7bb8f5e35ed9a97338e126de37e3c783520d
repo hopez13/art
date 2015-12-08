@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "00106094_0677dcde",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3270,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-08T15:36:16Z",
+      "side": 1,
+      "message": "The swap() was needed when we had to distinguish rotateLeft() and rotateRight() and we did the swap() only in one branch of an if-block.\n\nNow you can rename shift_left\u003c-\u003eshift_right above and keep the names below and the swap() will disappear.",
+      "parentUuid": "60c67c32_ee339feb",
+      "range": {
+        "startLine": 3270,
+        "startChar": 4,
+        "endLine": 3270,
+        "endChar": 39
+      },
+      "revId": "d16e7bb8f5e35ed9a97338e126de37e3c783520d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c0eba861_81ce5a38",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 3
@@ -1071,6 +1095,30 @@
       "side": 1,
       "message": "The invoke is currently removed by instruction_simplifier. Do you want them marked \"inliner (after)\" now?",
       "parentUuid": "e0e8ac67_426a9288",
+      "range": {
+        "startLine": 36,
+        "startChar": 61,
+        "endLine": 36,
+        "endChar": 91
+      },
+      "revId": "d16e7bb8f5e35ed9a97338e126de37e3c783520d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "601bdcb8_093ecd0a",
+        "filename": "test/541-checker-instruction-simplifier-rotate-arm/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-08T15:36:16Z",
+      "side": 1,
+      "message": "No, not yet. This was just a remark about getting rid of the intrinsic in the future.",
+      "parentUuid": "00f7809a_ebbb718b",
       "range": {
         "startLine": 36,
         "startChar": 61,
