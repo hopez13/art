@@ -543,6 +543,30 @@
     },
     {
       "key": {
+        "uuid": "e55fde25_33f81aa3",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-09T22:17:40Z",
+      "side": 1,
+      "message": "We rely on image section ranges a few times for things like loading the intern table, patchoat, class linker. The data is currently still consistent for the decompressed file. If I had the bitmap section correspond to the actual file, it would be inconsistent with the other sections which would still correspond to the decompressed image file (i.e. overlap).",
+      "parentUuid": "253496db_92e8dcd1",
+      "range": {
+        "startLine": 701,
+        "startChar": 0,
+        "endLine": 706,
+        "endChar": 42
+      },
+      "revId": "ab8e27ab53a41b0048e27492262b908f04a2afa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a00954b1_c88f4f13",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 3
