@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6553ee27_0ffccd5d",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-09T23:46:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "204d6487_593e0f0c",
+      "range": {
+        "startLine": 1178,
+        "startChar": 0,
+        "endLine": 1178,
+        "endChar": 32
+      },
+      "revId": "208a5cb383dd9dcd3461f89b74af5df67dc8d794",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0842cce_973eb609",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-12-05T02:04:50Z",
       "side": 1,
       "message": "Does this loop iterate up to once because class_loaders_ has only one element?",
+      "range": {
+        "startLine": 1385,
+        "startChar": 2,
+        "endLine": 1385,
+        "endChar": 54
+      },
+      "revId": "208a5cb383dd9dcd3461f89b74af5df67dc8d794",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "855c6237_0d4df550",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1385,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-09T23:46:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0842cce_973eb609",
       "range": {
         "startLine": 1385,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "253496db_d20f84b6",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1394,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-09T23:46:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00486077_8cd566dc",
+      "range": {
+        "startLine": 1394,
+        "startChar": 4,
+        "endLine": 1394,
+        "endChar": 86
+      },
+      "revId": "208a5cb383dd9dcd3461f89b74af5df67dc8d794",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8091b00f_19309bbf",
         "filename": "compiler/image_writer.h",
         "patchSetId": 2
@@ -82,6 +154,24 @@
       "writtenOn": "2015-12-05T02:04:50Z",
       "side": 1,
       "message": "Say a nullptr for the null class loader is a valid entry?\n\nWhy there\u0027s only one?",
+      "revId": "208a5cb383dd9dcd3461f89b74af5df67dc8d794",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6553ee27_4fabe54b",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-09T23:46:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8091b00f_19309bbf",
       "revId": "208a5cb383dd9dcd3461f89b74af5df67dc8d794",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "254d7687_eab60347",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-09T23:46:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80561044_80b1fcb9",
+      "range": {
+        "startLine": 531,
+        "startChar": 0,
+        "endLine": 531,
+        "endChar": 27
+      },
+      "revId": "208a5cb383dd9dcd3461f89b74af5df67dc8d794",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0842cce_571fce98",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -122,6 +236,30 @@
       "writtenOn": "2015-12-05T02:04:50Z",
       "side": 1,
       "message": "Do we need to keep AddBootImageClassesToClassTable()?",
+      "range": {
+        "startLine": 1026,
+        "startChar": 4,
+        "endLine": 1026,
+        "endChar": 55
+      },
+      "revId": "208a5cb383dd9dcd3461f89b74af5df67dc8d794",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "009dc025_8420c7e0",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-09T23:46:30Z",
+      "side": 1,
+      "message": "I kept it for now in case we want to support not having the class table inside of the image, what do you think, should I add a compiler option for this?",
+      "parentUuid": "e0842cce_571fce98",
       "range": {
         "startLine": 1026,
         "startChar": 4,
