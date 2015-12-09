@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "254d7687_24421294",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-09T16:41:55Z",
+      "side": 1,
+      "message": "You know that the proper fix is the command-line parser, right? :-)",
+      "parentUuid": "20c564ce_c4fa5e64",
+      "range": {
+        "startLine": 631,
+        "startChar": 60,
+        "endLine": 631,
+        "endChar": 66
+      },
+      "revId": "bdc64a8adf7a2643e6c8b142f8a2fe40105b4fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40c6d8da_4554aa46",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 6
