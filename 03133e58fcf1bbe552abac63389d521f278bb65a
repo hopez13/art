@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "454eea83_eb0a8567",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-09T23:22:34Z",
+      "side": 1,
+      "message": "This likely should be special-cased. E.g.,\n\n * inside the boot image is always allowed to do this.\n * if the superclass is in the boot image, then we can use the actual method",
+      "range": {
+        "startLine": 790,
+        "startChar": 6,
+        "endLine": 791,
+        "endChar": 79
+      },
+      "revId": "03133e58fcf1bbe552abac63389d521f278bb65a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
