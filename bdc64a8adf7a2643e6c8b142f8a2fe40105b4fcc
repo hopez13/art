@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "4520aa91_f5c27808",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-09T19:10:33Z",
+      "side": 1,
+      "message": "But you still have the data() used as null-terminated string below. StringPiece::data() generally does not guarantee the terminator.\n\nKeep this as is, we will deal with it later.",
+      "parentUuid": "a5596647_6870e3be",
+      "range": {
+        "startLine": 631,
+        "startChar": 60,
+        "endLine": 631,
+        "endChar": 66
+      },
+      "revId": "bdc64a8adf7a2643e6c8b142f8a2fe40105b4fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40c6d8da_4554aa46",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 6
@@ -249,6 +273,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "40c6d8da_4554aa46",
+      "range": {
+        "startLine": 682,
+        "startChar": 24,
+        "endLine": 682,
+        "endChar": 50
+      },
+      "revId": "bdc64a8adf7a2643e6c8b142f8a2fe40105b4fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5f24653_009a462e",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-09T19:10:33Z",
+      "side": 1,
+      "message": "You updated the comment but not the code. GetDataSize() does not include the header size.",
+      "parentUuid": "e55fde25_4a8d13aa",
       "range": {
         "startLine": 682,
         "startChar": 24,
