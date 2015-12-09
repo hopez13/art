@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00c060be_c31ed69b",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2015-12-09T12:11:20Z",
+      "side": 1,
+      "message": "(nit): You can use static cast here",
+      "range": {
+        "startLine": 364,
+        "startChar": 28,
+        "endLine": 364,
+        "endChar": 44
+      },
+      "revId": "22754585d145767a7d76af87a4b9eb02d09961ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60cbdce2_4654b246",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2015-12-09T12:11:20Z",
+      "side": 1,
+      "message": "(nit): Please use \u0027!is_static\u0027",
+      "range": {
+        "startLine": 400,
+        "startChar": 12,
+        "endLine": 400,
+        "endChar": 49
+      },
+      "revId": "22754585d145767a7d76af87a4b9eb02d09961ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0dac8a8_692ee5d0",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2015-12-09T12:11:20Z",
+      "side": 1,
+      "message": "I think you don\u0027t need this data structure. Based on my understanding you can write the debug ranges section based on the content of the debug_loc_entries vector",
+      "range": {
+        "startLine": 495,
+        "startChar": 0,
+        "endLine": 499,
+        "endChar": 57
+      },
+      "revId": "22754585d145767a7d76af87a4b9eb02d09961ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
