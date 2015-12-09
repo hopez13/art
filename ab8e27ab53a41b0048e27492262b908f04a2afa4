@@ -896,6 +896,29 @@
     },
     {
       "key": {
+        "uuid": "855c6237_ed7d01c3",
+        "filename": "runtime/image.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-09T22:53:44Z",
+      "side": 1,
+      "message": "Maybe we should say that the image section sizes/offsets correspond to the uncompressed form.",
+      "range": {
+        "startLine": 265,
+        "startChar": 5,
+        "endLine": 265,
+        "endChar": 19
+      },
+      "revId": "ab8e27ab53a41b0048e27492262b908f04a2afa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c012c8d7_09cfa97f",
         "filename": "runtime/image.h",
         "patchSetId": 3
