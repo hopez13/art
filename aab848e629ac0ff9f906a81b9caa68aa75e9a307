@@ -87,6 +87,24 @@
       "revId": "aab848e629ac0ff9f906a81b9caa68aa75e9a307",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05487277_63c0027d",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2015-12-09T18:55:00Z",
+      "side": 1,
+      "message": "You can define a new variable:\nTEST_ART_RUN_TEST_ORDERONLY_DEPENDENCIES :\u003d\nifeq ($(ANDROID_COMPILE_WITH_JACK),true)\nTEST_ART_RUN_TEST_ORDERONLY_DEPENDENCIES :\u003d \\\n  setup-jack-server\nendif\n\nthen add \"| $(TEST_ART_RUN_TEST_ORDERONLY_DEPENDENCIES)\" to the end of each dependency declaration.",
+      "parentUuid": "a5f24653_603d920c",
+      "revId": "aab848e629ac0ff9f906a81b9caa68aa75e9a307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
