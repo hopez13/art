@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "40edf8c8_50d07246",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-09T14:07:51Z",
+      "side": 1,
+      "message": "Please move this to an anonymous namespace. We have another CompilationUnit in ::art and while this one is in ::art::dwarf, it would be better if it was invisible outside this .cc file.",
+      "range": {
+        "startLine": 293,
+        "startChar": 7,
+        "endLine": 293,
+        "endChar": 22
+      },
+      "revId": "22754585d145767a7d76af87a4b9eb02d09961ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00622024_d95653a7",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-09T14:07:51Z",
+      "side": 1,
+      "message": "This function is getting a bit long. Move the LocalVariable and DebugInfoCallback to an anonymous namespace.",
+      "range": {
+        "startLine": 348,
+        "startChar": 15,
+        "endLine": 348,
+        "endChar": 28
+      },
+      "revId": "22754585d145767a7d76af87a4b9eb02d09961ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00c060be_c31ed69b",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 3
@@ -18,6 +64,52 @@
         "startChar": 28,
         "endLine": 364,
         "endChar": 44
+      },
+      "revId": "22754585d145767a7d76af87a4b9eb02d09961ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "601bdcb8_69c8212b",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-09T14:07:51Z",
+      "side": 1,
+      "message": "I\u0027m not extra fond of defining a variable together with the definition of its class.",
+      "range": {
+        "startLine": 370,
+        "startChar": 8,
+        "endLine": 370,
+        "endChar": 29
+      },
+      "revId": "22754585d145767a7d76af87a4b9eb02d09961ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c07f284b_815dda55",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-09T14:07:51Z",
+      "side": 1,
+      "message": "Helper function in an anonymous namespace? (Doesn\u0027t use the template parameter.)",
+      "range": {
+        "startLine": 379,
+        "startChar": 0,
+        "endLine": 387,
+        "endChar": 11
       },
       "revId": "22754585d145767a7d76af87a4b9eb02d09961ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -64,6 +156,29 @@
         "startChar": 0,
         "endLine": 499,
         "endChar": 57
+      },
+      "revId": "22754585d145767a7d76af87a4b9eb02d09961ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "408b38a3_ddc7cb18",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-09T14:07:51Z",
+      "side": 1,
+      "message": "Move the extraction of debug_loc_entries to a helper function in an anonymous namespace (doesn\u0027t use the template parameter).",
+      "range": {
+        "startLine": 501,
+        "startChar": 6,
+        "endLine": 501,
+        "endChar": 83
       },
       "revId": "22754585d145767a7d76af87a4b9eb02d09961ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
