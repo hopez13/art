@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05487277_e383d2bb",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-09T17:44:57Z",
+      "side": 1,
+      "message": "The \"first\" here was a bit confusing at first read.\nHow about \"Assume .... until proven otherwise\" or something like that",
+      "range": {
+        "startLine": 128,
+        "startChar": 22,
+        "endLine": 128,
+        "endChar": 26
+      },
+      "revId": "85d4b18a40acf3a27517d5a817bb885eda3ec1a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
