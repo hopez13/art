@@ -69,6 +69,24 @@
       "revId": "aab848e629ac0ff9f906a81b9caa68aa75e9a307",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5f24653_603d920c",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-12-09T16:24:38Z",
+      "side": 1,
+      "message": "I\u0027m not a build expert but I think I also prefer the 2nd solution. At least, you are sure to append you order-only dependency at the end of the dependencies list.",
+      "parentUuid": "251f3657_d4d53c0f",
+      "revId": "aab848e629ac0ff9f906a81b9caa68aa75e9a307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
