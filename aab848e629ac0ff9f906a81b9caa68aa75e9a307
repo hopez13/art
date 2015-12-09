@@ -51,6 +51,24 @@
       "revId": "aab848e629ac0ff9f906a81b9caa68aa75e9a307",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "251f3657_d4d53c0f",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1023201
+      },
+      "writtenOn": "2015-12-09T15:57:46Z",
+      "side": 1,
+      "message": "I could do something like\n\n  define art-tests-order-dependency \n    $(if $(ANDROID_COMPILE_WITH_JACK),$(if $(filter-out true,,$(ANDROID_COMPILE_WITH_JACK)),,setup-jack-server),)\n  endef\n\nand then add \"| $(art-tests-order-dependency)\"\nI\u0027m not so fan of this.\n\nThe more of think of it the more I dislike current solution. If none of you express a preference I think I\u0027m going to the second solution ie:\n  ifeq ($(ANDROID_COMPILE_WITH_JACK),true)\n    \u003ctarget\u003e: | setup-jack-server\n  endif",
+      "parentUuid": "4022588b_05b1f205",
+      "revId": "aab848e629ac0ff9f906a81b9caa68aa75e9a307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
