@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "454eea83_6821fbe3",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 1554,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-09T20:02:04Z",
+      "side": 1,
+      "message": "You could make this a constructor and forward in the others instead. Seems a bit cleaner, but it\u0027s up to you.",
+      "range": {
+        "startLine": 1554,
+        "startChar": 2,
+        "endLine": 1554,
+        "endChar": 48
+      },
+      "revId": "5ec95cde2b0bbbc504dbd019d754906ce668b390",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
