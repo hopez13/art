@@ -519,6 +519,30 @@
     },
     {
       "key": {
+        "uuid": "253496db_92e8dcd1",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-09T22:07:48Z",
+      "side": 1,
+      "message": "It seems better to avoid \u0027surprises\u0027 in the file format and keep section data consistent with the actual data in the file. Do we rely on the image section ranges for anything? Maybe an idea is to define a different image section type for the compressed part and make the section ranges accurate?",
+      "parentUuid": "c0e3a848_c1a702e7",
+      "range": {
+        "startLine": 701,
+        "startChar": 0,
+        "endLine": 706,
+        "endChar": 42
+      },
+      "revId": "ab8e27ab53a41b0048e27492262b908f04a2afa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a00954b1_c88f4f13",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 3
