@@ -611,6 +611,9 @@ class Dex2Oat FINAL {
     // the runtime.
     LogCompletionTime();
 
+    // Explicitly clear the watchdog.
+    watchdog_.reset();
+
     if (!kIsDebugBuild && !(RUNNING_ON_MEMORY_TOOL && kMemoryToolDetectsLeaks)) {
       // We want to just exit on non-debug builds, not bringing the runtime down
       // in an orderly fashion. So release the following fields.
