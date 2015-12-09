@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60cbdce2_2666d630",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1023201
+      },
+      "writtenOn": "2015-12-09T14:37:11Z",
+      "side": 1,
+      "message": "I\u0027m not so sure of this one. I\u0027m hesitant between:\n- That, which is tricky\n- Adding for each target\n  ifeq ($(ANDROID_COMPILE_WITH_JACK),true)\n    \u003ctarget\u003e: | setup-jack-server\n  endif\n- Defining\n  TEST_ART_RUN_TEST_DEPENDENCIES :\u003d setup-jack-server\n  and add \"| $(TEST_ART_RUN_TEST_DEPENDENCIES)\" to targets",
+      "revId": "aab848e629ac0ff9f906a81b9caa68aa75e9a307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
