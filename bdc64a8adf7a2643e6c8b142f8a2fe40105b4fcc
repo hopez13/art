@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "253496db_ec350bd4",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-09T18:58:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00c060be_43014648",
+      "range": {
+        "startLine": 251,
+        "startChar": 15,
+        "endLine": 251,
+        "endChar": 16
+      },
+      "revId": "bdc64a8adf7a2643e6c8b142f8a2fe40105b4fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00c060be_a338fa1f",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c562daed_6970e5be",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-09T18:58:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00c060be_a338fa1f",
+      "range": {
+        "startLine": 264,
+        "startChar": 36,
+        "endLine": 264,
+        "endChar": 46
+      },
+      "revId": "bdc64a8adf7a2643e6c8b142f8a2fe40105b4fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60cbdce2_e60f9e79",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 6
@@ -59,6 +107,30 @@
       "writtenOn": "2015-12-09T11:09:03Z",
       "side": 1,
       "message": "image file data",
+      "range": {
+        "startLine": 272,
+        "startChar": 36,
+        "endLine": 272,
+        "endChar": 46
+      },
+      "revId": "bdc64a8adf7a2643e6c8b142f8a2fe40105b4fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5596647_a8bc9b84",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-09T18:58:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60cbdce2_e60f9e79",
       "range": {
         "startLine": 272,
         "startChar": 36,
@@ -118,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "a5596647_6870e3be",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-09T18:58:42Z",
+      "side": 1,
+      "message": "I delete the .data() it was unnecessary.",
+      "parentUuid": "20c564ce_c4fa5e64",
+      "range": {
+        "startLine": 631,
+        "startChar": 60,
+        "endLine": 631,
+        "endChar": 66
+      },
+      "revId": "bdc64a8adf7a2643e6c8b142f8a2fe40105b4fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40c6d8da_4554aa46",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 6
@@ -129,6 +225,30 @@
       "writtenOn": "2015-12-09T11:09:03Z",
       "side": 1,
       "message": "header size + data size",
+      "range": {
+        "startLine": 682,
+        "startChar": 24,
+        "endLine": 682,
+        "endChar": 50
+      },
+      "revId": "bdc64a8adf7a2643e6c8b142f8a2fe40105b4fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e55fde25_4a8d13aa",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-09T18:58:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40c6d8da_4554aa46",
       "range": {
         "startLine": 682,
         "startChar": 24,
@@ -164,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "253496db_6c2b5b75",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-09T18:58:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00c060be_e342f291",
+      "range": {
+        "startLine": 705,
+        "startChar": 0,
+        "endLine": 706,
+        "endChar": 42
+      },
+      "revId": "bdc64a8adf7a2643e6c8b142f8a2fe40105b4fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "408b38a3_3d318f2d",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 6
@@ -175,6 +319,30 @@
       "writtenOn": "2015-12-09T11:09:03Z",
       "side": 1,
       "message": "Is there no API to decompress from file descriptor straight to memory? Do we need to allocate this huge buffer?\n\nAlternatively, can we mmap() this instead?",
+      "range": {
+        "startLine": 740,
+        "startChar": 6,
+        "endLine": 740,
+        "endChar": 65
+      },
+      "revId": "bdc64a8adf7a2643e6c8b142f8a2fe40105b4fcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "253496db_cc1b6f58",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-09T18:58:42Z",
+      "side": 1,
+      "message": "I suppose MemMap::MapFile would possibly reduce dirty memory usage.",
+      "parentUuid": "408b38a3_3d318f2d",
       "range": {
         "startLine": 740,
         "startChar": 6,
