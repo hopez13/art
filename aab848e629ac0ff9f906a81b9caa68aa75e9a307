@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "4520aa91_d5ac1cb1",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-12-09T15:32:09Z",
+      "side": 1,
+      "message": "When I look at this file before the second one, I was wondering why you needed to change the dep order here.\n\nNow that I looked at the other file, I understand why but I find this error-prone. If someone reorders differently without seeing the \u0027|\u0027, it will break things.",
+      "revId": "aab848e629ac0ff9f906a81b9caa68aa75e9a307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60cbdce2_2666d630",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 1
@@ -13,6 +30,24 @@
       "writtenOn": "2015-12-09T14:37:11Z",
       "side": 1,
       "message": "I\u0027m not so sure of this one. I\u0027m hesitant between:\n- That, which is tricky\n- Adding for each target\n  ifeq ($(ANDROID_COMPILE_WITH_JACK),true)\n    \u003ctarget\u003e: | setup-jack-server\n  endif\n- Defining\n  TEST_ART_RUN_TEST_DEPENDENCIES :\u003d setup-jack-server\n  and add \"| $(TEST_ART_RUN_TEST_DEPENDENCIES)\" to targets",
+      "revId": "aab848e629ac0ff9f906a81b9caa68aa75e9a307",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4022588b_05b1f205",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-12-09T15:32:09Z",
+      "side": 1,
+      "message": "I find it weird to add an order-only dep in a variable.\n\nCan we instead call a function that will setup the jack-server (only when Jack is enabled)?",
+      "parentUuid": "60cbdce2_2666d630",
       "revId": "aab848e629ac0ff9f906a81b9caa68aa75e9a307",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
