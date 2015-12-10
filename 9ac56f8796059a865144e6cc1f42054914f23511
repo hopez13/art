@@ -22,6 +22,30 @@
       "revId": "9ac56f8796059a865144e6cc1f42054914f23511",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "403978b3_add2bdd7",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2015-12-10T16:05:39Z",
+      "side": 1,
+      "message": "This list contins indexes of classes that uses another classes from classpath.\n\nFor example class Main from A.dex uses class Helper from B.dex\nIf you run dex2oat with parameters --dex-file\u003dA.dex --runtime-arg -cp --runtime-arg B.dex then classpath_user_ids_ will contains index of class Main in A.dex.\n\nThis list need at runtime to revert status \"Verified\" for these classes if B.dex is being updated.",
+      "parentUuid": "2506560b_9cda4562",
+      "range": {
+        "startLine": 163,
+        "startChar": 7,
+        "endLine": 163,
+        "endChar": 26
+      },
+      "revId": "9ac56f8796059a865144e6cc1f42054914f23511",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
