@@ -69,6 +69,30 @@
       "revId": "fdaa38990feaf1608c7a5ad97fab7c004f82a557",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0576b2c5_f307105f",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-10T15:42:36Z",
+      "side": 1,
+      "message": "Oh yeah, i\u0027ve done a half way review. Cool :-) Still, it looks like the code in the compiler was doing it for each instruction, whereas now you\u0027re only doing it for stack map entries. Is that intended?",
+      "parentUuid": "8030d0ce_07601683",
+      "range": {
+        "startLine": 954,
+        "startChar": 18,
+        "endLine": 954,
+        "endChar": 28
+      },
+      "revId": "fdaa38990feaf1608c7a5ad97fab7c004f82a557",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
