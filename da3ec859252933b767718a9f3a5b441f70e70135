@@ -46,6 +46,30 @@
       "revId": "da3ec859252933b767718a9f3a5b441f70e70135",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5d27ee6_5217f493",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4916,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-10T18:35:52Z",
+      "side": 1,
+      "message": "Maybe my comment would have been better placed at CanBeMoved(). I\u0027ve seen LoadString pulled out of the loop when it wasn\u0027t certain that the loop will be entered. And that allows for a spurious OOM.",
+      "parentUuid": "65fcce2b_e1ac00b1",
+      "range": {
+        "startLine": 4916,
+        "startChar": 43,
+        "endLine": 4916,
+        "endChar": 56
+      },
+      "revId": "da3ec859252933b767718a9f3a5b441f70e70135",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
