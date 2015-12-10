@@ -125,6 +125,23 @@
       "revId": "130225415ee20bd4ad8b7ac20a4ee41f1d63eac6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "253496db_c0bc4e86",
+        "filename": "test/542-bitfield-rotates/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-12-10T04:13:08Z",
+      "side": 1,
+      "message": "I\u0027m implementing the x86 version of these, and I notice that they all get folded at compile time, and don\u0027t test the runtime cases at all.  The resulting code just calls assertXXXEquals(x, x), which is nice, but doesn\u0027t test the code generation.",
+      "revId": "130225415ee20bd4ad8b7ac20a4ee41f1d63eac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
