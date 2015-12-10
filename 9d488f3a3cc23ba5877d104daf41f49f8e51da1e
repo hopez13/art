@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "00430035_eb7031e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1085353
+      },
+      "writtenOn": "2015-12-10T11:40:34Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "80b290f4_2b89d1a0",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 57
+      },
+      "revId": "9d488f3a3cc23ba5877d104daf41f49f8e51da1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60c91c79_1c937d7f",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -154,6 +178,30 @@
       "writtenOn": "2015-12-08T17:58:32Z",
       "side": 1,
       "message": "I wonder if it would be less code duplication to add a kChain template boolean to the normal hash set and just handle the places where the logic differs.",
+      "range": {
+        "startLine": 43,
+        "startChar": 6,
+        "endLine": 43,
+        "endChar": 18
+      },
+      "revId": "9d488f3a3cc23ba5877d104daf41f49f8e51da1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a054f4e4_93651eca",
+        "filename": "runtime/base/chain_hash_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1085353
+      },
+      "writtenOn": "2015-12-10T11:40:34Z",
+      "side": 1,
+      "message": "I\u0027m also not happy with the code duplication here. It can be several solutions.\n\n1) Add a kChain template. There are two disadvantages here: first, the data structures are different (different class members, different data_ field structure) and second, we need to forbid using of some methods (like Insert()) for the Chain version.\n\n2) To inherit the ChainHashSet (or it\u0027s better to rename it to ReadOnlyHashSet) class from the HashSet, changing some methods logic, deleting unnecessary ones. Also we can hide unnecessary class members under a private modifier.\n\nI think it\u0027s better to implement the second variant.",
+      "parentUuid": "a0af948e_07016048",
       "range": {
         "startLine": 43,
         "startChar": 6,
