@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "40efb832_636396ee",
+        "filename": "runtime/base/array_slice.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-10T17:57:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80ed303a_1fbf837b",
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c0e3a848_81a7ba29",
         "filename": "runtime/base/array_slice.h",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2015-12-08T22:43:03Z",
       "side": 1,
       "message": "nit: public methods should have comments",
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0e3a848_8ad22f23",
+        "filename": "runtime/base/array_slice.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-10T17:57:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0e3a848_81a7ba29",
       "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "20fe44e6_5f40efe4",
+        "filename": "runtime/base/array_slice.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-10T17:57:57Z",
+      "side": 1,
+      "message": "LengthPrefixedArray didn\u0027t have it. Done.",
+      "parentUuid": "e0e0ac3e_c2cd423e",
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00f940fe_fbb0efb5",
         "filename": "runtime/base/array_slice.h",
         "patchSetId": 3
@@ -64,6 +118,24 @@
       "writtenOn": "2015-12-08T22:43:03Z",
       "side": 1,
       "message": "Aren\u0027t ArraySlices written to the image? size_t is not safe because it\u0027s either 32-bit or 64-bit. All fields should be of the form uintXY_t",
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0e3a848_47878238",
+        "filename": "runtime/base/array_slice.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-10T17:57:57Z",
+      "side": 1,
+      "message": "No they are simply a wrapper type around a pointer, length and element size. They are never written to the image or passed between different invocations.",
+      "parentUuid": "00f940fe_fbb0efb5",
       "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "c0e3a848_2784fe31",
+        "filename": "runtime/base/array_slice.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-10T17:57:57Z",
+      "side": 1,
+      "message": "B/c it is separate for LengthPrefixedArray.",
+      "parentUuid": "0054e0af_a3569a09",
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "405a58de_a551be0c",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
@@ -98,6 +188,24 @@
       "writtenOn": "2015-12-08T22:43:03Z",
       "side": 1,
       "message": "Any reason why not to just make these virtual member functions?\n\n   ArrayLike\u003cT\u003e {\n     virtual T* At(int32_t index) \u003d 0;\n   }\n   ArrayLikeSlice\u003cT\u003e : ArrayLike\u003cT\u003e\n   ArrayLikePointerArray : ArrayLike\u003cT\u003e\n\netc?",
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0e3a848_6a01ab48",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5324,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-10T17:57:57Z",
+      "side": 1,
+      "message": "It is kept on the stack. No virtuals there.Removed for ngoeffray.",
+      "parentUuid": "405a58de_a551be0c",
       "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -127,6 +235,30 @@
     },
     {
       "key": {
+        "uuid": "855c6237_bb0a9f34",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5344,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-10T17:57:57Z",
+      "side": 1,
+      "message": "removed.",
+      "parentUuid": "80ed303a_df519b0c",
+      "range": {
+        "startLine": 5344,
+        "startChar": 40,
+        "endLine": 5344,
+        "endChar": 50
+      },
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0054e0af_83235e9a",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
@@ -138,6 +270,24 @@
       "writtenOn": "2015-12-08T22:43:03Z",
       "side": 1,
       "message": "nit: just initialize the fields here with \u003d or {}, then you can remove all of the constructor crud which just calls the default constructor (when the parameter is unspecified)",
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "855c6237_9b07db2e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5369,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-10T17:57:57Z",
+      "side": 1,
+      "message": "removed",
+      "parentUuid": "0054e0af_83235e9a",
       "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -161,6 +311,24 @@
     },
     {
       "key": {
+        "uuid": "405a58de_c8f64ffa",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5374,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-10T17:57:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "605f5ccc_e6749e6a",
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "605f5ccc_86692a95",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
@@ -172,6 +340,30 @@
       "writtenOn": "2015-12-08T22:43:03Z",
       "side": 1,
       "message": "nit: no auto here please",
+      "range": {
+        "startLine": 5375,
+        "startChar": 2,
+        "endLine": 5375,
+        "endChar": 6
+      },
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "405a58de_e8fb0be1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5375,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-10T17:57:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "605f5ccc_86692a95",
       "range": {
         "startLine": 5375,
         "startChar": 2,
@@ -207,6 +399,30 @@
     },
     {
       "key": {
+        "uuid": "8089b0aa_5fbbabe5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5381,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-10T17:57:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80ed303a_5f158b21",
+      "range": {
+        "startLine": 5381,
+        "startChar": 4,
+        "endLine": 5381,
+        "endChar": 8
+      },
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40efb832_5d091bb1",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
@@ -218,6 +434,30 @@
       "writtenOn": "2015-12-08T22:43:03Z",
       "side": 1,
       "message": "(this is a reasonable use of auto)",
+      "range": {
+        "startLine": 5382,
+        "startChar": 4,
+        "endLine": 5382,
+        "endChar": 8
+      },
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0e3a848_8a57cf4b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5382,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-10T17:57:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40efb832_5d091bb1",
       "range": {
         "startLine": 5382,
         "startChar": 4,
@@ -253,6 +493,30 @@
     },
     {
       "key": {
+        "uuid": "855c6237_dbe433d2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5525,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-10T17:57:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45f7ca47_5d8ddba9",
+      "range": {
+        "startLine": 5523,
+        "startChar": 7,
+        "endLine": 5525,
+        "endChar": 65
+      },
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45f7ca47_3d920fca",
         "filename": "runtime/jni_internal.cc",
         "patchSetId": 3
@@ -276,6 +540,30 @@
     },
     {
       "key": {
+        "uuid": "254d7687_73732af4",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-10T17:57:57Z",
+      "side": 1,
+      "message": "forgot to remove.",
+      "parentUuid": "45f7ca47_3d920fca",
+      "range": {
+        "startLine": 319,
+        "startChar": 2,
+        "endLine": 319,
+        "endChar": 40
+      },
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c0e3a848_41d5b234",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 3
@@ -287,6 +575,30 @@
       "writtenOn": "2015-12-08T22:43:03Z",
       "side": 1,
       "message": "So is it including declared+copied now? The comment should probably be updated. And honestly the name could be different too if that\u0027s the case, perhaps NumNewVirtualMethods or some such.\n\n(don\u0027t much have a preference for it, as long as we make it clear it has other methods in there besides declared).",
+      "range": {
+        "startLine": 773,
+        "startChar": 25,
+        "endLine": 773,
+        "endChar": 42
+      },
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20fe44e6_3fcfe3da",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-10T17:57:57Z",
+      "side": 1,
+      "message": "Yes and it always did so I am keeping the name the same.",
+      "parentUuid": "c0e3a848_41d5b234",
       "range": {
         "startLine": 773,
         "startChar": 25,
