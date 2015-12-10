@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "457c2aa4_b55d0055",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-12-10T10:22:48Z",
+      "side": 1,
+      "message": "Some thoughts on this\n- By leaving the work to DCE, transformations may be lazy and wrongly assume that an IR will be removed, potentially leaving extra IRs in the graph or applying transformations when they should not.\n- If we leave the work to DCE, then it may be harder to check an IR has been removed with checker, as it must be checked after other passes have run. (It would be a little annoying to have an additional checker section, but it should be fine.)\n- So maybe a good rule would be: if an IR should be removed as part of the transformation, do it manually (forcing manual checks). If it is optional, as it is here, leave it to DCE.",
+      "parentUuid": "c539fad1_71d458df",
+      "revId": "130225415ee20bd4ad8b7ac20a4ee41f1d63eac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00622024_f9886f08",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
