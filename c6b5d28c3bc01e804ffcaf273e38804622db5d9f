@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "855c6237_561c9ab4",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3779,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-12-10T19:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5f24653_83fd4060",
+      "revId": "c6b5d28c3bc01e804ffcaf273e38804622db5d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c03648c7_e9a675e8",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 5
@@ -30,6 +48,30 @@
       "writtenOn": "2015-12-10T19:40:43Z",
       "side": 1,
       "message": "GetInt64ValueOf()",
+      "range": {
+        "startLine": 3794,
+        "startChar": 20,
+        "endLine": 3794,
+        "endChar": 69
+      },
+      "revId": "c6b5d28c3bc01e804ffcaf273e38804622db5d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05487277_3d421f94",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3794,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-12-10T19:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c03648c7_e9a675e8",
       "range": {
         "startLine": 3794,
         "startChar": 20,
@@ -59,6 +101,41 @@
     },
     {
       "key": {
+        "uuid": "a567a60d_0ccb87cc",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3771,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-12-10T19:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5701ac6_f957f7d4",
+      "revId": "c6b5d28c3bc01e804ffcaf273e38804622db5d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a567a60d_acd7fb6c",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3800,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-12-10T19:46:43Z",
+      "side": 1,
+      "message": "Done :-)",
+      "revId": "c6b5d28c3bc01e804ffcaf273e38804622db5d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c03648c7_69b36524",
         "filename": "test/Android.run-test.mk",
         "patchSetId": 5
@@ -70,6 +147,30 @@
       "writtenOn": "2015-12-10T19:40:43Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 485,
+        "startChar": 0,
+        "endLine": 497,
+        "endChar": 5
+      },
+      "revId": "c6b5d28c3bc01e804ffcaf273e38804622db5d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65984e34_cdeef5ad",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-12-10T19:46:43Z",
+      "side": 1,
+      "message": "I thought I did... must have been lost when combining...",
+      "parentUuid": "c03648c7_69b36524",
       "range": {
         "startLine": 485,
         "startChar": 0,
