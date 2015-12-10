@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8030d0ce_0733b6cf",
+        "filename": "test/484-checker-register-hints/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-10T13:25:41Z",
+      "side": 0,
+      "message": "I\u0027d rather blacklist this change for read barrier. The CHECK-NOT here is for testing the register allocator and we should keep it.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 33
+      },
+      "revId": "099f2713ce4ed284c94239cc22d3a8c8d9cfe868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
