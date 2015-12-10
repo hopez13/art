@@ -293,6 +293,30 @@
       "revId": "208a5cb383dd9dcd3461f89b74af5df67dc8d794",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5596647_777b1a0b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-10T21:00:58Z",
+      "side": 1,
+      "message": "Good idea",
+      "parentUuid": "a567a60d_e7d8ac47",
+      "range": {
+        "startLine": 1026,
+        "startChar": 4,
+        "endLine": 1026,
+        "endChar": 55
+      },
+      "revId": "208a5cb383dd9dcd3461f89b74af5df67dc8d794",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
