@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e0342c68_42547246",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 993,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-10T17:57:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60c91c79_9fce9fdc",
+      "range": {
+        "startLine": 993,
+        "startChar": 13,
+        "endLine": 993,
+        "endChar": 28
+      },
+      "revId": "1eea616cb3ab5b777bdf1b608b5326cf33d1f5b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c0b808d7_d3800c69",
         "filename": "runtime/base/array_slice.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-12-08T17:52:51Z",
       "side": 1,
       "message": "Not sure I would have added this class, but since is already done, might as well merge it.",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 16
+      },
+      "revId": "1eea616cb3ab5b777bdf1b608b5326cf33d1f5b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40fed8bd_454a2aaa",
+        "filename": "runtime/base/array_slice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-10T17:57:57Z",
+      "side": 1,
+      "message": "Why not?",
+      "parentUuid": "c0b808d7_d3800c69",
       "range": {
         "startLine": 29,
         "startChar": 6,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "a03eb447_c0ab9e99",
+        "filename": "runtime/base/array_slice.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-10T17:57:57Z",
+      "side": 1,
+      "message": "Good catch. I ended up not using this and just forgot about it.\n\nDone.",
+      "parentUuid": "20eac4c4_30ce903a",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 12
+      },
+      "revId": "1eea616cb3ab5b777bdf1b608b5326cf33d1f5b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60c91c79_654db072",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 1
@@ -105,6 +177,30 @@
       "writtenOn": "2015-12-08T17:52:51Z",
       "side": 1,
       "message": "I think we want to use 32 bits for these since there can be more 64k methods theoretically.",
+      "range": {
+        "startLine": 199,
+        "startChar": 2,
+        "endLine": 199,
+        "endChar": 15
+      },
+      "revId": "1eea616cb3ab5b777bdf1b608b5326cf33d1f5b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40d5f831_ad7add9b",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-10T17:57:57Z",
+      "side": 1,
+      "message": "\u003e I think we want to use 32 bits for these since there can be more 64k methods theoretically.\n\nSure but I really don\u0027t think its necessary.\n\nThis limit only applies to declared methods. Inherited methods will be in their declaring class\u0027s methods_ array and methods taken from interfaces are appended after copied_methods_offset_ and so are not limited to 64k.\n\nFurthermore, a 64k limit on the number of methods in a single class is well established in the wider Java language world (due to JVMS 4.1 \u0026 JVMS 4.11).\n\nFinally, the difficult part of using more methods than that would be adding support to the dex files. Once/if that is done it would be fairly simple to increase the size of these fields.",
+      "parentUuid": "60c91c79_654db072",
       "range": {
         "startLine": 199,
         "startChar": 2,
