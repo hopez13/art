@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e55fde25_1ee3ddcb",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-10T00:20:50Z",
+      "side": 1,
+      "message": "That\u0027s wrong if the setup is:\n\n Boot classpath:\n  A -\u003e foo\n ---------------\n App classpath:\n    B extends A\n     C extends B\n\nAs resolution of B might change at runtime.\n\nOverall, please tag this changed code with the bug number, and maybe keep the old simple code in a comment. The reason: once we get around to classpath tracking, the incorrect code will be rejected by rejecting the oat file.\n\n\n(If you want to work on that instead of this change... :-) )",
+      "range": {
+        "startLine": 791,
+        "startChar": 6,
+        "endLine": 793,
+        "endChar": 90
+      },
+      "revId": "18b97fe6c70de39ace2ee823d5b1b3514286462c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
