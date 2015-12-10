@@ -230,6 +230,52 @@
     },
     {
       "key": {
+        "uuid": "45f7ca47_5d8ddba9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 5525,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-10T15:24:31Z",
+      "side": 1,
+      "message": "If this is the only use of ArrayLikeProxy, I strongly preferred the previous code.",
+      "range": {
+        "startLine": 5523,
+        "startChar": 7,
+        "endLine": 5525,
+        "endChar": 65
+      },
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45f7ca47_3d920fca",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-10T15:24:31Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 319,
+        "startChar": 2,
+        "endLine": 319,
+        "endChar": 40
+      },
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c0e3a848_41d5b234",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 3
