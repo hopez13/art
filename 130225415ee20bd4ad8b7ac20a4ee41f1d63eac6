@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "a5596647_11a86eb3",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-12-10T02:59:40Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we let DCE remove these? The code in this file seems to alternate between deleting and letting DCE delete.",
+      "revId": "130225415ee20bd4ad8b7ac20a4ee41f1d63eac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00622024_f9886f08",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
