@@ -93,6 +93,30 @@
       "revId": "fdaa38990feaf1608c7a5ad97fab7c004f82a557",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0576b2c5_b301984b",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-10T15:50:52Z",
+      "side": 1,
+      "message": "Correct.  The next step is to ensure that I have more stack map entries when doing native debugging.  I need native_pc to dex_pc mapping, and location (stack or machine register) of dex registers.  In other words, precisely the content of stackmaps.  So it makes sense to get the data from there rather than adding more debugging side-channels.",
+      "parentUuid": "0576b2c5_f307105f",
+      "range": {
+        "startLine": 954,
+        "startChar": 18,
+        "endLine": 954,
+        "endChar": 28
+      },
+      "revId": "fdaa38990feaf1608c7a5ad97fab7c004f82a557",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
