@@ -140,6 +140,30 @@
       "revId": "8340f1ddefbcb86860981390364974abbdb69bda",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0576b2c5_53d4c4de",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-10T17:46:55Z",
+      "side": 1,
+      "message": "No convention really, just that it makes it nicer to read IMO.",
+      "parentUuid": "6553ee27_151e1eec",
+      "range": {
+        "startLine": 533,
+        "startChar": 17,
+        "endLine": 533,
+        "endChar": 25
+      },
+      "revId": "8340f1ddefbcb86860981390364974abbdb69bda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
