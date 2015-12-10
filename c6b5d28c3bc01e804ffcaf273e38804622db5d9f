@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5f24653_83fd4060",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3779,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-10T19:40:43Z",
+      "side": 1,
+      "message": "UNREACHABLE();",
+      "revId": "c6b5d28c3bc01e804ffcaf273e38804622db5d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c03648c7_e9a675e8",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3794,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-10T19:40:43Z",
+      "side": 1,
+      "message": "GetInt64ValueOf()",
+      "range": {
+        "startLine": 3794,
+        "startChar": 20,
+        "endLine": 3794,
+        "endChar": 69
+      },
+      "revId": "c6b5d28c3bc01e804ffcaf273e38804622db5d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5701ac6_f957f7d4",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3771,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-10T19:40:43Z",
+      "side": 1,
+      "message": "UNREACHABLE();",
+      "revId": "c6b5d28c3bc01e804ffcaf273e38804622db5d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c03648c7_69b36524",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-10T19:40:43Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 485,
+        "startChar": 0,
+        "endLine": 497,
+        "endChar": 5
+      },
+      "revId": "c6b5d28c3bc01e804ffcaf273e38804622db5d9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
