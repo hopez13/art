@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "05487277_b76630fe",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1436,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-10T21:14:41Z",
+      "side": 1,
+      "message": "Actually, in this case, I just won\u0027t include the class table.",
+      "parentUuid": "e55fde25_7ecf7935",
+      "range": {
+        "startLine": 1436,
+        "startChar": 2,
+        "endLine": 1436,
+        "endChar": 85
+      },
+      "revId": "c49daf0d86cd568a1026c1524f377c0217012bf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "253496db_d5964e0a",
         "filename": "compiler/image_writer.h",
         "patchSetId": 1
@@ -64,6 +88,30 @@
         "startChar": 81,
         "endLine": 461,
         "endChar": 88
+      },
+      "revId": "c49daf0d86cd568a1026c1524f377c0217012bf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5596647_dc630d1f",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-10T21:14:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "253496db_d5964e0a",
+      "range": {
+        "startLine": 461,
+        "startChar": 23,
+        "endLine": 461,
+        "endChar": 32
       },
       "revId": "c49daf0d86cd568a1026c1524f377c0217012bf7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
