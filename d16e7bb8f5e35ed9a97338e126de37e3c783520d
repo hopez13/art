@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "403978b3_edfa0564",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3270,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-12-10T10:13:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00106094_0677dcde",
+      "range": {
+        "startLine": 3270,
+        "startChar": 4,
+        "endLine": 3270,
+        "endChar": 39
+      },
+      "revId": "d16e7bb8f5e35ed9a97338e126de37e3c783520d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c0eba861_81ce5a38",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 3
@@ -1119,6 +1143,30 @@
       "side": 1,
       "message": "No, not yet. This was just a remark about getting rid of the intrinsic in the future.",
       "parentUuid": "00f7809a_ebbb718b",
+      "range": {
+        "startLine": 36,
+        "startChar": 61,
+        "endLine": 36,
+        "endChar": 91
+      },
+      "revId": "d16e7bb8f5e35ed9a97338e126de37e3c783520d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "403978b3_2d0ded4f",
+        "filename": "test/541-checker-instruction-simplifier-rotate-arm/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-12-10T10:13:53Z",
+      "side": 1,
+      "message": "Ok.",
+      "parentUuid": "601bdcb8_093ecd0a",
       "range": {
         "startLine": 36,
         "startChar": 61,
