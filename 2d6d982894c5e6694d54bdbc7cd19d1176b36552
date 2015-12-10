@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9b2da379_48677f69",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-10T13:25:41Z",
+      "side": 1,
+      "message": "Maybe also say \"Unexpected \" \u003c\u003c instruction_-\u003eDebugName() \u003c\u003c \"for read barrier slow path\"?",
+      "range": {
+        "startLine": 459,
+        "startChar": 11,
+        "endLine": 459,
+        "endChar": 37
+      },
+      "revId": "2d6d982894c5e6694d54bdbc7cd19d1176b36552",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fba69f26_7a0ce517",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -277,6 +300,52 @@
         "startChar": 4,
         "endLine": 6598,
         "endChar": 6
+      },
+      "revId": "2d6d982894c5e6694d54bdbc7cd19d1176b36552",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b2da379_e877531c",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-10T13:25:41Z",
+      "side": 1,
+      "message": "is?",
+      "range": {
+        "startLine": 434,
+        "startChar": 52,
+        "endLine": 434,
+        "endChar": 55
+      },
+      "revId": "2d6d982894c5e6694d54bdbc7cd19d1176b36552",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb421f2f_8b8fad51",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-10T13:25:41Z",
+      "side": 1,
+      "message": "is?",
+      "range": {
+        "startLine": 441,
+        "startChar": 52,
+        "endLine": 441,
+        "endChar": 55
       },
       "revId": "2d6d982894c5e6694d54bdbc7cd19d1176b36552",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
