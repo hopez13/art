@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e55fde25_7ecf7935",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1436,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-10T00:31:35Z",
+      "side": 1,
+      "message": "Don\u0027t make it a CHECK, fail gracefully. Probably you should turn off image generation in dex2oat for this case.",
+      "range": {
+        "startLine": 1436,
+        "startChar": 2,
+        "endLine": 1436,
+        "endChar": 85
+      },
+      "revId": "c49daf0d86cd568a1026c1524f377c0217012bf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "253496db_d5964e0a",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-10T00:31:35Z",
+      "side": 1,
+      "message": "Please be more precise here. It\u0027s the dex files to be compiled. The -cp option allows to pull in more dex files that will be in a separate parent classloader (*your* change).\n\n(Though in that case we\u0027ll likely reject the image later, but it\u0027s better to be precise here.)",
+      "range": {
+        "startLine": 461,
+        "startChar": 23,
+        "endLine": 461,
+        "endChar": 32
+      },
+      "revId": "c49daf0d86cd568a1026c1524f377c0217012bf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
