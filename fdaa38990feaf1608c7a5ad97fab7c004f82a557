@@ -45,6 +45,30 @@
       "revId": "fdaa38990feaf1608c7a5ad97fab7c004f82a557",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8030d0ce_07601683",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-10T15:40:30Z",
+      "side": 1,
+      "message": "This CL removes it from the compiler, and delays its creation until this point, removing the need to keep it in memory in the meantime.\n\nIf the quick compiler gets killed or if we do not need to support native debugging there, I can remove the need to materialize the vector in memory altogether.",
+      "parentUuid": "c5701ac6_b963bfed",
+      "range": {
+        "startLine": 954,
+        "startChar": 18,
+        "endLine": 954,
+        "endChar": 28
+      },
+      "revId": "fdaa38990feaf1608c7a5ad97fab7c004f82a557",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
