@@ -45,6 +45,29 @@
       "revId": "c49daf0d86cd568a1026c1524f377c0217012bf7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5596647_97156e26",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-10T19:47:32Z",
+      "side": 1,
+      "message": "nit: null for comments, nullptr for code",
+      "range": {
+        "startLine": 461,
+        "startChar": 81,
+        "endLine": 461,
+        "endChar": 88
+      },
+      "revId": "c49daf0d86cd568a1026c1524f377c0217012bf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
