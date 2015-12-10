@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "c539fad1_71d458df",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2015-12-10T10:14:37Z",
+      "side": 1,
+      "message": "When I reviewed it I didn\u0027t see places where this patch didn\u0027t delete what it could. For now transformations in the simplifier would remove what they could. That\u0027s an interesting question though. I don\u0027t have a strong opinion on this. It would be nice to have a general rule to follow. Any opinions?",
+      "parentUuid": "a5596647_11a86eb3",
+      "revId": "130225415ee20bd4ad8b7ac20a4ee41f1d63eac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00622024_f9886f08",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
