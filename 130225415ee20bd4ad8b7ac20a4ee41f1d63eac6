@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "856aa2d7_b78ae8cb",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3215,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-12-10T10:13:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00622024_5971a3e5",
+      "range": {
+        "startLine": 3215,
+        "startChar": 19,
+        "endLine": 3215,
+        "endChar": 65
+      },
+      "revId": "130225415ee20bd4ad8b7ac20a4ee41f1d63eac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5596647_11a86eb3",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 4
@@ -59,6 +83,24 @@
     },
     {
       "key": {
+        "uuid": "856aa2d7_57590c3c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4170,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-12-10T10:13:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00622024_f9886f08",
+      "revId": "130225415ee20bd4ad8b7ac20a4ee41f1d63eac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0d6b40a_63f93ca8",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -70,6 +112,30 @@
       "writtenOn": "2015-12-08T15:36:16Z",
       "side": 1,
       "message": "You may have missed my comment in PS1/nodes_arm64.h. Updated version:\n\nIf you don\u0027t reject this here, you should allow it everywhere. That includes InstructionCodeGeneratorARM::HandleLongRotate() where you\u0027re now using GetInt32ValueOf() which cannot handle long constants, so you would actually need GetInt64ValueOf().",
+      "range": {
+        "startLine": 4182,
+        "startChar": 0,
+        "endLine": 4185,
+        "endChar": 3
+      },
+      "revId": "130225415ee20bd4ad8b7ac20a4ee41f1d63eac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "457c2aa4_f563781e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 4185,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-12-10T10:13:53Z",
+      "side": 1,
+      "message": "Fixed in HandleLongRotate. If you\u0027d prefer we reject this I can return nullptr here.",
+      "parentUuid": "a0d6b40a_63f93ca8",
       "range": {
         "startLine": 4182,
         "startChar": 0,
@@ -105,6 +171,30 @@
     },
     {
       "key": {
+        "uuid": "a054f4e4_d3516615",
+        "filename": "test/541-checker-instruction-simplifier-rotate/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-12-10T10:13:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c001e83e_d41e1238",
+      "range": {
+        "startLine": 45,
+        "startChar": 43,
+        "endLine": 45,
+        "endChar": 71
+      },
+      "revId": "130225415ee20bd4ad8b7ac20a4ee41f1d63eac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00622024_d985b3ee",
         "filename": "test/541-checker-instruction-simplifier-rotate/src/Main.java",
         "patchSetId": 4
@@ -128,6 +218,30 @@
     },
     {
       "key": {
+        "uuid": "00430035_8b716dec",
+        "filename": "test/541-checker-instruction-simplifier-rotate/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-12-10T10:13:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00622024_d985b3ee",
+      "range": {
+        "startLine": 190,
+        "startChar": 41,
+        "endLine": 190,
+        "endChar": 44
+      },
+      "revId": "130225415ee20bd4ad8b7ac20a4ee41f1d63eac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "253496db_c0bc4e86",
         "filename": "test/542-bitfield-rotates/src/Main.java",
         "patchSetId": 4
@@ -139,6 +253,24 @@
       "writtenOn": "2015-12-10T04:13:08Z",
       "side": 1,
       "message": "I\u0027m implementing the x86 version of these, and I notice that they all get folded at compile time, and don\u0027t test the runtime cases at all.  The resulting code just calls assertXXXEquals(x, x), which is nice, but doesn\u0027t test the code generation.",
+      "revId": "130225415ee20bd4ad8b7ac20a4ee41f1d63eac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "856aa2d7_775e9027",
+        "filename": "test/542-bitfield-rotates/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2015-12-10T10:13:53Z",
+      "side": 1,
+      "message": "True. These are more boundary cases for the folding. 541 tests the codegen.\n\nWhat are you doing for an \"x86 version\" of these?",
+      "parentUuid": "253496db_c0bc4e86",
       "revId": "130225415ee20bd4ad8b7ac20a4ee41f1d63eac6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
