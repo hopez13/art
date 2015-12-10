@@ -22,6 +22,30 @@
       "revId": "da3ec859252933b767718a9f3a5b441f70e70135",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65fcce2b_e1ac00b1",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4916,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-10T16:51:16Z",
+      "side": 1,
+      "message": "Why would OOM matter? Note that you\u0027d still get the stack trace, the environment is just for getting the dex registers.",
+      "parentUuid": "fb921f65_6efbefa1",
+      "range": {
+        "startLine": 4916,
+        "startChar": 43,
+        "endLine": 4916,
+        "endChar": 56
+      },
+      "revId": "da3ec859252933b767718a9f3a5b441f70e70135",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
