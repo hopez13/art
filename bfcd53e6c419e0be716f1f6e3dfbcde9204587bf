@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5f24653_e082c227",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-10T13:58:39Z",
+      "side": 1,
+      "message": "How about moving this to GetOrCreateReferenceInfo (since you\u0027re replicating the check below)?",
+      "range": {
+        "startLine": 381,
+        "startChar": 4,
+        "endLine": 381,
+        "endChar": 53
+      },
+      "revId": "bfcd53e6c419e0be716f1f6e3dfbcde9204587bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
