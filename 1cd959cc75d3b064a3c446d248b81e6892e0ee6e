@@ -65,6 +65,24 @@
     },
     {
       "key": {
+        "uuid": "e5d27ee6_32cef036",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-11T12:33:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "251f3657_377a329d",
+      "revId": "1cd959cc75d3b064a3c446d248b81e6892e0ee6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4520aa91_586cc1b2",
         "filename": "runtime/jit/offline_profiling_info.cc",
         "patchSetId": 1
@@ -82,6 +100,24 @@
     },
     {
       "key": {
+        "uuid": "4520aa91_58fba1e1",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-11T12:33:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4520aa91_586cc1b2",
+      "revId": "1cd959cc75d3b064a3c446d248b81e6892e0ee6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2506560b_ffe13bf1",
         "filename": "runtime/jit/offline_profiling_info.cc",
         "patchSetId": 1
@@ -93,6 +129,30 @@
       "writtenOn": "2015-12-11T09:05:48Z",
       "side": 1,
       "message": "Can you update the example too? I am actually wondering what the dex location looks like that makes it suitable here",
+      "range": {
+        "startLine": 167,
+        "startChar": 6,
+        "endLine": 167,
+        "endChar": 19
+      },
+      "revId": "1cd959cc75d3b064a3c446d248b81e6892e0ee6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5f24653_c3222883",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-11T12:33:49Z",
+      "side": 1,
+      "message": "It\u0027s usually the path under which the apk was installed.",
+      "parentUuid": "2506560b_ffe13bf1",
       "range": {
         "startLine": 167,
         "startChar": 6,
@@ -128,6 +188,30 @@
     },
     {
       "key": {
+        "uuid": "4520aa91_3800e591",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-11T12:33:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c03648c7_e978350e",
+      "range": {
+        "startLine": 307,
+        "startChar": 58,
+        "endLine": 307,
+        "endChar": 73
+      },
+      "revId": "1cd959cc75d3b064a3c446d248b81e6892e0ee6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5f24653_6347dc55",
         "filename": "runtime/native/dalvik_system_VMRuntime.cc",
         "patchSetId": 1
@@ -139,6 +223,24 @@
       "writtenOn": "2015-12-11T09:05:48Z",
       "side": 1,
       "message": "Nit: I\u0027d move these before line 585 to keep the acquire-release close to eact other.",
+      "revId": "1cd959cc75d3b064a3c446d248b81e6892e0ee6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0576b2c5_533e049c",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-11T12:33:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5f24653_6347dc55",
       "revId": "1cd959cc75d3b064a3c446d248b81e6892e0ee6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
