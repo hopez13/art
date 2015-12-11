@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4520aa91_784d3d1b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3282,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-11T11:53:11Z",
+      "side": 1,
+      "message": "rot !\u003d 0u",
+      "range": {
+        "startLine": 3282,
+        "startChar": 8,
+        "endLine": 3282,
+        "endChar": 11
+      },
+      "revId": "a092cedb202eef83a59c607270284e5ae340dcc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5f24653_e3252c8d",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3314,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-11T11:53:11Z",
+      "side": 1,
+      "message": "The name of this label no longer makes sense. It\u0027s about the rhs being 32 or more. Maybe \"shift_by_reg_bits_plus_shift_right\" (in reference to the \"shift_right\" variable)? And put the Bind() before the two lines of comments - they make more sense if they are after a descriptive label.",
+      "range": {
+        "startLine": 3314,
+        "startChar": 13,
+        "endLine": 3314,
+        "endChar": 18
+      },
+      "revId": "a092cedb202eef83a59c607270284e5ae340dcc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
