@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "254d7687_6bf332cb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-12-11T01:25:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e55fde25_c7b0d14a",
+      "range": {
+        "startLine": 21,
+        "startChar": 46,
+        "endLine": 21,
+        "endChar": 56
+      },
+      "revId": "3030d4450929b9169a9ee55751ea04d1e7e23ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6553ee27_436179b9",
         "filename": "compiler/jni/jni_compiler_test.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2015-12-11T01:11:00Z",
       "side": 1,
       "message": "4-space indent for sub-expressions. Same below.",
+      "range": {
+        "startLine": 223,
+        "startChar": 14,
+        "endLine": 223,
+        "endChar": 16
+      },
+      "revId": "3030d4450929b9169a9ee55751ea04d1e7e23ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "454eea83_ff6ebf47",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-12-11T01:25:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6553ee27_436179b9",
       "range": {
         "startLine": 223,
         "startChar": 14,
@@ -71,6 +119,53 @@
     },
     {
       "key": {
+        "uuid": "a5596647_5df15750",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-12-11T01:25:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a567a60d_b209900b",
+      "range": {
+        "startLine": 494,
+        "startChar": 30,
+        "endLine": 494,
+        "endChar": 115
+      },
+      "revId": "3030d4450929b9169a9ee55751ea04d1e7e23ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "855c6237_1035051b",
+        "filename": "runtime/java_vm_ext.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-12-11T01:25:09Z",
+      "side": 1,
+      "message": "renamed to permitted_path",
+      "range": {
+        "startLine": 89,
+        "startChar": 55,
+        "endLine": 89,
+        "endChar": 69
+      },
+      "revId": "3030d4450929b9169a9ee55751ea04d1e7e23ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5596647_dd1b0758",
         "filename": "runtime/well_known_classes.cc",
         "patchSetId": 6
@@ -82,6 +177,30 @@
       "writtenOn": "2015-12-11T01:11:00Z",
       "side": 1,
       "message": "Line too long, and you touched it, please break up.",
+      "range": {
+        "startLine": 382,
+        "startChar": 95,
+        "endLine": 382,
+        "endChar": 196
+      },
+      "revId": "3030d4450929b9169a9ee55751ea04d1e7e23ff3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e55fde25_67c5a58b",
+        "filename": "runtime/well_known_classes.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2015-12-11T01:25:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5596647_dd1b0758",
       "range": {
         "startLine": 382,
         "startChar": 95,
