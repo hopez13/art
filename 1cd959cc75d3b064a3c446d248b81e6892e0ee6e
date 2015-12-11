@@ -1,0 +1,147 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "251f3657_7770aabe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T09:05:48Z",
+      "side": 1,
+      "message": "down?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 3
+      },
+      "revId": "1cd959cc75d3b064a3c446d248b81e6892e0ee6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0576b2c5_5359243c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T09:05:48Z",
+      "side": 1,
+      "message": "compile",
+      "range": {
+        "startLine": 15,
+        "startChar": 20,
+        "endLine": 15,
+        "endChar": 29
+      },
+      "revId": "1cd959cc75d3b064a3c446d248b81e6892e0ee6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "251f3657_377a329d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T09:05:48Z",
+      "side": 1,
+      "message": "use ContainsElement from utils.h",
+      "revId": "1cd959cc75d3b064a3c446d248b81e6892e0ee6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4520aa91_586cc1b2",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T09:05:48Z",
+      "side": 1,
+      "message": "ContainsElement",
+      "revId": "1cd959cc75d3b064a3c446d248b81e6892e0ee6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2506560b_ffe13bf1",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T09:05:48Z",
+      "side": 1,
+      "message": "Can you update the example too? I am actually wondering what the dex location looks like that makes it suitable here",
+      "range": {
+        "startLine": 167,
+        "startChar": 6,
+        "endLine": 167,
+        "endChar": 19
+      },
+      "revId": "1cd959cc75d3b064a3c446d248b81e6892e0ee6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c03648c7_e978350e",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T09:05:48Z",
+      "side": 1,
+      "message": "dex location",
+      "range": {
+        "startLine": 307,
+        "startChar": 58,
+        "endLine": 307,
+        "endChar": 73
+      },
+      "revId": "1cd959cc75d3b064a3c446d248b81e6892e0ee6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5f24653_6347dc55",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T09:05:48Z",
+      "side": 1,
+      "message": "Nit: I\u0027d move these before line 585 to keep the acquire-release close to eact other.",
+      "revId": "1cd959cc75d3b064a3c446d248b81e6892e0ee6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
