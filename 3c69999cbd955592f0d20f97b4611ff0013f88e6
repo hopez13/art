@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "251f3657_971fc633",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T13:56:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "251f3657_d71bfe57",
+      "range": {
+        "startLine": 701,
+        "startChar": 8,
+        "endLine": 703,
+        "endChar": 91
+      },
+      "revId": "3c69999cbd955592f0d20f97b4611ff0013f88e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65c68e32_ae01174b",
         "filename": "compiler/optimizing/licm_test.cc",
         "patchSetId": 16
@@ -36,6 +60,30 @@
       "writtenOn": "2015-12-11T11:22:54Z",
       "side": 1,
       "message": "why this change?",
+      "range": {
+        "startLine": 171,
+        "startChar": 40,
+        "endLine": 171,
+        "endChar": 51
+      },
+      "revId": "3c69999cbd955592f0d20f97b4611ff0013f88e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0576b2c5_731a204b",
+        "filename": "compiler/optimizing/licm_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T13:56:53Z",
+      "side": 1,
+      "message": "Frankly, to get around the typing... :/ \n`parameter_` has an invalid type, therefore ArrayGet on it would fail. By constructing it as float/double, SsaBuilder will not consider it an ambiguous aget. Maybe I should use byte and short here instead and DCHECK in SsaBuilder that float/double is not in the original bytecode (done that).",
+      "parentUuid": "65c68e32_ae01174b",
       "range": {
         "startLine": 171,
         "startChar": 40,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2506560b_1f72a7ec",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T13:56:53Z",
+      "side": 1,
+      "message": "Done. And renamed the constants a little...",
+      "parentUuid": "0576b2c5_f31b9057",
+      "range": {
+        "startLine": 219,
+        "startChar": 46,
+        "endLine": 221,
+        "endChar": 15
+      },
+      "revId": "3c69999cbd955592f0d20f97b4611ff0013f88e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65c68e32_4e38b31d",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 16
@@ -82,6 +154,30 @@
       "writtenOn": "2015-12-11T11:22:54Z",
       "side": 1,
       "message": "This is weird, a-\u003eIsEquivalentOf(b) would say yes and pass this check, but b-\u003eIsEquivalentOf(a) would say yes and fail this check?",
+      "range": {
+        "startLine": 4629,
+        "startChar": 0,
+        "endLine": 4630,
+        "endChar": 59
+      },
+      "revId": "3c69999cbd955592f0d20f97b4611ff0013f88e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0576b2c5_f325d08c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 4630,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T13:56:53Z",
+      "side": 1,
+      "message": "Made it pass both ways...",
+      "parentUuid": "65c68e32_4e38b31d",
       "range": {
         "startLine": 4629,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "65c68e32_0e94eb23",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T13:56:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c03648c7_6cea93cc",
+      "range": {
+        "startLine": 173,
+        "startChar": 10,
+        "endLine": 173,
+        "endChar": 23
+      },
+      "revId": "3c69999cbd955592f0d20f97b4611ff0013f88e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5d27ee6_b207402e",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 16
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "0576b2c5_5367e4d1",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T13:56:53Z",
+      "side": 1,
+      "message": "Gtests use this kUnknownFieldIndex constant to prevent typing (actually haven\u0027t seen a gtest run RTP, so not sure why it was here in the first place). With RTP inside SsaBuilder, this method would leave the FieldGet untyped and SetUntypedInstructionsToObject would later try to type it to Object.\n\nNo problem with that, only Calin and I tried to make sure that SetUntypedInstructionsToObject only fixes up instructions left untyped because of a loop phi with first input null (b/25899441). So this change explicitly types these gtest FieldGets to Object and allows us to keep that DCHECK in SetUntypedInstructionsToObject for real code.",
+      "parentUuid": "e5d27ee6_b207402e",
+      "range": {
+        "startLine": 604,
+        "startChar": 0,
+        "endLine": 620,
+        "endChar": 3
+      },
+      "revId": "3c69999cbd955592f0d20f97b4611ff0013f88e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "251f3657_77154a1a",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 16
@@ -151,6 +295,30 @@
       "writtenOn": "2015-12-11T11:22:54Z",
       "side": 1,
       "message": "Why is that not being done in GetFloatOrDoubleEquivalent?",
+      "range": {
+        "startLine": 808,
+        "startChar": 0,
+        "endLine": 814,
+        "endChar": 37
+      },
+      "revId": "3c69999cbd955592f0d20f97b4611ff0013f88e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0576b2c5_d3cd34e1",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 814,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T13:56:53Z",
+      "side": 1,
+      "message": "Great question. And you are right that this is pretty eager. The code is pretty complex as it is, so I went for simplicity...\n\nIf this is a float array access, there should be a float use (perhaps through a phi) which calls GetFloatOrDoubleEquivalent. Unfortunately that\u0027s not true if the only use is ArraySet so we could end up missing some.\n\nI\u0027ve changed this in the latest PS, have a look. I still put them in the vector here but create equivalents lazily.",
+      "parentUuid": "251f3657_77154a1a",
       "range": {
         "startLine": 808,
         "startChar": 0,
