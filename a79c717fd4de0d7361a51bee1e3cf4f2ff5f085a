@@ -16,6 +16,24 @@
       "revId": "a79c717fd4de0d7361a51bee1e3cf4f2ff5f085a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4520aa91_5b3ddb0b",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T16:26:50Z",
+      "side": 0,
+      "message": "The skipped number tickles my OCD too, I wish the tests had names :) Ok, I\u0027ve changed it to test that the second load gets removed.\n\nBtw, this CL does not fully solve b/22538329 (as referenced in the LSE source) because ArraySets can still have the wrong input type if the value is a constant:\n\n  float[] array \u003d foo();\n  array[0] \u003d 42.0\n\nThat\u0027s why I haven\u0027t removed the b/22538329 workaround yet... Will do that in a follow-up CL.",
+      "parentUuid": "a567a60d_ada3756e",
+      "revId": "a79c717fd4de0d7361a51bee1e3cf4f2ff5f085a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
