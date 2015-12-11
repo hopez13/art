@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "251f3657_777b0a0b",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T16:26:50Z",
+      "side": 1,
+      "message": "Are you not happy with the tests I added in 450?",
+      "parentUuid": "c5701ac6_d96eb348",
+      "range": {
+        "startLine": 716,
+        "startChar": 35,
+        "endLine": 716,
+        "endChar": 47
+      },
+      "revId": "3c69999cbd955592f0d20f97b4611ff0013f88e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65c68e32_ae01174b",
         "filename": "compiler/optimizing/licm_test.cc",
         "patchSetId": 16
@@ -283,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "45c18a18_4dcf5935",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T16:26:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2506560b_7fd40bdf",
+      "range": {
+        "startLine": 379,
+        "startChar": 20,
+        "endLine": 379,
+        "endChar": 37
+      },
+      "revId": "3c69999cbd955592f0d20f97b4611ff0013f88e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5f24653_c33b48a3",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 16
@@ -306,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "65c68e32_aeb91794",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T16:26:50Z",
+      "side": 1,
+      "message": "Yep... I thought you wrote that, didn\u0027t you? :P",
+      "parentUuid": "a5f24653_c33b48a3",
+      "range": {
+        "startLine": 385,
+        "startChar": 44,
+        "endLine": 385,
+        "endChar": 64
+      },
+      "revId": "3c69999cbd955592f0d20f97b4611ff0013f88e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c03648c7_ac248bf3",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 16
@@ -317,6 +389,30 @@
       "writtenOn": "2015-12-11T14:36:29Z",
       "side": 1,
       "message": "a lot of redundant code. Can you merge with the previous?",
+      "range": {
+        "startLine": 408,
+        "startChar": 20,
+        "endLine": 408,
+        "endChar": 40
+      },
+      "revId": "3c69999cbd955592f0d20f97b4611ff0013f88e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5f24653_43005892",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T16:26:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c03648c7_ac248bf3",
       "range": {
         "startLine": 408,
         "startChar": 20,
@@ -399,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "0576b2c5_531fe4ea",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T16:26:50Z",
+      "side": 1,
+      "message": "I\u0027d rather not touch this any more. The order matters and I was very careful to cover all possible combinations.",
+      "parentUuid": "251f3657_5776ce73",
+      "range": {
+        "startLine": 153,
+        "startChar": 4,
+        "endLine": 153,
+        "endChar": 6
+      },
+      "revId": "3c69999cbd955592f0d20f97b4611ff0013f88e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5701ac6_b9097fb2",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 16
@@ -410,6 +530,30 @@
       "writtenOn": "2015-12-11T14:36:29Z",
       "side": 1,
       "message": "why do you test for dead phis in AddDependentInstructionsToWorklist if you only call it with live phis?",
+      "range": {
+        "startLine": 290,
+        "startChar": 6,
+        "endLine": 290,
+        "endChar": 40
+      },
+      "revId": "3c69999cbd955592f0d20f97b4611ff0013f88e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45c18a18_6d7575ad",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T16:26:50Z",
+      "side": 1,
+      "message": "UpdatePrimitiveType will make it dead at this point if there was a conflict.",
+      "parentUuid": "c5701ac6_b9097fb2",
       "range": {
         "startLine": 290,
         "startChar": 6,
@@ -445,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "c03648c7_6c3e13b6",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T16:26:50Z",
+      "side": 1,
+      "message": "Done but did not find any other places?",
+      "parentUuid": "a5f24653_e3576cd5",
+      "range": {
+        "startLine": 298,
+        "startChar": 2,
+        "endLine": 298,
+        "endChar": 23
+      },
+      "revId": "3c69999cbd955592f0d20f97b4611ff0013f88e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5701ac6_59c0637c",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 16
@@ -456,6 +624,30 @@
       "writtenOn": "2015-12-11T14:36:29Z",
       "side": 1,
       "message": "this test and the one bellow seem wrong. What if the array is object of byte/char etc...",
+      "range": {
+        "startLine": 303,
+        "startChar": 28,
+        "endLine": 303,
+        "endChar": 89
+      },
+      "revId": "3c69999cbd955592f0d20f97b4611ff0013f88e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c03648c7_8c29877f",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T16:26:50Z",
+      "side": 1,
+      "message": "Never gonna happen. This function is only called on int/long ArrayGets (there are DCHECKs at call sites of this function which test that the parameter is in `ambiguous_gets_`), hence the array can be only int[], float[], long[] or double[].",
+      "parentUuid": "c5701ac6_59c0637c",
       "range": {
         "startLine": 303,
         "startChar": 28,
@@ -538,6 +730,30 @@
     },
     {
       "key": {
+        "uuid": "a5f24653_e30f6cb6",
+        "filename": "compiler/optimizing/ssa_builder.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T16:26:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c03648c7_ecfa0364",
+      "range": {
+        "startLine": 86,
+        "startChar": 7,
+        "endLine": 86,
+        "endChar": 28
+      },
+      "revId": "3c69999cbd955592f0d20f97b4611ff0013f88e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c03648c7_ec1e839b",
         "filename": "compiler/optimizing/ssa_builder.h",
         "patchSetId": 16
@@ -549,6 +765,30 @@
       "writtenOn": "2015-12-11T14:36:29Z",
       "side": 1,
       "message": "Document",
+      "range": {
+        "startLine": 89,
+        "startChar": 1,
+        "endLine": 90,
+        "endChar": 68
+      },
+      "revId": "3c69999cbd955592f0d20f97b4611ff0013f88e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0576b2c5_13cacc9a",
+        "filename": "compiler/optimizing/ssa_builder.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-11T16:26:50Z",
+      "side": 1,
+      "message": "They are extensively documented in the code, is that not enough? That has been the general approach in SsaBuilder so far - explaining the purpose of individual steps in their context.",
+      "parentUuid": "c03648c7_ec1e839b",
       "range": {
         "startLine": 89,
         "startChar": 1,
