@@ -22,6 +22,30 @@
       "revId": "bfcd53e6c419e0be716f1f6e3dfbcde9204587bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05487277_6cca2a75",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-12-11T00:39:00Z",
+      "side": 1,
+      "message": "I added another method and changed this to just calling that method.\n  void CreateReferenceInfoForReferenceType(HInstruction* instruction) {\n    if (instruction-\u003eGetType() !\u003d Primitive::kPrimNot) {\n      return;\n    }\n    DCHECK(FindReferenceInfoOf(instruction) \u003d\u003d nullptr);\n    GetOrCreateReferenceInfo(instruction);\n  }",
+      "parentUuid": "a5f24653_e082c227",
+      "range": {
+        "startLine": 381,
+        "startChar": 4,
+        "endLine": 381,
+        "endChar": 53
+      },
+      "revId": "bfcd53e6c419e0be716f1f6e3dfbcde9204587bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
