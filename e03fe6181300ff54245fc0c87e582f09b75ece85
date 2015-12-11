@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45c18a18_ade83dd1",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1594,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-12-11T11:20:55Z",
+      "side": 1,
+      "message": "nit: slot",
+      "range": {
+        "startLine": 1594,
+        "startChar": 83,
+        "endLine": 1594,
+        "endChar": 93
+      },
+      "revId": "e03fe6181300ff54245fc0c87e582f09b75ece85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65c68e32_6e3d6f0c",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-12-11T11:20:55Z",
+      "side": 1,
+      "message": "kDexNoIndex",
+      "range": {
+        "startLine": 905,
+        "startChar": 33,
+        "endLine": 905,
+        "endChar": 34
+      },
+      "revId": "e03fe6181300ff54245fc0c87e582f09b75ece85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0576b2c5_93181c5d",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-12-11T11:20:55Z",
+      "side": 1,
+      "message": "StringDataByIdx(signature_idx) should be enough.\n\nIt returns null if idx \u003d\u003d kDexNoIndex so you don\u0027t need the conditional here.",
+      "range": {
+        "startLine": 919,
+        "startChar": 12,
+        "endLine": 920,
+        "endChar": 59
+      },
+      "revId": "e03fe6181300ff54245fc0c87e582f09b75ece85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
