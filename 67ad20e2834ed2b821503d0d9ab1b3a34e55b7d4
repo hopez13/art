@@ -22,6 +22,30 @@
       "revId": "67ad20e2834ed2b821503d0d9ab1b3a34e55b7d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65e04ee1_81c47c67",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1431,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-12T01:33:57Z",
+      "side": 1,
+      "message": "I still think that is sort of a separate issue, whether or not to support app code to app image dependencies.",
+      "parentUuid": "05107294_69f7817e",
+      "range": {
+        "startLine": 1430,
+        "startChar": 2,
+        "endLine": 1431,
+        "endChar": 90
+      },
+      "revId": "67ad20e2834ed2b821503d0d9ab1b3a34e55b7d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
