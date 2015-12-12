@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85b2a2f4_37ca1874",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-12T13:41:24Z",
+      "side": 1,
+      "message": "This isn\u0027t really bottom. Maybe just say that by lack of proper type infrastructure, we use inexact Object as bottom.",
+      "range": {
+        "startLine": 218,
+        "startChar": 39,
+        "endLine": 218,
+        "endChar": 59
+      },
+      "revId": "9e193d24b3e23b1c55f5b6b643fe996b7841825a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e59a7e77_d2b9e4ec",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-12T13:41:24Z",
+      "side": 1,
+      "message": "I\u0027m not convinced this is better than the previous dual implementation. Now we\u0027ve just made it harder to reason on an individual case.",
+      "range": {
+        "startLine": 393,
+        "startChar": 0,
+        "endLine": 393,
+        "endChar": 49
+      },
+      "revId": "9e193d24b3e23b1c55f5b6b643fe996b7841825a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
