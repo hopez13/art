@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05107294_69f7817e",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1431,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-12T00:51:02Z",
+      "side": 1,
+      "message": "I feel that this is still not a very good comment. If we ever decide to go with addressing into the image (why go through the dex cache if you know where the class is?), then things may go wrong.\n\nDon\u0027t know what a good comment (or even CHECK) would be here, though.",
+      "range": {
+        "startLine": 1430,
+        "startChar": 2,
+        "endLine": 1431,
+        "endChar": 90
+      },
+      "revId": "67ad20e2834ed2b821503d0d9ab1b3a34e55b7d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
