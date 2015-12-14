@@ -177,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "25fc967c_32ee88e5",
+        "filename": "runtime/base/array_slice.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-14T21:57:01Z",
+      "side": 1,
+      "message": "It\u0027s separate because it\u0027s a necessity, it takes a pointer which can be null, it\u0027s undefined behavior to call member functions pointers on a null this.\n\nIn this case the parameter is a value so it would be preferable for this to be in the class itself.",
+      "parentUuid": "c0e3a848_2784fe31",
+      "revId": "a5b9c068acb66ec37a32e3fee5a290a06eeea978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "405a58de_a551be0c",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 3
