@@ -16,6 +16,24 @@
       "revId": "92bd0144bf7f1e30323160dcb6547821c54d18a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25ead6c4_e5546cd3",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-14T22:40:26Z",
+      "side": 1,
+      "message": "Good idea. This indeed reads a bit cryptic without more comments.",
+      "parentUuid": "c5865a2d_4c9c6f8c",
+      "revId": "92bd0144bf7f1e30323160dcb6547821c54d18a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
