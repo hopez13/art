@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c55c9a66_19c8cbc9",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-14T12:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4568aa02_157534ae",
+      "range": {
+        "startLine": 478,
+        "startChar": 13,
+        "endLine": 478,
+        "endChar": 32
+      },
+      "revId": "0dbf81e74fa7f1df7586c484d1429801578a5cc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5599e74_ba99d13b",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 20
@@ -36,6 +60,30 @@
       "writtenOn": "2015-12-14T12:20:47Z",
       "side": 1,
       "message": "nit: up to you, I prefer IsReferenceArrayClass.",
+      "range": {
+        "startLine": 204,
+        "startChar": 10,
+        "endLine": 204,
+        "endChar": 20
+      },
+      "revId": "0dbf81e74fa7f1df7586c484d1429801578a5cc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "056cf246_c32e76ce",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-14T12:47:20Z",
+      "side": 1,
+      "message": "Huh? I\u0027m just moving the entire RTI class above HGraph...",
+      "parentUuid": "e5599e74_ba99d13b",
       "range": {
         "startLine": 204,
         "startChar": 10,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4568aa02_55584c36",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-14T12:47:20Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "25673634_547fac8b",
+      "range": {
+        "startLine": 209,
+        "startChar": 38,
+        "endLine": 209,
+        "endChar": 41
+      },
+      "revId": "0dbf81e74fa7f1df7586c484d1429801578a5cc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e59a7e77_f2eee8ac",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 20
@@ -82,6 +154,30 @@
       "writtenOn": "2015-12-14T12:20:47Z",
       "side": 1,
       "message": "DCHECK isValid",
+      "range": {
+        "startLine": 216,
+        "startChar": 46,
+        "endLine": 216,
+        "endChar": 49
+      },
+      "revId": "0dbf81e74fa7f1df7586c484d1429801578a5cc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5835e1b_6a583737",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-14T12:47:20Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "e59a7e77_f2eee8ac",
       "range": {
         "startLine": 216,
         "startChar": 46,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "e59a7e77_52b094b4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-14T12:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85a702bf_ef5d2154",
+      "range": {
+        "startLine": 601,
+        "startChar": 47,
+        "endLine": 601,
+        "endChar": 61
+      },
+      "revId": "0dbf81e74fa7f1df7586c484d1429801578a5cc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5835e1b_ea8a67cc",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 20
@@ -128,6 +248,30 @@
       "writtenOn": "2015-12-14T12:20:47Z",
       "side": 1,
       "message": "Document return type.",
+      "range": {
+        "startLine": 141,
+        "startChar": 12,
+        "endLine": 141,
+        "endChar": 29
+      },
+      "revId": "0dbf81e74fa7f1df7586c484d1429801578a5cc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4568aa02_d563bcec",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-14T12:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5835e1b_ea8a67cc",
       "range": {
         "startLine": 141,
         "startChar": 12,
