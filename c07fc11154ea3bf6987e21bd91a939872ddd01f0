@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5599e74_3a71417b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2015-12-14T17:45:46Z",
+      "side": 1,
+      "message": "Will this mean that all line table entry around these instructions will be off by 1 instruction?",
+      "range": {
+        "startLine": 553,
+        "startChar": 8,
+        "endLine": 554,
+        "endChar": 59
+      },
+      "revId": "c07fc11154ea3bf6987e21bd91a939872ddd01f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
