@@ -285,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "05e5d2f2_2424985c",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-14T23:23:15Z",
+      "side": 1,
+      "message": "Yes, seems fine.",
+      "parentUuid": "65e04ee1_44244244",
+      "range": {
+        "startLine": 199,
+        "startChar": 2,
+        "endLine": 199,
+        "endChar": 15
+      },
+      "revId": "1eea616cb3ab5b777bdf1b608b5326cf33d1f5b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c001e83e_548062b0",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 1
