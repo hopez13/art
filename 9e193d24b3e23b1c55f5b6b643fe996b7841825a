@@ -93,6 +93,30 @@
       "revId": "9e193d24b3e23b1c55f5b6b643fe996b7841825a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5532654_7b11fb9b",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-14T12:20:47Z",
+      "side": 1,
+      "message": "I don\u0027t really care either. This looks complex, but it\u0027s in one place and get\u0027s rid of the code duplication.",
+      "parentUuid": "85a702bf_8f665530",
+      "range": {
+        "startLine": 393,
+        "startChar": 0,
+        "endLine": 393,
+        "endChar": 49
+      },
+      "revId": "9e193d24b3e23b1c55f5b6b643fe996b7841825a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
