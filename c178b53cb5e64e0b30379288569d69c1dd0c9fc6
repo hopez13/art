@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "65acceb5_1e8b4dd3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1064859
+      },
+      "writtenOn": "2015-12-14T17:28:32Z",
+      "side": 1,
+      "message": "This patch was reverted due to build conflicts in the test-art-host suite. I fixed them consequently to the patch revert. I added additional information in the new commit message.",
+      "parentUuid": "c001e83e_14f25a55",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 10
+      },
+      "revId": "c178b53cb5e64e0b30379288569d69c1dd0c9fc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40edf8c8_106b8a9d",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "65acceb5_3e560952",
+        "filename": "compiler/optimizing/boolean_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1064859
+      },
+      "writtenOn": "2015-12-14T17:28:32Z",
+      "side": 1,
+      "message": "Indeed... Done",
+      "parentUuid": "601bdcb8_89df5d26",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 17
+      },
+      "revId": "c178b53cb5e64e0b30379288569d69c1dd0c9fc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40edf8c8_70600eb6",
         "filename": "compiler/optimizing/constant_folding.cc",
         "patchSetId": 1
@@ -82,6 +130,30 @@
       "writtenOn": "2015-12-08T14:48:54Z",
       "side": 1,
       "message": "This is in the wrong place. You\u0027ll end up recording even if we don\u0027t simplify.",
+      "range": {
+        "startLine": 71,
+        "startChar": 8,
+        "endLine": 71,
+        "endChar": 23
+      },
+      "revId": "c178b53cb5e64e0b30379288569d69c1dd0c9fc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85b2a2f4_f75180e0",
+        "filename": "compiler/optimizing/constant_folding.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1064859
+      },
+      "writtenOn": "2015-12-14T17:28:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40edf8c8_70600eb6",
       "range": {
         "startLine": 71,
         "startChar": 8,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "85a702bf_ef8a81cc",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1064859
+      },
+      "writtenOn": "2015-12-14T17:28:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "601bdcb8_a9d7b915",
+      "range": {
+        "startLine": 517,
+        "startChar": 0,
+        "endLine": 518,
+        "endChar": 101
+      },
+      "revId": "c178b53cb5e64e0b30379288569d69c1dd0c9fc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60f2fca8_511d16ef",
         "filename": "compiler/optimizing/optimizing_compiler_stats.h",
         "patchSetId": 1
@@ -128,6 +224,30 @@
       "writtenOn": "2015-12-08T14:48:54Z",
       "side": 1,
       "message": "be consistent with the other names.",
+      "range": {
+        "startLine": 118,
+        "startChar": 38,
+        "endLine": 118,
+        "endChar": 54
+      },
+      "revId": "c178b53cb5e64e0b30379288569d69c1dd0c9fc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "056cf246_8310fe67",
+        "filename": "compiler/optimizing/optimizing_compiler_stats.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1064859
+      },
+      "writtenOn": "2015-12-14T17:28:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60f2fca8_511d16ef",
       "range": {
         "startLine": 118,
         "startChar": 38,
