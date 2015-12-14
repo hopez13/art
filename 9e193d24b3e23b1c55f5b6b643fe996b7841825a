@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "25673634_747aa89d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-14T11:50:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85b2a2f4_37ca1874",
+      "range": {
+        "startLine": 218,
+        "startChar": 39,
+        "endLine": 218,
+        "endChar": 59
+      },
+      "revId": "9e193d24b3e23b1c55f5b6b643fe996b7841825a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e59a7e77_d2b9e4ec",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 19
@@ -36,6 +60,30 @@
       "writtenOn": "2015-12-12T13:41:24Z",
       "side": 1,
       "message": "I\u0027m not convinced this is better than the previous dual implementation. Now we\u0027ve just made it harder to reason on an individual case.",
+      "range": {
+        "startLine": 393,
+        "startChar": 0,
+        "endLine": 393,
+        "endChar": 49
+      },
+      "revId": "9e193d24b3e23b1c55f5b6b643fe996b7841825a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85a702bf_8f665530",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-14T11:50:50Z",
+      "side": 1,
+      "message": "I don\u0027t mind either way but I would slightly side with this single implementation. Following the code path to each individual case isn\u0027t that difficult, it gets rid of duplicity and completely gets rid of the logic inside BoundTypeForIfInstanceOf.",
+      "parentUuid": "e59a7e77_d2b9e4ec",
       "range": {
         "startLine": 393,
         "startChar": 0,
