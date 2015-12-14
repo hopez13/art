@@ -16,6 +16,24 @@
       "revId": "97e0b80c04329cda56fe980da3b2023a09d6f90c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5599e74_7af7397e",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-14T10:30:02Z",
+      "side": 1,
+      "message": "I guess there is a small window in which this can fail. Maybe a CHECK is unnecessary here. \n\nThanks for pointing this out.",
+      "parentUuid": "25ead6c4_e28d42e7",
+      "revId": "97e0b80c04329cda56fe980da3b2023a09d6f90c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
