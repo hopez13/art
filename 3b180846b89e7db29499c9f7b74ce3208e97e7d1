@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "852462f4_aa5a0ffc",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 990,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-14T22:28:10Z",
+      "side": 1,
+      "message": "This might make some additional things dirty since if only the virtuals were dirty and the directs weren\u0027t now all methods would be marked dirty.",
+      "parentUuid": "85a542c9_02ec0c7a",
+      "revId": "3b180846b89e7db29499c9f7b74ce3208e97e7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a57de6ee_ebeeedac",
         "filename": "runtime/base/array_slice.h",
         "patchSetId": 4
@@ -30,6 +48,30 @@
       "writtenOn": "2015-12-14T21:57:01Z",
       "side": 1,
       "message": "I suggest documenting whether start_offset/end_offset are in bytes or in units of element_size.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 33
+      },
+      "revId": "3b180846b89e7db29499c9f7b74ce3208e97e7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85a542c9_a29680ba",
+        "filename": "runtime/base/array_slice.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-14T22:28:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a57de6ee_ebeeedac",
       "range": {
         "startLine": 50,
         "startChar": 0,
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "0593126b_31f14852",
+        "filename": "runtime/base/array_slice.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-14T22:28:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65f20ea9_d463b4ec",
+      "revId": "3b180846b89e7db29499c9f7b74ce3208e97e7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25fc967c_7211309c",
         "filename": "runtime/base/array_slice.h",
         "patchSetId": 4
@@ -70,6 +130,30 @@
       "writtenOn": "2015-12-14T21:57:01Z",
       "side": 1,
       "message": "I think it would be preferable if both size and element_size were the same type.\n\nFrom a idiomatic point of view, both size_t would be preferable. From a memory savings point of view, uint32_t would use less memory on 64-bit.\n\nSlightly leaning towards size_t for both.",
+      "range": {
+        "startLine": 136,
+        "startChar": 2,
+        "endLine": 136,
+        "endChar": 8
+      },
+      "revId": "3b180846b89e7db29499c9f7b74ce3208e97e7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "852462f4_2a88df9a",
+        "filename": "runtime/base/array_slice.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-14T22:28:10Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "25fc967c_7211309c",
       "range": {
         "startLine": 136,
         "startChar": 2,
@@ -99,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "a57de6ee_eb3c2dbd",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-14T22:28:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45a7cad1_839a622d",
+      "revId": "3b180846b89e7db29499c9f7b74ce3208e97e7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45a7cad1_e3f00650",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 4
@@ -122,6 +224,30 @@
     },
     {
       "key": {
+        "uuid": "45a7cad1_03c3f2b2",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1341,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-14T22:28:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45a7cad1_e3f00650",
+      "range": {
+        "startLine": 1341,
+        "startChar": 49,
+        "endLine": 1341,
+        "endChar": 50
+      },
+      "revId": "3b180846b89e7db29499c9f7b74ce3208e97e7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65f20ea9_14437c29",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 4
@@ -133,6 +259,30 @@
       "writtenOn": "2015-12-14T21:57:01Z",
       "side": 1,
       "message": "nit: ((2\u003c\u003c16) - 1)\n\nmissing ()",
+      "range": {
+        "startLine": 1398,
+        "startChar": 67,
+        "endLine": 1398,
+        "endChar": 77
+      },
+      "revId": "3b180846b89e7db29499c9f7b74ce3208e97e7d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45a7cad1_e3c7e6ba",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1398,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-14T22:28:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65f20ea9_14437c29",
       "range": {
         "startLine": 1398,
         "startChar": 67,
