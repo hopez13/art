@@ -132,6 +132,24 @@
     },
     {
       "key": {
+        "uuid": "65f20ea9_94980ce6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-14T22:16:49Z",
+      "side": 1,
+      "message": "It just seems like there\u0027s plenty of low hanging fruit in the current implementation of hash_set:\n\n1) Resizing should adjust the requested # of slots to the next nearest prime number, this will make it less likely that slot lookup (hashcode%slotindex) will collide for 2 distinct hashcodes.\n\n-- This would potentially help when hash codes are different but the slots end up being the same, should help average case.\n\n2) Linear probing might be inferior to quadratic probing or secondary hash function for giving back different buckets.\n\n-- This would potentially help when the hash codes are the same, it\u0027s less likely to steal slots from another adjacent entry and reduce worst cases.\n\nIt would be interesting to explore these types of enhancements which would have much less complexity and also have a larger impact potential since we actually use the existing hash_set in much more places than just pre_zygote strings.",
+      "parentUuid": "80be10e1_774dd0bf",
+      "revId": "9d488f3a3cc23ba5877d104daf41f49f8e51da1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0af948e_e1d1bc20",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -202,6 +220,30 @@
       "side": 1,
       "message": "I\u0027m also not happy with the code duplication here. It can be several solutions.\n\n1) Add a kChain template. There are two disadvantages here: first, the data structures are different (different class members, different data_ field structure) and second, we need to forbid using of some methods (like Insert()) for the Chain version.\n\n2) To inherit the ChainHashSet (or it\u0027s better to rename it to ReadOnlyHashSet) class from the HashSet, changing some methods logic, deleting unnecessary ones. Also we can hide unnecessary class members under a private modifier.\n\nI think it\u0027s better to implement the second variant.",
       "parentUuid": "a0af948e_07016048",
+      "range": {
+        "startLine": 43,
+        "startChar": 6,
+        "endLine": 43,
+        "endChar": 18
+      },
+      "revId": "9d488f3a3cc23ba5877d104daf41f49f8e51da1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "852462f4_aacdefe1",
+        "filename": "runtime/base/chain_hash_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-14T22:16:49Z",
+      "side": 1,
+      "message": "I\u0027m not entirely convinced yet we actually need a chain hash set at all. For that reason alone I wouldn\u0027t necessarily jump into cleaning this up right away.\n\nIf we did however need it, here\u0027s some ways we could clean it up:\n\n----------\n\nTwo interfaces seems like they should be interchangeable (same public member functions), and anywhere the implementation is different it could simply be refactored into 2 separate classes (think of it as the strategy pattern):\n\n  namespace detail {\n   class OpenAddressingHashSetImpl \u003c...\u003e {...};\n   class ChainHashSetImpl \u003c...\u003e { ... };\n  }\n\nPut them into the art::detail namespace (and into a separate detail\\hash_set.h file, 2 files for each impl is also fine as you prefer) as per our convention when a templated class needs to have implementation-specific non-nested classes/functions.\n\nSimply adding a new class that\u0027s a copy or just adding some \u0027if/else\u0027 cases to hash_set.h (to handle chaining) would lead to too much of a mess IMHO.",
+      "parentUuid": "a054f4e4_93651eca",
       "range": {
         "startLine": 43,
         "startChar": 6,
