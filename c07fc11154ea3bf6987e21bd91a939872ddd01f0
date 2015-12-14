@@ -22,6 +22,30 @@
       "revId": "c07fc11154ea3bf6987e21bd91a939872ddd01f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85b2a2f4_57ca2c9b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-14T18:20:55Z",
+      "side": 1,
+      "message": "It means we will stop after those instructions rather than at them.  Due to the nature of the instructions I do not think it is a problem.",
+      "parentUuid": "e5599e74_3a71417b",
+      "range": {
+        "startLine": 553,
+        "startChar": 8,
+        "endLine": 554,
+        "endChar": 59
+      },
+      "revId": "c07fc11154ea3bf6987e21bd91a939872ddd01f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
