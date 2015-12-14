@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5865a2d_4c9c6f8c",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-12-14T22:20:17Z",
+      "side": 1,
+      "message": "Can you add some comment here so it\u0027s clear about the meaning of those trip-\u003eop_a-\u003eop_b, etc. and their correspondence to the \"offset\" in the above comment?",
+      "revId": "92bd0144bf7f1e30323160dcb6547821c54d18a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
