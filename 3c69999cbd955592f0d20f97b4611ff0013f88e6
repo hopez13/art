@@ -732,6 +732,30 @@
     },
     {
       "key": {
+        "uuid": "056cf246_e32b72bb",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-14T12:47:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e59a7e77_52f7b47d",
+      "range": {
+        "startLine": 303,
+        "startChar": 28,
+        "endLine": 303,
+        "endChar": 89
+      },
+      "revId": "3c69999cbd955592f0d20f97b4611ff0013f88e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "251f3657_77154a1a",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 16
@@ -885,6 +909,30 @@
       "side": 1,
       "message": "Somehow. I don\u0027t know what the returned bool value means. It\u0027s not that clear from here. I can read the implementation and figure it out, but I shouldn\u0027t be force to do that to understand the general algorithm.",
       "parentUuid": "0576b2c5_13cacc9a",
+      "range": {
+        "startLine": 89,
+        "startChar": 1,
+        "endLine": 90,
+        "endChar": 68
+      },
+      "revId": "3c69999cbd955592f0d20f97b4611ff0013f88e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5532654_bb4b93ab",
+        "filename": "compiler/optimizing/ssa_builder.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-14T12:47:20Z",
+      "side": 1,
+      "message": "Added more on the return value to the definitions...",
+      "parentUuid": "e5835e1b_8a83abbc",
       "range": {
         "startLine": 89,
         "startChar": 1,
