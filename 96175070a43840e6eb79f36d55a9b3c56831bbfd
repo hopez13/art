@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c55c9a66_7cca959b",
+        "filename": "compiler/optimizing/ssa_phi_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-15T17:06:30Z",
+      "side": 1,
+      "message": "Yeah, large number of instructions vs cycle with many phis... I\u0027d say the former is far more likely, hence the suggestion to use a set. But I\u0027ll leave it up to you.",
+      "parentUuid": "25673634_b73562d5",
+      "range": {
+        "startLine": 133,
+        "startChar": 2,
+        "endLine": 133,
+        "endChar": 16
+      },
+      "revId": "96175070a43840e6eb79f36d55a9b3c56831bbfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4568aa02_3859453e",
         "filename": "compiler/optimizing/ssa_phi_elimination.cc",
         "patchSetId": 3
