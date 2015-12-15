@@ -46,6 +46,30 @@
       "revId": "fbc9abbf158b3d4ed3926c4ba4f0815be5d7e27e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5b81ad7_332148e5",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-15T16:47:57Z",
+      "side": 1,
+      "message": "It means that one line of output corresponds to one line of code. That\u0027s nice, right?",
+      "parentUuid": "a5532654_9e25dd8e",
+      "range": {
+        "startLine": 56,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 12
+      },
+      "revId": "fbc9abbf158b3d4ed3926c4ba4f0815be5d7e27e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
