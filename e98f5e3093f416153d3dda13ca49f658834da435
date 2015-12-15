@@ -262,6 +262,29 @@
     },
     {
       "key": {
+        "uuid": "4568aa02_b899d53b",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-15T15:15:36Z",
+      "side": 1,
+      "message": "NB: No name or no type is valid as per the dex spec.",
+      "range": {
+        "startLine": 935,
+        "startChar": 8,
+        "endLine": 938,
+        "endChar": 9
+      },
+      "revId": "e98f5e3093f416153d3dda13ca49f658834da435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85a702bf_2f80091b",
         "filename": "runtime/dex_file.h",
         "patchSetId": 5
