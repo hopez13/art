@@ -22,6 +22,30 @@
       "revId": "099f2713ce4ed284c94239cc22d3a8c8d9cfe868",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85b2a2f4_f7da6062",
+        "filename": "test/484-checker-register-hints/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-15T11:16:23Z",
+      "side": 0,
+      "message": "I made these changes as the code generated for x86 when we use Baker\u0027s read barriers is slightly different here, and contains some more parallel moves; so this test won\u0027t work as is.\n\nI\u0027ve disabled this test for the read barrier configuration in PS6.",
+      "parentUuid": "8030d0ce_0733b6cf",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 33
+      },
+      "revId": "099f2713ce4ed284c94239cc22d3a8c8d9cfe868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
