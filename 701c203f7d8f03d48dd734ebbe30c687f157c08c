@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "85a702bf_afb95906",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-15T11:53:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65acceb5_1e58edd1",
+      "range": {
+        "startLine": 709,
+        "startChar": 10,
+        "endLine": 709,
+        "endChar": 36
+      },
+      "revId": "701c203f7d8f03d48dd734ebbe30c687f157c08c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85a702bf_6fc211ac",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 4
@@ -84,6 +108,30 @@
       "writtenOn": "2015-12-15T08:58:29Z",
       "side": 1,
       "message": "all",
+      "range": {
+        "startLine": 870,
+        "startChar": 16,
+        "endLine": 870,
+        "endChar": 21
+      },
+      "revId": "701c203f7d8f03d48dd734ebbe30c687f157c08c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e59a7e77_3297906c",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-15T11:53:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85a702bf_6fc211ac",
       "range": {
         "startLine": 870,
         "startChar": 16,
@@ -119,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "65acceb5_1ef10dfc",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-15T11:53:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85b2a2f4_7aab9599",
+      "range": {
+        "startLine": 824,
+        "startChar": 10,
+        "endLine": 825,
+        "endChar": 54
+      },
+      "revId": "701c203f7d8f03d48dd734ebbe30c687f157c08c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85a702bf_4fbd4d23",
         "filename": "runtime/dex_file.h",
         "patchSetId": 4
@@ -130,6 +202,30 @@
       "writtenOn": "2015-12-15T08:58:29Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 840,
+        "startChar": 10,
+        "endLine": 841,
+        "endChar": 70
+      },
+      "revId": "701c203f7d8f03d48dd734ebbe30c687f157c08c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85b2a2f4_1a7379f4",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 841,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-15T11:53:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85a702bf_4fbd4d23",
       "range": {
         "startLine": 840,
         "startChar": 10,
@@ -165,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "85b2a2f4_3a783dcc",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-15T11:53:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e59a7e77_b25d40c7",
+      "range": {
+        "startLine": 1087,
+        "startChar": 7,
+        "endLine": 1087,
+        "endChar": 27
+      },
+      "revId": "701c203f7d8f03d48dd734ebbe30c687f157c08c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4568aa02_9582e426",
         "filename": "runtime/dex_file.h",
         "patchSetId": 4
@@ -176,6 +296,30 @@
       "writtenOn": "2015-12-15T08:58:29Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1089,
+        "startChar": 7,
+        "endLine": 1089,
+        "endChar": 30
+      },
+      "revId": "701c203f7d8f03d48dd734ebbe30c687f157c08c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25673634_f7d23a24",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-15T11:53:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4568aa02_9582e426",
       "range": {
         "startLine": 1089,
         "startChar": 7,
