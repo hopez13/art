@@ -140,6 +140,30 @@
       "revId": "a9e8bfc5e9c363425244b7b3f65c7e046350da47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5cc3e7f_f18fd24c",
+        "filename": "runtime/arch/instruction_set_features_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-15T17:12:13Z",
+      "side": 1,
+      "message": "Nicolas, can you please comment. I find such constructs a bit alarming, but if you are okay with this (or have other ideas), please let us know",
+      "parentUuid": "25157684_9ede6d28",
+      "range": {
+        "startLine": 116,
+        "startChar": 70,
+        "endLine": 116,
+        "endChar": 71
+      },
+      "revId": "a9e8bfc5e9c363425244b7b3f65c7e046350da47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
