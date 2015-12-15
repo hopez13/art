@@ -236,6 +236,30 @@
       "revId": "a9e8bfc5e9c363425244b7b3f65c7e046350da47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5b81ad7_ee5443d3",
+        "filename": "runtime/arch/instruction_set_features_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-12-15T20:51:49Z",
+      "side": 1,
+      "message": "Test re-enabled.  I had the default case incorrect.",
+      "parentUuid": "e5cc3e7f_9c513d0e",
+      "range": {
+        "startLine": 116,
+        "startChar": 70,
+        "endLine": 116,
+        "endChar": 71
+      },
+      "revId": "a9e8bfc5e9c363425244b7b3f65c7e046350da47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
