@@ -46,6 +46,30 @@
       "revId": "f71b3ade9c99ce2fec2f5049ce9c5968721e1b81",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5599e74_1a971d6c",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-12-15T11:31:06Z",
+      "side": 0,
+      "message": "I think the debugger (ART) would be fine, now you handle nullptr in expandBufAddUtf8String. However, I wonder how the IDE would behave if we give him variables that have no name.\n\nI don\u0027t know when name_idx \u003d\u003d kDexNoIndex if there is debug information. Maybe we can keep it this way and see if we need more filtering in the debugger later.",
+      "parentUuid": "c55c9a66_bcc26d07",
+      "range": {
+        "startLine": 839,
+        "startChar": 23,
+        "endLine": 839,
+        "endChar": 40
+      },
+      "revId": "f71b3ade9c99ce2fec2f5049ce9c5968721e1b81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

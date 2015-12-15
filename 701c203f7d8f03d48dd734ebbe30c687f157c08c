@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "65acceb5_1e58edd1",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-12-15T11:31:06Z",
+      "side": 1,
+      "message": "OK, If the spec says the type can be null, the DCHECK must be removed.",
+      "parentUuid": "85a702bf_cf0cddc4",
+      "range": {
+        "startLine": 709,
+        "startChar": 10,
+        "endLine": 709,
+        "endChar": 36
+      },
+      "revId": "701c203f7d8f03d48dd734ebbe30c687f157c08c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85a702bf_6fc211ac",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 4
