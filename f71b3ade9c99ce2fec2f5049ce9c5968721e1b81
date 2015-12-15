@@ -22,6 +22,30 @@
       "revId": "f71b3ade9c99ce2fec2f5049ce9c5968721e1b81",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c55c9a66_bcc26d07",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-15T11:10:13Z",
+      "side": 0,
+      "message": "It is to make it consistent with variables emitted below.\nThe dex spec say that any of name/type/signature can be kDexNoIndex.  We filter out no name here, but not below.\n\nFurthermore, having this conditional only removes the initialization.  The debug stream could still emit the (uninitialized) variable if the scoping is non-trivial.\n\nI would prefer if the Decode method did just the decoding, and did not mangle or filter the data on the way.  Should we add filter out null name/type in debugger.cc?",
+      "parentUuid": "65acceb5_de8cc5b0",
+      "range": {
+        "startLine": 839,
+        "startChar": 23,
+        "endLine": 839,
+        "endChar": 40
+      },
+      "revId": "f71b3ade9c99ce2fec2f5049ce9c5968721e1b81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

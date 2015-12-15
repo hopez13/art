@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "85a702bf_cf0cddc4",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-15T11:10:13Z",
+      "side": 1,
+      "message": "The dex spec says the type can be null.\nHowever, I would still be interested to see a case whether it actually happens.\nI can just remove the DCHECK",
+      "parentUuid": "4568aa02_b5856033",
+      "range": {
+        "startLine": 709,
+        "startChar": 10,
+        "endLine": 709,
+        "endChar": 36
+      },
+      "revId": "701c203f7d8f03d48dd734ebbe30c687f157c08c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85a702bf_6fc211ac",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 4
