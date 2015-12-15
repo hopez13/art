@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "25673634_d7ee1ead",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1047,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-15T14:50:04Z",
+      "side": 1,
+      "message": "Though it\u0027s tempting to conflate the \"Compare\" used to define upper_bound() with \"BinaryPredicate,\" I don\u0027t think they are intended to be the same.",
+      "parentUuid": "4568aa02_18028924",
+      "range": {
+        "startLine": 1045,
+        "startChar": 0,
+        "endLine": 1047,
+        "endChar": 15
+      },
+      "revId": "e98f5e3093f416153d3dda13ca49f658834da435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5599e74_7d11f39b",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 5
