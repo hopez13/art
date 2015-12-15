@@ -164,6 +164,30 @@
       "revId": "a9e8bfc5e9c363425244b7b3f65c7e046350da47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5532654_be31c1c8",
+        "filename": "runtime/arch/instruction_set_features_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-15T17:17:22Z",
+      "side": 1,
+      "message": "constructs? You mean disabling the test all together?\n\nAndreas might have a stronger opinion.",
+      "parentUuid": "e5cc3e7f_f18fd24c",
+      "range": {
+        "startLine": 116,
+        "startChar": 70,
+        "endLine": 116,
+        "endChar": 71
+      },
+      "revId": "a9e8bfc5e9c363425244b7b3f65c7e046350da47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
