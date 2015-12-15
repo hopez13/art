@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "056cf246_c3b67615",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 887,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-15T15:09:16Z",
+      "side": 1,
+      "message": "Done. Good spot.",
+      "parentUuid": "e5599e74_7d11f39b",
+      "range": {
+        "startLine": 887,
+        "startChar": 16,
+        "endLine": 887,
+        "endChar": 17
+      },
+      "revId": "e98f5e3093f416153d3dda13ca49f658834da435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85b2a2f4_9ac22908",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 5
@@ -178,6 +202,30 @@
       "writtenOn": "2015-12-15T14:03:40Z",
       "side": 1,
       "message": "Can an invalid stream trigger this? Should it LOG(ERROR) and return false instead?",
+      "range": {
+        "startLine": 921,
+        "startChar": 8,
+        "endLine": 921,
+        "endChar": 43
+      },
+      "revId": "e98f5e3093f416153d3dda13ca49f658834da435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c55c9a66_1cc8b9c9",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-15T15:09:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85b2a2f4_9ac22908",
       "range": {
         "startLine": 921,
         "startChar": 8,
@@ -213,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "a5532654_febcd985",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-15T15:09:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85a702bf_2f80091b",
+      "range": {
+        "startLine": 856,
+        "startChar": 4,
+        "endLine": 856,
+        "endChar": 12
+      },
+      "revId": "e98f5e3093f416153d3dda13ca49f658834da435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85b2a2f4_ba960d09",
         "filename": "runtime/dex_file.h",
         "patchSetId": 5
@@ -224,6 +296,30 @@
       "writtenOn": "2015-12-15T14:03:40Z",
       "side": 1,
       "message": "uint32_t",
+      "range": {
+        "startLine": 857,
+        "startChar": 4,
+        "endLine": 857,
+        "endChar": 12
+      },
+      "revId": "e98f5e3093f416153d3dda13ca49f658834da435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25673634_776d8a0d",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-15T15:09:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85b2a2f4_ba960d09",
       "range": {
         "startLine": 857,
         "startChar": 4,

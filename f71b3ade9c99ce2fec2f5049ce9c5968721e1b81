@@ -70,6 +70,29 @@
       "revId": "f71b3ade9c99ce2fec2f5049ce9c5968721e1b81",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65acceb5_019c0c7c",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1055,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-15T15:09:16Z",
+      "side": 0,
+      "message": "I did not spot this was wrong before.  Thanks!",
+      "range": {
+        "startLine": 1055,
+        "startChar": 4,
+        "endLine": 1055,
+        "endChar": 12
+      },
+      "revId": "f71b3ade9c99ce2fec2f5049ce9c5968721e1b81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
