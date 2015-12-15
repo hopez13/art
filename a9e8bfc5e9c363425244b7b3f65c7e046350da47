@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "65e04ee1_d22e5467",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-12-15T16:17:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5865a2d_2f1c8db4",
+      "range": {
+        "startLine": 620,
+        "startChar": 37,
+        "endLine": 620,
+        "endChar": 40
+      },
+      "revId": "a9e8bfc5e9c363425244b7b3f65c7e046350da47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0593126b_11c0cc7b",
         "filename": "compiler/dex/quick/x86/target_x86.cc",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "65e04ee1_f23b50a2",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-12-15T16:17:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0593126b_11c0cc7b",
+      "range": {
+        "startLine": 630,
+        "startChar": 63,
+        "endLine": 630,
+        "endChar": 69
+      },
+      "revId": "a9e8bfc5e9c363425244b7b3f65c7e046350da47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05107294_b7c27007",
         "filename": "runtime/arch/instruction_set_features_test.cc",
         "patchSetId": 5
@@ -59,6 +107,30 @@
       "writtenOn": "2015-12-14T22:39:12Z",
       "side": 1,
       "message": "are we okay with this? this seems a bit of a sledgehammar to work around the lock add alone?",
+      "range": {
+        "startLine": 116,
+        "startChar": 70,
+        "endLine": 116,
+        "endChar": 71
+      },
+      "revId": "a9e8bfc5e9c363425244b7b3f65c7e046350da47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25157684_9ede6d28",
+        "filename": "runtime/arch/instruction_set_features_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2015-12-15T16:17:30Z",
+      "side": 1,
+      "message": "That is what is done above for ARM64.  Anyone have a smaller hammer?",
+      "parentUuid": "05107294_b7c27007",
       "range": {
         "startLine": 116,
         "startChar": 70,
