@@ -34,6 +34,24 @@
       "revId": "0c32fdeaeda2a1e388e280da12662d1d18c834a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fba69f26_ee549f08",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-15T23:07:33Z",
+      "side": 0,
+      "message": "Then perhaps it could be replaced with a is same name and signature or similar check? Just deleting older tests reduces our coverage.",
+      "parentUuid": "fbde9f59_743a7e76",
+      "revId": "0c32fdeaeda2a1e388e280da12662d1d18c834a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
