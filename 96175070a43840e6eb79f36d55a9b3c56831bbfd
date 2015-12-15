@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4568aa02_f88d0de7",
+        "filename": "compiler/optimizing/ssa_phi_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-15T16:40:58Z",
+      "side": 1,
+      "message": "This might be unnecessarily large. Did you consider using a set instead?",
+      "range": {
+        "startLine": 133,
+        "startChar": 2,
+        "endLine": 133,
+        "endChar": 16
+      },
+      "revId": "96175070a43840e6eb79f36d55a9b3c56831bbfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4568aa02_3859453e",
+        "filename": "compiler/optimizing/ssa_phi_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-15T16:40:58Z",
+      "side": 1,
+      "message": "I like this trick of iterating as long as you\u0027re adding more phis to the vector. But please add a comment explaining that that\u0027s what you\u0027re doing... ;)",
+      "revId": "96175070a43840e6eb79f36d55a9b3c56831bbfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5532654_de159525",
+        "filename": "compiler/optimizing/ssa_phi_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-15T16:40:58Z",
+      "side": 1,
+      "message": "Do you need to do this?",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 35
+      },
+      "revId": "96175070a43840e6eb79f36d55a9b3c56831bbfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65acceb5_8135bc1c",
+        "filename": "compiler/optimizing/ssa_phi_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-15T16:40:58Z",
+      "side": 1,
+      "message": "Put a TODO(dbrazdil) here. We should get rid of this...",
+      "revId": "96175070a43840e6eb79f36d55a9b3c56831bbfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c55c9a66_bce9cd19",
+        "filename": "test/557-checker-ref-equivalent/smali/TestCase.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-15T16:40:58Z",
+      "side": 1,
+      "message": "Clever :)",
+      "range": {
+        "startLine": 40,
+        "startChar": 19,
+        "endLine": 40,
+        "endChar": 24
+      },
+      "revId": "96175070a43840e6eb79f36d55a9b3c56831bbfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
