@@ -1,0 +1,192 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25ead6c4_f18d0ae7",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-15T23:07:33Z",
+      "side": 1,
+      "message": "Make it more clear, like you said yourself in an earlier reply:\n\n\n  // Always need to scan opcodes if we have default methods\n  // since invoke-super for interface methods is never supported.",
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05e5d2f2_30c5ae65",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 1228,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-15T23:07:33Z",
+      "side": 1,
+      "message": "Why?",
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5b81ad7_2e247b5c",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-15T23:07:33Z",
+      "side": 1,
+      "message": "Why is it from the end now? Add explanatory comment.",
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e598be91_31075af8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 5411,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-15T23:07:33Z",
+      "side": 1,
+      "message": "Comment?",
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05e5d2f2_10d0b21a",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 5526,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-15T23:07:33Z",
+      "side": 1,
+      "message": "Comment needs updating",
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05107294_4cd44edf",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 5717,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-15T23:07:33Z",
+      "side": 1,
+      "message": "This is misleading, I would say it\u0027s more like it\u0027s \u0027accessible through the iftable\u0027 since IIUC this may actually require crawling each iftable\u0027s interface to get at the methods, as opposed to accessing the method directly.\n\nSee your comment on line 5700 which is less misleading and also uses \"accessible through the iftable\".",
+      "range": {
+        "startLine": 5717,
+        "startChar": 34,
+        "endLine": 5717,
+        "endChar": 36
+      },
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5b81ad7_ee41a3eb",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-15T23:07:33Z",
+      "side": 1,
+      "message": "nit: /* parameter name */",
+      "range": {
+        "startLine": 88,
+        "startChar": 52,
+        "endLine": 88,
+        "endChar": 59
+      },
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45db4a39_fc2ec0cd",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-15T23:07:33Z",
+      "side": 1,
+      "message": "nit: /* parameter name */",
+      "range": {
+        "startLine": 90,
+        "startChar": 65,
+        "endLine": 90,
+        "endChar": 69
+      },
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5b81ad7_4e528fbb",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-15T23:07:33Z",
+      "side": 1,
+      "message": "Consider adding:\n\n   // It is an interface.",
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05107294_6cfcaa5f",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2015-12-15T23:07:33Z",
+      "side": 1,
+      "message": "I think I\u0027m misunderstanding FindVirtualMethodForInterface, but since it filters to methods based on declaring class  while this one filters using name and signature..\n\nIsn\u0027t it different lookup semantics?\n\nI thought you would\u0027ve just wanted to apply this FindVirtualMethodForInterfaceSuper recursively?",
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
