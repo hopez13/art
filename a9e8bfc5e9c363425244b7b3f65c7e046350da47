@@ -212,6 +212,30 @@
       "revId": "a9e8bfc5e9c363425244b7b3f65c7e046350da47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5cc3e7f_9c513d0e",
+        "filename": "runtime/arch/instruction_set_features_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-15T18:44:57Z",
+      "side": 1,
+      "message": "Look through the rest of this test. A *lot* of these tests have been disabled by Ian (who wrote the infrastructure) because things are broken one way or another (e.g., /proc/cpuinfo being wrong). So it\u0027s not unusual to disable the whole test.\n\nNow for this one, I don\u0027t understand this. We\u0027re comparing \"default\" against the CPP defines. I would have thought if there is no CPP define, then neither should contain locked-add - it\u0027s as simple as that.\n\nYes, this will probably generate a dex2oat warning (for a perceived mismatch), but it is what it is...\n\n(Otherwise, don\u0027t disable the test, but add the feature manually to the default_features)",
+      "parentUuid": "25ead6c4_f609800a",
+      "range": {
+        "startLine": 116,
+        "startChar": 70,
+        "endLine": 116,
+        "endChar": 71
+      },
+      "revId": "a9e8bfc5e9c363425244b7b3f65c7e046350da47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
