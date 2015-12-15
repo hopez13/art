@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4568aa02_b5856033",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-12-15T08:58:29Z",
+      "side": 1,
+      "message": "Why this test if you DCHECK(type_descriptor !\u003d nullptr) first? Unless the DCHECK should be removed.",
+      "range": {
+        "startLine": 709,
+        "startChar": 10,
+        "endLine": 709,
+        "endChar": 36
+      },
+      "revId": "701c203f7d8f03d48dd734ebbe30c687f157c08c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85a702bf_6fc211ac",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-12-15T08:58:29Z",
+      "side": 1,
+      "message": "all",
+      "range": {
+        "startLine": 870,
+        "startChar": 16,
+        "endLine": 870,
+        "endChar": 21
+      },
+      "revId": "701c203f7d8f03d48dd734ebbe30c687f157c08c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85b2a2f4_7aab9599",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-12-15T08:58:29Z",
+      "side": 1,
+      "message": "One per line if they don\u0027t fit on one line.",
+      "range": {
+        "startLine": 824,
+        "startChar": 10,
+        "endLine": 825,
+        "endChar": 54
+      },
+      "revId": "701c203f7d8f03d48dd734ebbe30c687f157c08c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85a702bf_4fbd4d23",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 841,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-12-15T08:58:29Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 840,
+        "startChar": 10,
+        "endLine": 841,
+        "endChar": 70
+      },
+      "revId": "701c203f7d8f03d48dd734ebbe30c687f157c08c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e59a7e77_b25d40c7",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1087,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-12-15T08:58:29Z",
+      "side": 1,
+      "message": "Please document the returned value",
+      "range": {
+        "startLine": 1087,
+        "startChar": 7,
+        "endLine": 1087,
+        "endChar": 27
+      },
+      "revId": "701c203f7d8f03d48dd734ebbe30c687f157c08c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4568aa02_9582e426",
+        "filename": "runtime/dex_file.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-12-15T08:58:29Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1089,
+        "startChar": 7,
+        "endLine": 1089,
+        "endChar": 30
+      },
+      "revId": "701c203f7d8f03d48dd734ebbe30c687f157c08c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

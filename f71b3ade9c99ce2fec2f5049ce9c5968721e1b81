@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65acceb5_de8cc5b0",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2015-12-15T08:58:29Z",
+      "side": 0,
+      "message": "Why this change? I\u0027m especially asking for the debugger.\n\nBefore, we would ignore parameters that have no name (kDexNoIndex). Now we no longer ignore them and local_in_reg[arg_reg].name_ \u003d\u003d nullptr in this case.",
+      "range": {
+        "startLine": 839,
+        "startChar": 23,
+        "endLine": 839,
+        "endChar": 40
+      },
+      "revId": "f71b3ade9c99ce2fec2f5049ce9c5968721e1b81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
