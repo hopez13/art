@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "85a702bf_f25d0654",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1047,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2015-12-15T15:05:06Z",
+      "side": 1,
+      "message": "You are right. Compare and BinaryPredicate isn\u0027t the same and based on 25.4.3.2 this is a perfectly valid predicate for std::upper_bound.\n\nSorry for the confusion.",
+      "parentUuid": "25673634_d7ee1ead",
+      "range": {
+        "startLine": 1045,
+        "startChar": 0,
+        "endLine": 1047,
+        "endChar": 15
+      },
+      "revId": "e98f5e3093f416153d3dda13ca49f658834da435",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5599e74_7d11f39b",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 5
