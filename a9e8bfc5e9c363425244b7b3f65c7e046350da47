@@ -188,6 +188,30 @@
       "revId": "a9e8bfc5e9c363425244b7b3f65c7e046350da47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25ead6c4_f609800a",
+        "filename": "runtime/arch/instruction_set_features_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-15T18:31:09Z",
+      "side": 1,
+      "message": "Yes, sorry for my poor english. I meant to say that I find the use of macros to completely disable tests on two platforms to work around a single missing macro a bit alarming....",
+      "parentUuid": "a5532654_be31c1c8",
+      "range": {
+        "startLine": 116,
+        "startChar": 70,
+        "endLine": 116,
+        "endChar": 71
+      },
+      "revId": "a9e8bfc5e9c363425244b7b3f65c7e046350da47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
