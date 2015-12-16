@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4568aa02_bbaf0fa4",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1200,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-16T18:43:57Z",
+      "side": 1,
+      "message": "Maybe also mention that IncreaseFrameSize generates exactly one instruction (and so it can be used to fill the delay slot)?",
+      "range": {
+        "startLine": 1200,
+        "startChar": 63,
+        "endLine": 1200,
+        "endChar": 80
+      },
+      "revId": "8003a4477327e3bb3d05096de87f622b5e4f38b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85b2a2f4_5df6cb4a",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1547,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-16T18:43:57Z",
+      "side": 1,
+      "message": "Could add a comment for this (e.g. \"Is the INS (Insert Bit Field) instruction supported?\")? \n\nAlso, maybe rename as `has_ins`, as you only use the INS instruction here?",
+      "range": {
+        "startLine": 1547,
+        "startChar": 7,
+        "endLine": 1547,
+        "endChar": 18
+      },
+      "revId": "8003a4477327e3bb3d05096de87f622b5e4f38b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4568aa02_9bd5f310",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-16T18:43:57Z",
+      "side": 1,
+      "message": "Nit: maybe reverse the condition of this `if` and swap the \"then\" and \"else\" branches (here and below)?",
+      "range": {
+        "startLine": 920,
+        "startChar": 6,
+        "endLine": 920,
+        "endChar": 16
+      },
+      "revId": "8003a4477327e3bb3d05096de87f622b5e4f38b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
