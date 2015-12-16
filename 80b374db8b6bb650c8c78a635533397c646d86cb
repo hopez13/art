@@ -1,0 +1,602 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05e5d2f2_4738c11d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "Does this refer to the art run tests?",
+      "range": {
+        "startLine": 10,
+        "startChar": 31,
+        "endLine": 10,
+        "endChar": 50
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e598be91_e9410690",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "What does this mean?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 61
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25157684_a131892f",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "Does this apply to the boot image as well? Is this code path specific to an app image case? If no and no, is it okay to do this for the boot image case?",
+      "range": {
+        "startLine": 671,
+        "startChar": 0,
+        "endLine": 672,
+        "endChar": 15
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e598be91_c9fc0299",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "Not sure I follow the change here, but can we assert that it\u0027s resolved?",
+      "range": {
+        "startLine": 735,
+        "startChar": 7,
+        "endLine": 735,
+        "endChar": 56
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65e04ee1_d39816e7",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1296,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "This refers to right after the non-moving space rather than right after the oat file? Clarify?",
+      "range": {
+        "startLine": 1296,
+        "startChar": 11,
+        "endLine": 1296,
+        "endChar": 16
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25157684_212639fd",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1299,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "This looks like the default value of a runtime option. Should this query the runtime option instead?",
+      "range": {
+        "startLine": 1299,
+        "startChar": 22,
+        "endLine": 1299,
+        "endChar": 52
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05107294_05a4e975",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "Does this looks up a class that matches the descriptor of the given class? It\u0027s not obvious when we need this.\n\nAlso, maybe give it a more descriptive name? Otherwise, the code looks like it\u0027s looking up the given class and returns it, which looks as if it\u0027s not very useful.\n\nNote that calling this may cause potentially many classes to be marked due to read barriers and may prevent timely unloading, if that matters.",
+      "range": {
+        "startLine": 43,
+        "startChar": 27,
+        "endLine": 43,
+        "endChar": 33
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25ead6c4_86f64b48",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "Can this code be outside of this function? It may not belong to ReadFromMemory?",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 30
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5b81ad7_18537c61",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "Why is this read barrier disabled? What goes wrong if enabled?",
+      "range": {
+        "startLine": 185,
+        "startChar": 17,
+        "endLine": 185,
+        "endChar": 36
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05107294_45fd415d",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "I assume that the name \"classes.dex\" came from the fact that it contains classes (or dex bytecode). Is it intuitive to call the app image file \"classes.art\"?",
+      "range": {
+        "startLine": 254,
+        "startChar": 36,
+        "endLine": 254,
+        "endChar": 47
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05107294_6572fded",
+        "filename": "runtime/gc/accounting/space_bitmap-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "Isn\u0027t it the case that if the bit is already set, the page is already dirty? Do we have a clean page with some bits set that we write to?",
+      "range": {
+        "startLine": 171,
+        "startChar": 6,
+        "endLine": 171,
+        "endChar": 45
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45db4a39_1ab7ec12",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "This seems okay, but do you see any impact on the card scanning time?",
+      "range": {
+        "startLine": 453,
+        "startChar": 77,
+        "endLine": 454,
+        "endChar": 29
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5b81ad7_b8d8d046",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "Is heap_capacity worth retaining if unused?",
+      "range": {
+        "startLine": 455,
+        "startChar": 2,
+        "endLine": 455,
+        "endChar": 24
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25157684_8111ed9e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 456,
+        "startChar": 21,
+        "endLine": 456,
+        "endChar": 35
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25ead6c4_864c8b77",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 3171,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "This seems to imply that the space is page aligned.\n\nIs there a cleaner way? For example, is it possible to always make the space end page aligned and DCHECK that instead here?",
+      "range": {
+        "startLine": 3171,
+        "startChar": 52,
+        "endLine": 3171,
+        "endChar": 84
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45db4a39_7aae30c5",
+        "filename": "runtime/image.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "Does this refer to both the .art and .oat files? Clarify?",
+      "range": {
+        "startLine": 307,
+        "startChar": 35,
+        "endLine": 307,
+        "endChar": 78
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25157684_e1e8a1d2",
+        "filename": "runtime/image.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "Does this mean that app oat files do not hardcode addresses/pointers into the app image files? Clarify?",
+      "range": {
+        "startLine": 308,
+        "startChar": 22,
+        "endLine": 308,
+        "endChar": 31
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05107294_a5deb527",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 1167,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "This seems correct. What motivated this additional comment? This function for native pointers, not GC roots in the first place?",
+      "range": {
+        "startLine": 1166,
+        "startChar": 55,
+        "endLine": 1167,
+        "endChar": 11
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05107294_85a619d2",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "When can this be false?",
+      "range": {
+        "startLine": 1109,
+        "startChar": 15,
+        "endLine": 1109,
+        "endChar": 32
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65e04ee1_1316fe30",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "Can this happen legitimately or is this a clear error case?",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 336,
+        "endChar": 3
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e598be91_d746defe",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "Since this seems to create a new image space at each call, how about naming \"CreateImageSpace\"?",
+      "range": {
+        "startLine": 1016,
+        "startChar": 41,
+        "endLine": 1016,
+        "endChar": 54
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65e04ee1_b3354ad5",
+        "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "I looked at FixupArtMethodArrayVisitor but not sure what this means. Can you clarify this comment or point me to the code explaining this?",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 31
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45db4a39_5ada549b",
+        "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "Could this be std::min() instead of RoundUp()?",
+      "range": {
+        "startLine": 65,
+        "startChar": 9,
+        "endLine": 65,
+        "endChar": 16
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05e5d2f2_e40f0bb6",
+        "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 78,
+        "startChar": 9,
+        "endLine": 78,
+        "endChar": 16
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5cc3e7f_2cbabc87",
+        "filename": "test/506-verify-aput/src/Main.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "How about moving the closing brace to the beginning of the next line (before the second catch)?",
+      "range": {
+        "startLine": 26,
+        "startChar": 43,
+        "endLine": 27,
+        "endChar": 4
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05e5d2f2_e7070d5f",
+        "filename": "test/506-verify-aput/src/Main.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T02:51:29Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 5
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
