@@ -22,6 +22,121 @@
       "revId": "b908ba88299747571984289ad5f62b45ac3586bb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c55c9a66_fff1778d",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-16T11:56:56Z",
+      "side": 1,
+      "message": "hand-written",
+      "range": {
+        "startLine": 896,
+        "startChar": 5,
+        "endLine": 896,
+        "endChar": 19
+      },
+      "revId": "b908ba88299747571984289ad5f62b45ac3586bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e59a7e77_1571967a",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 935,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-16T11:56:56Z",
+      "side": 1,
+      "message": "Potential overflow. I would prefer `end - pos \u003c\u003d size` instead of `pos + size \u003c\u003d end`. Note that, assuming correct alignment of `end - pos`, you can do that comparison before rounding up the `size`. (And due to register pressure, you need to calculate `end - pos` before loading the `size`.)",
+      "range": {
+        "startLine": 935,
+        "startChar": 4,
+        "endLine": 935,
+        "endChar": 23
+      },
+      "revId": "b908ba88299747571984289ad5f62b45ac3586bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4568aa02_58708173",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-16T11:56:56Z",
+      "side": 1,
+      "message": "Are the THREAD_LOCAL_END_OFFSET+THREAD_LOCAL_POS_OFFSET consecutive and within the LDRD range?",
+      "range": {
+        "startLine": 936,
+        "startChar": 4,
+        "endLine": 936,
+        "endChar": 45
+      },
+      "revId": "b908ba88299747571984289ad5f62b45ac3586bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85a702bf_124d2a1c",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 942,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-16T11:56:56Z",
+      "side": 1,
+      "message": "Load straight to the r0.",
+      "range": {
+        "startLine": 942,
+        "startChar": 11,
+        "endLine": 942,
+        "endChar": 13
+      },
+      "revId": "b908ba88299747571984289ad5f62b45ac3586bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "056cf246_46c9b42c",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-16T11:56:56Z",
+      "side": 1,
+      "message": "Make this 16-bit by using a low register, say r1.",
+      "range": {
+        "startLine": 945,
+        "startChar": 4,
+        "endLine": 945,
+        "endChar": 23
+      },
+      "revId": "b908ba88299747571984289ad5f62b45ac3586bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
