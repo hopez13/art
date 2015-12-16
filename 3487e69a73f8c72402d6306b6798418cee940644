@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "25673634_772e2a3c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-16T11:23:57Z",
+      "side": 1,
+      "message": "Why does it have to be slow? If I do:\ninvoke-super MyInterface.myDefaultMethod \n\nAnd that method exists, why can\u0027t you just use it directly?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 41
+      },
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25ead6c4_f18d0ae7",
         "filename": "compiler/dex/quick/quick_compiler.cc",
         "patchSetId": 24
