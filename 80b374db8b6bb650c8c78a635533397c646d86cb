@@ -140,6 +140,167 @@
     },
     {
       "key": {
+        "uuid": "05a79224_2bb7b944",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T23:42:10Z",
+      "side": 1,
+      "message": "Does it make sense to rename this to InitFromBootImage now that we have app images as well? Same for InitWithoutImage() etc.",
+      "range": {
+        "startLine": 866,
+        "startChar": 18,
+        "endLine": 866,
+        "endChar": 31
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "459d0ad3_2d9cedd8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T23:42:10Z",
+      "side": 1,
+      "message": "typo: compiling",
+      "range": {
+        "startLine": 891,
+        "startChar": 45,
+        "endLine": 891,
+        "endChar": 55
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "459d0ad3_6d7f1541",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T23:42:10Z",
+      "side": 1,
+      "message": "Are there assertions that we could make for the AOT case like the things that the above comment says?",
+      "range": {
+        "startLine": 899,
+        "startChar": 2,
+        "endLine": 899,
+        "endChar": 3
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0512320e_5366246f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T23:42:10Z",
+      "side": 1,
+      "message": "Is there already a type check on element here?",
+      "range": {
+        "startLine": 937,
+        "startChar": 55,
+        "endLine": 937,
+        "endChar": 62
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05a79224_cba715e5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T23:42:10Z",
+      "side": 1,
+      "message": "This can be just \"self\"?",
+      "range": {
+        "startLine": 1108,
+        "startChar": 26,
+        "endLine": 1108,
+        "endChar": 35
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4518aa2c_55dbac67",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T23:42:10Z",
+      "side": 1,
+      "message": "auto -\u003e uint64_t",
+      "range": {
+        "startLine": 1254,
+        "startChar": 4,
+        "endLine": 1254,
+        "endChar": 8
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05a79224_8ef23bc5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T23:42:10Z",
+      "side": 1,
+      "message": "The following code seems to have side effects (updating the class loader pointers), that is, not just debug check code. Why not always do this if a non-debug build?",
+      "range": {
+        "startLine": 1350,
+        "startChar": 24,
+        "endLine": 1350,
+        "endChar": 41
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05107294_05a4e975",
         "filename": "runtime/class_table.cc",
         "patchSetId": 13
@@ -340,6 +501,144 @@
         "startChar": 52,
         "endLine": 3171,
         "endChar": 84
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5dadaa8_8923593c",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T23:42:10Z",
+      "side": 1,
+      "message": "I\u0027m not very familiar with the code here, but what ensures we are the boot image?",
+      "range": {
+        "startLine": 576,
+        "startChar": 9,
+        "endLine": 576,
+        "endChar": 36
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "850622ce_3ac37d0f",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T23:42:10Z",
+      "side": 1,
+      "message": "Why exclude the class pointer field?",
+      "range": {
+        "startLine": 827,
+        "startChar": 4,
+        "endLine": 827,
+        "endChar": 78
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4518aa2c_d8153189",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T23:42:10Z",
+      "side": 1,
+      "message": "As this code lists the fields in ArtMethod, can this code be in ArtMethod instead? Or it could easy to forget to keep this code and ArtMethod consistent if we change ArtMethod in the future?",
+      "range": {
+        "startLine": 877,
+        "startChar": 0,
+        "endLine": 901,
+        "endChar": 3
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5b8863e_90c41491",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T23:42:10Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 912,
+        "startChar": 0,
+        "endLine": 915,
+        "endChar": 3
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5b8863e_f0c920a7",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T23:42:10Z",
+      "side": 1,
+      "message": "What does relocate in place mean exactly? Add a comment?",
+      "range": {
+        "startLine": 918,
+        "startChar": 12,
+        "endLine": 918,
+        "endChar": 27
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5b8863e_1083042e",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1315,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T23:42:10Z",
+      "side": 1,
+      "message": "Does oat_file \u003d\u003d nullptr means a boot image? Add a comment and/or use a bool variable with more descriptive name?",
+      "range": {
+        "startLine": 1314,
+        "startChar": 27,
+        "endLine": 1315,
+        "endChar": 4
       },
       "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
