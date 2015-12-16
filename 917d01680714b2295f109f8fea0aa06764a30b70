@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a5532654_41cfe834",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3416,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2015-12-16T11:02:28Z",
+      "side": 1,
+      "message": "Note: this looks spurious, as we do not support read barrier on MIPS yet (likewise for MIPS64).  Should we remove this?",
+      "range": {
+        "startLine": 3416,
+        "startChar": 66,
+        "endLine": 3416,
+        "endChar": 90
+      },
+      "revId": "917d01680714b2295f109f8fea0aa06764a30b70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
