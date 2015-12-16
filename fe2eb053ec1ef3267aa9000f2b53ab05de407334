@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "05e5d2f2_a416e392",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-12-16T00:02:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "056cf246_6616b096",
+      "range": {
+        "startLine": 199,
+        "startChar": 73,
+        "endLine": 199,
+        "endChar": 85
+      },
+      "revId": "fe2eb053ec1ef3267aa9000f2b53ab05de407334",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5599e74_3dcf7b36",
         "filename": "compiler/utils/assembler_test.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-12-15T18:33:48Z",
       "side": 1,
       "message": "Nit: indentation is off (see other similar routines).",
+      "range": {
+        "startLine": 349,
+        "startChar": 4,
+        "endLine": 349,
+        "endChar": 8
+      },
+      "revId": "fe2eb053ec1ef3267aa9000f2b53ab05de407334",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45db4a39_ff223282",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-12-16T00:02:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5599e74_3dcf7b36",
       "range": {
         "startLine": 349,
         "startChar": 4,
@@ -82,6 +130,30 @@
       "writtenOn": "2015-12-15T18:33:48Z",
       "side": 1,
       "message": "Shouldn\u0027t this be lower case (beq)?  (Likewise for other test cases below.)",
+      "range": {
+        "startLine": 1138,
+        "startChar": 54,
+        "endLine": 1138,
+        "endChar": 57
+      },
+      "revId": "fe2eb053ec1ef3267aa9000f2b53ab05de407334",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5cc3e7f_4915321a",
+        "filename": "compiler/utils/mips/assembler_mips_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-12-16T00:02:38Z",
+      "side": 1,
+      "message": "We pass test name strings to DriverStr() in \"Pascal case\" everywhere, including here, and it doesn\u0027t have effect on anything that matters.\n\nIn these two helper functions for branches with one/two reg(s), the string is passed to both DriverStr() and the GNU assembler. The GNU assembler doesn\u0027t care about the case used for instruction spelling. We could change the case (just here or everywhere) or convert the string to lower case when passing it to the GNU assembler or even have two strings for these two different purposes.\n\nBut really is there a compelling case for changing this as nothing appears to be broken?",
+      "parentUuid": "a5532654_de5115e1",
       "range": {
         "startLine": 1138,
         "startChar": 54,
