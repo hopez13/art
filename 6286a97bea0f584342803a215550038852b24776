@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "850622ce_b7c208ac",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5468,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-16T22:08:26Z",
+      "side": 1,
+      "message": "This does not guarantee that input_vtable_array.Get() \u003d\u003d nullptr if we never set it again.",
+      "range": {
+        "startLine": 5468,
+        "startChar": 0,
+        "endLine": 5468,
+        "endChar": 91
+      },
+      "revId": "6286a97bea0f584342803a215550038852b24776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
