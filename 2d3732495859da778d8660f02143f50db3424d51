@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c56e5a7a_2c7cdb49",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-16T19:37:22Z",
+      "side": 1,
+      "message": "I think this can use a fake dependency of this sequence:\n\n    ldr  r1, [obj, #monitor_offset]\n    eor  r2, r1, r1   // r2 \u003d\u003d zero\n    add  src, src, r2\n    ldr  ref, [src, #0]",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 48
+      },
+      "revId": "2d3732495859da778d8660f02143f50db3424d51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
