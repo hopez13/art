@@ -46,6 +46,30 @@
       "revId": "f5f64efda943000168d34bfe44ccbbadd284e55f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65acceb5_41d8d49b",
+        "filename": "compiler/optimizing/ssa_phi_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-16T12:40:21Z",
+      "side": 1,
+      "message": "It\u0027s to avoid pointers in maps, which leads to non-reproducible runs.",
+      "parentUuid": "25673634_77190a03",
+      "range": {
+        "startLine": 133,
+        "startChar": 11,
+        "endLine": 133,
+        "endChar": 19
+      },
+      "revId": "f5f64efda943000168d34bfe44ccbbadd284e55f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
