@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "ca62e7ed_8902f98d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-17T23:43:08Z",
+      "side": 1,
+      "message": "No (or at least probably not) b/c we need to throw ICCEs when the invoke has conflicting possible implementations. This means that sometimes there is no method in the dex file that can be said to be the target of the invoke. Note this is only possible when there are source-level incompatibilities in the dex, but needed for binary-compat/partial compilation/multi-dex.",
+      "parentUuid": "05f952fe_9b960b6d",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 41
+      },
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25ead6c4_f18d0ae7",
         "filename": "compiler/dex/quick/quick_compiler.cc",
         "patchSetId": 24
