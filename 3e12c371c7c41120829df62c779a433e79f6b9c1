@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "45398ab3_6d6455f6",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-17T15:28:14Z",
+      "side": 1,
+      "message": "I think it can be null for dead code.",
+      "parentUuid": "a50326be_588bddd1",
+      "range": {
+        "startLine": 484,
+        "startChar": 10,
+        "endLine": 484,
+        "endChar": 35
+      },
+      "revId": "3e12c371c7c41120829df62c779a433e79f6b9c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05f952fe_9b8c4bb0",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2015-12-17T15:10:07Z",
       "side": 1,
       "message": "Use instruction-\u003eNext() to avoid pointing to the middle of a multi-unit instruction.",
+      "range": {
+        "startLine": 546,
+        "startChar": 0,
+        "endLine": 547,
+        "endChar": 76
+      },
+      "revId": "3e12c371c7c41120829df62c779a433e79f6b9c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a50326be_f84bd15c",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-17T15:28:14Z",
+      "side": 1,
+      "message": "Done.  Thanks.",
+      "parentUuid": "05f952fe_9b8c4bb0",
       "range": {
         "startLine": 546,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "651dae1a_965d4c2b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-17T15:28:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5099ede_dafa452b",
+      "range": {
+        "startLine": 556,
+        "startChar": 28,
+        "endLine": 556,
+        "endChar": 32
+      },
+      "revId": "3e12c371c7c41120829df62c779a433e79f6b9c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45398ab3_4d8eb9e3",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 3
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "a50326be_386d49dc",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-17T15:28:14Z",
+      "side": 1,
+      "message": "So after a bit of thought, I had different reason to add the --native-debuggable flag.  The mere presence of HNativeDebugInfo can affect codegen and it definitely affect stackmaps.  I did not want --generate-debug-info to affect codegen in any way.   Thus the new flag.\n\nNote that all four combinations of the flags makes sense.  In particular, it still makes some sense to generate best-effort debug information for non-debugable optimized code.\n\nThis mirrors clang/gcc where optimization level and generation of debug info are orthogonal concepts.\n\n\nTo answer your question.  Adding --generate-symbols to pick just a subset of data to generate is possible.  However is there a harm in generating all debug data in that case?  I would like to avoid adding extra compiler options unless we have good reason.(on other topic, I try to avoid the term \"debug symbol\" as it means different things to different people)",
+      "parentUuid": "45398ab3_4d8eb9e3",
+      "range": {
+        "startLine": 313,
+        "startChar": 57,
+        "endLine": 313,
+        "endChar": 68
+      },
+      "revId": "3e12c371c7c41120829df62c779a433e79f6b9c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45398ab3_2d816db4",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 3
@@ -105,6 +201,30 @@
       "writtenOn": "2015-12-17T14:55:19Z",
       "side": 1,
       "message": "Do we want to name the debugger here? In theory any dwarf compatible native debugger should be able to debug the generated code",
+      "range": {
+        "startLine": 322,
+        "startChar": 66,
+        "endLine": 322,
+        "endChar": 70
+      },
+      "revId": "3e12c371c7c41120829df62c779a433e79f6b9c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5099ede_9af0cd4f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-17T15:28:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45398ab3_2d816db4",
       "range": {
         "startLine": 322,
         "startChar": 66,
