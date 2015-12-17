@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "a50326be_588bddd1",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-17T15:10:07Z",
+      "side": 1,
+      "message": "Why do we need this check?",
+      "range": {
+        "startLine": 484,
+        "startChar": 10,
+        "endLine": 484,
+        "endChar": 35
+      },
+      "revId": "3e12c371c7c41120829df62c779a433e79f6b9c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05f952fe_9b8c4bb0",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-17T15:10:07Z",
+      "side": 1,
+      "message": "Use instruction-\u003eNext() to avoid pointing to the middle of a multi-unit instruction.",
+      "range": {
+        "startLine": 546,
+        "startChar": 0,
+        "endLine": 547,
+        "endChar": 76
+      },
+      "revId": "3e12c371c7c41120829df62c779a433e79f6b9c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5099ede_dafa452b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-17T15:10:07Z",
+      "side": 1,
+      "message": "instruction-\u003eNext()-\u003eGetDexPc(code_item.insns_).",
+      "range": {
+        "startLine": 556,
+        "startChar": 28,
+        "endLine": 556,
+        "endChar": 32
+      },
+      "revId": "3e12c371c7c41120829df62c779a433e79f6b9c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45398ab3_4d8eb9e3",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 3
