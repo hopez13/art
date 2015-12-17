@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "651dae1a_968c2cb0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-17T22:03:31Z",
+      "side": 1,
+      "message": "I am talking about the dispatch, not how we can make it a direct call in a compiler.\n\nHow is \"invoke-super ThisInterfaceMethod\" different than \"invoke-super ThisSuperClassMethod\"",
+      "parentUuid": "850622ce_ba3dcd9f",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 41
+      },
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25ead6c4_f18d0ae7",
         "filename": "compiler/dex/quick/quick_compiler.cc",
         "patchSetId": 24
