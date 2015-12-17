@@ -43,8 +43,8 @@ public class Main {
         Method m = c.getMethod("synchronizedHashCode", Object.class);
         result = (Integer) m.invoke(null, m_obj);
       } catch (Exception e) {
-        System.err.println("Hash code query exception");
-        e.printStackTrace();
+        System.out.println("Hash code query exception");
+        e.printStackTrace(System.out);
         result = -1;
       }
       return result;

@@ -108,15 +108,15 @@ public class Main {
       }
     } catch (Exception ex) {
       if (expectedException == null) {
-        System.err.println("ERROR: call failed unexpectedly: "
+        System.out.println("ERROR: call failed unexpectedly: "
             + ex.getClass());
-        ex.printStackTrace();
+        ex.printStackTrace(System.out);
       } else {
         if (!expectedException.equals(ex.getClass())) {
-          System.err.println("ERROR: incorrect exception: wanted "
+          System.out.println("ERROR: incorrect exception: wanted "
               + expectedException.getName() + ", got "
               + ex.getClass());
-          ex.printStackTrace();
+          ex.printStackTrace(System.out);
         }
       }
     }
@@ -682,15 +682,15 @@ class SubClass extends PublicClass {
       }
     } catch (Exception ex) {
       if (expectedException == null) {
-        System.err.println("ERROR: call failed unexpectedly: "
+        System.out.println("ERROR: call failed unexpectedly: "
             + ex.getClass());
-        ex.printStackTrace();
+        ex.printStackTrace(System.out);
       } else {
         if (!expectedException.equals(ex.getClass())) {
-          System.err.println("ERROR: incorrect exception: wanted "
+          System.out.println("ERROR: incorrect exception: wanted "
               + expectedException.getName() + ", got "
               + ex.getClass());
-          ex.printStackTrace();
+          ex.printStackTrace(System.out);
         }
       }
     }
@@ -710,13 +710,13 @@ class SubClass extends PublicClass {
       }
     } catch (Exception ex) {
       if (expectedException == null) {
-        System.err.println("ERROR: call failed unexpectedly: " + ex.getClass());
-        ex.printStackTrace();
+        System.out.println("ERROR: call failed unexpectedly: " + ex.getClass());
+        ex.printStackTrace(System.out);
       } else {
         if (!expectedException.equals(ex.getClass())) {
-          System.err.println("ERROR: incorrect exception: wanted " + expectedException.getName() +
+          System.out.println("ERROR: incorrect exception: wanted " + expectedException.getName() +
                              ", got " + ex.getClass());
-          ex.printStackTrace();
+          ex.printStackTrace(System.out);
         }
       }
     }

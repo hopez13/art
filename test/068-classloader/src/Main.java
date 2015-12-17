@@ -129,7 +129,7 @@ public class Main {
                 throw new RuntimeException("target 2 has unexpected value " + value);
             }
         } catch (Exception ex) {
-            ex.printStackTrace();
+            ex.printStackTrace(System.out);
         }
     }
 
@@ -153,8 +153,8 @@ public class Main {
         try {
             altClass = loader.loadClass("Inaccessible1");
         } catch (ClassNotFoundException cnfe) {
-            System.err.println("loadClass failed");
-            cnfe.printStackTrace();
+            System.out.println("loadClass failed");
+            cnfe.printStackTrace(System.out);
             return;
         }
 
@@ -188,8 +188,8 @@ public class Main {
             if (cause instanceof IllegalAccessError) {
                 System.out.println("Got expected CNFE/IAE #2");
             } else {
-                System.err.println("Got unexpected CNFE/IAE #2");
-                cnfe.printStackTrace();
+                System.out.println("Got unexpected CNFE/IAE #2");
+                cnfe.printStackTrace(System.out);
             }
         }
     }
@@ -208,8 +208,8 @@ public class Main {
             if (cause instanceof IllegalAccessError) {
                 System.out.println("Got expected CNFE/IAE #3");
             } else {
-                System.err.println("Got unexpected CNFE/IAE #3");
-                cnfe.printStackTrace();
+                System.out.println("Got unexpected CNFE/IAE #3");
+                cnfe.printStackTrace(System.out);
             }
         }
     }
@@ -288,8 +288,8 @@ public class Main {
             System.err.println("newInstance failed: " + iae);
             return;
         } catch (LinkageError le) {
-            System.err.println("Got unexpected LinkageError on DEO");
-            le.printStackTrace();
+            System.out.println("Got unexpected LinkageError on DEO");
+            le.printStackTrace(System.out);
             return;
         }
 
@@ -304,8 +304,8 @@ public class Main {
             result = BaseOkay.doStuff(de);
             System.out.println("Got DEO result " + result);
         } catch (LinkageError le) {
-            System.err.println("Got unexpected LinkageError on DEO");
-            le.printStackTrace();
+            System.out.println("Got unexpected LinkageError on DEO");
+            le.printStackTrace(System.out);
             return;
         }
     }

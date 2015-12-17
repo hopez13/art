@@ -26,7 +26,7 @@ public class Main {
         try {
           VMDebug.attachAgent(agent);
         } catch(IOException e) {
-          e.printStackTrace();
+          e.printStackTrace(System.out);
         }
       }
     }
