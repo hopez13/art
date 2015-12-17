@@ -22,6 +22,30 @@
       "revId": "9323fcee69c1c61b6b3134a9b24285ea3eae9eb9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a50326be_f87911a9",
+        "filename": "compiler/utils/arm/assembler_arm32.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-17T14:47:22Z",
+      "side": 1,
+      "message": "I don\u0027t like the \"WithCC\" suffix, I prefer the using declaration. (Originally, I had \"SetCc set_cc \u003d kCcDontCare\" as the last parameter but I think it\u0027s better to have the shifter_op last, so I reordered it and introduced the helper function.)",
+      "parentUuid": "e5099ede_ba2af16e",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 85
+      },
+      "revId": "9323fcee69c1c61b6b3134a9b24285ea3eae9eb9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
