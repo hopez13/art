@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "459d0ad3_538bdcd1",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1200,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-12-17T03:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4568aa02_bbaf0fa4",
+      "range": {
+        "startLine": 1200,
+        "startChar": 63,
+        "endLine": 1200,
+        "endChar": 80
+      },
+      "revId": "8003a4477327e3bb3d05096de87f622b5e4f38b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85b2a2f4_5df6cb4a",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "a5d1668e_aed3c3f6",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1547,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-12-17T03:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85b2a2f4_5df6cb4a",
+      "range": {
+        "startLine": 1547,
+        "startChar": 7,
+        "endLine": 1547,
+        "endChar": 18
+      },
+      "revId": "8003a4477327e3bb3d05096de87f622b5e4f38b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4568aa02_9bd5f310",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2015-12-16T18:43:57Z",
       "side": 1,
       "message": "Nit: maybe reverse the condition of this `if` and swap the \"then\" and \"else\" branches (here and below)?",
+      "range": {
+        "startLine": 920,
+        "startChar": 6,
+        "endLine": 920,
+        "endChar": 16
+      },
+      "revId": "8003a4477327e3bb3d05096de87f622b5e4f38b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0512320e_1cfdd920",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-12-17T03:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4568aa02_9bd5f310",
       "range": {
         "startLine": 920,
         "startChar": 6,
