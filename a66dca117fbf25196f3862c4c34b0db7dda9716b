@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0512320e_6739daaa",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2015-12-17T19:01:27Z",
+      "side": 1,
+      "message": "This intrinsic wasn\u0027t disabled before in the read barrier case? I thought it was. Or we didn\u0027t exercise this code before because we always enabled heap poisoning as well in the tests?",
+      "range": {
+        "startLine": 871,
+        "startChar": 6,
+        "endLine": 871,
+        "endChar": 30
+      },
+      "revId": "a66dca117fbf25196f3862c4c34b0db7dda9716b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
