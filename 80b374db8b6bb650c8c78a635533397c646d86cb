@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e598be91_09d9ca14",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "05e5d2f2_4738c11d",
+      "range": {
+        "startLine": 10,
+        "startChar": 31,
+        "endLine": 10,
+        "endChar": 50
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e598be91_e9410690",
         "filename": "/COMMIT_MSG",
         "patchSetId": 13
@@ -36,6 +60,30 @@
       "writtenOn": "2015-12-16T02:51:29Z",
       "side": 1,
       "message": "What does this mean?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 61
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "05107294_85bd7926",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "Doing object reads from the image space before it is added to the heap, this could mean the heap can\u0027t handle the read barrier slow path.",
+      "parentUuid": "e598be91_e9410690",
       "range": {
         "startLine": 21,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "655f6ecc_a679c610",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "This is only tested for the app image case.",
+      "parentUuid": "25157684_a131892f",
+      "range": {
+        "startLine": 671,
+        "startChar": 0,
+        "endLine": 672,
+        "endChar": 15
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e598be91_c9fc0299",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 13
@@ -82,6 +154,30 @@
       "writtenOn": "2015-12-16T02:51:29Z",
       "side": 1,
       "message": "Not sure I follow the change here, but can we assert that it\u0027s resolved?",
+      "range": {
+        "startLine": 735,
+        "startChar": 7,
+        "endLine": 735,
+        "endChar": 56
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45718a52_d0a5a279",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "Previously it would try to resolve methods for classes that failed to verify for some of the tests. What do you mean by assert that it is resolved? Assert the declaring class is?",
+      "parentUuid": "e598be91_c9fc0299",
       "range": {
         "startLine": 735,
         "startChar": 7,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "8568e271_8af60b80",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1296,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65e04ee1_d39816e7",
+      "range": {
+        "startLine": 1296,
+        "startChar": 11,
+        "endLine": 1296,
+        "endChar": 16
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25157684_212639fd",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 13
@@ -128,6 +248,30 @@
       "writtenOn": "2015-12-16T02:51:29Z",
       "side": 1,
       "message": "This looks like the default value of a runtime option. Should this query the runtime option instead?",
+      "range": {
+        "startLine": 1299,
+        "startChar": 22,
+        "endLine": 1299,
+        "endChar": 52
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a565e697_eb96ad6d",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1299,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "Good idea, or we could add another compiler option.",
+      "parentUuid": "25157684_212639fd",
       "range": {
         "startLine": 1299,
         "startChar": 22,
@@ -324,6 +468,30 @@
     },
     {
       "key": {
+        "uuid": "455a6ade_c8fc0f64",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "It is only used in the uncommon case and for checks currently, I\u0027ll add a comment.",
+      "parentUuid": "05107294_05a4e975",
+      "range": {
+        "startLine": 43,
+        "startChar": 27,
+        "endLine": 43,
+        "endChar": 33
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25ead6c4_86f64b48",
         "filename": "runtime/class_table.cc",
         "patchSetId": 13
@@ -335,6 +503,30 @@
       "writtenOn": "2015-12-16T02:51:29Z",
       "side": 1,
       "message": "Can this code be outside of this function? It may not belong to ReadFromMemory?",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 30
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c56e5a7a_4cb7cf43",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25ead6c4_86f64b48",
       "range": {
         "startLine": 183,
         "startChar": 0,
@@ -370,6 +562,30 @@
     },
     {
       "key": {
+        "uuid": "c56e5a7a_2cd5bb63",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "If the space containing the class is not added to the heap, the read barrier will not be able to mark the object and also probably would fail some DCHECKs. It may be worth thinking about what we want to do here.",
+      "parentUuid": "c5b81ad7_18537c61",
+      "range": {
+        "startLine": 185,
+        "startChar": 17,
+        "endLine": 185,
+        "endChar": 36
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05107294_45fd415d",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 13
@@ -381,6 +597,30 @@
       "writtenOn": "2015-12-16T02:51:29Z",
       "side": 1,
       "message": "I assume that the name \"classes.dex\" came from the fact that it contains classes (or dex bytecode). Is it intuitive to call the app image file \"classes.art\"?",
+      "range": {
+        "startLine": 254,
+        "startChar": 36,
+        "endLine": 254,
+        "endChar": 47
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4518aa2c_55160c31",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "Actually, this is no longer used.",
+      "parentUuid": "05107294_45fd415d",
       "range": {
         "startLine": 254,
         "startChar": 36,
@@ -416,6 +656,30 @@
     },
     {
       "key": {
+        "uuid": "8568e271_a7a0eac6",
+        "filename": "runtime/gc/accounting/space_bitmap-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "Modify is used for test and set, so if we try to mark something in an app image not in the immune region it will dirty the page even if it is already marked.",
+      "parentUuid": "05107294_6572fded",
+      "range": {
+        "startLine": 171,
+        "startChar": 6,
+        "endLine": 171,
+        "endChar": 45
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45db4a39_1ab7ec12",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 13
@@ -427,6 +691,30 @@
       "writtenOn": "2015-12-16T02:51:29Z",
       "side": 1,
       "message": "This seems okay, but do you see any impact on the card scanning time?",
+      "range": {
+        "startLine": 453,
+        "startChar": 77,
+        "endLine": 454,
+        "endChar": 29
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5b8863e_f0c8002c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "No, the card scanning always uses the space sizes to visit ranges, so it should be the same.",
+      "parentUuid": "45db4a39_1ab7ec12",
       "range": {
         "startLine": 453,
         "startChar": 77,
@@ -462,6 +750,30 @@
     },
     {
       "key": {
+        "uuid": "c5dadaa8_e94bf55c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "I plan on adding logic to expand the card table when spaces are added, it is possible to suspend all the threads briefly to do this.",
+      "parentUuid": "c5b81ad7_b8d8d046",
+      "range": {
+        "startLine": 455,
+        "startChar": 2,
+        "endLine": 455,
+        "endChar": 24
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25157684_8111ed9e",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 13
@@ -485,6 +797,30 @@
     },
     {
       "key": {
+        "uuid": "459d0ad3_8d46c156",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "Reserved by kernel, I can probably make it lower, but I don\u0027t think we want to start at 0.",
+      "parentUuid": "25157684_8111ed9e",
+      "range": {
+        "startLine": 456,
+        "startChar": 21,
+        "endLine": 456,
+        "endChar": 35
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25ead6c4_864c8b77",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 13
@@ -496,6 +832,30 @@
       "writtenOn": "2015-12-16T02:51:29Z",
       "side": 1,
       "message": "This seems to imply that the space is page aligned.\n\nIs there a cleaner way? For example, is it possible to always make the space end page aligned and DCHECK that instead here?",
+      "range": {
+        "startLine": 3171,
+        "startChar": 52,
+        "endLine": 3171,
+        "endChar": 84
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5dadaa8_092f6964",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 3171,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "Possibly, the current logic is that you can iterate over objects by using SizeOf for VerifyImageAllocations.",
+      "parentUuid": "25ead6c4_864c8b77",
       "range": {
         "startLine": 3171,
         "startChar": 52,
@@ -669,6 +1029,30 @@
     },
     {
       "key": {
+        "uuid": "a5d1668e_6819c35f",
+        "filename": "runtime/image.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45db4a39_7aae30c5",
+      "range": {
+        "startLine": 307,
+        "startChar": 35,
+        "endLine": 307,
+        "endChar": 78
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25157684_e1e8a1d2",
         "filename": "runtime/image.h",
         "patchSetId": 13
@@ -680,6 +1064,30 @@
       "writtenOn": "2015-12-16T02:51:29Z",
       "side": 1,
       "message": "Does this mean that app oat files do not hardcode addresses/pointers into the app image files? Clarify?",
+      "range": {
+        "startLine": 308,
+        "startChar": 22,
+        "endLine": 308,
+        "endChar": 31
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5b1fa58_f16008b9",
+        "filename": "runtime/image.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "25157684_e1e8a1d2",
       "range": {
         "startLine": 308,
         "startChar": 22,
@@ -715,6 +1123,30 @@
     },
     {
       "key": {
+        "uuid": "0512320e_93c43c91",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 1167,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "I just did not remember since VisitReferences visits the ArtMethod roots but Fixup does not.",
+      "parentUuid": "05107294_a5deb527",
+      "range": {
+        "startLine": 1166,
+        "startChar": 55,
+        "endLine": 1167,
+        "endChar": 11
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05107294_85a619d2",
         "filename": "runtime/mirror/object-inl.h",
         "patchSetId": 13
@@ -726,6 +1158,30 @@
       "writtenOn": "2015-12-16T02:51:29Z",
       "side": 1,
       "message": "When can this be false?",
+      "range": {
+        "startLine": 1109,
+        "startChar": 15,
+        "endLine": 1109,
+        "endChar": 32
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0512320e_d3ceb4ac",
+        "filename": "runtime/mirror/object-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "It is false for in-place image relocation to improve performance.",
+      "parentUuid": "05107294_85a619d2",
       "range": {
         "startLine": 1109,
         "startChar": 15,
@@ -761,6 +1217,30 @@
     },
     {
       "key": {
+        "uuid": "459d0ad3_ed9145c6",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "It is an error case, added a comment.",
+      "parentUuid": "65e04ee1_1316fe30",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 336,
+        "endChar": 3
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e598be91_d746defe",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 13
@@ -772,6 +1252,30 @@
       "writtenOn": "2015-12-16T02:51:29Z",
       "side": 1,
       "message": "Since this seems to create a new image space at each call, how about naming \"CreateImageSpace\"?",
+      "range": {
+        "startLine": 1016,
+        "startChar": 41,
+        "endLine": 1016,
+        "endChar": 54
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4518aa2c_15581404",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "Renamed to OpenImageSpace since create might be ambiguous with image writing.",
+      "parentUuid": "e598be91_d746defe",
       "range": {
         "startLine": 1016,
         "startChar": 41,
@@ -807,6 +1311,30 @@
     },
     {
       "key": {
+        "uuid": "05a79224_0bcbddcc",
+        "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "The fixup logic stores a forward pointer which requires 2 words on 64 bits, this avoids a map lookup in the case where there are multiple dex caches.",
+      "parentUuid": "65e04ee1_b3354ad5",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 31
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45db4a39_5ada549b",
         "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
         "patchSetId": 13
@@ -818,6 +1346,30 @@
       "writtenOn": "2015-12-16T02:51:29Z",
       "side": 1,
       "message": "Could this be std::min() instead of RoundUp()?",
+      "range": {
+        "startLine": 65,
+        "startChar": 9,
+        "endLine": 65,
+        "endChar": 16
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5d1668e_e80e530d",
+        "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "Actually yes, not sure what I was thinking.",
+      "parentUuid": "45db4a39_5ada549b",
       "range": {
         "startLine": 65,
         "startChar": 9,
@@ -853,6 +1405,30 @@
     },
     {
       "key": {
+        "uuid": "c5dadaa8_c996f1bb",
+        "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05e5d2f2_e40f0bb6",
+      "range": {
+        "startLine": 78,
+        "startChar": 9,
+        "endLine": 78,
+        "endChar": 16
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5cc3e7f_2cbabc87",
         "filename": "test/506-verify-aput/src/Main.java",
         "patchSetId": 13
@@ -876,6 +1452,30 @@
     },
     {
       "key": {
+        "uuid": "850622ce_57b44c0b",
+        "filename": "test/506-verify-aput/src/Main.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5cc3e7f_2cbabc87",
+      "range": {
+        "startLine": 26,
+        "startChar": 43,
+        "endLine": 27,
+        "endChar": 4
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05e5d2f2_e7070d5f",
         "filename": "test/506-verify-aput/src/Main.java",
         "patchSetId": 13
@@ -887,6 +1487,30 @@
       "writtenOn": "2015-12-16T02:51:29Z",
       "side": 1,
       "message": "Same.",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 5
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "850622ce_b7916879",
+        "filename": "test/506-verify-aput/src/Main.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-17T01:22:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05e5d2f2_e7070d5f",
       "range": {
         "startLine": 32,
         "startChar": 4,
