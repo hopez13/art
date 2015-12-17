@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "45398ab3_4d8eb9e3",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-17T14:56:35Z",
+      "side": 1,
+      "message": "How about only adding a --generate-symbols ?",
+      "range": {
+        "startLine": 313,
+        "startChar": 57,
+        "endLine": 313,
+        "endChar": 68
+      },
+      "revId": "3e12c371c7c41120829df62c779a433e79f6b9c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45398ab3_2d816db4",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 3
