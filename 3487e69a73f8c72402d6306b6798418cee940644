@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "850622ce_ba3dcd9f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-17T21:03:25Z",
+      "side": 1,
+      "message": "No but we don\u0027t do that at the moment. We will add to the optimizing compiler support to compile them to a direct call (where possible).",
+      "parentUuid": "25673634_772e2a3c",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 41
+      },
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25ead6c4_f18d0ae7",
         "filename": "compiler/dex/quick/quick_compiler.cc",
         "patchSetId": 24
@@ -36,6 +60,24 @@
       "writtenOn": "2015-12-15T23:07:33Z",
       "side": 1,
       "message": "Make it more clear, like you said yourself in an earlier reply:\n\n\n  // Always need to scan opcodes if we have default methods\n  // since invoke-super for interface methods is never supported.",
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5d1668e_eb100d9b",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-17T21:03:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25ead6c4_f18d0ae7",
       "revId": "3487e69a73f8c72402d6306b6798418cee940644",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "850622ce_7a3cd59b",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 1228,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-17T21:03:25Z",
+      "side": 1,
+      "message": "It should be there. Moved to a different cl.",
+      "parentUuid": "05e5d2f2_30c5ae65",
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5b81ad7_2e247b5c",
         "filename": "runtime/art_method.cc",
         "patchSetId": 24
@@ -70,6 +130,24 @@
       "writtenOn": "2015-12-15T23:07:33Z",
       "side": 1,
       "message": "Why is it from the end now? Add explanatory comment.",
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5dadaa8_4f66816f",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-17T21:03:25Z",
+      "side": 1,
+      "message": "I have no idea. Removed.",
+      "parentUuid": "c5b81ad7_2e247b5c",
       "revId": "3487e69a73f8c72402d6306b6798418cee940644",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -93,6 +171,47 @@
     },
     {
       "key": {
+        "uuid": "c5dadaa8_ec52e318",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 5411,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-17T21:03:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e598be91_31075af8",
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4518aa2c_f860edb8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 5413,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-17T21:03:25Z",
+      "side": 1,
+      "message": "Maybe add another experimental flag to control if we do this. It might in the future be worth it to give interfaces iftables (if this is really widely used) but for now we probably just want to do it an even slower way.",
+      "range": {
+        "startLine": 5410,
+        "startChar": 0,
+        "endLine": 5413,
+        "endChar": 3
+      },
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05e5d2f2_10d0b21a",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 24
@@ -110,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "c5dadaa8_acebcb63",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 5526,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-17T21:03:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05e5d2f2_10d0b21a",
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05107294_4cd44edf",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 24
@@ -121,6 +258,30 @@
       "writtenOn": "2015-12-15T23:07:33Z",
       "side": 1,
       "message": "This is misleading, I would say it\u0027s more like it\u0027s \u0027accessible through the iftable\u0027 since IIUC this may actually require crawling each iftable\u0027s interface to get at the methods, as opposed to accessing the method directly.\n\nSee your comment on line 5700 which is less misleading and also uses \"accessible through the iftable\".",
+      "range": {
+        "startLine": 5717,
+        "startChar": 34,
+        "endLine": 5717,
+        "endChar": 36
+      },
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5b8863e_f3792aa9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 5717,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-17T21:03:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05107294_4cd44edf",
       "range": {
         "startLine": 5717,
         "startChar": 34,
@@ -156,6 +317,30 @@
     },
     {
       "key": {
+        "uuid": "4518aa2c_78a69d30",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-17T21:03:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5b81ad7_ee41a3eb",
+      "range": {
+        "startLine": 88,
+        "startChar": 52,
+        "endLine": 88,
+        "endChar": 59
+      },
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45db4a39_fc2ec0cd",
         "filename": "runtime/common_throws.cc",
         "patchSetId": 24
@@ -167,6 +352,30 @@
       "writtenOn": "2015-12-15T23:07:33Z",
       "side": 1,
       "message": "nit: /* parameter name */",
+      "range": {
+        "startLine": 90,
+        "startChar": 65,
+        "endLine": 90,
+        "endChar": 69
+      },
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0512320e_9901fb22",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-17T21:03:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45db4a39_fc2ec0cd",
       "range": {
         "startLine": 90,
         "startChar": 65,
@@ -196,6 +405,24 @@
     },
     {
       "key": {
+        "uuid": "a5b8863e_d357c606",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-17T21:03:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5b81ad7_4e528fbb",
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05107294_6cfcaa5f",
         "filename": "runtime/mirror/class.cc",
         "patchSetId": 24
@@ -207,6 +434,24 @@
       "writtenOn": "2015-12-15T23:07:33Z",
       "side": 1,
       "message": "I think I\u0027m misunderstanding FindVirtualMethodForInterface, but since it filters to methods based on declaring class  while this one filters using name and signature..\n\nIsn\u0027t it different lookup semantics?\n\nI thought you would\u0027ve just wanted to apply this FindVirtualMethodForInterfaceSuper recursively?",
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "850622ce_fda57fc7",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-17T21:03:25Z",
+      "side": 1,
+      "message": "I did it this way since it works if we have a full iftable. If we don\u0027t we need to do it recursively (with some additional trickiness actually).",
+      "parentUuid": "05107294_6cfcaa5f",
       "revId": "3487e69a73f8c72402d6306b6798418cee940644",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
