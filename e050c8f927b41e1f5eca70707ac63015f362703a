@@ -22,6 +22,30 @@
       "revId": "e050c8f927b41e1f5eca70707ac63015f362703a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5dadaa8_32b0d602",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-17T18:52:10Z",
+      "side": 1,
+      "message": "It might not be aligned...\n\nCan cause problems writing or reading image if so.\n\nI hit this problem when making an unrelated cl so I figured I\u0027d fix it.",
+      "parentUuid": "e5099ede_7a617916",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 54
+      },
+      "revId": "e050c8f927b41e1f5eca70707ac63015f362703a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
