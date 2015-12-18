@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cad587d0_7131d8dd",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-18T16:32:19Z",
+      "side": 1,
+      "message": "conditional to native_debuggable please.",
+      "range": {
+        "startLine": 468,
+        "startChar": 0,
+        "endLine": 468,
+        "endChar": 97
+      },
+      "revId": "5c0d2b348b9d2be8d54fdf700a28223865da6888",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ead24be6_120c0c18",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-18T16:32:19Z",
+      "side": 1,
+      "message": "Isn\u0027t that done by default?",
+      "range": {
+        "startLine": 470,
+        "startChar": 0,
+        "endLine": 470,
+        "endChar": 47
+      },
+      "revId": "5c0d2b348b9d2be8d54fdf700a28223865da6888",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a7c37a4_f587f8c7",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-18T16:32:19Z",
+      "side": 1,
+      "message": "Why?",
+      "range": {
+        "startLine": 539,
+        "startChar": 0,
+        "endLine": 539,
+        "endChar": 61
+      },
+      "revId": "5c0d2b348b9d2be8d54fdf700a28223865da6888",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a7b83af_f4b85891",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-18T16:32:19Z",
+      "side": 1,
+      "message": "-g",
+      "range": {
+        "startLine": 320,
+        "startChar": 82,
+        "endLine": 320,
+        "endChar": 84
+      },
+      "revId": "5c0d2b348b9d2be8d54fdf700a28223865da6888",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
