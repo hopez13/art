@@ -22,6 +22,30 @@
       "revId": "85d4b18a40acf3a27517d5a817bb885eda3ec1a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a52de678_0b4ca1c2",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2015-12-18T18:49:16Z",
+      "side": 1,
+      "message": "Changed as suggested.",
+      "parentUuid": "05487277_e383d2bb",
+      "range": {
+        "startLine": 128,
+        "startChar": 22,
+        "endLine": 128,
+        "endChar": 26
+      },
+      "revId": "85d4b18a40acf3a27517d5a817bb885eda3ec1a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
