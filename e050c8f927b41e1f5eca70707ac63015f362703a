@@ -70,6 +70,30 @@
       "revId": "e050c8f927b41e1f5eca70707ac63015f362703a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a438f4f_985479a6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2015-12-18T18:48:46Z",
+      "side": 1,
+      "message": "It caused a check failure if I didn\u0027t have this in my invoke-super CL. I don\u0027t know why we haven\u0027t hit it before, just lucky I guess.",
+      "parentUuid": "e5aefef8_72409837",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 54
+      },
+      "revId": "e050c8f927b41e1f5eca70707ac63015f362703a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
