@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca62e7ed_aceeeb17",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-12-18T04:54:43Z",
+      "side": 1,
+      "message": "I suggest a  better variant (quicker getting to floor and independent of FCSR.NAN2008):\n\n\tli\t\tout, float representation of Integer.MIN_VALUE\n\tmtc1\t\tout, FTMP\n\tcmp.lte.s\tFTMP, FTMP, in\n\tbc1nez\t\tFTMP, ladd\n\n\tcmp.eq.s\tFTMP, in, in\n\tli\t\tout, Integer.MIN_VALUE\n\tbc1nez\t\tFTMP, ldone\n\n\tmove\t\tout, ZERO\n\tbc\t\tldone\n\nladd:\n\tli\t\tout, float representation of +0.5f\n\tmtc1\t\tout, FTMP\n\tadd.s\t\tFTMP, in, FTMP\n\tfloor.w.s\tFTMP, FTMP\n\tmfc1\t\tout, FTMP\nldone:\n\nBut we first need to get floating-point compares in on MIPS64 (my change with them hasn\u0027t been merged yet).\n\nYou should now be able to use this in the MIPS32 version of the intrinsic.",
+      "range": {
+        "startLine": 879,
+        "startChar": 0,
+        "endLine": 908,
+        "endChar": 17
+      },
+      "revId": "b87b5c370d1ecb79040ce0ca636ea9e2d2ee62c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2517a8_b319a068",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2015-12-18T04:54:43Z",
+      "side": 1,
+      "message": "Same as above.",
+      "range": {
+        "startLine": 926,
+        "startChar": 0,
+        "endLine": 955,
+        "endChar": 17
+      },
+      "revId": "b87b5c370d1ecb79040ce0ca636ea9e2d2ee62c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
