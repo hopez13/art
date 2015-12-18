@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a76bfc5_53c8442e",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1221,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-18T15:10:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a81fbc7_d680c4e3",
+      "range": {
+        "startLine": 1221,
+        "startChar": 25,
+        "endLine": 1221,
+        "endChar": 30
+      },
+      "revId": "e2d44568adf246784916ccf8f2f9c2824f198d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a76bfc5_93333c32",
         "filename": "compiler/elf_writer_debug.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-12-18T12:26:17Z",
       "side": 1,
       "message": "(nit): You are inside the dwarf namespace so you don\u0027t need this.",
+      "range": {
+        "startLine": 30,
+        "startChar": 41,
+        "endLine": 30,
+        "endChar": 48
+      },
+      "revId": "e2d44568adf246784916ccf8f2f9c2824f198d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ead24be6_325d902e",
+        "filename": "compiler/elf_writer_debug.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2015-12-18T15:10:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a76bfc5_93333c32",
       "range": {
         "startLine": 30,
         "startChar": 41,
