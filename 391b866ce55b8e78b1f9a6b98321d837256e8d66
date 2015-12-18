@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a2517a8_b6362eb9",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1032,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2015-12-18T19:08:34Z",
+      "side": 1,
+      "message": "Unrelated to this CL, but if this generates a dmb ishst, then I think this is wrong.  It allows a preceding load to be delayed past the stxr.  If the CAS is used to release a lock, then this allows a critical section load to escape from the critical section.\n\nSame problem in the 32 bit version.",
+      "range": {
+        "startLine": 1032,
+        "startChar": 27,
+        "endLine": 1032,
+        "endChar": 40
+      },
+      "revId": "391b866ce55b8e78b1f9a6b98321d837256e8d66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
