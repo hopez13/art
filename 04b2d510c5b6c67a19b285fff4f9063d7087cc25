@@ -70,6 +70,30 @@
       "revId": "04b2d510c5b6c67a19b285fff4f9063d7087cc25",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aadcd3fd_f0362023",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1638,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-18T13:36:38Z",
+      "side": 1,
+      "message": "I don\u0027t want this to fail in non-debug builds and LOG(ERROR) guarded by kDebugBuild is the same as a dcheck.\n\nI can log a warning, but if something changes it could take longer until we notice it.\n\n(I don\u0027t feel strongly about this)",
+      "parentUuid": "6a81fbc7_b65e6855",
+      "range": {
+        "startLine": 1638,
+        "startChar": 7,
+        "endLine": 1638,
+        "endChar": 41
+      },
+      "revId": "04b2d510c5b6c67a19b285fff4f9063d7087cc25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
