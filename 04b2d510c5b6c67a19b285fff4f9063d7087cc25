@@ -22,6 +22,30 @@
       "revId": "04b2d510c5b6c67a19b285fff4f9063d7087cc25",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8adf0ff2_ef4f21b9",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1638,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-18T13:24:42Z",
+      "side": 1,
+      "message": "I added the dchecks to get early failures in debug builds in case I left something out (since this data is coming from the framework which I don\u0027t constantly watch for changes). Would like to keep them around for a while.",
+      "parentUuid": "6a81fbc7_b68748f7",
+      "range": {
+        "startLine": 1638,
+        "startChar": 7,
+        "endLine": 1638,
+        "endChar": 41
+      },
+      "revId": "04b2d510c5b6c67a19b285fff4f9063d7087cc25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
