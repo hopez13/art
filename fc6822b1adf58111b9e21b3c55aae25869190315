@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a7c37a4_959484f7",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-18T16:38:57Z",
+      "side": 1,
+      "message": "This doesn\u0027t feel related to this change.",
+      "range": {
+        "startLine": 247,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 40
+      },
+      "revId": "fc6822b1adf58111b9e21b3c55aae25869190315",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ead24be6_32111031",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-18T16:38:57Z",
+      "side": 1,
+      "message": "Move to utils?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 1
+      },
+      "revId": "fc6822b1adf58111b9e21b3c55aae25869190315",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a6aafd7_17c2b40c",
+        "filename": "runtime/jit/profile_saver.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-18T16:38:57Z",
+      "side": 1,
+      "message": "thread",
+      "range": {
+        "startLine": 28,
+        "startChar": 30,
+        "endLine": 28,
+        "endChar": 35
+      },
+      "revId": "fc6822b1adf58111b9e21b3c55aae25869190315",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a81fbc7_362b386e",
+        "filename": "runtime/jit/profile_saver.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-18T16:38:57Z",
+      "side": 1,
+      "message": "can that be const\u0026?",
+      "range": {
+        "startLine": 30,
+        "startChar": 20,
+        "endLine": 30,
+        "endChar": 39
+      },
+      "revId": "fc6822b1adf58111b9e21b3c55aae25869190315",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aadcd3fd_f0914017",
+        "filename": "runtime/jit/profile_saver.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-18T16:38:57Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 45,
+        "startChar": 15,
+        "endLine": 45,
+        "endChar": 34
+      },
+      "revId": "fc6822b1adf58111b9e21b3c55aae25869190315",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a7c37a4_7563e8ed",
+        "filename": "runtime/jit/profile_saver.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-18T16:38:57Z",
+      "side": 1,
+      "message": "from",
+      "range": {
+        "startLine": 55,
+        "startChar": 41,
+        "endLine": 55,
+        "endChar": 45
+      },
+      "revId": "fc6822b1adf58111b9e21b3c55aae25869190315",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a6aafd7_d7bbdc8b",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1633,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-18T16:38:57Z",
+      "side": 1,
+      "message": "Use something else? I assume this will pollute the logcat greatly?",
+      "range": {
+        "startLine": 1633,
+        "startChar": 2,
+        "endLine": 1633,
+        "endChar": 11
+      },
+      "revId": "fc6822b1adf58111b9e21b3c55aae25869190315",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
