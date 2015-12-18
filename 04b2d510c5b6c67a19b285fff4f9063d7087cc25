@@ -94,6 +94,30 @@
       "revId": "04b2d510c5b6c67a19b285fff4f9063d7087cc25",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ead24be6_f2914817",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1638,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-18T13:40:54Z",
+      "side": 1,
+      "message": "I\u0027d go with a LOG(WARNING): you don\u0027t expect this to happen. The DCHECK is only here for you, isn\u0027t it? As no one runs devices with libartd.\n\nThe reason I\u0027m being picky is how the following code is confusing:\nDCHECK(foo);\nif (!foo) { // dead code??? }",
+      "parentUuid": "aadcd3fd_f0362023",
+      "range": {
+        "startLine": 1638,
+        "startChar": 7,
+        "endLine": 1638,
+        "endChar": 41
+      },
+      "revId": "04b2d510c5b6c67a19b285fff4f9063d7087cc25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
