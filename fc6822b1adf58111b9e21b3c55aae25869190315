@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a76bfc5_130c0c18",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-18T17:01:39Z",
+      "side": 1,
+      "message": "indeed. I was hopping to make the JitCodeCache in the saver constant. Didn\u0027t really work, but I think it\u0027s better having it atomic than locking everytime we query it.",
+      "parentUuid": "4a7c37a4_959484f7",
+      "range": {
+        "startLine": 247,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 40
+      },
+      "revId": "fc6822b1adf58111b9e21b3c55aae25869190315",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ead24be6_32111031",
         "filename": "runtime/jit/offline_profiling_info.cc",
         "patchSetId": 11
@@ -94,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "aadcd3fd_10c2c40c",
+        "filename": "runtime/jit/profile_saver.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-18T17:01:39Z",
+      "side": 1,
+      "message": "see the comment in jit_code_cache. Unfortunately not, because for getting the art methods we need to lock and it seems that method which acquire locks can\u0027t be constify :(",
+      "parentUuid": "6a81fbc7_362b386e",
+      "range": {
+        "startLine": 30,
+        "startChar": 20,
+        "endLine": 30,
+        "endChar": 39
+      },
+      "revId": "fc6822b1adf58111b9e21b3c55aae25869190315",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aadcd3fd_f0914017",
         "filename": "runtime/jit/profile_saver.h",
         "patchSetId": 11
@@ -151,6 +199,30 @@
       "writtenOn": "2015-12-18T16:38:57Z",
       "side": 1,
       "message": "Use something else? I assume this will pollute the logcat greatly?",
+      "range": {
+        "startLine": 1633,
+        "startChar": 2,
+        "endLine": 1633,
+        "endChar": 11
+      },
+      "revId": "fc6822b1adf58111b9e21b3c55aae25869190315",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a7c37a4_b568a0c4",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1633,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-18T17:01:39Z",
+      "side": 1,
+      "message": "It\u0027s called once per app launch. I\u0027ll make it verbose.",
+      "parentUuid": "8a6aafd7_d7bbdc8b",
       "range": {
         "startLine": 1633,
         "startChar": 2,
