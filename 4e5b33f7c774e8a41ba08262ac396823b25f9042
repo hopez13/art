@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "ca62e7ed_724449a1",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-21T20:35:56Z",
+      "side": 1,
+      "message": "IsImageSpace works fine since we will never have more zygote spaces.",
+      "parentUuid": "a5b8863e_f9a2abd6",
+      "range": {
+        "startLine": 371,
+        "startChar": 15,
+        "endLine": 371,
+        "endChar": 29
+      },
+      "revId": "4e5b33f7c774e8a41ba08262ac396823b25f9042",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5d1668e_bc2019e2",
         "filename": "runtime/gc/collector/semi_space.cc",
         "patchSetId": 14
@@ -105,6 +129,30 @@
       "writtenOn": "2015-12-17T21:20:03Z",
       "side": 1,
       "message": "Can we update this comment to include the app image space case?",
+      "range": {
+        "startLine": 372,
+        "startChar": 0,
+        "endLine": 375,
+        "endChar": 49
+      },
+      "revId": "4e5b33f7c774e8a41ba08262ac396823b25f9042",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a2f9f8d_97fa0764",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-21T20:35:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5d1668e_bc2019e2",
       "range": {
         "startLine": 372,
         "startChar": 0,
