@@ -22,6 +22,30 @@
       "revId": "901c55e439038f5a677dee2da493ae40f8a2b1e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2517a8_474f526e",
+        "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-21T15:44:30Z",
+      "side": 1,
+      "message": "I think Ian added this for completeness, so I\u0027m inclined to keep this for the time being. It doesn\u0027t really hurt...\n\nBut sure, if you dislike it, go ahead...",
+      "parentUuid": "2a1f0357_54812c1f",
+      "range": {
+        "startLine": 45,
+        "startChar": 28,
+        "endLine": 45,
+        "endChar": 79
+      },
+      "revId": "901c55e439038f5a677dee2da493ae40f8a2b1e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
