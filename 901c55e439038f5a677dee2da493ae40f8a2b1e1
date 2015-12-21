@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a1f0357_54812c1f",
+        "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-12-21T14:36:17Z",
+      "side": 1,
+      "message": "We might want to clean this up since android will probably not run any-time soon on cortex M or cortex R...\n\nShould I put together a patch for that?",
+      "range": {
+        "startLine": 45,
+        "startChar": 28,
+        "endLine": 45,
+        "endChar": 79
+      },
+      "revId": "901c55e439038f5a677dee2da493ae40f8a2b1e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
