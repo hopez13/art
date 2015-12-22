@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4aed17c9_cd668967",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 5893,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-22T17:54:16Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be reinterpret_cast?",
+      "range": {
+        "startLine": 5893,
+        "startChar": 24,
+        "endLine": 5893,
+        "endChar": 35
+      },
+      "revId": "5c1ef22d4d3962bed0399d6ffcd5510f81a21b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
