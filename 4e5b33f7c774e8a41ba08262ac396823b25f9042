@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8a0b8f60_ef5701a9",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T18:57:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5d1668e_9c3c3512",
+      "range": {
+        "startLine": 1162,
+        "startChar": 7,
+        "endLine": 1162,
+        "endChar": 22
+      },
+      "revId": "4e5b33f7c774e8a41ba08262ac396823b25f9042",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5d1668e_3c4c29c3",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 14
