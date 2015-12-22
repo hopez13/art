@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4aed17c9_d0b2a2ac",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1368,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T21:31:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5d1668e_3c4c29c3",
+      "range": {
+        "startLine": 1368,
+        "startChar": 47,
+        "endLine": 1368,
+        "endChar": 66
+      },
+      "revId": "4e5b33f7c774e8a41ba08262ac396823b25f9042",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0512320e_628548ed",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 14
@@ -83,6 +107,30 @@
       "writtenOn": "2015-12-17T21:20:03Z",
       "side": 1,
       "message": "Is this meant to be a VLOG?",
+      "range": {
+        "startLine": 7284,
+        "startChar": 6,
+        "endLine": 7284,
+        "endChar": 15
+      },
+      "revId": "4e5b33f7c774e8a41ba08262ac396823b25f9042",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4aed17c9_70f5ae39",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 7284,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T21:31:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0512320e_628548ed",
       "range": {
         "startLine": 7284,
         "startChar": 6,
@@ -200,6 +248,30 @@
       "writtenOn": "2015-12-17T21:20:03Z",
       "side": 1,
       "message": "Just in case, is this not meant to be a VLOG?",
+      "range": {
+        "startLine": 371,
+        "startChar": 12,
+        "endLine": 371,
+        "endChar": 21
+      },
+      "revId": "4e5b33f7c774e8a41ba08262ac396823b25f9042",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa2133e4_6babfd45",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T21:31:52Z",
+      "side": 1,
+      "message": "I think this case is rare enough that a normal log is fine.",
+      "parentUuid": "c5dadaa8_52dbca67",
       "range": {
         "startLine": 371,
         "startChar": 12,
