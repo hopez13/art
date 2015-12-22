@@ -46,6 +46,30 @@
       "revId": "901c55e439038f5a677dee2da493ae40f8a2b1e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ad9cf40_1f7443d7",
+        "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2015-12-22T10:34:06Z",
+      "side": 1,
+      "message": "As you say it does not hurt, so we can leave it like this. I should probably update this with support for cortex-a72, cortex-a35 and so on ...",
+      "parentUuid": "4a2517a8_474f526e",
+      "range": {
+        "startLine": 45,
+        "startChar": 28,
+        "endLine": 45,
+        "endChar": 79
+      },
+      "revId": "901c55e439038f5a677dee2da493ae40f8a2b1e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
