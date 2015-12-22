@@ -379,6 +379,30 @@
     },
     {
       "key": {
+        "uuid": "aa2133e4_c8b82f00",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T18:57:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05a79224_2bb7b944",
+      "range": {
+        "startLine": 866,
+        "startChar": 18,
+        "endLine": 866,
+        "endChar": 31
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "459d0ad3_2d9cedd8",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 13
@@ -390,6 +414,30 @@
       "writtenOn": "2015-12-16T23:42:10Z",
       "side": 1,
       "message": "typo: compiling",
+      "range": {
+        "startLine": 891,
+        "startChar": 45,
+        "endLine": 891,
+        "endChar": 55
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a0b8f60_8fd75543",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T18:57:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "459d0ad3_2d9cedd8",
       "range": {
         "startLine": 891,
         "startChar": 45,
@@ -425,6 +473,30 @@
     },
     {
       "key": {
+        "uuid": "ea27abf2_2d9bd98e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T18:57:36Z",
+      "side": 1,
+      "message": "We already check ValidPointerSize above, all other combinations should be valid for the AotCompiler case.",
+      "parentUuid": "459d0ad3_6d7f1541",
+      "range": {
+        "startLine": 899,
+        "startChar": 2,
+        "endLine": 899,
+        "endChar": 3
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0512320e_5366246f",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 13
@@ -436,6 +508,30 @@
       "writtenOn": "2015-12-16T23:42:10Z",
       "side": 1,
       "message": "Is there already a type check on element here?",
+      "range": {
+        "startLine": 937,
+        "startChar": 55,
+        "endLine": 937,
+        "endChar": 62
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2afc637c_acda236b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T18:57:36Z",
+      "side": 1,
+      "message": "I don\u0027t think so, we could probably add more checks for GetObject.",
+      "parentUuid": "0512320e_5366246f",
       "range": {
         "startLine": 937,
         "startChar": 55,
@@ -471,6 +567,30 @@
     },
     {
       "key": {
+        "uuid": "ea27abf2_4daa8d91",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T18:57:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05a79224_cba715e5",
+      "range": {
+        "startLine": 1108,
+        "startChar": 26,
+        "endLine": 1108,
+        "endChar": 35
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4518aa2c_55dbac67",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 13
@@ -494,6 +614,30 @@
     },
     {
       "key": {
+        "uuid": "8a0b8f60_ef926179",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T18:57:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4518aa2c_55dbac67",
+      "range": {
+        "startLine": 1254,
+        "startChar": 4,
+        "endLine": 1254,
+        "endChar": 8
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05a79224_8ef23bc5",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 13
@@ -505,6 +649,30 @@
       "writtenOn": "2015-12-16T23:42:10Z",
       "side": 1,
       "message": "The following code seems to have side effects (updating the class loader pointers), that is, not just debug check code. Why not always do this if a non-debug build?",
+      "range": {
+        "startLine": 1350,
+        "startChar": 24,
+        "endLine": 1350,
+        "endChar": 41
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eafecb6e_9285bc33",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T18:57:36Z",
+      "side": 1,
+      "message": "I\u0027ll fix the debug version to not have side effects if added_clases was true.",
+      "parentUuid": "05a79224_8ef23bc5",
       "range": {
         "startLine": 1350,
         "startChar": 24,
@@ -1059,6 +1227,30 @@
     },
     {
       "key": {
+        "uuid": "eafecb6e_f5b872e8",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T18:57:36Z",
+      "side": 1,
+      "message": "Renamed this function to CreateBootImage.",
+      "parentUuid": "c5dadaa8_8923593c",
+      "range": {
+        "startLine": 576,
+        "startChar": 9,
+        "endLine": 576,
+        "endChar": 36
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "850622ce_3ac37d0f",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 13
@@ -1070,6 +1262,30 @@
       "writtenOn": "2015-12-16T23:42:10Z",
       "side": 1,
       "message": "Why exclude the class pointer field?",
+      "range": {
+        "startLine": 827,
+        "startChar": 4,
+        "endLine": 827,
+        "endChar": 78
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca01073f_34e95ed7",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T18:57:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "850622ce_3ac37d0f",
       "range": {
         "startLine": 827,
         "startChar": 4,
@@ -1105,6 +1321,30 @@
     },
     {
       "key": {
+        "uuid": "6a1bbbb8_299bc98e",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T18:57:36Z",
+      "side": 1,
+      "message": "I\u0027ll add a comment to consider refactoring the logic later? We could make a template function wiht two visitors to mimic the current logic.",
+      "parentUuid": "4518aa2c_d8153189",
+      "range": {
+        "startLine": 877,
+        "startChar": 0,
+        "endLine": 901,
+        "endChar": 3
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5b8863e_90c41491",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 13
@@ -1116,6 +1356,30 @@
       "writtenOn": "2015-12-16T23:42:10Z",
       "side": 1,
       "message": "Same.",
+      "range": {
+        "startLine": 912,
+        "startChar": 0,
+        "endLine": 915,
+        "endChar": 3
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a1bbbb8_09a08daf",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T18:57:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5b8863e_90c41491",
       "range": {
         "startLine": 912,
         "startChar": 0,
@@ -1151,6 +1415,30 @@
     },
     {
       "key": {
+        "uuid": "2afc637c_ecbb8bf9",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T18:57:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5b8863e_f0c920a7",
+      "range": {
+        "startLine": 918,
+        "startChar": 12,
+        "endLine": 918,
+        "endChar": 27
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5b8863e_1083042e",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 13
@@ -1162,6 +1450,30 @@
       "writtenOn": "2015-12-16T23:42:10Z",
       "side": 1,
       "message": "Does oat_file \u003d\u003d nullptr means a boot image? Add a comment and/or use a bool variable with more descriptive name?",
+      "range": {
+        "startLine": 1314,
+        "startChar": 27,
+        "endLine": 1315,
+        "endChar": 4
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a1bbbb8_69a5c1bf",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1315,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T18:57:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5b8863e_1083042e",
       "range": {
         "startLine": 1314,
         "startChar": 27,
