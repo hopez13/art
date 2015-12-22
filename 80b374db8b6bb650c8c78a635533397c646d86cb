@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "aa2133e4_cbfae98d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T21:31:52Z",
+      "side": 1,
+      "message": "That is the goal, to disable read barriers during the relocation at least. Maybe also for the class linker fixup. I think as long as there are no thread suspension points it should be OK?",
+      "parentUuid": "850622ce_cb16f596",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 61
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25157684_a131892f",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 13
@@ -191,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "ca2ae7be_2c5e3b2e",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T21:31:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5dadaa8_12583204",
+      "range": {
+        "startLine": 671,
+        "startChar": 0,
+        "endLine": 672,
+        "endChar": 15
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e598be91_c9fc0299",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 13
@@ -250,6 +298,30 @@
       "side": 1,
       "message": "I mean that the method is resolved as in the sense of ResolveMethod or GetResolvedMethod.\n\nMaybe add a comment on when it may not be resolved (the \"method \u003d\u003d nullptr\" case) which isn\u0027t a fatal case any more?",
       "parentUuid": "45718a52_d0a5a279",
+      "range": {
+        "startLine": 735,
+        "startChar": 7,
+        "endLine": 735,
+        "endChar": 56
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa2133e4_eb5c0d79",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T21:31:52Z",
+      "side": 1,
+      "message": "I\u0027m still not 100% sure the new way is correct for all cases, waiting for vmarko or someone else to comment.",
+      "parentUuid": "c5b1fa58_c59b7a85",
       "range": {
         "startLine": 735,
         "startChar": 7,
@@ -850,6 +922,30 @@
     },
     {
       "key": {
+        "uuid": "ca01073f_3412fe38",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T21:31:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "850622ce_2b7b31cf",
+      "range": {
+        "startLine": 185,
+        "startChar": 17,
+        "endLine": 185,
+        "endChar": 36
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05107294_45fd415d",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 13
@@ -956,6 +1052,30 @@
       "side": 1,
       "message": "I guess you are saying that an app image space\u0027s mark bitmap resides in the app image file, is memory-mapped, initially clean, but isn\u0027t read-only. The collector tries to mark (write to) the mark bitmap because the app image space may not be in the immune region and the collector code unconditionally tries to write to the mark bitmap if the space isn\u0027t in the immune region? And this change avoids that marking to unnecessarily dirty the memory-mapped page?",
       "parentUuid": "8568e271_a7a0eac6",
+      "range": {
+        "startLine": 171,
+        "startChar": 6,
+        "endLine": 171,
+        "endChar": 45
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2afc637c_afbb358c",
+        "filename": "runtime/gc/accounting/space_bitmap-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T21:31:52Z",
+      "side": 1,
+      "message": "Yes, I\u0027ll add a comment aobut that too.",
+      "parentUuid": "653e8e9d_11384e79",
       "range": {
         "startLine": 171,
         "startChar": 6,
@@ -1133,6 +1253,30 @@
     },
     {
       "key": {
+        "uuid": "ca2ae7be_6ca833b1",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T21:31:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5b1fa58_c5ed3ae9",
+      "range": {
+        "startLine": 456,
+        "startChar": 21,
+        "endLine": 456,
+        "endChar": 35
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25ead6c4_864c8b77",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 13
@@ -1192,6 +1336,30 @@
       "side": 1,
       "message": "(I meant to say \"not page aligned\" in the first sentence.)\n\nHow about asserting that the space end may be not page-aligned if the space is an app image space and limiting the AlignUp code only to that case?",
       "parentUuid": "c5dadaa8_092f6964",
+      "range": {
+        "startLine": 3171,
+        "startChar": 52,
+        "endLine": 3171,
+        "endChar": 84
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0af79f9a_aed5f715",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 3171,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T21:31:52Z",
+      "side": 1,
+      "message": "Actually, how about I move the logic into ClearCardRange to round up the end of the space to the card size? We can still assert that the space begin is aligned to kCardSize.",
+      "parentUuid": "a5b8863e_595817d3",
       "range": {
         "startLine": 3171,
         "startChar": 52,
@@ -1733,6 +1901,30 @@
       "side": 1,
       "message": "If an error case, how about making it fatal?",
       "parentUuid": "459d0ad3_ed9145c6",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 336,
+        "endChar": 3
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0af79f9a_0eeecbde",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2015-12-22T21:31:52Z",
+      "side": 1,
+      "message": "I think we try to avoid aborting for oat and image file issues. I\u0027ll add a LOG(ERROR) though.",
+      "parentUuid": "850622ce_ebb499a9",
       "range": {
         "startLine": 334,
         "startChar": 0,
