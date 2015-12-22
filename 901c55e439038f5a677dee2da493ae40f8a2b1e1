@@ -70,6 +70,30 @@
       "revId": "901c55e439038f5a677dee2da493ae40f8a2b1e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a1bbbb8_4611d22f",
+        "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-22T10:40:41Z",
+      "side": 1,
+      "message": "It\u0027s really up to you guys. Ian wanted us to get closer to the breadth of GCC and Clang, but I can see why it isn\u0027t super useful for a lot of the smaller cores at the moment.",
+      "parentUuid": "8ad9cf40_1f7443d7",
+      "range": {
+        "startLine": 45,
+        "startChar": 28,
+        "endLine": 45,
+        "endChar": 79
+      },
+      "revId": "901c55e439038f5a677dee2da493ae40f8a2b1e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
