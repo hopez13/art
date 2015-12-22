@@ -2,6 +2,109 @@
   "comments": [
     {
       "key": {
+        "uuid": "cab827d7_5997c32e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-22T12:12:30Z",
+      "side": 1,
+      "message": "You\u0027re not actually doing that, are you? The metric is: compile if there is a profile file with \u003e\u003d10 methods in it.",
+      "range": {
+        "startLine": 12,
+        "startChar": 40,
+        "endLine": 12,
+        "endChar": 50
+      },
+      "revId": "18f6afa55490a5f620d0adcabd6fe361118a4d15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ae5dff2_5b20a3d7",
+        "filename": "compiler/profile_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-22T12:12:30Z",
+      "side": 1,
+      "message": "Pre-allocate `profile_files.size()` entries",
+      "range": {
+        "startLine": 30,
+        "startChar": 38,
+        "endLine": 30,
+        "endChar": 46
+      },
+      "revId": "18f6afa55490a5f620d0adcabd6fe361118a4d15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cab827d7_19262bf7",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-22T12:12:30Z",
+      "side": 1,
+      "message": "It\u0027s not clear whether order matters, i.e. which of these are fine and how they are paired:\n1) -pf -rpf -pf -rpf\n2) -rpf -pf -rpf -pf\n3) -pf -pf -rpf -rpf\n4) -rpf -rpf -pf -pf",
+      "revId": "18f6afa55490a5f620d0adcabd6fe361118a4d15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eab5ebda_3a44c1a0",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-22T12:12:30Z",
+      "side": 1,
+      "message": "profile-file",
+      "range": {
+        "startLine": 761,
+        "startChar": 66,
+        "endLine": 761,
+        "endChar": 83
+      },
+      "revId": "18f6afa55490a5f620d0adcabd6fe361118a4d15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea9a4b77_52f334c6",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1496,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-22T12:12:30Z",
+      "side": 1,
+      "message": "This appears like a simple function which returns an internal boolean flag and does not modify the object at all. In fact, it actually does complex I/O and the outcome will change if called repeatedly (the second time the assistant will return null, right? because the reference files have been updated).\n\nPlease rename/refactor accordingly, e.g. initialize pointer elsewhere and keep this method constant.",
+      "revId": "18f6afa55490a5f620d0adcabd6fe361118a4d15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a7b83af_944004e9",
         "filename": "runtime/jit/offline_profiling_info.h",
         "patchSetId": 2
@@ -13,6 +116,30 @@
       "writtenOn": "2015-12-21T17:51:28Z",
       "side": 1,
       "message": "I\u0027ll do it in a follow up.\nKeeping the same file name makes it easier to review it in gerrit.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "18f6afa55490a5f620d0adcabd6fe361118a4d15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ac9fb78_b6d2a829",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-22T12:12:30Z",
+      "side": 1,
+      "message": "Feel free to rename straight away",
+      "parentUuid": "2a7b83af_944004e9",
       "range": {
         "startLine": 31,
         "startChar": 0,
