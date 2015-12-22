@@ -46,6 +46,30 @@
       "revId": "5c1ef22d4d3962bed0399d6ffcd5510f81a21b18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0af79f9a_4b49e50e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 5893,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2015-12-22T19:22:17Z",
+      "side": 1,
+      "message": "Hm, I was thinking that you couldn\u0027t be sure it\u0027s a subclass, but I see that this is non-virtual in HInstruction, so all given types are subtypes. In that case it should be a down_cast...",
+      "parentUuid": "2ac3835c_d419dc67",
+      "range": {
+        "startLine": 5893,
+        "startChar": 24,
+        "endLine": 5893,
+        "endChar": 35
+      },
+      "revId": "5c1ef22d4d3962bed0399d6ffcd5510f81a21b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
