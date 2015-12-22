@@ -22,6 +22,30 @@
       "revId": "5c1ef22d4d3962bed0399d6ffcd5510f81a21b18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ac3835c_d419dc67",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 5893,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-22T18:07:24Z",
+      "side": 1,
+      "message": "No, H##type must be a subclass of HInstruction and static_cast\u003c\u003e() is the most appropriate.\n\nIf someone used multiple inheritance to make the HInstruction a second base class instead of first, static_cast\u003c\u003e() would still work but, assuming the usual class layout, reinterpret_cast\u003c\u003e() would be broken at run-time without any compile-time errors.",
+      "parentUuid": "4aed17c9_cd668967",
+      "range": {
+        "startLine": 5893,
+        "startChar": 24,
+        "endLine": 5893,
+        "endChar": 35
+      },
+      "revId": "5c1ef22d4d3962bed0399d6ffcd5510f81a21b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
