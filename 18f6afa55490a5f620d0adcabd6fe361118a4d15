@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6ac9fb78_d6e64400",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-22T13:25:17Z",
+      "side": 1,
+      "message": "Not sure I get the comment.\n\nI\u0027m skipping compilation if we are requested to compile guided by profiles and there\u0027s a small difference. In this CL the difference is: \"do I have at least 10 new methods that I have to compile?\". It\u0027s possible that this will change overtime.",
+      "parentUuid": "cab827d7_5997c32e",
+      "range": {
+        "startLine": 12,
+        "startChar": 40,
+        "endLine": 12,
+        "endChar": 50
+      },
+      "revId": "18f6afa55490a5f620d0adcabd6fe361118a4d15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ae5dff2_5b20a3d7",
         "filename": "compiler/profile_assistant.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-12-22T12:12:30Z",
       "side": 1,
       "message": "Pre-allocate `profile_files.size()` entries",
+      "range": {
+        "startLine": 30,
+        "startChar": 38,
+        "endLine": 30,
+        "endChar": 46
+      },
+      "revId": "18f6afa55490a5f620d0adcabd6fe361118a4d15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aaaf738e_784e41c2",
+        "filename": "compiler/profile_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-22T13:25:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ae5dff2_5b20a3d7",
       "range": {
         "startLine": 30,
         "startChar": 38,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "6ac9fb78_f6e340ed",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-22T13:25:17Z",
+      "side": 1,
+      "message": "I added a comment. The comment doesn\u0027t matter: first -pf will go with first -rpf, second with second and so on...",
+      "parentUuid": "cab827d7_19262bf7",
+      "revId": "18f6afa55490a5f620d0adcabd6fe361118a4d15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eab5ebda_3a44c1a0",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 2
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "0ae5dff2_7b9c7f52",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-22T13:25:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eab5ebda_3a44c1a0",
+      "range": {
+        "startLine": 761,
+        "startChar": 66,
+        "endLine": 761,
+        "endChar": 83
+      },
+      "revId": "18f6afa55490a5f620d0adcabd6fe361118a4d15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea9a4b77_52f334c6",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 2
@@ -99,6 +189,24 @@
       "writtenOn": "2015-12-22T12:12:30Z",
       "side": 1,
       "message": "This appears like a simple function which returns an internal boolean flag and does not modify the object at all. In fact, it actually does complex I/O and the outcome will change if called repeatedly (the second time the assistant will return null, right? because the reference files have been updated).\n\nPlease rename/refactor accordingly, e.g. initialize pointer elsewhere and keep this method constant.",
+      "revId": "18f6afa55490a5f620d0adcabd6fe361118a4d15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ae5dff2_9b806be3",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1496,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-22T13:25:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea9a4b77_52f334c6",
       "revId": "18f6afa55490a5f620d0adcabd6fe361118a4d15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -140,6 +248,30 @@
       "side": 1,
       "message": "Feel free to rename straight away",
       "parentUuid": "2a7b83af_944004e9",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "18f6afa55490a5f620d0adcabd6fe361118a4d15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aaaf738e_98523563",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-22T13:25:17Z",
+      "side": 1,
+      "message": "I\u0027ll do it after +2, before submit. It also helps me :)",
+      "parentUuid": "6ac9fb78_b6d2a829",
       "range": {
         "startLine": 31,
         "startChar": 0,
