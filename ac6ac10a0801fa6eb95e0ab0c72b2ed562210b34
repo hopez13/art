@@ -22,6 +22,30 @@
       "revId": "ac6ac10a0801fa6eb95e0ab0c72b2ed562210b34",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cab827d7_592d0338",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2015-12-23T17:10:08Z",
+      "side": 1,
+      "message": "The fix is the replacement of \"~\" by \"-\" at https://android-review.googlesource.com/#/c/189170/1/compiler/utils/arm/assembler_thumb2.cc@3457 .",
+      "parentUuid": "6ac9fb78_b68708c9",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 19
+      },
+      "revId": "ac6ac10a0801fa6eb95e0ab0c72b2ed562210b34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
