@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2ac3835c_344a105f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-23T09:56:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aaaf738e_789c8152",
+      "revId": "60f1aa79887c1c08747503f359aab9cdba28c82f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ac43761_1526f4f6",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 5
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "cab827d7_79b007b1",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2068,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-23T09:56:35Z",
+      "side": 1,
+      "message": ":) done.",
+      "parentUuid": "4ac43761_1526f4f6",
+      "range": {
+        "startLine": 2068,
+        "startChar": 37,
+        "endLine": 2068,
+        "endChar": 42
+      },
+      "revId": "60f1aa79887c1c08747503f359aab9cdba28c82f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aaaf738e_988075e3",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 5
@@ -53,6 +95,24 @@
       "writtenOn": "2015-12-22T14:20:10Z",
       "side": 1,
       "message": "I don\u0027t like the fact that an error in loading/updating the profile files will print this message and return success. Could you at least add LOG(WARNING)s to situations when ProfileAssistant returns nullptr due to an error?",
+      "revId": "60f1aa79887c1c08747503f359aab9cdba28c82f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ac9fb78_960dac55",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2072,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2015-12-23T09:56:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aaaf738e_988075e3",
       "revId": "60f1aa79887c1c08747503f359aab9cdba28c82f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
