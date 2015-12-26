@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "6a8e5b43_4ea553bf",
+        "filename": "compiler/profile_assistant.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-26T11:01:03Z",
+      "side": 1,
+      "message": "Hmm, these messages are now pretty useless when running dex2oat with file names. The fd it prints will be pretty arbitrary.",
+      "revId": "4bd93a77cbc32884e1347528411aa6cfd3e1a5e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2afc637c_f5e6aaff",
         "filename": "compiler/profile_assistant.cc",
         "patchSetId": 6
@@ -19,6 +36,57 @@
         "endLine": 101,
         "endChar": 20
       },
+      "revId": "4bd93a77cbc32884e1347528411aa6cfd3e1a5e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ae5dff2_bb33679a",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-26T11:01:03Z",
+      "side": 1,
+      "message": "Sounds ambiguous. \"Prof files should not be specified with both fds \u0026 names\"",
+      "revId": "4bd93a77cbc32884e1347528411aa6cfd3e1a5e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a8e5b43_6eaa0f92",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-26T11:01:03Z",
+      "side": 1,
+      "message": "Do we want to print something when RPFs are provided without any PFs? Technically the options are correct whenever PFs.size \u003d\u003d RPFs.size",
+      "revId": "4bd93a77cbc32884e1347528411aa6cfd3e1a5e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aaaf738e_58a89db0",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1563,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2015-12-26T11:01:03Z",
+      "side": 1,
+      "message": "How about you move the locking into ProfileAssistant? ProcessProfiles(fds) would then be a shared internal function after the files/fds have been prepared.",
       "revId": "4bd93a77cbc32884e1347528411aa6cfd3e1a5e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
