@@ -39,6 +39,7 @@ struct LogVerbosity {
   bool collector;
   bool compiler;
   bool deopt;
+  bool exception;
   bool gc;
   bool heap;
   bool jdwp;

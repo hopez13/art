@@ -142,7 +142,7 @@ class CatchBlockStackVisitor FINAL : public StackVisitor {
 
 void QuickExceptionHandler::FindCatch(mirror::Throwable* exception) {
   DCHECK(!is_deoptimization_);
-  if (kDebugExceptionDelivery) {
+  if (VLOG_IS_ON(exception)) {
     mirror::String* msg = exception->GetDetailMessage();
     std::string str_msg(msg != nullptr ? msg->ToModifiedUtf8() : "");
     self_->DumpStack(LOG_STREAM(INFO) << "Delivering exception: " << exception->PrettyTypeOf()

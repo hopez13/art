@@ -620,6 +620,8 @@ struct CmdlineType<LogVerbosity> : CmdlineTypeParser<LogVerbosity> {
         log_verbosity.compiler = true;
       } else if (verbose_options[j] == "deopt") {
         log_verbosity.deopt = true;
+      } else if (verbose_options[j] == "exception") {
+        log_verbosity.exception = true;
       } else if (verbose_options[j] == "gc") {
         log_verbosity.gc = true;
       } else if (verbose_options[j] == "heap") {
