@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca2ae7be_7e99f5f1",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-29T19:22:38Z",
+      "side": 1,
+      "message": "I would remove this comment altogether since it provides a lot of detail that seems not needed here (BCE calls induction range analysis which calls this method). \n\nOr if you keep it, just say we don\u0027t check dominance so the method can be used on graphs that are not in SSA form.",
+      "range": {
+        "startLine": 709,
+        "startChar": 48,
+        "endLine": 709,
+        "endChar": 50
+      },
+      "revId": "eda2f790e638272503a32fdc1fc58571e00e364a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a0b8f60_635dea2d",
+        "filename": "test/559-bce-ssa/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-29T19:22:38Z",
+      "side": 1,
+      "message": "is it custom to make a whole new directory for just one test? It seems such a regression test could be easily added to the already existing bce or loop tests? I would like such grouping a bit better.",
+      "revId": "eda2f790e638272503a32fdc1fc58571e00e364a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
