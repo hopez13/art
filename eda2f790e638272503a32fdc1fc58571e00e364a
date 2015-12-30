@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "2afc637c_06b98eea",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-30T18:45:42Z",
+      "side": 1,
+      "message": "Please allow me to be a bit more difficult than usual :-), but since I wrote this code I feel stronger about what comments say, especially given the history of the code.\n\nOriginally this code did not have dom check at all. Then I was asked to make a general utility with dom check, then we removed the dom check and moved the dom check back here. Now we remove it again and spend two lines of comments to explain why there is no dom check. It distracts a bit from what the method really does :-)",
+      "parentUuid": "2ab62305_9c72c5e8",
+      "range": {
+        "startLine": 709,
+        "startChar": 48,
+        "endLine": 709,
+        "endChar": 50
+      },
+      "revId": "eda2f790e638272503a32fdc1fc58571e00e364a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a0b8f60_635dea2d",
         "filename": "test/559-bce-ssa/src/Main.java",
         "patchSetId": 1
@@ -78,6 +102,24 @@
       "side": 1,
       "message": "We can chat offline about why I strongly think we should not group tests in one Java file / one run-test. Main reason being that our unit for disabling tests is at the run-test level, so by disabling one run-test, you disable all regression tests in it.",
       "parentUuid": "8a0b8f60_635dea2d",
+      "revId": "eda2f790e638272503a32fdc1fc58571e00e364a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a0b8f60_fe07ad2e",
+        "filename": "test/559-bce-ssa/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2015-12-30T18:45:42Z",
+      "side": 1,
+      "message": "Ok that is fine, did not know about this policy (note that we could also make disabling tests harder ;-). I personally prefer to group related tests together for other reasons we can discuss offline, but will adhere to the group policy here.",
+      "parentUuid": "4a727721_25cd8e3e",
       "revId": "eda2f790e638272503a32fdc1fc58571e00e364a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
