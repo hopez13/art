@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2ab62305_9c72c5e8",
+        "filename": "compiler/optimizing/induction_var_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-30T15:09:56Z",
+      "side": 1,
+      "message": "Sort of done, I still like to give the context/reason, so I changed to \"(for example, when running BCE)\".",
+      "parentUuid": "ca2ae7be_7e99f5f1",
+      "range": {
+        "startLine": 709,
+        "startChar": 48,
+        "endLine": 709,
+        "endChar": 50
+      },
+      "revId": "eda2f790e638272503a32fdc1fc58571e00e364a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a0b8f60_635dea2d",
         "filename": "test/559-bce-ssa/src/Main.java",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2015-12-29T19:22:38Z",
       "side": 1,
       "message": "is it custom to make a whole new directory for just one test? It seems such a regression test could be easily added to the already existing bce or loop tests? I would like such grouping a bit better.",
+      "revId": "eda2f790e638272503a32fdc1fc58571e00e364a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a727721_25cd8e3e",
+        "filename": "test/559-bce-ssa/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2015-12-30T15:09:56Z",
+      "side": 1,
+      "message": "We can chat offline about why I strongly think we should not group tests in one Java file / one run-test. Main reason being that our unit for disabling tests is at the run-test level, so by disabling one run-test, you disable all regression tests in it.",
+      "parentUuid": "8a0b8f60_635dea2d",
       "revId": "eda2f790e638272503a32fdc1fc58571e00e364a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
