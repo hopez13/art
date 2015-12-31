@@ -22,6 +22,30 @@
       "revId": "abfd97943186f01d58a53595705d39ed894b2d20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6aac9bb5_a1479832",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2015-12-31T13:22:29Z",
+      "side": 1,
+      "message": "I think that generalizing this is a good idea but you really do need to check to make sure that the variant is an acceptable value and fail if it is not.\n\nWhy do you allow support for [xX]?(32|64) why not just 32|64?",
+      "parentUuid": "0af79f9a_e5027a8e",
+      "range": {
+        "startLine": 132,
+        "startChar": 2,
+        "endLine": 135,
+        "endChar": 4
+      },
+      "revId": "abfd97943186f01d58a53595705d39ed894b2d20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
