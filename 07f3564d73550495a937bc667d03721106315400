@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cac4a77f_39586fda",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-01-04T18:50:00Z",
+      "side": 1,
+      "message": "I don\u0027t fully understand the context here, but this looks very strange.\n\nThe core issue here is presumably that the ProfilingInfo associated with a method can be read while it\u0027s being set?  If so, this code fundamentally has a data race.  The accesses to the ProfilingInfo pointer should be atomic, right?\n\nAs a practical matter, this is likely to reduce the failure probability, since a data dependence on the reader side together with the fence is likely to enforce the necessary ordering, and pointer-sized accesses are likely to be atomic.  But neither of those are guaranteed.  And this doesn\u0027t look like a \"correct\" fix to me.",
+      "range": {
+        "startLine": 674,
+        "startChar": 2,
+        "endLine": 674,
+        "endChar": 36
+      },
+      "revId": "07f3564d73550495a937bc667d03721106315400",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
