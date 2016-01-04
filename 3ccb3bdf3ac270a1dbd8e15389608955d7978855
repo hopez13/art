@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8a0b8f60_18628414",
+        "filename": "tools/ahat/src/InstanceUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-01-04T22:53:14Z",
+      "side": 1,
+      "message": "Copy-paste bug. Fixed.",
+      "parentUuid": "aabbf3f0_fbf0abfd",
+      "range": {
+        "startLine": 211,
+        "startChar": 9,
+        "endLine": 211,
+        "endChar": 38
+      },
+      "revId": "3ccb3bdf3ac270a1dbd8e15389608955d7978855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea27abf2_b40a6d38",
         "filename": "tools/ahat/src/InstanceUtils.java",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-04T20:07:12Z",
       "side": 1,
       "message": "Long (Object) here yet long (primitive type) below.  Is this intentional?",
+      "range": {
+        "startLine": 214,
+        "startChar": 17,
+        "endLine": 214,
+        "endChar": 21
+      },
+      "revId": "3ccb3bdf3ac270a1dbd8e15389608955d7978855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aabbf3f0_21fb9494",
+        "filename": "tools/ahat/src/InstanceUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-01-04T22:53:14Z",
+      "side": 1,
+      "message": "Yes, this is intentional. The version that returns Long (Object) can return \u0027null\u0027 to indicate the field could not be retrieved. The version that returns long (primitive type) takes a default value to use if the field could not be retrieved.\n\nI guess I\u0027m only using the Long (Object) version in the code at this point, but I expect the long (primitive type) version  will be useful eventually, and I may as well have it there for symmetry with the getIntField functions.",
+      "parentUuid": "ea27abf2_b40a6d38",
       "range": {
         "startLine": 214,
         "startChar": 17,
