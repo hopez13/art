@@ -22,6 +22,30 @@
       "revId": "3fc666ca4498604f21e1706137233f1054d0129b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ac3835c_fa87a1f5",
+        "filename": "test/466-get-live-vreg/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-04T14:34:12Z",
+      "side": 1,
+      "message": "Good point. I am now using the CodeItem to get to the dex register I\u0027m interested in. PTAL.",
+      "parentUuid": "4a7c37a4_754f6817",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 5
+      },
+      "revId": "3fc666ca4498604f21e1706137233f1054d0129b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
