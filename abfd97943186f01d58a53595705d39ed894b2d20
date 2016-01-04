@@ -46,6 +46,30 @@
       "revId": "abfd97943186f01d58a53595705d39ed894b2d20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ab15f0d_fbad4fc3",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-04T15:28:29Z",
+      "side": 1,
+      "message": "I agree, it already sucks vogar and the art script use different values. So either 32|64, either X32|X64.",
+      "parentUuid": "6aac9bb5_a1479832",
+      "range": {
+        "startLine": 132,
+        "startChar": 2,
+        "endLine": 135,
+        "endChar": 4
+      },
+      "revId": "abfd97943186f01d58a53595705d39ed894b2d20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
