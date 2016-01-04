@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6a773b0f_a94f99b9",
+        "filename": "compiler/profile_assistant.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-04T15:34:18Z",
+      "side": 1,
+      "message": "We discussed offline.\n\nI\u0027d like to keep ProfileCompilationInfo as simple data object which can be serialize read to/from disk, free of any decision making logic.",
+      "parentUuid": "8ab2aff4_ba4fedb9",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 2
+      },
+      "revId": "3f73192d49200072eafa3e8dc3865a7dc4127b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a8e5b43_31c94ad2",
         "filename": "runtime/jit/offline_profiling_info.h",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-04T12:49:44Z",
       "side": 1,
       "message": "Why not in this change?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 21
+      },
+      "revId": "3f73192d49200072eafa3e8dc3865a7dc4127b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa7db3ee_4bf379c6",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-04T15:34:18Z",
+      "side": 1,
+      "message": "It\u0027s much easier to track changes in gerrit. I\u0027ll do it before the submit.",
+      "parentUuid": "6a8e5b43_31c94ad2",
       "range": {
         "startLine": 32,
         "startChar": 0,
