@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "cac4a77f_99ebfb2c",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-04T18:14:40Z",
+      "side": 1,
+      "message": "Offline comment from ngeoffray: Until JIT profiling is supported in the fast interpreter, can we fall back to the goto interpreter given that it is faster than the switch interpreter?\n\nAnswer: yes, we can.  Done.",
+      "revId": "647b5821b39183c6a98ff908a3e2c469c3e6c528",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2afc637c_c1e650d2",
         "filename": "runtime/interpreter/mterp/Makefile_mterp",
         "patchSetId": 2
