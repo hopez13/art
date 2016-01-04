@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ab2aff4_ba4fedb9",
+        "filename": "compiler/profile_assistant.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-04T12:49:44Z",
+      "side": 1,
+      "message": "Personnaly, I\u0027d avoid adding a new class (~concept) and just put ProcessProfiles as a method in ProfileCompilationInfo. You can then query ProcessCompilationInfo to figure out if compilation is required.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 2
+      },
+      "revId": "3f73192d49200072eafa3e8dc3865a7dc4127b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a8e5b43_31c94ad2",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-04T12:49:44Z",
+      "side": 1,
+      "message": "Why not in this change?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 21
+      },
+      "revId": "3f73192d49200072eafa3e8dc3865a7dc4127b16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
