@@ -70,6 +70,30 @@
       "revId": "abfd97943186f01d58a53595705d39ed894b2d20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8aa54fc9_bf6fb790",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1038039
+      },
+      "writtenOn": "2016-01-04T15:40:33Z",
+      "side": 1,
+      "message": "IIRC the reason vogar takes X32 and X64 is because it\u0027s coded to match enum constants (i.e. because Java identifiers cannot start with a numeric). Probably easy to fix if we wanted to just have --variant\u003d(32|64)",
+      "parentUuid": "0ab15f0d_fbad4fc3",
+      "range": {
+        "startLine": 132,
+        "startChar": 2,
+        "endLine": 135,
+        "endChar": 4
+      },
+      "revId": "abfd97943186f01d58a53595705d39ed894b2d20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
