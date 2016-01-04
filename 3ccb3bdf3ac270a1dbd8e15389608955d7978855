@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "aabbf3f0_fbf0abfd",
+        "filename": "tools/ahat/src/InstanceUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2016-01-04T20:07:12Z",
+      "side": 1,
+      "message": "Comment implies \u0027int\u0027 vs \u0027long\u0027",
+      "range": {
+        "startLine": 211,
+        "startChar": 9,
+        "endLine": 211,
+        "endChar": 38
+      },
+      "revId": "3ccb3bdf3ac270a1dbd8e15389608955d7978855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea27abf2_b40a6d38",
+        "filename": "tools/ahat/src/InstanceUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2016-01-04T20:07:12Z",
+      "side": 1,
+      "message": "Long (Object) here yet long (primitive type) below.  Is this intentional?",
+      "range": {
+        "startLine": 214,
+        "startChar": 17,
+        "endLine": 214,
+        "endChar": 21
+      },
+      "revId": "3ccb3bdf3ac270a1dbd8e15389608955d7978855",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a670334_37c8322e",
         "filename": "tools/ahat/src/InstanceUtils.java",
         "patchSetId": 2
