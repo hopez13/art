@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8ab2aff4_7ae2b5c0",
+        "filename": "compiler/profile_assistant.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-04T18:57:12Z",
+      "side": 1,
+      "message": "ah, yes.",
+      "parentUuid": "0ab15f0d_3bbcd7f1",
+      "revId": "6922d2c6ff0a5aff6e5d66569301bef8ef4f8b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8aa54fc9_5f878b81",
         "filename": "compiler/profile_assistant.cc",
         "patchSetId": 8
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "8aa54fc9_3f84c77a",
+        "filename": "compiler/profile_assistant.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-04T18:57:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8aa54fc9_5f878b81",
+      "revId": "6922d2c6ff0a5aff6e5d66569301bef8ef4f8b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ab15f0d_9bac0bc5",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 8
@@ -47,6 +83,30 @@
       "writtenOn": "2016-01-04T15:54:38Z",
       "side": 1,
       "message": "Shouldn\u0027t the framework do this? From your explanation earlier I assumed that installd \"owns\" the FDs.",
+      "range": {
+        "startLine": 1864,
+        "startChar": 6,
+        "endLine": 1864,
+        "endChar": 17
+      },
+      "revId": "6922d2c6ff0a5aff6e5d66569301bef8ef4f8b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a727721_a56c1e4b",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1864,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-04T18:57:12Z",
+      "side": 1,
+      "message": "This is executed with execv in a forked process so it needs to be closed here as well.",
+      "parentUuid": "0ab15f0d_9bac0bc5",
       "range": {
         "startLine": 1864,
         "startChar": 6,
