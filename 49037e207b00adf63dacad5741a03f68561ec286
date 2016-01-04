@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a773b0f_69c12156",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1642,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-04T12:40:09Z",
+      "side": 1,
+      "message": "How about returning directly in those cases to avoid all the checks below?",
+      "range": {
+        "startLine": 1635,
+        "startChar": 0,
+        "endLine": 1642,
+        "endChar": 3
+      },
+      "revId": "49037e207b00adf63dacad5741a03f68561ec286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
