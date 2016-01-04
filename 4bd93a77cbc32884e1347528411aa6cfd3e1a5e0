@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8aa54fc9_9f10732e",
+        "filename": "compiler/profile_assistant.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-04T15:37:41Z",
+      "side": 1,
+      "message": "yea...\n\nI changed it and print the index of the profile file. It should be good enough to determine which profile is having troubles.",
+      "parentUuid": "6a8e5b43_4ea553bf",
+      "revId": "4bd93a77cbc32884e1347528411aa6cfd3e1a5e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2afc637c_f5e6aaff",
         "filename": "compiler/profile_assistant.cc",
         "patchSetId": 6
@@ -30,6 +48,30 @@
       "writtenOn": "2015-12-24T13:54:59Z",
       "side": 1,
       "message": "reference_profile_files?",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 20
+      },
+      "revId": "4bd93a77cbc32884e1347528411aa6cfd3e1a5e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ab62305_dc3ded9c",
+        "filename": "compiler/profile_assistant.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-04T15:37:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2afc637c_f5e6aaff",
       "range": {
         "startLine": 101,
         "startChar": 4,
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "6a8e5b43_f1d7c26f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-04T15:37:41Z",
+      "side": 1,
+      "message": "done.",
+      "parentUuid": "0ae5dff2_bb33679a",
+      "revId": "4bd93a77cbc32884e1347528411aa6cfd3e1a5e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a8e5b43_6eaa0f92",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 6
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "8ab2aff4_7a4e35c2",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-04T15:37:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a8e5b43_6eaa0f92",
+      "revId": "4bd93a77cbc32884e1347528411aa6cfd3e1a5e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aaaf738e_58a89db0",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 6
@@ -87,6 +165,24 @@
       "writtenOn": "2015-12-26T11:01:03Z",
       "side": 1,
       "message": "How about you move the locking into ProfileAssistant? ProcessProfiles(fds) would then be a shared internal function after the files/fds have been prepared.",
+      "revId": "4bd93a77cbc32884e1347528411aa6cfd3e1a5e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a727721_e5ae16e8",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1563,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-04T15:37:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aaaf738e_58a89db0",
       "revId": "4bd93a77cbc32884e1347528411aa6cfd3e1a5e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
