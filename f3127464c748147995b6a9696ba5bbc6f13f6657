@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a68ef71_275aba7b",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1192,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-05T11:49:45Z",
+      "side": 1,
+      "message": "How about making this in its own CHECK-START ?",
+      "range": {
+        "startLine": 1192,
+        "startChar": 0,
+        "endLine": 1192,
+        "endChar": 28
+      },
+      "revId": "f3127464c748147995b6a9696ba5bbc6f13f6657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cae3c748_a12abeb8",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1195,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-05T11:49:45Z",
+      "side": 1,
+      "message": "This looks odd, why would you check it here?",
+      "range": {
+        "startLine": 1195,
+        "startChar": 0,
+        "endLine": 1195,
+        "endChar": 17
+      },
+      "revId": "f3127464c748147995b6a9696ba5bbc6f13f6657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a31fb81_f6d780e5",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1222,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-05T11:49:45Z",
+      "side": 1,
+      "message": "Could you scope that and ensure it\u0027s before the loop header?",
+      "range": {
+        "startLine": 1196,
+        "startChar": 0,
+        "endLine": 1222,
+        "endChar": 21
+      },
+      "revId": "f3127464c748147995b6a9696ba5bbc6f13f6657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
