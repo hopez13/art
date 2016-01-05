@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea824b50_12e7acfd",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1023590
+      },
+      "writtenOn": "2016-01-05T11:12:50Z",
+      "side": 1,
+      "message": "It will create UnwindMap by using tid (not UnwindMapLocal).\nWill it lead to the life-cycle of local_map_list not managed well?",
+      "range": {
+        "startLine": 181,
+        "startChar": 66,
+        "endLine": 181,
+        "endChar": 72
+      },
+      "revId": "6cff48f05894a60aa4742472983a75504536ca15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
