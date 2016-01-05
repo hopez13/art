@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "eae08b3e_e2afa64e",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-05T14:58:09Z",
+      "side": 1,
+      "message": "That would be the DCHECK on line 400. If `value` is some other instruction kind, GetFloatOrDoubleEquivalent will return nullptr.",
+      "parentUuid": "cae3c748_21b98e94",
+      "range": {
+        "startLine": 396,
+        "startChar": 51,
+        "endLine": 396,
+        "endChar": 73
+      },
+      "revId": "6456fc6a79879fdc1b0618e999324fc21f697c84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a2c372e_35889007",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 7
