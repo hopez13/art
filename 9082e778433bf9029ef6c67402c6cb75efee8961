@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "ca6e677a_697e45be",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2089,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-05T12:37:35Z",
+      "side": 1,
+      "message": "This should be set only once so I think we should dcheck that. If you think of an example when is safe to narrow the upper bound then add a test and mention it here.",
+      "range": {
+        "startLine": 2089,
+        "startChar": 17,
+        "endLine": 2089,
+        "endChar": 30
+      },
+      "revId": "9082e778433bf9029ef6c67402c6cb75efee8961",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca6e677a_09346918",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 10
