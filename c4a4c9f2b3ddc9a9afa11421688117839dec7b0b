@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa1773d7_3eaab1ed",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3474,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-05T23:27:47Z",
+      "side": 1,
+      "message": "4 spaces",
+      "range": {
+        "startLine": 3474,
+        "startChar": 4,
+        "endLine": 3474,
+        "endChar": 6
+      },
+      "revId": "c4a4c9f2b3ddc9a9afa11421688117839dec7b0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa1773d7_be9d61df",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3512,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-05T23:27:47Z",
+      "side": 1,
+      "message": "Line is too long",
+      "range": {
+        "startLine": 3512,
+        "startChar": 98,
+        "endLine": 3512,
+        "endChar": 113
+      },
+      "revId": "c4a4c9f2b3ddc9a9afa11421688117839dec7b0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa1773d7_5eb8c530",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3807,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-05T23:27:47Z",
+      "side": 1,
+      "message": "Why num_bytes_freed_revoke_? RecordFreeRevoke doesn\u0027t currently get called from CC, do we need to add a call there?",
+      "range": {
+        "startLine": 3807,
+        "startChar": 2,
+        "endLine": 3807,
+        "endChar": 25
+      },
+      "revId": "c4a4c9f2b3ddc9a9afa11421688117839dec7b0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
