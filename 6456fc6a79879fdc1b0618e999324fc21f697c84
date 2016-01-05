@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2a2b8319_74e4c8c8",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-05T14:27:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a2b8319_7437e81f",
+      "range": {
+        "startLine": 320,
+        "startChar": 23,
+        "endLine": 320,
+        "endChar": 31
+      },
+      "revId": "6456fc6a79879fdc1b0618e999324fc21f697c84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca6e677a_e991d53b",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-05T12:22:14Z",
       "side": 1,
       "message": "Shouldn\u0027t that be constant or phi only? And maybe ArrayGet?",
+      "range": {
+        "startLine": 396,
+        "startChar": 51,
+        "endLine": 396,
+        "endChar": 73
+      },
+      "revId": "6456fc6a79879fdc1b0618e999324fc21f697c84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eae08b3e_82f17a8c",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-05T14:27:28Z",
+      "side": 1,
+      "message": "Sure, it\u0027s all those listed in GetFloatOrDoubleEquivalent.",
+      "parentUuid": "ca6e677a_e991d53b",
       "range": {
         "startLine": 396,
         "startChar": 51,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6a5f3bcc_e6a57e71",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-05T14:27:28Z",
+      "side": 1,
+      "message": "\"Replacement\". I should rephrase this. You both sound confused.",
+      "parentUuid": "4a2c372e_35889007",
+      "range": {
+        "startLine": 397,
+        "startChar": 58,
+        "endLine": 397,
+        "endChar": 62
+      },
+      "revId": "6456fc6a79879fdc1b0618e999324fc21f697c84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea6b2b68_8ac12b0a",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2016-01-05T12:22:14Z",
       "side": 1,
       "message": "in code validated by the verifier.",
+      "range": {
+        "startLine": 398,
+        "startChar": 24,
+        "endLine": 398,
+        "endChar": 38
+      },
+      "revId": "6456fc6a79879fdc1b0618e999324fc21f697c84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a54ffaf_8357de0d",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-05T14:27:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea6b2b68_8ac12b0a",
       "range": {
         "startLine": 398,
         "startChar": 24,
