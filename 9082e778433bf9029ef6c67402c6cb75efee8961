@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a2c372e_95964431",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1822,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-05T12:15:29Z",
+      "side": 1,
+      "message": "Add a comment why you\u0027re doing this.",
+      "range": {
+        "startLine": 1821,
+        "startChar": 0,
+        "endLine": 1822,
+        "endChar": 75
+      },
+      "revId": "9082e778433bf9029ef6c67402c6cb75efee8961",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2c372e_b59b405a",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 2979,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-05T12:15:29Z",
+      "side": 1,
+      "message": "why? BuildTypeCheck could just use \"reference\", and not destination.",
+      "range": {
+        "startLine": 2979,
+        "startChar": 34,
+        "endLine": 2979,
+        "endChar": 43
+      },
+      "revId": "9082e778433bf9029ef6c67402c6cb75efee8961",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca6e677a_09346918",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-05T12:15:29Z",
+      "side": 1,
+      "message": "Why do you still need to do something on the check cast? Won\u0027t the HBoundType do what you need?",
+      "range": {
+        "startLine": 603,
+        "startChar": 1,
+        "endLine": 625,
+        "endChar": 52
+      },
+      "revId": "9082e778433bf9029ef6c67402c6cb75efee8961",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca6e677a_29312d29",
+        "filename": "test/554-checker-rtp-checkcast/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-05T12:15:29Z",
+      "side": 1,
+      "message": "Add a catch phi test?",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 51,
+        "endChar": 3
+      },
+      "revId": "9082e778433bf9029ef6c67402c6cb75efee8961",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
