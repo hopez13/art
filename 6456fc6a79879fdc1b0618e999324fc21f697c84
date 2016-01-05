@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a2b8319_7437e81f",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-05T12:22:14Z",
+      "side": 1,
+      "message": "GetPrimitiveArray?",
+      "range": {
+        "startLine": 320,
+        "startChar": 23,
+        "endLine": 320,
+        "endChar": 31
+      },
+      "revId": "6456fc6a79879fdc1b0618e999324fc21f697c84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca6e677a_e991d53b",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-05T12:22:14Z",
+      "side": 1,
+      "message": "Shouldn\u0027t that be constant or phi only? And maybe ArrayGet?",
+      "range": {
+        "startLine": 396,
+        "startChar": 51,
+        "endLine": 396,
+        "endChar": 73
+      },
+      "revId": "6456fc6a79879fdc1b0618e999324fc21f697c84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea6b2b68_8ac12b0a",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-05T12:22:14Z",
+      "side": 1,
+      "message": "in code validated by the verifier.",
+      "range": {
+        "startLine": 398,
+        "startChar": 24,
+        "endLine": 398,
+        "endChar": 38
+      },
+      "revId": "6456fc6a79879fdc1b0618e999324fc21f697c84",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
