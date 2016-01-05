@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4a4357e2_5de77bce",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-05T16:01:14Z",
+      "side": 1,
+      "message": "Because this allowed me to easily put in debug messages for whether the fallback works or not, and I thought to retain the structure. But sure, I can remove that.",
+      "parentUuid": "ca6e677a_6901654c",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 25
+      },
+      "revId": "a934c363fd68ebe13aa62f31b9da2b456cd1873c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca6e677a_a90e7d7e",
         "filename": "tools/run-jdwp-tests.sh",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-05T11:24:08Z",
       "side": 1,
       "message": "The optional_variant_parameter doesn\u0027t appear to be used anywhere.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 29
+      },
+      "revId": "a934c363fd68ebe13aa62f31b9da2b456cd1873c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa3e9347_e08ca224",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-05T16:01:14Z",
+      "side": 1,
+      "message": "Yeah, I in the end opted to modify art_debugee directly.",
+      "parentUuid": "ca6e677a_a90e7d7e",
       "range": {
         "startLine": 61,
         "startChar": 0,
