@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a5f3bcc_26e4f6f5",
+        "filename": "compiler/profile_assistant.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-05T10:25:08Z",
+      "side": 1,
+      "message": "How about a new class for doing the locking/unlocking? For example:\n\nclass ScopedLocking {\n  const std::vector\u003cuint32_t\u003e\u0026 fds_;\n  bool success_;\n\n  ScopedLocking(fds) : fds_(fds) {\n    success_ \u003d LockAll(fds_);\n  }\n  ~ScopedLocking() {\n    UnlockAll(fds_);\n  }\n}\n\nAnd then you\u0027d write:\nScopedLocking prof(profile_files_fd);\nif (!prof.Success()) {\n  return;\n}\n\nScopedLocking ref_prof(..);\nif (!ref_prof.Success()) {\n  return\n}",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 1
+      },
+      "revId": "92617f323d8dc2bcd0bfa214d603e2e20cf33d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca6e677a_c9e891d5",
+        "filename": "compiler/profile_assistant.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-05T10:25:08Z",
+      "side": 1,
+      "message": "Ditto for a ScopedOpenAllFiles class.",
+      "range": {
+        "startLine": 130,
+        "startChar": 1,
+        "endLine": 160,
+        "endChar": 65
+      },
+      "revId": "92617f323d8dc2bcd0bfa214d603e2e20cf33d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
