@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "0a4ddf0f_9b598b15",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1195,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-05T18:26:50Z",
+      "side": 1,
+      "message": "The new blocks are added to the end (note I have been doing this above as well). I am very open for better ways, but I am not sure how to do CFG related tests in the checker language",
+      "parentUuid": "cae3c748_a12abeb8",
+      "range": {
+        "startLine": 1195,
+        "startChar": 0,
+        "endLine": 1195,
+        "endChar": 17
+      },
+      "revId": "f3127464c748147995b6a9696ba5bbc6f13f6657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a31fb81_f6d780e5",
         "filename": "test/530-checker-loops/src/Main.java",
         "patchSetId": 2
@@ -59,6 +83,30 @@
       "writtenOn": "2016-01-05T11:49:45Z",
       "side": 1,
       "message": "Could you scope that and ensure it\u0027s before the loop header?",
+      "range": {
+        "startLine": 1196,
+        "startChar": 0,
+        "endLine": 1222,
+        "endChar": 21
+      },
+      "revId": "f3127464c748147995b6a9696ba5bbc6f13f6657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa1773d7_b8749965",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1222,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-05T18:26:50Z",
+      "side": 1,
+      "message": "Can you point me to an example on how to do this?",
+      "parentUuid": "6a31fb81_f6d780e5",
       "range": {
         "startLine": 1196,
         "startChar": 0,
