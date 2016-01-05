@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca6e677a_6901654c",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2016-01-05T11:24:08Z",
+      "side": 1,
+      "message": "Why not initialize this to the default and then remove the have_variant variable altogether and the special check later on?",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 25
+      },
+      "revId": "a934c363fd68ebe13aa62f31b9da2b456cd1873c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca6e677a_a90e7d7e",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2016-01-05T11:24:08Z",
+      "side": 1,
+      "message": "The optional_variant_parameter doesn\u0027t appear to be used anywhere.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 29
+      },
+      "revId": "a934c363fd68ebe13aa62f31b9da2b456cd1873c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea6b2b68_2a059f26",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1039338
+      },
+      "writtenOn": "2016-01-05T11:24:08Z",
+      "side": 1,
+      "message": "This code can be removed if you just initialize variant_cmdline_parameter before processing the options.",
+      "range": {
+        "startLine": 125,
+        "startChar": 9,
+        "endLine": 125,
+        "endChar": 21
+      },
+      "revId": "a934c363fd68ebe13aa62f31b9da2b456cd1873c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
