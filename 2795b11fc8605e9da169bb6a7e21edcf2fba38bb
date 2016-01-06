@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "2a2b8319_f4277857",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-06T12:32:43Z",
+      "side": 1,
+      "message": "I understand, but WasWritten sounds like something that will eventually say true which will never be the case for the JIT, right?\n\nHow about calling the method IsFromDisk() and add the JIT as an example?",
+      "parentUuid": "6a5f3bcc_c6c6429a",
+      "range": {
+        "startLine": 152,
+        "startChar": 9,
+        "endLine": 152,
+        "endChar": 19
+      },
+      "revId": "2795b11fc8605e9da169bb6a7e21edcf2fba38bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a5f3bcc_665bced9",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 3
