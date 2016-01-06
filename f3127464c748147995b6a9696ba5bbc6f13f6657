@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "aa3e9347_09e21152",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1192,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-06T20:32:54Z",
+      "side": 1,
+      "message": "Okay, I actually like this idea of doing a CHECK-START for those parts where I don\u0027t need the order to be explicit.",
+      "parentUuid": "8a68ef71_275aba7b",
+      "range": {
+        "startLine": 1192,
+        "startChar": 0,
+        "endLine": 1192,
+        "endChar": 28
+      },
+      "revId": "f3127464c748147995b6a9696ba5bbc6f13f6657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cae3c748_a12abeb8",
         "filename": "test/530-checker-loops/src/Main.java",
         "patchSetId": 2
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "But do you actually care where the new blocks are added? This isn\u0027t really what you want to test, is it?",
       "parentUuid": "0a4ddf0f_9b598b15",
+      "range": {
+        "startLine": 1195,
+        "startChar": 0,
+        "endLine": 1195,
+        "endChar": 17
+      },
+      "revId": "f3127464c748147995b6a9696ba5bbc6f13f6657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a4357e2_71262094",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1195,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-06T20:32:54Z",
+      "side": 1,
+      "message": "No, you are right, I used your restart idea.",
+      "parentUuid": "6a5f3bcc_86984af0",
       "range": {
         "startLine": 1195,
         "startChar": 0,
@@ -179,6 +227,30 @@
       "side": 1,
       "message": "tl;dr: You need more info in the graph dump. Have a look at go/aog/194693.\n\nWhat you\u0027re struggling with is the fact that GraphVisualizer does not print the stuff you want to test. Other tests are typically fine with the def-use chain. They find the instruction of interest by matching instruction IDs against input lists and then test a specific property like \"can be null\". If you look inside graph_visualizer.cc you\u0027ll see all the properties that are printed. People add those as needed and you should feel free to do the same, perhaps only printed for BCE so as to not pollute the dump for others.\n\nIn terms of testing block layout, we already have a couple of tests concerning loops. \u0027445-checker-licm\u0027 has simple is/isn\u0027t in loop assertions, and \u0027485-checker-dce-loop-update\u0027 has more complicated loop-membership ones.\n\nI took the liberty of writing a simple example in go/aog/194693. It prints the block ID with every instruction and successors of control-flow instructions. That allows you to very quickly test the block layout and make sure that instructions are where they\u0027re supposed to be. After that, you can easily test that NullChecks and BoundChecks were removed from the def-use chain. \n\nBiggest advantage is that you can now use CHECK-DAG everywhere and rely on dependencies between the instructions rather than the order they are printed in. You also don\u0027t need to do -NOT tests (though you can if you want to). Testing that an ArrayGet\u0027s index value has no BoundCheck on it should be sufficient.",
       "parentUuid": "4a2c372e_d5759c64",
+      "range": {
+        "startLine": 1196,
+        "startChar": 0,
+        "endLine": 1222,
+        "endChar": 21
+      },
+      "revId": "f3127464c748147995b6a9696ba5bbc6f13f6657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa3e9347_a9e68562",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1222,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-06T20:32:54Z",
+      "side": 1,
+      "message": "I had a look at your extended test. Although it may test what you want, now I have a hard time reading what is being done there :-) :-). All the regular expressions make it very hard to read compared to the simplicity of the current checkers syntax. It also seems a lot harder to maintain if something changes for someone not so familiar with the code.",
+      "parentUuid": "6a31fb81_b67a6801",
       "range": {
         "startLine": 1196,
         "startChar": 0,
