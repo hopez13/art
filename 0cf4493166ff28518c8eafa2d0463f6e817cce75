@@ -69,6 +69,30 @@
       "revId": "0cf4493166ff28518c8eafa2d0463f6e817cce75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a31fb81_b9e1fbbc",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1626,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-06T16:59:32Z",
+      "side": 1,
+      "message": "If there are two stack maps generated for the same native_pc, aren\u0027t they essentially guaranteed to be equivalent?  Does it matter which one the run-time picks?\n\nI think my only concern is that this might waste a bit of memory due to the redundancy.",
+      "parentUuid": "6a8e5b43_2eee47df",
+      "range": {
+        "startLine": 1626,
+        "startChar": 0,
+        "endLine": 1626,
+        "endChar": 49
+      },
+      "revId": "0cf4493166ff28518c8eafa2d0463f6e817cce75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
