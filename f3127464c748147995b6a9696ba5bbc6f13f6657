@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6a5f3bcc_86984af0",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1195,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-06T09:01:40Z",
+      "side": 1,
+      "message": "But do you actually care where the new blocks are added? This isn\u0027t really what you want to test, is it?",
+      "parentUuid": "0a4ddf0f_9b598b15",
+      "range": {
+        "startLine": 1195,
+        "startChar": 0,
+        "endLine": 1195,
+        "endChar": 17
+      },
+      "revId": "f3127464c748147995b6a9696ba5bbc6f13f6657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a31fb81_f6d780e5",
         "filename": "test/530-checker-loops/src/Main.java",
         "patchSetId": 2
@@ -107,6 +131,30 @@
       "side": 1,
       "message": "Can you point me to an example on how to do this?",
       "parentUuid": "6a31fb81_f6d780e5",
+      "range": {
+        "startLine": 1196,
+        "startChar": 0,
+        "endLine": 1222,
+        "endChar": 21
+      },
+      "revId": "f3127464c748147995b6a9696ba5bbc6f13f6657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2c372e_d5759c64",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1222,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-06T09:01:40Z",
+      "side": 1,
+      "message": "I\u0027ll let David chime in to figure out whether that\u0027s easily doable.",
+      "parentUuid": "aa1773d7_b8749965",
       "range": {
         "startLine": 1196,
         "startChar": 0,
