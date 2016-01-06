@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "0a4ddf0f_de94e16d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-06T00:28:49Z",
+      "side": 1,
+      "message": "I think it\u0027s sort of okay to disable read barriers in well-understood situations where GC won\u0027t occur eg the image loading/relocation time.\n\nI think, with the current CC collector, \"there are no thread suspension points\" is sufficient to guarantee that we won\u0027t start a new GC if GC isn\u0027t running already. But it doesn\u0027t guarantee that we aren\u0027t already in the middle of a GC. If in the middle of a GC, disabling a read barrier may mean that you may load a stale from-space reference, which is not what we want. (Also, note some read barriers return updated references but don\u0027t update the field/root contents.)\n\nSo I don\u0027t think \"there are no thread suspension points\" is sufficient to disable read barriers  in the general case. But if image relocation, class linker fixup, etc. are the situations where either we guarantee GC isn\u0027t already running, or the content of the heap, roots aren\u0027t subject to GC yet (like the app image space at load time), it\u0027s probably okay.",
+      "parentUuid": "aa2133e4_cbfae98d",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 61
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25157684_a131892f",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 13
@@ -322,6 +346,30 @@
       "side": 1,
       "message": "I\u0027m still not 100% sure the new way is correct for all cases, waiting for vmarko or someone else to comment.",
       "parentUuid": "c5b1fa58_c59b7a85",
+      "range": {
+        "startLine": 735,
+        "startChar": 7,
+        "endLine": 735,
+        "endChar": 56
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa1773d7_bea9e19d",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-06T00:28:49Z",
+      "side": 1,
+      "message": "Did you get feedback from someone?",
+      "parentUuid": "aa2133e4_eb5c0d79",
       "range": {
         "startLine": 735,
         "startChar": 7,
@@ -616,6 +664,30 @@
     },
     {
       "key": {
+        "uuid": "2a52a3ad_e2758264",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 937,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-06T00:28:49Z",
+      "side": 1,
+      "message": "How about adding DCHECK that element is of right type?",
+      "parentUuid": "2afc637c_acda236b",
+      "range": {
+        "startLine": 937,
+        "startChar": 55,
+        "endLine": 937,
+        "endChar": 62
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05a79224_cba715e5",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 13
@@ -745,6 +817,30 @@
       "side": 1,
       "message": "I\u0027ll fix the debug version to not have side effects if added_clases was true.",
       "parentUuid": "05a79224_8ef23bc5",
+      "range": {
+        "startLine": 1350,
+        "startChar": 24,
+        "endLine": 1350,
+        "endChar": 41
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a4357e2_63c2d67c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-06T00:28:49Z",
+      "side": 1,
+      "message": "I am not sure what you meant exactly or the intent of this code. But can we split the debug check code from the rest more clearly?",
+      "parentUuid": "eafecb6e_9285bc33",
       "range": {
         "startLine": 1350,
         "startChar": 24,
@@ -946,6 +1042,30 @@
     },
     {
       "key": {
+        "uuid": "ea1debf7_c05e32fa",
+        "filename": "runtime/class_table.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-06T00:28:49Z",
+      "side": 1,
+      "message": "I don\u0027t see a comment here. Where did you add it? Can you add it right before the line that contains \"kWithoutReadBarrier\"?",
+      "parentUuid": "ca01073f_3412fe38",
+      "range": {
+        "startLine": 185,
+        "startChar": 17,
+        "endLine": 185,
+        "endChar": 36
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05107294_45fd415d",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 13
@@ -1076,6 +1196,30 @@
       "side": 1,
       "message": "Yes, I\u0027ll add a comment aobut that too.",
       "parentUuid": "653e8e9d_11384e79",
+      "range": {
+        "startLine": 171,
+        "startChar": 6,
+        "endLine": 171,
+        "endChar": 45
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a4ddf0f_c1c08655",
+        "filename": "runtime/gc/accounting/space_bitmap-inl.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-06T00:28:49Z",
+      "side": 1,
+      "message": "Thanks for the comment. As a side note, we currently don\u0027t and probably shouldn\u0027t have the collector to mark a read-only bitmap (eg the boot image bitmap) because the collector should likely take advantage of that fact that all of the objects in the space are alive and avoid marking those objects like objects in the space where objects can die/be reclaimed for performance reasons. Right?",
+      "parentUuid": "2afc637c_afbb358c",
       "range": {
         "startLine": 171,
         "startChar": 6,
@@ -1372,6 +1516,30 @@
     },
     {
       "key": {
+        "uuid": "8a41cfd9_850b663e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 3171,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-06T00:28:49Z",
+      "side": 1,
+      "message": "The end of an (app) image space isn\u0027t page-aligned nor card-aligned, correct? Just to be sure.\n\nI think loosening the precondition (removing the check) in ClearCardRange() could allow subtle bugs to be left unnoticed in some other cases. I think handling image spaces specially rather than loosening the card table code (ClearCardRange) seems preferable. Is there a cleaner way?",
+      "parentUuid": "0af79f9a_aed5f715",
+      "range": {
+        "startLine": 3171,
+        "startChar": 52,
+        "endLine": 3171,
+        "endChar": 84
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5dadaa8_8923593c",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 13
@@ -1513,6 +1681,30 @@
     },
     {
       "key": {
+        "uuid": "8a1aaf01_1a06d9a4",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-06T00:28:49Z",
+      "side": 1,
+      "message": "I prefer doing that now unless there\u0027s a difficulty in doing so.",
+      "parentUuid": "6a1bbbb8_299bc98e",
+      "range": {
+        "startLine": 877,
+        "startChar": 0,
+        "endLine": 901,
+        "endChar": 3
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5b8863e_90c41491",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 13
@@ -1548,6 +1740,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "a5b8863e_90c41491",
+      "range": {
+        "startLine": 912,
+        "startChar": 0,
+        "endLine": 915,
+        "endChar": 3
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea1debf7_c3c2bcab",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-06T00:28:49Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "6a1bbbb8_09a08daf",
       "range": {
         "startLine": 912,
         "startChar": 0,
@@ -1607,6 +1823,30 @@
     },
     {
       "key": {
+        "uuid": "2a52a3ad_423eb663",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-06T00:28:49Z",
+      "side": 1,
+      "message": "So, \"in place\" means modifying a single ImageSpace in place rather than relocating from one ImageSpace to another?",
+      "parentUuid": "2afc637c_ecbb8bf9",
+      "range": {
+        "startLine": 918,
+        "startChar": 12,
+        "endLine": 918,
+        "endChar": 27
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5b8863e_1083042e",
         "filename": "runtime/gc/space/image_space.cc",
         "patchSetId": 13
@@ -1642,6 +1882,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "a5b8863e_1083042e",
+      "range": {
+        "startLine": 1314,
+        "startChar": 27,
+        "endLine": 1315,
+        "endChar": 4
+      },
+      "revId": "80b374db8b6bb650c8c78a635533397c646d86cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a4ddf0f_816fdecd",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1315,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-06T00:28:49Z",
+      "side": 1,
+      "message": "Is it easy to assert that oat_file \u003d\u003d nulltpr iff it\u0027s a boot image? It may not be.",
+      "parentUuid": "6a1bbbb8_69a5c1bf",
       "range": {
         "startLine": 1314,
         "startChar": 27,
