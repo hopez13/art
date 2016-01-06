@@ -45,6 +45,30 @@
       "revId": "0cf4493166ff28518c8eafa2d0463f6e817cce75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a31fb81_593a270b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1626,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-06T15:19:24Z",
+      "side": 1,
+      "message": "Good point. dsrbecky@ any thoughts?",
+      "parentUuid": "6a8e5b43_2eee47df",
+      "range": {
+        "startLine": 1626,
+        "startChar": 0,
+        "endLine": 1626,
+        "endChar": 49
+      },
+      "revId": "0cf4493166ff28518c8eafa2d0463f6e817cce75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
