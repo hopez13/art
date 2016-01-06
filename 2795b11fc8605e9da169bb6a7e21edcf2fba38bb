@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "4a2c372e_b516e0d7",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-06T12:41:44Z",
+      "side": 1,
+      "message": "Well, there is no need for it to be eventually true.  Many of the ELF sections are optional.\n\nWhat about Exists()?",
+      "parentUuid": "2a2b8319_f4277857",
+      "range": {
+        "startLine": 152,
+        "startChar": 9,
+        "endLine": 152,
+        "endChar": 19
+      },
+      "revId": "2795b11fc8605e9da169bb6a7e21edcf2fba38bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a5f3bcc_665bced9",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 3
