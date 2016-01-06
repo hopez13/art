@@ -1,0 +1,303 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a481bfe_64ff3e1a",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-06T01:36:21Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 192,
+        "startChar": 100,
+        "endLine": 192,
+        "endChar": 105
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a4ddf0f_e4f91072",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-06T01:36:21Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 192,
+        "startChar": 100,
+        "endLine": 192,
+        "endChar": 105
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a4ddf0f_c4f8946c",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-06T01:36:21Z",
+      "side": 1,
+      "message": "Weird spacing.",
+      "range": {
+        "startLine": 252,
+        "startChar": 37,
+        "endLine": 252,
+        "endChar": 40
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a4ddf0f_44056425",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-06T01:36:21Z",
+      "side": 1,
+      "message": "Seems a bit weird to talk about old code here in the present tense.",
+      "range": {
+        "startLine": 424,
+        "startChar": 0,
+        "endLine": 426,
+        "endChar": 21
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea1debf7_0eff7b55",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-06T01:36:21Z",
+      "side": 1,
+      "message": "New style is supposedly new lines here:\n\n exp1\n     ? exp2\n     : exp3\n\nor so...",
+      "range": {
+        "startLine": 231,
+        "startChar": 34,
+        "endLine": 231,
+        "endChar": 64
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea1debf7_6e0e3751",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-06T01:36:21Z",
+      "side": 1,
+      "message": "I\u0027ll let Alex check this. Is the interpreter now installed for default method conflicts?",
+      "range": {
+        "startLine": 276,
+        "startChar": 2,
+        "endLine": 276,
+        "endChar": 50
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a4357e2_a6e6ac62",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-06T01:36:21Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 84,
+        "startChar": 100,
+        "endLine": 84,
+        "endChar": 110
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a1aaf01_dd7b7b08",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-06T01:36:21Z",
+      "side": 1,
+      "message": "One could argue that you formed a do-while loop. Don\u0027t know whether we like them stylistically (I think it\u0027s at least more expressive when reading from here).",
+      "range": {
+        "startLine": 110,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 16
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea1debf7_ceaf434f",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-06T01:36:21Z",
+      "side": 1,
+      "message": "Not sure I like the change to make result_register a pointer, as it makes this here slower (and moves are common in dex code). It seems an alternative would have been to take the address when dispatching to mterp, considering that the interpreters don\u0027t have a common Execute signature anymore anyways because of single-stepping.",
+      "range": {
+        "startLine": 180,
+        "startChar": 8,
+        "endLine": 190,
+        "endChar": 91
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca202730_dfadb3c3",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-06T01:36:21Z",
+      "side": 1,
+      "message": "Could we hide this in a function exposed by interpreter.h? That way the runtime doesn\u0027t need to know about mterp.",
+      "range": {
+        "startLine": 216,
+        "startChar": 2,
+        "endLine": 216,
+        "endChar": 40
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca202730_1fbc8bf1",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-06T01:36:21Z",
+      "side": 1,
+      "message": "Unnecessary, looks like you should be able to forward-declare instead.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 19
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a1aaf01_c0c07455",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-06T01:36:21Z",
+      "side": 1,
+      "message": "I\u0027d prefer to hide mterp by an interpreter layer, but I think that\u0027s overkill, probably.",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 36
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a41cfd9_28ad8f04",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-06T01:36:21Z",
+      "side": 1,
+      "message": "Can be const functions and return const void*?",
+      "range": {
+        "startLine": 1034,
+        "startChar": 2,
+        "endLine": 1044,
+        "endChar": 3
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
