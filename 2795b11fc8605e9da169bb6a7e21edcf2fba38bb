@@ -168,6 +168,29 @@
     },
     {
       "key": {
+        "uuid": "ca6e677a_49e58134",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-06T12:34:49Z",
+      "side": 1,
+      "message": "So I think that GetText()-\u003eWasWritten() to determine whether we have written \".text\" do disk is reasonable.\n\nI feel kind of bad that the code needs ask the question in the first place, but it was the easiest solution to make the code work without the .text section in the ELF file.  I might still try to refactor it later.",
+      "range": {
+        "startLine": 238,
+        "startChar": 34,
+        "endLine": 238,
+        "endChar": 66
+      },
+      "revId": "2795b11fc8605e9da169bb6a7e21edcf2fba38bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a5f3bcc_a648e60c",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 3
