@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cae3c748_21bfcee9",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-06T11:35:01Z",
+      "side": 1,
+      "message": "Why not stating that this is JIT related and call it IsForJITCode or something?",
+      "range": {
+        "startLine": 152,
+        "startChar": 9,
+        "endLine": 152,
+        "endChar": 19
+      },
+      "revId": "2795b11fc8605e9da169bb6a7e21edcf2fba38bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a5f3bcc_665bced9",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-06T11:35:01Z",
+      "side": 1,
+      "message": "Add a comment explaining why section can be null?",
+      "range": {
+        "startLine": 263,
+        "startChar": 22,
+        "endLine": 263,
+        "endChar": 40
+      },
+      "revId": "2795b11fc8605e9da169bb6a7e21edcf2fba38bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a5f3bcc_a648e60c",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-06T11:35:01Z",
+      "side": 1,
+      "message": "Indentation is off, it should be:\n\nfoo \u003d bar\n(newline)   ? 1\n(newline)   : 0",
+      "range": {
+        "startLine": 238,
+        "startChar": 34,
+        "endLine": 239,
+        "endChar": 73
+      },
+      "revId": "2795b11fc8605e9da169bb6a7e21edcf2fba38bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eae08b3e_42b81231",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-06T11:35:01Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 445,
+        "startChar": 35,
+        "endLine": 445,
+        "endChar": 84
+      },
+      "revId": "2795b11fc8605e9da169bb6a7e21edcf2fba38bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eae08b3e_c2c382b1",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-06T11:35:01Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 932,
+        "startChar": 36,
+        "endLine": 932,
+        "endChar": 44
+      },
+      "revId": "2795b11fc8605e9da169bb6a7e21edcf2fba38bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a68ef71_0784567a",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1225,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-06T11:35:01Z",
+      "side": 1,
+      "message": "Internal?",
+      "range": {
+        "startLine": 1225,
+        "startChar": 48,
+        "endLine": 1225,
+        "endChar": 49
+      },
+      "revId": "2795b11fc8605e9da169bb6a7e21edcf2fba38bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
