@@ -68,6 +68,30 @@
       "revId": "c4a4c9f2b3ddc9a9afa11421688117839dec7b0b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa1773d7_01d8b016",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3807,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-01-06T00:24:29Z",
+      "side": 1,
+      "message": "Initially I tried subtracting directly from num_bytes_allocated, but that caused some CHECKs to fail. I thought there might be an invariant that GC should be responsible for updating num_bytes_allocated for all frees, and it appeared to me that num_bytes_freed_revoke_ was an existing mechanism to tell GC that it should update num_bytes_allocated for some frees when it gets around to it.\nI have no idea if RecordFreeRevoke needs to be called from CC. Any advice from the GC masters on how to do this properly is greatly appreciated.",
+      "parentUuid": "aa1773d7_5eb8c530",
+      "range": {
+        "startLine": 3807,
+        "startChar": 2,
+        "endLine": 3807,
+        "endChar": 25
+      },
+      "revId": "c4a4c9f2b3ddc9a9afa11421688117839dec7b0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
