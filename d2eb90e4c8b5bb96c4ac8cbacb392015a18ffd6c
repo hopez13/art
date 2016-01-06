@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "8a41cfd9_732dc865",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-06T22:54:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a4ddf0f_e4f91072",
+      "range": {
+        "startLine": 192,
+        "startChar": 100,
+        "endLine": 192,
+        "endChar": 105
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a52a3ad_eb731def",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-06T22:54:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a481bfe_64ff3e1a",
+      "range": {
+        "startLine": 192,
+        "startChar": 100,
+        "endLine": 192,
+        "endChar": 105
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a4ddf0f_c4f8946c",
         "filename": "runtime/asm_support.h",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2016-01-06T01:36:21Z",
       "side": 1,
       "message": "Weird spacing.",
+      "range": {
+        "startLine": 252,
+        "startChar": 37,
+        "endLine": 252,
+        "endChar": 40
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a4357e2_71d1407f",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-06T22:54:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a4ddf0f_c4f8946c",
       "range": {
         "startLine": 252,
         "startChar": 37,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "6a481bfe_67c2e07c",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-06T22:54:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a4ddf0f_44056425",
+      "range": {
+        "startLine": 424,
+        "startChar": 0,
+        "endLine": 426,
+        "endChar": 21
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea1debf7_0eff7b55",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 3
@@ -105,6 +201,30 @@
       "writtenOn": "2016-01-06T01:36:21Z",
       "side": 1,
       "message": "New style is supposedly new lines here:\n\n exp1\n     ? exp2\n     : exp3\n\nor so...",
+      "range": {
+        "startLine": 231,
+        "startChar": 34,
+        "endLine": 231,
+        "endChar": 64
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a4ddf0f_2fdb51a1",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-06T22:54:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea1debf7_0eff7b55",
       "range": {
         "startLine": 231,
         "startChar": 34,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "2a52a3ad_96dabc3b",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-06T22:54:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a4357e2_a6e6ac62",
+      "range": {
+        "startLine": 84,
+        "startChar": 100,
+        "endLine": 84,
+        "endChar": 110
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a1aaf01_dd7b7b08",
         "filename": "runtime/interpreter/interpreter_switch_impl.cc",
         "patchSetId": 3
@@ -174,6 +318,30 @@
       "writtenOn": "2016-01-06T01:36:21Z",
       "side": 1,
       "message": "One could argue that you formed a do-while loop. Don\u0027t know whether we like them stylistically (I think it\u0027s at least more expressive when reading from here).",
+      "range": {
+        "startLine": 110,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 16
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa1773d7_87bff0e7",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-06T22:54:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a1aaf01_dd7b7b08",
       "range": {
         "startLine": 110,
         "startChar": 2,
@@ -209,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "2a52a3ad_f6f9c071",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-06T22:54:38Z",
+      "side": 1,
+      "message": "In an earlier version I was keeping a common Execute signature.  Missed restoring result_register when I changed that.  Thanks - will put it back now.",
+      "parentUuid": "ea1debf7_ceaf434f",
+      "range": {
+        "startLine": 180,
+        "startChar": 8,
+        "endLine": 190,
+        "endChar": 91
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca202730_dfadb3c3",
         "filename": "runtime/runtime.cc",
         "patchSetId": 3
@@ -220,6 +412,30 @@
       "writtenOn": "2016-01-06T01:36:21Z",
       "side": 1,
       "message": "Could we hide this in a function exposed by interpreter.h? That way the runtime doesn\u0027t need to know about mterp.",
+      "range": {
+        "startLine": 216,
+        "startChar": 2,
+        "endLine": 216,
+        "endChar": 40
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a481bfe_47b9e400",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-06T22:54:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca202730_dfadb3c3",
       "range": {
         "startLine": 216,
         "startChar": 2,
@@ -255,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "8a1aaf01_0ba68d7d",
+        "filename": "runtime/stack.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-06T22:54:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca202730_1fbc8bf1",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 19
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a1aaf01_c0c07455",
         "filename": "runtime/thread.cc",
         "patchSetId": 3
@@ -278,6 +518,30 @@
     },
     {
       "key": {
+        "uuid": "6a481bfe_b20b4801",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-06T22:54:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a1aaf01_c0c07455",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 36
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a41cfd9_28ad8f04",
         "filename": "runtime/thread.h",
         "patchSetId": 3
@@ -289,6 +553,30 @@
       "writtenOn": "2016-01-06T01:36:21Z",
       "side": 1,
       "message": "Can be const functions and return const void*?",
+      "range": {
+        "startLine": 1034,
+        "startChar": 2,
+        "endLine": 1044,
+        "endChar": 3
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a4357e2_31ef3817",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-06T22:54:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a41cfd9_28ad8f04",
       "range": {
         "startLine": 1034,
         "startChar": 2,

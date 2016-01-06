@@ -22,6 +22,30 @@
       "revId": "b592885f0b03c6518ccc9df4962c112cc2089131",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa3e9347_d4eb5c2b",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-06T22:54:38Z",
+      "side": 0,
+      "message": "Yes - don\u0027t recall why I removed that.  Restored.",
+      "parentUuid": "6a481bfe_a4422623",
+      "range": {
+        "startLine": 87,
+        "startChar": 2,
+        "endLine": 87,
+        "endChar": 22
+      },
+      "revId": "b592885f0b03c6518ccc9df4962c112cc2089131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
