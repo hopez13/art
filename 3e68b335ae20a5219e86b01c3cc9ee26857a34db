@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca202730_5fd68321",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-06T00:28:49Z",
+      "side": 1,
+      "message": "auto -\u003e mirror::Class* ?",
+      "range": {
+        "startLine": 844,
+        "startChar": 6,
+        "endLine": 844,
+        "endChar": 10
+      },
+      "revId": "3e68b335ae20a5219e86b01c3cc9ee26857a34db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a41cfd9_057bd659",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-06T00:28:49Z",
+      "side": 1,
+      "message": "How about we add a comment about the behavior on oat_fd vs oat_filename like the comment above for image_fd?",
+      "range": {
+        "startLine": 118,
+        "startChar": 17,
+        "endLine": 118,
+        "endChar": 23
+      },
+      "revId": "3e68b335ae20a5219e86b01c3cc9ee26857a34db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a1aaf01_9d09837b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-06T00:28:49Z",
+      "side": 1,
+      "message": "Can you elaborate the question?\n\nAre the roots in the class table already visible to the GC?",
+      "range": {
+        "startLine": 1271,
+        "startChar": 0,
+        "endLine": 1273,
+        "endChar": 16
+      },
+      "revId": "3e68b335ae20a5219e86b01c3cc9ee26857a34db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a41cfd9_c5488e0e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 2823,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-06T00:28:49Z",
+      "side": 1,
+      "message": "Add an example of locations to this comment?",
+      "revId": "3e68b335ae20a5219e86b01c3cc9ee26857a34db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
