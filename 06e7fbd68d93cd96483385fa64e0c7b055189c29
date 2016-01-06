@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea1debf7_cf9dfdde",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-06T22:22:32Z",
+      "side": 1,
+      "message": "Why isn\u0027t this implicit in the function, considering you do it after all calls?",
+      "range": {
+        "startLine": 639,
+        "startChar": 26,
+        "endLine": 641,
+        "endChar": 19
+      },
+      "revId": "06e7fbd68d93cd96483385fa64e0c7b055189c29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
