@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "0a4ddf0f_da85c4c3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-07T19:00:57Z",
+      "side": 1,
+      "message": "IIRC this is a straightforward optimization at the JIT compiler stage because by the time the class is loaded all (\u003d\u003dbefore code is jitted, right?) of its superinterfaces/superclasses have also been loaded and therefore it knows the actual direct target (and we can make the same assumption for a class hierarchy within the same dex file).\n\nHowever at source compiler stage it has no idea what classes will actually be loaded at runtime so it cannot put down an invoke-direct.\n\nAs Alex pointed out this isn\u0027t used at all right now so it\u0027s probably OK not to have a faster path until we see a need, since that was already the case for the class invoke-super (which is actually used in a few places).",
+      "parentUuid": "ca62e7ed_8902f98d",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 41
+      },
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25ead6c4_f18d0ae7",
         "filename": "compiler/dex/quick/quick_compiler.cc",
         "patchSetId": 24
