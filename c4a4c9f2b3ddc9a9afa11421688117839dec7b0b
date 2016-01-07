@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a4ddf0f_b0981ef0",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3474,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-07T04:48:28Z",
+      "side": 1,
+      "message": "In addition, I think there\u0027s an indentation convention of aligning the left ends of all \"\u003c\u003c\" at the same col.",
+      "parentUuid": "aa1773d7_3eaab1ed",
+      "range": {
+        "startLine": 3474,
+        "startChar": 4,
+        "endLine": 3474,
+        "endChar": 6
+      },
+      "revId": "c4a4c9f2b3ddc9a9afa11421688117839dec7b0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa1773d7_be9d61df",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -41,6 +65,121 @@
         "startChar": 98,
         "endLine": 3512,
         "endChar": 113
+      },
+      "revId": "c4a4c9f2b3ddc9a9afa11421688117839dec7b0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa3e9347_fac1a95a",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3787,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-07T04:48:28Z",
+      "side": 1,
+      "message": "Maybe rename klass to klass_unused to be clearer that it\u0027s not used?",
+      "range": {
+        "startLine": 3787,
+        "startChar": 19,
+        "endLine": 3787,
+        "endChar": 24
+      },
+      "revId": "c4a4c9f2b3ddc9a9afa11421688117839dec7b0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a1aaf01_f12b086e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3788,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-07T04:48:28Z",
+      "side": 1,
+      "message": "Assert if obj is non-null, it matches the magic value?",
+      "range": {
+        "startLine": 3788,
+        "startChar": 4,
+        "endLine": 3788,
+        "endChar": 7
+      },
+      "revId": "c4a4c9f2b3ddc9a9afa11421688117839dec7b0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea1debf7_e4a9039d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3794,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-07T04:48:28Z",
+      "side": 1,
+      "message": "It seems simpler to we just ignore all three size_t values returned from TryToAllocate and AllocateInternalWithGc and use \u0027bytes\u0027 instead of bytes_tl_bulk_allocated here because this isn\u0027t related to thread local allocations?",
+      "range": {
+        "startLine": 3794,
+        "startChar": 63,
+        "endLine": 3794,
+        "endChar": 86
+      },
+      "revId": "c4a4c9f2b3ddc9a9afa11421688117839dec7b0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea1debf7_847287b7",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3794,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-07T04:48:28Z",
+      "side": 1,
+      "message": "Adding native allocations to num_bytes_allocated_ means that Heap::GetBytesAllocated() now includes the native bytes. Did you inspect each of its call sites and see if it makes sense to include the native bytes?\n\nIt may make sense to have a separate native allocation counter (native allocations are counted both in num_bytes_allocated_ and a native counter) which would allow us to see the breakdown between managed vs native in some ways.",
+      "range": {
+        "startLine": 3794,
+        "startChar": 8,
+        "endLine": 3794,
+        "endChar": 28
+      },
+      "revId": "c4a4c9f2b3ddc9a9afa11421688117839dec7b0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a1aaf01_912acc4d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3797,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-07T04:48:28Z",
+      "side": 1,
+      "message": "Use a fresh local variable and name it obj_unused as in\n\nmirror::Object* obj_unused \u003d nullptr\n\n?\n\nAnother idea is to add another version of CheckConcurrentGC that doesn\u0027t take an object and directly calls RequestConcurrentGC without calling RequestConcurrentGCAndSaveObject?",
+      "range": {
+        "startLine": 3797,
+        "startChar": 6,
+        "endLine": 3797,
+        "endChar": 20
       },
       "revId": "c4a4c9f2b3ddc9a9afa11421688117839dec7b0b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -88,6 +227,122 @@
         "startChar": 2,
         "endLine": 3807,
         "endChar": 25
+      },
+      "revId": "c4a4c9f2b3ddc9a9afa11421688117839dec7b0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a52a3ad_a3a0d90d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3807,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-07T04:48:28Z",
+      "side": 1,
+      "message": "Let\u0027s not mix this with num_bytes_freed_revoke_. As Mathieu said, it\u0027s not used by all collectors. What checks fail? I think it makes sense to have a potentially similar but separate mechanism/counter, if that\u0027s what\u0027s necessary.",
+      "parentUuid": "aa1773d7_01d8b016",
+      "range": {
+        "startLine": 3807,
+        "startChar": 2,
+        "endLine": 3807,
+        "endChar": 25
+      },
+      "revId": "c4a4c9f2b3ddc9a9afa11421688117839dec7b0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea1debf7_61ec0520",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1114,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-07T04:48:28Z",
+      "side": 1,
+      "message": "Isn\u0027t this just num_bytes_allocated_? Member native_bytes_allocated_ was removed?",
+      "range": {
+        "startLine": 1114,
+        "startChar": 10,
+        "endLine": 1114,
+        "endChar": 56
+      },
+      "revId": "c4a4c9f2b3ddc9a9afa11421688117839dec7b0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca202730_4efb2f93",
+        "filename": "test/004-NativeAllocations/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-07T04:48:28Z",
+      "side": 1,
+      "message": "How about starting the method name with \"test\" as in the junit style?",
+      "range": {
+        "startLine": 26,
+        "startChar": 24,
+        "endLine": 26,
+        "endChar": 46
+      },
+      "revId": "c4a4c9f2b3ddc9a9afa11421688117839dec7b0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a1aaf01_0cc7836e",
+        "filename": "test/004-NativeAllocations/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-07T04:48:28Z",
+      "side": 1,
+      "message": "Why no spaces around the / and * operators?",
+      "range": {
+        "startLine": 28,
+        "startChar": 49,
+        "endLine": 28,
+        "endChar": 50
+      },
+      "revId": "c4a4c9f2b3ddc9a9afa11421688117839dec7b0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa3e9347_0f28d128",
+        "filename": "test/004-NativeAllocations/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-07T04:48:28Z",
+      "side": 1,
+      "message": "Line too long?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 127
       },
       "revId": "c4a4c9f2b3ddc9a9afa11421688117839dec7b0b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
