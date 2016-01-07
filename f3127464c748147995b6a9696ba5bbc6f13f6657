@@ -260,6 +260,30 @@
       "revId": "f3127464c748147995b6a9696ba5bbc6f13f6657",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2c372e_f81c4dfd",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1222,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-07T18:44:51Z",
+      "side": 1,
+      "message": "I did go a bit overboard to show that you can test all the properties you need since you complained that it is not possible with Checker. Things like the block structure you don\u0027t need to test every single time, one test case should be enough and then you can focus on the data flow.\n\nWhile I agree that having a list of instruction names might appear readable at first glance, combining CHECK and CHECK-NOT (negative assertion in a scope) actually makes it much more difficult to argue whether the test verifies the right properties and that we won\u0027t get false positives/negatives as a result. This is a sea of nodes IR, testing dependencies is much more durable.\n\nBCE is a complicated transform so you cannot expect the test to fit on two lines. If you\u0027re telling me you\u0027d rather dump the list of instructions and hope for the best over specifying the details of your assumptions, then that simply doesn\u0027t SGTM.",
+      "parentUuid": "aa3e9347_a9e68562",
+      "range": {
+        "startLine": 1196,
+        "startChar": 0,
+        "endLine": 1222,
+        "endChar": 21
+      },
+      "revId": "f3127464c748147995b6a9696ba5bbc6f13f6657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
