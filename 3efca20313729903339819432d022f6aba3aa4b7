@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "aa3e9347_95362eda",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2016-01-07T19:31:15Z",
+      "side": 1,
+      "message": "This setup looks awkward to me. I\u0027d suggest you run \"mmma libcore art\" to get all things built.",
+      "parentUuid": "8a41cfd9_34e5e623",
+      "range": {
+        "startLine": 404,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 19
+      },
+      "revId": "3efca20313729903339819432d022f6aba3aa4b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a2c372e_d87631b8",
         "filename": "Android.mk",
         "patchSetId": 1
@@ -88,6 +112,29 @@
         "startChar": 0,
         "endLine": 409,
         "endChar": 50
+      },
+      "revId": "3efca20313729903339819432d022f6aba3aa4b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a4357e2_09f1acff",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2016-01-07T19:31:15Z",
+      "side": 1,
+      "message": "If you define two phony packages, one for host and one for target, you can use LOCAL_REQUIRED_MODULES without the direct dependencies. Something like:\n\ninclude $(CLEAR_VARS)\nLOCAL_MODULE :\u003d art-libartd-libopenjdkd-dependency\nifeq ($(ART_BUILD_TARGET_DEBUG),true)\nLOCAL_REQUIRED_MODULES:\u003d libopenjdkd\nendif\ninclude $(BUILD_PHONY_PACKAGE)\n\ninclude $(CLEAR_VARS)\nLOCAL_MODULE :\u003d art-libartd-libopenjdkd-dependency\nifeq ($(ART_BUILD_HOST_DEBUG),true)\nLOCAL_REQUIRED_MODULES:\u003d libopenjdkd\nendif\nLOCAL_IS_HOST_MODULE :\u003d true\ninclude $(BUILD_PHONY_PACKAGE)",
+      "range": {
+        "startLine": 412,
+        "startChar": 0,
+        "endLine": 426,
+        "endChar": 5
       },
       "revId": "3efca20313729903339819432d022f6aba3aa4b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
