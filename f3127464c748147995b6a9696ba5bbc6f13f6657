@@ -284,6 +284,30 @@
       "revId": "f3127464c748147995b6a9696ba5bbc6f13f6657",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa1773d7_3fbce8f1",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1222,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-07T19:59:40Z",
+      "side": 1,
+      "message": "David,\n\nPerhaps better to take this offline, since I resent your implication that I \"rather dump\" or something like that. I care *a lot* about good testing practices, and think this patterns do just that (not having a boundscheck before an array get is exactly the goal).\n\nJust peeking at e.g. 449-checker-bce, I see a lot of CHECK/CHECK-NOT series, mostly authored by you. So I am unclear why you are using this CL to make a point on a practice I find all over the place?",
+      "parentUuid": "4a2c372e_f81c4dfd",
+      "range": {
+        "startLine": 1196,
+        "startChar": 0,
+        "endLine": 1222,
+        "endChar": 21
+      },
+      "revId": "f3127464c748147995b6a9696ba5bbc6f13f6657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
