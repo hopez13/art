@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a41cfd9_54550a9f",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1161,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-07T04:06:32Z",
+      "side": 1,
+      "message": "This effectively cuts the allowed time by a factor of ten. We do have quite regular timeouts on shutdown in continuous testing. You should thus at least move the LOG(ERROR) to a LOG(WARNING) to avoid that.",
+      "range": {
+        "startLine": 1161,
+        "startChar": 2,
+        "endLine": 1161,
+        "endChar": 60
+      },
+      "revId": "adef5bde6c3392dca3dafa0f8d2c9428b59af3ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
