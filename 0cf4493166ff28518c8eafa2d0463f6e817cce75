@@ -189,6 +189,30 @@
       "revId": "0cf4493166ff28518c8eafa2d0463f6e817cce75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a5f3bcc_a953d918",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1626,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-07T13:57:16Z",
+      "side": 1,
+      "message": "Would it be crazy to set the native_pc to point at the first native instruction? (so it actually corresponds to the location of dex maps)\n\nI am thinking what I need to do in the debugger when looking at the backtrace.  Let\u0027s say I am interested in local variables of non-leaf function.  The debugger will tell me the the PC of the call instruction, but there is no useful stack map there, I need to know to actually lookup the data a bit further down.  Even worse, if I wanted to see variables after finishing step out (and thus have PC right after the native call instruction), I would be in even bigger trouble.",
+      "parentUuid": "8a68ef71_2a9cbf2c",
+      "range": {
+        "startLine": 1626,
+        "startChar": 0,
+        "endLine": 1626,
+        "endChar": 49
+      },
+      "revId": "0cf4493166ff28518c8eafa2d0463f6e817cce75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
