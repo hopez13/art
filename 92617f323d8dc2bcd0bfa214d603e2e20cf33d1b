@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8a68ef71_27887a07",
+        "filename": "compiler/profile_assistant.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-07T16:33:25Z",
+      "side": 1,
+      "message": "good idea.\nFound out that we already have a class for this.",
+      "parentUuid": "6a5f3bcc_26e4f6f5",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 1
+      },
+      "revId": "92617f323d8dc2bcd0bfa214d603e2e20cf33d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca6e677a_c9e891d5",
         "filename": "compiler/profile_assistant.cc",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-05T10:25:08Z",
       "side": 1,
       "message": "Ditto for a ScopedOpenAllFiles class.",
+      "range": {
+        "startLine": 130,
+        "startChar": 1,
+        "endLine": 160,
+        "endChar": 65
+      },
+      "revId": "92617f323d8dc2bcd0bfa214d603e2e20cf33d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a54ffaf_63b98293",
+        "filename": "compiler/profile_assistant.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-07T16:33:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca6e677a_c9e891d5",
       "range": {
         "startLine": 130,
         "startChar": 1,
