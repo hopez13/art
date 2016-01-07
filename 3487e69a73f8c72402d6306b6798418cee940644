@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "aa1773d7_df74cc66",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-07T19:09:13Z",
+      "side": 1,
+      "message": "@iam Correct.\n\nCurrently it will be quite slow for interpretation (since we don\u0027t add iftables or imt\u0027s to interfaces for memory usage) but when either jitting or dex2oating we can replace it with a direct call to the target method.",
+      "parentUuid": "0a4ddf0f_da85c4c3",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 41
+      },
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25ead6c4_f18d0ae7",
         "filename": "compiler/dex/quick/quick_compiler.cc",
         "patchSetId": 24
