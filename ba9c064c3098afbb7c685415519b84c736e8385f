@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eae08b3e_c5a0ac64",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-01-07T11:16:17Z",
+      "side": 1,
+      "message": "how about \"The String#value field is not present on Android versions \u003e\u003d 6.0\" ?",
+      "range": {
+        "startLine": 307,
+        "startChar": 21,
+        "endLine": 307,
+        "endChar": 86
+      },
+      "revId": "ba9c064c3098afbb7c685415519b84c736e8385f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cae3c748_0499f8f2",
+        "filename": "test/143-string-value/expected.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-01-07T11:16:17Z",
+      "side": 1,
+      "message": "\".\" ?",
+      "range": {
+        "startLine": 1,
+        "startChar": 110,
+        "endLine": 1,
+        "endChar": 112
+      },
+      "revId": "ba9c064c3098afbb7c685415519b84c736e8385f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a54ffaf_a6746865",
+        "filename": "test/143-string-value/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-01-07T11:16:17Z",
+      "side": 1,
+      "message": "fail here ?",
+      "revId": "ba9c064c3098afbb7c685415519b84c736e8385f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6aa2db12_cec6031f",
+        "filename": "test/143-string-value/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-01-07T11:16:17Z",
+      "side": 1,
+      "message": "} catch (ReflectiveOperationException ignored)",
+      "range": {
+        "startLine": 21,
+        "startChar": 13,
+        "endLine": 21,
+        "endChar": 24
+      },
+      "revId": "ba9c064c3098afbb7c685415519b84c736e8385f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
