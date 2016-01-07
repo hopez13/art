@@ -46,6 +46,30 @@
       "revId": "716bf945438f78de57ec4be3e4724e01547adc06",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a31fb81_b9eb3b2c",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-07T12:09:26Z",
+      "side": 1,
+      "message": "That is indeed micro :-) I moved comment line 302 to line 308, where it should be.\n\nBut I wouldn\u0027t bother about usual or not usual.",
+      "parentUuid": "0a54ffaf_a6eb082c",
+      "range": {
+        "startLine": 303,
+        "startChar": 4,
+        "endLine": 308,
+        "endChar": 5
+      },
+      "revId": "716bf945438f78de57ec4be3e4724e01547adc06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
