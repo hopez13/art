@@ -22,6 +22,30 @@
       "revId": "3efca20313729903339819432d022f6aba3aa4b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a41cfd9_34e5e623",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-07T06:31:00Z",
+      "side": 1,
+      "message": "LOCAL_REQUIRED_MODULES still make ninja complain if they form a cycle (libart -\u003e libopenjdk -\u003e libopenjdkjvm -\u003e libart). I tried...",
+      "parentUuid": "6a481bfe_785e01cb",
+      "range": {
+        "startLine": 404,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 19
+      },
+      "revId": "3efca20313729903339819432d022f6aba3aa4b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
