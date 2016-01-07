@@ -93,6 +93,30 @@
       "revId": "0cf4493166ff28518c8eafa2d0463f6e817cce75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a5f3bcc_896dbd0a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1626,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-07T09:55:03Z",
+      "side": 1,
+      "message": "They are *not* guaranteed to be equivalent. Each is generated for a different HInstruction, likely with a different HEnvironment because the non-NativeDebugInfo instruction will have overwritten its output vreg. Since you generate NativeDebugInfos at the beginning of basic blocks, they\u0027re not even guaranteed to come from two subsequent HInstructions.\n\nAnd yes, it is absolutely critical that the runtime picks the correct one, otherwise it will look for values of vregs in the wrong locations. Deoptimization might then wrongly initialize the interpreter and try/catch will set wrong values of phis in the catch block.",
+      "parentUuid": "6a31fb81_b9e1fbbc",
+      "range": {
+        "startLine": 1626,
+        "startChar": 0,
+        "endLine": 1626,
+        "endChar": 49
+      },
+      "revId": "0cf4493166ff28518c8eafa2d0463f6e817cce75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
