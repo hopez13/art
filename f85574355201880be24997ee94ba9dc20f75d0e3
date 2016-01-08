@@ -22,6 +22,30 @@
       "revId": "f85574355201880be24997ee94ba9dc20f75d0e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca6827a1_3950cf5a",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-08T16:41:02Z",
+      "side": 1,
+      "message": "Sorry, I always forget that LON is so different from MTV.\n\n\"Building inside\" a project is well-defined. That\u0027s why mm and mma exist. They\u0027re different from a top-level build, as they pick up all modules inside the project. So thinks that are optional and not pulled in on the top-level (like the debug builds for ART) will be built when you \"build inside\" art/.\n\nIt\u0027s standard procedure \"here\" to build inside ART with one mma and then mm. Because before ninja that was significantly faster. *And* it creates all debug builds. So if you want to run a debug build on device, do mm in art/, adb sync and change the system property, and you\u0027re good to go.\n\n(And basically this is why these two phony modules exist: it\u0027s to keep the old process viable.)",
+      "parentUuid": "8a68ef71_0a58dbd9",
+      "range": {
+        "startLine": 404,
+        "startChar": 52,
+        "endLine": 404,
+        "endChar": 78
+      },
+      "revId": "f85574355201880be24997ee94ba9dc20f75d0e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
