@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "ca6827a1_3c019d4d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-08T19:55:43Z",
+      "side": 1,
+      "message": "I don\u0027t have a good understanding of the issue. Can you describe the situation more in detail? Why are we crashing? What waits are these spurious wakeups are from? Why it\u0027s good to sleep forever?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 6
+      },
+      "revId": "a39aae8af4f3b18c84f8b4b36b51a3bff00680d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a74377b_d5d07c50",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-08T19:55:43Z",
+      "side": 1,
+      "message": "has_stub_jni_functions?",
+      "range": {
+        "startLine": 860,
+        "startChar": 40,
+        "endLine": 860,
+        "endChar": 58
+      },
+      "revId": "a39aae8af4f3b18c84f8b4b36b51a3bff00680d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a74377b_35d8d073",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-08T19:55:43Z",
+      "side": 1,
+      "message": "Can we have a high level comment why we do this? Point to a bug?",
+      "range": {
+        "startLine": 862,
+        "startChar": 6,
+        "endLine": 862,
+        "endChar": 8
+      },
+      "revId": "a39aae8af4f3b18c84f8b4b36b51a3bff00680d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca6e677a_ec80031f",
         "filename": "runtime/base/mutex.cc",
         "patchSetId": 1
@@ -18,6 +87,29 @@
         "startChar": 50,
         "endLine": 863,
         "endChar": 59
+      },
+      "revId": "a39aae8af4f3b18c84f8b4b36b51a3bff00680d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a8b57a3_20e7a4cf",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-08T19:55:43Z",
+      "side": 1,
+      "message": "A traditional way to handle a spurious wakeup is to put the wait call in a loop. Is it not an option here?",
+      "range": {
+        "startLine": 863,
+        "startChar": 60,
+        "endLine": 863,
+        "endChar": 66
       },
       "revId": "a39aae8af4f3b18c84f8b4b36b51a3bff00680d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -64,6 +156,29 @@
         "startChar": 7,
         "endLine": 78,
         "endChar": 25
+      },
+      "revId": "a39aae8af4f3b18c84f8b4b36b51a3bff00680d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca6827a1_5cd01122",
+        "filename": "runtime/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2743,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-08T19:55:43Z",
+      "side": 1,
+      "message": "Is \"stub\" specific enough for this? I wonder SleepForeverStub or something like that would work better.",
+      "range": {
+        "startLine": 2743,
+        "startChar": 7,
+        "endLine": 2743,
+        "endChar": 30
       },
       "revId": "a39aae8af4f3b18c84f8b4b36b51a3bff00680d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
