@@ -22,6 +22,30 @@
       "revId": "1407ee7df9d063e4d94c488c7beb46cb2da0677e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cae3c748_8ab98fed",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4686,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-08T16:12:42Z",
+      "side": 1,
+      "message": "The `kPrimInt` case is now handled with other non `kPrimNot` cases in https://android-review.googlesource.com/#/c/194774/; is this what you were referring to?",
+      "parentUuid": "4a2c372e_7be4b7c8",
+      "range": {
+        "startLine": 4686,
+        "startChar": 0,
+        "endLine": 4686,
+        "endChar": 60
+      },
+      "revId": "1407ee7df9d063e4d94c488c7beb46cb2da0677e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
