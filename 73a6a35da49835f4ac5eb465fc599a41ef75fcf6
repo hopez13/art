@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a4357e2_750603fd",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-08T04:52:33Z",
+      "side": 1,
+      "message": "Would you please extend the comment a bit, making clear what\u0027s redundant and why?\n\nI had to spend a bit of time thinking through this and making sure I understood it (I was concerned we\u0027re missing an update and exception traces would be wrong, but now I understand that mterp already wrote the dex pc in).\n\n\nThe following is up for discussion:\n\nTracing is normally off, anyways. So the TraceExecution is for all intents and purposes a nop, and I don\u0027t think it needs to be avoided.\n\nIn that case, you can rewrite your\n\n do {\n   if (x) { a }\n   ...\n } until (y);\n a;\n\nto be\n\n if (x) { a }\n do {\n   ...\n   a;\n } until (y);\n\nThat would avoid the branch in the loop. Given, it\u0027s a micro-op, and mterp is the future, but still...",
+      "range": {
+        "startLine": 113,
+        "startChar": 4,
+        "endLine": 116,
+        "endChar": 36
+      },
+      "revId": "73a6a35da49835f4ac5eb465fc599a41ef75fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
