@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "aa3e9347_eac6b81e",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-08T00:17:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a68ef71_8a1feb9e",
+      "range": {
+        "startLine": 404,
+        "startChar": 56,
+        "endLine": 404,
+        "endChar": 79
+      },
+      "revId": "3efca20313729903339819432d022f6aba3aa4b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a481bfe_785e01cb",
         "filename": "Android.mk",
         "patchSetId": 1
@@ -143,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "ea1debf7_cbdc0a0d",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-08T00:17:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a2c372e_d87631b8",
+      "range": {
+        "startLine": 409,
+        "startChar": 0,
+        "endLine": 409,
+        "endChar": 50
+      },
+      "revId": "3efca20313729903339819432d022f6aba3aa4b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a4357e2_09f1acff",
         "filename": "Android.mk",
         "patchSetId": 1
@@ -154,6 +202,30 @@
       "writtenOn": "2016-01-07T19:31:15Z",
       "side": 1,
       "message": "If you define two phony packages, one for host and one for target, you can use LOCAL_REQUIRED_MODULES without the direct dependencies. Something like:\n\ninclude $(CLEAR_VARS)\nLOCAL_MODULE :\u003d art-libartd-libopenjdkd-dependency\nifeq ($(ART_BUILD_TARGET_DEBUG),true)\nLOCAL_REQUIRED_MODULES:\u003d libopenjdkd\nendif\ninclude $(BUILD_PHONY_PACKAGE)\n\ninclude $(CLEAR_VARS)\nLOCAL_MODULE :\u003d art-libartd-libopenjdkd-dependency\nifeq ($(ART_BUILD_HOST_DEBUG),true)\nLOCAL_REQUIRED_MODULES:\u003d libopenjdkd\nendif\nLOCAL_IS_HOST_MODULE :\u003d true\ninclude $(BUILD_PHONY_PACKAGE)",
+      "range": {
+        "startLine": 412,
+        "startChar": 0,
+        "endLine": 426,
+        "endChar": 5
+      },
+      "revId": "3efca20313729903339819432d022f6aba3aa4b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea1debf7_2bd82617",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-08T00:17:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a4357e2_09f1acff",
       "range": {
         "startLine": 412,
         "startChar": 0,
