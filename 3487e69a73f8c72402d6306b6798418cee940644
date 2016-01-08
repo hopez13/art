@@ -193,6 +193,30 @@
     },
     {
       "key": {
+        "uuid": "4a2c372e_bba9ef9d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-08T10:25:05Z",
+      "side": 1,
+      "message": "\u003e IIRC this is a straightforward optimization at the JIT compiler\n \u003e stage because by the time the class is loaded all (\u003d\u003dbefore code is\n \u003e jitted, right?) of its superinterfaces/superclasses have also been\n \u003e loaded and therefore it knows the actual direct target (and we can\n \u003e make the same assumption for a class hierarchy within the same dex\n \u003e file).\n \u003e \n \u003e However at source compiler stage it has no idea what classes will\n \u003e actually be loaded at runtime so it cannot put down an\n \u003e invoke-direct.\n\nNo: at \"source compiler stage\" (dex2oat), we have as much as an idea than the jit about the target. The jit can also have unresolved classes when compiling methods.\n\nSo the only problem I see is interpreter performance.\n\n \u003e \n \u003e As Alex pointed out this isn\u0027t used at all right now so it\u0027s\n \u003e probably OK not to have a faster path until we see a need, since\n \u003e that was already the case for the class invoke-super (which is\n \u003e actually used in a few places).",
+      "parentUuid": "0a4ddf0f_da85c4c3",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 41
+      },
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25ead6c4_f18d0ae7",
         "filename": "compiler/dex/quick/quick_compiler.cc",
         "patchSetId": 24
