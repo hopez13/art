@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ca6827a1_795a477c",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1075,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-08T16:43:04Z",
+      "side": 1,
+      "message": "Because of annotalysis...",
+      "parentUuid": "8a68ef71_4a5ed3ca",
+      "range": {
+        "startLine": 1074,
+        "startChar": 11,
+        "endLine": 1075,
+        "endChar": 23
+      },
+      "revId": "1f47b678db70d57aa5194266651a8f4336fc851e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca6e677a_0c6a372e",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 4
