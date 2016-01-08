@@ -424,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "ea65ebc4_5a84957b",
+        "filename": "runtime/interpreter/mterp/README.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-08T19:18:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a1aaf01_e0e818d5",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 41
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a4ddf0f_841dac55",
         "filename": "runtime/interpreter/mterp/arm/alt_stub.S",
         "patchSetId": 3
@@ -447,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "ca6827a1_1cd69920",
+        "filename": "runtime/interpreter/mterp/arm/alt_stub.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-08T19:18:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a4ddf0f_841dac55",
+      "range": {
+        "startLine": 2,
+        "startChar": 49,
+        "endLine": 2,
+        "endChar": 63
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a52a3ad_505afc7b",
         "filename": "runtime/interpreter/mterp/arm/binop.S",
         "patchSetId": 3
@@ -458,6 +506,30 @@
       "writtenOn": "2016-01-08T04:52:33Z",
       "side": 1,
       "message": "Indent.",
+      "range": {
+        "startLine": 29,
+        "startChar": 40,
+        "endLine": 29,
+        "endChar": 41
+      },
+      "revId": "d2eb90e4c8b5bb96c4ac8cbacb392015a18ffd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea65ebc4_faeba92a",
+        "filename": "runtime/interpreter/mterp/arm/binop.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-08T19:18:18Z",
+      "side": 1,
+      "message": "Done - there were lots of these on FETCH_ADVANCE_INST lines.  Should all be fixed now.",
+      "parentUuid": "2a52a3ad_505afc7b",
       "range": {
         "startLine": 29,
         "startChar": 40,
