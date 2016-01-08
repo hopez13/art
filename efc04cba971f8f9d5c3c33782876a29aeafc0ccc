@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6aa2db12_91789ecd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-08T11:49:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a68ef71_2aafdfe5",
+      "revId": "efc04cba971f8f9d5c3c33782876a29aeafc0ccc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea1debf7_da537a18",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 4
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "2a2b8319_7aacb1a9",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1298,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-08T11:49:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea1debf7_da537a18",
+      "range": {
+        "startLine": 1298,
+        "startChar": 22,
+        "endLine": 1298,
+        "endChar": 28
+      },
+      "revId": "efc04cba971f8f9d5c3c33782876a29aeafc0ccc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a31fb81_5c3a150b",
         "filename": "compiler/optimizing/dead_code_elimination.cc",
         "patchSetId": 4
@@ -53,6 +95,30 @@
       "writtenOn": "2016-01-08T11:08:57Z",
       "side": 1,
       "message": "I presume you\u0027re updating all loops even if they aren\u0027t directly affected in hope that you turn some irreducible loops into natural ones, right? First, a comment would be helpful. And second, that\u0027s pretty conservative and wasteful given the frequency of irreducible loops. Could we do better than this? DCE should be a swift operation.",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 23
+      },
+      "revId": "efc04cba971f8f9d5c3c33782876a29aeafc0ccc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2c372e_7bda773e",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-08T11:49:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a31fb81_5c3a150b",
       "range": {
         "startLine": 106,
         "startChar": 0,
@@ -112,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "eae08b3e_25bfd8e9",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-08T11:49:58Z",
+      "side": 1,
+      "message": "Yeah, I\u0027d much rather stay consistent and emit true/false. The CHECK line can still ignore the property.",
+      "parentUuid": "6a5f3bcc_0906ada4",
+      "range": {
+        "startLine": 509,
+        "startChar": 8,
+        "endLine": 509,
+        "endChar": 28
+      },
+      "revId": "efc04cba971f8f9d5c3c33782876a29aeafc0ccc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea1debf7_5a3e8a63",
         "filename": "compiler/optimizing/induction_var_analysis.cc",
         "patchSetId": 4
@@ -158,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "6aa2db12_d17226e9",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-08T11:49:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a54ffaf_c973b5ef",
+      "range": {
+        "startLine": 586,
+        "startChar": 0,
+        "endLine": 586,
+        "endChar": 50
+      },
+      "revId": "efc04cba971f8f9d5c3c33782876a29aeafc0ccc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a2b8319_f7cbfaa0",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 4
@@ -175,6 +289,24 @@
     },
     {
       "key": {
+        "uuid": "eae08b3e_2586b83d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-08T11:49:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a2b8319_f7cbfaa0",
+      "revId": "efc04cba971f8f9d5c3c33782876a29aeafc0ccc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eae08b3e_455e5cca",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 4
@@ -186,6 +318,24 @@
       "writtenOn": "2016-01-08T11:08:57Z",
       "side": 1,
       "message": "(8)",
+      "revId": "efc04cba971f8f9d5c3c33782876a29aeafc0ccc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cae3c748_87efca14",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-08T11:49:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eae08b3e_455e5cca",
       "revId": "efc04cba971f8f9d5c3c33782876a29aeafc0ccc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
