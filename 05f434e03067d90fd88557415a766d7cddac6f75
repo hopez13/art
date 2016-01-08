@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a95dfbc_84fb2c92",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-08T23:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca6827a1_9f445b53",
+      "range": {
+        "startLine": 858,
+        "startChar": 21,
+        "endLine": 858,
+        "endChar": 32
+      },
+      "revId": "05f434e03067d90fd88557415a766d7cddac6f75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a9aa3ee_e525cc98",
         "filename": "runtime/base/mutex.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-08T23:36:36Z",
       "side": 1,
       "message": "Maybe \"If the runtime has been deleted...\" referring to the if condition?",
+      "range": {
+        "startLine": 862,
+        "startChar": 9,
+        "endLine": 862,
+        "endChar": 42
+      },
+      "revId": "05f434e03067d90fd88557415a766d7cddac6f75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea65ebc4_20e7aecf",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-08T23:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a9aa3ee_e525cc98",
       "range": {
         "startLine": 862,
         "startChar": 9,
