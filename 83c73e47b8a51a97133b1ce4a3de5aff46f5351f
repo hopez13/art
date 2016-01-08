@@ -2,6 +2,132 @@
   "comments": [
     {
       "key": {
+        "uuid": "cae3c748_c749d214",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-08T11:55:05Z",
+      "side": 1,
+      "message": "As the type parameters `I` and `T` are constrained (`I` should be an instruction type, while `T` should be a slow path code type), I would give them more explicit names, e.g `InstructionType` and `SlowPathCodeType` respectively.\n\nIt would make some lines below (e.g. line 704) easier to read.",
+      "range": {
+        "startLine": 680,
+        "startChar": 0,
+        "endLine": 681,
+        "endChar": 56
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a54ffaf_697e41be",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-08T11:55:05Z",
+      "side": 1,
+      "message": "Nit: template \u003ctypename I\u003e",
+      "range": {
+        "startLine": 683,
+        "startChar": 0,
+        "endLine": 683,
+        "endChar": 20
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6aa2db12_718b7206",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-08T11:55:05Z",
+      "side": 1,
+      "message": "What about adding this check:\n\n  static_assert(std::is_base_of\u003cHInstruction, I\u003e::value,\n                \"I is not a subclass of art::HInstruction\");\n\nhere?",
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca6e677a_0fb9c9ea",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-08T11:55:05Z",
+      "side": 1,
+      "message": "Drop?",
+      "range": {
+        "startLine": 686,
+        "startChar": 0,
+        "endLine": 686,
+        "endChar": 17
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a68ef71_aaff4fc9",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-08T11:55:05Z",
+      "side": 1,
+      "message": "template \u003ctypename T\u003e",
+      "range": {
+        "startLine": 693,
+        "startChar": 2,
+        "endLine": 693,
+        "endChar": 22
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cae3c748_27e23e2e",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-08T11:55:05Z",
+      "side": 1,
+      "message": "What about adding these checks:\n\n    static_assert(std::is_base_of\u003cSlowPathCode, T\u003e::value,\n                  \"T is not a subclass of art::SlowPathCode\");\n    static_assert(std::is_constructible\u003cT, I*\u003e::value,\n                  \"T is not constructible from I*\");\n\nhere?",
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a2b8319_77860a3f",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 3
@@ -18,6 +144,75 @@
         "startChar": 11,
         "endLine": 702,
         "endChar": 69
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a31fb81_dca06564",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-08T11:55:05Z",
+      "side": 1,
+      "message": "down_cast",
+      "range": {
+        "startLine": 704,
+        "startChar": 29,
+        "endLine": 704,
+        "endChar": 40
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a2c372e_9bf2f3c1",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-08T11:55:05Z",
+      "side": 1,
+      "message": "Could we use\n\n  iter-\u003esecond.emplace_back(instruction, slow_path);\n\nhere?",
+      "range": {
+        "startLine": 719,
+        "startChar": 4,
+        "endLine": 719,
+        "endChar": 67
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6aa2db12_71625216",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 726,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-08T11:55:05Z",
+      "side": 1,
+      "message": "preamble? (or prerequisite?)",
+      "range": {
+        "startLine": 726,
+        "startChar": 40,
+        "endLine": 726,
+        "endChar": 49
       },
       "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -48,6 +243,75 @@
     },
     {
       "key": {
+        "uuid": "0a54ffaf_49e7c5ce",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-08T11:55:05Z",
+      "side": 1,
+      "message": "const I*",
+      "range": {
+        "startLine": 727,
+        "startChar": 26,
+        "endLine": 727,
+        "endChar": 28
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a68ef71_0a069ba4",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-08T11:55:05Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 727,
+        "startChar": 39,
+        "endLine": 727,
+        "endChar": 40
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6aa2db12_b1d2faf6",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-08T11:55:05Z",
+      "side": 1,
+      "message": "const I*",
+      "range": {
+        "startLine": 727,
+        "startChar": 33,
+        "endLine": 727,
+        "endChar": 35
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a31fb81_1c625d15",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 3
@@ -64,6 +328,75 @@
         "startChar": 7,
         "endLine": 740,
         "endChar": 20
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6aa2db12_f1dc820c",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-08T11:55:05Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 740,
+        "startChar": 34,
+        "endLine": 740,
+        "endChar": 35
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a31fb81_9cc18d0a",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-08T11:55:05Z",
+      "side": 1,
+      "message": "const I*",
+      "range": {
+        "startLine": 740,
+        "startChar": 21,
+        "endLine": 740,
+        "endChar": 23
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eae08b3e_45893c4e",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-08T11:55:05Z",
+      "side": 1,
+      "message": "const I*",
+      "range": {
+        "startLine": 740,
+        "startChar": 28,
+        "endLine": 740,
+        "endChar": 30
       },
       "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -110,6 +443,52 @@
         "startChar": 0,
         "endLine": 20,
         "endChar": 19
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a68ef71_2a035f95",
+        "filename": "test/561-shared-slowpaths/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-08T11:55:05Z",
+      "side": 1,
+      "message": "Nit: int z;",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 12
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cae3c748_c71712d7",
+        "filename": "test/561-shared-slowpaths/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-08T11:55:05Z",
+      "side": 1,
+      "message": "OOB? (And likewise below.)",
+      "range": {
+        "startLine": 69,
+        "startChar": 13,
+        "endLine": 69,
+        "endChar": 16
       },
       "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
