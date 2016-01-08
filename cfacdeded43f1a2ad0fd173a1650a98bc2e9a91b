@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a1aaf01_d65cb533",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1567,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-08T01:40:25Z",
+      "side": 1,
+      "message": "Move up to where it\u0027s defined?",
+      "range": {
+        "startLine": 1567,
+        "startChar": 4,
+        "endLine": 1567,
+        "endChar": 63
+      },
+      "revId": "cfacdeded43f1a2ad0fd173a1650a98bc2e9a91b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa1773d7_1581c320",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1131,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-08T01:40:25Z",
+      "side": 1,
+      "message": "Double.",
+      "range": {
+        "startLine": 1131,
+        "startChar": 54,
+        "endLine": 1131,
+        "endChar": 62
+      },
+      "revId": "cfacdeded43f1a2ad0fd173a1650a98bc2e9a91b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a4ddf0f_53ef5f15",
+        "filename": "runtime/class_table.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-08T01:40:25Z",
+      "side": 1,
+      "message": "Why this change?",
+      "range": {
+        "startLine": 109,
+        "startChar": 6,
+        "endLine": 109,
+        "endChar": 13
+      },
+      "revId": "cfacdeded43f1a2ad0fd173a1650a98bc2e9a91b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
