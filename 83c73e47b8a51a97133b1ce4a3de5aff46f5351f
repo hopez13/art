@@ -220,6 +220,30 @@
     },
     {
       "key": {
+        "uuid": "ea65ebc4_fa5e49f9",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-08T19:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a2c372e_9bf2f3c1",
+      "range": {
+        "startLine": 719,
+        "startChar": 4,
+        "endLine": 719,
+        "endChar": 67
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6aa2db12_71625216",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 3
@@ -520,6 +544,30 @@
     },
     {
       "key": {
+        "uuid": "0a95dfbc_7e5a2d7c",
+        "filename": "test/561-shared-slowpaths/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-08T19:17:56Z",
+      "side": 1,
+      "message": "Yes, all good points. This test was aimed at testing correctness under sharing. I did not make this a checkers test because, as David correctly observed, sharing happens differently on different architectures.\n\nLet me think about this a bit.....",
+      "parentUuid": "ca6e677a_cf3e5109",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a68ef71_2a035f95",
         "filename": "test/561-shared-slowpaths/src/Main.java",
         "patchSetId": 3
@@ -543,6 +591,30 @@
     },
     {
       "key": {
+        "uuid": "8a62afbe_b7c868cf",
+        "filename": "test/561-shared-slowpaths/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-08T19:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a68ef71_2a035f95",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 12
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cae3c748_c71712d7",
         "filename": "test/561-shared-slowpaths/src/Main.java",
         "patchSetId": 3
@@ -554,6 +626,30 @@
       "writtenOn": "2016-01-08T11:55:05Z",
       "side": 1,
       "message": "OOB? (And likewise below.)",
+      "range": {
+        "startLine": 69,
+        "startChar": 13,
+        "endLine": 69,
+        "endChar": 16
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a901bcb_3e87c982",
+        "filename": "test/561-shared-slowpaths/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-08T19:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cae3c748_c71712d7",
       "range": {
         "startLine": 69,
         "startChar": 13,
