@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca202730_78afd89f",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-08T00:51:10Z",
+      "side": 1,
+      "message": "Not something we do.\n\nAdd a constexpr flag, and do a normal LOG. Or if you think it\u0027s useful enough, VLOG(compiler).",
+      "range": {
+        "startLine": 708,
+        "startChar": 0,
+        "endLine": 711,
+        "endChar": 6
+      },
+      "revId": "ec8d153575a52c71f4634f5ef50c1279a37f7f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
