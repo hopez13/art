@@ -39,6 +39,29 @@
       "revId": "e0276c99730a9bc48e88c28959a1e62fef9a299c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a2b8319_9abbcddf",
+        "filename": "compiler/optimizing/instruction_simplifier_shared.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-08T11:49:20Z",
+      "side": 1,
+      "message": "How about moving this to the HMulitplyAccumulate class?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 65
+      },
+      "revId": "e0276c99730a9bc48e88c28959a1e62fef9a299c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
