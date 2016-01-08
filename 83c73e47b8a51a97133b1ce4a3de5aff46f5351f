@@ -128,6 +128,29 @@
     },
     {
       "key": {
+        "uuid": "cae3c748_67ec4620",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-08T12:44:18Z",
+      "side": 1,
+      "message": "Do you actually enforce this anywhere? From what I can tell it relies on the fact that no type `I` will ever generate slow paths of two different types `T` and that\u0027s not true. HInstanceOf on arm64 can already emit ReadBarrierForHeapReferenceSlowPathARM64 followed by TypeCheckSlowPathARM64. Neither of these has the required T(I*) constructor but it still looks like a dangerous implicit assumption. It would be safer to have `T` a template on the whole class but then you wouldn\u0027t be able to have the common InstructionCodeGenerator class.",
+      "range": {
+        "startLine": 696,
+        "startChar": 65,
+        "endLine": 697,
+        "endChar": 17
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a2b8319_77860a3f",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 3
@@ -404,6 +427,29 @@
     },
     {
       "key": {
+        "uuid": "cae3c748_87586adc",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-08T12:44:18Z",
+      "side": 1,
+      "message": "Nit: Less vague name please.",
+      "range": {
+        "startLine": 763,
+        "startChar": 68,
+        "endLine": 763,
+        "endChar": 72
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a2c372e_1bd02321",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 3
@@ -438,6 +484,30 @@
       "writtenOn": "2016-01-08T10:42:43Z",
       "side": 1,
       "message": "Please add checker tests that we only have one slow path.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca6e677a_cf3e5109",
+        "filename": "test/561-shared-slowpaths/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-08T12:44:18Z",
+      "side": 1,
+      "message": "+1 because this doesn\u0027t actually show that any sharing is taking place. That said, the test would have to be more concise, or \"unit\" if you will, to get a case where the register maps are actually equal.\n\nx86: first loop shared, second loop not\nx86_64: two out of three shared in first loop, none in second loop\narm: two shared in first loop, all shared in second",
+      "parentUuid": "2a2b8319_f799baa4",
       "range": {
         "startLine": 20,
         "startChar": 0,
