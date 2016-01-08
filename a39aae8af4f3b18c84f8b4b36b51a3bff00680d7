@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca6e677a_ec80031f",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-08T10:30:28Z",
+      "side": 1,
+      "message": "spurious",
+      "range": {
+        "startLine": 863,
+        "startChar": 50,
+        "endLine": 863,
+        "endChar": 59
+      },
+      "revId": "a39aae8af4f3b18c84f8b4b36b51a3bff00680d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eae08b3e_e51690d8",
+        "filename": "runtime/base/mutex.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-08T10:30:28Z",
+      "side": 1,
+      "message": "SleepForever? (by moving it to utils.h/cc?)",
+      "range": {
+        "startLine": 864,
+        "startChar": 0,
+        "endLine": 866,
+        "endChar": 7
+      },
+      "revId": "a39aae8af4f3b18c84f8b4b36b51a3bff00680d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cae3c748_67af26e5",
+        "filename": "runtime/jni_env_ext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-08T10:30:28Z",
+      "side": 1,
+      "message": "how about naming this: runtime_deleted_ ?",
+      "range": {
+        "startLine": 78,
+        "startChar": 7,
+        "endLine": 78,
+        "endChar": 25
+      },
+      "revId": "a39aae8af4f3b18c84f8b4b36b51a3bff00680d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eae08b3e_450c9cc6",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1157,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-08T10:30:28Z",
+      "side": 1,
+      "message": "Please add a comment here.\n\nAlso, \"SuspendAllDaemonThreads\" doesn\u0027t sounds like implying the runtime is deleted.",
+      "range": {
+        "startLine": 1157,
+        "startChar": 0,
+        "endLine": 1157,
+        "endChar": 51
+      },
+      "revId": "a39aae8af4f3b18c84f8b4b36b51a3bff00680d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
