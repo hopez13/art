@@ -217,6 +217,30 @@
     },
     {
       "key": {
+        "uuid": "8a62afbe_dd489bb7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-08T23:17:37Z",
+      "side": 1,
+      "message": "Source compiler stage meaning when .java source files are processed by javac, jack, etc. Not dex2oat. (Since when do we refer to dex bytecode as \"source\"?).\n\nI\u0027m sure we\u0027d all like the interpreter to be faster, I was just pointing out that we have to be careful to stay consistent with the specification. Perhaps there\u0027s some other way we can speed up the interpreter?",
+      "parentUuid": "4a2c372e_bba9ef9d",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 41
+      },
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25ead6c4_f18d0ae7",
         "filename": "compiler/dex/quick/quick_compiler.cc",
         "patchSetId": 24
