@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "aa3e9347_ca0bb400",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-08T00:56:18Z",
+      "side": 1,
+      "message": "This and others probably can be const? Nicolas might prefer \u0026.",
+      "range": {
+        "startLine": 694,
+        "startChar": 17,
+        "endLine": 694,
+        "endChar": 19
+      },
+      "revId": "ec8d153575a52c71f4634f5ef50c1279a37f7f44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca202730_78afd89f",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 1
