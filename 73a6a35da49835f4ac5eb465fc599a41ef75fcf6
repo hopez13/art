@@ -22,6 +22,30 @@
       "revId": "73a6a35da49835f4ac5eb465fc599a41ef75fcf6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a62afbe_f7ebc02a",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-08T19:18:18Z",
+      "side": 1,
+      "message": "Thinking about this a little more, I think it\u0027s probably best just to lose the \"if () {}\" altogether.  I inserted this code when I use using a templated version of the switch interpreter for single-stepping, so at the time it added zero cost to the switch interpreter.  Once mterp is fleshed out for a target, the single-step case is a very rare slow path.  So, redundantly setting dex_pc is of little consequence.  But, as the code stands now it does add useless work to the common case of the switch version.\n\nChanging to remove the !interpret_one_instruction test and unconditionally doing the update.",
+      "parentUuid": "4a4357e2_750603fd",
+      "range": {
+        "startLine": 113,
+        "startChar": 4,
+        "endLine": 116,
+        "endChar": 36
+      },
+      "revId": "73a6a35da49835f4ac5eb465fc599a41ef75fcf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
