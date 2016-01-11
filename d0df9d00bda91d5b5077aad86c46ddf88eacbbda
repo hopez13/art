@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "277bbeaf_14963434",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4884,
+      "author": {
+        "id": 1056098
+      },
+      "writtenOn": "2016-01-11T18:51:06Z",
+      "side": 1,
+      "message": "MIPS32R6 in our case is a subset of MIPS64R6 and doesn\u0027t exist as a separate architecture of its own, at least for now. So, you can write either in the comment, but the emulator needs to be fixed for MIPS64R6, which will cover MIPS32R6 as well.",
+      "parentUuid": "ea4a4b41_72d8b8a2",
+      "range": {
+        "startLine": 4884,
+        "startChar": 36,
+        "endLine": 4884,
+        "endChar": 44
+      },
+      "revId": "d0df9d00bda91d5b5077aad86c46ddf88eacbbda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca4d875b_7140b837",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "27d01ee4_ec372b1f",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4915,
+      "author": {
+        "id": 1056098
+      },
+      "writtenOn": "2016-01-11T18:51:06Z",
+      "side": 1,
+      "message": "R2 (NAN2008\u003d0):\n\u003c min --\u003e max\n\u003e max --\u003e max\nNaN --\u003e max\n\nR6 (NAN2008\u003d1):\n\u003c min --\u003e min\n\u003e max --\u003e max\nNaN --\u003e 0\n\nIOW, the difference is only in handling NaNs and negative values less than the minimum.\n\nThere\u0027s no difference between MIPS32 and MIPS64 other than the truncate/round/ceil/floor instructions with L in the format requiring a 64-bit FPU, which is always true for MIPS64 and R6 (AKA FR\u003d1), while older MIPS32R2 could have either a 32-bit FPU (AKA FR\u003d0) or a 64-bit one.",
+      "parentUuid": "ca4d875b_7140b837",
+      "range": {
+        "startLine": 4915,
+        "startChar": 13,
+        "endLine": 4915,
+        "endChar": 20
+      },
+      "revId": "d0df9d00bda91d5b5077aad86c46ddf88eacbbda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a570fe9_cfc1bd09",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2016-01-11T14:13:29Z",
       "side": 1,
       "message": "MIPS32R6?",
+      "range": {
+        "startLine": 4944,
+        "startChar": 34,
+        "endLine": 4944,
+        "endChar": 42
+      },
+      "revId": "d0df9d00bda91d5b5077aad86c46ddf88eacbbda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0776bac5_53a04462",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4944,
+      "author": {
+        "id": 1056098
+      },
+      "writtenOn": "2016-01-11T18:51:06Z",
+      "side": 1,
+      "message": "Same as above.",
+      "parentUuid": "8a570fe9_cfc1bd09",
       "range": {
         "startLine": 4944,
         "startChar": 34,
