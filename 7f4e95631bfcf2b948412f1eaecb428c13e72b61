@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ca4d875b_91119c36",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-11T15:06:03Z",
+      "side": 1,
+      "message": "Done.\n\nThe compiler option still needs to be set somewhere, so I just moved the flag one level up.",
+      "parentUuid": "ca4d875b_d14ec470",
+      "range": {
+        "startLine": 111,
+        "startChar": 22,
+        "endLine": 111,
+        "endChar": 51
+      },
+      "revId": "7f4e95631bfcf2b948412f1eaecb428c13e72b61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a3997b3_2d36cddb",
         "filename": "runtime/jit/debugger_interface.h",
         "patchSetId": 9
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "+1: We should remove these as they should be only the implementation details of the 2 methods below.\n\nOn the other hand ElfFileImpl\u003cElfTypes\u003e::GdbJITSupport depends on these. That function should be removed as it isn\u0027t needed anymore (that information is communicated to the debugger through the linker rendezvous structure) but I think it would be a good idea to do it with a separate CL.",
       "parentUuid": "4a3997b3_2d36cddb",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 45
+      },
+      "revId": "7f4e95631bfcf2b948412f1eaecb428c13e72b61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a6ebfb0_f3ebd02a",
+        "filename": "runtime/jit/debugger_interface.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-11T15:06:03Z",
+      "side": 1,
+      "message": "The native debugger needs to be notified that code has been removed from the JIT cache.  Otherwise we would run into problems once the cache gets reused by new entry.\n\nI am happy to make those two implementation detail of the two below after GdbJITSupport is removed.",
+      "parentUuid": "4a3997b3_4d09590c",
       "range": {
         "startLine": 28,
         "startChar": 0,
