@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a6ebfb0_d38094b6",
+        "filename": "test/442-checker-constant-folding/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-11T11:26:05Z",
+      "side": 1,
+      "message": "This is the only test which changes beyond swapping inputs. I could do the adds in an inlined method but then the constant folding happens as part of the inliner inside which we don\u0027t dump the CFG, so the Checker test isn\u0027t very descriptive either. If you guys don\u0027t mind, I\u0027d just leave it like this...",
+      "range": {
+        "startLine": 118,
+        "startChar": 28,
+        "endLine": 118,
+        "endChar": 40
+      },
+      "revId": "57e863c3739c310380e19252ad5746ff08d219c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
