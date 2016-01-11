@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a431f35_2b50795a",
+        "filename": "runtime/interpreter/mterp/arm/entry.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2016-01-11T07:47:16Z",
+      "side": 1,
+      "message": "Is it valid year?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a3e5b9d_4efeb384",
+        "filename": "runtime/interpreter/mterp/arm/header.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2016-01-11T07:47:16Z",
+      "side": 1,
+      "message": "Is it correct year?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa54d3e4_103924cd",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2016-01-11T07:47:16Z",
+      "side": 1,
+      "message": "Add SHARED_REQUIRES(Locks::mutator_lock_)?",
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a570fe9_ef4da1c4",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2016-01-11T07:47:16Z",
+      "side": 1,
+      "message": "Add SHARED_REQUIRES(Locks::mutator_lock_) ?",
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
