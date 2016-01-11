@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea4a4b41_72d8b8a2",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4884,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-11T14:13:29Z",
+      "side": 1,
+      "message": "MIPS32R6?",
+      "range": {
+        "startLine": 4884,
+        "startChar": 36,
+        "endLine": 4884,
+        "endChar": 44
+      },
+      "revId": "d0df9d00bda91d5b5077aad86c46ddf88eacbbda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca4d875b_7140b837",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4915,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-11T14:13:29Z",
+      "side": 1,
+      "message": "The Dalvik bytecode documentation specifies that for values above std::numeric_limits\u003cint64_t\u003e::max() (resp. std::numeric_limits\u003cint32_t\u003e::max()), the {float,double}-to-long (resp. {float,double}-to-int) instructions should produce std::numeric_limits\u003cint64_t\u003e::max() (resp. std::numeric_limits\u003cint32_t\u003e::max()).\n\nHow does the TRUNC.L.fmt (resp. TRUNC.W.fmt) instruction deal with such values?  (Same question for MIPS64.)",
+      "range": {
+        "startLine": 4915,
+        "startChar": 13,
+        "endLine": 4915,
+        "endChar": 20
+      },
+      "revId": "d0df9d00bda91d5b5077aad86c46ddf88eacbbda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a570fe9_cfc1bd09",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4944,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-11T14:13:29Z",
+      "side": 1,
+      "message": "MIPS32R6?",
+      "range": {
+        "startLine": 4944,
+        "startChar": 34,
+        "endLine": 4944,
+        "endChar": 42
+      },
+      "revId": "d0df9d00bda91d5b5077aad86c46ddf88eacbbda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
