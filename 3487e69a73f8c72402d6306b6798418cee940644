@@ -241,6 +241,30 @@
     },
     {
       "key": {
+        "uuid": "477c32a4_b5fbc090",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-11T18:18:39Z",
+      "side": 1,
+      "message": "Agreed. We could make it faster by giving interfaces IMTs and IFTables. An earlier version of this CL had it done this way with interfaces having IFTables (IMTs had unrelated problems). It was changed due to having extra memory use (100-200k). With JIT/AOT the invokes should normally be sharpened to direct invokes.",
+      "parentUuid": "8a62afbe_dd489bb7",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 41
+      },
+      "revId": "3487e69a73f8c72402d6306b6798418cee940644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "25ead6c4_f18d0ae7",
         "filename": "compiler/dex/quick/quick_compiler.cc",
         "patchSetId": 24
