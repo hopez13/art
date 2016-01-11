@@ -22,6 +22,30 @@
       "revId": "23db66bc84c8ade89914c6ebd61c572ae0cb5074",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa54d3e4_90c354b2",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-11T14:05:16Z",
+      "side": 1,
+      "message": "All right; thanks for the explanation Hans.  I\u0027ve reverted the change in PS2; PTAL.",
+      "parentUuid": "2a9aa3ee_a58ca423",
+      "range": {
+        "startLine": 1057,
+        "startChar": 1,
+        "endLine": 1061,
+        "endChar": 3
+      },
+      "revId": "23db66bc84c8ade89914c6ebd61c572ae0cb5074",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
