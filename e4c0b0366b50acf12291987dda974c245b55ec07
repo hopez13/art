@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca4d875b_9138bcae",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1278,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-11T15:37:27Z",
+      "side": 1,
+      "message": "...shouldn\u0027t this ensure that we can safely iterate over the loaded classes?",
+      "range": {
+        "startLine": 1278,
+        "startChar": 6,
+        "endLine": 1278,
+        "endChar": 54
+      },
+      "revId": "e4c0b0366b50acf12291987dda974c245b55ec07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
