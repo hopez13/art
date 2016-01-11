@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a570fe9_cfdc5d0d",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1222,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-11T12:06:18Z",
+      "side": 1,
+      "message": "the null constant (and explain why using HConstantNull and not null).",
+      "range": {
+        "startLine": 1222,
+        "startChar": 24,
+        "endLine": 1222,
+        "endChar": 28
+      },
+      "revId": "7680b383f3d8047fdc8a2b7707b7967227da5189",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
