@@ -1084,6 +1084,30 @@
     },
     {
       "key": {
+        "uuid": "8a570fe9_af49d96b",
+        "filename": "test/561-shared-slowpaths/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-11T14:35:16Z",
+      "side": 1,
+      "message": "Just an idea, but I wonder if you could squeeze out a bit more sharing out of this if you reorganized the instructions in the deopt block, specifically by moving the ALU instructions to the top. If so, it would make writing a platform-independent test easier.",
+      "parentUuid": "0a95dfbc_7e5a2d7c",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a68ef71_2a035f95",
         "filename": "test/561-shared-slowpaths/src/Main.java",
         "patchSetId": 3
