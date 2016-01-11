@@ -1108,6 +1108,30 @@
     },
     {
       "key": {
+        "uuid": "67c69632_6e16cf9e",
+        "filename": "test/561-shared-slowpaths/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-11T18:54:03Z",
+      "side": 1,
+      "message": "I actually played with that idea already. But making two Deopt instructions adjacent after dyn bce did not improve/force sharing (it resulted in \"just as random\" sharing on different architectures).\n\nWould it be possible to do something during code generation (i.e. before doing a deopt, do some manipulations to make stack maps similar)?",
+      "parentUuid": "8a570fe9_af49d96b",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a68ef71_2a035f95",
         "filename": "test/561-shared-slowpaths/src/Main.java",
         "patchSetId": 3
