@@ -45,6 +45,30 @@
       "revId": "7f4e95631bfcf2b948412f1eaecb428c13e72b61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a3997b3_4d09590c",
+        "filename": "runtime/jit/debugger_interface.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-01-11T14:58:39Z",
+      "side": 1,
+      "message": "+1: We should remove these as they should be only the implementation details of the 2 methods below.\n\nOn the other hand ElfFileImpl\u003cElfTypes\u003e::GdbJITSupport depends on these. That function should be removed as it isn\u0027t needed anymore (that information is communicated to the debugger through the linker rendezvous structure) but I think it would be a good idea to do it with a separate CL.",
+      "parentUuid": "4a3997b3_2d36cddb",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 45
+      },
+      "revId": "7f4e95631bfcf2b948412f1eaecb428c13e72b61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
