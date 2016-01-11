@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a431f35_ab62a9e7",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-11T13:40:03Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 478,
+        "startChar": 47,
+        "endLine": 478,
+        "endChar": 52
+      },
+      "revId": "2d90724f0ba3f2a6608530d9a13eeb342a45a7eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea332bd5_8ac7ab1d",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-11T13:40:03Z",
+      "side": 1,
+      "message": "that",
+      "range": {
+        "startLine": 484,
+        "startChar": 31,
+        "endLine": 484,
+        "endChar": 35
+      },
+      "revId": "2d90724f0ba3f2a6608530d9a13eeb342a45a7eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a6ebfb0_53200474",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-11T13:40:03Z",
+      "side": 1,
+      "message": "We ususally don\u0027t do this. Please put it in a variable above, and check for null in the if.",
+      "range": {
+        "startLine": 627,
+        "startChar": 14,
+        "endLine": 627,
+        "endChar": 63
+      },
+      "revId": "2d90724f0ba3f2a6608530d9a13eeb342a45a7eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca4d875b_716998c7",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-11T13:40:03Z",
+      "side": 1,
+      "message": "add a comment why it\u0027s a multimap",
+      "range": {
+        "startLine": 979,
+        "startChar": 9,
+        "endLine": 979,
+        "endChar": 17
+      },
+      "revId": "2d90724f0ba3f2a6608530d9a13eeb342a45a7eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa54d3e4_30ce28df",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1412,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-11T13:40:03Z",
+      "side": 1,
+      "message": "Could you give a different name here that suggests it\u0027s only for the given class?",
+      "range": {
+        "startLine": 1412,
+        "startChar": 24,
+        "endLine": 1412,
+        "endChar": 41
+      },
+      "revId": "2d90724f0ba3f2a6608530d9a13eeb342a45a7eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea332bd5_aacc6f42",
+        "filename": "compiler/elf_writer_quick.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-11T13:40:03Z",
+      "side": 1,
+      "message": "we usually do:  /* write_types */ true",
+      "range": {
+        "startLine": 156,
+        "startChar": 42,
+        "endLine": 156,
+        "endChar": 52
+      },
+      "revId": "2d90724f0ba3f2a6608530d9a13eeb342a45a7eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
