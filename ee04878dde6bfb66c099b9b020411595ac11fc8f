@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "87df0af2_8f3535b1",
+        "filename": "compiler/dex/quick/quick_compiler.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-11T20:04:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa5f73f8_cc438f98",
+      "range": {
+        "startLine": 524,
+        "startChar": 15,
+        "endLine": 524,
+        "endChar": 19
+      },
+      "revId": "ee04878dde6bfb66c099b9b020411595ac11fc8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7d582d0_719f9878",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 26
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-11T18:42:30Z",
       "side": 1,
       "message": "Looks like this can be a static method restricted to the cc file if you pass in image_pointer_size...",
+      "range": {
+        "startLine": 5344,
+        "startChar": 0,
+        "endLine": 5387,
+        "endChar": 1
+      },
+      "revId": "ee04878dde6bfb66c099b9b020411595ac11fc8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7d582d0_11a96cb3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 5387,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-11T20:04:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7d582d0_719f9878",
       "range": {
         "startLine": 5344,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a7532e54_389ae988",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 5440,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-11T20:04:31Z",
+      "side": 1,
+      "message": "Surprisingly it doesn\u0027t (at least for O2). Done.",
+      "parentUuid": "aa5f73f8_cc91cf3c",
+      "range": {
+        "startLine": 5440,
+        "startChar": 21,
+        "endLine": 5440,
+        "endChar": 32
+      },
+      "revId": "ee04878dde6bfb66c099b9b020411595ac11fc8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "277bbeaf_146f1402",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 26
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "a7dc0efe_d072fcb8",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-11T20:04:31Z",
+      "side": 1,
+      "message": "It\u0027s also used in the access_check branch, but done.",
+      "parentUuid": "277bbeaf_146f1402",
+      "range": {
+        "startLine": 399,
+        "startChar": 2,
+        "endLine": 399,
+        "endChar": 65
+      },
+      "revId": "ee04878dde6bfb66c099b9b020411595ac11fc8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a7dc0efe_70ed50e0",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 26
@@ -105,6 +201,30 @@
       "writtenOn": "2016-01-11T18:42:30Z",
       "side": 1,
       "message": "Same as above.",
+      "range": {
+        "startLine": 611,
+        "startChar": 2,
+        "endLine": 611,
+        "endChar": 65
+      },
+      "revId": "ee04878dde6bfb66c099b9b020411595ac11fc8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7d286e6_528e14ac",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-11T20:04:31Z",
+      "side": 1,
+      "message": "It is used in all cases on the very next line.",
+      "parentUuid": "a7dc0efe_70ed50e0",
       "range": {
         "startLine": 611,
         "startChar": 2,
