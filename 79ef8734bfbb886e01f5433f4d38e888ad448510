@@ -70,6 +70,29 @@
       "revId": "79ef8734bfbb886e01f5433f4d38e888ad448510",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a3997b3_8dd261f7",
+        "filename": "test/561-divrem/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-11T10:17:19Z",
+      "side": 1,
+      "message": "This invokes the int variant of the method - you\u0027d need to invoke it with `1L`. That said, I\u0027d rather you renamed it to `$noinline$div_int` and `$noinline$div_long` so there\u0027s no confusion.\n\nSame for the ones below...",
+      "range": {
+        "startLine": 52,
+        "startChar": 21,
+        "endLine": 52,
+        "endChar": 34
+      },
+      "revId": "79ef8734bfbb886e01f5433f4d38e888ad448510",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
