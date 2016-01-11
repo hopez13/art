@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca4d875b_d14ec470",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-11T13:51:53Z",
+      "side": 1,
+      "message": "Don\u0027t you have compiler_options_-\u003eGetGenerateDebugInfo() ?",
+      "range": {
+        "startLine": 111,
+        "startChar": 22,
+        "endLine": 111,
+        "endChar": 51
+      },
+      "revId": "7f4e95631bfcf2b948412f1eaecb428c13e72b61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a3997b3_2d36cddb",
+        "filename": "runtime/jit/debugger_interface.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-11T13:51:53Z",
+      "side": 1,
+      "message": "What is this for?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 45
+      },
+      "revId": "7f4e95631bfcf2b948412f1eaecb428c13e72b61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
