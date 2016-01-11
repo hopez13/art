@@ -331,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "ca4d875b_918c3c24",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-11T10:31:21Z",
+      "side": 1,
+      "message": "Note: we could reintroduce arch-specific abstract slow path classes for all back ends (SlowPathCodeARM, SlowPathCodeX86, etc.) and have concrete InstructionCodeGenerator* classes pass the right slow path type to their InstructionCodeGenerator super class:\n\n  template \u003ctypename SlowPathType\u003e\n  class InstructionCodeGenerator : public HGraphVisitor {\n    \n    // ...\n    \n    SlowPathGenerator\u003cHDeoptimize, SlowPathType\u003e deopt_slow_paths_;\n  };\n  \n  // ...\n  \n  class InstructionCodeGeneratorARM : public InstructionCodeGenerator\u003carm::SlowPathCodeARM64\u003e {\n    // ...\n  };",
+      "parentUuid": "8a62afbe_7ab6b5fa",
+      "range": {
+        "startLine": 696,
+        "startChar": 65,
+        "endLine": 697,
+        "endChar": 17
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a2b8319_77860a3f",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 3
