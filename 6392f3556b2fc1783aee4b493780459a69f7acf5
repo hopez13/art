@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "c701023f_11d70cea",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1055300
+      },
+      "writtenOn": "2016-01-12T13:05:57Z",
+      "side": 1,
+      "message": "Oh. \"Some\" confused me :) Fixed comment",
+      "parentUuid": "27fc9e7c_2ca0f361",
+      "range": {
+        "startLine": 826,
+        "startChar": 2,
+        "endLine": 827,
+        "endChar": 56
+      },
+      "revId": "6392f3556b2fc1783aee4b493780459a69f7acf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a7088e64_3022084c",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 6
