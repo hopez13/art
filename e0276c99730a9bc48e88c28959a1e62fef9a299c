@@ -62,6 +62,30 @@
       "revId": "e0276c99730a9bc48e88c28959a1e62fef9a299c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07107a94_c36936c8",
+        "filename": "compiler/optimizing/instruction_simplifier_shared.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2016-01-12T07:45:43Z",
+      "side": 1,
+      "message": "As I understand, class HMulitplyAccumulate describes abstract instruction but not algorithm of instructions transformation. So HMulitplyAccumulate is not good place for TryCombineMultuplyAccumulate, I think. Moreover, if there will be another simplification algorithms for other instructions, we could place their in one set of files instruction_simplifier_*.h/cc.\n\nBut if you insist, I will move TryCombineMultuplyAccumulate into HMulitplyAccumulate asstatic function.",
+      "parentUuid": "2a2b8319_9abbcddf",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 65
+      },
+      "revId": "e0276c99730a9bc48e88c28959a1e62fef9a299c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
