@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "27673e34_a81d0355",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-12T18:50:32Z",
+      "side": 1,
+      "message": "Yes, what Nicolas said. This is done on purpose to make sure only \"the right one\" is hoisted.",
+      "parentUuid": "27fc9e7c_2c5f532a",
+      "range": {
+        "startLine": 639,
+        "startChar": 20,
+        "endLine": 639,
+        "endChar": 21
+      },
+      "revId": "c58802b95ff4421e88fb8e0277112e5c00b5261b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27fc9e7c_6c6f9b01",
         "filename": "test/530-checker-loops/src/Main.java",
         "patchSetId": 10
