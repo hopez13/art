@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "67f216a9_2e7587d5",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4884,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-12T12:13:13Z",
+      "side": 1,
+      "message": "All right, thanks for the explanation.",
+      "parentUuid": "277bbeaf_14963434",
+      "range": {
+        "startLine": 4884,
+        "startChar": 36,
+        "endLine": 4884,
+        "endChar": 44
+      },
+      "revId": "d0df9d00bda91d5b5077aad86c46ddf88eacbbda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca4d875b_7140b837",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "R2 (NAN2008\u003d0):\n\u003c min --\u003e max\n\u003e max --\u003e max\nNaN --\u003e max\n\nR6 (NAN2008\u003d1):\n\u003c min --\u003e min\n\u003e max --\u003e max\nNaN --\u003e 0\n\nIOW, the difference is only in handling NaNs and negative values less than the minimum.\n\nThere\u0027s no difference between MIPS32 and MIPS64 other than the truncate/round/ceil/floor instructions with L in the format requiring a 64-bit FPU, which is always true for MIPS64 and R6 (AKA FR\u003d1), while older MIPS32R2 could have either a 32-bit FPU (AKA FR\u003d0) or a 64-bit one.",
       "parentUuid": "ca4d875b_7140b837",
+      "range": {
+        "startLine": 4915,
+        "startChar": 13,
+        "endLine": 4915,
+        "endChar": 20
+      },
+      "revId": "d0df9d00bda91d5b5077aad86c46ddf88eacbbda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27fc9e7c_cc5faf50",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4915,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-12T12:13:13Z",
+      "side": 1,
+      "message": "So only the behavior of the R6 (NAN2008\u003d1) instructions match the Dex {float,double}-to-{int,long} specification (https://source.android.com/devices/tech/dalvik/dalvik-bytecode.html); the R2 (NAN2008\u003d0) ones do not produce the expected result for values above max and NaN.\n\nShould you adjust the code for the R2 cases, or maybe delegate to runtime entry points?",
+      "parentUuid": "27d01ee4_ec372b1f",
       "range": {
         "startLine": 4915,
         "startChar": 13,
