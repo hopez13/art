@@ -22,6 +22,30 @@
       "revId": "f848afdc6ac3025d3f168c2efaf99301c3ebd91c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e759a674_ce0e834e",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1166,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-12T17:56:37Z",
+      "side": 1,
+      "message": "Not sure there is a bullet proof way to wait, there is not really a way to know if a thread is being notified in a condition or just blocked there.",
+      "parentUuid": "c72ae2be_e9089541",
+      "range": {
+        "startLine": 1164,
+        "startChar": 0,
+        "endLine": 1166,
+        "endChar": 44
+      },
+      "revId": "f848afdc6ac3025d3f168c2efaf99301c3ebd91c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
