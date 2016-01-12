@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "a7088e64_d0a8dcf4",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-12T11:13:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a570fe9_6f4b7135",
+      "range": {
+        "startLine": 874,
+        "startChar": 0,
+        "endLine": 877,
+        "endChar": 23
+      },
+      "revId": "e4c0b0366b50acf12291987dda974c245b55ec07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27fc9e7c_2c2753f5",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-12T11:13:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea4a4b41_55d0fe21",
+      "range": {
+        "startLine": 874,
+        "startChar": 0,
+        "endLine": 877,
+        "endChar": 23
+      },
+      "revId": "e4c0b0366b50acf12291987dda974c245b55ec07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa54d3e4_93e8bed4",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 5
@@ -59,6 +107,30 @@
       "writtenOn": "2016-01-11T17:34:19Z",
       "side": 1,
       "message": "(nit): These 2 can be merged using a constructor",
+      "range": {
+        "startLine": 1233,
+        "startChar": 0,
+        "endLine": 1234,
+        "endChar": 29
+      },
+      "revId": "e4c0b0366b50acf12291987dda974c245b55ec07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c72ae2be_49e1e1ba",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-12T11:13:42Z",
+      "side": 1,
+      "message": "...but then I would have to add a constructor.",
+      "parentUuid": "aa54d3e4_93e8bed4",
       "range": {
         "startLine": 1233,
         "startChar": 0,
@@ -129,6 +201,24 @@
       "writtenOn": "2016-01-11T17:34:19Z",
       "side": 1,
       "message": "(nit): I think you don\u0027t need this include. A forward declaration should be enough",
+      "revId": "e4c0b0366b50acf12291987dda974c245b55ec07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87246af4_e7e562f6",
+        "filename": "compiler/elf_writer_debug.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-12T11:13:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a3997b3_ad4e3d18",
       "revId": "e4c0b0366b50acf12291987dda974c245b55ec07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
