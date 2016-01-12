@@ -49,6 +49,23 @@
     },
     {
       "key": {
+        "uuid": "c701023f_318cd021",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-01-12T11:53:49Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be a DCHECK(it !\u003d g_jit_code_entries.end())?\nI don\u0027t see any use case where we want to permit the deletion of an entry never created",
+      "revId": "7f4e95631bfcf2b948412f1eaecb428c13e72b61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a3997b3_2d36cddb",
         "filename": "runtime/jit/debugger_interface.h",
         "patchSetId": 9
@@ -108,6 +125,30 @@
       "side": 1,
       "message": "The native debugger needs to be notified that code has been removed from the JIT cache.  Otherwise we would run into problems once the cache gets reused by new entry.\n\nI am happy to make those two implementation detail of the two below after GdbJITSupport is removed.",
       "parentUuid": "4a3997b3_4d09590c",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 45
+      },
+      "revId": "7f4e95631bfcf2b948412f1eaecb428c13e72b61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67f216a9_4e9bb359",
+        "filename": "runtime/jit/debugger_interface.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-01-12T11:53:49Z",
+      "side": 1,
+      "message": "Please remove these methods declarations from here and also mark them as static in the cpp file as go/aog/195561 removed the only remaining dependency",
+      "parentUuid": "0a6ebfb0_f3ebd02a",
       "range": {
         "startLine": 28,
         "startChar": 0,
