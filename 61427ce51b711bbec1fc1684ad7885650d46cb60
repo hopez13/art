@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7532e54_f2908803",
+        "filename": "build/Android.cpplint.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2016-01-12T20:49:58Z",
+      "side": 1,
+      "message": "build/core/definitions.mk has some helpers to do searches like this that handles things like sorting, symlinks, temporary files, etc.\n\n ART_CPPLINT_SRC :\u003d $(call all-subdir-named-files,*.h) $(call all-subdir-named-files,*$(ART_CPP_EXTENSION))\n\nThis assumes LOCAL_PATH is still set to art/ when this makefile is parsed.",
+      "revId": "61427ce51b711bbec1fc1684ad7885650d46cb60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
