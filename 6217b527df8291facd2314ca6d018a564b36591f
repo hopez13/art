@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4768b202_2a6443f5",
+        "filename": "build/Android.cpplint.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2016-01-12T23:36:59Z",
+      "side": 1,
+      "message": "$(LOCAL_PATH)",
+      "range": {
+        "startLine": 26,
+        "startChar": 32,
+        "endLine": 26,
+        "endChar": 35
+      },
+      "revId": "6217b527df8291facd2314ca6d018a564b36591f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27673e34_2ec8db7b",
+        "filename": "build/Android.cpplint.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2016-01-12T23:36:59Z",
+      "side": 1,
+      "message": "add-prefix $(LOCAL_PATH)/",
+      "range": {
+        "startLine": 26,
+        "startChar": 53,
+        "endLine": 26,
+        "endChar": 69
+      },
+      "revId": "6217b527df8291facd2314ca6d018a564b36591f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
