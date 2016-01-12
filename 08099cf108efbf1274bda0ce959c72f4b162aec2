@@ -22,6 +22,30 @@
       "revId": "08099cf108efbf1274bda0ce959c72f4b162aec2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c72ae2be_691305ec",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-12T16:47:25Z",
+      "side": 1,
+      "message": "The locks are not re-entrant, right?  So I will have restructure it a bit.",
+      "parentUuid": "07f79a9a_4b53a51a",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 1
+      },
+      "revId": "08099cf108efbf1274bda0ce959c72f4b162aec2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
