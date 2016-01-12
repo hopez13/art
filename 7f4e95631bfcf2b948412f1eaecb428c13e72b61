@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "07f79a9a_0b7a3dc3",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-12T13:09:48Z",
+      "side": 1,
+      "message": "The entries will not be created if we are not running under debugger.\nSo this allows the code cache to just call this method without caring about the current debug flags.",
+      "parentUuid": "c701023f_318cd021",
+      "revId": "7f4e95631bfcf2b948412f1eaecb428c13e72b61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a3997b3_2d36cddb",
         "filename": "runtime/jit/debugger_interface.h",
         "patchSetId": 9
@@ -149,6 +167,30 @@
       "side": 1,
       "message": "Please remove these methods declarations from here and also mark them as static in the cpp file as go/aog/195561 removed the only remaining dependency",
       "parentUuid": "0a6ebfb0_f3ebd02a",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 45
+      },
+      "revId": "7f4e95631bfcf2b948412f1eaecb428c13e72b61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47ed12c9_cd8689fc",
+        "filename": "runtime/jit/debugger_interface.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-12T13:09:48Z",
+      "side": 1,
+      "message": "Actually, the type info generation still uses them.",
+      "parentUuid": "67f216a9_4e9bb359",
       "range": {
         "startLine": 28,
         "startChar": 0,
