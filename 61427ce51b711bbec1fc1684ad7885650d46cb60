@@ -16,6 +16,24 @@
       "revId": "61427ce51b711bbec1fc1684ad7885650d46cb60",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07623a24_07b7c6a0",
+        "filename": "build/Android.cpplint.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-12T22:28:54Z",
+      "side": 1,
+      "message": "But does it allow to strip files out of it? Like we do with the elf.h? At least we\u0027d have to ($filter-out) afterwards.\n\nBTW, Alex, remove the llvm stuff. That hasn\u0027t been there for almost two years...",
+      "parentUuid": "a7532e54_f2908803",
+      "revId": "61427ce51b711bbec1fc1684ad7885650d46cb60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
