@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "67f216a9_0e008b1c",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1055300
+      },
+      "writtenOn": "2016-01-12T12:51:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7088e64_3022084c",
+      "range": {
+        "startLine": 831,
+        "startChar": 46,
+        "endLine": 831,
+        "endChar": 80
+      },
+      "revId": "6392f3556b2fc1783aee4b493780459a69f7acf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87246af4_87374620",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 6
