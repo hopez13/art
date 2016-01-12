@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87562a44_469a5c89",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-12T22:39:38Z",
+      "side": 1,
+      "message": "Consider adding: \n\nConflict methods are copied into each subtype from the supertype, don\u0027t need to do any indirect method checks here.",
+      "revId": "bd1c9fc4c3400d2c334836e3499b2f4150783e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c75ca266_c8b83732",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-12T22:39:38Z",
+      "side": 1,
+      "message": "Consider being more clear about order:\n\n  Order matters, traverse in reverse topological order; most subtypiest interfaces get visited first.",
+      "revId": "bd1c9fc4c3400d2c334836e3499b2f4150783e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "678e9643_ce6a232c",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-12T22:39:38Z",
+      "side": 1,
+      "message": "Remove or reword:\n\n  Each direct method\u0027s name/signature is unique so the order of the inner loop doesn\u0027t matter.",
+      "range": {
+        "startLine": 567,
+        "startChar": 63,
+        "endLine": 567,
+        "endChar": 90
+      },
+      "revId": "bd1c9fc4c3400d2c334836e3499b2f4150783e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07495aa4_8aaab33e",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-12T22:39:38Z",
+      "side": 1,
+      "message": "Consider adding clarification:\n\n   // Handle JLS soft errors, a default method from another superinterface tree can \"override\" an abstract method(s) from another superinterface tree(s).\n   // To do this, ignore any [default] method which are dominated by the abstract methods we\u0027ve seen so far.",
+      "revId": "bd1c9fc4c3400d2c334836e3499b2f4150783e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "676db610_a5e08826",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-12T22:39:38Z",
+      "side": 1,
+      "message": "Consider adding: // Is not default",
+      "revId": "bd1c9fc4c3400d2c334836e3499b2f4150783e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
