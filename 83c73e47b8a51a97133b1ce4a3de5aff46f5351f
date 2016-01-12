@@ -355,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "07495aa4_fe069da4",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-12T00:22:14Z",
+      "side": 1,
+      "message": "But that would not account for several slow types types for one instruction for one back end. In any case, many ways of doing this are possible, but for now I tried to keep the CL as local as possible, with minimum changes in all the back end source trees.",
+      "parentUuid": "ca4d875b_918c3c24",
+      "range": {
+        "startLine": 696,
+        "startChar": 65,
+        "endLine": 697,
+        "endChar": 17
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a2b8319_77860a3f",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 3
@@ -725,6 +749,23 @@
         "endLine": 727,
         "endChar": 35
       },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87562a44_9accc9e6",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-12T00:22:14Z",
+      "side": 1,
+      "message": "u",
       "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
