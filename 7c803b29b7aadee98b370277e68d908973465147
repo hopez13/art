@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87246af4_674852b4",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 846,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-12T11:43:34Z",
+      "side": 1,
+      "message": "Move this line 849 and drop 826/827.",
+      "range": {
+        "startLine": 845,
+        "startChar": 0,
+        "endLine": 846,
+        "endChar": 36
+      },
+      "revId": "7c803b29b7aadee98b370277e68d908973465147",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
