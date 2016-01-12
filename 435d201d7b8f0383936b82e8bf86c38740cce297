@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "67f216a9_2e8c6721",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-12T11:41:49Z",
+      "side": 1,
+      "message": "Right; I guess that construction is forbidden because the matching constructor is tagged explicit.  You could use this instead, which calls a non-explicit constructor of ArenaVector:\n\n  iter \u003d slow_path_map_.Put(dex_pc, {{}, {graph_-\u003eGetArena()-\u003eAdapter(kArenaAllocSlowPaths)}});",
+      "parentUuid": "a7532e54_bb70b321",
+      "range": {
+        "startLine": 726,
+        "startChar": 6,
+        "endLine": 727,
+        "endChar": 62
+      },
+      "revId": "435d201d7b8f0383936b82e8bf86c38740cce297",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca4d875b_7117d831",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 5
