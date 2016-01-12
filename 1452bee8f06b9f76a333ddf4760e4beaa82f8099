@@ -22,6 +22,30 @@
       "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07623a24_19cbaba2",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-12T18:22:59Z",
+      "side": 1,
+      "message": "Thanks - you\u0027re right.  We don\u0027t need those - completely unnecessary.",
+      "parentUuid": "e727e6f2_4a76f36f",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 24
+      },
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
