@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "a7532e54_728598c3",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4915,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-01-12T20:56:00Z",
+      "side": 1,
+      "message": "It\u0027s NaN and values below the minimum that need special care on R2/NAN2008\u003d0 and with the currently incorrect implementation of R6 in the emulator (it must have NAN2008\u003d1, but doesn\u0027t).\n\nThis code takes care of them by comparing the float/double input with numeric_limits\u003cint64_t/int32_t\u003e::min() and then, if input \u003e\u003d min turns out true, it procedes to the trunc instruction, which takes care of values greater than the maximum the same way with any NAN2008 setting.\n\nOtherwise (input \u003e\u003d min is false), the input is compared with itself (to detect a NaN) and the output is set to either the minimum or 0.\n\nThe runtime, where still used, takes care of the special cases. See file art/runtime/entrypoints/math_entrypoints.cc, functions art_d2l(), art_f2l(), art_d2i(), art_f2i() and the magic behind them in art_float_to_integral\u003cint_type, float_type\u003e().\n\nI believe everything\u0027s correct (no failures in math tests either).",
+      "parentUuid": "27fc9e7c_cc5faf50",
+      "range": {
+        "startLine": 4915,
+        "startChar": 13,
+        "endLine": 4915,
+        "endChar": 20
+      },
+      "revId": "d0df9d00bda91d5b5077aad86c46ddf88eacbbda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a570fe9_cfc1bd09",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
