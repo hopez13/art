@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a7532e54_bb70b321",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-12T00:22:14Z",
+      "side": 1,
+      "message": "I would like that, but as written it does not work, and I am not familiar enough with this to make it work. Any suggestions?",
+      "parentUuid": "ea332bd5_ca960332",
+      "range": {
+        "startLine": 726,
+        "startChar": 6,
+        "endLine": 727,
+        "endChar": 62
+      },
+      "revId": "435d201d7b8f0383936b82e8bf86c38740cce297",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca4d875b_7117d831",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-11T14:35:16Z",
       "side": 1,
       "message": "Perhaps for a follow-up CL, but could we allow one set of live regs being a subset of the other?",
+      "range": {
+        "startLine": 739,
+        "startChar": 7,
+        "endLine": 739,
+        "endChar": 28
+      },
+      "revId": "435d201d7b8f0383936b82e8bf86c38740cce297",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27673e34_3ae819d1",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-12T00:22:14Z",
+      "side": 1,
+      "message": "Sure. I was a bit afraid of the impact saving non-live registers could have on the stack map. But regardless, I think this CL should be followed by many incremental improvements :-)",
+      "parentUuid": "ca4d875b_7117d831",
       "range": {
         "startLine": 739,
         "startChar": 7,
