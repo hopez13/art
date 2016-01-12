@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "07495aa4_0a9ea326",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 26
+      },
+      "lineNbr": 5440,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-12T22:39:38Z",
+      "side": 1,
+      "message": ".\n\n   if (!fill_tables) goto ....\n\n\njust kidding :)",
+      "parentUuid": "a7532e54_389ae988",
+      "range": {
+        "startLine": 5440,
+        "startChar": 21,
+        "endLine": 5440,
+        "endChar": 32
+      },
+      "revId": "ee04878dde6bfb66c099b9b020411595ac11fc8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "277bbeaf_146f1402",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 26
