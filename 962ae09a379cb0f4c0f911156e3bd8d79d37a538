@@ -91,6 +91,30 @@
       "revId": "962ae09a379cb0f4c0f911156e3bd8d79d37a538",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e727e6f2_2afbbf69",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-12T13:53:33Z",
+      "side": 1,
+      "message": "Oh, it is!  However, without it being explicitly set, --generate-debug-info will default to kIsDebugBuild.  That would mean the debug build of the runtime would by default generate and store DWARF debug information in memory.  Is that ok?  The alternative is defaulting it to false.",
+      "parentUuid": "87246af4_c7865efc",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 60
+      },
+      "revId": "962ae09a379cb0f4c0f911156e3bd8d79d37a538",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
