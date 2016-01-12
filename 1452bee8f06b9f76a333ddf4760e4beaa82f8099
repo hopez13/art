@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e727e6f2_4a76f36f",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2016-01-12T18:16:19Z",
+      "side": 1,
+      "message": "Why do we need this? r0 and r1 seems to be a garbage...",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 24
+      },
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
