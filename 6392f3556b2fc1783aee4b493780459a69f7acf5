@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e727e6f2_4a9b9359",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-12T12:32:27Z",
+      "side": 1,
+      "message": "Reverse the condition if left is constant. Some code generators prefer constant on the right hand side.",
+      "range": {
+        "startLine": 826,
+        "startChar": 2,
+        "endLine": 827,
+        "endChar": 56
+      },
+      "revId": "6392f3556b2fc1783aee4b493780459a69f7acf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a7088e64_3022084c",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-12T12:32:27Z",
+      "side": 1,
+      "message": "I can\u0027t parse this.",
+      "range": {
+        "startLine": 831,
+        "startChar": 46,
+        "endLine": 831,
+        "endChar": 80
+      },
+      "revId": "6392f3556b2fc1783aee4b493780459a69f7acf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87246af4_87374620",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2737,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-12T12:32:27Z",
+      "side": 1,
+      "message": "Is this change intentional?",
+      "range": {
+        "startLine": 2720,
+        "startChar": 0,
+        "endLine": 2737,
+        "endChar": 3
+      },
+      "revId": "6392f3556b2fc1783aee4b493780459a69f7acf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
