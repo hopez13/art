@@ -92,6 +92,30 @@
       "revId": "6392f3556b2fc1783aee4b493780459a69f7acf5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67f216a9_4ee1f3ba",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2737,
+      "author": {
+        "id": 1055300
+      },
+      "writtenOn": "2016-01-12T12:42:41Z",
+      "side": 1,
+      "message": "I mean result of \u003d\u003d and !\u003d with NaN should not depend on bias",
+      "parentUuid": "870b8a60_2f7589d5",
+      "range": {
+        "startLine": 2720,
+        "startChar": 0,
+        "endLine": 2737,
+        "endChar": 3
+      },
+      "revId": "6392f3556b2fc1783aee4b493780459a69f7acf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
