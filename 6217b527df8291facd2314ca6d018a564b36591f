@@ -45,6 +45,30 @@
       "revId": "6217b527df8291facd2314ca6d018a564b36591f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "678e9643_31506ab7",
+        "filename": "build/Android.cpplint.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-12T23:39:21Z",
+      "side": 1,
+      "message": "Maybe fix line 19 to use $(LOCAL_PATH) too while we\u0027re at it?",
+      "parentUuid": "4768b202_2a6443f5",
+      "range": {
+        "startLine": 26,
+        "startChar": 32,
+        "endLine": 26,
+        "endChar": 35
+      },
+      "revId": "6217b527df8291facd2314ca6d018a564b36591f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
