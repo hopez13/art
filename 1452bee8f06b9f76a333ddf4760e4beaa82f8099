@@ -46,6 +46,30 @@
       "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47ed12c9_6de67567",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2016-01-13T04:16:24Z",
+      "side": 1,
+      "message": "Sorry for late feedback, I\u0027m debugging x86 port of this patch and review the difference between yours and mine code so I found this strange code.",
+      "parentUuid": "07623a24_19cbaba2",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 24
+      },
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
