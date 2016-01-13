@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "870b8a60_52e192ba",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-13T18:15:55Z",
+      "side": 1,
+      "message": "Thanks for doing this. Way better :)",
+      "revId": "c58802b95ff4421e88fb8e0277112e5c00b5261b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07f79a9a_2b2739f5",
         "filename": "test/449-checker-bce/src/Main.java",
         "patchSetId": 10
@@ -138,6 +155,29 @@
         "startChar": 20,
         "endLine": 639,
         "endChar": 21
+      },
+      "revId": "c58802b95ff4421e88fb8e0277112e5c00b5261b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47ed12c9_704e4e72",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-13T18:15:55Z",
+      "side": 1,
+      "message": "This is still nasty (I should forbid mixing -DAG and -NOT entirely) because it only tests the assertion in a part of the file.\n\nIIUC, there should be no NullCheck and no BoundsCheck whatsoever, right? Then let\u0027s move them to their own pass just like you do everywhere else:\n\n  CHECK-START:\n  CHECK-NOT: NullCheck\n  CHECK-NOT: BoundsCheck\n\nThe ArrayGet and ArrayLength should still be in the graph but should be in the outer loop, right? So why not test them the same way as the Deoptimize below?\n\n  ...\n  CHECK-DAG: Deoptimize loop:\u003c\u003cOuterLoop:B\\d+\u003e\u003e\n  CHECK-DAG: {{l\\d+}} ArrayGet loop:\u003c\u003cOuterLoop\u003e\u003e\n  CHECK-DAG: ArrayLength loop:\u003c\u003cOuterLoop\u003e\u003e\n  CHECK-EVAL: ...",
+      "range": {
+        "startLine": 642,
+        "startChar": 6,
+        "endLine": 642,
+        "endChar": 15
       },
       "revId": "c58802b95ff4421e88fb8e0277112e5c00b5261b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
