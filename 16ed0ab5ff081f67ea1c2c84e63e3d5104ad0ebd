@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87246af4_c7af7ee2",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-13T11:26:46Z",
+      "side": 1,
+      "message": "Introduce a helper to hide those static_casts, e.g. `NextFRegister`?\n\nOr better, a codegen routine to encapsulate this pattern:\n\n  if (fpu_32bit) {\n    __ Mfc1(dst, NextFRegister(src));\n  } else {\n    __ Mfhc1(dst, src);\n  }\n\n(Likewise for Mthc1.)",
+      "range": {
+        "startLine": 613,
+        "startChar": 18,
+        "endLine": 613,
+        "endChar": 48
+      },
+      "revId": "16ed0ab5ff081f67ea1c2c84e63e3d5104ad0ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c72ae2be_2cc91b32",
+        "filename": "compiler/optimizing/intrinsics_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-13T11:26:46Z",
+      "side": 1,
+      "message": "Thanks for adding these consts.",
+      "range": {
+        "startLine": 70,
+        "startChar": 21,
+        "endLine": 70,
+        "endChar": 26
+      },
+      "revId": "16ed0ab5ff081f67ea1c2c84e63e3d5104ad0ebd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
