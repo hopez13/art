@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "47ed12c9_8dd64147",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-13T12:19:40Z",
+      "side": 1,
+      "message": "If you\u0027re worried about constants/current method not being in the entry block then fair enough... Keeping the second DCHECK is borderline paranoid because you\u0027re saying that `IsCurrentMethod || IsConstant` does not imply `!IsParameterValue`. ;)",
+      "parentUuid": "07f79a9a_cbb95502",
+      "range": {
+        "startLine": 282,
+        "startChar": 10,
+        "endLine": 283,
+        "endChar": 79
+      },
+      "revId": "122674516c7b6dd2c7f27038ace8a4242478a68e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c72ae2be_cc903f04",
         "filename": "test/559-checker-irreducible-loop/smali/IrreducibleLoop.smali",
         "patchSetId": 8
