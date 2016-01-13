@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "274e5eac_4643839a",
+        "filename": "runtime/base/logging.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-13T16:18:44Z",
+      "side": 1,
+      "message": "I don\u0027t think this should work. A (D)CHECK uses LogMessage.",
+      "range": {
+        "startLine": 208,
+        "startChar": 6,
+        "endLine": 208,
+        "endChar": 46
+      },
+      "revId": "ce9707a5f7acee79df785395bf423d05255be9dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
