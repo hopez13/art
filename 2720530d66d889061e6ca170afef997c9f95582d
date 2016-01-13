@@ -22,6 +22,30 @@
       "revId": "2720530d66d889061e6ca170afef997c9f95582d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67f216a9_31116aa5",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-13T15:42:57Z",
+      "side": 1,
+      "message": "They are not exposed in the .h file. (note the rename to *Internal)\n\nREQUIRES added.",
+      "parentUuid": "a7088e64_9665ac20",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 61
+      },
+      "revId": "2720530d66d889061e6ca170afef997c9f95582d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
