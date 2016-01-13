@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "07623a24_add6b146",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1424,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-13T17:13:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c72ae2be_cc867ffc",
+      "range": {
+        "startLine": 1424,
+        "startChar": 52,
+        "endLine": 1424,
+        "endChar": 78
+      },
+      "revId": "8fc291d97624d024e0733d1fcec61bb6849140ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27fc9e7c_2cf0f3fb",
         "filename": "test/562-bce-preheader/src/Main.java",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-13T09:30:06Z",
       "side": 1,
       "message": "Hoisting of what? x[i][i]? Please add that as a comment. I guess you also rely on x[i] and x[i][i] to potentially throw?",
+      "range": {
+        "startLine": 30,
+        "startChar": 17,
+        "endLine": 30,
+        "endChar": 52
+      },
+      "revId": "8fc291d97624d024e0733d1fcec61bb6849140ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "274e5eac_66fb1f69",
+        "filename": "test/562-bce-preheader/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-13T17:13:53Z",
+      "side": 1,
+      "message": "Comments added, good Sir!",
+      "parentUuid": "27fc9e7c_2cf0f3fb",
       "range": {
         "startLine": 30,
         "startChar": 17,
