@@ -185,6 +185,30 @@
     },
     {
       "key": {
+        "uuid": "07623a24_a865ff1f",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-13T18:27:19Z",
+      "side": 1,
+      "message": "Yes, you may have noticed that I separated -DAG and -NOT completely in the other file for exactly that reason, it does not tell much. I thought it would be okay here since it appears typically before the array get, but you are right I might as well go the full way.\n\nWhat you suggest does not test that there is no ArrayLength in the inner loop at all (some strange optimization may move it out and keep it inside :-)\n\nAny pointers on how you would do that (since it seems you need *some* positive mixed with the negative?",
+      "parentUuid": "47ed12c9_704e4e72",
+      "range": {
+        "startLine": 642,
+        "startChar": 6,
+        "endLine": 642,
+        "endChar": 15
+      },
+      "revId": "c58802b95ff4421e88fb8e0277112e5c00b5261b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27fc9e7c_6c6f9b01",
         "filename": "test/530-checker-loops/src/Main.java",
         "patchSetId": 10
