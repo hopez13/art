@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "47ed12c9_9065ba20",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-13T15:55:07Z",
+      "side": 1,
+      "message": "You can get the compiler to do that? Is that an attribute or how does the compiler know to warn about a non-standard function call?\n\nSure, UNUSED is fine.",
+      "parentUuid": "87246af4_277dbafc",
+      "range": {
+        "startLine": 184,
+        "startChar": 4,
+        "endLine": 184,
+        "endChar": 10
+      },
+      "revId": "0140b37ab2aad3dbf514cc18a6dd23944f988880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67f216a9_d1e2a6eb",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 2
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "No, use_ashmem is being updated line 310.",
       "parentUuid": "870b8a60_f2d08624",
+      "range": {
+        "startLine": 313,
+        "startChar": 0,
+        "endLine": 315,
+        "endChar": 19
+      },
+      "revId": "0140b37ab2aad3dbf514cc18a6dd23944f988880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87246af4_0a9fdb78",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-13T15:55:07Z",
+      "side": 1,
+      "message": "Right, sry...",
+      "parentUuid": "47ed12c9_d08622fc",
       "range": {
         "startLine": 313,
         "startChar": 0,
