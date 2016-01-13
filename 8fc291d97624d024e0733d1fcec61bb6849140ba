@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "c72ae2be_cc867ffc",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1424,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-13T09:30:06Z",
+      "side": 1,
+      "message": "Please add a comment what this instruction is for. The line at 1434 is pretty obscure.",
+      "range": {
+        "startLine": 1424,
+        "startChar": 52,
+        "endLine": 1424,
+        "endChar": 78
+      },
+      "revId": "8fc291d97624d024e0733d1fcec61bb6849140ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27fc9e7c_2cf0f3fb",
+        "filename": "test/562-bce-preheader/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-13T09:30:06Z",
+      "side": 1,
+      "message": "Hoisting of what? x[i][i]? Please add that as a comment. I guess you also rely on x[i] and x[i][i] to potentially throw?",
+      "range": {
+        "startLine": 30,
+        "startChar": 17,
+        "endLine": 30,
+        "endChar": 52
+      },
+      "revId": "8fc291d97624d024e0733d1fcec61bb6849140ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c75ca266_cecf9fd9",
         "filename": "test/562-bce-preheader/src/Main.java",
         "patchSetId": 3
