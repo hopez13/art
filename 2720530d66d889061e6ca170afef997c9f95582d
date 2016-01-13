@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7088e64_9665ac20",
+        "filename": "runtime/jit/debugger_interface.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-13T15:27:02Z",
+      "side": 1,
+      "message": "Do you assume those methods will only be called by the locked versions below? If so, should you remove them from the .h file?\n\nPlease also add REQUIRES(g_git_debug_mutex) on the method\u0027s signature.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 61
+      },
+      "revId": "2720530d66d889061e6ca170afef997c9f95582d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
