@@ -168,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "67f216a9_aee33732",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4915,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-13T11:05:17Z",
+      "side": 1,
+      "message": "Right; sorry, I read your initial reply too fast and thought the case of values above max (intead of the case of values below min) was not handled as expected for NAN2008\u003d0, because there was no test for them.\n\nThanks for the explanation.  This looks correct to me.  Maybe add the first three paragraphs of your reply as a comment above line 4885?",
+      "parentUuid": "a7532e54_728598c3",
+      "range": {
+        "startLine": 4915,
+        "startChar": 13,
+        "endLine": 4915,
+        "endChar": 20
+      },
+      "revId": "d0df9d00bda91d5b5077aad86c46ddf88eacbbda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a570fe9_cfc1bd09",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 2
