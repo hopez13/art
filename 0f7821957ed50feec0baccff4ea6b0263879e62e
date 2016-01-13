@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07495aa4_f05fe64f",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-01-13T13:17:23Z",
+      "side": 1,
+      "message": "I don\u0027t believe that this will work correctly.  The X86 code generator assumes that there is only 1 instruction to compute the address, as its offset is saved and used when generating the fixup.\n\nA better fix is to just return if the graph has irreducible loops, and not generate it everywhere.  As these are optimizations, not correctness changes, that is a better solution.",
+      "range": {
+        "startLine": 111,
+        "startChar": 5,
+        "endLine": 113,
+        "endChar": 44
+      },
+      "revId": "0f7821957ed50feec0baccff4ea6b0263879e62e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "676db610_205c6375",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-01-13T13:17:23Z",
+      "side": 1,
+      "message": "I am not sure how to handle this one.",
+      "revId": "0f7821957ed50feec0baccff4ea6b0263879e62e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
