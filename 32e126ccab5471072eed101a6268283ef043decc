@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c72ae2be_ccb4bff4",
+        "filename": "compiler/driver/compiler_driver_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-13T00:15:30Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "0a54ffaf_496825f7",
+      "range": {
+        "startLine": 291,
+        "startChar": 0,
+        "endLine": 291,
+        "endChar": 37
+      },
+      "revId": "32e126ccab5471072eed101a6268283ef043decc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a31fb81_9caaed40",
         "filename": "compiler/profile_assistant_test.cc",
         "patchSetId": 16
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-08T11:23:58Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 47,
+        "startChar": 41,
+        "endLine": 47,
+        "endChar": 42
+      },
+      "revId": "32e126ccab5471072eed101a6268283ef043decc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87246af4_875106ea",
+        "filename": "compiler/profile_assistant_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-13T00:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a31fb81_9caaed40",
       "range": {
         "startLine": 47,
         "startChar": 41,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "67f216a9_8e875b82",
+        "filename": "compiler/profile_assistant_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-13T00:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca6e677a_4fd6e121",
+      "range": {
+        "startLine": 76,
+        "startChar": 70,
+        "endLine": 76,
+        "endChar": 76
+      },
+      "revId": "32e126ccab5471072eed101a6268283ef043decc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6aa2db12_5188f607",
         "filename": "runtime/jit/offline_profiling_info.h",
         "patchSetId": 16
@@ -82,6 +154,30 @@
       "writtenOn": "2016-01-08T11:23:58Z",
       "side": 1,
       "message": "First time we block, isn\u0027t it? Why do blocking here?",
+      "range": {
+        "startLine": 42,
+        "startChar": 42,
+        "endLine": 42,
+        "endChar": 48
+      },
+      "revId": "32e126ccab5471072eed101a6268283ef043decc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a7088e64_336172b7",
+        "filename": "runtime/jit/offline_profiling_info.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-13T00:15:30Z",
+      "side": 1,
+      "message": "Done.\n\nI was planning to fix this in a follow up cause it required extending ScopedFile with a non-blocking variant. Did it now instead.",
+      "parentUuid": "6aa2db12_5188f607",
       "range": {
         "startLine": 42,
         "startChar": 42,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "a7088e64_f3208a76",
+        "filename": "test/ProfileTestMultiDex/Main.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-13T00:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a54ffaf_c9d2d5f8",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "32e126ccab5471072eed101a6268283ef043decc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a2c372e_bbf7afb0",
         "filename": "test/ProfileTestMultiDex/Second.java",
         "patchSetId": 16
@@ -128,6 +248,30 @@
       "writtenOn": "2016-01-08T11:23:58Z",
       "side": 1,
       "message": "2016",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "32e126ccab5471072eed101a6268283ef043decc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c72ae2be_0cc8977b",
+        "filename": "test/ProfileTestMultiDex/Second.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-13T00:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a2c372e_bbf7afb0",
       "range": {
         "startLine": 2,
         "startChar": 17,
