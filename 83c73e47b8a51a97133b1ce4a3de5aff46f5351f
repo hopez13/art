@@ -1173,6 +1173,30 @@
     },
     {
       "key": {
+        "uuid": "27fc9e7c_cfe201ec",
+        "filename": "test/561-shared-slowpaths/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-13T14:53:46Z",
+      "side": 1,
+      "message": "Let\u0027s have a look. Here\u0027s the second deopt block for init() on x86:\n\n  v123    ParallelMove\n    mov esi, [esp + 72]\n  z91     Equal [l9,l90]\n  v92     Deoptimize [z91]\n    test edx, edx\n    jz/eq +169 (0x00000147)\n  i52     ArrayLength [l9]\n    mov edi, [edx + 8]\n  v119    ParallelMove\n    mov eax, esi\n  i95     Sub [i17,i15]\n    sub eax, ebp\n  i96     Sub [i95,i37]\n    sub eax, 1\n  i97     Add [i96,i15]\n    add eax, ebp\n  z98     Above [i15,i97]\n  v99     Deoptimize [z98]\n    cmp ebp, eax\n    jnbe/a +172 (0x0000015e)\n  z100    AboveOrEqual [i97,i52]\n  v101    Deoptimize [z100]\n    cmp eax, edi\n    jnb/ae/nc +187 (0x00000175)\n\nThe problem is that EAX (i97) is still live after v99 but not after v101. The spill set is therefore different and so are the locations of vregs in the stack map:\n\n  DeoptimizationSlowPathX86\n    mov [esp + 4], eax\n    mov [esp + 8], ecx\n    mov [esp + 12], edx\n    mov [esp + 16], ebx\n    call fs:[0x2c4]  ; pDeoptimize\n      v1: in stack (8)\n      v2: in stack (12)\n      v3: in stack (16)\n\n  DeoptimizationSlowPathX86\n    mov [esp + 4], ecx\n    mov [esp + 8], edx\n    mov [esp + 12], ebx\n    call fs:[0x2c4]  ; pDeoptimize\n      v1: in stack (4)\n      v2: in stack (8)\n      v3: in stack (12)\n\nThe same thing happens in the first deopt block as well but the Add gets allocated to ESI which is callee-save so the spill set is the same and the slow paths are shared.\n\nI see two ways how you can deal with this. You can spill the union of registers live across the shared slow paths, i.e. spill EAX for v101 too. That would work for any kind of slow path but it\u0027s wasteful. Or you can go the other way and leverage the fact that DeoptimizationSlowPath never returns and spill only caller-save registers mentioned in the stack map\u0027s dex register map, i.e. not spill EAX at v99 because it doesn\u0027t correspond to a vreg.",
+      "parentUuid": "67c69632_6e16cf9e",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 19
+      },
+      "revId": "83c73e47b8a51a97133b1ce4a3de5aff46f5351f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a68ef71_2a035f95",
         "filename": "test/561-shared-slowpaths/src/Main.java",
         "patchSetId": 3
