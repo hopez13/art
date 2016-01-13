@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "07495aa4_1af0ac85",
+        "filename": "runtime/interpreter/mterp/arm/op_iget_object_quick.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-13T23:48:37Z",
+      "side": 1,
+      "message": "It looks the null check is still here?",
+      "parentUuid": "4768b202_174fef41",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "8c1c7e4f049d179c98359ae9959d106bf550c146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4768b202_573847ab",
         "filename": "runtime/interpreter/mterp/out/mterp_arm.S",
         "patchSetId": 2
