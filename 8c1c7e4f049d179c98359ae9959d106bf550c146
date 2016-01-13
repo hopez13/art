@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07495aa4_c74e71bd",
+        "filename": "runtime/interpreter/mterp/arm/op_iget_object_quick.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-13T21:39:17Z",
+      "side": 1,
+      "message": "I didn\u0027t do this in the original diff, but there seem two null checks: here and in artIGetObjectFromMterp? Keep either one of the two?",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "8c1c7e4f049d179c98359ae9959d106bf550c146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4768b202_573847ab",
+        "filename": "runtime/interpreter/mterp/out/mterp_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2016,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-13T21:39:17Z",
+      "side": 1,
+      "message": "If this matters, we can remove aget-object here as it\u0027s got its own code.",
+      "range": {
+        "startLine": 2016,
+        "startChar": 18,
+        "endLine": 2016,
+        "endChar": 29
+      },
+      "revId": "8c1c7e4f049d179c98359ae9959d106bf550c146",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
