@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e727e6f2_4d856dc3",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-13T15:37:55Z",
+      "side": 1,
+      "message": "What\u0027s this for?",
+      "range": {
+        "startLine": 184,
+        "startChar": 4,
+        "endLine": 184,
+        "endChar": 10
+      },
+      "revId": "0140b37ab2aad3dbf514cc18a6dd23944f988880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67f216a9_d1e2a6eb",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-13T15:37:55Z",
+      "side": 1,
+      "message": "Nit: else if",
+      "range": {
+        "startLine": 531,
+        "startChar": 4,
+        "endLine": 532,
+        "endChar": 4
+      },
+      "revId": "0140b37ab2aad3dbf514cc18a6dd23944f988880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "870b8a60_f2d08624",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-13T15:37:55Z",
+      "side": 1,
+      "message": "Merge ifs",
+      "range": {
+        "startLine": 313,
+        "startChar": 0,
+        "endLine": 315,
+        "endChar": 19
+      },
+      "revId": "0140b37ab2aad3dbf514cc18a6dd23944f988880",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
