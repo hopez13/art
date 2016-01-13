@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "47ed12c9_50f7d2b2",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-13T14:13:26Z",
+      "side": 1,
+      "message": "Yeah, I realized that as well. I went this way because HInvokeStaticOrDirect actually expects the HX86ComputeBaseMethodAddress for pc-relative loads. I had to also disable this.",
+      "parentUuid": "07495aa4_f05fe64f",
+      "range": {
+        "startLine": 111,
+        "startChar": 5,
+        "endLine": 113,
+        "endChar": 44
+      },
+      "revId": "0f7821957ed50feec0baccff4ea6b0263879e62e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "676db610_205c6375",
         "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
         "patchSetId": 11
