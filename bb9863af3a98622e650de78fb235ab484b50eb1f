@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "07623a24_d20c65c8",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1056098
+      },
+      "writtenOn": "2016-01-14T12:27:31Z",
+      "side": 1,
+      "message": "mfhc1/mthc1 can be used with 32-bit FPUs, but only on R2+ as these instructions appeared first in R2. If anything, we could add a check for R2+. But if we want to introduce/tighten up all such checks, we should probably have a separate patch for that. Right now, if possible, I\u0027d prefer this go in as-is so we can unblock Chris Larsen\u0027s MIPS32 intrinsics work (his outstanding patches have become stale because of this and other recent changes and I promised to get my changes in ASAP). Please?",
+      "parentUuid": "076cfa46_a3fa5a25",
+      "revId": "bb9863af3a98622e650de78fb235ab484b50eb1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e798c691_c2dbc211",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 2
