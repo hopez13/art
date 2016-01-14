@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07931a6b_cbbcd5f4",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-14T21:37:35Z",
+      "side": 1,
+      "message": "So that\u0027s the load of the class of the object?",
+      "range": {
+        "startLine": 647,
+        "startChar": 14,
+        "endLine": 647,
+        "endChar": 60
+      },
+      "revId": "4ef1fd2f2ef1835944aa4d9a42531bd2d7251cbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8780ea14_a7e0aa26",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-14T21:37:35Z",
+      "side": 1,
+      "message": "And that\u0027s the load of the method array? Please add comments.",
+      "range": {
+        "startLine": 649,
+        "startChar": 0,
+        "endLine": 649,
+        "endChar": 92
+      },
+      "revId": "4ef1fd2f2ef1835944aa4d9a42531bd2d7251cbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8780ea14_67ff92ca",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-14T21:37:35Z",
+      "side": 1,
+      "message": "What is this for and why does it only apply to java/lang/Object ? So that you only emit it once? Please add a comment.",
+      "range": {
+        "startLine": 639,
+        "startChar": 10,
+        "endLine": 654,
+        "endChar": 11
+      },
+      "revId": "4ef1fd2f2ef1835944aa4d9a42531bd2d7251cbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
