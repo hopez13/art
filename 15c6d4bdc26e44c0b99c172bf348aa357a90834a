@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c75ca266_673831ac",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-14T23:22:23Z",
+      "side": 1,
+      "message": "not really as a direct result of this CL, but this comment seems a bit misplace about the two CHECKs\n\nhow about moving this, and documenting the CHECks instead",
+      "range": {
+        "startLine": 101,
+        "startChar": 13,
+        "endLine": 101,
+        "endChar": 19
+      },
+      "revId": "15c6d4bdc26e44c0b99c172bf348aa357a90834a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27673e34_8a475434",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-14T23:22:23Z",
+      "side": 1,
+      "message": "can we check something in the else case?",
+      "range": {
+        "startLine": 104,
+        "startChar": 24,
+        "endLine": 104,
+        "endChar": 25
+      },
+      "revId": "15c6d4bdc26e44c0b99c172bf348aa357a90834a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
