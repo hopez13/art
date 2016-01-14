@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e759a674_abc4d3b8",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-14T22:12:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a77deeee_cb5be97c",
+      "range": {
+        "startLine": 934,
+        "startChar": 0,
+        "endLine": 934,
+        "endChar": 60
+      },
+      "revId": "0e1ddb6c7adf733b7b6ec796116155ee2c91a946",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c786622d_c9bcd1f4",
         "filename": "runtime/jit/jit_instrumentation.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-14T21:57:46Z",
       "side": 1,
       "message": "Can you move that to the actual parent class? And therefore force it to the children?",
+      "range": {
+        "startLine": 82,
+        "startChar": 7,
+        "endLine": 82,
+        "endChar": 39
+      },
+      "revId": "0e1ddb6c7adf733b7b6ec796116155ee2c91a946",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "676db610_445c0c76",
+        "filename": "runtime/jit/jit_instrumentation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-14T22:12:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c786622d_c9bcd1f4",
       "range": {
         "startLine": 82,
         "startChar": 7,
