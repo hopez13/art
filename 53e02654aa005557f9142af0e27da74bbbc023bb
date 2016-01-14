@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e798c691_02388aaa",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 3668,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-14T15:09:45Z",
+      "side": 1,
+      "message": "Or maybe not, I see we write EntryPoint.",
+      "parentUuid": "a77deeee_68c4c3b8",
+      "range": {
+        "startLine": 3668,
+        "startChar": 70,
+        "endLine": 3668,
+        "endChar": 82
+      },
+      "revId": "53e02654aa005557f9142af0e27da74bbbc023bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c786622d_a91ddd54",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 12
