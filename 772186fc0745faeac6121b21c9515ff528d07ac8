@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87562a44_cf1dd854",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 19
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-14T23:20:34Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "772186fc0745faeac6121b21c9515ff528d07ac8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4768b202_46089207",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-14T23:20:34Z",
+      "side": 1,
+      "message": "Does this need an update? Why was the change necessary if it\u0027s unreachable?",
+      "range": {
+        "startLine": 736,
+        "startChar": 4,
+        "endLine": 736,
+        "endChar": 64
+      },
+      "revId": "772186fc0745faeac6121b21c9515ff528d07ac8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4768b202_c60dc215",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-14T23:20:34Z",
+      "side": 1,
+      "message": "?\n\nIs it necessary to fail in this case, not just log an error?",
+      "range": {
+        "startLine": 191,
+        "startChar": 8,
+        "endLine": 191,
+        "endChar": 93
+      },
+      "revId": "772186fc0745faeac6121b21c9515ff528d07ac8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07623a24_cbb95094",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-14T23:20:34Z",
+      "side": 1,
+      "message": "Comment as to why.",
+      "range": {
+        "startLine": 193,
+        "startChar": 8,
+        "endLine": 193,
+        "endChar": 37
+      },
+      "revId": "772186fc0745faeac6121b21c9515ff528d07ac8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87562a44_ef26dc92",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-14T23:20:34Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 256,
+        "startChar": 100,
+        "endLine": 256,
+        "endChar": 101
+      },
+      "revId": "772186fc0745faeac6121b21c9515ff528d07ac8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "274e5eac_eecc21e7",
+        "filename": "runtime/art_field.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-14T23:20:34Z",
+      "side": 1,
+      "message": "Can we rather make a little helper at the relocation code with NO_THREAD_SAFETY_ANALYSIS?",
+      "range": {
+        "startLine": 194,
+        "startChar": 2,
+        "endLine": 194,
+        "endChar": 73
+      },
+      "revId": "772186fc0745faeac6121b21c9515ff528d07ac8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27673e34_eafd2821",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-14T23:20:34Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 479,
+        "startChar": 2,
+        "endLine": 479,
+        "endChar": 73
+      },
+      "revId": "772186fc0745faeac6121b21c9515ff528d07ac8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07495aa4_ee68a2f7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-14T23:20:34Z",
+      "side": 1,
+      "message": "I don\u0027t think this comment should have been moved here.",
+      "range": {
+        "startLine": 917,
+        "startChar": 2,
+        "endLine": 918,
+        "endChar": 17
+      },
+      "revId": "772186fc0745faeac6121b21c9515ff528d07ac8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07495aa4_8ee11ebe",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-14T23:20:34Z",
+      "side": 1,
+      "message": "This is a very long function with major app_image space conditionals. Can you refactor a bit to keep the core code small?",
+      "range": {
+        "startLine": 1178,
+        "startChar": 0,
+        "endLine": 1178,
+        "endChar": 32
+      },
+      "revId": "772186fc0745faeac6121b21c9515ff528d07ac8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "678e9643_5aa50271",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-14T23:20:34Z",
+      "side": 1,
+      "message": "Insert \"image.\"",
+      "range": {
+        "startLine": 41,
+        "startChar": 50,
+        "endLine": 41,
+        "endChar": 54
+      },
+      "revId": "772186fc0745faeac6121b21c9515ff528d07ac8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4768b202_c69822f0",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-14T23:20:34Z",
+      "side": 1,
+      "message": "Is this change necessary?",
+      "range": {
+        "startLine": 329,
+        "startChar": 2,
+        "endLine": 329,
+        "endChar": 30
+      },
+      "revId": "772186fc0745faeac6121b21c9515ff528d07ac8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
