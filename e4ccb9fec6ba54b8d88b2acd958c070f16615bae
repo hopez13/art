@@ -46,6 +46,29 @@
       "revId": "e4ccb9fec6ba54b8d88b2acd958c070f16615bae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2771fe1c_a7d3442f",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-14T21:20:38Z",
+      "side": 1,
+      "message": "How about moving this to the caller of InvokeVirtualOrInterface? That would be: https://cs.corp.google.com/#android/art/runtime/instrumentation.cc\u0026l\u003d929\n\nIf any of the instrumentation listener can be interrupted, the this_object given will become stale and the next listener will work on a stale reference.",
+      "range": {
+        "startLine": 181,
+        "startChar": 2,
+        "endLine": 181,
+        "endChar": 70
+      },
+      "revId": "e4ccb9fec6ba54b8d88b2acd958c070f16615bae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

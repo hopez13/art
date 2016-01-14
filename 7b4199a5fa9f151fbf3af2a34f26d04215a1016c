@@ -46,6 +46,30 @@
       "revId": "7b4199a5fa9f151fbf3af2a34f26d04215a1016c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "076cfa46_86680cf7",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-14T21:20:38Z",
+      "side": 0,
+      "message": "Yes, Mathieu is right, it\u0027s safe to create a ProfilingInfo object even when a GC is in progress.\n\nIt used to be a problem to allocate those ProfilingInfo, as the GC used to just clear the vector containing them, but now that we keep the ones being used for compilation, it\u0027s ok to do this change.",
+      "parentUuid": "e759a674_6843e19a",
+      "range": {
+        "startLine": 679,
+        "startChar": 2,
+        "endLine": 679,
+        "endChar": 45
+      },
+      "revId": "7b4199a5fa9f151fbf3af2a34f26d04215a1016c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
