@@ -22,6 +22,30 @@
       "revId": "8422edd7af342a955f17639ab827cf062ef8965e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e759a674_e87c11c5",
+        "filename": "runtime/interpreter/mterp/arm/op_iget_object_quick.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-14T19:17:47Z",
+      "side": 0,
+      "message": "The artIGetObjectFromMterp code has checks and throws the exception, and the code in lines 9,12f does the propagation. So a failure on your side would be a bit strange and interesting.",
+      "parentUuid": "e798c691_6224f689",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "8422edd7af342a955f17639ab827cf062ef8965e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
