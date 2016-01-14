@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e798c691_c50aac6c",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-14T21:22:23Z",
+      "side": 1,
+      "message": "We don\u0027t need this, I preferred PS2 :)\n\nLet\u0027s assume the Code Cache GC will always know how to handle ProfilingInfo objects created during GC (which it already does).",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 36
+      },
+      "revId": "dd57825519dc388d576ba8fd9cf57513f8f342c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
