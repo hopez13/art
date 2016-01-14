@@ -22,6 +22,30 @@
       "revId": "e4ccb9fec6ba54b8d88b2acd958c070f16615bae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27673e34_8f76466d",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-14T21:13:27Z",
+      "side": 1,
+      "message": "The new CL has the boolean flag, I think it should be clearer that it is correct.",
+      "parentUuid": "4768b202_e390b015",
+      "range": {
+        "startLine": 180,
+        "startChar": 2,
+        "endLine": 180,
+        "endChar": 4
+      },
+      "revId": "e4ccb9fec6ba54b8d88b2acd958c070f16615bae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
