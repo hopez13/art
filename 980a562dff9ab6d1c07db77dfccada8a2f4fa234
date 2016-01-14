@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27673e34_eae36831",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-14T23:57:55Z",
+      "side": 1,
+      "message": "New style is \"if it doesn\u0027t fit on one line, please use a line per parameter.\" Move dex_files to its own line.",
+      "range": {
+        "startLine": 491,
+        "startChar": 20,
+        "endLine": 492,
+        "endChar": 41
+      },
+      "revId": "980a562dff9ab6d1c07db77dfccada8a2f4fa234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07623a24_ebe36c31",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1330,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-14T23:57:55Z",
+      "side": 1,
+      "message": "Please choose a simpler message, e.g., \"App is over compilation threshold.\"\n\nDon\u0027t try to soften the blow with \"JIT will help instead.\" That is irrelevant to dex2oat and potentially false.",
+      "range": {
+        "startLine": 1330,
+        "startChar": 20,
+        "endLine": 1330,
+        "endChar": 85
+      },
+      "revId": "980a562dff9ab6d1c07db77dfccada8a2f4fa234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
