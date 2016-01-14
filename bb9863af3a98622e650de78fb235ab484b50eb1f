@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "076cfa46_a3fa5a25",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-14T12:00:42Z",
+      "side": 1,
+      "message": "Maybe add\n\n  CHECK(!Is32BitFPU())\n\nhere?",
+      "revId": "bb9863af3a98622e650de78fb235ab484b50eb1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e798c691_c2dbc211",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-14T12:00:42Z",
+      "side": 1,
+      "message": "Ditto?",
+      "revId": "bb9863af3a98622e650de78fb235ab484b50eb1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
