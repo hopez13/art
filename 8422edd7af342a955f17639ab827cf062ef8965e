@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e798c691_6224f689",
+        "filename": "runtime/interpreter/mterp/arm/op_iget_object_quick.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2016-01-14T15:04:41Z",
+      "side": 0,
+      "message": "It is strange but when I did similar in x86 patch, I\u0027ve got NPE unit test failure in host mode. Will re-check it tomorrow...",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "8422edd7af342a955f17639ab827cf062ef8965e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
