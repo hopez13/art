@@ -22,6 +22,30 @@
       "revId": "ac8faade3e1cb1626eabdd31c41d053ccc7b648d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2771fe1c_4448ceb3",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 4371,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-14T10:37:19Z",
+      "side": 1,
+      "message": "Thanks for catching this.\n\nDavid, please fix indentation here and also for the other architectures.",
+      "parentUuid": "274e5eac_eddb8a3e",
+      "range": {
+        "startLine": 4370,
+        "startChar": 0,
+        "endLine": 4371,
+        "endChar": 86
+      },
+      "revId": "ac8faade3e1cb1626eabdd31c41d053ccc7b648d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
