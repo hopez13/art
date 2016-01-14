@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e783661b_ca0763f8",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 3668,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-14T16:24:18Z",
+      "side": 1,
+      "message": "Yeah, also QUICK_ENTRY_POINT",
+      "parentUuid": "e798c691_02388aaa",
+      "range": {
+        "startLine": 3668,
+        "startChar": 70,
+        "endLine": 3668,
+        "endChar": 82
+      },
+      "revId": "53e02654aa005557f9142af0e27da74bbbc023bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c786622d_a91ddd54",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 12
@@ -60,6 +84,30 @@
       "writtenOn": "2016-01-14T14:39:37Z",
       "side": 1,
       "message": "Should that be \u0027First\u0027?",
+      "range": {
+        "startLine": 3677,
+        "startChar": 19,
+        "endLine": 3677,
+        "endChar": 23
+      },
+      "revId": "53e02654aa005557f9142af0e27da74bbbc023bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e798c691_e24fe613",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 3677,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-14T16:24:18Z",
+      "side": 1,
+      "message": "\u0027First\u0027 is misleading because it\u0027s actually last. Called it GetThisArgumentOfStringInit.",
+      "parentUuid": "c786622d_a91ddd54",
       "range": {
         "startLine": 3677,
         "startChar": 19,
@@ -118,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "47727221_65f94634",
+        "filename": "test/563-checker-fakestring/smali/TestCase.smali",
+        "patchSetId": 12
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-14T16:24:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c786622d_49f4613f",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 18
+      },
+      "revId": "53e02654aa005557f9142af0e27da74bbbc023bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a77deeee_e8afd3e1",
         "filename": "test/563-checker-fakestring/src/Main.java",
         "patchSetId": 12
@@ -141,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "076cfa46_431366eb",
+        "filename": "test/563-checker-fakestring/src/Main.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-14T16:24:18Z",
+      "side": 1,
+      "message": "Yeah, but it visually separates the test cases.",
+      "parentUuid": "a77deeee_e8afd3e1",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 5
+      },
+      "revId": "53e02654aa005557f9142af0e27da74bbbc023bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e798c691_421b325f",
         "filename": "test/563-checker-fakestring/src/Main.java",
         "patchSetId": 12
@@ -152,6 +248,30 @@
       "writtenOn": "2016-01-14T14:39:37Z",
       "side": 1,
       "message": "Should you still call it this way?",
+      "range": {
+        "startLine": 45,
+        "startChar": 26,
+        "endLine": 45,
+        "endChar": 36
+      },
+      "revId": "53e02654aa005557f9142af0e27da74bbbc023bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a77deeee_a8d6bb46",
+        "filename": "test/563-checker-fakestring/src/Main.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-14T16:24:18Z",
+      "side": 1,
+      "message": "Done. Though I like the name",
+      "parentUuid": "e798c691_421b325f",
       "range": {
         "startLine": 45,
         "startChar": 26,
