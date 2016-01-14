@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "07623a24_f5050b29",
+        "filename": "runtime/base/scoped_flock.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-14T18:13:51Z",
+      "side": 1,
+      "message": "It\u0027s not really a must but it complies better with the non-blocking semantic: if you didn\u0027t get  the expectations right from the first time, return false.\n\nNote, that here, someone could also race to change the file permissions.",
+      "parentUuid": "47727221_25ce6e3a",
+      "range": {
+        "startLine": 63,
+        "startChar": 6,
+        "endLine": 64,
+        "endChar": 21
+      },
+      "revId": "99727aa3df19656551ff9f6eb7f59cf7f5df7c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "076cfa46_038eceaa",
         "filename": "runtime/base/unix_file/fd_file.h",
         "patchSetId": 18
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "676db610_27ac7507",
+        "filename": "runtime/base/unix_file/fd_file.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-14T18:13:51Z",
+      "side": 1,
+      "message": "It also resets the file offset to 0, which I end up doing in most places after SetLength(0). \n\nIf you have strong feeling I can remove it.",
+      "parentUuid": "076cfa46_038eceaa",
+      "range": {
+        "startLine": 82,
+        "startChar": 2,
+        "endLine": 84,
+        "endChar": 22
+      },
+      "revId": "99727aa3df19656551ff9f6eb7f59cf7f5df7c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6777760f_4680d2b4",
         "filename": "runtime/jit/offline_profiling_info.cc",
         "patchSetId": 18
@@ -82,6 +130,30 @@
       "writtenOn": "2016-01-14T13:27:30Z",
       "side": 1,
       "message": "why is this hand written and not using FdFile etc. ?",
+      "range": {
+        "startLine": 87,
+        "startChar": 2,
+        "endLine": 99,
+        "endChar": 14
+      },
+      "revId": "99727aa3df19656551ff9f6eb7f59cf7f5df7c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c75ca266_91e147be",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-14T18:13:51Z",
+      "side": 1,
+      "message": "It\u0027s older code that didn\u0027t get updated.. I\u0027ll change.",
+      "parentUuid": "6777760f_4680d2b4",
       "range": {
         "startLine": 87,
         "startChar": 2,
