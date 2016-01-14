@@ -22,6 +22,30 @@
       "revId": "99727aa3df19656551ff9f6eb7f59cf7f5df7c97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e783661b_ead6e775",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-14T19:25:17Z",
+      "side": 0,
+      "message": "As far as I read this is actually badly formed. The type of the element of a sequence container must be at least MoveAssignable/CopyAssignable.\n\nIt does not buy us anything anyway.",
+      "parentUuid": "2771fe1c_444e0e72",
+      "range": {
+        "startLine": 150,
+        "startChar": 44,
+        "endLine": 150,
+        "endChar": 49
+      },
+      "revId": "99727aa3df19656551ff9f6eb7f59cf7f5df7c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

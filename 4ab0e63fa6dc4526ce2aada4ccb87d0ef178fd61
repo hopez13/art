@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6777760f_86356a83",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-14T19:25:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e783661b_aab94f94",
+      "range": {
+        "startLine": 99,
+        "startChar": 46,
+        "endLine": 99,
+        "endChar": 62
+      },
+      "revId": "4ab0e63fa6dc4526ce2aada4ccb87d0ef178fd61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07931a6b_0b5fbd29",
         "filename": "runtime/jit/profile_saver.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-14T12:42:44Z",
       "side": 1,
       "message": "Comments please.",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 60
+      },
+      "revId": "4ab0e63fa6dc4526ce2aada4ccb87d0ef178fd61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e783661b_cad923a7",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-14T19:25:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07931a6b_0b5fbd29",
       "range": {
         "startLine": 157,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "07931a6b_eb035192",
+        "filename": "runtime/jit/profile_saver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-14T19:25:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e798c691_a2ae7e51",
+      "range": {
+        "startLine": 63,
+        "startChar": 18,
+        "endLine": 63,
+        "endChar": 22
+      },
+      "revId": "4ab0e63fa6dc4526ce2aada4ccb87d0ef178fd61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e783661b_8abc8b85",
         "filename": "runtime/jit/profile_saver.h",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-01-14T12:42:44Z",
       "side": 1,
       "message": "why not const?",
+      "range": {
+        "startLine": 64,
+        "startChar": 41,
+        "endLine": 64,
+        "endChar": 52
+      },
+      "revId": "4ab0e63fa6dc4526ce2aada4ccb87d0ef178fd61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e798c691_c5bcecd7",
+        "filename": "runtime/jit/profile_saver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-14T19:25:17Z",
+      "side": 1,
+      "message": "see the comment in jit_code_cache.",
+      "parentUuid": "e783661b_8abc8b85",
       "range": {
         "startLine": 64,
         "startChar": 41,
