@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "676db610_44bd2ced",
+        "filename": "runtime/interpreter/mterp/arm/op_iget_object_quick.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-14T23:29:00Z",
+      "side": 1,
+      "message": "Can we add some kind of checks for this?\n\nI would advocate instead of bl to use a macro (with the name of the runtime function), but it prohibits micro optimizations like your scheduling here. And it\u0027s also not clear whether you should do it everywhere (though it would probably be better).\n\nWe don\u0027t store a frame on such a direct transition, so we can\u0027t compare in the runtime code, regrettably.\n\nHow about in debug builds always scrambling the stored pc first in every assembly fragment? Kinda like heap poisoning. Still requires coverage for all the paths, but better than nothing.",
+      "range": {
+        "startLine": 5,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 55
+      },
+      "revId": "bb6e7269b7d3cbf375133f531e8f9983d353d28a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
