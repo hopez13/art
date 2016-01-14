@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "274e5eac_eddb8a3e",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 4371,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-01-14T07:54:26Z",
+      "side": 1,
+      "message": "Can you guys be a bit more consistent w.r.t. indentation?\nSome of you at Google have asked us to have either all args on the same line (if they all fit on one line) or have one arg per line with each one stacked under another (again, if they all fit 100 chars on each of the multiple lines) or one arg per line with all args moved down and to the left with indentation of 4 spaces and at the same time there\u0027s new code coming from Google like I just marked here. I\u0027d prefer it more consistent or have a clear permission to do it either way without being asked to reformat anything.",
+      "range": {
+        "startLine": 4370,
+        "startChar": 0,
+        "endLine": 4371,
+        "endChar": 86
+      },
+      "revId": "ac8faade3e1cb1626eabdd31c41d053ccc7b648d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
