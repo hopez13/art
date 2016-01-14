@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a77deeee_c8584fdc",
+        "filename": "test/559-checker-irreducible-loop/smali/IrreducibleLoop.smali",
+        "patchSetId": 16
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-14T14:58:45Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 535,
+        "startChar": 1,
+        "endLine": 535,
+        "endChar": 14
+      },
+      "revId": "0525b2d82676acd304fe56d44c58ecfcab7eb3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c786622d_89265992",
+        "filename": "test/559-checker-irreducible-loop/smali/IrreducibleLoop.smali",
+        "patchSetId": 16
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-14T14:58:45Z",
+      "side": 1,
+      "message": "Move after to licm2?",
+      "range": {
+        "startLine": 536,
+        "startChar": 36,
+        "endLine": 536,
+        "endChar": 41
+      },
+      "revId": "0525b2d82676acd304fe56d44c58ecfcab7eb3a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
