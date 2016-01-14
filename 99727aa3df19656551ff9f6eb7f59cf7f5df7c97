@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6777760f_a6326696",
+        "filename": "compiler/driver/compiler_driver_test.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-14T19:25:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07f79a9a_8bb58d3a",
+      "range": {
+        "startLine": 286,
+        "startChar": 11,
+        "endLine": 286,
+        "endChar": 13
+      },
+      "revId": "99727aa3df19656551ff9f6eb7f59cf7f5df7c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47727221_25ce6e3a",
         "filename": "runtime/base/scoped_flock.cc",
         "patchSetId": 18
@@ -154,6 +178,30 @@
       "side": 1,
       "message": "It\u0027s older code that didn\u0027t get updated.. I\u0027ll change.",
       "parentUuid": "6777760f_4680d2b4",
+      "range": {
+        "startLine": 87,
+        "startChar": 2,
+        "endLine": 99,
+        "endChar": 14
+      },
+      "revId": "99727aa3df19656551ff9f6eb7f59cf7f5df7c97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6777760f_c63f625d",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-14T19:25:02Z",
+      "side": 1,
+      "message": "I will update this in a fallow up and move all the operations to use FdFiles",
+      "parentUuid": "c75ca266_91e147be",
       "range": {
         "startLine": 87,
         "startChar": 2,
