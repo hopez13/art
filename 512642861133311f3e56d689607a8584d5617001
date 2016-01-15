@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "c75ca266_2d32972e",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-15T19:08:56Z",
+      "side": 1,
+      "message": "This isn\u0027t how this is done. You may violate thread state invariants.\n\nConsider pushing this upward, that is, annotating the method with SHARED_REQUIRES (which will likely propagate a bit).\n\nOr use ScopedObjectAccess.",
+      "range": {
+        "startLine": 246,
+        "startChar": 4,
+        "endLine": 246,
+        "endChar": 65
+      },
+      "revId": "512642861133311f3e56d689607a8584d5617001",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27673e34_80473334",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 3
@@ -84,6 +107,30 @@
       "side": 1,
       "message": "Renamed to DumpTypeInfoForLoadedTypes. Let me know if you have some better name",
       "parentUuid": "27673e34_80473334",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 252,
+        "endChar": 1
+      },
+      "revId": "512642861133311f3e56d689607a8584d5617001",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07495aa4_702c6cd5",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-15T19:08:56Z",
+      "side": 1,
+      "message": "Nope, this is fine for me (describes much better what it does).",
+      "parentUuid": "e798c691_28592f85",
       "range": {
         "startLine": 236,
         "startChar": 0,
