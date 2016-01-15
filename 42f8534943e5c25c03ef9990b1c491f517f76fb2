@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "e798c691_a84c1fc7",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-01-15T18:47:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27673e34_20361fbc",
+      "range": {
+        "startLine": 657,
+        "startChar": 84,
+        "endLine": 657,
+        "endChar": 88
+      },
+      "revId": "42f8534943e5c25c03ef9990b1c491f517f76fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87562a44_893e3b07",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 2
@@ -117,6 +141,54 @@
     },
     {
       "key": {
+        "uuid": "c786622d_0c13573e",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-01-15T18:47:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4768b202_d701ee4e",
+      "range": {
+        "startLine": 658,
+        "startChar": 25,
+        "endLine": 658,
+        "endChar": 31
+      },
+      "revId": "42f8534943e5c25c03ef9990b1c491f517f76fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e783661b_8d8905e0",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-01-15T18:47:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87562a44_893e3b07",
+      "range": {
+        "startLine": 658,
+        "startChar": 54,
+        "endLine": 658,
+        "endChar": 71
+      },
+      "revId": "42f8534943e5c25c03ef9990b1c491f517f76fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c75ca266_0a0df9c1",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 2
@@ -128,6 +200,30 @@
       "writtenOn": "2016-01-15T18:18:05Z",
       "side": 1,
       "message": "Please put a sentence in the comment above that you don\u0027t have a C-level array. Otherwise that would sound like the better type.\n\nAlso, comments end with a period, always.",
+      "range": {
+        "startLine": 663,
+        "startChar": 12,
+        "endLine": 663,
+        "endChar": 39
+      },
+      "revId": "42f8534943e5c25c03ef9990b1c491f517f76fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "076cfa46_4921c5db",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-01-15T18:47:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c75ca266_0a0df9c1",
       "range": {
         "startLine": 663,
         "startChar": 12,
