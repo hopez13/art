@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "07931a6b_4e80f3b4",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-01-15T15:13:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2771fe1c_07441852",
+      "range": {
+        "startLine": 663,
+        "startChar": 27,
+        "endLine": 663,
+        "endChar": 31
+      },
+      "revId": "b147e1e21f3b53341e2f62b6cc005399738863e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8780ea14_ca34c31d",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-15T14:29:34Z",
       "side": 1,
       "message": "I think we should DCHECK_EQ(strlen(desc), 1u);",
+      "range": {
+        "startLine": 903,
+        "startChar": 8,
+        "endLine": 903,
+        "endChar": 26
+      },
+      "revId": "b147e1e21f3b53341e2f62b6cc005399738863e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8780ea14_8a680bf7",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-01-15T15:13:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8780ea14_ca34c31d",
       "range": {
         "startLine": 903,
         "startChar": 8,
