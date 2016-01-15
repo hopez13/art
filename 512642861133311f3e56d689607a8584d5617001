@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2771fe1c_277cb44e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-01-15T18:47:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27673e34_004cc349",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 4
+      },
+      "revId": "512642861133311f3e56d689607a8584d5617001",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27673e34_80473334",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e798c691_28592f85",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-01-15T18:47:05Z",
+      "side": 1,
+      "message": "Renamed to DumpTypeInfoForLoadedTypes. Let me know if you have some better name",
+      "parentUuid": "27673e34_80473334",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 252,
+        "endChar": 1
+      },
+      "revId": "512642861133311f3e56d689607a8584d5617001",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07623a24_81129934",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2016-01-15T18:15:33Z",
       "side": 1,
       "message": "Where\u0027s a comment what this is supposed to do?",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 43
+      },
+      "revId": "512642861133311f3e56d689607a8584d5617001",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6777760f_89bc9d85",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-01-15T18:47:05Z",
+      "side": 1,
+      "message": "Comment added",
+      "parentUuid": "07623a24_81129934",
       "range": {
         "startLine": 88,
         "startChar": 2,
