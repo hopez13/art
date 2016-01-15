@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "07495aa4_cdfa0bda",
+        "filename": "compiler/dex/mir_method_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-15T18:22:46Z",
+      "side": 1,
+      "message": "I meant it did not explain the CHECKs, but applied to the block under that, with its own comment.\n\nBut they way you did it now, with white space, is perfect.\nThanks!",
+      "parentUuid": "274e5eac_d459f242",
+      "range": {
+        "startLine": 101,
+        "startChar": 13,
+        "endLine": 101,
+        "endChar": 19
+      },
+      "revId": "15c6d4bdc26e44c0b99c172bf348aa357a90834a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27673e34_8a475434",
         "filename": "compiler/dex/mir_method_info.cc",
         "patchSetId": 1
