@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "076cfa46_66479035",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-15T11:22:31Z",
+      "side": 1,
+      "message": "That we might need to do full stack deopting as optimized frames will be on the stack.\n\nI believe there is nothing in the compiler preventing full frame deopt, so I\u0027d rather not add a special case just because of the fake string.",
+      "parentUuid": "2771fe1c_679b0c5a",
+      "range": {
+        "startLine": 107,
+        "startChar": 73,
+        "endLine": 107,
+        "endChar": 83
+      },
+      "revId": "5467d96d2fdd9add0a50c52792f648e2b28f86cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a77deeee_ab34f5d4",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 4
