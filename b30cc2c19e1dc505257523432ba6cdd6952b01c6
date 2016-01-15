@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "e798c691_485c7375",
+        "filename": "compiler/dwarf/expression.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-15T18:42:31Z",
+      "side": 1,
+      "message": "My intent is to have some confidence the released version will not crash because the expression is one byte over the allocated space due to some corner case which does not generally happen.\n\nAnother option is use growable buffer instead.",
+      "parentUuid": "2752dead_e2210248",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 91,
+        "endChar": 5
+      },
+      "revId": "b30cc2c19e1dc505257523432ba6cdd6952b01c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87562a44_093b4b0d",
         "filename": "compiler/dwarf/expression.h",
         "patchSetId": 1
