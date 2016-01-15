@@ -307,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "4768b202_4940a3e8",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-15T02:00:10Z",
+      "side": 1,
+      "message": "Added comment in header file.",
+      "parentUuid": "274e5eac_f15b60d5",
+      "range": {
+        "startLine": 472,
+        "startChar": 23,
+        "endLine": 472,
+        "endChar": 36
+      },
+      "revId": "772186fc0745faeac6121b21c9515ff528d07ac8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27673e34_eafd2821",
         "filename": "runtime/art_method.h",
         "patchSetId": 19
