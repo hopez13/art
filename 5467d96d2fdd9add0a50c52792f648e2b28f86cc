@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "8780ea14_6aa9179a",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-15T11:15:02Z",
+      "side": 1,
+      "message": "Yes, but that is very likely to change when we move the boot image to non-debuggable. And it\u0027d be annoying to come back and fix this change.",
+      "parentUuid": "8780ea14_2a9f1f79",
+      "range": {
+        "startLine": 107,
+        "startChar": 73,
+        "endLine": 107,
+        "endChar": 83
+      },
+      "revId": "5467d96d2fdd9add0a50c52792f648e2b28f86cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a77deeee_ab34f5d4",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 4
