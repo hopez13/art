@@ -46,6 +46,29 @@
       "revId": "bb6e7269b7d3cbf375133f531e8f9983d353d28a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6777760f_c60682a5",
+        "filename": "runtime/interpreter/mterp/arm/op_iget_object_quick.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2016-01-15T04:04:06Z",
+      "side": 1,
+      "message": "again sorry for late feedback. No need to invoke \"possible\" exception. You have already ensured that it is an exception, so just MterpException.",
+      "range": {
+        "startLine": 12,
+        "startChar": 12,
+        "endLine": 12,
+        "endChar": 34
+      },
+      "revId": "bb6e7269b7d3cbf375133f531e8f9983d353d28a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
