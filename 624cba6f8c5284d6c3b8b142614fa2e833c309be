@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2771fe1c_873728d9",
+        "filename": "compiler/elf_writer_debug.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-15T14:39:03Z",
+      "side": 1,
+      "message": "I would be tempted to make this ArrayRef.  Your call.",
+      "range": {
+        "startLine": 41,
+        "startChar": 52,
+        "endLine": 42,
+        "endChar": 63
+      },
+      "revId": "624cba6f8c5284d6c3b8b142614fa2e833c309be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
