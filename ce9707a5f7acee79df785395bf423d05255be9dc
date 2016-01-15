@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "47d51232_cd6529c3",
+        "filename": "runtime/base/logging.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-01-15T14:21:11Z",
+      "side": 1,
+      "message": "Indeed, this won\u0027t work. Using assert() instead sounds good.",
+      "parentUuid": "07495aa4_fa81806c",
+      "range": {
+        "startLine": 208,
+        "startChar": 6,
+        "endLine": 208,
+        "endChar": 46
+      },
+      "revId": "ce9707a5f7acee79df785395bf423d05255be9dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07495aa4_3ae1284e",
         "filename": "runtime/java_vm_ext.cc",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "writtenOn": "2016-01-14T01:20:40Z",
       "side": 1,
       "message": "probably we should use ALOGE directly (comment still is fine in this case)",
+      "range": {
+        "startLine": 930,
+        "startChar": 0,
+        "endLine": 931,
+        "endChar": 90
+      },
+      "revId": "ce9707a5f7acee79df785395bf423d05255be9dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7e60628_f28d68ae",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-01-15T14:21:11Z",
+      "side": 1,
+      "message": "Alright, shouldn\u0027t I use ALOG_ASSERT() instead of assert() for the other issue then?",
+      "parentUuid": "07495aa4_3ae1284e",
       "range": {
         "startLine": 930,
         "startChar": 0,
