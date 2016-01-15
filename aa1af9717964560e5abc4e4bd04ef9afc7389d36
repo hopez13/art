@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e783661b_4d59cd40",
+        "filename": "runtime/common_runtime_test.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-15T19:40:28Z",
+      "side": 1,
+      "message": "This class is identical to the CommonRuntimeTest, except for the base. Why not\n\n    class CommonRuntimeTestBaseImpl { ... }  // Rename the \"Base\" to \"BaseImpl\".\n\n    template \u003ctypename GTestBase\u003e\n    class CommonRuntimeTestBase\n        : public GTestBase,\n          public CommonRuntimeTestBaseImpl { ... }\n\n    using CommonRuntimeTest \u003d CommonRuntimeTestBase\u003ctesting::Test\u003e;\n    template \u003ctypename Param\u003e\n    using CommonRuntimeTestWithParam \u003d\n        CommonRuntimeTestBase\u003ctesting::TestWithParam\u003cParam\u003e\u003e;",
+      "range": {
+        "startLine": 179,
+        "startChar": 6,
+        "endLine": 179,
+        "endChar": 32
+      },
+      "revId": "aa1af9717964560e5abc4e4bd04ef9afc7389d36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
