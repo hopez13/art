@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c75ca266_aaae8db9",
+        "filename": "compiler/dwarf/expression.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-15T18:28:44Z",
+      "side": 1,
+      "message": "A more common style is to name this like a constexpr: kBufferSize.",
+      "range": {
+        "startLine": 27,
+        "startChar": 18,
+        "endLine": 27,
+        "endChar": 28
+      },
+      "revId": "b30cc2c19e1dc505257523432ba6cdd6952b01c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2752dead_e2210248",
+        "filename": "compiler/dwarf/expression.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-15T18:28:44Z",
+      "side": 1,
+      "message": "This is after the fact and means:\n\n 1) You oversize the buffer.\n 2) It may break before ever getting here.\n\nConsider having DCHECKs before ptr_ is updated. Probably you should make conservative checks for all the ULEB stuff.",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 91,
+        "endChar": 5
+      },
+      "revId": "b30cc2c19e1dc505257523432ba6cdd6952b01c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87562a44_093b4b0d",
+        "filename": "compiler/dwarf/expression.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-15T18:28:44Z",
+      "side": 1,
+      "message": "We don\u0027t indent classes in namespaces.",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 99,
+        "endChar": 4
+      },
+      "revId": "b30cc2c19e1dc505257523432ba6cdd6952b01c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
