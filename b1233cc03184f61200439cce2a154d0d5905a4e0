@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2752dead_0293ced5",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-15T18:30:28Z",
+      "side": 1,
+      "message": "Perhaps combine the first two sentences?\n\n\"Update heap objects and non-entrypoint pointers by the passed in visitor for image relocation.\"\n\nand change the name to something like UpdateObjectsForImageRelocation to be more specific?",
+      "range": {
+        "startLine": 480,
+        "startChar": 5,
+        "endLine": 480,
+        "endChar": 78
+      },
+      "revId": "b1233cc03184f61200439cce2a154d0d5905a4e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
