@@ -46,6 +46,30 @@
       "revId": "ac3c2ccfa8fd212f84d7a6232886f1219a2f9079",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e798c691_a8f9bf6e",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-17T11:59:55Z",
+      "side": 1,
+      "message": "On second thoughts, this should not be needed, as Checker assertions are not verified in JIT run-tests.  I reverted the change in PS3.",
+      "parentUuid": "47727221_a8907314",
+      "range": {
+        "startLine": 555,
+        "startChar": 2,
+        "endLine": 555,
+        "endChar": 5
+      },
+      "revId": "ac3c2ccfa8fd212f84d7a6232886f1219a2f9079",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
