@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "8780ea14_aaccefe5",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1580,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-18T12:09:13Z",
+      "side": 1,
+      "message": "For code size, the best option on ARM would be\n\n  vmov sTmp, rInput\n  vcnt.8 sTmp, sTmp\n  vmov rOutput, rOutput\n  add rOutput, rOutput, rOutput, shl #8\n  add rOutput, rOutput, rOutput, shl #16\n  lsr rOutput, rOutput, #24\n\nNote, that LSR can be a 16-bit instruction but AND is always 32-bit, so we should choose to accumulate the result in the highest byte (as above) rather than the lowest.\n\nFor Long, we have two options how to add the results for the two words: VADD or UADD8. VADD should be preferred to avoid clobbering an extra core register.\n\nThe question is, would it be faster if we stick to core registers (with 6 extra instructions for Int and even more for Long)?\n\nSimilar on ARM64, except that for adding the high and low word results for Long should be done in core register. And it doesn\u0027t matter whether the result is accumulated in the high or low byte.",
+      "parentUuid": "47727221_283d639b",
+      "range": {
+        "startLine": 1580,
+        "startChar": 0,
+        "endLine": 1580,
+        "endChar": 40
+      },
+      "revId": "77d6a53032cd504918a4d00d8ca4abc44aa0a869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47727221_882bb751",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 1
