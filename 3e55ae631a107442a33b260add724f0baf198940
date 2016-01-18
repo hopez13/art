@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07931a6b_91ad9ca8",
+        "filename": "compiler/dwarf/expression.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-18T09:27:00Z",
+      "side": 1,
+      "message": "Comments on all methods please.",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 16
+      },
+      "revId": "3e55ae631a107442a33b260add724f0baf198940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8780ea14_0a389baa",
+        "filename": "compiler/dwarf/expression.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-18T09:27:00Z",
+      "side": 1,
+      "message": "ConstSigned",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 13
+      },
+      "revId": "3e55ae631a107442a33b260add724f0baf198940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47727221_a834f3d4",
+        "filename": "compiler/dwarf/expression.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-18T09:27:00Z",
+      "side": 1,
+      "message": "ConstUnsigned",
+      "range": {
+        "startLine": 42,
+        "startChar": 7,
+        "endLine": 42,
+        "endChar": 13
+      },
+      "revId": "3e55ae631a107442a33b260add724f0baf198940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a77deeee_ae01634f",
+        "filename": "compiler/dwarf/expression.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-18T09:27:00Z",
+      "side": 1,
+      "message": "MachineRegister?",
+      "range": {
+        "startLine": 51,
+        "startChar": 7,
+        "endLine": 51,
+        "endChar": 10
+      },
+      "revId": "3e55ae631a107442a33b260add724f0baf198940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c786622d_ac87ab81",
+        "filename": "compiler/dwarf/expression.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-18T09:27:00Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 60,
+        "startChar": 7,
+        "endLine": 60,
+        "endChar": 12
+      },
+      "revId": "3e55ae631a107442a33b260add724f0baf198940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c786622d_cc84df7f",
+        "filename": "compiler/dwarf/expression.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-18T09:27:00Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 65,
+        "startChar": 7,
+        "endLine": 65,
+        "endChar": 12
+      },
+      "revId": "3e55ae631a107442a33b260add724f0baf198940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07931a6b_71a9109a",
+        "filename": "compiler/dwarf/expression.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-18T09:27:00Z",
+      "side": 1,
+      "message": "DereferencePointer?",
+      "range": {
+        "startLine": 70,
+        "startChar": 7,
+        "endLine": 70,
+        "endChar": 12
+      },
+      "revId": "3e55ae631a107442a33b260add724f0baf198940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6777760f_89265d92",
+        "filename": "compiler/dwarf/expression.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-18T09:27:00Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 72,
+        "startChar": 7,
+        "endLine": 72,
+        "endChar": 16
+      },
+      "revId": "3e55ae631a107442a33b260add724f0baf198940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2771fe1c_472c503c",
+        "filename": "compiler/dwarf/expression.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-18T09:27:00Z",
+      "side": 1,
+      "message": "Add?",
+      "range": {
+        "startLine": 77,
+        "startChar": 7,
+        "endLine": 77,
+        "endChar": 11
+      },
+      "revId": "3e55ae631a107442a33b260add724f0baf198940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2771fe1c_67314c95",
+        "filename": "compiler/dwarf/expression.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-18T09:27:00Z",
+      "side": 1,
+      "message": "AddUnsignedConstant?",
+      "range": {
+        "startLine": 79,
+        "startChar": 7,
+        "endLine": 79,
+        "endChar": 17
+      },
+      "revId": "3e55ae631a107442a33b260add724f0baf198940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e783661b_4d98eded",
+        "filename": "compiler/dwarf/expression.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-18T09:27:00Z",
+      "side": 1,
+      "message": "Negate?",
+      "range": {
+        "startLine": 84,
+        "startChar": 7,
+        "endLine": 84,
+        "endChar": 10
+      },
+      "revId": "3e55ae631a107442a33b260add724f0baf198940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
