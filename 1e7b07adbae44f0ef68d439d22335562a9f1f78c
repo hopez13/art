@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e783661b_cd6a1d2c",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-18T14:12:36Z",
+      "side": 1,
+      "message": "Add a comment that for debuggable we want consistent behavior with ourselves and hte interpreter and therefore always have a non-null value.",
+      "range": {
+        "startLine": 113,
+        "startChar": 8,
+        "endLine": 113,
+        "endChar": 34
+      },
+      "revId": "1e7b07adbae44f0ef68d439d22335562a9f1f78c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c786622d_acbfabe6",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-18T14:12:36Z",
+      "side": 1,
+      "message": "Isn\u0027t that \"the interpreter knows how to deal with the null\" ?",
+      "range": {
+        "startLine": 116,
+        "startChar": 21,
+        "endLine": 116,
+        "endChar": 80
+      },
+      "revId": "1e7b07adbae44f0ef68d439d22335562a9f1f78c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e783661b_8d702522",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-18T14:12:36Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you drop this? java.lang.String is public.",
+      "range": {
+        "startLine": 119,
+        "startChar": 34,
+        "endLine": 119,
+        "endChar": 65
+      },
+      "revId": "1e7b07adbae44f0ef68d439d22335562a9f1f78c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e783661b_ad6de946",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-18T14:12:36Z",
+      "side": 1,
+      "message": "by the compiler",
+      "range": {
+        "startLine": 419,
+        "startChar": 22,
+        "endLine": 419,
+        "endChar": 23
+      },
+      "revId": "1e7b07adbae44f0ef68d439d22335562a9f1f78c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "076cfa46_09942d6c",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-18T14:12:36Z",
+      "side": 1,
+      "message": "to handle the compiler optimization of replacing `this` with null",
+      "range": {
+        "startLine": 596,
+        "startChar": 79,
+        "endLine": 597,
+        "endChar": 42
+      },
+      "revId": "1e7b07adbae44f0ef68d439d22335562a9f1f78c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
