@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "076cfa46_69ebe12b",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-18T09:22:12Z",
+      "side": 1,
+      "message": "Could you move all of this to jit_types_loaded? I think you just have to pass the ClassLinker to it.",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 252,
+        "endChar": 1
+      },
+      "revId": "807ef6eae12b0dda678d45c8aca1f103b20038db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
