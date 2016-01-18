@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6777760f_a95159e9",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-01-18T11:42:10Z",
+      "side": 1,
+      "message": "I tried to add SHARED_REQUIRES to it but it propagates all the way up to ZygoteHooks_nativePostForkChild what called outside of ART as far as I can tell so propagation doesn\u0027t look feasible. I replaced it with ScopedObjectAccess but I am not sure if I done it the correct way so please take a look.",
+      "parentUuid": "c75ca266_2d32972e",
+      "range": {
+        "startLine": 246,
+        "startChar": 4,
+        "endLine": 246,
+        "endChar": 65
+      },
+      "revId": "512642861133311f3e56d689607a8584d5617001",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27673e34_80473334",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 3
