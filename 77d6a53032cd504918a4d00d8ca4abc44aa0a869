@@ -25,6 +25,76 @@
     },
     {
       "key": {
+        "uuid": "47727221_283d639b",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1580,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-18T11:35:02Z",
+      "side": 1,
+      "message": "Yes, we should be able to use the SIMD instructions VCNT on ARM and CNT on ARM64.",
+      "parentUuid": "8780ea14_8a2bab51",
+      "range": {
+        "startLine": 1580,
+        "startChar": 0,
+        "endLine": 1580,
+        "endChar": 40
+      },
+      "revId": "77d6a53032cd504918a4d00d8ca4abc44aa0a869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47727221_882bb751",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2389,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-18T11:35:02Z",
+      "side": 1,
+      "message": "I would use the `POPCOUNT` helper provided by runtime/base/bit_utils.h here:\n\n    HInstruction* arg \u003d invoke-\u003eInputAt(0)\n    int32_t count \u003d is_long ?\n        POPCOUNT(arg-\u003eAsLongConstant()-\u003eGetValue()) :\n        POPCOUNT(arg-\u003eAsIntConstant()-\u003eGetValue());",
+      "range": {
+        "startLine": 2386,
+        "startChar": 0,
+        "endLine": 2389,
+        "endChar": 63
+      },
+      "revId": "77d6a53032cd504918a4d00d8ca4abc44aa0a869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47727221_a8287355",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2395,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-18T11:35:02Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 2395,
+        "startChar": 11,
+        "endLine": 2395,
+        "endChar": 21
+      },
+      "revId": "77d6a53032cd504918a4d00d8ca4abc44aa0a869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e783661b_4d71cd75",
         "filename": "test/564-bitcount/src/Main.java",
         "patchSetId": 1
