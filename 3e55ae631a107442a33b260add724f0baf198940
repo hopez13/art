@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "47727221_68603bb0",
+        "filename": "compiler/dwarf/expression.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-18T11:53:10Z",
+      "side": 1,
+      "message": "I am assuming in most of the DWARF code that the developer is either familiar with DWARF, or at least has the specification at hand to lookup the opcode behavior.\n(http://dwarfstd.org/doc/DWARF4.pdf)",
+      "parentUuid": "07931a6b_91ad9ca8",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 16
+      },
+      "revId": "3e55ae631a107442a33b260add724f0baf198940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8780ea14_0a389baa",
         "filename": "compiler/dwarf/expression.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-18T09:27:00Z",
       "side": 1,
       "message": "ConstSigned",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 13
+      },
+      "revId": "3e55ae631a107442a33b260add724f0baf198940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c786622d_ec5523a3",
+        "filename": "compiler/dwarf/expression.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-18T11:53:10Z",
+      "side": 1,
+      "message": "...which means I definitely want to preserve the names as used in the spec so that it is easier to look them up, and obvious to people familiar with the spec.",
+      "parentUuid": "8780ea14_0a389baa",
       "range": {
         "startLine": 33,
         "startChar": 7,
