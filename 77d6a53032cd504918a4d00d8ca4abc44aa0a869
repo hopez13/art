@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "c786622d_2c1e5bf4",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1580,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-18T12:27:51Z",
+      "side": 1,
+      "message": "If we\u0027re willing to use an extra temp on ARM (or use IP), the accumulation can be done by loading 0 to a register and using USAD8, saving one instruction.",
+      "parentUuid": "8780ea14_aab5cf39",
+      "range": {
+        "startLine": 1580,
+        "startChar": 0,
+        "endLine": 1580,
+        "endChar": 40
+      },
+      "revId": "77d6a53032cd504918a4d00d8ca4abc44aa0a869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47727221_882bb751",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 1
