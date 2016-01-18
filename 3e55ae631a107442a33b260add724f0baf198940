@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "076cfa46_69184105",
+        "filename": "compiler/dwarf/expression.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-18T12:24:19Z",
+      "side": 1,
+      "message": "This file is in the dwarf directory.\nIf anyone wants to modify the dwarf generating code, I think that knowledge of the dwarf spec might be reasonable to require.\nIn general, all the files in the dwarf/ directory are intended to be dull helpers to handle the binary encoding of the dwarf opcodes without any high-level logic.",
+      "parentUuid": "e783661b_4d138deb",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 16
+      },
+      "revId": "3e55ae631a107442a33b260add724f0baf198940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8780ea14_0a389baa",
         "filename": "compiler/dwarf/expression.h",
         "patchSetId": 3
