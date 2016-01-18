@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "2771fe1c_2a7abbc3",
+        "filename": "compiler/dwarf/expression.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-01-18T16:43:29Z",
+      "side": 1,
+      "message": "From readability perspective the developer who reads or modifies code writing out dwarf expressions has to know quite a bit about dwarf expressions and about the stack machine behind it independently of how we name the methods because he/she have to read/write opcodes for the stack machine. Because of it I would suggest naming the methods to EmitOpConsts (EmitOpConstS), EmitOpConstu, EmitOpReg, etc. because it will make it clear that we are only emitting dwarf opcodes.",
+      "parentUuid": "076cfa46_a90959b6",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 16
+      },
+      "revId": "3e55ae631a107442a33b260add724f0baf198940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8780ea14_0a389baa",
         "filename": "compiler/dwarf/expression.h",
         "patchSetId": 3
