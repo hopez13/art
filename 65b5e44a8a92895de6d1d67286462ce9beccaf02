@@ -68,6 +68,98 @@
       "revId": "65b5e44a8a92895de6d1d67286462ce9beccaf02",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07931a6b_715e702b",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-18T15:47:25Z",
+      "side": 1,
+      "message": "Maybe give a special name to this register through a constant?",
+      "range": {
+        "startLine": 863,
+        "startChar": 28,
+        "endLine": 863,
+        "endChar": 30
+      },
+      "revId": "65b5e44a8a92895de6d1d67286462ce9beccaf02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c786622d_6fa9259a",
+        "filename": "compiler/optimizing/codegen_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-18T15:47:25Z",
+      "side": 1,
+      "message": "Is this actually needed?",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 19
+      },
+      "revId": "65b5e44a8a92895de6d1d67286462ce9beccaf02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2771fe1c_eafb438f",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-18T15:47:25Z",
+      "side": 1,
+      "message": "Runs",
+      "range": {
+        "startLine": 319,
+        "startChar": 8,
+        "endLine": 319,
+        "endChar": 11
+      },
+      "revId": "65b5e44a8a92895de6d1d67286462ce9beccaf02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47727221_48fa9fdb",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-18T15:47:25Z",
+      "side": 1,
+      "message": "Generates",
+      "range": {
+        "startLine": 320,
+        "startChar": 8,
+        "endLine": 320,
+        "endChar": 16
+      },
+      "revId": "65b5e44a8a92895de6d1d67286462ce9beccaf02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
