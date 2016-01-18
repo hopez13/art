@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2752dead_638731f9",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1051763
+      },
+      "writtenOn": "2016-01-18T14:39:25Z",
+      "side": 1,
+      "message": "Is this piece of code still needed?\nFor generated code, this code will not be reached, right?",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 5
+      },
+      "revId": "883b24094c437521359b7bab91fe88cff0ff9d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
