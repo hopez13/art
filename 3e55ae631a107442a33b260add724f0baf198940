@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "07931a6b_7112f037",
+        "filename": "compiler/dwarf/expression.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-18T17:21:34Z",
+      "side": 1,
+      "message": "Done.\n\nI have added bunch of simple comments.  It does not remove the need to know the spec, but hopefully it should allow people to skim the code and kind of follow it without the spec.\n\nI have added prefix as per Tamas\u0027 suggestion.  I do not know if that helps, but it does not hurt.",
+      "parentUuid": "2771fe1c_2a7abbc3",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 16
+      },
+      "revId": "3e55ae631a107442a33b260add724f0baf198940",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8780ea14_0a389baa",
         "filename": "compiler/dwarf/expression.h",
         "patchSetId": 3
