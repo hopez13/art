@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4768b202_e2d0a150",
+        "filename": "test/482-checker-loop-back-edge-use/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-19T19:38:42Z",
+      "side": 1,
+      "message": "bit strange to do this, but it works since this test does not even execute its method\n\nAt the very least document why you added this (and below)",
+      "range": {
+        "startLine": 43,
+        "startChar": 29,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "1b12084fec50319150c220cdc2089b9025b45714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4768b202_c2ae45bb",
+        "filename": "test/564-checker-inline-loop/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-19T19:38:42Z",
+      "side": 1,
+      "message": "I, personally, like tests that also execute all the methods.",
+      "range": {
+        "startLine": 60,
+        "startChar": 41,
+        "endLine": 60,
+        "endChar": 42
+      },
+      "revId": "1b12084fec50319150c220cdc2089b9025b45714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
