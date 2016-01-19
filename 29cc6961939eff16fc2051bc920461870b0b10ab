@@ -22,6 +22,30 @@
       "revId": "29cc6961939eff16fc2051bc920461870b0b10ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2752dead_b92008da",
+        "filename": "runtime/base/scoped_flock.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-19T19:34:35Z",
+      "side": 1,
+      "message": "Added comments and expanded the documentation. \n\nI still think it\u0027s better to return early here. In theory you could end up retrying this over and over again which does not fit well in the non-blocking semantics.",
+      "parentUuid": "6777760f_ac232781",
+      "range": {
+        "startLine": 63,
+        "startChar": 6,
+        "endLine": 67,
+        "endChar": 7
+      },
+      "revId": "29cc6961939eff16fc2051bc920461870b0b10ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
