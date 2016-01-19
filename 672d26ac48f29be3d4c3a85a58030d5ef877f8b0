@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47727221_cb1a095a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1944,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-19T16:57:51Z",
+      "side": 1,
+      "message": "long line",
+      "range": {
+        "startLine": 1944,
+        "startChar": 97,
+        "endLine": 1944,
+        "endChar": 103
+      },
+      "revId": "672d26ac48f29be3d4c3a85a58030d5ef877f8b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e783661b_90b83c31",
+        "filename": "test/004-StackWalk/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-19T16:57:51Z",
+      "side": 1,
+      "message": "One line for grepping:\n\n  if (doThrow) { throw new Error(); }",
+      "range": {
+        "startLine": 12,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 5
+      },
+      "revId": "672d26ac48f29be3d4c3a85a58030d5ef877f8b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47727221_0bea615a",
+        "filename": "test/482-checker-loop-back-edge-use/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-19T16:57:51Z",
+      "side": 1,
+      "message": "This looks like it doesn\u0027t belong here",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "672d26ac48f29be3d4c3a85a58030d5ef877f8b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a77deeee_5127a6a1",
+        "filename": "test/564-checker-inline-loop/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-19T16:57:51Z",
+      "side": 1,
+      "message": "CHECK-DAG",
+      "revId": "672d26ac48f29be3d4c3a85a58030d5ef877f8b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
