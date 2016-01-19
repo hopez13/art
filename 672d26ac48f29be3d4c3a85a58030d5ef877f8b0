@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a77deeee_91203e88",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1944,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-19T17:07:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47727221_cb1a095a",
+      "range": {
+        "startLine": 1944,
+        "startChar": 97,
+        "endLine": 1944,
+        "endChar": 103
+      },
+      "revId": "672d26ac48f29be3d4c3a85a58030d5ef877f8b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e783661b_90b83c31",
         "filename": "test/004-StackWalk/src/Main.java",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-19T16:57:51Z",
       "side": 1,
       "message": "One line for grepping:\n\n  if (doThrow) { throw new Error(); }",
+      "range": {
+        "startLine": 12,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 5
+      },
+      "revId": "672d26ac48f29be3d4c3a85a58030d5ef877f8b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e798c691_0bc545b6",
+        "filename": "test/004-StackWalk/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-19T17:07:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e783661b_90b83c31",
       "range": {
         "startLine": 12,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2771fe1c_aa84eb36",
+        "filename": "test/482-checker-loop-back-edge-use/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-19T17:07:19Z",
+      "side": 1,
+      "message": "It does, as it makes the checker code above pass after the change to not have the entry block as a pre header.",
+      "parentUuid": "47727221_0bea615a",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "672d26ac48f29be3d4c3a85a58030d5ef877f8b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a77deeee_5127a6a1",
         "filename": "test/564-checker-inline-loop/src/Main.java",
         "patchSetId": 4
@@ -82,6 +154,24 @@
       "writtenOn": "2016-01-19T16:57:51Z",
       "side": 1,
       "message": "CHECK-DAG",
+      "revId": "672d26ac48f29be3d4c3a85a58030d5ef877f8b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "076cfa46_4cd0f34e",
+        "filename": "test/564-checker-inline-loop/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-19T17:07:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a77deeee_5127a6a1",
       "revId": "672d26ac48f29be3d4c3a85a58030d5ef877f8b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
