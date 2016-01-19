@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c786622d_8f93b920",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-19T10:26:36Z",
+      "side": 1,
+      "message": "compilations? (IIUC, the same method JIT-compiled twice will count as two in this value, right?)",
+      "range": {
+        "startLine": 60,
+        "startChar": 29,
+        "endLine": 60,
+        "endChar": 45
+      },
+      "revId": "261d5d87eaf2197b15a0f0e8d84ba6f7850d3cc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
