@@ -70,6 +70,30 @@
       "revId": "28b1cf779b8c438b01b28a4adfeb22a4a8ebdb12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2752dead_5c33f2ca",
+        "filename": "runtime/gc/space/space_create_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-19T22:10:25Z",
+      "side": 1,
+      "message": "This test does not take long, are you thinking of the other space test?\n\nreal\t0m1.326s\nuser\t0m1.138s\nsys\t0m0.188s",
+      "parentUuid": "e759a674_43e19316",
+      "range": {
+        "startLine": 351,
+        "startChar": 0,
+        "endLine": 356,
+        "endChar": 63
+      },
+      "revId": "28b1cf779b8c438b01b28a4adfeb22a4a8ebdb12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
