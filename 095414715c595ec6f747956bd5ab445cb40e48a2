@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "c786622d_0fdc299b",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2396,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-19T17:39:48Z",
+      "side": 1,
+      "message": "I guess I shouldn\u0027t... I\u0027m getting crashes from the class linker though, will need to investigate....",
+      "parentUuid": "07623a24_5991913a",
+      "range": {
+        "startLine": 2394,
+        "startChar": 8,
+        "endLine": 2396,
+        "endChar": 7
+      },
+      "revId": "095414715c595ec6f747956bd5ab445cb40e48a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e759a674_05cde3e0",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 5
