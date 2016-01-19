@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "076cfa46_ccb2234f",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2396,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-19T15:46:14Z",
+      "side": 1,
+      "message": "That\u0027s what I tried initially - passing a parameter to VerifyRegisterType and consequently IsAssignableFrom - but then I noticed that INVOKE and RETURN_OBJECT do it like this. You own this code now, right? So I\u0027ll leave it to your discretion.",
+      "parentUuid": "87562a44_9d6031b1",
+      "range": {
+        "startLine": 2394,
+        "startChar": 8,
+        "endLine": 2396,
+        "endChar": 7
+      },
+      "revId": "095414715c595ec6f747956bd5ab445cb40e48a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e759a674_05cde3e0",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 5
