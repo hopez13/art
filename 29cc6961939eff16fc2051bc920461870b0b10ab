@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6777760f_ac232781",
+        "filename": "runtime/base/scoped_flock.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-01-19T13:03:11Z",
+      "side": 1,
+      "message": "still not happy about these semantics. please update the documentation at the very least. it\u0027s odd that an input argument named \"block\" affects other things.",
+      "range": {
+        "startLine": 63,
+        "startChar": 6,
+        "endLine": 67,
+        "endChar": 7
+      },
+      "revId": "29cc6961939eff16fc2051bc920461870b0b10ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
