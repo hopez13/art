@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "07931a6b_94ad8aa8",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-19T12:11:46Z",
+      "side": 1,
+      "message": "Sorry, getting confused between what you have now and what was there before your initial irr-loop change.",
+      "parentUuid": "e783661b_f00418f6",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 46
+      },
+      "revId": "dfd98883f61b47fa969c8f9d69f1baf83725f353",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e798c691_0b7545d4",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -89,6 +113,29 @@
         "startChar": 0,
         "endLine": 456,
         "endChar": 90
+      },
+      "revId": "dfd98883f61b47fa969c8f9d69f1baf83725f353",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2771fe1c_0a617fb6",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-19T12:11:46Z",
+      "side": 1,
+      "message": "Is it guaranteed to be the first instruction? You might wanna put that in the GraphChecker (if not there already).",
+      "range": {
+        "startLine": 456,
+        "startChar": 41,
+        "endLine": 456,
+        "endChar": 69
       },
       "revId": "dfd98883f61b47fa969c8f9d69f1baf83725f353",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
