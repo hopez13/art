@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e783661b_f00418f6",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-19T11:52:28Z",
+      "side": 1,
+      "message": "You mean keep like before? No, because we were creating HSuspendChecks without an environment.",
+      "parentUuid": "c786622d_af86bdcc",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 46
+      },
+      "revId": "dfd98883f61b47fa969c8f9d69f1baf83725f353",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e798c691_0b7545d4",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-19T11:17:27Z",
       "side": 1,
       "message": "Ditto",
+      "range": {
+        "startLine": 456,
+        "startChar": 0,
+        "endLine": 456,
+        "endChar": 90
+      },
+      "revId": "dfd98883f61b47fa969c8f9d69f1baf83725f353",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "076cfa46_0c38bbaa",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-19T11:52:28Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "e798c691_0b7545d4",
       "range": {
         "startLine": 456,
         "startChar": 0,
