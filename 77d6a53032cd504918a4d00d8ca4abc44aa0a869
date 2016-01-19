@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "07623a24_7919ed0a",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1580,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-19T19:11:07Z",
+      "side": 1,
+      "message": "Thanks for thinking about this (I leave this for a later CL though of course)",
+      "parentUuid": "c786622d_2c1e5bf4",
+      "range": {
+        "startLine": 1580,
+        "startChar": 0,
+        "endLine": 1580,
+        "endChar": 40
+      },
+      "revId": "77d6a53032cd504918a4d00d8ca4abc44aa0a869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47727221_882bb751",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 1
@@ -132,6 +156,30 @@
       "writtenOn": "2016-01-18T11:35:02Z",
       "side": 1,
       "message": "I would use the `POPCOUNT` helper provided by runtime/base/bit_utils.h here:\n\n    HInstruction* arg \u003d invoke-\u003eInputAt(0)\n    int32_t count \u003d is_long ?\n        POPCOUNT(arg-\u003eAsLongConstant()-\u003eGetValue()) :\n        POPCOUNT(arg-\u003eAsIntConstant()-\u003eGetValue());",
+      "range": {
+        "startLine": 2386,
+        "startChar": 0,
+        "endLine": 2389,
+        "endChar": 63
+      },
+      "revId": "77d6a53032cd504918a4d00d8ca4abc44aa0a869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07623a24_19eb9908",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2389,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-19T19:11:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47727221_882bb751",
       "range": {
         "startLine": 2386,
         "startChar": 0,
@@ -167,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "27673e34_fa268f92",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2395,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-19T19:11:07Z",
+      "side": 1,
+      "message": "Ah, I always like to flag early exits to avoid overlooking them, but it is indeed not consistent with the other code.\n\nDone.",
+      "parentUuid": "47727221_a8287355",
+      "range": {
+        "startLine": 2395,
+        "startChar": 11,
+        "endLine": 2395,
+        "endChar": 21
+      },
+      "revId": "77d6a53032cd504918a4d00d8ca4abc44aa0a869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e783661b_4d71cd75",
         "filename": "test/564-bitcount/src/Main.java",
         "patchSetId": 1
@@ -178,6 +250,30 @@
       "writtenOn": "2016-01-18T09:57:04Z",
       "side": 1,
       "message": "Maybe add an ARCH-X86_64 specific checker test to ensure there is no call?",
+      "range": {
+        "startLine": 19,
+        "startChar": 21,
+        "endLine": 19,
+        "endChar": 27
+      },
+      "revId": "77d6a53032cd504918a4d00d8ca4abc44aa0a869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "676db610_8eed9ae3",
+        "filename": "test/564-bitcount/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-19T19:11:07Z",
+      "side": 1,
+      "message": "can you please point me to a arch specific checker example?",
+      "parentUuid": "e783661b_4d71cd75",
       "range": {
         "startLine": 19,
         "startChar": 21,
