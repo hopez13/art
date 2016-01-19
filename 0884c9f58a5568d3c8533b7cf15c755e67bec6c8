@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2752dead_797360be",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1338,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-19T19:50:07Z",
+      "side": 1,
+      "message": "missing \u0027friend\u0027?",
+      "range": {
+        "startLine": 1338,
+        "startChar": 2,
+        "endLine": 1338,
+        "endChar": 3
+      },
+      "revId": "0884c9f58a5568d3c8533b7cf15c755e67bec6c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "676db610_4e6a62bc",
+        "filename": "runtime/gc/space/space_create_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-19T19:50:07Z",
+      "side": 1,
+      "message": "DCHECK_EQ(type, kMallocSpaceRosAlloc)?",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 5
+      },
+      "revId": "0884c9f58a5568d3c8533b7cf15c755e67bec6c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
