@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87562a44_9d6031b1",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2396,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-19T15:38:53Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you rather fix IsAssignableFrom?",
+      "range": {
+        "startLine": 2394,
+        "startChar": 8,
+        "endLine": 2396,
+        "endChar": 7
+      },
+      "revId": "095414715c595ec6f747956bd5ab445cb40e48a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e759a674_05cde3e0",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3901,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-19T15:38:53Z",
+      "side": 1,
+      "message": "Is this really required? Shouldn\u0027t you rather fix VerifyRegisterType (probably fixed by fixing IsAssignableFrom)?",
+      "range": {
+        "startLine": 3897,
+        "startChar": 8,
+        "endLine": 3901,
+        "endChar": 7
+      },
+      "revId": "095414715c595ec6f747956bd5ab445cb40e48a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "274e5eac_8822ad49",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4515,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-19T15:38:53Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 4510,
+        "startChar": 6,
+        "endLine": 4515,
+        "endChar": 7
+      },
+      "revId": "095414715c595ec6f747956bd5ab445cb40e48a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
