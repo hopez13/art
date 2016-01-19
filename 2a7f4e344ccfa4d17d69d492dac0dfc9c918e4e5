@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e783661b_50f4043f",
+        "filename": "test/127-checker-secondarydex/src/Test.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-19T11:29:53Z",
+      "side": 1,
+      "message": "That\u0027s the test I wrote for go/aog/197000 yesterday. Failed to realized that I\u0027d remove the LoadClass the next morning...",
+      "parentUuid": "e798c691_ab73f9ed",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 81
+      },
+      "revId": "2a7f4e344ccfa4d17d69d492dac0dfc9c918e4e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "076cfa46_acfa4725",
         "filename": "test/127-checker-secondarydex/src/Test.java",
         "patchSetId": 21
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-19T11:19:02Z",
       "side": 1,
       "message": "tab",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 5
+      },
+      "revId": "2a7f4e344ccfa4d17d69d492dac0dfc9c918e4e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8780ea14_4df54d72",
+        "filename": "test/127-checker-secondarydex/src/Test.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-19T11:29:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "076cfa46_acfa4725",
       "range": {
         "startLine": 30,
         "startChar": 0,
