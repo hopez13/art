@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a77deeee_f1cdfa87",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-19T10:42:30Z",
+      "side": 1,
+      "message": "How about doing this when dealing with the StringFactory? You would then only push new instance of strings.",
+      "range": {
+        "startLine": 925,
+        "startChar": 0,
+        "endLine": 928,
+        "endChar": 49
+      },
+      "revId": "6fe946347d215627cbe8a5d9b165561b8094b1e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
