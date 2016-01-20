@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "07931a6b_f43c0e6b",
+        "filename": "runtime/mem_map_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-20T12:15:14Z",
+      "side": 1,
+      "message": "Right, I forgot we had a ready-to-use macro. :-)  Thanks Andreas, fixed in PS2.",
+      "parentUuid": "2752dead_b9cfa8ab",
+      "range": {
+        "startLine": 254,
+        "startChar": 2,
+        "endLine": 254,
+        "endChar": 29
+      },
+      "revId": "ad8178ef462bb18a0c647de1cc4aec465da9652f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2752dead_f9dbf0a2",
         "filename": "runtime/mem_map_test.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-19T20:26:28Z",
       "side": 1,
       "message": "I\u0027m not sure this comment is accurate or detailed enough.\nIt should probably mention the exact hardware (CI20).",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 61
+      },
+      "revId": "ad8178ef462bb18a0c647de1cc4aec465da9652f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e783661b_53f24ec4",
+        "filename": "runtime/mem_map_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-20T12:15:14Z",
+      "side": 1,
+      "message": "Agreed; fixed in PS2.",
+      "parentUuid": "2752dead_f9dbf0a2",
       "range": {
         "startLine": 255,
         "startChar": 0,
