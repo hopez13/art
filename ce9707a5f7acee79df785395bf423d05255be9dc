@@ -117,6 +117,30 @@
       "revId": "ce9707a5f7acee79df785395bf423d05255be9dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7b10259_11e30cc4",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2016-01-20T18:01:10Z",
+      "side": 1,
+      "message": "ah, probably yes. we don\u0027t ALOG enough directly to realize the less common variants.",
+      "parentUuid": "e7e60628_f28d68ae",
+      "range": {
+        "startLine": 930,
+        "startChar": 0,
+        "endLine": 931,
+        "endChar": 90
+      },
+      "revId": "ce9707a5f7acee79df785395bf423d05255be9dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
