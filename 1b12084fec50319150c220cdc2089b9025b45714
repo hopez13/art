@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c786622d_72102e9e",
+        "filename": "test/482-checker-loop-back-edge-use/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T14:26:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4768b202_e2d0a150",
+      "range": {
+        "startLine": 43,
+        "startChar": 29,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "1b12084fec50319150c220cdc2089b9025b45714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4768b202_c2ae45bb",
         "filename": "test/564-checker-inline-loop/src/Main.java",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-19T19:38:42Z",
       "side": 1,
       "message": "I, personally, like tests that also execute all the methods.",
+      "range": {
+        "startLine": 60,
+        "startChar": 41,
+        "endLine": 60,
+        "endChar": 42
+      },
+      "revId": "1b12084fec50319150c220cdc2089b9025b45714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6777760f_cf9db52b",
+        "filename": "test/564-checker-inline-loop/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T14:26:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4768b202_c2ae45bb",
       "range": {
         "startLine": 60,
         "startChar": 41,
