@@ -188,6 +188,30 @@
       "revId": "83c8154cbd5a3cfaf35dedd24ee83c045500efa4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07495aa4_99931cd4",
+        "filename": "test/564-checker-bitcount/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-01-20T14:16:32Z",
+      "side": 1,
+      "message": "In theory, some machines may not have it.  In practice, most (if not all) processors after 2010 probably have it.  I don\u0027t really know how to answer this question.",
+      "parentUuid": "8780ea14_ed67e162",
+      "range": {
+        "startLine": 19,
+        "startChar": 11,
+        "endLine": 19,
+        "endChar": 15
+      },
+      "revId": "83c8154cbd5a3cfaf35dedd24ee83c045500efa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
