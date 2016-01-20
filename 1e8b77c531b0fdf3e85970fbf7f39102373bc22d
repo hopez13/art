@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c70ca2f0_dcc7e11a",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-20T23:01:25Z",
+      "side": 1,
+      "message": "Used in line 353.",
+      "parentUuid": "a77deeee_1c11c5a4",
+      "range": {
+        "startLine": 311,
+        "startChar": 0,
+        "endLine": 320,
+        "endChar": 3
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8780ea14_704d86c2",
         "filename": "compiler/driver/compiler_driver-inl.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-20T16:14:03Z",
       "side": 1,
       "message": "What needs to be fixed?",
+      "range": {
+        "startLine": 329,
+        "startChar": 5,
+        "endLine": 329,
+        "endChar": 10
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7ae06f9_35d71a1f",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-20T23:01:25Z",
+      "side": 1,
+      "message": "Removed and rewrote the comment in builder.cc to be more clear.",
+      "parentUuid": "8780ea14_704d86c2",
       "range": {
         "startLine": 329,
         "startChar": 5,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "07123a0e_934f1c15",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-20T23:01:25Z",
+      "side": 1,
+      "message": "Fine.",
+      "parentUuid": "2771fe1c_0dea795a",
+      "range": {
+        "startLine": 347,
+        "startChar": 5,
+        "endLine": 347,
+        "endChar": 9
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07931a6b_7f4d57c2",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2016-01-20T16:14:03Z",
       "side": 1,
       "message": "ResolveDeclaringClassOfMethod?",
+      "range": {
+        "startLine": 800,
+        "startChar": 30,
+        "endLine": 800,
+        "endChar": 51
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27fe5ee6_1f02e752",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-20T23:01:25Z",
+      "side": 1,
+      "message": "ResolveReferencedClassOfMethod",
+      "parentUuid": "07931a6b_7f4d57c2",
       "range": {
         "startLine": 800,
         "startChar": 30,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "47efd232_7d5977dd",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 868,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-20T23:01:25Z",
+      "side": 1,
+      "message": "I guess. I don\u0027t really understand how the compiling class is resolved.\n\nDone.",
+      "parentUuid": "e783661b_d39d5e2b",
+      "range": {
+        "startLine": 867,
+        "startChar": 0,
+        "endLine": 868,
+        "endChar": 50
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "076cfa46_b7cc50e6",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2016-01-20T16:14:03Z",
       "side": 1,
       "message": "Where is the compiler driver invoked here?",
+      "range": {
+        "startLine": 895,
+        "startChar": 11,
+        "endLine": 895,
+        "endChar": 36
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07123a0e_7359a0dd",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-20T23:01:25Z",
+      "side": 1,
+      "message": "Updated comment to be clearer.\n\nAIUI the problem is that if we do not have the same dex file the dex_method_index will not be updated to the actual index we want to invoke up in builder.cc. This means that we would search the dex_cache for the wrong dex_method_index and possibly call the wrong method. This is bad because both types of invoke-super don\u0027t **need** to point to the actual method invoked, they can point to a totally different or non-existent one. In that case the method in the dex_cache at that index might not be the one we expect.\n\nThis might be totally wrong and if so please correct me but that is how I read the code.\n\nThe TODO Here is just that having the logic separated so much is undesirable.",
+      "parentUuid": "076cfa46_b7cc50e6",
       "range": {
         "startLine": 895,
         "startChar": 11,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "87062ace_3a21bd8b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-20T23:01:25Z",
+      "side": 1,
+      "message": "See above.\n\nAlso I think this should maybe be a CHECK or DCHECK since if this fails I am not sure that the dex-cache lookup the code-generator emits will succeed in all cases.",
+      "parentUuid": "c786622d_7274aed6",
+      "range": {
+        "startLine": 1008,
+        "startChar": 17,
+        "endLine": 1008,
+        "endChar": 36
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8780ea14_b04e1ebc",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 3
@@ -174,6 +342,30 @@
       "writtenOn": "2016-01-20T16:14:03Z",
       "side": 1,
       "message": "extra space",
+      "range": {
+        "startLine": 1247,
+        "startChar": 0,
+        "endLine": 1247,
+        "endChar": 7
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07123a0e_535624af",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-20T23:01:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8780ea14_b04e1ebc",
       "range": {
         "startLine": 1247,
         "startChar": 0,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "671db61a_d6a224c8",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-20T23:01:25Z",
+      "side": 1,
+      "message": "ResolveReferencedClassOfMethod",
+      "parentUuid": "e798c691_36a990f7",
+      "range": {
+        "startLine": 273,
+        "startChar": 17,
+        "endLine": 273,
+        "endChar": 38
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8780ea14_d05b927c",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 3
@@ -226,6 +442,24 @@
     },
     {
       "key": {
+        "uuid": "07f95afe_1bcddbe0",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3708,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-20T23:01:25Z",
+      "side": 1,
+      "message": "Previously we would just force interpret here whenever we saw an interface super. We need to replace it with a real verification step.",
+      "parentUuid": "8780ea14_d05b927c",
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47727221_ae015b4f",
         "filename": "test/972-iface-super-multidex/build",
         "patchSetId": 3
@@ -237,6 +471,30 @@
       "writtenOn": "2016-01-20T16:14:03Z",
       "side": 1,
       "message": "2016 (here and other files)",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 16
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87062ace_1a24b988",
+        "filename": "test/972-iface-super-multidex/build",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-20T23:01:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47727221_ae015b4f",
       "range": {
         "startLine": 3,
         "startChar": 12,
@@ -272,6 +530,30 @@
     },
     {
       "key": {
+        "uuid": "e7ae06f9_95424695",
+        "filename": "test/972-iface-super-multidex/info.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-20T23:01:25Z",
+      "side": 1,
+      "message": "Removed. I copied the wrong info.txt file.",
+      "parentUuid": "e798c691_f67b2856",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 44
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e783661b_93bcc685",
         "filename": "test/972-iface-super-multidex/smali-multidex/conflictinterface.smali",
         "patchSetId": 3
@@ -283,6 +565,30 @@
       "writtenOn": "2016-01-20T16:14:03Z",
       "side": 1,
       "message": "Why is that commented? (here and other files)",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 3
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87062ace_9a3c49a0",
+        "filename": "test/972-iface-super-multidex/smali-multidex/conflictinterface.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-20T23:01:25Z",
+      "side": 1,
+      "message": "Just to show equivalent java code.",
+      "parentUuid": "e783661b_93bcc685",
       "range": {
         "startLine": 22,
         "startChar": 0,
