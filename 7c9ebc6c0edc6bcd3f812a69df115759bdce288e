@@ -46,6 +46,30 @@
       "revId": "7c9ebc6c0edc6bcd3f812a69df115759bdce288e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2752dead_28ca60c6",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-20T08:17:28Z",
+      "side": 1,
+      "message": "I would still add it. Having 90% of a long method under an if scope is less readable imo,",
+      "parentUuid": "c75ca266_53b04945",
+      "range": {
+        "startLine": 155,
+        "startChar": 2,
+        "endLine": 155,
+        "endChar": 47
+      },
+      "revId": "7c9ebc6c0edc6bcd3f812a69df115759bdce288e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
