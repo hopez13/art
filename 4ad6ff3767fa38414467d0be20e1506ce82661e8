@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47727221_8edbbf3f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1741,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T15:56:13Z",
+      "side": 1,
+      "message": "What\u0027s that?",
+      "range": {
+        "startLine": 1741,
+        "startChar": 13,
+        "endLine": 1741,
+        "endChar": 17
+      },
+      "revId": "4ad6ff3767fa38414467d0be20e1506ce82661e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e783661b_33a5da72",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4806,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T15:56:13Z",
+      "side": 1,
+      "message": "Maybe add a comment that array access are never volatile.",
+      "range": {
+        "startLine": 4806,
+        "startChar": 44,
+        "endLine": 4806,
+        "endChar": 74
+      },
+      "revId": "4ad6ff3767fa38414467d0be20e1506ce82661e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
