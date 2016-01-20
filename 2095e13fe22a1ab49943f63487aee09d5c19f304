@@ -94,6 +94,30 @@
       "revId": "2095e13fe22a1ab49943f63487aee09d5c19f304",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2771fe1c_2d7c954e",
+        "filename": "test/563-checker-fakestring/smali/TestCase.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T18:11:30Z",
+      "side": 1,
+      "message": "OK, please add a comment why you\u0027re testing debuggable then.",
+      "parentUuid": "e783661b_d31abe59",
+      "range": {
+        "startLine": 131,
+        "startChar": 14,
+        "endLine": 131,
+        "endChar": 25
+      },
+      "revId": "2095e13fe22a1ab49943f63487aee09d5c19f304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
