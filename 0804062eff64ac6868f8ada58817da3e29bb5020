@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "47efd232_201ea44f",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-20T21:54:18Z",
+      "side": 1,
+      "message": "The name is bad. If the check is inline (which I can see for performance reasons, then call it Try...\n\nI also originally meant to move the other_handlers_ code out, not everything. This is still a large function with two separate concerns. Would prefer moving the whole stuff after \"// We hit\" into its own function, to have this look clean and maintainable...",
+      "range": {
+        "startLine": 150,
+        "startChar": 2,
+        "endLine": 153,
+        "endChar": 3
+      },
+      "revId": "0804062eff64ac6868f8ada58817da3e29bb5020",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87062ace_fd7f3f88",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-20T21:54:18Z",
+      "side": 1,
+      "message": "Why \"true\"? This is still a failure case that should terminate, so should be propagated along the chain.\n\n(And no, we will not accept other_handlers_ that fix up internal state in managed code...)",
+      "range": {
+        "startLine": 247,
+        "startChar": 17,
+        "endLine": 247,
+        "endChar": 21
+      },
+      "revId": "0804062eff64ac6868f8ada58817da3e29bb5020",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07f95afe_1e294959",
         "filename": "runtime/fault_handler.h",
         "patchSetId": 4
