@@ -70,6 +70,30 @@
       "revId": "2095e13fe22a1ab49943f63487aee09d5c19f304",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e783661b_d31abe59",
+        "filename": "test/563-checker-fakestring/smali/TestCase.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-20T17:44:32Z",
+      "side": 1,
+      "message": "But with the String.\u003cinit\u003e input removed, it\u0027s left with just environment uses (or none), hence removed when not debuggable. The Checker test here only verifies that there was a Phi at vreg zero.",
+      "parentUuid": "2771fe1c_ed4b5d31",
+      "range": {
+        "startLine": 131,
+        "startChar": 14,
+        "endLine": 131,
+        "endChar": 25
+      },
+      "revId": "2095e13fe22a1ab49943f63487aee09d5c19f304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
