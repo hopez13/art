@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "676db610_dabd8cd3",
+        "filename": "runtime/arch/x86/instruction_set_features_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-20T03:14:57Z",
+      "side": 1,
+      "message": "Yes, wishful thinking. :-)\n\nMore seriously, I did not really know what to do here, so was hoping for some feedback on the matter. I can also leave it at simply false....",
+      "parentUuid": "07495aa4_f6422f24",
+      "range": {
+        "startLine": 152,
+        "startChar": 8,
+        "endLine": 152,
+        "endChar": 18
+      },
+      "revId": "83c8154cbd5a3cfaf35dedd24ee83c045500efa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4768b202_80828524",
         "filename": "test/564-checker-bitcount/src/Main.java",
         "patchSetId": 5
