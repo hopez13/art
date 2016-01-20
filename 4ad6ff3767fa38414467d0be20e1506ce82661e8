@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "e7e60628_b50c6a18",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2016-01-20T18:20:09Z",
+      "side": 1,
+      "message": "Is it possible to get the locations through the instruction?\n\nIf we move the SlowPath allocation to the LocationsBuilder then out_ and obj_ will be kInvalid when used below - since register allocation happens afterwards.",
+      "range": {
+        "startLine": 590,
+        "startChar": 58,
+        "endLine": 590,
+        "endChar": 84
+      },
+      "revId": "4ad6ff3767fa38414467d0be20e1506ce82661e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e70fe6af_4de12d29",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2016-01-20T18:20:09Z",
+      "side": 1,
+      "message": "type \u003d instruction_-\u003eGetType();\nDCHECK(type \u003d\u003d Primitive::kPrimNot); ?",
+      "range": {
+        "startLine": 599,
+        "startChar": 27,
+        "endLine": 599,
+        "endChar": 46
+      },
+      "revId": "4ad6ff3767fa38414467d0be20e1506ce82661e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27e49e25_1218ec5f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2016-01-20T18:20:09Z",
+      "side": 1,
+      "message": "Same comment for these Location s",
+      "range": {
+        "startLine": 641,
+        "startChar": 38,
+        "endLine": 645,
+        "endChar": 58
+      },
+      "revId": "4ad6ff3767fa38414467d0be20e1506ce82661e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47727221_8edbbf3f",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
