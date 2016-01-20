@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "274e5eac_aec32e62",
+        "filename": "runtime/arch/x86/instruction_set_features_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-01-20T03:56:23Z",
+      "side": 1,
+      "message": "You can just leave it as is but add a comment, or do what prefers_locked_add does and just default to false.\n\nI would tend to leave as is with a comment.",
+      "parentUuid": "676db610_dabd8cd3",
+      "range": {
+        "startLine": 152,
+        "startChar": 8,
+        "endLine": 152,
+        "endChar": 18
+      },
+      "revId": "83c8154cbd5a3cfaf35dedd24ee83c045500efa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4768b202_80828524",
         "filename": "test/564-checker-bitcount/src/Main.java",
         "patchSetId": 5
