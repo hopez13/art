@@ -1,0 +1,297 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a77deeee_1c11c5a4",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T16:14:03Z",
+      "side": 1,
+      "message": "Why this change? And it looks like methods_class is unused?",
+      "range": {
+        "startLine": 311,
+        "startChar": 0,
+        "endLine": 320,
+        "endChar": 3
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8780ea14_704d86c2",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T16:14:03Z",
+      "side": 1,
+      "message": "What needs to be fixed?",
+      "range": {
+        "startLine": 329,
+        "startChar": 5,
+        "endLine": 329,
+        "endChar": 10
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2771fe1c_0dea795a",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T16:14:03Z",
+      "side": 1,
+      "message": "I think same_dex_file was just here for simplicity, as dealing with different dex files for an invoke-super is a very rare situation.",
+      "range": {
+        "startLine": 347,
+        "startChar": 5,
+        "endLine": 347,
+        "endChar": 9
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07931a6b_7f4d57c2",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T16:14:03Z",
+      "side": 1,
+      "message": "ResolveDeclaringClassOfMethod?",
+      "range": {
+        "startLine": 800,
+        "startChar": 30,
+        "endLine": 800,
+        "endChar": 51
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e783661b_d39d5e2b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 868,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T16:14:03Z",
+      "side": 1,
+      "message": "Can\u0027t this only happen if the compiling class is null? It is null when the AOT compiler could not resolve its super class or interfaces. So I think you just need to move test line 871 to line 863.",
+      "range": {
+        "startLine": 867,
+        "startChar": 0,
+        "endLine": 868,
+        "endChar": 50
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "076cfa46_b7cc50e6",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 895,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T16:14:03Z",
+      "side": 1,
+      "message": "Where is the compiler driver invoked here?",
+      "range": {
+        "startLine": 895,
+        "startChar": 11,
+        "endLine": 895,
+        "endChar": 36
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c786622d_7274aed6",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T16:14:03Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1008,
+        "startChar": 17,
+        "endLine": 1008,
+        "endChar": 36
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8780ea14_b04e1ebc",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T16:14:03Z",
+      "side": 1,
+      "message": "extra space",
+      "range": {
+        "startLine": 1247,
+        "startChar": 0,
+        "endLine": 1247,
+        "endChar": 7
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e798c691_36a990f7",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T16:14:03Z",
+      "side": 1,
+      "message": "ResolveDeclaringClassOfMethod",
+      "range": {
+        "startLine": 273,
+        "startChar": 17,
+        "endLine": 273,
+        "endChar": 38
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8780ea14_d05b927c",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3708,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T16:14:03Z",
+      "side": 1,
+      "message": "Why do you need verifier changes?",
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47727221_ae015b4f",
+        "filename": "test/972-iface-super-multidex/build",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T16:14:03Z",
+      "side": 1,
+      "message": "2016 (here and other files)",
+      "range": {
+        "startLine": 3,
+        "startChar": 12,
+        "endLine": 3,
+        "endChar": 16
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e798c691_f67b2856",
+        "filename": "test/972-iface-super-multidex/info.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T16:14:03Z",
+      "side": 1,
+      "message": "I could not parse this.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 44
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e783661b_93bcc685",
+        "filename": "test/972-iface-super-multidex/smali-multidex/conflictinterface.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T16:14:03Z",
+      "side": 1,
+      "message": "Why is that commented? (here and other files)",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 3
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
