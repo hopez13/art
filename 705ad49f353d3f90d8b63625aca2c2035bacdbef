@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "07123a0e_73bd20ed",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-20T23:53:55Z",
+      "side": 1,
+      "message": "No this just says we should compile in the future.",
+      "parentUuid": "a77deeee_b16d4247",
+      "range": {
+        "startLine": 493,
+        "startChar": 8,
+        "endLine": 493,
+        "endChar": 69
+      },
+      "revId": "705ad49f353d3f90d8b63625aca2c2035bacdbef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "076cfa46_779d78dc",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 28
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "671db61a_9c7bad57",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 3642,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-20T23:53:55Z",
+      "side": 1,
+      "message": "Submitted followup cl: https://android-review.googlesource.com/#/c/197368/",
+      "parentUuid": "076cfa46_779d78dc",
+      "range": {
+        "startLine": 3642,
+        "startChar": 28,
+        "endLine": 3642,
+        "endChar": 61
+      },
+      "revId": "705ad49f353d3f90d8b63625aca2c2035bacdbef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07931a6b_1fc37364",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 28
@@ -59,6 +107,30 @@
       "writtenOn": "2016-01-20T14:59:01Z",
       "side": 1,
       "message": "I don\u0027t understand this TODO",
+      "range": {
+        "startLine": 3959,
+        "startChar": 0,
+        "endLine": 3959,
+        "endChar": 54
+      },
+      "revId": "705ad49f353d3f90d8b63625aca2c2035bacdbef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47efd232_a3cd9e3e",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 3959,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-20T23:53:55Z",
+      "side": 1,
+      "message": "Currently we are just being conservative and falling back to the interpreter whenever we see anything that might possibly be an interface-super. We need to do actual verification in the future.",
+      "parentUuid": "07931a6b_1fc37364",
       "range": {
         "startLine": 3959,
         "startChar": 0,
