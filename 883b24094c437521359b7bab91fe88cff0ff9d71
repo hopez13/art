@@ -22,6 +22,30 @@
       "revId": "883b24094c437521359b7bab91fe88cff0ff9d71",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07495aa4_d9c2c45b",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-20T02:31:20Z",
+      "side": 1,
+      "message": "Yeah, you can remove this. Managed code means that there is a thread.\n\nMaybe make it DCHECKs...",
+      "parentUuid": "2752dead_638731f9",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 5
+      },
+      "revId": "883b24094c437521359b7bab91fe88cff0ff9d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
