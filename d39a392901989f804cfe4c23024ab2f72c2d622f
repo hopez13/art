@@ -22,6 +22,30 @@
       "revId": "d39a392901989f804cfe4c23024ab2f72c2d622f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e783661b_b36f0acd",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 23
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-20T16:55:46Z",
+      "side": 1,
+      "message": "\"static\" is C-style, being in an anonymous namespace should serve the same purpose.",
+      "parentUuid": "8568e271_ea8ea716",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 0
+      },
+      "revId": "d39a392901989f804cfe4c23024ab2f72c2d622f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
