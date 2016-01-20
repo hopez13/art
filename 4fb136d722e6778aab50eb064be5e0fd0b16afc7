@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07123a0e_39e6e7d3",
+        "filename": "runtime/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-20T23:42:35Z",
+      "side": 1,
+      "message": "This is the only change from the previously submitted mterp CL - disabling x86 mterp on the Mac build.",
+      "revId": "4fb136d722e6778aab50eb064be5e0fd0b16afc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
