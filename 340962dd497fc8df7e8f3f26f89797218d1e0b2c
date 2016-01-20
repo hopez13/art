@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8780ea14_10c36a64",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-20T14:37:23Z",
+      "side": 1,
+      "message": "I have a better idea. You can completely avoid assuming the zero index if you write the condition as:\n\n  if (num_incoming !\u003d 1 || GetEntryBlock()-\u003eGetSingleSuccessor() \u003d\u003d header)",
+      "range": {
+        "startLine": 294,
+        "startChar": 2,
+        "endLine": 299,
+        "endChar": 81
+      },
+      "revId": "340962dd497fc8df7e8f3f26f89797218d1e0b2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
