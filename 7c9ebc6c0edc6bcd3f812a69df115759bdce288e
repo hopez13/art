@@ -22,6 +22,30 @@
       "revId": "7c9ebc6c0edc6bcd3f812a69df115759bdce288e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c75ca266_53b04945",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1051763
+      },
+      "writtenOn": "2016-01-20T04:48:47Z",
+      "side": 1,
+      "message": "I supposed to do that before.\nBut a *private* function must be added into FaultManager because some private data will be accessed here, and it should not be called from outside.\nLooks like it\u0027s too much for this issue.\nWhat\u0027s your opinion?",
+      "parentUuid": "2752dead_68186861",
+      "range": {
+        "startLine": 155,
+        "startChar": 2,
+        "endLine": 155,
+        "endChar": 47
+      },
+      "revId": "7c9ebc6c0edc6bcd3f812a69df115759bdce288e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
