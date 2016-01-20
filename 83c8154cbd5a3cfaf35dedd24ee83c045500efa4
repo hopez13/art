@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "076cfa46_57279ca1",
+        "filename": "runtime/arch/x86/instruction_set_features_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-20T12:03:18Z",
+      "side": 1,
+      "message": "I agree with Mark.  Unless we have evidence that `__POPCNT__` works as expected on GCC and Clang, we should default `has_POPCNT` to `false` on x86.",
+      "parentUuid": "274e5eac_aec32e62",
+      "range": {
+        "startLine": 152,
+        "startChar": 8,
+        "endLine": 152,
+        "endChar": 18
+      },
+      "revId": "83c8154cbd5a3cfaf35dedd24ee83c045500efa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4768b202_80828524",
         "filename": "test/564-checker-bitcount/src/Main.java",
         "patchSetId": 5
@@ -84,6 +108,30 @@
       "writtenOn": "2016-01-19T23:22:42Z",
       "side": 1,
       "message": "actually, now that this is a feature, it becomes much harder to test with a checker. \n\nit would be nice if the checker could include features as I sketch in this TODO\n\nany other ideas for this?",
+      "range": {
+        "startLine": 19,
+        "startChar": 11,
+        "endLine": 19,
+        "endChar": 15
+      },
+      "revId": "83c8154cbd5a3cfaf35dedd24ee83c045500efa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a77deeee_b15b82d6",
+        "filename": "test/564-checker-bitcount/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-20T12:03:18Z",
+      "side": 1,
+      "message": "Maybe file a bug for a Checker feature request (and add its number to this TODO)?",
+      "parentUuid": "4768b202_80828524",
       "range": {
         "startLine": 19,
         "startChar": 11,
