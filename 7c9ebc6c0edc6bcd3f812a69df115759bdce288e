@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2752dead_68186861",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-20T04:21:58Z",
+      "side": 1,
+      "message": "this *if*  is hard to read now due to the long scope.\nCould you create a function here? like HandleFaultInGeneratedCode, or something similar.",
+      "range": {
+        "startLine": 155,
+        "startChar": 2,
+        "endLine": 155,
+        "endChar": 47
+      },
+      "revId": "7c9ebc6c0edc6bcd3f812a69df115759bdce288e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
