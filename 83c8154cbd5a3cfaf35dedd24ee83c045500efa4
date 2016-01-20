@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "2771fe1c_0d76f9b9",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2375,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T14:02:41Z",
+      "side": 1,
+      "message": "method",
+      "range": {
+        "startLine": 2375,
+        "startChar": 22,
+        "endLine": 2375,
+        "endChar": 31
+      },
+      "revId": "83c8154cbd5a3cfaf35dedd24ee83c045500efa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07495aa4_f6422f24",
         "filename": "runtime/arch/x86/instruction_set_features_x86.cc",
         "patchSetId": 5
@@ -132,6 +155,30 @@
       "side": 1,
       "message": "Maybe file a bug for a Checker feature request (and add its number to this TODO)?",
       "parentUuid": "4768b202_80828524",
+      "range": {
+        "startLine": 19,
+        "startChar": 11,
+        "endLine": 19,
+        "endChar": 15
+      },
+      "revId": "83c8154cbd5a3cfaf35dedd24ee83c045500efa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8780ea14_ed67e162",
+        "filename": "test/564-checker-bitcount/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T14:02:41Z",
+      "side": 1,
+      "message": "I think that\u0027s overkill for checker.\n\nWhat\u0027s the plan for testing the generated code then? Can\u0027t we assume all the platforms we use have the feature?",
+      "parentUuid": "a77deeee_b15b82d6",
       "range": {
         "startLine": 19,
         "startChar": 11,
