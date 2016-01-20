@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a77deeee_b16d4247",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T14:59:01Z",
+      "side": 1,
+      "message": "I don\u0027t understand this TODO: does it apply to this code? Will you change the lookup here?",
+      "range": {
+        "startLine": 493,
+        "startChar": 8,
+        "endLine": 493,
+        "endChar": 69
+      },
+      "revId": "705ad49f353d3f90d8b63625aca2c2035bacdbef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "076cfa46_779d78dc",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 3642,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T14:59:01Z",
+      "side": 1,
+      "message": "I think that would make things cleaner.",
+      "range": {
+        "startLine": 3642,
+        "startChar": 28,
+        "endLine": 3642,
+        "endChar": 61
+      },
+      "revId": "705ad49f353d3f90d8b63625aca2c2035bacdbef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07931a6b_1fc37364",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 3959,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-20T14:59:01Z",
+      "side": 1,
+      "message": "I don\u0027t understand this TODO",
+      "range": {
+        "startLine": 3959,
+        "startChar": 0,
+        "endLine": 3959,
+        "endChar": 54
+      },
+      "revId": "705ad49f353d3f90d8b63625aca2c2035bacdbef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
