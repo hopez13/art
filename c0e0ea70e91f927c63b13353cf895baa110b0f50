@@ -34,6 +34,24 @@
       "revId": "c0e0ea70e91f927c63b13353cf895baa110b0f50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a77deeee_dcfe4d82",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1900,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-20T16:26:54Z",
+      "side": 1,
+      "message": "Just a suggestion... You could add another line saying that inner loop info needs to be updated.",
+      "parentUuid": "076cfa46_77c498b8",
+      "revId": "c0e0ea70e91f927c63b13353cf895baa110b0f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
