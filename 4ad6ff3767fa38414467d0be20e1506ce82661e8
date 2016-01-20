@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e798c691_769f18d4",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1741,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-20T16:56:14Z",
+      "side": 1,
+      "message": "\"Independent Reads of Independent Writes\".  This was part of the original code; see line 1657 in \"Base\" and also line 1756 in this patch set (PS2).",
+      "parentUuid": "47727221_8edbbf3f",
+      "range": {
+        "startLine": 1741,
+        "startChar": 13,
+        "endLine": 1741,
+        "endChar": 17
+      },
+      "revId": "4ad6ff3767fa38414467d0be20e1506ce82661e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e783661b_33a5da72",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-20T15:56:13Z",
       "side": 1,
       "message": "Maybe add a comment that array access are never volatile.",
+      "range": {
+        "startLine": 4806,
+        "startChar": 44,
+        "endLine": 4806,
+        "endChar": 74
+      },
+      "revId": "4ad6ff3767fa38414467d0be20e1506ce82661e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8780ea14_b037fe1f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4806,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-20T16:56:14Z",
+      "side": 1,
+      "message": "Good idea!  Done in PS3.",
+      "parentUuid": "e783661b_33a5da72",
       "range": {
         "startLine": 4806,
         "startChar": 44,
