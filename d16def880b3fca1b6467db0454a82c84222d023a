@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "671db61a_1c52fdec",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-20T23:47:41Z",
+      "side": 1,
+      "message": "Oh, yes sorry about that",
+      "parentUuid": "e798c691_d6c2640d",
+      "range": {
+        "startLine": 659,
+        "startChar": 0,
+        "endLine": 659,
+        "endChar": 8
+      },
+      "revId": "d16def880b3fca1b6467db0454a82c84222d023a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e798c691_96bdfc81",
         "filename": "test/449-checker-bce/src/Main.java",
         "patchSetId": 16
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-20T12:21:55Z",
       "side": 1,
       "message": "Are these assertions disabled on purpose (they start with `//` instead of `///`)?",
+      "range": {
+        "startLine": 660,
+        "startChar": 0,
+        "endLine": 661,
+        "endChar": 54
+      },
+      "revId": "d16def880b3fca1b6467db0454a82c84222d023a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07f95afe_a163daed",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-20T23:47:41Z",
+      "side": 1,
+      "message": "Left over from some trial and error. Again sorry about that.",
+      "parentUuid": "e798c691_96bdfc81",
       "range": {
         "startLine": 660,
         "startChar": 0,
