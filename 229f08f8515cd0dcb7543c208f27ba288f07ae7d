@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4f27e53_664daa1f",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1737,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-21T22:31:35Z",
+      "side": 1,
+      "message": "better inline this... the  name is so long, and it\u0027s  used just once.",
+      "range": {
+        "startLine": 1737,
+        "startChar": 12,
+        "endLine": 1737,
+        "endChar": 75
+      },
+      "revId": "229f08f8515cd0dcb7543c208f27ba288f07ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "940e5a27_5db14b1b",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1764,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-21T22:31:35Z",
+      "side": 1,
+      "message": "I think this requires more explanations. You are basically stating that if the destination is null it must be so because the instruction is used in a irreducible loops. I don\u0027t see (it\u0027s not really straightforward) where that implication is done in the algorithm.",
+      "range": {
+        "startLine": 1764,
+        "startChar": 25,
+        "endLine": 1764,
+        "endChar": 77
+      },
+      "revId": "229f08f8515cd0dcb7543c208f27ba288f07ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4115643_aea70f25",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1769,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-21T22:31:35Z",
+      "side": 1,
+      "message": "What\u0027s an *entry* instruction?",
+      "range": {
+        "startLine": 1769,
+        "startChar": 25,
+        "endLine": 1769,
+        "endChar": 41
+      },
+      "revId": "229f08f8515cd0dcb7543c208f27ba288f07ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
