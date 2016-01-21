@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "141a6a67_3645962e",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2317,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-01-21T19:24:38Z",
+      "side": 1,
+      "message": "Technically, you can use Any for Long as well.  You just read them both form the stack if needed.",
+      "revId": "c39dac148cce137ffd78a8e43499fba10c5c79e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
