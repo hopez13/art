@@ -22,6 +22,30 @@
       "revId": "c1d7861e511b8abcc9f3ad6fc54ff07e80dc383e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "544ea283_a505de2b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1133,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-21T13:54:48Z",
+      "side": 0,
+      "message": "The Move(loc, loc, instr) function was only used by Baseline which we\u0027ve recently removed. CurrentMethod is allocated same as any other value, so no need to special case it.",
+      "parentUuid": "f4115643_5da82f4b",
+      "range": {
+        "startLine": 1132,
+        "startChar": 2,
+        "endLine": 1133,
+        "endChar": 69
+      },
+      "revId": "c1d7861e511b8abcc9f3ad6fc54ff07e80dc383e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
