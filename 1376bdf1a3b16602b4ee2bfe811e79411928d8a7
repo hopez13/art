@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4115643_da20c578",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1051763
+      },
+      "writtenOn": "2016-01-21T02:52:28Z",
+      "side": 1,
+      "message": "So far, other_handlers_ only have the JavaStackTraceHandler, which always returns false in its Action and pass down the signal to the chain. So, this code will not reach, actually. If the other_handlers will contain new handlers in future which will handle the signal well, we have to leave these code here.",
+      "range": {
+        "startLine": 221,
+        "startChar": 10,
+        "endLine": 221,
+        "endChar": 22
+      },
+      "revId": "1376bdf1a3b16602b4ee2bfe811e79411928d8a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
