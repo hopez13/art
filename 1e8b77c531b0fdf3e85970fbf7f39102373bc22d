@@ -449,6 +449,30 @@
     },
     {
       "key": {
+        "uuid": "d439b2d1_f48836de",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-21T18:24:29Z",
+      "side": 1,
+      "message": "\u003e What\u0027s the referenced class of a method?\n\nThe class identified by dex_file-\u003eGetMethodId(method_index).class_idx_.\n\n \u003e Aren\u0027t you getting the class that holds the method at method_idx?\n\nMost of the time yes but it is possible that no class really \u0027holds\u0027 the method at method_idx since it resolves to a method held by a different class.",
+      "parentUuid": "67793673_76edf0a9",
+      "range": {
+        "startLine": 273,
+        "startChar": 17,
+        "endLine": 273,
+        "endChar": 38
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8780ea14_d05b927c",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 3
