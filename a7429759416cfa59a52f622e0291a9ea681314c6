@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c70ca2f0_adee356b",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2824,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-21T01:06:49Z",
+      "side": 1,
+      "message": "It seems this is a mere optimization for when the rhs is zero, and falling into the else is always safe. Please correct me if I am wrong (but this seems better than check failing :-)",
+      "range": {
+        "startLine": 2824,
+        "startChar": 11,
+        "endLine": 2824,
+        "endChar": 21
+      },
+      "revId": "a7429759416cfa59a52f622e0291a9ea681314c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
