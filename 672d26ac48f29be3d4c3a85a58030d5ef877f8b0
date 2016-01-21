@@ -238,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "344dae87_0475d6ce",
+        "filename": "test/482-checker-loop-back-edge-use/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-21T13:48:39Z",
+      "side": 1,
+      "message": "The checker code above was written with the assumption that the entry block would be the pre header, and we would not create synthesized blocks.. But that isn\u0027t the case anymore,",
+      "parentUuid": "c70ca2f0_0d2121dd",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "672d26ac48f29be3d4c3a85a58030d5ef877f8b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a77deeee_5127a6a1",
         "filename": "test/564-checker-inline-loop/src/Main.java",
         "patchSetId": 4
