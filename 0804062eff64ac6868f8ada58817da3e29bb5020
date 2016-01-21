@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "07123a0e_9c156992",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1051763
+      },
+      "writtenOn": "2016-01-21T02:08:42Z",
+      "side": 1,
+      "message": "This check is too big to make it inline.\nAgree. Will only move out the part of other handlers.",
+      "parentUuid": "47efd232_201ea44f",
+      "range": {
+        "startLine": 150,
+        "startChar": 2,
+        "endLine": 153,
+        "endChar": 3
+      },
+      "revId": "0804062eff64ac6868f8ada58817da3e29bb5020",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87062ace_fd7f3f88",
         "filename": "runtime/fault_handler.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-20T21:54:18Z",
       "side": 1,
       "message": "Why \"true\"? This is still a failure case that should terminate, so should be propagated along the chain.\n\n(And no, we will not accept other_handlers_ that fix up internal state in managed code...)",
+      "range": {
+        "startLine": 247,
+        "startChar": 17,
+        "endLine": 247,
+        "endChar": 21
+      },
+      "revId": "0804062eff64ac6868f8ada58817da3e29bb5020",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d439b2d1_71c0d857",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1051763
+      },
+      "writtenOn": "2016-01-21T02:08:42Z",
+      "side": 1,
+      "message": "Just follow the original code, which will return directly.\nI\u0027m not sure about the motivation of other_handlers_.\nSo far, only the JavaStackTraceHandler is added in other_handlers_, which always return false in its Action.\nWill any new handler be added into it in future?",
+      "parentUuid": "87062ace_fd7f3f88",
       "range": {
         "startLine": 247,
         "startChar": 17,
