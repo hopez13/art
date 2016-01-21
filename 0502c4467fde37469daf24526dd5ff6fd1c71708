@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f484f6cd_82a8ba4c",
+        "filename": "runtime/jdwp/jdwp_socket.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-21T13:27:11Z",
+      "side": 1,
+      "message": "maybe add a kBufferSize constant and eplxain the size. Probably ipv6?",
+      "range": {
+        "startLine": 279,
+        "startChar": 14,
+        "endLine": 279,
+        "endChar": 17
+      },
+      "revId": "0502c4467fde37469daf24526dd5ff6fd1c71708",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
