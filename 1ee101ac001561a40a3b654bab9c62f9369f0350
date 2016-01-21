@@ -22,6 +22,30 @@
       "revId": "1ee101ac001561a40a3b654bab9c62f9369f0350",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4718b22c_9e9e017a",
+        "filename": "runtime/hprof/hprof.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-21T00:45:51Z",
+      "side": 0,
+      "message": "I added two new variables with the other initialization format, if I didn\u0027t fix these it would be inconsistent.",
+      "parentUuid": "c70ca2f0_6268ac33",
+      "range": {
+        "startLine": 422,
+        "startChar": 8,
+        "endLine": 427,
+        "endChar": 34
+      },
+      "revId": "1ee101ac001561a40a3b654bab9c62f9369f0350",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
