@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4115643_5da82f4b",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1133,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-01-21T13:48:23Z",
+      "side": 0,
+      "message": "This seems to be missing in the replacement code.  Is it just handled by generic move?  Or is this just outdated code, since the Method* could also be in a register?",
+      "range": {
+        "startLine": 1132,
+        "startChar": 2,
+        "endLine": 1133,
+        "endChar": 69
+      },
+      "revId": "c1d7861e511b8abcc9f3ad6fc54ff07e80dc383e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
