@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "341f6e57_f46f18d0",
+        "filename": "compiler/dwarf/dwarf_constants.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-21T13:48:20Z",
+      "side": 1,
+      "message": "This DW_AT_tail_call is redefinition of the one five lines above which causes compile error.  I am not sure how this came to be, I did not write this file.\n\nIn any case.  It turns out I do not need INCLUDE_DWARF5_VALUES after all, so reverted for now.  (and I will update it to final values once DWARF5 is released)",
+      "parentUuid": "544ea283_a5639e19",
+      "range": {
+        "startLine": 217,
+        "startChar": 30,
+        "endLine": 217,
+        "endChar": 46
+      },
+      "revId": "664068ec24964d3ffbc27b920188585236882ddd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "544ea283_8560a20d",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-21T12:35:51Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 17,
+        "startChar": 31,
+        "endLine": 17,
+        "endChar": 53
+      },
+      "revId": "664068ec24964d3ffbc27b920188585236882ddd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1448aa77_03e02eb7",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-21T13:48:20Z",
+      "side": 1,
+      "message": "I though I needed DWARF5 to get this symbol.  Turns out it is part of DWARF4.",
+      "parentUuid": "544ea283_8560a20d",
       "range": {
         "startLine": 17,
         "startChar": 31,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "544ea283_c508da45",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-21T13:48:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67793673_3638d80e",
+      "range": {
+        "startLine": 623,
+        "startChar": 40,
+        "endLine": 623,
+        "endChar": 41
+      },
+      "revId": "664068ec24964d3ffbc27b920188585236882ddd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1448aa77_e337521d",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 11
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "1448aa77_e3e4f2cd",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-21T13:48:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1448aa77_e337521d",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 1
+      },
+      "revId": "664068ec24964d3ffbc27b920188585236882ddd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "341f6e57_d4badc85",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 11
@@ -105,6 +201,30 @@
       "writtenOn": "2016-01-21T12:35:51Z",
       "side": 1,
       "message": "Only relevant to dwarf so please move it there.",
+      "range": {
+        "startLine": 1370,
+        "startChar": 0,
+        "endLine": 1370,
+        "endChar": 93
+      },
+      "revId": "664068ec24964d3ffbc27b920188585236882ddd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f484f6cd_0294aa03",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 1370,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-21T13:48:20Z",
+      "side": 1,
+      "message": "Done.  Somewhat - I kept a note saying that the field is used by the native debugger.",
+      "parentUuid": "341f6e57_d4badc85",
       "range": {
         "startLine": 1370,
         "startChar": 0,
