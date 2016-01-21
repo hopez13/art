@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "544ea283_a5639e19",
+        "filename": "compiler/dwarf/dwarf_constants.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-21T12:35:51Z",
+      "side": 1,
+      "message": "what does that mean?",
+      "range": {
+        "startLine": 217,
+        "startChar": 30,
+        "endLine": 217,
+        "endChar": 46
+      },
+      "revId": "664068ec24964d3ffbc27b920188585236882ddd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "544ea283_8560a20d",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-21T12:35:51Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 17,
+        "startChar": 31,
+        "endLine": 17,
+        "endChar": 53
+      },
+      "revId": "664068ec24964d3ffbc27b920188585236882ddd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67793673_3638d80e",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-21T12:35:51Z",
+      "side": 1,
+      "message": "Add a comment that is is delibarately empty and explain why?",
+      "range": {
+        "startLine": 623,
+        "startChar": 40,
+        "endLine": 623,
+        "endChar": 41
+      },
+      "revId": "664068ec24964d3ffbc27b920188585236882ddd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1448aa77_e337521d",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-21T12:35:51Z",
+      "side": 1,
+      "message": "Could you move this to the dwarf code?",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 1
+      },
+      "revId": "664068ec24964d3ffbc27b920188585236882ddd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "341f6e57_d4badc85",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 1370,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-21T12:35:51Z",
+      "side": 1,
+      "message": "Only relevant to dwarf so please move it there.",
+      "range": {
+        "startLine": 1370,
+        "startChar": 0,
+        "endLine": 1370,
+        "endChar": 93
+      },
+      "revId": "664068ec24964d3ffbc27b920188585236882ddd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
