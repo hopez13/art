@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "344dae87_24db3213",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-01-21T14:07:36Z",
+      "side": 1,
+      "message": "We do it for java.lang.Object because every other class inherits from it (directly or indirectly) so adding a field to java.lang.Object means that we implicitly added it to all class",
+      "parentUuid": "344dae87_e4699afd",
+      "range": {
+        "startLine": 649,
+        "startChar": 0,
+        "endLine": 650,
+        "endChar": 93
+      },
+      "revId": "e488257e28b2d3e160855fdf548e8498b1ea5db0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1448aa77_a3eefaa9",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 12
