@@ -22,6 +22,30 @@
       "revId": "5f2e45ddedbf53473e20a722c6d70b202316eb87",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7453a627_869d4a2a",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-21T14:21:03Z",
+      "side": 1,
+      "message": "Yeah, I dropped it since dex_pc is unsigned anyways.",
+      "parentUuid": "f484f6cd_c2b48299",
+      "range": {
+        "startLine": 172,
+        "startChar": 8,
+        "endLine": 172,
+        "endChar": 10
+      },
+      "revId": "5f2e45ddedbf53473e20a722c6d70b202316eb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
