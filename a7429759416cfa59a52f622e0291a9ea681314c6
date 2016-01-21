@@ -22,6 +22,30 @@
       "revId": "a7429759416cfa59a52f622e0291a9ea681314c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47efd232_03d0d24d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2824,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-21T01:17:40Z",
+      "side": 1,
+      "message": "I\u0027d put all the handled CCs onto one line and break the conjunction to the next line.\n\nBut yeah, this is how it should be handled, I guess.",
+      "parentUuid": "c70ca2f0_adee356b",
+      "range": {
+        "startLine": 2824,
+        "startChar": 11,
+        "endLine": 2824,
+        "endChar": 21
+      },
+      "revId": "a7429759416cfa59a52f622e0291a9ea681314c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
