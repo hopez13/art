@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7453a627_6675aea9",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-21T15:02:25Z",
+      "side": 1,
+      "message": "OK. I don\u0027t think you need that here, as you need to do the lookup when compiling anyways. It\u0027s quite common that the first lookup is costly.",
+      "parentUuid": "07123a0e_73bd20ed",
+      "range": {
+        "startLine": 493,
+        "startChar": 8,
+        "endLine": 493,
+        "endChar": 69
+      },
+      "revId": "705ad49f353d3f90d8b63625aca2c2035bacdbef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "076cfa46_779d78dc",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 28
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "Currently we are just being conservative and falling back to the interpreter whenever we see anything that might possibly be an interface-super. We need to do actual verification in the future.",
       "parentUuid": "07931a6b_1fc37364",
+      "range": {
+        "startLine": 3959,
+        "startChar": 0,
+        "endLine": 3959,
+        "endChar": 54
+      },
+      "revId": "705ad49f353d3f90d8b63625aca2c2035bacdbef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e74a8641_f25d882d",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 28
+      },
+      "lineNbr": 3959,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-21T15:02:25Z",
+      "side": 1,
+      "message": "Oh, so none of the dex instructions that follow will be verified?",
+      "parentUuid": "47efd232_a3cd9e3e",
       "range": {
         "startLine": 3959,
         "startChar": 0,
