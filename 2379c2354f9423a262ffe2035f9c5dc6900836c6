@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a75faef8_188a25d3",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1443,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-21T15:33:16Z",
+      "side": 1,
+      "message": "Use DCHECK_EQ.",
+      "range": {
+        "startLine": 1443,
+        "startChar": 2,
+        "endLine": 1443,
+        "endChar": 8
+      },
+      "revId": "2379c2354f9423a262ffe2035f9c5dc6900836c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67793673_b66308ee",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1455,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-21T15:33:16Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1455,
+        "startChar": 2,
+        "endLine": 1455,
+        "endChar": 8
+      },
+      "revId": "2379c2354f9423a262ffe2035f9c5dc6900836c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
