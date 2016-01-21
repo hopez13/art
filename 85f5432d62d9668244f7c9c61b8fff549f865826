@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "54f78247_00c00872",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2351,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-01-21T20:56:26Z",
+      "side": 1,
+      "message": "None of the other uses of GetTemp use DCHECK.  GetTemp will DCHECK the index is in range.",
+      "revId": "85f5432d62d9668244f7c9c61b8fff549f865826",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
