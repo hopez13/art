@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "544ea283_a555dea1",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1764,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-21T23:04:49Z",
+      "side": 1,
+      "message": "No need, the ArtMethod can never be the input of a phi (we create it for some specific uses). Constants use in dex registers (and created through instruction simplification/constant folding) can be the input of a phi.",
+      "parentUuid": "b40b5e17_3e78d107",
+      "range": {
+        "startLine": 1764,
+        "startChar": 25,
+        "endLine": 1764,
+        "endChar": 77
+      },
+      "revId": "229f08f8515cd0dcb7543c208f27ba288f07ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4115643_aea70f25",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 3
