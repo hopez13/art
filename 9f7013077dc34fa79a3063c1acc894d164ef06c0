@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4f27e53_86766edd",
+        "filename": "tools/ahat/src/AhatSnapshot.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2016-01-21T21:34:09Z",
+      "side": 1,
+      "message": "nitpick: You might consider initializing these where you declare the fields in the class.",
+      "range": {
+        "startLine": 82,
+        "startChar": 2,
+        "endLine": 86,
+        "endChar": 73
+      },
+      "revId": "9f7013077dc34fa79a3063c1acc894d164ef06c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4f27e53_a6ebb299",
+        "filename": "tools/ahat/src/InstanceUtils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2016-01-21T21:34:09Z",
+      "side": 1,
+      "message": "I worry a little about the caller not seeing the subtlety here\nThanks to autoboxing I can call either\n\nlong l \u003d getLongField(inst, fieldName);\n\nLong l \u003d getLongField(inst, fieldName);\n\nThe former will probably throw an exception if you return null. Could you force them to always call the second API and pass a default value?",
+      "range": {
+        "startLine": 214,
+        "startChar": 2,
+        "endLine": 229,
+        "endChar": 3
+      },
+      "revId": "9f7013077dc34fa79a3063c1acc894d164ef06c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4eb7261_c7aa32ef",
+        "filename": "tools/ahat/src/InstanceUtils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2016-01-21T21:34:09Z",
+      "side": 1,
+      "message": "is this always the name of this field?",
+      "range": {
+        "startLine": 334,
+        "startChar": 57,
+        "endLine": 334,
+        "endChar": 63
+      },
+      "revId": "9f7013077dc34fa79a3063c1acc894d164ef06c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b40b5e17_de3795d4",
+        "filename": "tools/ahat/src/Sort.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1047883
+      },
+      "writtenOn": "2016-01-21T21:34:09Z",
+      "side": 1,
+      "message": "can you explicitly cast this to (int) to indicate that this is your intent",
+      "range": {
+        "startLine": 203,
+        "startChar": 12,
+        "endLine": 203,
+        "endChar": 19
+      },
+      "revId": "9f7013077dc34fa79a3063c1acc894d164ef06c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
