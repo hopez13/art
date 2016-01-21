@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "341f6e57_94910475",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1737,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-21T22:37:15Z",
+      "side": 1,
+      "message": "I have a follow-up change that will use it too.",
+      "parentUuid": "b4f27e53_664daa1f",
+      "range": {
+        "startLine": 1737,
+        "startChar": 12,
+        "endLine": 1737,
+        "endChar": 75
+      },
+      "revId": "229f08f8515cd0dcb7543c208f27ba288f07ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "940e5a27_5db14b1b",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "7453a627_46cbd2cc",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1764,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-21T22:37:15Z",
+      "side": 1,
+      "message": "The algorithm does not support this, hence the reason you\u0027re not seeing it.\n\nIdeally, we should create phis in irreducible loop headers for all these instructions we are adding in the entry block, and then the algorithm just works. But that is 1) annoying as GetIntConstant would now need to find those loop headers and 2) not working for on-stack replacement, as the interpreter has no notion of that phi.\n\nSo the algorithm will just create live intervals that have holes in them, at places where they are expected to be live_in. Again, this normally does not work, but we can special case constants and ArtMethod as those are easily re-materializable.",
+      "parentUuid": "940e5a27_5db14b1b",
+      "range": {
+        "startLine": 1764,
+        "startChar": 25,
+        "endLine": 1764,
+        "endChar": 77
+      },
+      "revId": "229f08f8515cd0dcb7543c208f27ba288f07ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4115643_aea70f25",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2016-01-21T22:31:35Z",
       "side": 1,
       "message": "What\u0027s an *entry* instruction?",
+      "range": {
+        "startLine": 1769,
+        "startChar": 25,
+        "endLine": 1769,
+        "endChar": 41
+      },
+      "revId": "229f08f8515cd0dcb7543c208f27ba288f07ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a75faef8_38b60945",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1769,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-21T22:37:15Z",
+      "side": 1,
+      "message": "An instruction in the entry block. Obviously, other suggestion for another name welcome :)",
+      "parentUuid": "f4115643_aea70f25",
       "range": {
         "startLine": 1769,
         "startChar": 25,
