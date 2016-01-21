@@ -120,6 +120,54 @@
     },
     {
       "key": {
+        "uuid": "47efd232_63eb9608",
+        "filename": "runtime/arch/x86/instruction_set_features_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-21T04:13:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "274e5eac_aec32e62",
+      "range": {
+        "startLine": 152,
+        "startChar": 8,
+        "endLine": 152,
+        "endChar": 18
+      },
+      "revId": "83c8154cbd5a3cfaf35dedd24ee83c045500efa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4718b22c_7eb7a59f",
+        "filename": "runtime/arch/x86/instruction_set_features_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-21T04:13:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "076cfa46_57279ca1",
+      "range": {
+        "startLine": 152,
+        "startChar": 8,
+        "endLine": 152,
+        "endChar": 18
+      },
+      "revId": "83c8154cbd5a3cfaf35dedd24ee83c045500efa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4768b202_80828524",
         "filename": "test/564-checker-bitcount/src/Main.java",
         "patchSetId": 5
@@ -203,6 +251,30 @@
       "side": 1,
       "message": "In theory, some machines may not have it.  In practice, most (if not all) processors after 2010 probably have it.  I don\u0027t really know how to answer this question.",
       "parentUuid": "8780ea14_ed67e162",
+      "range": {
+        "startLine": 19,
+        "startChar": 11,
+        "endLine": 19,
+        "endChar": 15
+      },
+      "revId": "83c8154cbd5a3cfaf35dedd24ee83c045500efa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34068e0b_7c97796f",
+        "filename": "test/564-checker-bitcount/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-21T04:13:39Z",
+      "side": 1,
+      "message": "Not an easy way out I am afraid. I filed the feature request and added the bug # here.",
+      "parentUuid": "07495aa4_99931cd4",
       "range": {
         "startLine": 19,
         "startChar": 11,
