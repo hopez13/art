@@ -22,6 +22,30 @@
       "revId": "0502c4467fde37469daf24526dd5ff6fd1c71708",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f484f6cd_22ad2e5b",
+        "filename": "runtime/jdwp/jdwp_socket.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-21T14:09:44Z",
+      "side": 1,
+      "message": "Good idea; done in https://android-review.googlesource.com/#/c/197650/.",
+      "parentUuid": "f484f6cd_82a8ba4c",
+      "range": {
+        "startLine": 279,
+        "startChar": 14,
+        "endLine": 279,
+        "endChar": 17
+      },
+      "revId": "0502c4467fde37469daf24526dd5ff6fd1c71708",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
