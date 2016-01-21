@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "b40b5e17_3e78d107",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1764,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-01-21T23:00:40Z",
+      "side": 1,
+      "message": "In ssa_phi_elimination.cc, this line:\n    if (irreducible_loop_phi_in_cycle \u0026\u0026 !candidate-\u003eIsConstant()) {\nI don\u0027t see !IsCurrentMethod() is tested. Should it be done also?",
+      "parentUuid": "7453a627_46cbd2cc",
+      "range": {
+        "startLine": 1764,
+        "startChar": 25,
+        "endLine": 1764,
+        "endChar": 77
+      },
+      "revId": "229f08f8515cd0dcb7543c208f27ba288f07ae7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4115643_aea70f25",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 3
