@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4115643_749e687c",
+        "filename": "runtime/arch/x86/instruction_set_features_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-22T00:38:10Z",
+      "side": 1,
+      "message": "FYI, gcc has __POPCNT__:\n\n  $ gcc -march\u003dnative -mtune\u003dnative -dM -E - \u003c /dev/null | grep POPCNT\n  #define __POPCNT__ 1\n\nSame goes for Clang.",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 6
+      },
+      "revId": "d83a6fea0a99ca14dc13ab7375efb4352841fb61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
