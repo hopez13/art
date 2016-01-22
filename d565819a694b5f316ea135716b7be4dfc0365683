@@ -378,6 +378,29 @@
     },
     {
       "key": {
+        "uuid": "d470d2c5_b9b3bf06",
+        "filename": "test/137-cfi/cfi.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-22T13:51:28Z",
+      "side": 1,
+      "message": "I also reverted this file, as it is not needed yet.",
+      "range": {
+        "startLine": 127,
+        "startChar": 5,
+        "endLine": 129,
+        "endChar": 44
+      },
+      "revId": "d565819a694b5f316ea135716b7be4dfc0365683",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b48efeed_20cf6ab1",
         "filename": "test/137-cfi/run",
         "patchSetId": 1
@@ -437,6 +460,30 @@
       "side": 1,
       "message": "That\u0027s the \u0027exec\u0027. Could you drop it?",
       "parentUuid": "b4599e47_2b5c2500",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 61
+      },
+      "revId": "d565819a694b5f316ea135716b7be4dfc0365683",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "142fca8d_912e9cc9",
+        "filename": "test/137-cfi/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-22T13:51:28Z",
+      "side": 1,
+      "message": "Done. Thanks.",
+      "parentUuid": "d46292ed_2cf31b56",
       "range": {
         "startLine": 17,
         "startChar": 0,
