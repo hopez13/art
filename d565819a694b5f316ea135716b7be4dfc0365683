@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "142fca8d_91b33c07",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-22T12:13:20Z",
+      "side": 1,
+      "message": "Well the two flags are distinct and orthogonal.\n\n--generate-debug-info will generate everything it can (line number, etc)\n\n--generate-mini-debug-info will generate only the bare minimum for backtraces and then it will also compress it.\n\nIn theory you can generate both at the same time, although the \"mini\" is always subset of the full one.\n\nIn this case if GetGenerateDebugInfo() returns true also if --generate-mini-debug-info is then we it would result all the debug being written if only \"mini\" was required on the command line.\n\nSo I suppose the Get* methods should still correspond to command line arguments.\n\nI could add extra method GetGenerateCFI() which would do the OR but it would not correspond to any command-line argument.",
+      "parentUuid": "b48efeed_40194e06",
+      "range": {
+        "startLine": 1079,
+        "startChar": 11,
+        "endLine": 1079,
+        "endChar": 75
+      },
+      "revId": "d565819a694b5f316ea135716b7be4dfc0365683",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d46292ed_4cd64feb",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 1
