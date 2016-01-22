@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "547ce2a3_b502e01f",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-22T16:48:05Z",
+      "side": 1,
+      "message": "For code readability, I would prefer a lambda to keep the logic together.",
+      "range": {
+        "startLine": 263,
+        "startChar": 68,
+        "endLine": 263,
+        "endChar": 82
+      },
+      "revId": "0a6472767d8e6351bf2941c04491eb4c2fd59057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b467de0d_784c417c",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1508,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-22T16:48:05Z",
+      "side": 1,
+      "message": "Dropping oat patches from this path should be mentioned in the commit message.",
+      "range": {
+        "startLine": 1508,
+        "startChar": 70,
+        "endLine": 1508,
+        "endChar": 98
+      },
+      "revId": "0a6472767d8e6351bf2941c04491eb4c2fd59057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
