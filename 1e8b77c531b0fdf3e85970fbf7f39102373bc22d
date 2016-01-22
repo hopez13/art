@@ -497,6 +497,30 @@
     },
     {
       "key": {
+        "uuid": "b4b51eae_28d44b3e",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-22T18:31:35Z",
+      "side": 1,
+      "message": "I mean that calling resolveMethod might not give the same ArtMethod* you actually want because of conflict methods and the fact that default methods are copied onto implementing classes.\n\nAlso I think my wording is better because a method idx contains a reference to 3 things: A class name, a method name, and a method signature. We need to get the class refereed to by the class name field.",
+      "parentUuid": "742ac67b_110f4e10",
+      "range": {
+        "startLine": 273,
+        "startChar": 17,
+        "endLine": 273,
+        "endChar": 38
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8780ea14_d05b927c",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 3
