@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9443ba4f_f223a682",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1739,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-22T10:51:58Z",
+      "side": 1,
+      "message": "Isn\u0027t that what this helper is for? I\u0027d like to avoid spreading that complexity to other places.",
+      "parentUuid": "945c9a37_0a0f1b10",
+      "range": {
+        "startLine": 1739,
+        "startChar": 0,
+        "endLine": 1739,
+        "endChar": 70
+      },
+      "revId": "e539cafcb6bdf5fbeb48eacdb0b1761e78bc14af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d46292ed_cc66bf2b",
         "filename": "compiler/optimizing/register_allocator.cc",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b440be43_b3b9a202",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1769,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-22T10:51:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d46292ed_cc66bf2b",
+      "range": {
+        "startLine": 1769,
+        "startChar": 4,
+        "endLine": 1769,
+        "endChar": 67
+      },
+      "revId": "e539cafcb6bdf5fbeb48eacdb0b1761e78bc14af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b440be43_93ed7e20",
         "filename": "test/564-checker-irreducible-loop/smali/IrreducibleLoop.smali",
         "patchSetId": 5
@@ -59,6 +107,30 @@
       "writtenOn": "2016-01-22T10:33:43Z",
       "side": 1,
       "message": "$noinline$",
+      "range": {
+        "startLine": 50,
+        "startChar": 22,
+        "endLine": 50,
+        "endChar": 23
+      },
+      "revId": "e539cafcb6bdf5fbeb48eacdb0b1761e78bc14af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d46292ed_6ca35371",
+        "filename": "test/564-checker-irreducible-loop/smali/IrreducibleLoop.smali",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-22T10:51:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b440be43_93ed7e20",
       "range": {
         "startLine": 50,
         "startChar": 22,
