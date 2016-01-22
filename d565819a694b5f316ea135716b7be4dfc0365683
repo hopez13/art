@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9443ba4f_f2e60644",
+        "filename": "compiler/dex/quick/codegen_util.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-22T13:37:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "142fca8d_91b33c07",
+      "range": {
+        "startLine": 1079,
+        "startChar": 11,
+        "endLine": 1079,
+        "endChar": 75
+      },
+      "revId": "d565819a694b5f316ea135716b7be4dfc0365683",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d46292ed_4cd64feb",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 1
@@ -83,6 +107,30 @@
       "writtenOn": "2016-01-22T10:32:49Z",
       "side": 1,
       "message": "I can\u0027t parse this.",
+      "range": {
+        "startLine": 174,
+        "startChar": 7,
+        "endLine": 174,
+        "endChar": 62
+      },
+      "revId": "d565819a694b5f316ea135716b7be4dfc0365683",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "142fca8d_11118c9e",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-22T13:37:05Z",
+      "side": 1,
+      "message": "Done - rewritten",
+      "parentUuid": "d46292ed_4cd64feb",
       "range": {
         "startLine": 174,
         "startChar": 7,
@@ -118,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "b440be43_761208a8",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-22T13:37:05Z",
+      "side": 1,
+      "message": "Done (removed)",
+      "parentUuid": "d46292ed_cce11fbc",
+      "range": {
+        "startLine": 254,
+        "startChar": 64,
+        "endLine": 254,
+        "endChar": 81
+      },
+      "revId": "d565819a694b5f316ea135716b7be4dfc0365683",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b4599e47_eb884dde",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 1
@@ -129,6 +201,30 @@
       "writtenOn": "2016-01-22T10:32:49Z",
       "side": 1,
       "message": "How is that related to compression?",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 260,
+        "endChar": 84
+      },
+      "revId": "d565819a694b5f316ea135716b7be4dfc0365683",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "142fca8d_f150405b",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-22T13:37:05Z",
+      "side": 1,
+      "message": "Done (removed)",
+      "parentUuid": "b4599e47_eb884dde",
       "range": {
         "startLine": 255,
         "startChar": 0,
@@ -164,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "d46292ed_6ce91368",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1298,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-22T13:37:05Z",
+      "side": 1,
+      "message": "Done (removed)",
+      "parentUuid": "b48efeed_60c5728f",
+      "range": {
+        "startLine": 1298,
+        "startChar": 0,
+        "endLine": 1298,
+        "endChar": 52
+      },
+      "revId": "d565819a694b5f316ea135716b7be4dfc0365683",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b440be43_f3d84a74",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 1
@@ -175,6 +295,30 @@
       "writtenOn": "2016-01-22T10:32:49Z",
       "side": 1,
       "message": "nit: one per line",
+      "range": {
+        "startLine": 1336,
+        "startChar": 17,
+        "endLine": 1337,
+        "endChar": 78
+      },
+      "revId": "d565819a694b5f316ea135716b7be4dfc0365683",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "742ac67b_31148acf",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1337,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-22T13:37:05Z",
+      "side": 1,
+      "message": "Done (removed)",
+      "parentUuid": "b440be43_f3d84a74",
       "range": {
         "startLine": 1336,
         "startChar": 17,
@@ -210,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "742ac67b_11198e07",
+        "filename": "compiler/elf_writer_debug.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-22T13:37:05Z",
+      "side": 1,
+      "message": "The method bodies are completely different.\nIt seems better to me to keep them separate.",
+      "parentUuid": "9443ba4f_524cb27b",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 77
+      },
+      "revId": "d565819a694b5f316ea135716b7be4dfc0365683",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b48efeed_20cf6ab1",
         "filename": "test/137-cfi/run",
         "patchSetId": 1
@@ -221,6 +389,30 @@
       "writtenOn": "2016-01-22T10:32:49Z",
       "side": 1,
       "message": "You can actually run this twice: one with the compressed version, one without",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 61
+      },
+      "revId": "d565819a694b5f316ea135716b7be4dfc0365683",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4599e47_2b5c2500",
+        "filename": "test/137-cfi/run",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-22T13:37:05Z",
+      "side": 1,
+      "message": "....I tried that but the second line does not seem to run.",
+      "parentUuid": "b48efeed_20cf6ab1",
       "range": {
         "startLine": 17,
         "startChar": 0,
