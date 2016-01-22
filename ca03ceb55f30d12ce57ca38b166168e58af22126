@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "742ac67b_b1aabaed",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-22T10:54:44Z",
+      "side": 1,
+      "message": "nit: one per line",
+      "range": {
+        "startLine": 177,
+        "startChar": 6,
+        "endLine": 178,
+        "endChar": 81
+      },
+      "revId": "ca03ceb55f30d12ce57ca38b166168e58af22126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "742ac67b_91a7be25",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-22T10:54:44Z",
+      "side": 1,
+      "message": "uint32_t, but don\u0027t create a local variable if you\u0027re only going to use it once.",
+      "range": {
+        "startLine": 188,
+        "startChar": 4,
+        "endLine": 188,
+        "endChar": 8
+      },
+      "revId": "ca03ceb55f30d12ce57ca38b166168e58af22126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9443ba4f_723b36a8",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-22T10:54:44Z",
+      "side": 1,
+      "message": "How about using the ternary operator?",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 5
+      },
+      "revId": "ca03ceb55f30d12ce57ca38b166168e58af22126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b48efeed_c0df9e57",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1246,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-22T10:54:44Z",
+      "side": 1,
+      "message": "one per line",
+      "range": {
+        "startLine": 1245,
+        "startChar": 6,
+        "endLine": 1246,
+        "endChar": 81
+      },
+      "revId": "ca03ceb55f30d12ce57ca38b166168e58af22126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9443ba4f_5240321e",
+        "filename": "test/565-checker-doublenegbitwise/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-22T10:54:44Z",
+      "side": 1,
+      "message": "2016",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 20
+      },
+      "revId": "ca03ceb55f30d12ce57ca38b166168e58af22126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
