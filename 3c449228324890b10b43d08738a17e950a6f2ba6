@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "142fca8d_aee2571c",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-22T16:19:35Z",
+      "side": 1,
+      "message": "I was gonna get rid of it entirely but ARM64 and MIPS64 do sanity checks on it (if not kPrimVoid). So comes down to whether we want to preserve those DCHECKs.",
+      "parentUuid": "b48efeed_20fd2ad1",
+      "range": {
+        "startLine": 193,
+        "startChar": 20,
+        "endLine": 193,
+        "endChar": 67
+      },
+      "revId": "3c449228324890b10b43d08738a17e950a6f2ba6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3434cedb_cf66c12b",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-22T09:55:33Z",
       "side": 1,
       "message": "Isn\u0027t that the other way around? The ParallelMoveResolver may request temp?",
+      "range": {
+        "startLine": 1021,
+        "startChar": 5,
+        "endLine": 1021,
+        "endChar": 72
+      },
+      "revId": "3c449228324890b10b43d08738a17e950a6f2ba6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4dc3efe_90e8f4cf",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-22T16:19:35Z",
+      "side": 1,
+      "message": "This is my limited understanding of how the swap resolver works, so please correct me if I\u0027m wrong.\n\nIn the original Move32 function, a StackSlot-\u003eStackSlot moves the value through stack with push+pop. The ParallelMoveResolver, on the other hand, requests EAX with ScratchRegisterScope and does mov+mov with that temp register.\n\nNow that I\u0027m looking at how the ScratchRegisterScope works, however, it looks like we cannot do that - it would never spill EAX even if used by the caller of this. Which would mean that DoubleStackSlot-\u003eDoubleStackSlot in Move64 is broken because it uses the move resolver. Looking at use sites, it never hits that case though.",
+      "parentUuid": "3434cedb_cf66c12b",
       "range": {
         "startLine": 1021,
         "startChar": 5,
