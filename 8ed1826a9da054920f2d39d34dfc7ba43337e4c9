@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4b51eae_0e786f07",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-01-22T22:34:04Z",
+      "side": 1,
+      "message": "Don\u0027t wee need this on MIPS32 as well? Every other architecture except MIPS has it.",
+      "range": {
+        "startLine": 969,
+        "startChar": 37,
+        "endLine": 969,
+        "endChar": 59
+      },
+      "revId": "8ed1826a9da054920f2d39d34dfc7ba43337e4c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
