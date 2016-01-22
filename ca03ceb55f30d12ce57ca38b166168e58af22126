@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "d4eb7261_300fd610",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-01-22T13:35:14Z",
+      "side": 1,
+      "message": "I think dex_pc should be an operand to the HAnd/HOr ctors below",
+      "parentUuid": "742ac67b_91a7be25",
+      "range": {
+        "startLine": 188,
+        "startChar": 4,
+        "endLine": 188,
+        "endChar": 8
+      },
+      "revId": "ca03ceb55f30d12ce57ca38b166168e58af22126",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9443ba4f_723b36a8",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
