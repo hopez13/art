@@ -46,6 +46,30 @@
       "revId": "d83a6fea0a99ca14dc13ab7375efb4352841fb61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b40b5e17_c13e9861",
+        "filename": "runtime/arch/x86/instruction_set_features_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-22T00:40:45Z",
+      "side": 1,
+      "message": "(Obviously I\u0027m on a not-too-old system, but also works with march\u003dsilvermont...)",
+      "parentUuid": "f4115643_749e687c",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 6
+      },
+      "revId": "d83a6fea0a99ca14dc13ab7375efb4352841fb61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
