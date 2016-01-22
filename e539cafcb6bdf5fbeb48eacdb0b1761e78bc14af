@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "945c9a37_0a0f1b10",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1739,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-22T10:33:43Z",
+      "side": 1,
+      "message": "This comes from the fact that you don\u0027t create a loop phi for these, right? Could we have one place for this \"list\"? I.e. a query instruction-\u003eIsNotIrreducibleLoopPhied.",
+      "range": {
+        "startLine": 1739,
+        "startChar": 0,
+        "endLine": 1739,
+        "endChar": 70
+      },
+      "revId": "e539cafcb6bdf5fbeb48eacdb0b1761e78bc14af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d46292ed_cc66bf2b",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1769,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-22T10:33:43Z",
+      "side": 1,
+      "message": "Nit: I know this is almost certainly guaranteed to inline, but having the function return bool and doing the DCHECK here is still a better option, IMHO",
+      "range": {
+        "startLine": 1769,
+        "startChar": 4,
+        "endLine": 1769,
+        "endChar": 67
+      },
+      "revId": "e539cafcb6bdf5fbeb48eacdb0b1761e78bc14af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b440be43_93ed7e20",
+        "filename": "test/564-checker-irreducible-loop/smali/IrreducibleLoop.smali",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-22T10:33:43Z",
+      "side": 1,
+      "message": "$noinline$",
+      "range": {
+        "startLine": 50,
+        "startChar": 22,
+        "endLine": 50,
+        "endChar": 23
+      },
+      "revId": "e539cafcb6bdf5fbeb48eacdb0b1761e78bc14af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
