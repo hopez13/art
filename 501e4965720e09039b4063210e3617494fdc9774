@@ -1,0 +1,464 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94b81aa8_aae58ff6",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "What about invoke-super from app code into bootclasspath code?",
+      "range": {
+        "startLine": 335,
+        "startChar": 41,
+        "endLine": 335,
+        "endChar": 54
+      },
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34d04ee4_af4cb54e",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "What about invoke-super from app code into bootclasspath code?",
+      "range": {
+        "startLine": 344,
+        "startChar": 51,
+        "endLine": 344,
+        "endChar": 64
+      },
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4bb169e_4d2e6d83",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1624,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "?",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4bb169e_908c7c20",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "This one won\u0027t take into account the copy of the default method right? So why not ResolveDeclaredClassOfMethod ?",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14cb4a3e_6be4815f",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "Comments?",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54aa2254_8805372c",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "Why can\u0027t you just do something like\n\n  return GetResolvedMethod(method_idx, referer)-\u003eGetDeclaringClass()\n\n(perhaps with appropriate handles)\n\n?",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4bb169e_4d5c2d33",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "Please consider including the back-and-forth from PS3 here about copied methods etc (from PS3).\n\nAlso I\u0027d like to understand why we can\u0027t just return the declaring class instead? That would be more intuitive.\n---------------\n\nAlso just for my own sanity the referrer is only to get the dex_file right? (so that we know what the method_idx is relative to?)",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54aa2254_08db8712",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "This should have the comments in the header from the PS3 back-and-forth.\n\nI\u0027d also like to understand why it can\u0027t literally return the declaring class of the method (perhaps by going up to the super class recursively?) since that would make this operation much simpler to understand.",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14cb4a3e_4e7673e0",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3718,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "Update comments?",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14cb4a3e_ce6903fe",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3960,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "That doesn\u0027t seem right, I\u0027m guessing this would be something like VERIFY_ERROR_BAD_CLASS_SOFT instead.",
+      "range": {
+        "startLine": 3960,
+        "startChar": 11,
+        "endLine": 3960,
+        "endChar": 41
+      },
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54aa2254_487e5ff9",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3968,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "Is this the transitive closure or directs?\n\nIs it allowed to invoke-super on indirects or not?",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4b51eae_4ef8a76a",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3977,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "Could use a comment explaining this set of checks (from 3968-3977)",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54aa2254_e86e2b44",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "Public methods should have a docstring.\n\nWhy is it returning 1?",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74c64632_f1cf02db",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "Public methods should have a docstring.",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4be1290_2cc53bb5",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "Line length 223-229",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14cb4a3e_4ed193f0",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "Line length",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4bb169e_30e030b8",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "line length",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4bb169e_d0e434ce",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "Public methods should have a docstring.",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54aa2254_a8683336",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "Public methods should have a docstring.",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54aa2254_6b9eb57c",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "Public methods should have a docstring.",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74af2662_c9d25582",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "Public methods should have a docstring.",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74c64632_b1d97aa5",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "Public methods should have a docstring.",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4bb169e_50f8446a",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "Public methods should have a docstring.",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34d04ee4_d23a04bf",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "Public methods should have a docstring.",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54aa2254_cbac89af",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "Public methods should have a docstring.",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74c64632_71cb12cd",
+        "filename": "test/etc/default-build",
+        "patchSetId": 4
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-22T21:22:32Z",
+      "side": 1,
+      "message": "Consider failing with an error message if both HAS_SRC_MULTIDEX and HAS_SMALI_MULTIDEX is true since otherwise the user will get unexpected behavior.",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
