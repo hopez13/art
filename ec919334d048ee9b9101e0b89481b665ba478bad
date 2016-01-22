@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "347beeaf_5447cc58",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-22T18:22:52Z",
+      "side": 1,
+      "message": "This should be aligned with the other parameters. And sorted_method_infos.end() should be on its own line. We don\u0027t seem to be consistent though. IMO, the correct indentation is used in dex_file_verifier_test.cc .",
+      "range": {
+        "startLine": 258,
+        "startChar": 4,
+        "endLine": 258,
+        "endChar": 6
+      },
+      "revId": "ec919334d048ee9b9101e0b89481b665ba478bad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
