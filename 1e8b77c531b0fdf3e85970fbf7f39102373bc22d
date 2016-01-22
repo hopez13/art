@@ -473,6 +473,30 @@
     },
     {
       "key": {
+        "uuid": "742ac67b_110f4e10",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-22T09:43:39Z",
+      "side": 1,
+      "message": "Sorry I don\u0027t understand. WDYM that no class holds the method? A method always has a class.",
+      "parentUuid": "d439b2d1_f48836de",
+      "range": {
+        "startLine": 273,
+        "startChar": 17,
+        "endLine": 273,
+        "endChar": 38
+      },
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8780ea14_d05b927c",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 3
