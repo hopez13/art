@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f4115643_2fa659de",
+        "filename": "tools/ahat/src/AhatSnapshot.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-01-22T16:45:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4f27e53_86766edd",
+      "range": {
+        "startLine": 82,
+        "startChar": 2,
+        "endLine": 86,
+        "endChar": 73
+      },
+      "revId": "9f7013077dc34fa79a3063c1acc894d164ef06c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b4f27e53_a6ebb299",
         "filename": "tools/ahat/src/InstanceUtils.java",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-21T21:34:09Z",
       "side": 1,
       "message": "I worry a little about the caller not seeing the subtlety here\nThanks to autoboxing I can call either\n\nlong l \u003d getLongField(inst, fieldName);\n\nLong l \u003d getLongField(inst, fieldName);\n\nThe former will probably throw an exception if you return null. Could you force them to always call the second API and pass a default value?",
+      "range": {
+        "startLine": 214,
+        "startChar": 2,
+        "endLine": 229,
+        "endChar": 3
+      },
+      "revId": "9f7013077dc34fa79a3063c1acc894d164ef06c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74c64632_6e9ecf7c",
+        "filename": "tools/ahat/src/InstanceUtils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-01-22T16:45:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4f27e53_a6ebb299",
       "range": {
         "startLine": 214,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "14cb4a3e_2ba8b998",
+        "filename": "tools/ahat/src/InstanceUtils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-01-22T16:45:35Z",
+      "side": 1,
+      "message": "I\u0027m not sure. To be safe, I switched to searching for a field of the right type instead of using the name.",
+      "parentUuid": "d4eb7261_c7aa32ef",
+      "range": {
+        "startLine": 334,
+        "startChar": 57,
+        "endLine": 334,
+        "endChar": 63
+      },
+      "revId": "9f7013077dc34fa79a3063c1acc894d164ef06c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b40b5e17_de3795d4",
         "filename": "tools/ahat/src/Sort.java",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2016-01-21T21:34:09Z",
       "side": 1,
       "message": "can you explicitly cast this to (int) to indicate that this is your intent",
+      "range": {
+        "startLine": 203,
+        "startChar": 12,
+        "endLine": 203,
+        "endChar": 19
+      },
+      "revId": "9f7013077dc34fa79a3063c1acc894d164ef06c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34d04ee4_acb36306",
+        "filename": "tools/ahat/src/Sort.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-01-22T16:45:35Z",
+      "side": 1,
+      "message": "I don\u0027t understand. Long.compare returns an int, not a long. The int value is zero, less than zero, or greater than zero depending on how the arguments compare.",
+      "parentUuid": "b40b5e17_de3795d4",
       "range": {
         "startLine": 203,
         "startChar": 12,
