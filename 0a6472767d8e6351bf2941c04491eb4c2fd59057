@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b4dc3efe_f06ce0dd",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-22T18:10:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "547ce2a3_b502e01f",
+      "range": {
+        "startLine": 263,
+        "startChar": 68,
+        "endLine": 263,
+        "endChar": 82
+      },
+      "revId": "0a6472767d8e6351bf2941c04491eb4c2fd59057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b467de0d_784c417c",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-22T16:48:05Z",
       "side": 1,
       "message": "Dropping oat patches from this path should be mentioned in the commit message.",
+      "range": {
+        "startLine": 1508,
+        "startChar": 70,
+        "endLine": 1508,
+        "endChar": 98
+      },
+      "revId": "0a6472767d8e6351bf2941c04491eb4c2fd59057",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1476eac5_734c607c",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1508,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-01-22T18:10:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b467de0d_784c417c",
       "range": {
         "startLine": 1508,
         "startChar": 70,
