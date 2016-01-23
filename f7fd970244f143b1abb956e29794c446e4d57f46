@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4feb66e_92a93c9e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1327,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-23T14:16:34Z",
+      "side": 1,
+      "message": "You\u0027re already in kDebugBuild (see line 1313)",
+      "range": {
+        "startLine": 1327,
+        "startChar": 0,
+        "endLine": 1327,
+        "endChar": 30
+      },
+      "revId": "f7fd970244f143b1abb956e29794c446e4d57f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4feb66e_f2b6c8f7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1329,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-23T14:16:34Z",
+      "side": 1,
+      "message": "indentation is off.",
+      "range": {
+        "startLine": 1329,
+        "startChar": 0,
+        "endLine": 1329,
+        "endChar": 16
+      },
+      "revId": "f7fd970244f143b1abb956e29794c446e4d57f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b408be64_f0b6c0f7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 27
+      },
+      "lineNbr": 1335,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-23T14:16:34Z",
+      "side": 1,
+      "message": "Hitting this:\n\n+art F 23006 23006 art/runtime/class_linker.cc:1335] Check failed: code \u003d\u003d oat_code (code\u003d0xf08461fc, oat_code\u003d0xf084617c) java.lang.Object Test.run()\n\nFor test 097-duplicate-method compiled with --debuggable. So it looks like it\u0027s with luck that it\u0027s working for the other configurations, maybe an ordering problem when a method has duplicates?",
+      "range": {
+        "startLine": 1335,
+        "startChar": 0,
+        "endLine": 1335,
+        "endChar": 64
+      },
+      "revId": "f7fd970244f143b1abb956e29794c446e4d57f46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
