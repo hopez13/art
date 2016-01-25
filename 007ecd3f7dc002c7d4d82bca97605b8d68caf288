@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f49a3677_55f23e89",
+        "filename": "runtime/gc/reference_queue.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-01-25T23:31:21Z",
+      "side": 1,
+      "message": "I think EnqueuePendingReference should be a private function, that is used only internally. It may currently be used in a few places instead of EnqueueReference to improve performance. I\u0027ll look into this some more.",
+      "parentUuid": "74c9e678_5699545f",
+      "range": {
+        "startLine": 65,
+        "startChar": 5,
+        "endLine": 65,
+        "endChar": 61
+      },
+      "revId": "007ecd3f7dc002c7d4d82bca97605b8d68caf288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74c9e678_f6fc208a",
         "filename": "runtime/mirror/reference.h",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2016-01-25T20:26:34Z",
       "side": 1,
       "message": "Does this sort depends on the discussion in bug 26647823?\n\nHow about keeping the comment \"once enqueued, the pending next is always non-null\"?",
+      "revId": "007ecd3f7dc002c7d4d82bca97605b8d68caf288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4afde8e_fb524bb6",
+        "filename": "runtime/mirror/reference.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-01-25T23:31:21Z",
+      "side": 1,
+      "message": "This does not depend on the answer to the question in b/26647823. I\u0027ll update the comment as you suggest.",
+      "parentUuid": "74c9e678_f6fc208a",
       "revId": "007ecd3f7dc002c7d4d82bca97605b8d68caf288",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
