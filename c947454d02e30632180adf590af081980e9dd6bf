@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "34c3ee5c_9aa06d11",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 3970,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T23:38:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4afde8e_582b3d27",
+      "revId": "c947454d02e30632180adf590af081980e9dd6bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14beeac6_339ce891",
         "filename": "test/563-checker-invoke-super/src/Main.java",
         "patchSetId": 6
@@ -30,6 +48,30 @@
       "writtenOn": "2016-01-25T21:48:44Z",
       "side": 1,
       "message": "2016",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "c947454d02e30632180adf590af081980e9dd6bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54c4e260_5899815f",
+        "filename": "test/563-checker-invoke-super/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T23:38:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14beeac6_339ce891",
       "range": {
         "startLine": 2,
         "startChar": 17,
