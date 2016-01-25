@@ -46,6 +46,30 @@
       "revId": "be4e31049265b5c53826d34782fb5a30ff9e742d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94b2daf4_b7e1c8bc",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-25T20:37:41Z",
+      "side": 1,
+      "message": "Yes if that works, but sometimes, a circular dependency may be an issue. If that doesn\u0027t work, I\u0027d try adding ALWAYS_INLINE to SetPendingNext in reference.h and moving the SetPendingNext body to reference-inl.h and add necessary #include in reference-inl.h.",
+      "parentUuid": "d4b8d2d6_39292fc8",
+      "range": {
+        "startLine": 280,
+        "startChar": 30,
+        "endLine": 280,
+        "endChar": 71
+      },
+      "revId": "be4e31049265b5c53826d34782fb5a30ff9e742d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
