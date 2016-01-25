@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4ccf67e_a2d33e2d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1974,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-25T09:19:22Z",
+      "side": 1,
+      "message": "LOG(FATAL) \u003c\u003c \"Unreachable\"",
+      "range": {
+        "startLine": 1974,
+        "startChar": 13,
+        "endLine": 1974,
+        "endChar": 27
+      },
+      "revId": "191ecf01f4cc96d75a831d8b22c4d26c1e7bef30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b408be64_10170497",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-25T09:19:22Z",
+      "side": 1,
+      "message": "only one use",
+      "range": {
+        "startLine": 260,
+        "startChar": 45,
+        "endLine": 260,
+        "endChar": 57
+      },
+      "revId": "191ecf01f4cc96d75a831d8b22c4d26c1e7bef30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "940bba60_efcd418c",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-25T09:19:22Z",
+      "side": 1,
+      "message": "Please avoid.",
+      "range": {
+        "startLine": 170,
+        "startChar": 2,
+        "endLine": 170,
+        "endChar": 6
+      },
+      "revId": "191ecf01f4cc96d75a831d8b22c4d26c1e7bef30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "940bba60_cfcafd71",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-25T09:19:22Z",
+      "side": 1,
+      "message": "LOG(FATAL) \u003c\u003c \"Unreachable\"",
+      "range": {
+        "startLine": 176,
+        "startChar": 15,
+        "endLine": 176,
+        "endChar": 28
+      },
+      "revId": "191ecf01f4cc96d75a831d8b22c4d26c1e7bef30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1410aa94_23ebead2",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-25T09:19:22Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 203,
+        "startChar": 2,
+        "endLine": 203,
+        "endChar": 17
+      },
+      "revId": "191ecf01f4cc96d75a831d8b22c4d26c1e7bef30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
