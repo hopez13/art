@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "f4feb66e_520fd40e",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-25T13:55:59Z",
+      "side": 1,
+      "message": "instead of passing the location, i\u0027d pass an enum\nkForce32BitMove\nkForce64BitMove\nkInferFromLocation // the default.\n\nIMO it will be cleaner then passing a void here.",
+      "parentUuid": "f4feb66e_d203c4eb",
+      "range": {
+        "startLine": 193,
+        "startChar": 20,
+        "endLine": 193,
+        "endChar": 67
+      },
+      "revId": "3c449228324890b10b43d08738a17e950a6f2ba6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3434cedb_cf66c12b",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
