@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "34d04ee4_d5d3ce2c",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Unsupported, this is the current behavior.\n\nOut of scope for this CL.",
+      "parentUuid": "94b81aa8_aae58ff6",
+      "range": {
+        "startLine": 335,
+        "startChar": 41,
+        "endLine": 335,
+        "endChar": 54
+      },
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34d04ee4_af4cb54e",
         "filename": "compiler/driver/compiler_driver-inl.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-22T21:22:32Z",
       "side": 1,
       "message": "What about invoke-super from app code into bootclasspath code?",
+      "range": {
+        "startLine": 344,
+        "startChar": 51,
+        "endLine": 344,
+        "endChar": 64
+      },
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74c64632_b457284f",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Unsupported, just like regular invoke-super.\n\nOut of scope for this CL.",
+      "parentUuid": "34d04ee4_af4cb54e",
       "range": {
         "startLine": 344,
         "startChar": 51,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "74af2662_0cf39b55",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1624,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4bb169e_4d2e6d83",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4bb169e_908c7c20",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 4
@@ -76,6 +142,24 @@
       "writtenOn": "2016-01-22T21:22:32Z",
       "side": 1,
       "message": "This one won\u0027t take into account the copy of the default method right? So why not ResolveDeclaredClassOfMethod ?",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4be1290_cfd3312d",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "I didn\u0027t use that to avoid confusion WRT ArtMethod::GetDeclaringClass.",
+      "parentUuid": "f4bb169e_908c7c20",
       "revId": "501e4965720e09039b4063210e3617494fdc9774",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -99,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "f4bb169e_9363261a",
+        "filename": "compiler/optimizing/builder.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14cb4a3e_6be4815f",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54aa2254_8805372c",
         "filename": "runtime/class_linker-inl.h",
         "patchSetId": 4
@@ -110,6 +212,24 @@
       "writtenOn": "2016-01-22T21:22:32Z",
       "side": 1,
       "message": "Why can\u0027t you just do something like\n\n  return GetResolvedMethod(method_idx, referer)-\u003eGetDeclaringClass()\n\n(perhaps with appropriate handles)\n\n?",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74af2662_8ceeabaa",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "This is to determine if an invoke-super is an interface one or not. This is important since it would have implications in the presence of conflicts (since those are copied from one of the sources but we aren\u0027t sure which one). This admittedly should only come up when there is very weird bytecode (specifically if a non-interface class that is not the referrer\u0027s superclass is placed as the class in an invoke-super) but we should probably try to match previous behavior as much as possible.",
+      "parentUuid": "54aa2254_8805372c",
       "revId": "501e4965720e09039b4063210e3617494fdc9774",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -150,6 +270,42 @@
     },
     {
       "key": {
+        "uuid": "74af2662_aca7e724",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Done.\n\nI added an explenation of why we didn\u0027t do the simpler version you are thinking of in class_linker-inl.h",
+      "parentUuid": "54aa2254_08db8712",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94b81aa8_8d1d4543",
+        "filename": "runtime/class_linker.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "\u003e Also just for my own sanity the referrer is only to get the\n \u003e dex_file right? (so that we know what the method_idx is relative\n \u003e to?)\n\nSee reply to comment in class_linker-inl.h",
+      "parentUuid": "f4bb169e_4d5c2d33",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14cb4a3e_4e7673e0",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 4
@@ -161,6 +317,24 @@
       "writtenOn": "2016-01-22T21:22:32Z",
       "side": 1,
       "message": "Update comments?",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4be1290_cffc9125",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3718,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14cb4a3e_4e7673e0",
       "revId": "501e4965720e09039b4063210e3617494fdc9774",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -190,6 +364,30 @@
     },
     {
       "key": {
+        "uuid": "74af2662_8c81cb6f",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3960,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14cb4a3e_ce6903fe",
+      "range": {
+        "startLine": 3960,
+        "startChar": 11,
+        "endLine": 3960,
+        "endChar": 41
+      },
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54aa2254_487e5ff9",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 4
@@ -201,6 +399,24 @@
       "writtenOn": "2016-01-22T21:22:32Z",
       "side": 1,
       "message": "Is this the transitive closure or directs?\n\nIs it allowed to invoke-super on indirects or not?",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54c14218_73179896",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3968,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "\u003e Is this the transitive closure or directs?\n\nNow that you mention it this should actually be a transitive closure (since we are allowing invoke-super on indirects) and that we actually cannot get it (since we cannot be sure that we can get so I\u0027m going to just remove this check).\n\nAlternatively we could leave this here and just ban invoke-super on indirects like the JLS does.",
+      "parentUuid": "54aa2254_487e5ff9",
       "revId": "501e4965720e09039b4063210e3617494fdc9774",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -224,6 +440,24 @@
     },
     {
       "key": {
+        "uuid": "b4b51eae_71b1ca1b",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3977,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "removed.",
+      "parentUuid": "b4b51eae_4ef8a76a",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54aa2254_e86e2b44",
         "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
         "patchSetId": 4
@@ -235,6 +469,24 @@
       "writtenOn": "2016-01-22T21:22:32Z",
       "side": 1,
       "message": "Public methods should have a docstring.\n\nWhy is it returning 1?",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4bb169e_734d521f",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Done. Since it\u0027s the main class.",
+      "parentUuid": "54aa2254_e86e2b44",
       "revId": "501e4965720e09039b4063210e3617494fdc9774",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -258,6 +510,24 @@
     },
     {
       "key": {
+        "uuid": "94b81aa8_90eebaaa",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74c64632_f1cf02db",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d4be1290_2cc53bb5",
         "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
         "patchSetId": 4
@@ -269,6 +539,24 @@
       "writtenOn": "2016-01-22T21:22:32Z",
       "side": 1,
       "message": "Line length 223-229",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4bb169e_53128ea7",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Line length is required since it is the output of the program which it must match exactly.",
+      "parentUuid": "d4be1290_2cc53bb5",
       "revId": "501e4965720e09039b4063210e3617494fdc9774",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -292,6 +580,24 @@
     },
     {
       "key": {
+        "uuid": "54c14218_d3052c5d",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Required to have correct behavior.",
+      "parentUuid": "14cb4a3e_4ed193f0",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4bb169e_30e030b8",
         "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
         "patchSetId": 4
@@ -303,6 +609,24 @@
       "writtenOn": "2016-01-22T21:22:32Z",
       "side": 1,
       "message": "line length",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54aa2254_ae603b0d",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4bb169e_30e030b8",
       "revId": "501e4965720e09039b4063210e3617494fdc9774",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -326,6 +650,24 @@
     },
     {
       "key": {
+        "uuid": "74c64632_54f36406",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4bb169e_d0e434ce",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54aa2254_a8683336",
         "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
         "patchSetId": 4
@@ -337,6 +679,24 @@
       "writtenOn": "2016-01-22T21:22:32Z",
       "side": 1,
       "message": "Public methods should have a docstring.",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14cb4a3e_d10be43f",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54aa2254_a8683336",
       "revId": "501e4965720e09039b4063210e3617494fdc9774",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -360,6 +720,24 @@
     },
     {
       "key": {
+        "uuid": "74c64632_b452c8b5",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54aa2254_6b9eb57c",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74af2662_c9d25582",
         "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
         "patchSetId": 4
@@ -371,6 +749,24 @@
       "writtenOn": "2016-01-22T21:22:32Z",
       "side": 1,
       "message": "Public methods should have a docstring.",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34d04ee4_15a156c5",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74af2662_c9d25582",
       "revId": "501e4965720e09039b4063210e3617494fdc9774",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -394,6 +790,24 @@
     },
     {
       "key": {
+        "uuid": "54c14218_b303c0ec",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74c64632_b1d97aa5",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4bb169e_50f8446a",
         "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
         "patchSetId": 4
@@ -405,6 +819,24 @@
       "writtenOn": "2016-01-22T21:22:32Z",
       "side": 1,
       "message": "Public methods should have a docstring.",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74c64632_94554ca2",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4bb169e_50f8446a",
       "revId": "501e4965720e09039b4063210e3617494fdc9774",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -428,6 +860,24 @@
     },
     {
       "key": {
+        "uuid": "d4be1290_2fee8d3f",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34d04ee4_d23a04bf",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54aa2254_cbac89af",
         "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
         "patchSetId": 4
@@ -445,6 +895,24 @@
     },
     {
       "key": {
+        "uuid": "14cb4a3e_31f7c879",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 725,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54aa2254_cbac89af",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74c64632_71cb12cd",
         "filename": "test/etc/default-build",
         "patchSetId": 4
@@ -456,6 +924,24 @@
       "writtenOn": "2016-01-22T21:22:32Z",
       "side": 1,
       "message": "Consider failing with an error message if both HAS_SRC_MULTIDEX and HAS_SMALI_MULTIDEX is true since otherwise the user will get unexpected behavior.",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4b51eae_5124c6ef",
+        "filename": "test/etc/default-build",
+        "patchSetId": 4
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-25T18:09:46Z",
+      "side": 1,
+      "message": "Why? if both are there then we will just combine them on this very line into classes2.dex.",
+      "parentUuid": "74c64632_71cb12cd",
       "revId": "501e4965720e09039b4063210e3617494fdc9774",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
