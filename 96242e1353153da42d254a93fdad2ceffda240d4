@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94b81aa8_e105ea5c",
+        "filename": "runtime/jdwp/jdwp_socket.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2016-01-25T18:28:15Z",
+      "side": 1,
+      "message": "not std::vector?",
+      "revId": "96242e1353153da42d254a93fdad2ceffda240d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94b81aa8_210c628a",
+        "filename": "runtime/jdwp/jdwp_socket.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2016-01-25T18:28:15Z",
+      "side": 1,
+      "message": "are you worried about your local DNS server trying to DoS you? if not, you could just drop this. (do we know what Stevens wrote is still true?)",
+      "range": {
+        "startLine": 310,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 5
+      },
+      "revId": "96242e1353153da42d254a93fdad2ceffda240d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
