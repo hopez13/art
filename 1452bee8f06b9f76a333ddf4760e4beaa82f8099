@@ -70,6 +70,121 @@
       "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74c64632_225c5600",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-25T21:32:55Z",
+      "side": 1,
+      "message": "ResolveVerifyAndClinit can cause thread suspension and invalidate obj.",
+      "range": {
+        "startLine": 277,
+        "startChar": 55,
+        "endLine": 277,
+        "endChar": 58
+      },
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4be1290_bdd957a5",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-25T21:32:55Z",
+      "side": 1,
+      "message": "And here",
+      "range": {
+        "startLine": 291,
+        "startChar": 56,
+        "endLine": 291,
+        "endChar": 59
+      },
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4be1290_5d97fb6e",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-25T21:32:55Z",
+      "side": 1,
+      "message": "Indent is off",
+      "range": {
+        "startLine": 509,
+        "startChar": 34,
+        "endLine": 509,
+        "endChar": 42
+      },
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74af2662_ba7e393f",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-25T21:32:55Z",
+      "side": 1,
+      "message": "Indent is off",
+      "range": {
+        "startLine": 528,
+        "startChar": 34,
+        "endLine": 528,
+        "endChar": 42
+      },
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4be1290_fdbcaff3",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-25T21:32:55Z",
+      "side": 1,
+      "message": "Off by one indent.",
+      "range": {
+        "startLine": 585,
+        "startChar": 40,
+        "endLine": 585,
+        "endChar": 41
+      },
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
