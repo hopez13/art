@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "3415ae84_84baa684",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-01-25T09:35:24Z",
+      "side": 1,
+      "message": "The default argument could be removed here and only apply to the overridden arm64 helper.",
+      "parentUuid": "b408be64_50118c9d",
+      "range": {
+        "startLine": 193,
+        "startChar": 20,
+        "endLine": 193,
+        "endChar": 67
+      },
+      "revId": "3c449228324890b10b43d08738a17e950a6f2ba6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3434cedb_cf66c12b",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 3
