@@ -22,6 +22,30 @@
       "revId": "be4e31049265b5c53826d34782fb5a30ff9e742d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4b8d2d6_39292fc8",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-01-25T20:31:21Z",
+      "side": 1,
+      "message": "I tried to do that originally, but compilation failed, saying  the call to SetFieldObject in SetpendingNext might not always be inlined. Is it okay to include whatever file defines Runtime::Current() in the header files so I can call Runtime::Current()-\u003eIsActiveTransaction() in a function that can be inlined?",
+      "parentUuid": "14cb4a3e_da0bf93f",
+      "range": {
+        "startLine": 280,
+        "startChar": 30,
+        "endLine": 280,
+        "endChar": 71
+      },
+      "revId": "be4e31049265b5c53826d34782fb5a30ff9e742d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
