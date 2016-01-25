@@ -22,6 +22,30 @@
       "revId": "8ed1826a9da054920f2d39d34dfc7ba43337e4c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34fcce7c_cc020f21",
+        "filename": "compiler/optimizing/code_generator_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 969,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-25T15:39:01Z",
+      "side": 1,
+      "message": "This is just an optimization, it does not affect correctness. Feel free to add this to mips32.",
+      "parentUuid": "b4b51eae_0e786f07",
+      "range": {
+        "startLine": 969,
+        "startChar": 37,
+        "endLine": 969,
+        "endChar": 59
+      },
+      "revId": "8ed1826a9da054920f2d39d34dfc7ba43337e4c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
