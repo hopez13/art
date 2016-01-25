@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d401b23e_d1b0e444",
+        "filename": "runtime/jdwp/jdwp_socket.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-25T19:30:34Z",
+      "side": 1,
+      "message": "Agreed, that\u0027s better; done in PS2.",
+      "parentUuid": "94b81aa8_e105ea5c",
+      "revId": "96242e1353153da42d254a93fdad2ceffda240d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94b81aa8_210c628a",
         "filename": "runtime/jdwp/jdwp_socket.cc",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2016-01-25T18:28:15Z",
       "side": 1,
       "message": "are you worried about your local DNS server trying to DoS you? if not, you could just drop this. (do we know what Stevens wrote is still true?)",
+      "range": {
+        "startLine": 310,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 5
+      },
+      "revId": "96242e1353153da42d254a93fdad2ceffda240d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4feb66e_52a6b4de",
+        "filename": "runtime/jdwp/jdwp_socket.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-25T19:30:34Z",
+      "side": 1,
+      "message": "Right; dropped in in PS2.",
+      "parentUuid": "94b81aa8_210c628a",
       "range": {
         "startLine": 310,
         "startChar": 0,
