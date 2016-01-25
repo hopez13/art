@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74c9e678_5699545f",
+        "filename": "runtime/gc/reference_queue.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-25T20:26:34Z",
+      "side": 1,
+      "message": "We shouldn\u0027t enqueue a reference that\u0027s already pending-enqueued, correct? If so, is the original comment better phrased (\"without checking\" for a performance reason) because this new comment would make it sound like it\u0027s valid to enqueue a reference that may already be pending-enqueued?",
+      "range": {
+        "startLine": 65,
+        "startChar": 5,
+        "endLine": 65,
+        "endChar": 61
+      },
+      "revId": "007ecd3f7dc002c7d4d82bca97605b8d68caf288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74c9e678_f6fc208a",
+        "filename": "runtime/mirror/reference.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-25T20:26:34Z",
+      "side": 1,
+      "message": "Does this sort depends on the discussion in bug 26647823?\n\nHow about keeping the comment \"once enqueued, the pending next is always non-null\"?",
+      "revId": "007ecd3f7dc002c7d4d82bca97605b8d68caf288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
