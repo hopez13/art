@@ -22,6 +22,30 @@
       "revId": "5fdcc3c931b70204fd8c491afa66f57f8428490f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4bb169e_7f943329",
+        "filename": "compiler/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2016-01-25T18:16:10Z",
+      "side": 1,
+      "message": "why use static library? apparently someone else is linking statically too... leading to the odr-violation (one definition rule). seems we should find both and switch to shared library version.",
+      "parentUuid": "940bba60_4f73ad7b",
+      "range": {
+        "startLine": 277,
+        "startChar": 1,
+        "endLine": 277,
+        "endChar": 35
+      },
+      "revId": "5fdcc3c931b70204fd8c491afa66f57f8428490f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
