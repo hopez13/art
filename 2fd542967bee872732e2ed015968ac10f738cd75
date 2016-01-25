@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d4be1290_3df8072f",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-01-25T17:14:45Z",
+      "side": 1,
+      "message": "I\u0027m leaving the paren in, because it\u0027s not obvious to me that removing the paren will preserve the same behavior.",
+      "parentUuid": "d401b23e_71a3f8be",
+      "range": {
+        "startLine": 96,
+        "startChar": 11,
+        "endLine": 96,
+        "endChar": 12
+      },
+      "revId": "2fd542967bee872732e2ed015968ac10f738cd75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14626a24_53a86499",
         "filename": "runtime/gc/reference_processor.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-23T13:44:34Z",
       "side": 1,
       "message": "at the end of line before (for consistency)",
+      "range": {
+        "startLine": 97,
+        "startChar": 12,
+        "endLine": 97,
+        "endChar": 14
+      },
+      "revId": "2fd542967bee872732e2ed015968ac10f738cd75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4bb169e_844d1a22",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-01-25T17:14:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14626a24_53a86499",
       "range": {
         "startLine": 97,
         "startChar": 12,
