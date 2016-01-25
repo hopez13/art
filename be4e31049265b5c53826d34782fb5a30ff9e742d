@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "14cb4a3e_da0bf93f",
+        "filename": "runtime/gc/reference_processor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-25T19:46:58Z",
+      "side": 1,
+      "message": "Would it be better to check this inside Reference::SetPendingNext instead? I think that would follow the existing patterns better and would avoid separating the IsActiveTransaction() check and the if statement that uses it.",
+      "range": {
+        "startLine": 280,
+        "startChar": 30,
+        "endLine": 280,
+        "endChar": 71
+      },
+      "revId": "be4e31049265b5c53826d34782fb5a30ff9e742d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
