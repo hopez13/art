@@ -563,6 +563,24 @@
     },
     {
       "key": {
+        "uuid": "54c4e260_95fcc424",
+        "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-25T21:48:44Z",
+      "side": 1,
+      "message": "If it\u0027s not a multi-line string then it can be split across multiple lines without changing the string value.",
+      "parentUuid": "f4bb169e_53128ea7",
+      "revId": "501e4965720e09039b4063210e3617494fdc9774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14cb4a3e_4ed193f0",
         "filename": "test/973-iface-super-multidex-generated/util-src/generate_smali.py",
         "patchSetId": 4
