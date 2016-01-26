@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b4099eb1_a8509b0c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1974,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-01-26T14:40:01Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "f4ccf67e_a2d33e2d",
+      "range": {
+        "startLine": 1974,
+        "startChar": 13,
+        "endLine": 1974,
+        "endChar": 27
+      },
+      "revId": "191ecf01f4cc96d75a831d8b22c4d26c1e7bef30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b408be64_10170497",
         "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-25T09:19:22Z",
       "side": 1,
       "message": "only one use",
+      "range": {
+        "startLine": 260,
+        "startChar": 45,
+        "endLine": 260,
+        "endChar": 57
+      },
+      "revId": "191ecf01f4cc96d75a831d8b22c4d26c1e7bef30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d41292d7_89f7193f",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-01-26T14:40:01Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "b408be64_10170497",
       "range": {
         "startLine": 260,
         "startChar": 45,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f434f667_226a8ec0",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-01-26T14:40:01Z",
+      "side": 1,
+      "message": "The regular bitwise instructions (HAnd/HOr/HXor) use exactly the same prototype for Compute(), including auto/decltype.",
+      "parentUuid": "940bba60_efcd418c",
+      "range": {
+        "startLine": 170,
+        "startChar": 2,
+        "endLine": 170,
+        "endChar": 6
+      },
+      "revId": "191ecf01f4cc96d75a831d8b22c4d26c1e7bef30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "940bba60_cfcafd71",
         "filename": "compiler/optimizing/nodes_arm64.h",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "f40f96af_aa7e4f8b",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-01-26T14:40:01Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "940bba60_cfcafd71",
+      "range": {
+        "startLine": 176,
+        "startChar": 15,
+        "endLine": 176,
+        "endChar": 28
+      },
+      "revId": "191ecf01f4cc96d75a831d8b22c4d26c1e7bef30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1410aa94_23ebead2",
         "filename": "compiler/optimizing/nodes_arm64.h",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2016-01-25T09:19:22Z",
       "side": 1,
       "message": "const?",
+      "range": {
+        "startLine": 203,
+        "startChar": 2,
+        "endLine": 203,
+        "endChar": 17
+      },
+      "revId": "191ecf01f4cc96d75a831d8b22c4d26c1e7bef30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f40f96af_6a8977e0",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-01-26T14:40:01Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "1410aa94_23ebead2",
       "range": {
         "startLine": 203,
         "startChar": 2,
