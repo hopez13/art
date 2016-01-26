@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "14b18a0d_dbc4d36c",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-26T00:15:48Z",
+      "side": 1,
+      "message": "I think that was a bug and that\u0027s what Andreas tried to highlight.\n\nIf we got a fault at this point we should just propagate along the chain and not marked it resolved hopping that another handler will fix the state. There\u0027s no handler yet which will do that, and as Andreas mentioned I doubt we have good reasons to accept one.\n\nThe other_handlers could provide more info on the fault but not fix it.",
+      "parentUuid": "d439b2d1_71c0d857",
+      "range": {
+        "startLine": 247,
+        "startChar": 17,
+        "endLine": 247,
+        "endChar": 21
+      },
+      "revId": "0804062eff64ac6868f8ada58817da3e29bb5020",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07f95afe_1e294959",
         "filename": "runtime/fault_handler.h",
         "patchSetId": 4
