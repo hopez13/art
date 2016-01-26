@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "54c4e260_3b267f60",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-26T04:27:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34c3ee5c_83f72877",
+      "range": {
+        "startLine": 7,
+        "startChar": 21,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "ca7c6ace3ba3040dc8f3cd3b621cc28378cb00f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74c9e678_caa9339d",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-26T04:14:53Z",
       "side": 1,
       "message": "I think it would be interesting to note a failure if the file existed...",
+      "range": {
+        "startLine": 1030,
+        "startChar": 4,
+        "endLine": 1030,
+        "endChar": 87
+      },
+      "revId": "ca7c6ace3ba3040dc8f3cd3b621cc28378cb00f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f49a3677_b85281e7",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-26T04:27:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74c9e678_caa9339d",
       "range": {
         "startLine": 1030,
         "startChar": 4,
