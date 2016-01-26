@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "f49a3677_3894d128",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1051763
+      },
+      "writtenOn": "2016-01-26T01:31:11Z",
+      "side": 1,
+      "message": "The patch set 6 has been uploaded. We\u0027d better comment on the latest set.\n\n----\n\nYes. I totally agree with you.\nBut please confirm the motivation of other_handlers_ here.\nSo far, other_handlers_ only has the JavaStackTraceHandler, which always returns FALSE in its Action and pass down the signal to the chain. So, this code will not reach, actually. If the other_handlers_ will contain new handlers in future which will handle the signal well, we have to leave these code here.\nI think the design of other_handlers_ is ambiguous and confused here.\nIf you ensured there should be no handler in other_handlers_ which can FIX the signal, we\u0027d better remove or re-design the other_handlers_.",
+      "parentUuid": "14b18a0d_dbc4d36c",
+      "range": {
+        "startLine": 247,
+        "startChar": 17,
+        "endLine": 247,
+        "endChar": 21
+      },
+      "revId": "0804062eff64ac6868f8ada58817da3e29bb5020",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07f95afe_1e294959",
         "filename": "runtime/fault_handler.h",
         "patchSetId": 4
