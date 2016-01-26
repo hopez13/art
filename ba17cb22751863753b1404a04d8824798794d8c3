@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74ac86b5_3e6a89c0",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-26T13:28:10Z",
+      "side": 1,
+      "message": "Triggered by calling registerAppInfo multiple times? Please add a comment on how this method can be called multiple times.",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 81
+      },
+      "revId": "ba17cb22751863753b1404a04d8824798794d8c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
