@@ -22,6 +22,30 @@
       "revId": "a793600e2061e16243d898aa7b3d9acd1328e5bb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74c9e678_e531c028",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-26T18:16:01Z",
+      "side": 1,
+      "message": "good catch! This must have been some awful vi edit I made :-(",
+      "parentUuid": "54a782d1_dd160b99",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 54
+      },
+      "revId": "a793600e2061e16243d898aa7b3d9acd1328e5bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
