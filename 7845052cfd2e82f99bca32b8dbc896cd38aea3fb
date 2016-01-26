@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b4afde8e_212e5482",
+        "filename": "runtime/interpreter/mterp/out/mterp_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-26T04:03:43Z",
+      "side": 1,
+      "message": "VREG_ADDRESS would be just fine.  I won\u0027t get a chance to do an update to this CL until tomorrow, so if you\u0027d like to edit and push it feel free to do so.",
+      "parentUuid": "94a57ac9_3fce0788",
+      "range": {
+        "startLine": 291,
+        "startChar": 7,
+        "endLine": 291,
+        "endChar": 25
+      },
+      "revId": "7845052cfd2e82f99bca32b8dbc896cd38aea3fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d4c4527f_39b74ff6",
         "filename": "runtime/interpreter/mterp/out/mterp_x86.S",
         "patchSetId": 2
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "If we change %ecx to %eax all tests in the mode test-art-host ART_TEST_INTERPRETER\u003dtrue ART_TEST_DEFAULT_COMPILER\u003dfalse ART_TEST_RUN_TEST_NDEBUG\u003dtrue ART_TEST_GC_STRESS\u003dtrue ART_TEST_KEEP_GOING\u003dfalse passed.",
       "parentUuid": "d4c4527f_39b74ff6",
+      "range": {
+        "startLine": 886,
+        "startChar": 28,
+        "endLine": 886,
+        "endChar": 32
+      },
+      "revId": "7845052cfd2e82f99bca32b8dbc896cd38aea3fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14beeac6_27c02257",
+        "filename": "runtime/interpreter/mterp/out/mterp_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 886,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-01-26T04:03:43Z",
+      "side": 1,
+      "message": "Thanks - just a typo.",
+      "parentUuid": "54a782d1_5daafb91",
       "range": {
         "startLine": 886,
         "startChar": 28,
