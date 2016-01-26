@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4c4527f_39b74ff6",
+        "filename": "runtime/interpreter/mterp/out/mterp_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 886,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2016-01-26T02:54:40Z",
+      "side": 1,
+      "message": "Why you changed this to %ecx? it is garbage here.",
+      "range": {
+        "startLine": 886,
+        "startChar": 28,
+        "endLine": 886,
+        "endChar": 32
+      },
+      "revId": "7845052cfd2e82f99bca32b8dbc896cd38aea3fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
