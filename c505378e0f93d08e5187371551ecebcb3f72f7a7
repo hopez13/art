@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f4b5d6da_4ea8d34b",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-26T19:40:57Z",
+      "side": 1,
+      "message": "As GetContinuousSpaces() returns a vector\u0026, we don\u0027t guard the returned vector with the mutator lock. Is there a better way? Add Heap::CheckContinuousSpacesEmpty()?",
+      "range": {
+        "startLine": 186,
+        "startChar": 25,
+        "endLine": 186,
+        "endChar": 44
+      },
+      "revId": "c505378e0f93d08e5187371551ecebcb3f72f7a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f49a3677_fba7a323",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 1
@@ -18,6 +41,29 @@
         "startChar": 2,
         "endLine": 310,
         "endChar": 98
+      },
+      "revId": "c505378e0f93d08e5187371551ecebcb3f72f7a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54c4e260_09b5f992",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-26T19:40:57Z",
+      "side": 1,
+      "message": "Do we call GetRosAllocSpace in this code path?",
+      "range": {
+        "startLine": 251,
+        "startChar": 51,
+        "endLine": 251,
+        "endChar": 73
       },
       "revId": "c505378e0f93d08e5187371551ecebcb3f72f7a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
