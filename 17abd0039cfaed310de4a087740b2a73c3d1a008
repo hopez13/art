@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4a27ebd_00cac629",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-26T12:29:36Z",
+      "side": 1,
+      "message": "No, thanks to your check line 308. Please add a DCHECK to ensure it.",
+      "range": {
+        "startLine": 317,
+        "startChar": 2,
+        "endLine": 317,
+        "endChar": 26
+      },
+      "revId": "17abd0039cfaed310de4a087740b2a73c3d1a008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54a782d1_bdda1f0c",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-26T12:29:36Z",
+      "side": 1,
+      "message": "Comments please: what is the difference between methods_class and methods_declaring_class. An example will also help.",
+      "range": {
+        "startLine": 311,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 3
+      },
+      "revId": "17abd0039cfaed310de4a087740b2a73c3d1a008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94a57ac9_7fbecf7c",
+        "filename": "compiler/driver/compiler_driver-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-26T12:29:36Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 103
+      },
+      "revId": "17abd0039cfaed310de4a087740b2a73c3d1a008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4bb5ef1_f8d0b1ef",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-26T12:29:36Z",
+      "side": 1,
+      "message": "Isn\u0027t that more or less what ClassLinker::ResolvedReferencedClassOfMethod is doing? Please avoid the duplication.",
+      "range": {
+        "startLine": 800,
+        "startChar": 0,
+        "endLine": 820,
+        "endChar": 1
+      },
+      "revId": "17abd0039cfaed310de4a087740b2a73c3d1a008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54a782d1_9ddf63fc",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-26T12:29:36Z",
+      "side": 1,
+      "message": "You\u0027re correct, you can drop this TODO: AFAICT",
+      "range": {
+        "startLine": 891,
+        "startChar": 11,
+        "endLine": 891,
+        "endChar": 23
+      },
+      "revId": "17abd0039cfaed310de4a087740b2a73c3d1a008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54a782d1_3def2fa9",
+        "filename": "test/973-iface-super-multidex-generated/build",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-26T12:29:36Z",
+      "side": 1,
+      "message": "We need to stop this practice of making individual tests test infrastructure on themselves. What\u0027s the difference between this test and the other \"generated\" like tests?\n\nWhat is this test making sure is being tested that requires all that infrastructure?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 11
+      },
+      "revId": "17abd0039cfaed310de4a087740b2a73c3d1a008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
