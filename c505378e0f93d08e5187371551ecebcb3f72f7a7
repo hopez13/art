@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "34c3ee5c_49b1b11b",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-26T20:04:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4b5d6da_4ea8d34b",
+      "range": {
+        "startLine": 186,
+        "startChar": 25,
+        "endLine": 186,
+        "endChar": 44
+      },
+      "revId": "c505378e0f93d08e5187371551ecebcb3f72f7a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f49a3677_fba7a323",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "94b2daf4_864c94cb",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-26T20:04:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f49a3677_fba7a323",
+      "range": {
+        "startLine": 310,
+        "startChar": 2,
+        "endLine": 310,
+        "endChar": 98
+      },
+      "revId": "c505378e0f93d08e5187371551ecebcb3f72f7a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54c4e260_09b5f992",
         "filename": "runtime/gc/space/rosalloc_space.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-01-26T19:40:57Z",
       "side": 1,
       "message": "Do we call GetRosAllocSpace in this code path?",
+      "range": {
+        "startLine": 251,
+        "startChar": 51,
+        "endLine": 251,
+        "endChar": 73
+      },
+      "revId": "c505378e0f93d08e5187371551ecebcb3f72f7a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34c3ee5c_499c5192",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-26T20:04:18Z",
+      "side": 1,
+      "message": "Yes from ArtRosAllocMoreCore",
+      "parentUuid": "54c4e260_09b5f992",
       "range": {
         "startLine": 251,
         "startChar": 51,
