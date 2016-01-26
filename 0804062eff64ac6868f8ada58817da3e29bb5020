@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "f4c1566d_5a679527",
+        "filename": "runtime/fault_handler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-26T12:31:06Z",
+      "side": 1,
+      "message": "I think other_handlers_ were just a quick way to make things more generic when adding the stack trace handler and we didn\u0027t actually expect to recover from the signal here. \n\nHowever I do not have the entire historical context here :). Mathieu might know more. \n\nI think it\u0027s fine to leave this as it is in the current CL (PS6) and just add a comment that this should be clarified and possibly removed. Am happy to do this in a subsequent CL since it seems like an orthogonal issue.",
+      "parentUuid": "f49a3677_3894d128",
+      "range": {
+        "startLine": 247,
+        "startChar": 17,
+        "endLine": 247,
+        "endChar": 21
+      },
+      "revId": "0804062eff64ac6868f8ada58817da3e29bb5020",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07f95afe_1e294959",
         "filename": "runtime/fault_handler.h",
         "patchSetId": 4
