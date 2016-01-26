@@ -45,6 +45,30 @@
       "revId": "6b2ec338efffffeee879da6ea9db90fd4ee2db3a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54a782d1_fd7547d2",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-26T11:55:02Z",
+      "side": 1,
+      "message": "Yes. Changed as suggested.",
+      "parentUuid": "f4c1566d_da416594",
+      "range": {
+        "startLine": 545,
+        "startChar": 0,
+        "endLine": 545,
+        "endChar": 84
+      },
+      "revId": "6b2ec338efffffeee879da6ea9db90fd4ee2db3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
