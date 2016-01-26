@@ -556,6 +556,24 @@
     },
     {
       "key": {
+        "uuid": "54a782d1_7de5b7c6",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3708,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-26T12:29:36Z",
+      "side": 1,
+      "message": "Can\u0027t you make it separate? One change for the verifier, ensuring it can fully verify a method with invoke-super interface?",
+      "parentUuid": "07f95afe_1bcddbe0",
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47727221_ae015b4f",
         "filename": "test/972-iface-super-multidex/build",
         "patchSetId": 3
