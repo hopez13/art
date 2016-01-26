@@ -140,6 +140,30 @@
       "revId": "c505378e0f93d08e5187371551ecebcb3f72f7a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34c3ee5c_bbd3682d",
+        "filename": "runtime/gc/space/rosalloc_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-26T20:18:54Z",
+      "side": 1,
+      "message": "How about\n\"// Required for Rosalloc::Trim() -\u003e ArtRosAllocMoreCore() -\u003e Heap::GetRosAllocSpace\"\nto clarify the code path?",
+      "parentUuid": "34c3ee5c_499c5192",
+      "range": {
+        "startLine": 251,
+        "startChar": 51,
+        "endLine": 251,
+        "endChar": 73
+      },
+      "revId": "c505378e0f93d08e5187371551ecebcb3f72f7a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
