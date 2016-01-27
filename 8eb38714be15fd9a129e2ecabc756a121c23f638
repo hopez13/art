@@ -22,6 +22,30 @@
       "revId": "8eb38714be15fd9a129e2ecabc756a121c23f638",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d49b728b_0412d8a6",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-27T11:32:14Z",
+      "side": 0,
+      "message": "There\u0027s no need to have one per block. It was jut a miss. We can have just one. I\u0027ll fix it after this CL.",
+      "parentUuid": "34b68e05_9fbe37cb",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 46
+      },
+      "revId": "8eb38714be15fd9a129e2ecabc756a121c23f638",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4bb5ef1_58bd5dec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-27T11:32:14Z",
+      "side": 1,
+      "message": "probably \"Lazy creation\" is a better characterization.",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "f931a6d7e732b963c57320291c2a3fc0f06e8bad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b417ded7_986f5503",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-01-27T11:32:14Z",
+      "side": 1,
+      "message": "I prefer you do not do this. The pass is designed to avoid thinking in every helper \"is this RTI valid?\". It simplifies the flow and reasoning about handles in an already complicated pass. \n\nI also doubt that saving an extra handle (which might already be created) brings you anything important.",
+      "range": {
+        "startLine": 243,
+        "startChar": 8,
+        "endLine": 243,
+        "endChar": 84
+      },
+      "revId": "f931a6d7e732b963c57320291c2a3fc0f06e8bad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
