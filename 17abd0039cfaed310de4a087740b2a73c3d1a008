@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "14beeac6_951117a1",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-27T20:22:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b417ded7_78d12124",
+      "range": {
+        "startLine": 800,
+        "startChar": 0,
+        "endLine": 820,
+        "endChar": 1
+      },
+      "revId": "17abd0039cfaed310de4a087740b2a73c3d1a008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54a782d1_9ddf63fc",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 7
@@ -320,6 +344,30 @@
       "side": 1,
       "message": "OK, then you have src-multidex you can use that the run-test/build scripts understand.",
       "parentUuid": "54c4e260_9e3a21be",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 11
+      },
+      "revId": "17abd0039cfaed310de4a087740b2a73c3d1a008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4b8d2d6_c23af3be",
+        "filename": "test/973-iface-super-multidex-generated/build",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-27T20:22:25Z",
+      "side": 1,
+      "message": "This generates hundreds of files and creates 3 dex files. run-test/build does not understand. If you want I can remove this. I made it originally just to prove to myself that I was doing the right thing.",
+      "parentUuid": "b417ded7_58d45d15",
       "range": {
         "startLine": 1,
         "startChar": 0,
