@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7431e681_b6bee8ca",
+        "filename": "runtime/gc/reference_queue.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-01-27T21:14:47Z",
+      "side": 1,
+      "message": "There is a check on the Java side to ensure a reference isn\u0027t put on its (Java) ReferenceQueue multiple times, so we don\u0027t have to check or worry about that here.",
+      "parentUuid": "94b2daf4_4c429b98",
+      "range": {
+        "startLine": 157,
+        "startChar": 6,
+        "endLine": 157,
+        "endChar": 55
+      },
+      "revId": "007ecd3f7dc002c7d4d82bca97605b8d68caf288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34c3ee5c_d1d5633a",
         "filename": "runtime/gc/reference_queue.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-27T00:54:58Z",
       "side": 1,
       "message": "I would have inlined the two line implementation, thus removing the need for at least most of the comment.",
+      "range": {
+        "startLine": 63,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 86
+      },
+      "revId": "007ecd3f7dc002c7d4d82bca97605b8d68caf288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4a43ebb_ad6f9ad0",
+        "filename": "runtime/gc/reference_queue.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-01-27T21:14:47Z",
+      "side": 1,
+      "message": "I merged the two implementations into one.",
+      "parentUuid": "34c3ee5c_d1d5633a",
       "range": {
         "startLine": 63,
         "startChar": 2,
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "14beeac6_b521b38d",
+        "filename": "runtime/gc/reference_queue.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-01-27T21:14:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f49a3677_55f23e89",
+      "range": {
+        "startLine": 65,
+        "startChar": 5,
+        "endLine": 65,
+        "endChar": 61
+      },
+      "revId": "007ecd3f7dc002c7d4d82bca97605b8d68caf288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74c9e678_f6fc208a",
         "filename": "runtime/mirror/reference.h",
         "patchSetId": 2
@@ -142,6 +214,24 @@
       "side": 1,
       "message": "In light of Jeremy\u0027s comment in the other discussion is \"WasPendingEnqueued\" or just \"PendingEnqueued\" a better name?\n\nThis returns true even if the reference is no longer on any queue.",
       "parentUuid": "b4afde8e_fb524bb6",
+      "revId": "007ecd3f7dc002c7d4d82bca97605b8d68caf288",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34c3ee5c_a66ee895",
+        "filename": "runtime/mirror/reference.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-01-27T21:14:47Z",
+      "side": 1,
+      "message": "I switched the polarity and renamed it to IsUnprocessed. Hopefully that is more clear.",
+      "parentUuid": "f4b5d6da_b450e05a",
       "revId": "007ecd3f7dc002c7d4d82bca97605b8d68caf288",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
