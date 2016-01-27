@@ -22,6 +22,30 @@
       "revId": "f4b3dbad413023795b92a842aad1c3f2fe4a57e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54c4e260_7ef540a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2016-01-27T06:32:09Z",
+      "side": 1,
+      "message": "Can you elaborate on what actually is crashing? The bug mentioned is just your tracking bug for the feature. I assume that the problem is actually compressed references (i.e. 64-bit pointers, but stored as 32-bit?), and thus you need to zero-extend instead, but please correct me if I\u0027m wrong.",
+      "parentUuid": "d4b8d2d6_a2117fa0",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 53
+      },
+      "revId": "f4b3dbad413023795b92a842aad1c3f2fe4a57e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
