@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "f49a3677_b921a08d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-27T19:49:54Z",
+      "side": 1,
+      "message": "Pointer-to-integral cast mappings are implementation-defined (see C++11 5.2.10).\n\nGCC will sign extend and clang will zero-extend.\n\nhttps://llvm.org/bugs/show_bug.cgi?id\u003d20441",
+      "parentUuid": "f49a3677_79f578a7",
+      "range": {
+        "startLine": 10,
+        "startChar": 25,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "f4b3dbad413023795b92a842aad1c3f2fe4a57e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4b5d6da_c1d3d12c",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 1
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "Probably not",
       "parentUuid": "f4b5d6da_c1d3d12c",
+      "range": {
+        "startLine": 211,
+        "startChar": 20,
+        "endLine": 211,
+        "endChar": 41
+      },
+      "revId": "f4b3dbad413023795b92a842aad1c3f2fe4a57e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4afde8e_138d1b1b",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-01-27T19:49:54Z",
+      "side": 1,
+      "message": "Redundant on 64-bit or smaller arch",
+      "parentUuid": "74c9e678_f1089f45",
       "range": {
         "startLine": 211,
         "startChar": 20,
