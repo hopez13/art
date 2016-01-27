@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d49b728b_043d380a",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-27T11:49:32Z",
+      "side": 1,
+      "message": "Turns out they\u0027re not.\n\nIntConstant defines Out \u003d\u003e has_ssa_index \u003d\u003d true\nX86ComputeBaseMethodAddress takes IntConstant as input but does not define a location \u003d\u003e has_valid_loc \u003d\u003d false",
+      "parentUuid": "14b18a0d_9e10799c",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 72
+      },
+      "revId": "2d413dffe8774aeaac9f5c9120fefef2e9cf8e37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94a57ac9_02240cee",
         "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-27T11:14:56Z",
       "side": 1,
       "message": "Didn\u0027t we say you did not need this but could test it differently?",
+      "range": {
+        "startLine": 278,
+        "startChar": 11,
+        "endLine": 278,
+        "endChar": 37
+      },
+      "revId": "2d413dffe8774aeaac9f5c9120fefef2e9cf8e37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4c1566d_7ad93976",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-27T11:49:32Z",
+      "side": 1,
+      "message": "Well we talked mainly about the inputs, hence IsNonMaterializedCondition used only as DCHECK on line 193. I don\u0027t see how we would do the same thing here.",
+      "parentUuid": "94a57ac9_02240cee",
       "range": {
         "startLine": 278,
         "startChar": 11,
