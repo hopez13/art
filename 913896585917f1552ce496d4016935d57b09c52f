@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "74c9e678_a0a6d3db",
+        "filename": "runtime/image-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-27T01:49:27Z",
+      "side": 1,
+      "message": "Oops, not sure how there was no errors from not having inline.",
+      "parentUuid": "14beeac6_1c3c5467",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 6
+      },
+      "revId": "913896585917f1552ce496d4016935d57b09c52f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b4afde8e_df52cce8",
         "filename": "runtime/image-inl.h",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2016-01-27T01:40:05Z",
       "side": 1,
       "message": "inline?",
+      "revId": "913896585917f1552ce496d4016935d57b09c52f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74c9e678_e087eb39",
+        "filename": "runtime/image-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-27T01:49:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4afde8e_df52cce8",
       "revId": "913896585917f1552ce496d4016935d57b09c52f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
