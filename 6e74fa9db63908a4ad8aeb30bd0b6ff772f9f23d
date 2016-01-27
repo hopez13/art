@@ -22,6 +22,30 @@
       "revId": "6e74fa9db63908a4ad8aeb30bd0b6ff772f9f23d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4b8d2d6_c582fdeb",
+        "filename": "test/565-checker-rotate/expected.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-27T18:46:43Z",
+      "side": 1,
+      "message": "Maybe not, but I like to pedantically check that the program actually reaches the last statement and did not silently die on the first :-)\n....",
+      "parentUuid": "b4bb5ef1_f8967171",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 6
+      },
+      "revId": "6e74fa9db63908a4ad8aeb30bd0b6ff772f9f23d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
