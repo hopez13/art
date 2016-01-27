@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f40f96af_caf743f0",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1032,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2016-01-27T21:43:42Z",
+      "side": 1,
+      "message": "Hans, Roland - Following on a previous discussion on the semantics of Cas - \n\nhttps://android-review.googlesource.com/#/c/123598/12/compiler/optimizing/intrinsics_arm64.cc\n\n\n\"\"\"\nWill Deacon\nJan 28, 2015\nYou\u0027re missing a subtlety here in that DMB; LDXR; ...; STXR; DMB has stronger ordering guarantees than the corresponding LDAXR; ...; STLXR sequence.\nFor example, if A() and B() consist of standard LDR/STR instructions then:\nA()\nDMB\nLDXR\n...\nSTXR\nDMB\nB()\nRequires A() to be globally observed before B(). However:\nA()\nLDAXR\n...\nSTLXR\nB()\nPermits B() to be observed before A().\nSo the question really is: what memory ordering semantics do you require for your cmpxchg? If you define that, then we can come up with an optimal instruction sequence.\n\n\"\"\"\n\nI believe that with Roland\u0027s recent changed to the DMB path, that replaces the DMB(IS, ST) with a DMB(IS, ALL) the semantics is not equivalent anymore between the DMB path and the acquire-release one.  \n\nThe comment says that accompanies the change says:\n\n\"\"\"\n// Emit a `Dmb(InnerShareable, BarrierAll)` (DMB ISH) instruction\n// instead of a `Dmb(InnerShareable, BarrierWrites)` (DMB ISHST)\n// one, as the latter allows a preceding load to be delayed past\n// the STXR instruction below.\n\"\"\"\n\nIs that the case? Should we provide stronger memory ordering guarantees for the acquire-release path?",
+      "range": {
+        "startLine": 1018,
+        "startChar": 2,
+        "endLine": 1032,
+        "endChar": 30
+      },
+      "revId": "4a6a67ca93289b232a620bdf8bf30ff8b7b0b428",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
