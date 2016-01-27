@@ -46,6 +46,53 @@
       "revId": "f4b3dbad413023795b92a842aad1c3f2fe4a57e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94a57ac9_22cb9078",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-27T10:12:06Z",
+      "side": 1,
+      "message": "Stephen: if this fix is indeed just for app images, you wouldn\u0027t see the crash, as app images are only enabled for Mathieu (and maybe our run-tests?).",
+      "parentUuid": "54c4e260_7ef540a7",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 53
+      },
+      "revId": "f4b3dbad413023795b92a842aad1c3f2fe4a57e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94a57ac9_0299ac92",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-27T10:12:06Z",
+      "side": 1,
+      "message": "Why just app images?",
+      "range": {
+        "startLine": 10,
+        "startChar": 25,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "f4b3dbad413023795b92a842aad1c3f2fe4a57e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
