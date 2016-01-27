@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "f49a3677_79f578a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-01-27T18:55:26Z",
+      "side": 1,
+      "message": "A pointer-to-uint64 cast sign-extends but A pointer-to-uintptr_t cast doesn\u0027t? This seems error-prone. Is there a pointer to some document? Also, are there any compiler checks/warnings about this?",
+      "parentUuid": "b4a43ebb_1acb7a77",
+      "range": {
+        "startLine": 10,
+        "startChar": 25,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "f4b3dbad413023795b92a842aad1c3f2fe4a57e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4b5d6da_c1d3d12c",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 1
