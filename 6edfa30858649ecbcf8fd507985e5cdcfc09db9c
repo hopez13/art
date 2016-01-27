@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "54c4e260_3ee90869",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-27T17:45:10Z",
+      "side": 1,
+      "message": "Sure, I\u0027ll implement that optimization. I wanted something simple for the first iteration (considering you\u0027d need a map of dex file to ordered set, etc).",
+      "parentUuid": "94a57ac9_42e9f4d1",
+      "range": {
+        "startLine": 729,
+        "startChar": 0,
+        "endLine": 730,
+        "endChar": 38
+      },
+      "revId": "6edfa30858649ecbcf8fd507985e5cdcfc09db9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d49b728b_e19b6699",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b4a43ebb_5ac50266",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-27T17:45:10Z",
+      "side": 1,
+      "message": "Well, the parallel thread pool is created late and not stored in a field. But sure, I can push it there.",
+      "parentUuid": "d49b728b_e19b6699",
+      "range": {
+        "startLine": 564,
+        "startChar": 0,
+        "endLine": 565,
+        "endChar": 33
+      },
+      "revId": "6edfa30858649ecbcf8fd507985e5cdcfc09db9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4c1566d_faf2e901",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2016-01-27T10:42:27Z",
       "side": 1,
       "message": "Why do we need this? (Does GC walk the heap in a different order for different addresses? Does the address contribute to the identity hash?)",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 3
+      },
+      "revId": "6edfa30858649ecbcf8fd507985e5cdcfc09db9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4b8d2d6_c2e67344",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-27T17:45:10Z",
+      "side": 1,
+      "message": "There are sets in the compiler (image writer) that have object pointers as keys. I wanted this to be low-impact, so not change it to an ordered set/map. But then the addresses need to be reproduce-able.",
+      "parentUuid": "f4c1566d_faf2e901",
       "range": {
         "startLine": 356,
         "startChar": 0,
