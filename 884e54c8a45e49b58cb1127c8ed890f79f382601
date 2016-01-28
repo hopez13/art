@@ -70,6 +70,30 @@
       "revId": "884e54c8a45e49b58cb1127c8ed890f79f382601",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54a782d1_4300da49",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-28T14:00:56Z",
+      "side": 1,
+      "message": "Yes, it should have been \"does not\", sorry for that mistake. Yes, the code looks OK to me.",
+      "parentUuid": "94a57ac9_45e9fed1",
+      "range": {
+        "startLine": 833,
+        "startChar": 0,
+        "endLine": 837,
+        "endChar": 7
+      },
+      "revId": "884e54c8a45e49b58cb1127c8ed890f79f382601",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
