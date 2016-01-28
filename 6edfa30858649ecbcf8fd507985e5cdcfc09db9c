@@ -240,6 +240,30 @@
     },
     {
       "key": {
+        "uuid": "34c3ee5c_b5ab68ad",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-28T17:00:54Z",
+      "side": 1,
+      "message": "Since the inception of the term? \"application program interface\" ? These methods are internals of the compiler driver. You can neither access Resolve nor ResolveDexFile.\n\nMy POV is that your design is just as bad already, because you\u0027re restricting functionality that could be easily and safely exposed.\n\nAnyways, if you feel that strongly, how about writing that follow-up CL? :-)",
+      "parentUuid": "54a782d1_03477259",
+      "range": {
+        "startLine": 564,
+        "startChar": 0,
+        "endLine": 565,
+        "endChar": 33
+      },
+      "revId": "6edfa30858649ecbcf8fd507985e5cdcfc09db9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7431e681_7688504c",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
