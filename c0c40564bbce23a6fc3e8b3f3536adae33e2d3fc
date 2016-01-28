@@ -22,6 +22,30 @@
       "revId": "c0c40564bbce23a6fc3e8b3f3536adae33e2d3fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14beeac6_41998191",
+        "filename": "runtime/verifier/reg_type-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-28T05:20:10Z",
+      "side": 1,
+      "message": "There\u0027s a bug open for this, so I am keeping track of the bigger picture. :-)\n\nI thought it\u0027s a good point to put the comment here where there would have to be actual changes. I agree that the general issue of missing a common, special supertype for initialized and uninitialized references, should probably be detailed there.",
+      "parentUuid": "542ce22d_7b8037e3",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 89
+      },
+      "revId": "c0c40564bbce23a6fc3e8b3f3536adae33e2d3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
