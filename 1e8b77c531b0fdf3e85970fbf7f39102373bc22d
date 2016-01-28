@@ -628,6 +628,24 @@
     },
     {
       "key": {
+        "uuid": "b486fe94_c09b5e99",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3708,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-28T23:38:49Z",
+      "side": 1,
+      "message": "I didn\u0027t put any special code in the optimizing compiler to keep it from trying to compile interface-supers normally. I just used the verifier to do so. (I did put code for that in the quick compiler since there was never any intention for that to support the semantics).",
+      "parentUuid": "94681a72_c7115ea3",
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47727221_ae015b4f",
         "filename": "test/972-iface-super-multidex/build",
         "patchSetId": 3
