@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "542ce22d_7b8037e3",
+        "filename": "runtime/verifier/reg_type-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2016-01-28T05:11:14Z",
+      "side": 1,
+      "message": "This seems like an inappropriate place for this comment. A better comment would describe the missing checks that should take place, and place the description of the missing \"reference super type\" in the RegType hierarchy where it should be added.",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 89
+      },
+      "revId": "c0c40564bbce23a6fc3e8b3f3536adae33e2d3fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
