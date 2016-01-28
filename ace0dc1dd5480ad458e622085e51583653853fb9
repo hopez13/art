@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4b8d2d6_3ba3da71",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-28T00:09:15Z",
+      "side": 1,
+      "message": "Might have been easier to just add handling in ForAll to run the tasks there without ever enqueuing them on the thread pool.",
+      "range": {
+        "startLine": 679,
+        "startChar": 30,
+        "endLine": 679,
+        "endChar": 51
+      },
+      "revId": "ace0dc1dd5480ad458e622085e51583653853fb9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94b2daf4_b4fa9996",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2126,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-01-28T00:09:15Z",
+      "side": 1,
+      "message": "Since we don\u0027t have a GC daemon thread in dex2oat, it should mean that the concurrent GC always runs in the allocating thread. Is that deterministic?",
+      "range": {
+        "startLine": 2126,
+        "startChar": 61,
+        "endLine": 2126,
+        "endChar": 74
+      },
+      "revId": "ace0dc1dd5480ad458e622085e51583653853fb9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
