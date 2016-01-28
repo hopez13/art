@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "14b18a0d_612cf26b",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-28T16:28:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4c4527f_5f80a3e2",
+      "range": {
+        "startLine": 485,
+        "startChar": 0,
+        "endLine": 485,
+        "endChar": 8
+      },
+      "revId": "177bc46aa036157b81062e4ea0f1a4d4542f7089",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34520eae_bf8313c1",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 8
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "94a57ac9_a5b1eab4",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-28T16:28:24Z",
+      "side": 1,
+      "message": "Here, the resolved_field is guaranteed to be in a different dex file. (Compare also with the dex_cache handle in TryAndBuildInline() where the resolved method *may* be in a different dex file.)",
+      "parentUuid": "34520eae_bf8313c1",
+      "range": {
+        "startLine": 572,
+        "startChar": 2,
+        "endLine": 572,
+        "endChar": 89
+      },
+      "revId": "177bc46aa036157b81062e4ea0f1a4d4542f7089",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94a57ac9_45069e37",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 8
@@ -59,6 +107,30 @@
       "writtenOn": "2016-01-28T16:15:37Z",
       "side": 1,
       "message": "How about using the invoke\u0027s dex_pc?",
+      "range": {
+        "startLine": 582,
+        "startChar": 6,
+        "endLine": 582,
+        "endChar": 14
+      },
+      "revId": "177bc46aa036157b81062e4ea0f1a4d4542f7089",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34520eae_1f93270e",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-28T16:28:24Z",
+      "side": 1,
+      "message": "Rather not. (Discussed offline.)",
+      "parentUuid": "94a57ac9_45069e37",
       "range": {
         "startLine": 582,
         "startChar": 6,
