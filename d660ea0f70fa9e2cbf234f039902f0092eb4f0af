@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "14beeac6_a1e095b9",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2448,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-01-28T15:42:27Z",
+      "side": 1,
+      "message": "inc/dec have some slight performance issues compared to add/sub, but I am sure that they are irrelevant here.  I would go for the smaller code like Vladimir is suggesting.",
+      "parentUuid": "34520eae_9f0bb773",
+      "range": {
+        "startLine": 2448,
+        "startChar": 0,
+        "endLine": 2448,
+        "endChar": 63
+      },
+      "revId": "d660ea0f70fa9e2cbf234f039902f0092eb4f0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f49a3677_32d145f2",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 1
