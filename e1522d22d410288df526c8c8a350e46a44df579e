@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94a57ac9_85df062b",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-28T13:57:27Z",
+      "side": 1,
+      "message": "Just inline the code of that method here, and do the check line 855 on the compiling class being null earlier.",
+      "range": {
+        "startLine": 852,
+        "startChar": 52,
+        "endLine": 852,
+        "endChar": 83
+      },
+      "revId": "e1522d22d410288df526c8c8a350e46a44df579e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
