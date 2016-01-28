@@ -592,6 +592,24 @@
     },
     {
       "key": {
+        "uuid": "f4b5d6da_b59c57e1",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3708,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-28T18:08:56Z",
+      "side": 1,
+      "message": "If we don\u0027t have these changes all invoke-super\u0027s on interface methods will fail verification so they won\u0027t be compiled. Therefore we need to have them at the same time.",
+      "parentUuid": "14b18a0d_01d1aef1",
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47727221_ae015b4f",
         "filename": "test/972-iface-super-multidex/build",
         "patchSetId": 3
