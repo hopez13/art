@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "14beeac6_45ec2cb2",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-01-28T18:54:13Z",
+      "side": 1,
+      "message": "According to Intel\u0027s documentation, this seems to be wrong.  Only SFENCE or MFENCE are claimed to work here.  See the (rather vague) MOVNTI documentation.\n\nI\u0027m inclined to believe the documentation, since this is my current best theory as to why MFENCE is slower.\n\nI missed this the last time around.\n\nThis CL gets this right elsewhere.  And this looks like it\u0027s unused code anyway.",
+      "range": {
+        "startLine": 631,
+        "startChar": 6,
+        "endLine": 631,
+        "endChar": 69
+      },
+      "revId": "863d13aa6af7b2eae02b7ef574637d8eace3a3f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
