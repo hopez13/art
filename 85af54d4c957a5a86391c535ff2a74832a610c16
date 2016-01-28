@@ -22,6 +22,30 @@
       "revId": "85af54d4c957a5a86391c535ff2a74832a610c16",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4b8d2d6_716733cc",
+        "filename": "runtime/mirror/reference.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-01-28T18:30:56Z",
+      "side": 1,
+      "message": "My intention was \"has not been enqueued\" means it hasn\u0027t been enqueued on a java.lang.ref.ReferenceQueue, while \"is not currently pending enqueue\" means it is not currently on an art reference_queue. I suppose I can update the comment to be more explicit about this.",
+      "parentUuid": "b4a43ebb_4db1ce1b",
+      "range": {
+        "startLine": 92,
+        "startChar": 35,
+        "endLine": 93,
+        "endChar": 21
+      },
+      "revId": "85af54d4c957a5a86391c535ff2a74832a610c16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
