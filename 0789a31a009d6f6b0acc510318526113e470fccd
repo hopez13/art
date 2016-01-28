@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "94a57ac9_02976c6f",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-01-28T12:04:51Z",
+      "side": 1,
+      "message": "I changed it based on the suggestion.",
+      "parentUuid": "34b68e05_0212cea6",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 5
+      },
+      "revId": "0789a31a009d6f6b0acc510318526113e470fccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d4c4527f_3c3f3d5f",
         "filename": "compiler/jit/jit_compiler.cc",
         "patchSetId": 3
@@ -84,6 +108,30 @@
       "writtenOn": "2016-01-28T10:56:11Z",
       "side": 1,
       "message": "Sort of implied, but ok.",
+      "range": {
+        "startLine": 225,
+        "startChar": 45,
+        "endLine": 225,
+        "endChar": 85
+      },
+      "revId": "0789a31a009d6f6b0acc510318526113e470fccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4c4527f_fc19c50b",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-01-28T12:04:51Z",
+      "side": 1,
+      "message": "Removed it as I think it makes things cleaner and reduces the coupling between perf and debug info generation",
+      "parentUuid": "d4c4527f_3c3f3d5f",
       "range": {
         "startLine": 225,
         "startChar": 45,
