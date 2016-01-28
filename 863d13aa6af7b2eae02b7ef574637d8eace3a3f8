@@ -22,6 +22,30 @@
       "revId": "863d13aa6af7b2eae02b7ef574637d8eace3a3f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5418622c_75b7c8f4",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-01-28T19:35:11Z",
+      "side": 1,
+      "message": "An SFENCE or MFENCE is needed after MOVNTI.  That is a special case that avoids the caches. For Java semantics, the locked add (and strong memory model) do the right thing.  In any case, I expect the Quick compiler will be deprecated.",
+      "parentUuid": "14beeac6_45ec2cb2",
+      "range": {
+        "startLine": 631,
+        "startChar": 6,
+        "endLine": 631,
+        "endChar": 69
+      },
+      "revId": "863d13aa6af7b2eae02b7ef574637d8eace3a3f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
