@@ -16,6 +16,29 @@
       "revId": "47fae318e5b20e55a1c4927b74ce061b34a2fb20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94ed7a3a_7fce8f88",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-28T23:27:21Z",
+      "side": 1,
+      "message": "This doesn\u0027t change cflags?",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 298,
+        "endChar": 58
+      },
+      "revId": "47fae318e5b20e55a1c4927b74ce061b34a2fb20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
