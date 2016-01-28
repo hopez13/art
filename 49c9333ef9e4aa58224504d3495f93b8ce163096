@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4e37248_61cb9677",
+        "filename": "runtime/read_barrier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-28T23:10:57Z",
+      "side": 1,
+      "message": "Maybe worth adding a comment about you findings. So that another round of \"oh we should force inline these methods\" doesn\u0027t do it for this one.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 89
+      },
+      "revId": "49c9333ef9e4aa58224504d3495f93b8ce163096",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
