@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "14b18a0d_01764ede",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-28T13:53:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94a57ac9_e2b0081b",
+      "range": {
+        "startLine": 7,
+        "startChar": 38,
+        "endLine": 7,
+        "endChar": 49
+      },
+      "revId": "ac5f2e381726be8f42c296b21a0b1a4b46b66ccb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54a782d1_83df022b",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 4
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "14b18a0d_218a6a03",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-28T13:53:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34b68e05_a222fadf",
+      "range": {
+        "startLine": 582,
+        "startChar": 19,
+        "endLine": 582,
+        "endChar": 21
+      },
+      "revId": "ac5f2e381726be8f42c296b21a0b1a4b46b66ccb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14b18a0d_21cb8a78",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 4
@@ -82,6 +130,30 @@
       "writtenOn": "2016-01-28T12:04:44Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 605,
+        "startChar": 19,
+        "endLine": 605,
+        "endChar": 21
+      },
+      "revId": "ac5f2e381726be8f42c296b21a0b1a4b46b66ccb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54a782d1_e316c698",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-28T13:53:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14b18a0d_21cb8a78",
       "range": {
         "startLine": 605,
         "startChar": 19,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "94a57ac9_25cb9a78",
+        "filename": "runtime/quick/inline_method_analyser.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-28T13:53:33Z",
+      "side": 1,
+      "message": "When the superclass isn\u0027t available, we can still compile methods of the subclass but the class linker cannot actually resolve them without the definition of the superclass.\n\nQuick uses this for emitting the \"special\" implementations without stack frame. (Looking forward to removing Quick.)",
+      "parentUuid": "34b68e05_62bbd28b",
+      "range": {
+        "startLine": 80,
+        "startChar": 11,
+        "endLine": 80,
+        "endChar": 44
+      },
+      "revId": "ac5f2e381726be8f42c296b21a0b1a4b46b66ccb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b4bb5ef1_dbe3a756",
         "filename": "runtime/quick/inline_method_analyser.cc",
         "patchSetId": 4
@@ -128,6 +224,30 @@
       "writtenOn": "2016-01-28T13:29:25Z",
       "side": 1,
       "message": "nit : this struck me as slightly odd. given that this is a private method wouldn\u0027t it be cleaner to assume here that method is never null and to just not call it if we know method \u003d\u003d nullptr ?\n\nUp to you.",
+      "range": {
+        "startLine": 358,
+        "startChar": 2,
+        "endLine": 360,
+        "endChar": 3
+      },
+      "revId": "ac5f2e381726be8f42c296b21a0b1a4b46b66ccb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d49b728b_0712daa6",
+        "filename": "runtime/quick/inline_method_analyser.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-28T13:53:33Z",
+      "side": 1,
+      "message": "Callers don\u0027t use the method for anything, just propagate it down here and I want to keep it that way.",
+      "parentUuid": "b4bb5ef1_dbe3a756",
       "range": {
         "startLine": 358,
         "startChar": 2,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "b417ded7_bbdfb3fb",
+        "filename": "test/569-checker-pattern-replacement/info.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-28T13:53:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4c1566d_9d49a74c",
+      "range": {
+        "startLine": 1,
+        "startChar": 31,
+        "endLine": 1,
+        "endChar": 42
+      },
+      "revId": "ac5f2e381726be8f42c296b21a0b1a4b46b66ccb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d49b728b_24927c78",
         "filename": "test/569-checker-pattern-replacement/src-multidex/Second.java",
         "patchSetId": 4
@@ -186,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "d4c4527f_fc7d45fb",
+        "filename": "test/569-checker-pattern-replacement/src-multidex/Second.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-28T13:53:33Z",
+      "side": 1,
+      "message": "Changed the comment. Hopefully it will be clear.",
+      "parentUuid": "d49b728b_24927c78",
+      "range": {
+        "startLine": 99,
+        "startChar": 41,
+        "endLine": 99,
+        "endChar": 55
+      },
+      "revId": "ac5f2e381726be8f42c296b21a0b1a4b46b66ccb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d4c4527f_7ce7f540",
         "filename": "test/569-checker-pattern-replacement/src-multidex/Second.java",
         "patchSetId": 4
@@ -197,6 +365,30 @@
       "writtenOn": "2016-01-28T12:04:44Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 102,
+        "startChar": 51,
+        "endLine": 102,
+        "endChar": 65
+      },
+      "revId": "ac5f2e381726be8f42c296b21a0b1a4b46b66ccb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4bb5ef1_7bd37b87",
+        "filename": "test/569-checker-pattern-replacement/src-multidex/Second.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-28T13:53:33Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "d4c4527f_7ce7f540",
       "range": {
         "startLine": 102,
         "startChar": 51,
