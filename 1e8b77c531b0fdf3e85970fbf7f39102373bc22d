@@ -610,6 +610,24 @@
     },
     {
       "key": {
+        "uuid": "94681a72_c7115ea3",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3708,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-28T23:16:55Z",
+      "side": 1,
+      "message": "You could have the verifier change before the compiler change, and do testing on that one as well.\n\nBut I\u0027d understand if you want this change in now.",
+      "parentUuid": "f4b5d6da_b59c57e1",
+      "revId": "1e8b77c531b0fdf3e85970fbf7f39102373bc22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47727221_ae015b4f",
         "filename": "test/972-iface-super-multidex/build",
         "patchSetId": 3
