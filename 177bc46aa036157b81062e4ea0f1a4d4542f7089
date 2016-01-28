@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4c4527f_5f80a3e2",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-28T16:15:37Z",
+      "side": 1,
+      "message": "static?",
+      "range": {
+        "startLine": 485,
+        "startChar": 0,
+        "endLine": 485,
+        "endChar": 8
+      },
+      "revId": "177bc46aa036157b81062e4ea0f1a4d4542f7089",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34520eae_bf8313c1",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-28T16:15:37Z",
+      "side": 1,
+      "message": "I think you can use the dex_conmpilation_unit for getting a handle.",
+      "range": {
+        "startLine": 572,
+        "startChar": 2,
+        "endLine": 572,
+        "endChar": 89
+      },
+      "revId": "177bc46aa036157b81062e4ea0f1a4d4542f7089",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94a57ac9_45069e37",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-28T16:15:37Z",
+      "side": 1,
+      "message": "How about using the invoke\u0027s dex_pc?",
+      "range": {
+        "startLine": 582,
+        "startChar": 6,
+        "endLine": 582,
+        "endChar": 14
+      },
+      "revId": "177bc46aa036157b81062e4ea0f1a4d4542f7089",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54a782d1_e37926a7",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-28T16:15:37Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 594,
+        "startChar": 0,
+        "endLine": 594,
+        "endChar": 89
+      },
+      "revId": "177bc46aa036157b81062e4ea0f1a4d4542f7089",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94a57ac9_25039a27",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-28T16:15:37Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 605,
+        "startChar": 6,
+        "endLine": 605,
+        "endChar": 14
+      },
+      "revId": "177bc46aa036157b81062e4ea0f1a4d4542f7089",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
