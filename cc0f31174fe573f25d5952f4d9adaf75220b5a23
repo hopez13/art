@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "548b02a3_dd96ebbf",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-01-28T21:55:32Z",
+      "side": 1,
+      "message": "Is it guaranteed that the offset always fits into int16_t? If not, LoadFromOffset() and StoreToOffset() will use and clobber AT while constructing a 32-bit offset.",
+      "range": {
+        "startLine": 638,
+        "startChar": 0,
+        "endLine": 641,
+        "endChar": 51
+      },
+      "revId": "cc0f31174fe573f25d5952f4d9adaf75220b5a23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
