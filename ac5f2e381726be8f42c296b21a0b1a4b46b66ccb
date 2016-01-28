@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b417ded7_7b94bb04",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-28T15:00:38Z",
+      "side": 1,
+      "message": "For Nexus 5 boot image compiled on host without --debuggable (modified dex2oat.cc), it\u0027s 33918:\n\n    - NOP: 25379\n    - return arg: 44\n    - return const: 20\n    - IGET: 8353\n    - IPUT: 122",
+      "parentUuid": "54a782d1_83df022b",
+      "range": {
+        "startLine": 396,
+        "startChar": 22,
+        "endLine": 396,
+        "endChar": 54
+      },
+      "revId": "ac5f2e381726be8f42c296b21a0b1a4b46b66ccb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34b68e05_a222fadf",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 4
