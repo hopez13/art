@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "34520eae_1fb7a7f5",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-28T11:02:05Z",
+      "side": 1,
+      "message": "Actually I think we should keep it. --perf being a developer tool, you should know what you\u0027re doing.\n\nMaybe you can increase the message by saying \"Are you on a user build? Perf only works on userdebug/eng builds\".",
+      "parentUuid": "94a57ac9_62d63847",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 5
+      },
+      "revId": "0789a31a009d6f6b0acc510318526113e470fccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d4c4527f_3c3f3d5f",
         "filename": "compiler/jit/jit_compiler.cc",
         "patchSetId": 3
