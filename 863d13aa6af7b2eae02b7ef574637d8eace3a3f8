@@ -94,6 +94,30 @@
       "revId": "863d13aa6af7b2eae02b7ef574637d8eace3a3f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5418622c_151f744b",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-01-28T21:26:16Z",
+      "side": 1,
+      "message": "This is designed to handle non-temporal stores, which do require a fence.  But I believe we don\u0027t actually generate any non-temporal stores in Quick, and hence never generate this fence.  And as you said, Quick is deprecated anyway.  If it mattered, SFENCE would clearly be the right thing.",
+      "parentUuid": "741d661a_d9bed7cb",
+      "range": {
+        "startLine": 631,
+        "startChar": 6,
+        "endLine": 631,
+        "endChar": 69
+      },
+      "revId": "863d13aa6af7b2eae02b7ef574637d8eace3a3f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
