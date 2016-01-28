@@ -170,6 +170,30 @@
     },
     {
       "key": {
+        "uuid": "34b68e05_4207b6fa",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2785,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-28T15:21:20Z",
+      "side": 1,
+      "message": "that\u0027s not supported right now, but could be an improvement of the register allocator.",
+      "parentUuid": "34c3ee5c_f56c00de",
+      "range": {
+        "startLine": 2785,
+        "startChar": 0,
+        "endLine": 2785,
+        "endChar": 51
+      },
+      "revId": "d660ea0f70fa9e2cbf234f039902f0092eb4f0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "542ce22d_78591ddd",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 1
