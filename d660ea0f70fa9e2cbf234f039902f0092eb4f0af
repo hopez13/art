@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "34520eae_9f0bb773",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2448,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-28T15:31:49Z",
+      "side": 1,
+      "message": "Since you allow the default kOutputOverlap for the \"out\", why don\u0027t you set it to 0 first and save code size on jumps (three instead of 4)? You can then also save code size on movs by using smaller inc/dec, assuming it doesn\u0027t impact the performance:\n\n    xor eax, eax\n    cmp esi, edx\n    je end\n    jl lower\n    inc eax\n    jmp end\n  lower:\n    dec eax\n  end:",
+      "parentUuid": "94b2daf4_b4a619dc",
+      "range": {
+        "startLine": 2448,
+        "startChar": 0,
+        "endLine": 2448,
+        "endChar": 63
+      },
+      "revId": "d660ea0f70fa9e2cbf234f039902f0092eb4f0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f49a3677_32d145f2",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 1
@@ -94,6 +118,29 @@
       "side": 1,
       "message": "No, movq handles all values.  It is inefficient for ones that fit in int32_t.  Load64BitValue is still better.",
       "parentUuid": "f49a3677_b2e455cd",
+      "revId": "d660ea0f70fa9e2cbf234f039902f0092eb4f0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4bb5ef1_bb1353e8",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2559,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-28T15:31:49Z",
+      "side": 1,
+      "message": "Use movl() and pull it out of the `if`.",
+      "range": {
+        "startLine": 2553,
+        "startChar": 0,
+        "endLine": 2559,
+        "endChar": 5
+      },
       "revId": "d660ea0f70fa9e2cbf234f039902f0092eb4f0af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
