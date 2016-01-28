@@ -82,6 +82,24 @@
     },
     {
       "key": {
+        "uuid": "f4b5d6da_3a7e76f8",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2526,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-01-28T03:46:18Z",
+      "side": 1,
+      "message": "No, movq handles all values.  It is inefficient for ones that fit in int32_t.  Load64BitValue is still better.",
+      "parentUuid": "f49a3677_b2e455cd",
+      "revId": "d660ea0f70fa9e2cbf234f039902f0092eb4f0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94b2daf4_2f90f4fd",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 1
