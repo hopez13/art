@@ -46,6 +46,30 @@
       "revId": "863d13aa6af7b2eae02b7ef574637d8eace3a3f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f40956de_ba74b1ae",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-01-28T19:44:29Z",
+      "side": 1,
+      "message": "I believe kNTStoreStore is designed for the MOVNTI case?\n\nWe agree that we\u0027re beating a dead horse here, and this isn\u0027t important.  But if we\u0027re touching this code at all, I\u0027d leave the SFENCE case.",
+      "parentUuid": "5418622c_75b7c8f4",
+      "range": {
+        "startLine": 631,
+        "startChar": 6,
+        "endLine": 631,
+        "endChar": 69
+      },
+      "revId": "863d13aa6af7b2eae02b7ef574637d8eace3a3f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
