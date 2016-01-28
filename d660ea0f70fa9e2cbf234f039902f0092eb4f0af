@@ -146,6 +146,30 @@
     },
     {
       "key": {
+        "uuid": "34c3ee5c_f56c00de",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2785,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-01-28T14:32:52Z",
+      "side": 1,
+      "message": "Could there be some way of asking if the input goes dead, so it could be used as the temp instead?  In other words it could be safely clobbered?",
+      "parentUuid": "d4c4527f_1c69193a",
+      "range": {
+        "startLine": 2785,
+        "startChar": 0,
+        "endLine": 2785,
+        "endChar": 51
+      },
+      "revId": "d660ea0f70fa9e2cbf234f039902f0092eb4f0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "542ce22d_78591ddd",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 1
