@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "f49a3677_72702de0",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2447,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-01-28T02:46:13Z",
+      "side": 1,
+      "message": "Allow src2 to be Any?",
+      "revId": "d660ea0f70fa9e2cbf234f039902f0092eb4f0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94b2daf4_b4a619dc",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 1
@@ -18,6 +35,92 @@
         "startChar": 0,
         "endLine": 2448,
         "endChar": 63
+      },
+      "revId": "d660ea0f70fa9e2cbf234f039902f0092eb4f0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f49a3677_32d145f2",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2514,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-01-28T02:46:13Z",
+      "side": 1,
+      "message": "Can just use xorl.  That will clear the upper bits too.",
+      "range": {
+        "startLine": 2510,
+        "startChar": 6,
+        "endLine": 2514,
+        "endChar": 7
+      },
+      "revId": "d660ea0f70fa9e2cbf234f039902f0092eb4f0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f49a3677_b2e455cd",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2526,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-01-28T02:46:13Z",
+      "side": 1,
+      "message": "movq only handles 32 bit values! You can use codegen_-\u003eLoad64BitValue",
+      "revId": "d660ea0f70fa9e2cbf234f039902f0092eb4f0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94b2daf4_2f90f4fd",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2566,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-01-28T02:46:13Z",
+      "side": 1,
+      "message": "xorl",
+      "range": {
+        "startLine": 2562,
+        "startChar": 4,
+        "endLine": 2566,
+        "endChar": 5
+      },
+      "revId": "d660ea0f70fa9e2cbf234f039902f0092eb4f0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "542ce22d_78591ddd",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2822,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-01-28T02:46:13Z",
+      "side": 1,
+      "message": "31/63 to handle int/long cases",
+      "range": {
+        "startLine": 2822,
+        "startChar": 44,
+        "endLine": 2822,
+        "endChar": 46
       },
       "revId": "d660ea0f70fa9e2cbf234f039902f0092eb4f0af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
