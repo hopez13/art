@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94b2daf4_b4a619dc",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2448,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-28T01:21:41Z",
+      "side": 1,
+      "message": "Note that this does not have a constant folding section (yet; I wonder if we really should do this every time rather than just folding this in the HIR).\n\nAlso note that low level testing allows us to do a single compare and short branches. So we get\n\n\n      0x00002094:                   3BF2               cmp esi, edx\n      0x00002096:                   7C06               jl/nge +6 (0x0000209e)\n      0x00002098:                   7F0B               jnle/g +11 (0x000020a5)\n      0x0000209a:                   33C0               xor eax, eax\n      0x0000209c:                   EB0C               jmp +12 (0x000020aa)\n      0x0000209e:             B8FFFFFFFF               mov eax, -1\n      0x000020a3:                   EB05               jmp +5 (0x000020aa)\n      0x000020a5:             B801000000               mov eax, 1\n\n\nwhile the reference implementation can do no better than\n\n      0x000020cc:                   3BF2               cmp esi, edx\n      0x000020ce:           0F8D0A000000               jnl/ge +10 (0x000020de)\n      0x000020d4:             B8FFFFFFFF               mov eax, -1\n      0x000020d9:             E914000000               jmp +20 (0x000020f2)\n      0x000020de:                   3BF2               cmp esi, edx\n      0x000020e0:           0F8507000000               jnz/ne +7 (0x000020ed)\n      0x000020e6:                   33C0               xor eax, eax\n      0x000020e8:             E905000000               jmp +5 (0x000020f2)\n      0x000020ed:             B801000000               mov eax, 1",
+      "range": {
+        "startLine": 2448,
+        "startChar": 0,
+        "endLine": 2448,
+        "endChar": 63
+      },
+      "revId": "d660ea0f70fa9e2cbf234f039902f0092eb4f0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
