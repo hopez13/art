@@ -70,6 +70,30 @@
       "revId": "863d13aa6af7b2eae02b7ef574637d8eace3a3f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "741d661a_d9bed7cb",
+        "filename": "compiler/dex/quick/x86/target_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-01-28T20:50:04Z",
+      "side": 1,
+      "message": "According to what I read, StoreStore is guarenteed by the Intel memory model http://gee.cs.oswego.edu/dl/jmm/cookbook.html says that StoreStore on intel is a no-op, so really, this code is irrelevant.  I will remove the StoreStore case altogether.",
+      "parentUuid": "f40956de_ba74b1ae",
+      "range": {
+        "startLine": 631,
+        "startChar": 6,
+        "endLine": 631,
+        "endChar": 69
+      },
+      "revId": "863d13aa6af7b2eae02b7ef574637d8eace3a3f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
