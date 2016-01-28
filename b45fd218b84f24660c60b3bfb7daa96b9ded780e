@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4c1566d_3d561bad",
+        "filename": "test/569-checker-pattern-replacement/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-28T14:14:55Z",
+      "side": 1,
+      "message": "Why do you suddenly switch from CHECK-DAG here? Unless you require a certain ordering of lines inside the dump file, you should always stick with CHECK-DAG.",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 13
+      },
+      "revId": "b45fd218b84f24660c60b3bfb7daa96b9ded780e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
