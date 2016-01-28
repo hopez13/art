@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "54a782d1_c3274aa1",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-28T17:42:49Z",
+      "side": 1,
+      "message": "Yes, but I\u0027m following the style above.",
+      "parentUuid": "d49b728b_e77936a7",
+      "range": {
+        "startLine": 619,
+        "startChar": 0,
+        "endLine": 620,
+        "endChar": 67
+      },
+      "revId": "5a63836527f12661122bcdf89d9cb4125a06b5e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d4c4527f_ffa2d76b",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2016-01-28T17:22:58Z",
       "side": 1,
       "message": "Nit: factor this recurring pattern in a routine of the code generator?",
+      "range": {
+        "startLine": 623,
+        "startChar": 0,
+        "endLine": 625,
+        "endChar": 50
+      },
+      "revId": "5a63836527f12661122bcdf89d9cb4125a06b5e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14b18a0d_c1e86635",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-28T17:42:49Z",
+      "side": 1,
+      "message": "Actually changed the double swap below to use two temp regs.",
+      "parentUuid": "34520eae_5f220f92",
       "range": {
         "startLine": 623,
         "startChar": 0,
@@ -117,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "d4c4527f_bfac5f5f",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-28T17:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34520eae_7f1fcb4a",
+      "range": {
+        "startLine": 638,
+        "startChar": 53,
+        "endLine": 638,
+        "endChar": 54
+      },
+      "revId": "5a63836527f12661122bcdf89d9cb4125a06b5e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34520eae_1f1c8753",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 1
@@ -128,6 +200,30 @@
       "writtenOn": "2016-01-28T17:22:58Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 639,
+        "startChar": 51,
+        "endLine": 639,
+        "endChar": 52
+      },
+      "revId": "5a63836527f12661122bcdf89d9cb4125a06b5e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d49b728b_87894ae3",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-01-28T17:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34520eae_1f1c8753",
       "range": {
         "startLine": 639,
         "startChar": 51,
