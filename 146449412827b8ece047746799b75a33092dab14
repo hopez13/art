@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "14950abd_5b82e373",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-28T23:38:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4ea7e1e_a0d59ade",
+      "range": {
+        "startLine": 846,
+        "startChar": 0,
+        "endLine": 850,
+        "endChar": 5
+      },
+      "revId": "146449412827b8ece047746799b75a33092dab14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4e0763e_e210469d",
         "filename": "compiler/optimizing/builder.cc",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2016-01-28T23:16:55Z",
       "side": 1,
       "message": "Can\u0027t you remove that now? Didn\u0027t you remove the flag?",
+      "range": {
+        "startLine": 855,
+        "startChar": 0,
+        "endLine": 856,
+        "endChar": 44
+      },
+      "revId": "146449412827b8ece047746799b75a33092dab14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14950abd_7ba87ff6",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-01-28T23:38:49Z",
+      "side": 1,
+      "message": "I\u0027ll upload a rebase with that after fixing your issues now that I\u0027ve got your +2.",
+      "parentUuid": "f4e0763e_e210469d",
       "range": {
         "startLine": 855,
         "startChar": 0,
