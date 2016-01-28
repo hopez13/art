@@ -22,6 +22,30 @@
       "revId": "4a6a67ca93289b232a620bdf8bf30ff8b7b0b428",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54c4e260_d46e3544",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1032,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-01-28T00:14:30Z",
+      "side": 1,
+      "message": "Interesting question.\n\nI think we want to match the C++11/14 compare_exchange_weak(..., memory_order_seq_cst) semantics, which also cover Java semantics to the extent they\u0027re defined.\n\nFor the reasons pointed out above, these are indeed weaker than the ones you get by using one or more fences.  A C++11 CAS does not act as a fence for nearby memory_order_relaxed operations.  In the absence of non-seq_cst atomics, the difference should however not be observable.\n\nI hope and believe that the answer here is that LDAXR/STLXR are sufficient.  I believe they do guarantee sufficient ordering among sequentially consistent atomics since STLXR is multi-copy-store-atomic and no reordering is allowed among LDAXR and STLXR.\nThe latter prevents the problem from the first comment in https://android-review.googlesource.com/#/c/195360/\n\nAlthough I think this is technically correct, and we should go ahead with this CL, there are some hazards:\n\n1) This does not technically mix with DMB-based volatile implementations.  (The example in https://android-review.googlesource.com/#/c/195360/ can fail if volatile loads use DMB in conjunction with this CAS implementation.) Thus we should make sure that the runtime code also uses LDAXR/STLXR consistently.\n\n2) I\u0027m sure there exists code that erroneously assumes that CAS acts as a full barrier/fence.  But I think that\u0027s mostly C++ code and kernel code, so this is unlikely to compound those bugs.  I have one such ART bug assigned to me.  We do need to fix those.",
+      "parentUuid": "f40f96af_caf743f0",
+      "range": {
+        "startLine": 1018,
+        "startChar": 2,
+        "endLine": 1032,
+        "endChar": 30
+      },
+      "revId": "4a6a67ca93289b232a620bdf8bf30ff8b7b0b428",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
