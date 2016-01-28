@@ -377,6 +377,30 @@
       "revId": "17abd0039cfaed310de4a087740b2a73c3d1a008",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4bb5ef1_3bdd0391",
+        "filename": "test/973-iface-super-multidex-generated/build",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-28T13:57:27Z",
+      "side": 1,
+      "message": "Is the smali-multidex covering what you want to cover? If yes than you can drop this test. If not, then what do you need to *minimally* test it?\n\nDon\u0027t get me wrong, I think it\u0027s great that you did this test to stress test your implementation. But stress tests (like say fuzzer) are additional maintenance, so should be taken carefully.",
+      "parentUuid": "d4b8d2d6_c23af3be",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 11
+      },
+      "revId": "17abd0039cfaed310de4a087740b2a73c3d1a008",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
