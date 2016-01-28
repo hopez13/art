@@ -192,6 +192,30 @@
     },
     {
       "key": {
+        "uuid": "54c4e260_d2d2c581",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-28T16:56:00Z",
+      "side": 1,
+      "message": "You mean the actual single-dex-file one?\n\nSorry, this made the most sense. The entry driver should be the one to decide, and that\u0027s Resolve. I don\u0027t want to have to decide for each single dex file.\n\nI also want to point out that calling this API is a bit weird, considering this is *internal*/private.",
+      "parentUuid": "d4c4527f_bfda1f0c",
+      "range": {
+        "startLine": 564,
+        "startChar": 0,
+        "endLine": 565,
+        "endChar": 33
+      },
+      "revId": "6edfa30858649ecbcf8fd507985e5cdcfc09db9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7431e681_7688504c",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
