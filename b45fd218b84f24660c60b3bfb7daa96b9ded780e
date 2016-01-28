@@ -22,6 +22,30 @@
       "revId": "b45fd218b84f24660c60b3bfb7daa96b9ded780e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54a782d1_83514260",
+        "filename": "test/569-checker-pattern-replacement/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-28T14:18:50Z",
+      "side": 1,
+      "message": "I have a strong preference for CHECK as long as those things must be ordered, such as input dependencies. (Unless you want me to allow arbitrary splitting of instructions to blocks and reordering those blocks.)",
+      "parentUuid": "f4c1566d_3d561bad",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 13
+      },
+      "revId": "b45fd218b84f24660c60b3bfb7daa96b9ded780e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
