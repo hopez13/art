@@ -192,6 +192,24 @@
     },
     {
       "key": {
+        "uuid": "7153b827_467ab252",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-29T18:19:13Z",
+      "side": 1,
+      "message": "Though the NE+LT actually allows\n\n    subs out, op1, op2  // 16-bit if all are low regs.\n    it ne\n    movne out, #1       // 16-bit if out is low reg.\n    it lt\n    rsblt out, out, #0  // 16-bit if out is low reg.",
+      "parentUuid": "7153b827_6675ae62",
+      "revId": "fe8a1d4e5b4683529583ee01ae67a34c053b6173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d139c4d1_712578ec",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
