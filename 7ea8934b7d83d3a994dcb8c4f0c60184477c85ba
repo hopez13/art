@@ -1,0 +1,343 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d162a4ed_a9edbdaf",
+        "filename": "compiler/dex/quick/mips/utility_mips.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-29T14:19:35Z",
+      "side": 1,
+      "message": "(displacement \u0026 0x7) !\u003d 0",
+      "range": {
+        "startLine": 763,
+        "startChar": 10,
+        "endLine": 763,
+        "endChar": 28
+      },
+      "revId": "7ea8934b7d83d3a994dcb8c4f0c60184477c85ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3134e0db_0c83b7c3",
+        "filename": "compiler/dex/quick/mips/utility_mips.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-29T14:19:35Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 771,
+        "startChar": 17,
+        "endLine": 771,
+        "endChar": 35
+      },
+      "revId": "7ea8934b7d83d3a994dcb8c4f0c60184477c85ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9143cc4f_8f9c352c",
+        "filename": "compiler/dex/quick/mips/utility_mips.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 958,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-29T14:19:35Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 958,
+        "startChar": 10,
+        "endLine": 958,
+        "endChar": 28
+      },
+      "revId": "7ea8934b7d83d3a994dcb8c4f0c60184477c85ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7153b827_06f83a65",
+        "filename": "compiler/dex/quick/mips/utility_mips.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-29T14:19:35Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 965,
+        "startChar": 17,
+        "endLine": 965,
+        "endChar": 35
+      },
+      "revId": "7ea8934b7d83d3a994dcb8c4f0c60184477c85ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d139c4d1_91b57c96",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1811,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-29T14:19:35Z",
+      "side": 1,
+      "message": "You\u0027re losing the alignment information here. The simplest thing to do is\n\n    LoadConst32(AT, offset \u0026 ~(kMips64WordSize - 1));\n    Daddu(AT, AT, base);\n    base \u003d AT;\n    offset \u0026\u003d (kMips64WordSize - 1);\n\nor you can chose the mask based on the operand size.",
+      "range": {
+        "startLine": 1808,
+        "startChar": 0,
+        "endLine": 1811,
+        "endChar": 15
+      },
+      "revId": "7ea8934b7d83d3a994dcb8c4f0c60184477c85ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3134e0db_cc848fca",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1836,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-29T14:19:35Z",
+      "side": 1,
+      "message": "(offset \u0026 7) !\u003d 0",
+      "range": {
+        "startLine": 1836,
+        "startChar": 10,
+        "endLine": 1836,
+        "endChar": 22
+      },
+      "revId": "7ea8934b7d83d3a994dcb8c4f0c60184477c85ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d139c4d1_717458af",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1856,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-29T14:19:35Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1853,
+        "startChar": 0,
+        "endLine": 1856,
+        "endChar": 15
+      },
+      "revId": "7ea8934b7d83d3a994dcb8c4f0c60184477c85ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b10b7017_58fefd56",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1865,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-29T14:19:35Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1865,
+        "startChar": 10,
+        "endLine": 1865,
+        "endChar": 22
+      },
+      "revId": "7ea8934b7d83d3a994dcb8c4f0c60184477c85ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9143cc4f_4fd08dd5",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1914,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-29T14:19:35Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1911,
+        "startChar": 0,
+        "endLine": 1914,
+        "endChar": 15
+      },
+      "revId": "7ea8934b7d83d3a994dcb8c4f0c60184477c85ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d139c4d1_517954a3",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1929,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-29T14:19:35Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1929,
+        "startChar": 10,
+        "endLine": 1929,
+        "endChar": 22
+      },
+      "revId": "7ea8934b7d83d3a994dcb8c4f0c60184477c85ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7153b827_c6090248",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1951,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-29T14:19:35Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1948,
+        "startChar": 0,
+        "endLine": 1951,
+        "endChar": 15
+      },
+      "revId": "7ea8934b7d83d3a994dcb8c4f0c60184477c85ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7153b827_a6060636",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1960,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-29T14:19:35Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1960,
+        "startChar": 10,
+        "endLine": 1960,
+        "endChar": 22
+      },
+      "revId": "7ea8934b7d83d3a994dcb8c4f0c60184477c85ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9143cc4f_0fca8525",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-29T14:19:35Z",
+      "side": 1,
+      "message": "Change \"expected\" to std::ostringstream and write directly to that instead of creating the \"instr\" temporary.",
+      "range": {
+        "startLine": 858,
+        "startChar": 2,
+        "endLine": 858,
+        "endChar": 22
+      },
+      "revId": "7ea8934b7d83d3a994dcb8c4f0c60184477c85ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "112fdc8d_2bf3f98e",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-29T14:19:35Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 879,
+        "startChar": 2,
+        "endLine": 879,
+        "endChar": 22
+      },
+      "revId": "7ea8934b7d83d3a994dcb8c4f0c60184477c85ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9143cc4f_afb8198c",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-29T14:19:35Z",
+      "side": 1,
+      "message": "All offsets except 4 are 8-byte aligned. Please add more values. For 1-byte and 2-byte load/store add values like 1 and 2, perhaps also 0x7fff and 7ffe, 0x8001 and 0x8002. For 8-byte values, add 0x7ffc and 0x8004. Similar for the other tests below.",
+      "revId": "7ea8934b7d83d3a994dcb8c4f0c60184477c85ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
