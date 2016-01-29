@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "112fdc8d_6b8ea11e",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-29T12:17:50Z",
+      "side": 1,
+      "message": "This doesn\u0027t work due to arithmetic overflows: INT_MIN \u003c INT_MAX but (INT_MIN - INT_MAX) \u003e\u003e 31 \u003d\u003d 0.",
+      "parentUuid": "f1116843_5a7955a3",
+      "revId": "fe8a1d4e5b4683529583ee01ae67a34c053b6173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d139c4d1_712578ec",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
