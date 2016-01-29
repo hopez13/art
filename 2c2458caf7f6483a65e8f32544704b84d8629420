@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7153b827_46ef52dc",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-01-29T10:33:12Z",
+      "side": 1,
+      "message": "To be on the safe side, and consistent, please also set this one to 0.",
+      "range": {
+        "startLine": 701,
+        "startChar": 6,
+        "endLine": 701,
+        "endChar": 14
+      },
+      "revId": "2c2458caf7f6483a65e8f32544704b84d8629420",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
