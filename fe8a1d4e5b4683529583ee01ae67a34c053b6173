@@ -78,6 +78,24 @@
     },
     {
       "key": {
+        "uuid": "f1116843_9a8ecde4",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-01-29T13:26:14Z",
+      "side": 1,
+      "message": "Not even sure it would work for unsigned arithmetic. I need to double check all this. Anyway it does not matter here.",
+      "parentUuid": "71fc982b_de1fa548",
+      "revId": "fe8a1d4e5b4683529583ee01ae67a34c053b6173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d139c4d1_712578ec",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
