@@ -376,6 +376,30 @@
     },
     {
       "key": {
+        "uuid": "d139c4d1_f15608df",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1662,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-29T17:30:39Z",
+      "side": 1,
+      "message": "No, this is what I meant. Thanks!",
+      "parentUuid": "b140d043_30f3688f",
+      "range": {
+        "startLine": 1661,
+        "startChar": 44,
+        "endLine": 1662,
+        "endChar": 36
+      },
+      "revId": "7ea8934b7d83d3a994dcb8c4f0c60184477c85ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9143cc4f_cfbb5d88",
         "filename": "compiler/utils/mips64/assembler_mips64.cc",
         "patchSetId": 7
