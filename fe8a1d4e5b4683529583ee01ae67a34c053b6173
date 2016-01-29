@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b140d043_50182cc4",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-29T11:03:45Z",
+      "side": 1,
+      "message": "It\u0027s a matter of personal taste, but I\u0027d use the RegisterFrom helper here, as we do in compiler/optimizing/code_generator_arm64.cc:\n\n  Register op1_reg \u003d RegisterFrom(op1, type);\n  Register op2_reg \u003d RegisterFrom(op2, type);\n\n(and pass `type` instead of `is_long` to this method).",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 71
+      },
+      "revId": "fe8a1d4e5b4683529583ee01ae67a34c053b6173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d139c4d1_712578ec",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-29T11:03:45Z",
+      "side": 1,
+      "message": "Nit: extra white space.",
+      "range": {
+        "startLine": 297,
+        "startChar": 18,
+        "endLine": 297,
+        "endChar": 28
+      },
+      "revId": "fe8a1d4e5b4683529583ee01ae67a34c053b6173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
