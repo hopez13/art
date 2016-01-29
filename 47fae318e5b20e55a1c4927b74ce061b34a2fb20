@@ -39,6 +39,53 @@
       "revId": "47fae318e5b20e55a1c4927b74ce061b34a2fb20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "910e6c27_f7aba092",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2016-01-29T00:43:25Z",
+      "side": 1,
+      "message": "No, for ARM64 there is no MOV + setflags. If you are referring to the issue we have recently discussed that applies only to ARM Thumb2 code and in particular when instructions that set flags are used inside an IT block.",
+      "parentUuid": "94ed7a3a_7fce8f88",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 298,
+        "endChar": 58
+      },
+      "revId": "47fae318e5b20e55a1c4927b74ce061b34a2fb20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51207491_15a734cc",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2016-01-29T00:43:25Z",
+      "side": 1,
+      "message": "I guess we can do this without the MOV as follows:\n\nRegister zero_register \u003d is_long ? xzr : wzr;\n\n__Cinc(out, zero_register, gt);\n__Cinv(out, out, lt);\n\nPlease note that for ARM64 we have a dedicated zero register:\n- XZR - 64bit register view\n- WZR - 32bit register view\n\nHere are a couple of useful presentations on the ARM64 ISA:\nhttp://malideveloper.arm.com/downloads/ARMv8_InstructionSetOverview.pdf\nhttp://malideveloper.arm.com/downloads/ARMv8_64_bit_migration.pdf",
+      "range": {
+        "startLine": 299,
+        "startChar": 1,
+        "endLine": 300,
+        "endChar": 86
+      },
+      "revId": "47fae318e5b20e55a1c4927b74ce061b34a2fb20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
