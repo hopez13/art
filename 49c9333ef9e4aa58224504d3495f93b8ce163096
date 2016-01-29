@@ -22,6 +22,30 @@
       "revId": "49c9333ef9e4aa58224504d3495f93b8ce163096",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b140d043_b0599885",
+        "filename": "runtime/read_barrier.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-01-29T11:26:45Z",
+      "side": 1,
+      "message": "And also maybe mentioning the bug.\n\nI agree, this kind of fine tuning is subtle and should be documented.",
+      "parentUuid": "d4e37248_61cb9677",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 89
+      },
+      "revId": "49c9333ef9e4aa58224504d3495f93b8ce163096",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
