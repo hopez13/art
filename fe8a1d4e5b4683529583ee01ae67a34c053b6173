@@ -96,6 +96,24 @@
     },
     {
       "key": {
+        "uuid": "71fc982b_9e191d65",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-01-29T13:46:45Z",
+      "side": 1,
+      "message": "And it does not: 0xFFFFFFFF, 0x1.\nI think it can work if we restrict the input ranges. Maybe this staid in our mind from v8\u0027s smis (31bit integers).",
+      "parentUuid": "f1116843_9a8ecde4",
+      "revId": "fe8a1d4e5b4683529583ee01ae67a34c053b6173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d139c4d1_712578ec",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
