@@ -110,6 +110,30 @@
       "revId": "47fae318e5b20e55a1c4927b74ce061b34a2fb20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f465d6c4_c0419294",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-29T01:22:56Z",
+      "side": 1,
+      "message": "Hmm. I am having trouble setting the rn to zero reg.\nThe code breaks on the 3th assertion below. What am I missing (btw. we don\u0027t need the is_long, since the output is 32-bit, so we can use wzr in all cases)\n\nvoid Cinc(const Register\u0026 rd, const Register\u0026 rn, Condition cond) {\n    VIXL_ASSERT(allow_macro_instructions_);\n    VIXL_ASSERT(!rd.IsZero());\n    VIXL_ASSERT(!rn.IsZero());\n    SingleEmissionCheckScope guard(this);\n    cinc(rd, rn, cond);\n  }",
+      "parentUuid": "548b02a3_a3c9fe36",
+      "range": {
+        "startLine": 299,
+        "startChar": 1,
+        "endLine": 300,
+        "endChar": 86
+      },
+      "revId": "47fae318e5b20e55a1c4927b74ce061b34a2fb20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
