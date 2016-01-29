@@ -114,6 +114,24 @@
     },
     {
       "key": {
+        "uuid": "7153b827_26ac565d",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-01-29T14:36:36Z",
+      "side": 1,
+      "message": "The CMP+CSET/NE+CNEG/LT should be just as good as the CMP+CSET/GT+CINV/LT. Both work perfectly for the signed comparison. (If we wanted an unsigned compare, we would have to replace LT-\u003eLO, GT-\u003eHI, but I cannot see why we would ever need that.)\n\nAnd the CMP+CSET/NE+CNEG/LT approach is exactly what I would want for Thumb2:\n\n    cmp op1, op2\n    ite eq\n    moveq out, #0       // 16-bit if out is low reg.\n    movne out, #1       // 16-bit if out is low reg.\n    it lt\n    rsblt out, out, #0  // 16-bit if out is low reg.\n\n(mov out, #-1 would be 32-bit) so maybe we should use that for consistency.",
+      "parentUuid": "71fc982b_9e191d65",
+      "revId": "fe8a1d4e5b4683529583ee01ae67a34c053b6173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d139c4d1_712578ec",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
