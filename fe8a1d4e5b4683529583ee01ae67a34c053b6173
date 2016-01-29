@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5422228b_abc46d6b",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-29T18:04:43Z",
+      "side": 1,
+      "message": "I agree, I like such utils better too (but for now I just complied with the surrounding style). Perhaps I clean this up with my latter efforts.",
+      "parentUuid": "b140d043_50182cc4",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 71
+      },
+      "revId": "fe8a1d4e5b4683529583ee01ae67a34c053b6173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1116843_5a7955a3",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
@@ -132,6 +156,24 @@
     },
     {
       "key": {
+        "uuid": "d468d2a0_420bc8b0",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-29T18:04:43Z",
+      "side": 1,
+      "message": "So, what\u0027s the verdict. Should I change, or it this good to go?",
+      "parentUuid": "7153b827_26ac565d",
+      "revId": "fe8a1d4e5b4683529583ee01ae67a34c053b6173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d139c4d1_712578ec",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
@@ -143,6 +185,30 @@
       "writtenOn": "2016-01-29T11:03:45Z",
       "side": 1,
       "message": "Nit: extra white space.",
+      "range": {
+        "startLine": 297,
+        "startChar": 18,
+        "endLine": 297,
+        "endChar": 28
+      },
+      "revId": "fe8a1d4e5b4683529583ee01ae67a34c053b6173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5422228b_ab9d4d7f",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-01-29T18:04:43Z",
+      "side": 1,
+      "message": "Ah, I liked to line up the conditions, but it is again style yes. Removed.",
+      "parentUuid": "d139c4d1_712578ec",
       "range": {
         "startLine": 297,
         "startChar": 18,
