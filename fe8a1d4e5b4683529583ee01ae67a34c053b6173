@@ -60,6 +60,24 @@
     },
     {
       "key": {
+        "uuid": "71fc982b_de1fa548",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-01-29T13:15:32Z",
+      "side": 1,
+      "message": "You are right it would only work for unsigned arithmetic.\n\nThen would this sequence be clearer?\n\n    __ Cmp();\n    __ Cset(out, ne);      // If not equal, the result is -1 or +1.\n    __ Cneg(out, out, lt); // Negate +1 to -1 when op1 \u003c op2.",
+      "parentUuid": "112fdc8d_6b8ea11e",
+      "revId": "fe8a1d4e5b4683529583ee01ae67a34c053b6173",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d139c4d1_712578ec",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
