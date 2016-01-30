@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f465d6c4_6fb8b18d",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-01-30T00:32:05Z",
+      "side": 1,
+      "message": "Not really sure that should be the condition. If you want it this way, I\u0027d really want a warning otherwise here.",
+      "range": {
+        "startLine": 935,
+        "startChar": 9,
+        "endLine": 936,
+        "endChar": 58
+      },
+      "revId": "c17615b6c57e4f96003620c0641ea5f79566dfcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
