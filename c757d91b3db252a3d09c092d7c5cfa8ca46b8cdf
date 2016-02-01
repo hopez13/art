@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "317b00b0_14f3948e",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-02-01T14:49:10Z",
+      "side": 1,
+      "message": "I do not want to included non-related data at the end of mmaped page.  It just feels wrong.\n\nWhether we align or not given section depends on which sections are written.  Thus I like to do it implicitly here.",
+      "parentUuid": "517cf4a3_d5fbdc28",
+      "range": {
+        "startLine": 113,
+        "startChar": 6,
+        "endLine": 117,
+        "endChar": 7
+      },
+      "revId": "c757d91b3db252a3d09c092d7c5cfa8ca46b8cdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7153b827_4993e542",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2016-02-01T14:19:45Z",
       "side": 1,
       "message": "What do you think about changing it to \"bool write_program_headers\" without a default value? It would mean the user of the class don\u0027t have to know how many program headers an ELF file has and it would be more consistent with the approach we use for write_oat patches in the End() function.",
+      "revId": "c757d91b3db252a3d09c092d7c5cfa8ca46b8cdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "317b00b0_34f81066",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-02-01T14:49:10Z",
+      "side": 1,
+      "message": "The user of the class kind of needs to know the number of headers.  That is, at least the upper bound needs to be provided.\nHaving said that I am happy to revert to compile-time upper bound + write_program_headers.",
+      "parentUuid": "7153b827_4993e542",
       "revId": "c757d91b3db252a3d09c092d7c5cfa8ca46b8cdf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
