@@ -174,6 +174,24 @@
     },
     {
       "key": {
+        "uuid": "9143cc4f_72a2166f",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-02-01T16:58:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b140d043_d0865c40",
+      "revId": "c757d91b3db252a3d09c092d7c5cfa8ca46b8cdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "517cf4a3_950564f5",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 2
@@ -191,6 +209,24 @@
     },
     {
       "key": {
+        "uuid": "712ad87b_51415692",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1536,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-02-01T16:58:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "517cf4a3_950564f5",
+      "revId": "c757d91b3db252a3d09c092d7c5cfa8ca46b8cdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d139c4d1_549dc27b",
         "filename": "compiler/elf_writer_debug.cc",
         "patchSetId": 2
@@ -202,6 +238,24 @@
       "writtenOn": "2016-02-01T14:19:45Z",
       "side": 1,
       "message": "Please add a comment about why we don\u0027t want program headers here",
+      "revId": "c757d91b3db252a3d09c092d7c5cfa8ca46b8cdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "712ad87b_713c520e",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1567,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-02-01T16:58:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d139c4d1_549dc27b",
       "revId": "c757d91b3db252a3d09c092d7c5cfa8ca46b8cdf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
