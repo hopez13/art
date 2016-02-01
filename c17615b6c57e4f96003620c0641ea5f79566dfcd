@@ -22,6 +22,30 @@
       "revId": "c17615b6c57e4f96003620c0641ea5f79566dfcd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "517cf4a3_b5eae093",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-01T11:35:12Z",
+      "side": 1,
+      "message": "Also, I would introduce a \n\n  bool PreservesDeterministicCompiling() {\n    return (gc::kCollectorTypeDefault \u003d\u003d gc::kCollectorTypeCMS ||\n            gc::kCollectorTypeDefault \u003d\u003d gc::kCollectorTypeMS) \u0026\u0026\n        !kEmitCompilerReadBarrier;\n  }\n\npredicate and use it here and also as a condition on line 1185–1187.",
+      "parentUuid": "f465d6c4_6fb8b18d",
+      "range": {
+        "startLine": 935,
+        "startChar": 9,
+        "endLine": 936,
+        "endChar": 58
+      },
+      "revId": "c17615b6c57e4f96003620c0641ea5f79566dfcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
