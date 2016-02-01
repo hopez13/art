@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "7153b827_09b16db3",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-02-01T15:30:39Z",
+      "side": 1,
+      "message": "I would still rather be safe than sorry as the behavior also depends on the linker\u0027s implementation.\n\nThe elf spec says: \"Impurities in the other three pages are not logically part of the process image; whether the system expunges them is unspecified.\"\n\nNone the less, our JIT images contain no allocated sections, so it does not affect them.",
+      "parentUuid": "517cf4a3_356250bb",
+      "range": {
+        "startLine": 113,
+        "startChar": 6,
+        "endLine": 117,
+        "endChar": 7
+      },
+      "revId": "c757d91b3db252a3d09c092d7c5cfa8ca46b8cdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7153b827_4993e542",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 2
