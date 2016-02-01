@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "517cf4a3_9556c4ac",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-02-01T16:37:00Z",
+      "side": 1,
+      "message": "I don\u0027t see the risk of it but I agree that it have very little impact on the size of the ELF file so we can leave it as it is.",
+      "parentUuid": "7153b827_09b16db3",
+      "range": {
+        "startLine": 113,
+        "startChar": 6,
+        "endLine": 117,
+        "endChar": 7
+      },
+      "revId": "c757d91b3db252a3d09c092d7c5cfa8ca46b8cdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7153b827_4993e542",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 2
