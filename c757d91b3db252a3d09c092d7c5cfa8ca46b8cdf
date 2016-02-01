@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "517cf4a3_d5fbdc28",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-02-01T14:19:45Z",
+      "side": 1,
+      "message": "Why do we need to align to page boundary if we are switching from allocated section to a non-allocated section?\n\nShould we (explicitly) align the first section to page boundary if it is allocated?",
+      "range": {
+        "startLine": 113,
+        "startChar": 6,
+        "endLine": 117,
+        "endChar": 7
+      },
+      "revId": "c757d91b3db252a3d09c092d7c5cfa8ca46b8cdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7153b827_4993e542",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-02-01T14:19:45Z",
+      "side": 1,
+      "message": "What do you think about changing it to \"bool write_program_headers\" without a default value? It would mean the user of the class don\u0027t have to know how many program headers an ELF file has and it would be more consistent with the approach we use for write_oat patches in the End() function.",
+      "revId": "c757d91b3db252a3d09c092d7c5cfa8ca46b8cdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "517cf4a3_950564f5",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1536,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-02-01T14:19:45Z",
+      "side": 1,
+      "message": "Please add a comment about why we don\u0027t want program headers here",
+      "revId": "c757d91b3db252a3d09c092d7c5cfa8ca46b8cdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d139c4d1_549dc27b",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1567,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-02-01T14:19:45Z",
+      "side": 1,
+      "message": "Please add a comment about why we don\u0027t want program headers here",
+      "revId": "c757d91b3db252a3d09c092d7c5cfa8ca46b8cdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
