@@ -46,6 +46,53 @@
       "revId": "c17615b6c57e4f96003620c0641ea5f79566dfcd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5422228b_9fc9ab37",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-01T19:58:31Z",
+      "side": 1,
+      "message": "How about this:\n\nif (!kIsTargetBuild \u0026\u0026 IsBootImage()) {\n  if (SupportsDeterministicCompilation()) {\n    force_determinism_ \u003d true;\n  } else {\n    LOG(WARNING) \u003c\u003c \"Deterministic compilation is disabled.\"\n  }\n}\n\nbool SupportsDeterministicCompilation() {\n    return (gc::kCollectorTypeDefault \u003d\u003d gc::kCollectorTypeCMS ||\n            gc::kCollectorTypeDefault \u003d\u003d gc::kCollectorTypeMS) \u0026\u0026\n        !kEmitCompilerReadBarrier;\n}",
+      "parentUuid": "517cf4a3_b5eae093",
+      "range": {
+        "startLine": 935,
+        "startChar": 9,
+        "endLine": 936,
+        "endChar": 58
+      },
+      "revId": "c17615b6c57e4f96003620c0641ea5f79566dfcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "548b02a3_1c304c8e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-01T19:58:31Z",
+      "side": 1,
+      "message": "if (SupportsDeterministicCompilation()) {\n  Usage(\"Cannot use --force-determinism with read barriers or a non-CMS garbage collector\");\n}",
+      "range": {
+        "startLine": 1185,
+        "startChar": 12,
+        "endLine": 1185,
+        "endChar": 36
+      },
+      "revId": "c17615b6c57e4f96003620c0641ea5f79566dfcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
