@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "31fce07c_d240e43b",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2423,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-02-02T21:35:34Z",
+      "side": 1,
+      "message": "Well, unless you map the intrinsic to a very specific HIR node, something like signum allows us to do a single test followed by two conditional jumps on the same condition code. If you rewrite this into the HIR equivalent of (x \u003d\u003d 0 ? 0 : (x \u003e 0) ? 1 : -1)) you get two cmp instructions. Of course we can pattern match on this and avoid it, but hopefully you get my point.\n\nNote that I tried to bring this up a few days back, but I don\u0027t think I made my email very clear. I was bringing up we have several paths (method call -\u003e inlined -\u003e codegen, method  call -\u003e intrinsic -\u003e HIR -\u003e codegen and method call -\u003e intrinsic  -\u003e instrinsic codegen). All make certain things simpler, but ultimately all could in theory yield the same code. So I was asking for a preference, but did not hear any.",
+      "parentUuid": "d1b8e4d6_597ee38d",
+      "range": {
+        "startLine": 2388,
+        "startChar": 0,
+        "endLine": 2423,
+        "endChar": 1
+      },
+      "revId": "7b91525f9f8ac4bd98f11eb82c092c93b016fbdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "317b00b0_14e87430",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
