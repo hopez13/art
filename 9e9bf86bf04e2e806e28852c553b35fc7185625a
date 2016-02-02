@@ -22,6 +22,30 @@
       "revId": "9e9bf86bf04e2e806e28852c553b35fc7185625a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "712ad87b_5168369a",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-02-02T11:59:18Z",
+      "side": 1,
+      "message": "I do not want to inline EndClassTag without inlining StartClassTag.  Whether that should be done a valid question.  What do you think?",
+      "parentUuid": "317b00b0_b43ae069",
+      "range": {
+        "startLine": 1056,
+        "startChar": 4,
+        "endLine": 1058,
+        "endChar": 5
+      },
+      "revId": "9e9bf86bf04e2e806e28852c553b35fc7185625a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
