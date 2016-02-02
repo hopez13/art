@@ -46,6 +46,30 @@
       "revId": "b9e81a5ce6a0e565f083a500fb8ff06dca62473d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91d90c41_3fd587de",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-02T17:57:58Z",
+      "side": 1,
+      "message": "There\u0027s nothing wrong with the DCHECK. What this says is that if an instruction expects an input value, the input instruction must produce one.\n\nWhat you need to do is not set the in-location on the input which uses the HX86LoadFromConstantTable in the LocationBuilder. If you look at LocationBuilderX86::VisitAdd, you\u0027ll see that I\u0027ve added code that does exactly that. You should do the same with the instructions you\u0027re modifying in your CL.",
+      "parentUuid": "5116b490_a5ba3e24",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 31
+      },
+      "revId": "b9e81a5ce6a0e565f083a500fb8ff06dca62473d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
