@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "9143cc4f_524ef21c",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-02T12:04:02Z",
+      "side": 1,
+      "message": "Yes, sounds good to me!",
+      "parentUuid": "5422228b_9fc9ab37",
+      "range": {
+        "startLine": 935,
+        "startChar": 9,
+        "endLine": 936,
+        "endChar": 58
+      },
+      "revId": "c17615b6c57e4f96003620c0641ea5f79566dfcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "548b02a3_1c304c8e",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "writtenOn": "2016-02-01T19:58:31Z",
       "side": 1,
       "message": "if (SupportsDeterministicCompilation()) {\n  Usage(\"Cannot use --force-determinism with read barriers or a non-CMS garbage collector\");\n}",
+      "range": {
+        "startLine": 1185,
+        "startChar": 12,
+        "endLine": 1185,
+        "endChar": 36
+      },
+      "revId": "c17615b6c57e4f96003620c0641ea5f79566dfcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d139c4d1_d4e2d22f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1185,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-02T12:04:02Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "548b02a3_1c304c8e",
       "range": {
         "startLine": 1185,
         "startChar": 12,
