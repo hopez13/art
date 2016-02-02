@@ -94,6 +94,30 @@
       "revId": "9e9bf86bf04e2e806e28852c553b35fc7185625a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91d90c41_dfe73bfe",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-02-02T14:55:34Z",
+      "side": 1,
+      "message": "Then lets just keep it if both of you prefer it this way",
+      "parentUuid": "91d90c41_bfd19727",
+      "range": {
+        "startLine": 1056,
+        "startChar": 4,
+        "endLine": 1058,
+        "endChar": 5
+      },
+      "revId": "9e9bf86bf04e2e806e28852c553b35fc7185625a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
