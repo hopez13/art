@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1b5e8da_7acab926",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-02T18:19:51Z",
+      "side": 1,
+      "message": "Maybe fit on a single line (here and below)?",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 47
+      },
+      "revId": "ae3f46a11798d35362c6f0ddc606fdec5eac5ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1b8e4d6_7983a7c2",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-02T18:19:51Z",
+      "side": 1,
+      "message": "Nit: Extra pair of parens.",
+      "range": {
+        "startLine": 259,
+        "startChar": 9,
+        "endLine": 259,
+        "endChar": 77
+      },
+      "revId": "ae3f46a11798d35362c6f0ddc606fdec5eac5ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1b5e8da_babb7188",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-02T18:19:51Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 267,
+        "startChar": 9,
+        "endLine": 267,
+        "endChar": 77
+      },
+      "revId": "ae3f46a11798d35362c6f0ddc606fdec5eac5ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51db1439_1dd0d3ed",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-02T18:19:51Z",
+      "side": 1,
+      "message": "Is this OK to have this by default for mirror::Object?  Or should we depend on kUseReadBarrier to set the default?",
+      "range": {
+        "startLine": 163,
+        "startChar": 48,
+        "endLine": 163,
+        "endChar": 66
+      },
+      "revId": "ae3f46a11798d35362c6f0ddc606fdec5eac5ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1cf0471_c16da2d8",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-02T18:19:51Z",
+      "side": 1,
+      "message": "This is perhaps irrelevant, but is it desirable (or even possible) to implement something similar for ReadBarrier::BarrierForRoot?",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 5
+      },
+      "revId": "ae3f46a11798d35362c6f0ddc606fdec5eac5ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
