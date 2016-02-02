@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31678034_146254ec",
+        "filename": "runtime/interpreter/mterp/arm64/header.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1072540
+      },
+      "writtenOn": "2016-02-02T12:56:52Z",
+      "side": 1,
+      "message": "Mustn\u0027t this be \"lsl #3\"? Aren\u0027t references 64-bit?",
+      "revId": "e0c269e0a5f50b1a551ddba1205f6e5b4b5e6c98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1537054_5876bddd",
+        "filename": "runtime/interpreter/mterp/arm64/header.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1072540
+      },
+      "writtenOn": "2016-02-02T12:56:52Z",
+      "side": 1,
+      "message": "Again, LSL #3?",
+      "revId": "e0c269e0a5f50b1a551ddba1205f6e5b4b5e6c98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
