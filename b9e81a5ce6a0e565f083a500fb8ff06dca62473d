@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31c3005d_9424c48e",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-02-02T17:47:24Z",
+      "side": 1,
+      "message": "This can fail in the case where one of the inputs is HX86LoadFromConstantTable, which has emitted_at_use_site_ true and no output.  How about:\nDCHECK(has_out_location || input-\u003eIsEmittedAtUseSite())?",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 31
+      },
+      "revId": "b9e81a5ce6a0e565f083a500fb8ff06dca62473d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
