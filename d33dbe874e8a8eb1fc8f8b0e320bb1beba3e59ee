@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3115c084_a789a451",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-02T22:16:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9124acf4_90b77a3e",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 37
+      },
+      "revId": "d33dbe874e8a8eb1fc8f8b0e320bb1beba3e59ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11f7dc9a_b133989a",
         "filename": "runtime/read_barrier-inl.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-02T22:02:52Z",
       "side": 1,
       "message": "Same here.",
+      "range": {
+        "startLine": 135,
+        "startChar": 6,
+        "endLine": 135,
+        "endChar": 17
+      },
+      "revId": "d33dbe874e8a8eb1fc8f8b0e320bb1beba3e59ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9124acf4_70a766e4",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-02T22:16:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11f7dc9a_b133989a",
       "range": {
         "startLine": 135,
         "startChar": 6,
