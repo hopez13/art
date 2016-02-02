@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3115c084_e708bcb3",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-02T22:03:57Z",
+      "side": 1,
+      "message": "Why not IsUnprocessed()?",
+      "range": {
+        "startLine": 1084,
+        "startChar": 34,
+        "endLine": 1084,
+        "endChar": 61
+      },
+      "revId": "e362740479483d4eecfe11cb9ac642401c411cc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
