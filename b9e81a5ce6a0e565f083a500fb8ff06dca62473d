@@ -70,6 +70,30 @@
       "revId": "b9e81a5ce6a0e565f083a500fb8ff06dca62473d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5116b490_8530e28e",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-02-02T17:58:13Z",
+      "side": 1,
+      "message": "Working version:\n  for (size_t i \u003d 0, e \u003d current-\u003eInputCount(); i \u003c e; ++i) {\n    HInstruction* input \u003d current-\u003eInputAt(i);\n    if (input-\u003eIsEmittedAtUseSite()) {\n      // `Input` is inlined into `current`. Walk over its inputs and record\n      // uses at `current`.\n      RecursivelyProcessInputs(input, actual_user, live_in);\n    } else {\n      bool has_in_location \u003d current-\u003eGetLocations()-\u003eInAt(i).IsValid();\n      bool has_out_location \u003d input-\u003eGetLocations()-\u003eOut().IsValid();\n\n      if (has_in_location) {\n        DCHECK(has_out_location);\n        DCHECK(input-\u003eHasSsaIndex());\n        // `Input` generates a result used by `current`. Add use and update\n        // the live-in set.\n        input-\u003eGetLiveInterval()-\u003eAddUse(current, /* environment */ nullptr, i, actual_user);\n        live_in-\u003eSetBit(input-\u003eGetSsaIndex());\n      } else if (has_out_location) {\n        // `Input` generates a result but it is not used by `current`.\n      }\n    }\n  }\n\nThis is similar to the version that I had in my code.  You could eliminate the last else if and replace the bools has_in_location and has_out_location with their expression in the only uses of them",
+      "parentUuid": "5116b490_a5ba3e24",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 31
+      },
+      "revId": "b9e81a5ce6a0e565f083a500fb8ff06dca62473d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
