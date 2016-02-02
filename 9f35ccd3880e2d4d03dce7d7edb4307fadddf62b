@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1110bc94_03d06ed4",
+        "filename": "runtime/quick/inline_method_analyser.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-02T21:24:22Z",
+      "side": 1,
+      "message": "Why could it be null? Did you hit a crash? What code path?",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 30
+      },
+      "revId": "9f35ccd3880e2d4d03dce7d7edb4307fadddf62b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
