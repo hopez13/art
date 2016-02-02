@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "317b00b0_14e87430",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2680,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-02T10:24:47Z",
+      "side": 1,
+      "message": "This is valid for the long case as well.\n\nAnd if you special-case this here, you should also special-case this in the CreateSignLocations() to avoid the unnecessary register allocations.",
+      "range": {
+        "startLine": 2680,
+        "startChar": 13,
+        "endLine": 2680,
+        "endChar": 45
+      },
+      "revId": "7b91525f9f8ac4bd98f11eb82c092c93b016fbdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
