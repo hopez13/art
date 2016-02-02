@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11f7dc9a_abc04975",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2670,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-02-02T18:35:35Z",
+      "side": 1,
+      "message": "Use testl instead",
+      "revId": "652efd5d2b62ac49f8958de673f16c4cfe90633b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31c3005d_d408fcb3",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2680,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-02-02T18:35:35Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "652efd5d2b62ac49f8958de673f16c4cfe90633b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
