@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "71e018e1_9e95bd05",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-02T17:38:39Z",
+      "side": 1,
+      "message": "I think we\u0027d get some weird author conflicts if you tried to rebase right now, so please wait. I\u0027ll urge Nicolas to have a look at the other CL asap.",
+      "parentUuid": "b121b0e4_687e638e",
+      "revId": "ae63d0762f79a9caa761d61eeb54776447b3bc9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51db1439_9d38630f",
         "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
         "patchSetId": 7
