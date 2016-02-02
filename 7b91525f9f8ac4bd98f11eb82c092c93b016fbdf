@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5116b490_85f8e22d",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2423,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-02-02T17:17:00Z",
+      "side": 1,
+      "message": "Replacing intrinsics with HIR has certain advantage (like better folding), but keeping the exact semantics of an intrinsic has certain advantages too. In this case probably the latter wins, at least for e.g. arm.",
+      "parentUuid": "9143cc4f_5225d252",
+      "range": {
+        "startLine": 2388,
+        "startChar": 0,
+        "endLine": 2423,
+        "endChar": 1
+      },
+      "revId": "7b91525f9f8ac4bd98f11eb82c092c93b016fbdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "317b00b0_14e87430",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-02T10:24:47Z",
       "side": 1,
       "message": "This is valid for the long case as well.\n\nAnd if you special-case this here, you should also special-case this in the CreateSignLocations() to avoid the unnecessary register allocations.",
+      "range": {
+        "startLine": 2680,
+        "startChar": 13,
+        "endLine": 2680,
+        "endChar": 45
+      },
+      "revId": "7b91525f9f8ac4bd98f11eb82c092c93b016fbdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31c3005d_147434ae",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2680,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-02-02T17:17:00Z",
+      "side": 1,
+      "message": "Yes, fair enough. This was a bit half-baked. Fixed.",
+      "parentUuid": "317b00b0_14e87430",
       "range": {
         "startLine": 2680,
         "startChar": 13,
