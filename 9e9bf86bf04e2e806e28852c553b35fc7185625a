@@ -70,6 +70,30 @@
       "revId": "9e9bf86bf04e2e806e28852c553b35fc7185625a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91d90c41_bfd19727",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-02T13:51:27Z",
+      "side": 1,
+      "message": "I\u0027d keep this as is.",
+      "parentUuid": "1110bc94_63a202bd",
+      "range": {
+        "startLine": 1056,
+        "startChar": 4,
+        "endLine": 1058,
+        "endChar": 5
+      },
+      "revId": "9e9bf86bf04e2e806e28852c553b35fc7185625a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
