@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9124acf4_a76a4aee",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-02T16:07:36Z",
+      "side": 1,
+      "message": "Is it now worth doing this? Remove the DCHECKs and just overwrite in every class?",
+      "range": {
+        "startLine": 1406,
+        "startChar": 5,
+        "endLine": 1407,
+        "endChar": 31
+      },
+      "revId": "357ccdab5c8c1c1933e608457858d63036ce6c2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5116b490_c5881a0b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1408,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-02T16:07:36Z",
+      "side": 1,
+      "message": "Fix this, too, while you\u0027re here?",
+      "range": {
+        "startLine": 1408,
+        "startChar": 100,
+        "endLine": 1408,
+        "endChar": 102
+      },
+      "revId": "357ccdab5c8c1c1933e608457858d63036ce6c2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
