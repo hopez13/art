@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "31c3005d_d4a9dcfa",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-02T18:08:53Z",
+      "side": 1,
+      "message": "I had made the function const but then removed it.",
+      "parentUuid": "f1b5e8da_dab585ee",
+      "range": {
+        "startLine": 862,
+        "startChar": 2,
+        "endLine": 862,
+        "endChar": 9
+      },
+      "revId": "1aa8ec2ccdd7bedb6d30d91c89f1e94ab23c4439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1110bc94_83a8de97",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-02T13:19:38Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 246,
+        "startChar": 4,
+        "endLine": 246,
+        "endChar": 11
+      },
+      "revId": "1aa8ec2ccdd7bedb6d30d91c89f1e94ab23c4439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31fce07c_4c745f64",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-02T18:08:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1110bc94_83a8de97",
       "range": {
         "startLine": 246,
         "startChar": 4,
