@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1cc087f_22c1ee5c",
+        "filename": "compiler/dwarf/debug_abbrev_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-02-02T12:54:00Z",
+      "side": 1,
+      "message": "Should we move this into some utility class so we can use it in other places as well?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 2
+      },
+      "revId": "b9ea8c93283af41a41a27af8fbeeaa4976fc101e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "517cf4a3_9806f936",
+        "filename": "compiler/dwarf/debug_abbrev_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-02-02T12:54:00Z",
+      "side": 1,
+      "message": "Why do you add 2 attribute list end marker?",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 49
+      },
+      "revId": "b9ea8c93283af41a41a27af8fbeeaa4976fc101e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "712ad87b_1162aeba",
+        "filename": "compiler/dwarf/debug_abbrev_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-02-02T12:54:00Z",
+      "side": 1,
+      "message": "I would prefer to not push and pop the abbrev table terminator every time we are adding a new entry. Can we just move it to some finalization code?",
+      "revId": "b9ea8c93283af41a41a27af8fbeeaa4976fc101e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
