@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f1b5e8da_5aa255bc",
+        "filename": "compiler/dwarf/debug_abbrev_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-02T15:19:23Z",
+      "side": 1,
+      "message": "for (uint8_t value : v)",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 41
+      },
+      "revId": "b9ea8c93283af41a41a27af8fbeeaa4976fc101e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1cc087f_22c1ee5c",
         "filename": "compiler/dwarf/debug_abbrev_writer.h",
         "patchSetId": 1
@@ -85,6 +108,30 @@
       "side": 1,
       "message": "Should I move it to std_util.h?",
       "parentUuid": "b1d6100b_80f9d6a4",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 2
+      },
+      "revId": "b9ea8c93283af41a41a27af8fbeeaa4976fc101e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1b5e8da_7a4b99b1",
+        "filename": "compiler/dwarf/debug_abbrev_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-02T15:19:23Z",
+      "side": 1,
+      "message": "Maybe... Do you consider this a replacement for the std::hash\u003c\u003e?",
+      "parentUuid": "91d90c41_bf035757",
       "range": {
         "startLine": 32,
         "startChar": 0,
