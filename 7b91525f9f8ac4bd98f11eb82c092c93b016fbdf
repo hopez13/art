@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d1b8e4d6_597ee38d",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2423,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-02T18:07:20Z",
+      "side": 1,
+      "message": "what advantages for the intrinsics? Which exact semantics?",
+      "parentUuid": "5116b490_85f8e22d",
+      "range": {
+        "startLine": 2388,
+        "startChar": 0,
+        "endLine": 2423,
+        "endChar": 1
+      },
+      "revId": "7b91525f9f8ac4bd98f11eb82c092c93b016fbdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "317b00b0_14e87430",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 1
