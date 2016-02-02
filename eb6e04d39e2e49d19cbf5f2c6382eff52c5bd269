@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1d6100b_203c8a0d",
+        "filename": "compiler/dwarf/debug_abbrev_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-02T19:43:29Z",
+      "side": 1,
+      "message": "#include \u003ctype_traits\u003e (prefer explicit dependency over transitive #include from wherever)",
+      "range": {
+        "startLine": 38,
+        "startChar": 16,
+        "endLine": 38,
+        "endChar": 28
+      },
+      "revId": "eb6e04d39e2e49d19cbf5f2c6382eff52c5bd269",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1d6100b_804b96b0",
+        "filename": "compiler/dwarf/debug_abbrev_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-02T19:43:29Z",
+      "side": 1,
+      "message": "I would drop the UNLIKELY() unless you have measured that it helps. You\u0027re certainly hitting this on the first insertion.",
+      "range": {
+        "startLine": 68,
+        "startChar": 8,
+        "endLine": 68,
+        "endChar": 16
+      },
+      "revId": "eb6e04d39e2e49d19cbf5f2c6382eff52c5bd269",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51db1439_9d4f83bc",
+        "filename": "compiler/dwarf/debug_abbrev_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-02T19:43:29Z",
+      "side": 1,
+      "message": "Maybe int32_t?",
+      "range": {
+        "startLine": 82,
+        "startChar": 2,
+        "endLine": 82,
+        "endChar": 5
+      },
+      "revId": "eb6e04d39e2e49d19cbf5f2c6382eff52c5bd269",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1b8e4d6_39d5afde",
+        "filename": "compiler/dwarf/debug_abbrev_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-02T19:43:29Z",
+      "side": 1,
+      "message": "static_cast\u003cint32_t\u003e() and DCHECK_LT(abbrev_codes_.size(), static_cast\u003csize_t\u003e(std::numeric_limits\u003cint32_t\u003e::max())).",
+      "range": {
+        "startLine": 83,
+        "startChar": 15,
+        "endLine": 83,
+        "endChar": 35
+      },
+      "revId": "eb6e04d39e2e49d19cbf5f2c6382eff52c5bd269",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71e018e1_7e8391c2",
+        "filename": "compiler/dwarf/debug_abbrev_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-02T19:43:29Z",
+      "side": 1,
+      "message": "#include \"stl_util.h\"",
+      "range": {
+        "startLine": 89,
+        "startChar": 34,
+        "endLine": 89,
+        "endChar": 49
+      },
+      "revId": "eb6e04d39e2e49d19cbf5f2c6382eff52c5bd269",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11e51cf3_7b839fc2",
+        "filename": "compiler/elf_writer_debug.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-02T19:43:29Z",
+      "side": 1,
+      "message": "Add a comment, please.\n\nIs this the offset of this compilation unit\u0027s abbreviations from the start of .debug_abbrev? And are we passing 0 because we want to share abbreviations across all compilation units?",
+      "range": {
+        "startLine": 613,
+        "startChar": 41,
+        "endLine": 613,
+        "endChar": 42
+      },
+      "revId": "eb6e04d39e2e49d19cbf5f2c6382eff52c5bd269",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
