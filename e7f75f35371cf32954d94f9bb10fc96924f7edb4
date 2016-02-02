@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9462dabe_00fd47d0",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-02T01:35:25Z",
+      "side": 1,
+      "message": "Should this have a default value of kWithReadBarrier?",
+      "range": {
+        "startLine": 80,
+        "startChar": 28,
+        "endLine": 80,
+        "endChar": 46
+      },
+      "revId": "e7f75f35371cf32954d94f9bb10fc96924f7edb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
