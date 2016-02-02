@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "31fce07c_cfea0195",
+        "filename": "runtime/mirror/array.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-02T19:32:01Z",
+      "side": 1,
+      "message": "kWithReadBarrier?",
+      "range": {
+        "startLine": 202,
+        "startChar": 51,
+        "endLine": 202,
+        "endChar": 70
+      },
+      "revId": "ae3f46a11798d35362c6f0ddc606fdec5eac5ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1b5e8da_7acab926",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 1
@@ -71,6 +94,52 @@
     },
     {
       "key": {
+        "uuid": "5116b490_88f8f72d",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1105,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-02T19:32:01Z",
+      "side": 1,
+      "message": "kReadBarrierOption?",
+      "range": {
+        "startLine": 1105,
+        "startChar": 63,
+        "endLine": 1105,
+        "endChar": 82
+      },
+      "revId": "ae3f46a11798d35362c6f0ddc606fdec5eac5ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11f7dc9a_aebe9778",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-02T19:32:01Z",
+      "side": 1,
+      "message": "kReadBarrierOption?",
+      "range": {
+        "startLine": 1109,
+        "startChar": 51,
+        "endLine": 1109,
+        "endChar": 70
+      },
+      "revId": "ae3f46a11798d35362c6f0ddc606fdec5eac5ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51db1439_1dd0d3ed",
         "filename": "runtime/mirror/object.h",
         "patchSetId": 1
@@ -87,6 +156,53 @@
         "startChar": 48,
         "endLine": 163,
         "endChar": 66
+      },
+      "revId": "ae3f46a11798d35362c6f0ddc606fdec5eac5ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31fce07c_4fb1f1b2",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-02T19:32:01Z",
+      "side": 1,
+      "message": "The established pattern is to set the default to kWithReadBarrier. kUseReadBarrier is queried in the read barrier code.",
+      "parentUuid": "51db1439_1dd0d3ed",
+      "range": {
+        "startLine": 163,
+        "startChar": 48,
+        "endLine": 163,
+        "endChar": 66
+      },
+      "revId": "ae3f46a11798d35362c6f0ddc606fdec5eac5ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b121b0e4_cb02e9e9",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-02T19:32:01Z",
+      "side": 1,
+      "message": "Nice trick.",
+      "range": {
+        "startLine": 39,
+        "startChar": 24,
+        "endLine": 39,
+        "endChar": 56
       },
       "revId": "ae3f46a11798d35362c6f0ddc606fdec5eac5ffc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -111,6 +227,70 @@
         "endLine": 41,
         "endChar": 5
       },
+      "revId": "ae3f46a11798d35362c6f0ddc606fdec5eac5ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31c3005d_37d052d5",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-02T19:32:01Z",
+      "side": 1,
+      "message": "I think so. How about applying the same thing to BarrierForRoot?",
+      "parentUuid": "d1cf0471_c16da2d8",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 5
+      },
+      "revId": "ae3f46a11798d35362c6f0ddc606fdec5eac5ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71c9f878_d9591785",
+        "filename": "runtime/read_barrier-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-02T19:32:01Z",
+      "side": 1,
+      "message": "How about putting this in an else block to catch a forgotten return in the then block which is not small?",
+      "range": {
+        "startLine": 87,
+        "startChar": 2,
+        "endLine": 89,
+        "endChar": 33
+      },
+      "revId": "ae3f46a11798d35362c6f0ddc606fdec5eac5ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31fce07c_af7055af",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1071,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-02T19:32:01Z",
+      "side": 1,
+      "message": "How about surrounding the one-line body with if (kIsDebugBuild) {} to make sure it\u0027s used only in a debug build?",
       "revId": "ae3f46a11798d35362c6f0ddc606fdec5eac5ffc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
