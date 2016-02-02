@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b121b0e4_687e638e",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-02-02T17:01:25Z",
+      "side": 1,
+      "message": "Should I am assume that you will merge 200352 first, and then I will rebase on top?  Or do you just want me to rebase on top of it before you merge?",
+      "parentUuid": "51db1439_7d2477ee",
+      "revId": "ae63d0762f79a9caa761d61eeb54776447b3bc9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51db1439_9d38630f",
         "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
         "patchSetId": 7
@@ -30,6 +48,30 @@
       "writtenOn": "2016-02-02T16:52:08Z",
       "side": 1,
       "message": "I don\u0027t get this... \n\n  user-\u003eInputAt(index) \u003d\u003d current\n\nand you know that\n\n  current-\u003eIsEmittedAtUseSite()\n\nSo this will always skip the DCHECK.",
+      "range": {
+        "startLine": 277,
+        "startChar": 0,
+        "endLine": 277,
+        "endChar": 62
+      },
+      "revId": "ae63d0762f79a9caa761d61eeb54776447b3bc9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "711bb8b8_a622468f",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-02-02T17:01:25Z",
+      "side": 1,
+      "message": "I was just getting this to work, and figured that more DCHECKs were better :-)",
+      "parentUuid": "51db1439_9d38630f",
       "range": {
         "startLine": 277,
         "startChar": 0,
