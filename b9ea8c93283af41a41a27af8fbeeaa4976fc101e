@@ -168,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "11e51cf3_5b46e3ac",
+        "filename": "compiler/dwarf/debug_abbrev_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-02T15:35:23Z",
+      "side": 1,
+      "message": "http://www.cplusplus.com/reference/functional/hash/ says there is at least for std::vector\u003cbool\u003e but std::vector\u003cuint8_t\u003e is not guaranteed.\n\nThe more I think of it, the more I believe that stl_util.h would be a good place for this utility.",
+      "parentUuid": "f1b5e8da_9a4f8dbc",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 2
+      },
+      "revId": "b9ea8c93283af41a41a27af8fbeeaa4976fc101e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "517cf4a3_9806f936",
         "filename": "compiler/dwarf/debug_abbrev_writer.h",
         "patchSetId": 1
