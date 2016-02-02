@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f127a8f2_0a251b54",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2670,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-02-02T18:38:09Z",
+      "side": 1,
+      "message": "I was about to write yet another utility that would do cmp with literal and change it to test in such cases :-)\n\nBut ok, for now changed here and below.",
+      "parentUuid": "11f7dc9a_abc04975",
+      "revId": "652efd5d2b62ac49f8958de673f16c4cfe90633b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "31c3005d_d408fcb3",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2016-02-02T18:35:35Z",
       "side": 1,
       "message": "ditto",
+      "revId": "652efd5d2b62ac49f8958de673f16c4cfe90633b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71c9f878_762f3032",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2680,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-02-02T18:38:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31c3005d_d408fcb3",
       "revId": "652efd5d2b62ac49f8958de673f16c4cfe90633b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
