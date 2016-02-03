@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "11e51cf3_5bf26352",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-03T10:00:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1b5e8da_7a10f92b",
+      "range": {
+        "startLine": 186,
+        "startChar": 6,
+        "endLine": 186,
+        "endChar": 31
+      },
+      "revId": "b9e81a5ce6a0e565f083a500fb8ff06dca62473d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91d90c41_3fd027d5",
         "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
         "patchSetId": 1
@@ -131,6 +155,30 @@
       "writtenOn": "2016-02-03T08:43:56Z",
       "side": 1,
       "message": "maybe ditto",
+      "range": {
+        "startLine": 187,
+        "startChar": 6,
+        "endLine": 187,
+        "endChar": 35
+      },
+      "revId": "b9e81a5ce6a0e565f083a500fb8ff06dca62473d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1b5e8da_da3745b4",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-03T10:00:14Z",
+      "side": 1,
+      "message": "Not done. That\u0027s a sanity check for \n\n  has_out_location \u003d\u003e input-\u003eHasSsaIndex()",
+      "parentUuid": "91d90c41_3fd027d5",
       "range": {
         "startLine": 187,
         "startChar": 6,
@@ -166,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "d1b8e4d6_39cccfe2",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-03T10:00:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1d6100b_404b4e63",
+      "range": {
+        "startLine": 188,
+        "startChar": 10,
+        "endLine": 188,
+        "endChar": 15
+      },
+      "revId": "b9e81a5ce6a0e565f083a500fb8ff06dca62473d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1b8e4d6_59e8a331",
         "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
         "patchSetId": 1
@@ -177,6 +249,30 @@
       "writtenOn": "2016-02-03T08:43:56Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 193,
+        "startChar": 10,
+        "endLine": 193,
+        "endChar": 15
+      },
+      "revId": "b9e81a5ce6a0e565f083a500fb8ff06dca62473d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1110bc94_c36776f5",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-03T10:00:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1b8e4d6_59e8a331",
       "range": {
         "startLine": 193,
         "startChar": 10,
@@ -212,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "d1b8e4d6_59c183a9",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-03T10:00:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1cf0471_6144d633",
+      "range": {
+        "startLine": 195,
+        "startChar": 10,
+        "endLine": 195,
+        "endChar": 15
+      },
+      "revId": "b9e81a5ce6a0e565f083a500fb8ff06dca62473d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1cc087f_a2fb3e29",
         "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
         "patchSetId": 1
@@ -223,6 +343,30 @@
       "writtenOn": "2016-02-03T08:43:56Z",
       "side": 1,
       "message": "We should probably also DCHECK that the input is not a phi, otherwise loop phi could send us to infinite loop.",
+      "range": {
+        "startLine": 197,
+        "startChar": 6,
+        "endLine": 197,
+        "endChar": 42
+      },
+      "revId": "b9e81a5ce6a0e565f083a500fb8ff06dca62473d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1b5e8da_fa3409b2",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-03T10:00:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1cc087f_a2fb3e29",
       "range": {
         "startLine": 197,
         "startChar": 6,
