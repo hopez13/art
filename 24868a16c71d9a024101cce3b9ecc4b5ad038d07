@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1b8e4d6_f95337ba",
+        "filename": "compiler/dwarf/debug_abbrev_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-03T11:06:52Z",
+      "side": 1,
+      "message": "Still doesn\u0027t guard from overflow on 32-bit targets, though we would run out of memory first.",
+      "revId": "24868a16c71d9a024101cce3b9ecc4b5ad038d07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
