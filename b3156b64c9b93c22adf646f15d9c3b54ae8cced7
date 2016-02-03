@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11f7dc9a_d76a8fef",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-02-03T20:42:09Z",
+      "side": 1,
+      "message": "Just a general question about filling in the values in compiled code. This is going through the dex register list. Does it guarantee that every value in compiled code is filled? Did we disable enough gvn and code motion by the irreducible loop trick so that\u0027s not an issue? It would be nice if some comments can be added about that dependency.\n\nI\u0027m wondering if it\u0027s possible to come up with some form of checks to make sure all values in compiled code are filled, not just the ones that log entries in HEnvironment.",
+      "revId": "b3156b64c9b93c22adf646f15d9c3b54ae8cced7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
