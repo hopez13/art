@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "711bb8b8_7bdaa30d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1410,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-02-03T20:56:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1b8e4d6_1c8e191d",
+      "range": {
+        "startLine": 1410,
+        "startChar": 0,
+        "endLine": 1410,
+        "endChar": 11
+      },
+      "revId": "eb005200788890b710434c2851804f44bbf667b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1cf0471_2413bcac",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-03T17:47:16Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 279,
+        "startChar": 25,
+        "endLine": 279,
+        "endChar": 35
+      },
+      "revId": "eb005200788890b710434c2851804f44bbf667b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31fce07c_c1fbf028",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-02-03T20:56:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1cf0471_2413bcac",
       "range": {
         "startLine": 279,
         "startChar": 25,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "31c3005d_43fef056",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-02-03T20:56:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1b8e4d6_7c9d554a",
+      "range": {
+        "startLine": 467,
+        "startChar": 25,
+        "endLine": 467,
+        "endChar": 35
+      },
+      "revId": "eb005200788890b710434c2851804f44bbf667b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1b8e4d6_9c8149eb",
         "filename": "test/458-checker-instruction-simplification/src/Main.java",
         "patchSetId": 8
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "f127a8f2_d9d8ffa0",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-02-03T20:56:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1b8e4d6_9c8149eb",
+      "range": {
+        "startLine": 1407,
+        "startChar": 100,
+        "endLine": 1407,
+        "endChar": 106
+      },
+      "revId": "eb005200788890b710434c2851804f44bbf667b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1b5e8da_dd8bbf04",
         "filename": "test/458-checker-instruction-simplification/src/Main.java",
         "patchSetId": 8
@@ -105,6 +201,30 @@
       "writtenOn": "2016-02-03T17:47:16Z",
       "side": 1,
       "message": "after",
+      "range": {
+        "startLine": 1423,
+        "startChar": 100,
+        "endLine": 1423,
+        "endChar": 106
+      },
+      "revId": "eb005200788890b710434c2851804f44bbf667b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11f7dc9a_37fe7356",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 1423,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-02-03T20:56:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1b5e8da_dd8bbf04",
       "range": {
         "startLine": 1423,
         "startChar": 100,
@@ -151,6 +271,30 @@
       "writtenOn": "2016-02-03T17:47:16Z",
       "side": 1,
       "message": "All three of these should have a use at the Select, so add\n\n  uses:[\u003c\u003cUseInput\u003e\u003e]\n\nto the LoadFromConstantTable and LessThanOrEqual. That will prove that the three instructions have a use at the same position and then the EVAL proves that it\u0027s at the Select\u0027s second position.",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 69
+      },
+      "revId": "eb005200788890b710434c2851804f44bbf667b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31fce07c_41754062",
+        "filename": "test/565-checker-condition-liveness/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-02-03T20:56:53Z",
+      "side": 1,
+      "message": "Actually, the instructions DON\u0027T all have uses.  I get:\n      0 1 i28 X86ComputeBaseMethodAddress liveness:16 ranges:{[16,23)} uses:[23] env_uses:[] is_fixed:0 is_split:0 is_low:0 is_high:0 \u003c|@\n      0 1 f29 X86LoadFromConstantTable [i28,f24] liveness:18 \u003c|@\n      0 1 z12 LessThanOrEqual [f2,f29] liveness:20 \u003c|@\n      0 1 i26 Select [i11,i18,z12] liveness:22 ranges:{[22,24)} uses:[24] env_uses:[] is_fixed:0 is_split:0 is_low:0 is_high:0 \u003c|@\n\nThis is because they are marked as EmitAtUseSite, and don\u0027t get added directly.",
+      "parentUuid": "d1b8e4d6_dc8bc104",
       "range": {
         "startLine": 24,
         "startChar": 6,
