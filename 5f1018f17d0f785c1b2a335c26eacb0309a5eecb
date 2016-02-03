@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f1cc087f_65da200e",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-03T18:07:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1d6100b_40b26e23",
+      "range": {
+        "startLine": 663,
+        "startChar": 2,
+        "endLine": 665,
+        "endChar": 3
+      },
+      "revId": "5f1018f17d0f785c1b2a335c26eacb0309a5eecb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1cf0471_817e3af2",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 5
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b1d6100b_a3d42418",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-03T18:07:37Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "d1cf0471_817e3af2",
+      "range": {
+        "startLine": 696,
+        "startChar": 4,
+        "endLine": 696,
+        "endChar": 90
+      },
+      "revId": "5f1018f17d0f785c1b2a335c26eacb0309a5eecb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91d90c41_7f01cf98",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 5
@@ -59,6 +107,30 @@
       "writtenOn": "2016-02-03T17:52:43Z",
       "side": 1,
       "message": "One line?",
+      "range": {
+        "startLine": 783,
+        "startChar": 7,
+        "endLine": 785,
+        "endChar": 27
+      },
+      "revId": "5f1018f17d0f785c1b2a335c26eacb0309a5eecb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71e018e1_e1ce2086",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-03T18:07:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91d90c41_7f01cf98",
       "range": {
         "startLine": 783,
         "startChar": 7,
@@ -117,6 +189,54 @@
     },
     {
       "key": {
+        "uuid": "f1cc087f_a5e348c4",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-03T18:07:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1cf0471_c16f623e",
+      "range": {
+        "startLine": 615,
+        "startChar": 27,
+        "endLine": 615,
+        "endChar": 32
+      },
+      "revId": "5f1018f17d0f785c1b2a335c26eacb0309a5eecb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11e51cf3_9eddb934",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-03T18:07:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1b8e4d6_7c12b5a5",
+      "range": {
+        "startLine": 615,
+        "startChar": 53,
+        "endLine": 615,
+        "endChar": 61
+      },
+      "revId": "5f1018f17d0f785c1b2a335c26eacb0309a5eecb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51db1439_ddb4ab3b",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 5
@@ -128,6 +248,30 @@
       "writtenOn": "2016-02-03T17:52:43Z",
       "side": 1,
       "message": "are",
+      "range": {
+        "startLine": 326,
+        "startChar": 55,
+        "endLine": 326,
+        "endChar": 57
+      },
+      "revId": "5f1018f17d0f785c1b2a335c26eacb0309a5eecb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1cf0471_c403f056",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-03T18:07:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51db1439_ddb4ab3b",
       "range": {
         "startLine": 326,
         "startChar": 55,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "d1cf0471_e400f44c",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-03T18:07:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1d6100b_207f2af4",
+      "range": {
+        "startLine": 338,
+        "startChar": 28,
+        "endLine": 338,
+        "endChar": 30
+      },
+      "revId": "5f1018f17d0f785c1b2a335c26eacb0309a5eecb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71e018e1_7ea551d1",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 5
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "11e51cf3_beda7537",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-03T18:07:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71e018e1_7ea551d1",
+      "range": {
+        "startLine": 95,
+        "startChar": 30,
+        "endLine": 95,
+        "endChar": 73
+      },
+      "revId": "5f1018f17d0f785c1b2a335c26eacb0309a5eecb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1cc087f_45d51cdd",
         "filename": "runtime/stack_map.h",
         "patchSetId": 5
@@ -197,6 +389,30 @@
       "writtenOn": "2016-02-03T17:52:43Z",
       "side": 1,
       "message": "Hack hack hack! You should add a DCHECK that the third one is not identical, because sooner or later somebody will turn triples into a marker too.",
+      "range": {
+        "startLine": 1204,
+        "startChar": 32,
+        "endLine": 1204,
+        "endChar": 76
+      },
+      "revId": "5f1018f17d0f785c1b2a335c26eacb0309a5eecb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71e018e1_01ccec8b",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1204,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-03T18:07:37Z",
+      "side": 1,
+      "message": "Hack -\u003e trick?\n\nThere are DCHECKs that we don\u0027t have similar stack maps except for osr, you don\u0027t think that\u0027s enough?\n\nI\u0027ve added your DCHECK :)",
+      "parentUuid": "f1cc087f_45d51cdd",
       "range": {
         "startLine": 1204,
         "startChar": 32,
