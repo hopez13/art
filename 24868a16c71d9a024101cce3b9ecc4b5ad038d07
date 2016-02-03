@@ -16,6 +16,24 @@
       "revId": "24868a16c71d9a024101cce3b9ecc4b5ad038d07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1b5e8da_9ad14d81",
+        "filename": "compiler/dwarf/debug_abbrev_writer.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-02-03T11:14:33Z",
+      "side": 1,
+      "message": "Yeah, if we overflow vector size we have different problems to worry about :-)\nAlso, in reality this map will hold around dozen entries or so.",
+      "parentUuid": "d1b8e4d6_f95337ba",
+      "revId": "24868a16c71d9a024101cce3b9ecc4b5ad038d07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
