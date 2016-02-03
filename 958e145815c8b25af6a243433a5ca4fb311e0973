@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1cc087f_e250e6e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-03T10:43:27Z",
+      "side": 1,
+      "message": "I think you should keep the initial text (it helps to find commits in Gerrit or Git), even if it does not fit in the line limits.",
+      "range": {
+        "startLine": 7,
+        "startChar": 51,
+        "endLine": 7,
+        "endChar": 54
+      },
+      "revId": "958e145815c8b25af6a243433a5ca4fb311e0973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1110bc94_e30552f4",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-03T10:43:27Z",
+      "side": 1,
+      "message": "TryDeMorganNegationFactoring?",
+      "range": {
+        "startLine": 52,
+        "startChar": 7,
+        "endLine": 52,
+        "endChar": 23
+      },
+      "revId": "958e145815c8b25af6a243433a5ca4fb311e0973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1d6100b_8049d64a",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-03T10:43:27Z",
+      "side": 1,
+      "message": "\u003c\u003c op-\u003eDebugName()",
+      "revId": "958e145815c8b25af6a243433a5ca4fb311e0973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1b8e4d6_1949cb13",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-03T10:43:27Z",
+      "side": 1,
+      "message": "Maybe use operator `?:` here?",
+      "range": {
+        "startLine": 201,
+        "startChar": 4,
+        "endLine": 206,
+        "endChar": 5
+      },
+      "revId": "958e145815c8b25af6a243433a5ca4fb311e0973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
