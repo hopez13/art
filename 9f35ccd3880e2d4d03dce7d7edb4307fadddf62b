@@ -22,6 +22,30 @@
       "revId": "9f35ccd3880e2d4d03dce7d7edb4307fadddf62b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51db1439_dd6aebbd",
+        "filename": "runtime/quick/inline_method_analyser.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-03T10:19:34Z",
+      "side": 1,
+      "message": "jdwp. The debugger passes result\u003d\u003dnull, which is also an indication that we should _not_ do the extra checks for IGET/IPUT fields.",
+      "parentUuid": "1110bc94_03d06ed4",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 30
+      },
+      "revId": "9f35ccd3880e2d4d03dce7d7edb4307fadddf62b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
