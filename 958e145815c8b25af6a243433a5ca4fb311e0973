@@ -223,6 +223,30 @@
       "revId": "958e145815c8b25af6a243433a5ca4fb311e0973",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71e018e1_fe4de149",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-03T11:07:24Z",
+      "side": 1,
+      "message": "Right; I didn\u0027t think about that.  The initial code SGTM then. :)",
+      "parentUuid": "11627c24_93531cee",
+      "range": {
+        "startLine": 201,
+        "startChar": 4,
+        "endLine": 206,
+        "endChar": 5
+      },
+      "revId": "958e145815c8b25af6a243433a5ca4fb311e0973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
