@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71e018e1_9ee5bd3b",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-03T14:32:40Z",
+      "side": 1,
+      "message": "These are pretty restrictive. You can do the simplification even if left \u0026 right have other uses. You just cannot remove them (but you should leave that to DCE anyway).",
+      "range": {
+        "startLine": 181,
+        "startChar": 6,
+        "endLine": 182,
+        "endChar": 42
+      },
+      "revId": "ca0e3a0c9f1fd5902dc40043b061d2f9b79ec098",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
