@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "91566c44_d740dc3b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-03T10:55:08Z",
+      "side": 1,
+      "message": "Actually it is only a warning.",
+      "parentUuid": "71449888_5e48750c",
+      "range": {
+        "startLine": 7,
+        "startChar": 51,
+        "endLine": 7,
+        "endChar": 54
+      },
+      "revId": "958e145815c8b25af6a243433a5ca4fb311e0973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1110bc94_e30552f4",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 7
