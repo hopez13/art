@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1cc087f_62f21653",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-03T08:38:26Z",
+      "side": 1,
+      "message": "For consistency, HPhi",
+      "range": {
+        "startLine": 64,
+        "startChar": 37,
+        "endLine": 64,
+        "endChar": 40
+      },
+      "revId": "e5c71f98cb74943157d22f7cf408847156eae402",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1110bc94_03622eec",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-03T08:38:26Z",
+      "side": 1,
+      "message": "You don\u0027t really need it for a checker test. You should also name the method $noinline$testHSelect if you really do not want it to be inlined.\n\nAnother trick we do is just if (staticField) throw new Error(\"\") to disable inlining.",
+      "range": {
+        "startLine": 677,
+        "startChar": 0,
+        "endLine": 687,
+        "endChar": 25
+      },
+      "revId": "e5c71f98cb74943157d22f7cf408847156eae402",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
