@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b1537054_58623dbb",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-03T14:54:21Z",
+      "side": 1,
+      "message": "Added this to my TODO list. (Kevin is working away from our team for a while.)",
+      "parentUuid": "d1cf0471_6115b6cc",
+      "range": {
+        "startLine": 179,
+        "startChar": 6,
+        "endLine": 179,
+        "endChar": 19
+      },
+      "revId": "ca0e3a0c9f1fd5902dc40043b061d2f9b79ec098",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71e018e1_9ee5bd3b",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-03T14:32:40Z",
       "side": 1,
       "message": "These are pretty restrictive. You can do the simplification even if left \u0026 right have other uses. You just cannot remove them (but you should leave that to DCE anyway).",
+      "range": {
+        "startLine": 181,
+        "startChar": 6,
+        "endLine": 182,
+        "endChar": 42
+      },
+      "revId": "ca0e3a0c9f1fd5902dc40043b061d2f9b79ec098",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31678034_b722828f",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-03T14:54:21Z",
+      "side": 1,
+      "message": "If any of those has other uses it is probably not worth doing the transformation, since it requires adding another `HNot`.",
+      "parentUuid": "71e018e1_9ee5bd3b",
       "range": {
         "startLine": 181,
         "startChar": 6,
