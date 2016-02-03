@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "d1cf0471_6115b6cc",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-03T14:36:19Z",
+      "side": 1,
+      "message": "Would you consider doing the same for BooleanNot?",
+      "range": {
+        "startLine": 179,
+        "startChar": 6,
+        "endLine": 179,
+        "endChar": 19
+      },
+      "revId": "ca0e3a0c9f1fd5902dc40043b061d2f9b79ec098",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71e018e1_9ee5bd3b",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 8
