@@ -22,6 +22,30 @@
       "revId": "82c2b4a3de724c050d23fb48c2070f3f806a0f24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1b8e4d6_9c33099b",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-02-04T13:00:21Z",
+      "side": 1,
+      "message": "this is null for PathClassLoader.",
+      "parentUuid": "5116b490_6eb13eb3",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 310,
+        "endChar": 65
+      },
+      "revId": "82c2b4a3de724c050d23fb48c2070f3f806a0f24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
