@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "11f7dc9a_e8e36ac3",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-02-04T16:18:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1d6100b_c321287d",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 46
+      },
+      "revId": "ca8d9883ea856db60387049c8ae6d9724aa87550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51db1439_402a70bc",
         "filename": "runtime/interpreter/mterp/arm/op_goto.S",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b121b0e4_92bbf9db",
+        "filename": "runtime/interpreter/mterp/arm/op_goto.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-02-04T16:18:14Z",
+      "side": 1,
+      "message": "After this (and OSR) is all in, I\u0027ll be doing a round of cost analysis for the various profiling modes.  If justified, I\u0027ll move some of it to the alternate interpreter and enable/disable via a change in IBASE.  For example, fold the branch profile code together with MterpCheckSuspendAndContinue (which fires on backwards branches), and then do the OSR check in the alternative interpreter (which would be enabled when the method goes hot).",
+      "parentUuid": "51db1439_402a70bc",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 70
+      },
+      "revId": "ca8d9883ea856db60387049c8ae6d9724aa87550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11e51cf3_9e3939cc",
         "filename": "runtime/interpreter/mterp/mterp.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-02-04T14:33:45Z",
       "side": 1,
       "message": "Is it worth doing this check here? Note that the JIT instrumentation will already do it.\n\nAlso, once osr is in, we will have to do something regardless of backward branch.",
+      "range": {
+        "startLine": 631,
+        "startChar": 0,
+        "endLine": 631,
+        "endChar": 20
+      },
+      "revId": "ca8d9883ea856db60387049c8ae6d9724aa87550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31c3005d_e9935d7b",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-02-04T16:18:14Z",
+      "side": 1,
+      "message": "As the code is now, yes - it is worth doing a check to avoid the call to instrumentation-\u003eBranch.  But, I do expect to rework this all once OSR is in and I have a change to measure instrumentation cost.",
+      "parentUuid": "11e51cf3_9e3939cc",
       "range": {
         "startLine": 631,
         "startChar": 0,
