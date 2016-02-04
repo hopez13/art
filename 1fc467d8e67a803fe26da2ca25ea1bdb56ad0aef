@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11f7dc9a_d9d47e19",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2477,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-04T22:21:21Z",
+      "side": 1,
+      "message": "I strongly wonder whether this should go into LinkCode and FixupTrampolines, i.e., into NeedsInterpreter.\n\nThat is considering how we do instrumentation already - we still have the oat class accessible, but linking diverts to the interpreter.\n\nIt may be a better point to keep those things in one point instead of two.\n\n(The \"benchmark\" would still be basically valid, just down the line...)",
+      "range": {
+        "startLine": 2471,
+        "startChar": 2,
+        "endLine": 2477,
+        "endChar": 3
+      },
+      "revId": "1fc467d8e67a803fe26da2ca25ea1bdb56ad0aef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
