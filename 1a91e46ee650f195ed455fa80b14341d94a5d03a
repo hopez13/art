@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71c9f878_3de83063",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4118,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-02-04T01:14:34Z",
+      "side": 1,
+      "message": "Add Compare32BitValue?  I see this idiom over and over.",
+      "range": {
+        "startLine": 4115,
+        "startChar": 8,
+        "endLine": 4118,
+        "endChar": 46
+      },
+      "revId": "1a91e46ee650f195ed455fa80b14341d94a5d03a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
