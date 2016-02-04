@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1110bc94_a67088af",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-04T10:25:42Z",
+      "side": 1,
+      "message": "Either put these on a single line or add a blank line in between.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 32
+      },
+      "revId": "3f1a8be7c9511afbc1ea0ce2e76a018269382336",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1d6100b_23d014ee",
         "filename": "test/562-bce-preheader/src/Main.java",
         "patchSetId": 1
