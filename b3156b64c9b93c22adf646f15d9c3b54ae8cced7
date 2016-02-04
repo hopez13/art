@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "51db1439_2013a4ac",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-04T13:45:40Z",
+      "side": 1,
+      "message": "The guarantee is given by the way we compile with the osr flag, which will make all loops irreducible. By making them irreducible, we disable all optimizations that would prevent not every value being filled. Theres i a DCHECK in the compiler that no instruction (besides constants) flow in the loop header of an irreducible loop.",
+      "parentUuid": "11f7dc9a_d76a8fef",
+      "revId": "b3156b64c9b93c22adf646f15d9c3b54ae8cced7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1b8e4d6_bc852d7e",
         "filename": "runtime/stack_map.h",
         "patchSetId": 7
@@ -30,6 +48,30 @@
       "writtenOn": "2016-02-04T11:00:18Z",
       "side": 1,
       "message": "aren\u0027t three identical stack maps.",
+      "range": {
+        "startLine": 1216,
+        "startChar": 31,
+        "endLine": 1216,
+        "endChar": 64
+      },
+      "revId": "b3156b64c9b93c22adf646f15d9c3b54ae8cced7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71e018e1_417994a3",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1216,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-04T13:45:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1b8e4d6_bc852d7e",
       "range": {
         "startLine": 1216,
         "startChar": 31,
