@@ -93,6 +93,30 @@
       "revId": "3f1a8be7c9511afbc1ea0ce2e76a018269382336",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "711bb8b8_66a7a3cb",
+        "filename": "test/562-bce-preheader/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-02-04T16:59:09Z",
+      "side": 1,
+      "message": "Oh boy. I should *not* have used Aartspeak and called it interesting :-) But I am very intrigued by this \"fuzzer\" test. I love how it exposes code constructs one would never ever dream of writing.\n\nI will do a better write up in the bug report (a checker test is indeed hard, also because later we may have an earlier dead code removal that would avoid some of this).\n\nFor now just checking in to get my P1 out of the way.",
+      "parentUuid": "f1b5e8da_5d508f0c",
+      "range": {
+        "startLine": 77,
+        "startChar": 5,
+        "endLine": 77,
+        "endChar": 16
+      },
+      "revId": "3f1a8be7c9511afbc1ea0ce2e76a018269382336",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
