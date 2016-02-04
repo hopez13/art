@@ -46,6 +46,53 @@
       "revId": "82c2b4a3de724c050d23fb48c2070f3f806a0f24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f127a8f2_741ab5fc",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-02-04T21:24:21Z",
+      "side": 1,
+      "message": "Yes. I see.",
+      "parentUuid": "d1b8e4d6_9c33099b",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 310,
+        "endChar": 65
+      },
+      "revId": "82c2b4a3de724c050d23fb48c2070f3f806a0f24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11f7dc9a_fe8e80e4",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-02-04T21:24:21Z",
+      "side": 1,
+      "message": "What do you think of changing this to:\n \n if (oat_location !\u003d nullptr) {\n    if (!oat_file_assistant.MakeUpToDate(/*out*/\u0026error_msg)) {\n          LOG(WARNING) \u003c\u003c error_msg;\n    }\n }\n\nAnd no oat file assistant changes would be needed?",
+      "range": {
+        "startLine": 325,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 3
+      },
+      "revId": "82c2b4a3de724c050d23fb48c2070f3f806a0f24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
