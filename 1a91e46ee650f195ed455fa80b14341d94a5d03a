@@ -22,6 +22,30 @@
       "revId": "1a91e46ee650f195ed455fa80b14341d94a5d03a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11f7dc9a_e8888a95",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4118,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-02-04T17:51:55Z",
+      "side": 1,
+      "message": "Done, also in the 64 bit codegen for 32 and 64. Cleans up nicely and we can add other special values if we discover them :-)",
+      "parentUuid": "71c9f878_3de83063",
+      "range": {
+        "startLine": 4115,
+        "startChar": 8,
+        "endLine": 4118,
+        "endChar": 46
+      },
+      "revId": "1a91e46ee650f195ed455fa80b14341d94a5d03a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
