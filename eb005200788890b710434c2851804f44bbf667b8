@@ -328,6 +328,30 @@
       "revId": "eb005200788890b710434c2851804f44bbf667b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b121b0e4_92c5b919",
+        "filename": "test/565-checker-condition-liveness/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-02-04T17:59:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1d6100b_03eb109a",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 69
+      },
+      "revId": "eb005200788890b710434c2851804f44bbf667b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
