@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71e018e1_812e3c7c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-04T14:23:52Z",
+      "side": 1,
+      "message": "Do you need a new test for this? What does it do today without this change?",
+      "range": {
+        "startLine": 461,
+        "startChar": 0,
+        "endLine": 463,
+        "endChar": 3
+      },
+      "revId": "25e382eca8838a5b8bf0043ffcc269e777e9a0d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11e51cf3_7e554dfb",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-04T14:23:52Z",
+      "side": 1,
+      "message": "Error to avoid the \"throws Exception\" at method declaration.",
+      "range": {
+        "startLine": 678,
+        "startChar": 16,
+        "endLine": 678,
+        "endChar": 25
+      },
+      "revId": "25e382eca8838a5b8bf0043ffcc269e777e9a0d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
