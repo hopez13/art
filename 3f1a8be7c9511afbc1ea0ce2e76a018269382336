@@ -69,6 +69,30 @@
       "revId": "3f1a8be7c9511afbc1ea0ce2e76a018269382336",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1b5e8da_5d508f0c",
+        "filename": "test/562-bce-preheader/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-04T10:29:27Z",
+      "side": 1,
+      "message": "Thanks Nicolas but your Davidspeak is a little rusty. I was suggesting that Aart describes in better detail what the situation causing the DCHECK to fail looked like. A Checker test would not be able to do that because the bug is on an intermediate step of the transformation. Plus it\u0027s such a minor change that I wouldn\u0027t harass Aart over it.\n\nThat said, you are right that a Checker test would guarantee that the test keeps testing the same thing in the future.",
+      "parentUuid": "d1b8e4d6_3c911dca",
+      "range": {
+        "startLine": 77,
+        "startChar": 5,
+        "endLine": 77,
+        "endChar": 16
+      },
+      "revId": "3f1a8be7c9511afbc1ea0ce2e76a018269382336",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
