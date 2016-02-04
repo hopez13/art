@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1d6100b_c321287d",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-04T14:33:45Z",
+      "side": 1,
+      "message": "if (kRuntimeISA \u003d\u003d kArm || kRuntimeISA \u003d\u003d kArm64) ?",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 46
+      },
+      "revId": "ca8d9883ea856db60387049c8ae6d9724aa87550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51db1439_402a70bc",
+        "filename": "runtime/interpreter/mterp/arm/op_goto.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-04T14:33:45Z",
+      "side": 1,
+      "message": "Do you plan on doing a compare and not branch in a follow-up cl?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 70
+      },
+      "revId": "ca8d9883ea856db60387049c8ae6d9724aa87550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11e51cf3_9e3939cc",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-04T14:33:45Z",
+      "side": 1,
+      "message": "Is it worth doing this check here? Note that the JIT instrumentation will already do it.\n\nAlso, once osr is in, we will have to do something regardless of backward branch.",
+      "range": {
+        "startLine": 631,
+        "startChar": 0,
+        "endLine": 631,
+        "endChar": 20
+      },
+      "revId": "ca8d9883ea856db60387049c8ae6d9724aa87550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
