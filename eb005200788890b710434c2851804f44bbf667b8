@@ -304,6 +304,30 @@
       "revId": "eb005200788890b710434c2851804f44bbf667b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1d6100b_03eb109a",
+        "filename": "test/565-checker-condition-liveness/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-04T10:18:29Z",
+      "side": 1,
+      "message": "Oh right, my bad. So the uses are now on Base, Arg and Five.",
+      "parentUuid": "31fce07c_41754062",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 69
+      },
+      "revId": "eb005200788890b710434c2851804f44bbf667b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
