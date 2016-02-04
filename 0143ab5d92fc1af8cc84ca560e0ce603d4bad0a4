@@ -22,6 +22,30 @@
       "revId": "0143ab5d92fc1af8cc84ca560e0ce603d4bad0a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31c3005d_9b74ec65",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1682,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-04T19:16:57Z",
+      "side": 1,
+      "message": "Why conditional on kMadviseZeroes? It does not matter what the pages end up containing, only if they are using less PSS or RAM.\n\nI\u0027ll add the VLOG.",
+      "parentUuid": "31c3005d_3b63d8c2",
+      "range": {
+        "startLine": 1681,
+        "startChar": 0,
+        "endLine": 1682,
+        "endChar": 72
+      },
+      "revId": "0143ab5d92fc1af8cc84ca560e0ce603d4bad0a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
