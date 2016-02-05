@@ -45,6 +45,30 @@
       "revId": "49921dfcba9341a2a50d3e722bb5158d98c4757e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d185445a_f1cf8835",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-02-05T17:14:35Z",
+      "side": 1,
+      "message": "I don\u0027t understand this comment. Can you explain it a bit more?\n\nDo you want me to merge this one whit the one in class_linker.cc (they have pretty different signature)?\nOr do you want me to remove line 506 from this file (I think it was added because of the SHARED_REQUIRES)? Or I completely misunderstand what you meant?",
+      "parentUuid": "51feb4bd_251dee4f",
+      "range": {
+        "startLine": 508,
+        "startChar": 0,
+        "endLine": 508,
+        "endChar": 79
+      },
+      "revId": "49921dfcba9341a2a50d3e722bb5158d98c4757e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
