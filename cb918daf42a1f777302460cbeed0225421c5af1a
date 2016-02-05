@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "11543cb0_26fe3880",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-05T20:13:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1c4647f_99c53bb8",
+      "revId": "cb918daf42a1f777302460cbeed0225421c5af1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "31fce07c_78010699",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "d1e38448_418ad245",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-05T20:13:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31fce07c_78010699",
+      "range": {
+        "startLine": 531,
+        "startChar": 5,
+        "endLine": 531,
+        "endChar": 45
+      },
+      "revId": "cb918daf42a1f777302460cbeed0225421c5af1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "31c3005d_342f657e",
         "filename": "runtime/gc/allocator/rosalloc.h",
         "patchSetId": 1
@@ -53,6 +95,30 @@
       "writtenOn": "2016-02-05T03:57:47Z",
       "side": 1,
       "message": "Why is there a -1 here, is there a thread local bracket index equal to kNumThreadLocalSizeBrackets?",
+      "range": {
+        "startLine": 534,
+        "startChar": 10,
+        "endLine": 534,
+        "endChar": 13
+      },
+      "revId": "cb918daf42a1f777302460cbeed0225421c5af1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f16b2868_2ab83ffa",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-05T20:13:26Z",
+      "side": 1,
+      "message": "The -1 is part of the first \u0027term\u0027 and is needed to compute the index from the bracket size. It\u0027s more like (note the parentheses):\n\nidx \u003d ((size - kMaxThreadLocalBracketSize) / kBracketQuantumSize - 1) + kNumThreadLocalSizeBrackets\n\nIndexes 0 (8 bytes) through 15 (128 bytes) are thread local. Index 16 (\u003dkNumThreadLocalSizeBrackets) isn\u0027t thread local.\n\nFor example, if size \u003d 144 (index 16), given\n\nkMaxThreadLocalBracketSize \u003d 128\nkBracketQuantumSize \u003d 16\nkNumThreadLocalSizeBrackets \u003d 16\n\nidx \u003d ((144 - 128) / 16 - 1) + 16 \u003d (16 / 16 - 1) + 16 \u003d 0 + 16 \u003d 16.\n\nI reformatted it to clarify.",
+      "parentUuid": "31c3005d_342f657e",
       "range": {
         "startLine": 534,
         "startChar": 10,
