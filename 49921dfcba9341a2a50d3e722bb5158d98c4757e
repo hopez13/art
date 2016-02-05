@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b18c5088_70207088",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2610,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-05T16:59:01Z",
+      "side": 1,
+      "message": "I\u0027d prefer something more ala:\n\nif (..InterpreteOnly()) return false;\nif (JitAtFirstUse()) return false\nreturn true;",
+      "range": {
+        "startLine": 2608,
+        "startChar": 0,
+        "endLine": 2610,
+        "endChar": 51
+      },
+      "revId": "49921dfcba9341a2a50d3e722bb5158d98c4757e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
