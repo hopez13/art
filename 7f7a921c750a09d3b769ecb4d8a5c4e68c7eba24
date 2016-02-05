@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d16e247a_69a9659a",
+        "filename": "runtime/quick/inline_method_analyser.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-05T17:28:22Z",
+      "side": 1,
+      "message": "This pattern is restricted and won\u0027t apply to inner classes. Bytecode is allowed to have IPUTs on this before the call, and that\u0027s how the \"outer this\" is implemented, usually.\n\nIf you change it to be more general, you\u0027ll have to split the IPutOnThis matcher, as the early ones *are* visible and can\u0027t be eliminated if there\u0027s another later store...",
+      "range": {
+        "startLine": 247,
+        "startChar": 2,
+        "endLine": 263,
+        "endChar": 4
+      },
+      "revId": "7f7a921c750a09d3b769ecb4d8a5c4e68c7eba24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
