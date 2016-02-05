@@ -22,6 +22,30 @@
       "revId": "7f7a921c750a09d3b769ecb4d8a5c4e68c7eba24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1126fc4f_93565c10",
+        "filename": "runtime/quick/inline_method_analyser.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-05T17:39:11Z",
+      "side": 1,
+      "message": "I think it would be possible to eliminate even IPUTs from before the invoke because, after flattening the whole chain, there would be no code to read them in between the IPUTs.\n\nAnyway, it would be more complicated and I\u0027d like to keep this simple for now.",
+      "parentUuid": "d16e247a_69a9659a",
+      "range": {
+        "startLine": 247,
+        "startChar": 2,
+        "endLine": 263,
+        "endChar": 4
+      },
+      "revId": "7f7a921c750a09d3b769ecb4d8a5c4e68c7eba24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
