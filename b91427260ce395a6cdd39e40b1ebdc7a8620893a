@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "918f4c7c_2fb609a1",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-05T17:39:11Z",
+      "side": 1,
+      "message": "Hans, can you confirm that we need to emit the barrier only if we write a non-zero value to a final field?",
+      "range": {
+        "startLine": 681,
+        "startChar": 10,
+        "endLine": 681,
+        "endChar": 82
+      },
+      "revId": "b91427260ce395a6cdd39e40b1ebdc7a8620893a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
