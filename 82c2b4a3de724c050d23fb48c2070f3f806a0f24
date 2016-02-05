@@ -117,6 +117,30 @@
       "revId": "82c2b4a3de724c050d23fb48c2070f3f806a0f24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "315940ea_27a71428",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-05T21:55:52Z",
+      "side": 1,
+      "message": "Richard is OOO, so I\u0027m taking this over.\n\nYes, our tests. :-)\n\nAn app or application uses a PathClassLoader for the class-path. So that\u0027s how you\u0027d get here...",
+      "parentUuid": "f1d7a87c_6ab6d7fa",
+      "range": {
+        "startLine": 325,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 3
+      },
+      "revId": "82c2b4a3de724c050d23fb48c2070f3f806a0f24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
