@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1340868_62e416cd",
+        "filename": "test/565-checker-doublenegbitwise/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-05T13:27:04Z",
+      "side": 1,
+      "message": "This is not right because it tests the NOT:Or after the matched BoolNot which is just before Return. Either split this into two CHECK-STARTs - one BoolNot vs. zero Ors - or get rid of it entirely because you\u0027ve shown the Or is not part of the data-flow leading to the Return.",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 119
+      },
+      "revId": "488faf8481d54245e77e1bafeac6e23a22f07efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
