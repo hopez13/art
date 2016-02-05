@@ -69,6 +69,30 @@
       "revId": "488faf8481d54245e77e1bafeac6e23a22f07efc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d185445a_118c8c1c",
+        "filename": "test/565-checker-doublenegbitwise/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-05T14:00:53Z",
+      "side": 1,
+      "message": "Thanks.\nThat\u0027s only because you\u0027re using InsertBefore internally. What you want to test is that the Or was removed, period. Not just from a part of the file.",
+      "parentUuid": "31e4e025_acc4231b",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 119
+      },
+      "revId": "488faf8481d54245e77e1bafeac6e23a22f07efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
