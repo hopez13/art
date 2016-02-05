@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "7176584c_2e304723",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-05T11:01:28Z",
+      "side": 1,
+      "message": "No need to branch. They\u0027re both single-input instructions.\n\n  src_left \u003d left-\u003eInputAt(0);\n\nYou can DCHECK that it matches the GetInput if you want.",
+      "range": {
+        "startLine": 191,
+        "startChar": 29,
+        "endLine": 192,
+        "endChar": 68
+      },
+      "revId": "90acd0ee48f61c88521215608988ea37271f2c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d185445a_11e80ccd",
         "filename": "test/565-checker-doublenegbitwise/src/Main.java",
         "patchSetId": 1
@@ -36,6 +59,29 @@
       "writtenOn": "2016-02-05T10:57:10Z",
       "side": 1,
       "message": "Maybe add `before` checks as well (here and below)?",
+      "revId": "90acd0ee48f61c88521215608988ea37271f2c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "918f4c7c_aff8b99f",
+        "filename": "test/565-checker-doublenegbitwise/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-05T11:01:28Z",
+      "side": 1,
+      "message": "Just out of curiosity... You\u0027re using \u0026 instead of \u0026\u0026 to avoid short-circuiting?",
+      "range": {
+        "startLine": 84,
+        "startChar": 14,
+        "endLine": 84,
+        "endChar": 15
+      },
       "revId": "90acd0ee48f61c88521215608988ea37271f2c1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
