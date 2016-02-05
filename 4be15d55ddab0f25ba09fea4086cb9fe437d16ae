@@ -143,6 +143,29 @@
     },
     {
       "key": {
+        "uuid": "7176584c_ce7663df",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-02-05T11:36:49Z",
+      "side": 1,
+      "message": "This tells me that you might store two different compiled methods: osr and normal).\n\nCan\u0027t you re-use the normal compile method here?\nIf not, do we get rid of the osr method eagerly (once the execution of the methods finishes we wouldn\u0027t need it)?",
+      "range": {
+        "startLine": 163,
+        "startChar": 2,
+        "endLine": 163,
+        "endChar": 46
+      },
+      "revId": "4be15d55ddab0f25ba09fea4086cb9fe437d16ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1340868_22012e4f",
         "filename": "runtime/thread.cc",
         "patchSetId": 8
