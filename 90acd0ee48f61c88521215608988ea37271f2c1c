@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11f8bcd1_23016a4f",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-05T10:57:10Z",
+      "side": 1,
+      "message": "Nit: I think the style we use for long `?:` statements is this one:\n\n  HInstruction* src_left \u003d boolean_not ?\n      left-\u003eAsBooleanNot()-\u003eGetInput() :\n      left-\u003eAsNot()-\u003eGetInput();\n\nOr this one, if you prefer it:\n\n  HInstruction* src_left \u003d boolean_not\n      ? left-\u003eAsBooleanNot()-\u003eGetInput()\n      : left-\u003eAsNot()-\u003eGetInput();",
+      "range": {
+        "startLine": 191,
+        "startChar": 4,
+        "endLine": 192,
+        "endChar": 69
+      },
+      "revId": "90acd0ee48f61c88521215608988ea37271f2c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d185445a_11e80ccd",
+        "filename": "test/565-checker-doublenegbitwise/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-05T10:57:10Z",
+      "side": 1,
+      "message": "Maybe add `before` checks as well (here and below)?",
+      "revId": "90acd0ee48f61c88521215608988ea37271f2c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7176584c_0e330b33",
+        "filename": "test/565-checker-doublenegbitwise/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-05T10:57:10Z",
+      "side": 1,
+      "message": "And",
+      "range": {
+        "startLine": 126,
+        "startChar": 21,
+        "endLine": 126,
+        "endChar": 23
+      },
+      "revId": "90acd0ee48f61c88521215608988ea37271f2c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1340868_022aeabb",
+        "filename": "test/565-checker-doublenegbitwise/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-05T10:57:10Z",
+      "side": 1,
+      "message": "And",
+      "range": {
+        "startLine": 127,
+        "startChar": 54,
+        "endLine": 127,
+        "endChar": 56
+      },
+      "revId": "90acd0ee48f61c88521215608988ea37271f2c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
