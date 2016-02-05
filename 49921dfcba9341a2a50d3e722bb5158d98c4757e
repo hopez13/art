@@ -22,6 +22,29 @@
       "revId": "49921dfcba9341a2a50d3e722bb5158d98c4757e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51feb4bd_251dee4f",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-05T17:00:20Z",
+      "side": 1,
+      "message": "Looks like you could only have one CanUseOATCode?",
+      "range": {
+        "startLine": 508,
+        "startChar": 0,
+        "endLine": 508,
+        "endChar": 79
+      },
+      "revId": "49921dfcba9341a2a50d3e722bb5158d98c4757e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
