@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "b109b0b1_a8977b2c",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-05T11:38:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7176584c_2e304723",
+      "range": {
+        "startLine": 191,
+        "startChar": 29,
+        "endLine": 192,
+        "endChar": 68
+      },
+      "revId": "90acd0ee48f61c88521215608988ea37271f2c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d185445a_11e80ccd",
         "filename": "test/565-checker-doublenegbitwise/src/Main.java",
         "patchSetId": 1
@@ -65,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "7103b891_e676bede",
+        "filename": "test/565-checker-doublenegbitwise/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-05T11:38:54Z",
+      "side": 1,
+      "message": "I had not put them thinking it would be confusing because it involves `HSelect` and constants rather than `HBooleanNot`.\nI\u0027ll add it along with a comment.",
+      "parentUuid": "d185445a_11e80ccd",
+      "revId": "90acd0ee48f61c88521215608988ea37271f2c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "918f4c7c_aff8b99f",
         "filename": "test/565-checker-doublenegbitwise/src/Main.java",
         "patchSetId": 1
@@ -76,6 +118,30 @@
       "writtenOn": "2016-02-05T11:01:28Z",
       "side": 1,
       "message": "Just out of curiosity... You\u0027re using \u0026 instead of \u0026\u0026 to avoid short-circuiting?",
+      "range": {
+        "startLine": 84,
+        "startChar": 14,
+        "endLine": 84,
+        "endChar": 15
+      },
+      "revId": "90acd0ee48f61c88521215608988ea37271f2c1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31e4e025_8cb047b1",
+        "filename": "test/565-checker-doublenegbitwise/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-05T11:38:54Z",
+      "side": 1,
+      "message": "To be honest I did not pay attention to this. But there is an issue with using `\u0026\u0026` and `||`. Somehow the `HSelect` optimization doesn\u0027t kick in and we end up with a series of `HIf` and constants. I haven\u0027t looked further. Maybe because there is no `HCondition` input to the `Hif` (they take directly a boolean value)?\n\nBut I *am* using `boolean` inputs instead of synthesizing conditions to avoid being short-circuited by `HSelect` and `HBooleanNot` optimizations.",
+      "parentUuid": "918f4c7c_aff8b99f",
       "range": {
         "startLine": 84,
         "startChar": 14,
