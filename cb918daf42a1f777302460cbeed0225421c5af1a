@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1c4647f_99c53bb8",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-05T03:57:47Z",
+      "side": 1,
+      "message": "const?",
+      "revId": "cb918daf42a1f777302460cbeed0225421c5af1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31fce07c_78010699",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-05T03:57:47Z",
+      "side": 1,
+      "message": "Remove the commented out code?",
+      "range": {
+        "startLine": 531,
+        "startChar": 5,
+        "endLine": 531,
+        "endChar": 45
+      },
+      "revId": "cb918daf42a1f777302460cbeed0225421c5af1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31c3005d_342f657e",
+        "filename": "runtime/gc/allocator/rosalloc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-05T03:57:47Z",
+      "side": 1,
+      "message": "Why is there a -1 here, is there a thread local bracket index equal to kNumThreadLocalSizeBrackets?",
+      "range": {
+        "startLine": 534,
+        "startChar": 10,
+        "endLine": 534,
+        "endChar": 13
+      },
+      "revId": "cb918daf42a1f777302460cbeed0225421c5af1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
