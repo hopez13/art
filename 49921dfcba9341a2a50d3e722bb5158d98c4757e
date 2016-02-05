@@ -69,6 +69,30 @@
       "revId": "49921dfcba9341a2a50d3e722bb5158d98c4757e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d137046a_2144ce4d",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-05T17:16:20Z",
+      "side": 1,
+      "message": "Merge it with the one from class_linker. You don\u0027t need the shadow frame here, just the method, and you could still pass the GetEntryPointFromQuickCompiledCode for the const void* parameter of the other method.",
+      "parentUuid": "d185445a_f1cf8835",
+      "range": {
+        "startLine": 508,
+        "startChar": 0,
+        "endLine": 508,
+        "endChar": 79
+      },
+      "revId": "49921dfcba9341a2a50d3e722bb5158d98c4757e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
