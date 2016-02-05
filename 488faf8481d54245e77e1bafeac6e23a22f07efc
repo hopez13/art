@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f1824850_526bf4f4",
+        "filename": "test/565-checker-doublenegbitwise/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-05T13:28:19Z",
+      "side": 1,
+      "message": "Can you fix these too? Sorry, that somehow slipped past me in the previous CL.",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 42
+      },
+      "revId": "488faf8481d54245e77e1bafeac6e23a22f07efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1340868_62e416cd",
         "filename": "test/565-checker-doublenegbitwise/src/Main.java",
         "patchSetId": 2
