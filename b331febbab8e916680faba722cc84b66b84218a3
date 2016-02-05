@@ -22,6 +22,30 @@
       "revId": "b331febbab8e916680faba722cc84b66b84218a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "918f4c7c_afc99932",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-05T17:24:44Z",
+      "side": 1,
+      "message": "For 10% of methods, unfortunately yes ;) I\u0027ll leave it as an exercise to actually read the try/catch table.",
+      "parentUuid": "d185445a_91c4fc1b",
+      "range": {
+        "startLine": 654,
+        "startChar": 0,
+        "endLine": 654,
+        "endChar": 85
+      },
+      "revId": "b331febbab8e916680faba722cc84b66b84218a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
