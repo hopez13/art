@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "711bb8b8_94cac623",
+        "filename": "compiler/debug_info/elf_compilation_unit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-05T17:12:22Z",
+      "side": 1,
+      "message": "Considering there\u0027s a CompilationUnit in the compiler, I\u0027d prefer explicit naming (not just a namespace).",
+      "range": {
+        "startLine": 2,
+        "startChar": 7,
+        "endLine": 2,
+        "endChar": 22
+      },
+      "revId": "a5b8b23b1119827a8842b182404b8fedb3c558da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31c3005d_54b22123",
+        "filename": "compiler/debug_info/elf_debug_line_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-05T17:12:22Z",
+      "side": 1,
+      "message": "_",
+      "range": {
+        "startLine": 208,
+        "startChar": 42,
+        "endLine": 208,
+        "endChar": 44
+      },
+      "revId": "a5b8b23b1119827a8842b182404b8fedb3c558da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
