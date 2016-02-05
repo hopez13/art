@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "51feb4bd_e51236a7",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-05T10:51:34Z",
+      "side": 1,
+      "message": "Since you\u0027re not counting the edges any more, this can now be a BitVector, right?",
+      "range": {
+        "startLine": 662,
+        "startChar": 2,
+        "endLine": 662,
+        "endChar": 21
+      },
+      "revId": "4be15d55ddab0f25ba09fea4086cb9fe437d16ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1126fc4f_93f3bcc5",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-05T10:51:34Z",
+      "side": 1,
+      "message": "Thanks for adding this, we should have had this a long time ago. Could you refactor the code a little to also apply to non-OSR SuspendChecks, though?",
+      "range": {
+        "startLine": 802,
+        "startChar": 4,
+        "endLine": 802,
+        "endChar": 29
+      },
+      "revId": "4be15d55ddab0f25ba09fea4086cb9fe437d16ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51feb4bd_2533ae33",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-05T10:51:34Z",
+      "side": 1,
+      "message": "I\u0027m gonna nitpick here because the map is queried from the interpreter instrumentation...\n\nWhat is the expected number of entries for this map? If it\u0027s in single digits, a vector of pairs would give you better cache locality.",
+      "range": {
+        "startLine": 249,
+        "startChar": 2,
+        "endLine": 249,
+        "endChar": 34
+      },
+      "revId": "4be15d55ddab0f25ba09fea4086cb9fe437d16ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1340868_22012e4f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 3019,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-05T10:51:34Z",
+      "side": 1,
+      "message": "long line",
+      "range": {
+        "startLine": 3019,
+        "startChar": 99,
+        "endLine": 3019,
+        "endChar": 104
+      },
+      "revId": "4be15d55ddab0f25ba09fea4086cb9fe437d16ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "918f4c7c_4fd58d11",
+        "filename": "test/570-checker-osr/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-05T10:51:34Z",
+      "side": 1,
+      "message": "Can we have a non-zero pattern for the high reg?",
+      "range": {
+        "startLine": 65,
+        "startChar": 38,
+        "endLine": 65,
+        "endChar": 45
+      },
+      "revId": "4be15d55ddab0f25ba09fea4086cb9fe437d16ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
