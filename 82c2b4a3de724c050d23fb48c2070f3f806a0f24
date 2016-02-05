@@ -93,6 +93,30 @@
       "revId": "82c2b4a3de724c050d23fb48c2070f3f806a0f24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1d7a87c_6ab6d7fa",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-02-05T21:53:55Z",
+      "side": 1,
+      "message": "That was the initial approach but then I reason more about it and I wanted to remove the assumptions we make in the assistant. To me, it doesn\u0027t sound right to just assume we can write to those default locations.\n\nIf you feel strongly about it, I can have this as an initial version to unblock and discuss more in a refactoring CL after.\n\nCan you think of a case, when it\u0027s beneficial to try writing to the default locations?",
+      "parentUuid": "11f7dc9a_fe8e80e4",
+      "range": {
+        "startLine": 325,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 3
+      },
+      "revId": "82c2b4a3de724c050d23fb48c2070f3f806a0f24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
