@@ -141,6 +141,30 @@
       "revId": "82c2b4a3de724c050d23fb48c2070f3f806a0f24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51c6b4da_e5a156b8",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-02-05T22:01:32Z",
+      "side": 1,
+      "message": "What\u0027s the goal of our no-prebuild tests?\n\nI always thought they validate that we run correctly if the app is not precompiled. If that\u0027s the case the CL should not change anything. We\u0027re still validating the same \"default\" thing.\n\nIf no-prebuild was meant to test that we can compile on the fly at runtime, well, that\u0027s a different story I guess. And I would propose to make that explicit with a flag.",
+      "parentUuid": "315940ea_27a71428",
+      "range": {
+        "startLine": 325,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 3
+      },
+      "revId": "82c2b4a3de724c050d23fb48c2070f3f806a0f24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
