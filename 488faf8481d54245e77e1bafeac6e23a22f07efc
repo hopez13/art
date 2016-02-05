@@ -45,6 +45,30 @@
       "revId": "488faf8481d54245e77e1bafeac6e23a22f07efc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31e4e025_acc4231b",
+        "filename": "test/565-checker-doublenegbitwise/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-05T13:57:02Z",
+      "side": 1,
+      "message": "I splitted it.\n\nBut wouldn\u0027t that be correct when the new IRs are inserted before the original Or? If the Or wasn\u0027t deleted we could have\n\n    And\n    BooleanNot\n    Or\n    Return [\u003c\u003cBooleanNot\u003e\u003e]",
+      "parentUuid": "f1340868_62e416cd",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 119
+      },
+      "revId": "488faf8481d54245e77e1bafeac6e23a22f07efc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
