@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d137046a_216b6ec4",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2609,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-02-05T16:26:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "910cacc1_ad6e6994",
+      "range": {
+        "startLine": 2609,
+        "startChar": 0,
+        "endLine": 2609,
+        "endChar": 9
+      },
+      "revId": "d5576865bb05b8639b3491a183116077ac9b945f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b18c5088_f04a205f",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 5
