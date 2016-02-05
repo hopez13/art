@@ -22,6 +22,30 @@
       "revId": "1fc467d8e67a803fe26da2ca25ea1bdb56ad0aef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1126fc4f_93badcd7",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2477,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-05T09:32:36Z",
+      "side": 1,
+      "message": "Yeah, you\u0027re suggesting to rename NeedsInterpreter to CanUseAOTCode? I would agree.",
+      "parentUuid": "11f7dc9a_d9d47e19",
+      "range": {
+        "startLine": 2471,
+        "startChar": 2,
+        "endLine": 2477,
+        "endChar": 3
+      },
+      "revId": "1fc467d8e67a803fe26da2ca25ea1bdb56ad0aef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
