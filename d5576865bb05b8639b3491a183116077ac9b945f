@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b18c5088_f04a205f",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1059813
+      },
+      "writtenOn": "2016-02-05T15:47:12Z",
+      "side": 1,
+      "message": "In the previous version of the patch method-\u003eHasAnyCompiledCode() was equivalent with jit-\u003eGetCodeCache()-\u003eContainsMethod(method) because the oat file lookup code was disabled. After the change we have to check if the method is available in the JIT cache because if force JIT fails we don\u0027t want to fall back to AOT because CanUseAOTCode() will return false what will enforce the usage of the interpreter and resulting in an infinite recursion.",
+      "revId": "d5576865bb05b8639b3491a183116077ac9b945f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
