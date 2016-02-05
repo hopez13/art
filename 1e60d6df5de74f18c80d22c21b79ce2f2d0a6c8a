@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b121b0e4_be4c06c8",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-05T05:47:29Z",
+      "side": 1,
+      "message": "I moved this up here (and removed stale comment parts). It\u0027s fine here, as it was actually the array FindClass that pulled it in as its component type...",
+      "range": {
+        "startLine": 564,
+        "startChar": 2,
+        "endLine": 566,
+        "endChar": 63
+      },
+      "revId": "1e60d6df5de74f18c80d22c21b79ce2f2d0a6c8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
