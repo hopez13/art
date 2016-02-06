@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d20d090_b5b400ff",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2600,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-06T16:36:36Z",
+      "side": 1,
+      "message": "Remove the comment, and drop the DCHECK. Comment is kind of obvious now that you cannot use the oat code.",
+      "range": {
+        "startLine": 2598,
+        "startChar": 0,
+        "endLine": 2600,
+        "endChar": 35
+      },
+      "revId": "88a423c6393031ee466868dbd21e30d03985a65f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3148604f_eca68bcd",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2612,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-06T16:36:36Z",
+      "side": 1,
+      "message": "+shertz: does that sound reasonable? Why do we have two flags for the instrumentation?",
+      "range": {
+        "startLine": 2610,
+        "startChar": 0,
+        "endLine": 2612,
+        "endChar": 3
+      },
+      "revId": "88a423c6393031ee466868dbd21e30d03985a65f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11435c35_6bb36109",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2674,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-06T16:36:36Z",
+      "side": 1,
+      "message": "Drop the local variable.",
+      "range": {
+        "startLine": 2673,
+        "startChar": 0,
+        "endLine": 2674,
+        "endChar": 28
+      },
+      "revId": "88a423c6393031ee466868dbd21e30d03985a65f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d0ec829_37b8f8ed",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2711,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-06T16:36:36Z",
+      "side": 1,
+      "message": "Remove comment.",
+      "range": {
+        "startLine": 2711,
+        "startChar": 0,
+        "endLine": 2711,
+        "endChar": 42
+      },
+      "revId": "88a423c6393031ee466868dbd21e30d03985a65f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d20d090_95b1040f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2712,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-06T16:36:36Z",
+      "side": 1,
+      "message": "Rename to has_usable_oat_code ?",
+      "range": {
+        "startLine": 2712,
+        "startChar": 2,
+        "endLine": 2712,
+        "endChar": 25
+      },
+      "revId": "88a423c6393031ee466868dbd21e30d03985a65f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
