@@ -1,0 +1,326 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f165e8c4_da43452a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-06T00:27:03Z",
+      "side": 1,
+      "message": "Please add an actual message. You could explain why you\u0027re doing it...",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 43
+      },
+      "revId": "65fe8fbf9db0f5d13bc180d5c6c3f889adce4e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "719018cb_9e1a9dfd",
+        "filename": "compiler/debug/elf_compilation_unit.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-06T00:27:03Z",
+      "side": 1,
+      "message": "Struct fields don\u0027t use underscores in our code, I believe.",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 25
+      },
+      "revId": "65fe8fbf9db0f5d13bc180d5c6c3f889adce4e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1861095_409d8ed7",
+        "filename": "compiler/debug/elf_debug_frame_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-06T00:27:03Z",
+      "side": 1,
+      "message": "in",
+      "range": {
+        "startLine": 190,
+        "startChar": 30,
+        "endLine": 190,
+        "endChar": 33
+      },
+      "revId": "65fe8fbf9db0f5d13bc180d5c6c3f889adce4e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b15ff0f8_f8001198",
+        "filename": "compiler/debug/elf_debug_info_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-06T00:27:03Z",
+      "side": 1,
+      "message": "Sorting.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 14
+      },
+      "revId": "65fe8fbf9db0f5d13bc180d5c6c3f889adce4e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f165e8c4_3a2b6155",
+        "filename": "compiler/debug/elf_debug_info_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-06T00:27:03Z",
+      "side": 1,
+      "message": "Why isn\u0027t this one static?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 67
+      },
+      "revId": "65fe8fbf9db0f5d13bc180d5c6c3f889adce4e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "719018cb_bec839a8",
+        "filename": "compiler/debug/elf_debug_info_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-06T00:27:03Z",
+      "side": 1,
+      "message": "Prefer \"using ...\"",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 43
+      },
+      "revId": "65fe8fbf9db0f5d13bc180d5c6c3f889adce4e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b15ff0f8_58f01df5",
+        "filename": "compiler/debug/elf_debug_info_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-06T00:27:03Z",
+      "side": 1,
+      "message": "Prefer \"using ...\"",
+      "range": {
+        "startLine": 110,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 43
+      },
+      "revId": "65fe8fbf9db0f5d13bc180d5c6c3f889adce4e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11951cbd_1eacc9aa",
+        "filename": "compiler/debug/elf_debug_line_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-06T00:27:03Z",
+      "side": 1,
+      "message": "Prefer \"using ...\"",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 43
+      },
+      "revId": "65fe8fbf9db0f5d13bc180d5c6c3f889adce4e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91890cab_82febc7d",
+        "filename": "compiler/debug/elf_debug_loc_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-06T00:27:03Z",
+      "side": 1,
+      "message": "Prefer removing this and adding kNone. Then the compiler will warn if we ever add another architecture...",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 20
+      },
+      "revId": "65fe8fbf9db0f5d13bc180d5c6c3f889adce4e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7179f872_b66788cb",
+        "filename": "compiler/debug/elf_debug_loc_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-06T00:27:03Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 20
+      },
+      "revId": "65fe8fbf9db0f5d13bc180d5c6c3f889adce4e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "518b14a3_80b31808",
+        "filename": "compiler/debug/elf_debug_loc_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-06T00:27:03Z",
+      "side": 1,
+      "message": "Why not static?",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 68
+      },
+      "revId": "65fe8fbf9db0f5d13bc180d5c6c3f889adce4e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91890cab_e245c89f",
+        "filename": "compiler/debug/elf_gnu_debugdata_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-06T00:27:03Z",
+      "side": 1,
+      "message": "Why not static?",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 58
+      },
+      "revId": "65fe8fbf9db0f5d13bc180d5c6c3f889adce4e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b15ff0f8_380c49c6",
+        "filename": "compiler/debug/method_debug_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-06T00:27:03Z",
+      "side": 1,
+      "message": "Order?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 28
+      },
+      "revId": "65fe8fbf9db0f5d13bc180d5c6c3f889adce4e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b15ff0f8_180f85bd",
+        "filename": "compiler/debug/method_debug_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-06T00:27:03Z",
+      "side": 1,
+      "message": "Struct have fields without underscore.",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 37,
+        "endChar": 35
+      },
+      "revId": "65fe8fbf9db0f5d13bc180d5c6c3f889adce4e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
