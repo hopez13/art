@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b15ff0f8_7ea78926",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1676,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-02-08T12:57:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d14c034_7933074d",
+      "range": {
+        "startLine": 1676,
+        "startChar": 59,
+        "endLine": 1676,
+        "endChar": 60
+      },
+      "revId": "9c5f82824a44e06605e06849521893b0e7b10bb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d0ec829_57380c27",
         "filename": "compiler/optimizing/prepare_for_register_allocation_x86.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b15ff0f8_9e745d68",
+        "filename": "compiler/optimizing/prepare_for_register_allocation_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-02-08T12:57:43Z",
+      "side": 1,
+      "message": "Yes, a helper routine would certainly clean this up.  I wasn\u0027t sure if I should add \u0027InsertDiamondAfter(HInstruction*)\u0027  \n\nBTW, is it acceptable style to have HBasicBlock*\u0026 trueBlock (and falseBlock) in the prototype?",
+      "parentUuid": "5d0ec829_57380c27",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 46
+      },
+      "revId": "9c5f82824a44e06605e06849521893b0e7b10bb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd36e4dc_720c588f",
         "filename": "test/566-checker-codegen-select/src/Main.java",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-02-08T10:17:07Z",
       "side": 1,
       "message": "Update comment",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "9c5f82824a44e06605e06849521893b0e7b10bb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f165e8c4_fd2e4334",
+        "filename": "test/566-checker-codegen-select/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-02-08T12:57:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd36e4dc_720c588f",
       "range": {
         "startLine": 24,
         "startChar": 5,
