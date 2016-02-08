@@ -70,6 +70,24 @@
       "revId": "453294f1a6b6c3bcbb2e0673d664d423c86fa24d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d0b8c18_b898792f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2992,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-08T16:36:55Z",
+      "side": 1,
+      "message": "We should contribute that to vixl though. Otherwise I\u0027m just duplicating their csel macro.",
+      "parentUuid": "7179f872_7c9dd125",
+      "revId": "453294f1a6b6c3bcbb2e0673d664d423c86fa24d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
