@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d14c034_7933074d",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1676,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-08T10:17:07Z",
+      "side": 1,
+      "message": "Extra spaces",
+      "range": {
+        "startLine": 1676,
+        "startChar": 59,
+        "endLine": 1676,
+        "endChar": 60
+      },
+      "revId": "9c5f82824a44e06605e06849521893b0e7b10bb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d0ec829_57380c27",
+        "filename": "compiler/optimizing/prepare_for_register_allocation_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-08T10:17:07Z",
+      "side": 1,
+      "message": "Good effort generating the pattern. I do have some small comments but I suggest you wait for Nicolas who needs to generate a diamond pattern as well for polymorphic inlining and he\u0027s adding a helper method on HGraph to do that. It will save you the trouble...",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 46
+      },
+      "revId": "9c5f82824a44e06605e06849521893b0e7b10bb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd36e4dc_720c588f",
+        "filename": "test/566-checker-codegen-select/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-08T10:17:07Z",
+      "side": 1,
+      "message": "Update comment",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "9c5f82824a44e06605e06849521893b0e7b10bb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
