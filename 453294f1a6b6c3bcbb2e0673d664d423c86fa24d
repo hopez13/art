@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d3920d3_d1fc248a",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2992,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-08T16:01:42Z",
+      "side": 1,
+      "message": "I\u0027ll review this tomorrow in details. But I don\u0027t think this swapped variant will be good because CSEL cannot encode immediate values. We can use similar instructions (CSET, CINC, etc.) and the zero registers to handle 0, 1, maybe -1, but not arbitrary constants. Some handling for these likely will be useful.",
+      "revId": "453294f1a6b6c3bcbb2e0673d664d423c86fa24d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
