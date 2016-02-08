@@ -16,6 +16,24 @@
       "revId": "453294f1a6b6c3bcbb2e0673d664d423c86fa24d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9162ecbe_1d96930f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2992,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-08T16:06:39Z",
+      "side": 1,
+      "message": "David, have a look at the quick compiler, which has a lot of specialized code for these cases...",
+      "parentUuid": "9d3920d3_d1fc248a",
+      "revId": "453294f1a6b6c3bcbb2e0673d664d423c86fa24d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
