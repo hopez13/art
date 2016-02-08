@@ -34,6 +34,24 @@
       "revId": "453294f1a6b6c3bcbb2e0673d664d423c86fa24d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d20d090_b5ce40d0",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2992,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-08T16:25:00Z",
+      "side": 1,
+      "message": "@Alexandre: Correct, vixl recognizes those three constants and moves the const to a temp reg otherwise.\n\n@Andreas: Lol, I love how you call your code \u0027specialized\u0027. Someone was pretty anally retentive about selects. I\u0027ll see what I can do. ;)",
+      "parentUuid": "9d3920d3_d1fc248a",
+      "revId": "453294f1a6b6c3bcbb2e0673d664d423c86fa24d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
