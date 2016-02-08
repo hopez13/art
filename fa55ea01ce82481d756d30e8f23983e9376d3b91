@@ -22,6 +22,53 @@
       "revId": "fa55ea01ce82481d756d30e8f23983e9376d3b91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3148604f_ccd9cf19",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2672,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-02-08T08:53:19Z",
+      "side": 1,
+      "message": "Agreed.",
+      "parentUuid": "9162ecbe_9ae9c9da",
+      "range": {
+        "startLine": 2669,
+        "startChar": 6,
+        "endLine": 2672,
+        "endChar": 7
+      },
+      "revId": "fa55ea01ce82481d756d30e8f23983e9376d3b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3148604f_acd483e2",
+        "filename": "runtime/jdwp/jdwp_main.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-02-08T08:53:19Z",
+      "side": 1,
+      "message": "I don\u0027t think this is the right place. If the debugger updates instrumentation to re-enable compiled code, it will revert your entrypoint update.\n\nIIUC, you want all methods from boot image classes to always be interpreted when the debugger is connected, whatever debug events are requested by the connected client.",
+      "range": {
+        "startLine": 537,
+        "startChar": 4,
+        "endLine": 544,
+        "endChar": 5
+      },
+      "revId": "fa55ea01ce82481d756d30e8f23983e9376d3b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
