@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd92b865_316dc806",
+        "filename": "runtime/interpreter/mterp/mips/fbinopWide.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-02-09T20:55:03Z",
+      "side": 1,
+      "message": "need to also clear reference regs.",
+      "revId": "385633518c29e8cd0678c7de60fb4810fa5c64f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddbd58cb_16499a5e",
+        "filename": "runtime/interpreter/mterp/mips/fbinopWide2addr.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-02-09T20:55:03Z",
+      "side": 1,
+      "message": "Clear reference regs",
+      "revId": "385633518c29e8cd0678c7de60fb4810fa5c64f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7da46cba_73a83ab4",
+        "filename": "runtime/interpreter/mterp/mips/footer.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-02-09T20:55:03Z",
+      "side": 1,
+      "message": "Move to header.S  (recent change)",
+      "revId": "385633518c29e8cd0678c7de60fb4810fa5c64f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd83441c_f0a7b87d",
+        "filename": "runtime/interpreter/mterp/mips/funopWide.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-02-09T20:55:03Z",
+      "side": 1,
+      "message": "Ditto - need ref regs zeroed.",
+      "revId": "385633518c29e8cd0678c7de60fb4810fa5c64f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd9a6476_b5144ad4",
+        "filename": "runtime/interpreter/mterp/mips/header.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-02-09T20:55:03Z",
+      "side": 1,
+      "message": "no tabs.",
+      "revId": "385633518c29e8cd0678c7de60fb4810fa5c64f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdc21c56_da04a5fa",
+        "filename": "runtime/interpreter/mterp/mips/header.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-02-09T20:55:03Z",
+      "side": 1,
+      "message": "Add a comment describing SET_VREG_GOTO.",
+      "revId": "385633518c29e8cd0678c7de60fb4810fa5c64f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdc21c56_7a447123",
+        "filename": "runtime/interpreter/mterp/mips/header.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-02-09T20:55:03Z",
+      "side": 1,
+      "message": "I\u0027m afraid whenever we set a vREG pair, we must also zero out the corresponding reference regs.  For example, see arm64\u0027s SET_VREG_WIDE.",
+      "revId": "385633518c29e8cd0678c7de60fb4810fa5c64f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d8e7442_0efd0bd1",
+        "filename": "runtime/interpreter/mterp/mips/op_cmp_long.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-02-09T20:55:03Z",
+      "side": 1,
+      "message": "no tabs",
+      "revId": "385633518c29e8cd0678c7de60fb4810fa5c64f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
