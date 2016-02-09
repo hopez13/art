@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d44b487_610cb0d4",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-09T01:50:31Z",
+      "side": 1,
+      "message": "Note: this specification is wrong now.\n\nWith the move to OpenJDK (basically just catching up), the definition of round() changed.\n\nSee, for example, https://docs.oracle.com/javase/7/docs/api/java/lang/Math.html#round(double), or our run-test 082.\n\n(If you pass that one, I\u0027m surprised, and very interested in how your Floor works...)",
+      "range": {
+        "startLine": 892,
+        "startChar": 0,
+        "endLine": 899,
+        "endChar": 17
+      },
+      "revId": "2486583423c901ee80533bac9ce02d6bbde58b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
