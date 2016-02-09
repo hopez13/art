@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd30a413_4806f33f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2626,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-09T00:57:30Z",
+      "side": 1,
+      "message": "Why not just always do this for kIsDebugBuild?",
+      "range": {
+        "startLine": 2626,
+        "startChar": 12,
+        "endLine": 2626,
+        "endChar": 25
+      },
+      "revId": "bffd7e42f81e5eb2d6963e19514abb366a2bb255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd4dbcaf_024a0e25",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-09T00:57:30Z",
+      "side": 1,
+      "message": "It seems like it would be clearer to use volatile reads",
+      "range": {
+        "startLine": 902,
+        "startChar": 2,
+        "endLine": 902,
+        "endChar": 20
+      },
+      "revId": "bffd7e42f81e5eb2d6963e19514abb366a2bb255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fda85c5d_6d86cd07",
+        "filename": "runtime/mem_map.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-09T00:57:30Z",
+      "side": 1,
+      "message": "I\u0027d avoid #if if possible.",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 4
+      },
+      "revId": "bffd7e42f81e5eb2d6963e19514abb366a2bb255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
