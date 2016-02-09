@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ddbd58cb_f39510f6",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-02-09T07:40:26Z",
+      "side": 1,
+      "message": "It helps the pre-existence-based alias analysis by adding this node to ref_info_array_ early. Any NewInstance coming after this node shouldn\u0027t alias with it. Without this change, it may treat an HSelect coming before a NewInstance as a possible alias.",
+      "parentUuid": "71e018e1_812e3c7c",
+      "range": {
+        "startLine": 461,
+        "startChar": 0,
+        "endLine": 463,
+        "endChar": 3
+      },
+      "revId": "25e382eca8838a5b8bf0043ffcc269e777e9a0d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11e51cf3_7e554dfb",
         "filename": "test/530-checker-lse/src/Main.java",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-04T14:23:52Z",
       "side": 1,
       "message": "Error to avoid the \"throws Exception\" at method declaration.",
+      "range": {
+        "startLine": 678,
+        "startChar": 16,
+        "endLine": 678,
+        "endChar": 25
+      },
+      "revId": "25e382eca8838a5b8bf0043ffcc269e777e9a0d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdc21c56_d4a0fc19",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-02-09T07:40:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11e51cf3_7e554dfb",
       "range": {
         "startLine": 678,
         "startChar": 16,
