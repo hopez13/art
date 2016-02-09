@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d729020_85d1e21d",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-09T09:44:08Z",
+      "side": 1,
+      "message": "We could still do the transformation in this case.\nWe would end up with MOV+BIC, which is as good as NOT+AND.",
+      "range": {
+        "startLine": 261,
+        "startChar": 23,
+        "endLine": 263,
+        "endChar": 23
+      },
+      "revId": "004e4b0b5debace7bca2d977562c7d767684cc3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
