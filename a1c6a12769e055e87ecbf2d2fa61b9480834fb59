@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd9a6476_d2a0041a",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1896,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-09T06:32:28Z",
+      "side": 1,
+      "message": "Preferrably same as above and below:\n\ncalling_convention.GetReturnLocation(Primitive::kPrimInt)",
+      "range": {
+        "startLine": 1896,
+        "startChar": 47,
+        "endLine": 1896,
+        "endChar": 49
+      },
+      "revId": "a1c6a12769e055e87ecbf2d2fa61b9480834fb59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddbd58cb_f3a7d07d",
+        "filename": "runtime/arch/mips/asm_support_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-09T06:32:28Z",
+      "side": 1,
+      "message": "Should probably add a comment saying that dreg must not coniside with rreg.\n\nAlso make sure that the use of $at does not produce compile-time warnings (recall .set at/.set noat).",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 24
+      },
+      "revId": "a1c6a12769e055e87ecbf2d2fa61b9480834fb59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5da7a8bf_6f55b198",
+        "filename": "runtime/arch/mips/asm_support_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-09T06:32:28Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 24
+      },
+      "revId": "a1c6a12769e055e87ecbf2d2fa61b9480834fb59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdc21c56_346130b1",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1751,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-09T06:32:28Z",
+      "side": 1,
+      "message": "Bad copy-paste.",
+      "range": {
+        "startLine": 1751,
+        "startChar": 13,
+        "endLine": 1751,
+        "endChar": 24
+      },
+      "revId": "a1c6a12769e055e87ecbf2d2fa61b9480834fb59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
