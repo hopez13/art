@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1d3ff0e9_60a82cb4",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2626,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-09T01:39:16Z",
+      "side": 1,
+      "message": "It depends on whether it\u0027s okay to pay the storage price of try_readable_hash_  for non-debug builds.",
+      "parentUuid": "bd30a413_4806f33f",
+      "range": {
+        "startLine": 2626,
+        "startChar": 12,
+        "endLine": 2626,
+        "endChar": 25
+      },
+      "revId": "bffd7e42f81e5eb2d6963e19514abb366a2bb255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd4dbcaf_024a0e25",
         "filename": "runtime/mem_map.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-09T00:57:30Z",
       "side": 1,
       "message": "It seems like it would be clearer to use volatile reads",
+      "range": {
+        "startLine": 902,
+        "startChar": 2,
+        "endLine": 902,
+        "endChar": 20
+      },
+      "revId": "bffd7e42f81e5eb2d6963e19514abb366a2bb255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d3ff0e9_40809021",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-09T01:39:16Z",
+      "side": 1,
+      "message": "What exactly do you mean by volatile reads?",
+      "parentUuid": "fd4dbcaf_024a0e25",
       "range": {
         "startLine": 902,
         "startChar": 2,
