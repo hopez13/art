@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dd92b865_cb1135e3",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1896,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-09T19:06:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd9a6476_d2a0041a",
+      "range": {
+        "startLine": 1896,
+        "startChar": 47,
+        "endLine": 1896,
+        "endChar": 49
+      },
+      "revId": "a1c6a12769e055e87ecbf2d2fa61b9480834fb59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ddbd58cb_f3a7d07d",
         "filename": "runtime/arch/mips/asm_support_mips.S",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-09T06:32:28Z",
       "side": 1,
       "message": "Should probably add a comment saying that dreg must not coniside with rreg.\n\nAlso make sure that the use of $at does not produce compile-time warnings (recall .set at/.set noat).",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 24
+      },
+      "revId": "a1c6a12769e055e87ecbf2d2fa61b9480834fb59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdc21c56_d7555e27",
+        "filename": "runtime/arch/mips/asm_support_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-09T19:06:09Z",
+      "side": 1,
+      "message": "Altered macro so that this pair of instructions is swapped if dreg\u003d\u003drreg.\n\nAdded \".set push; .set noat\"/\".set pop\".",
+      "parentUuid": "ddbd58cb_f3a7d07d",
       "range": {
         "startLine": 136,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "bd83441c_ea0ee7bf",
+        "filename": "runtime/arch/mips/asm_support_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-09T19:06:09Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "5da7a8bf_6f55b198",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 24
+      },
+      "revId": "a1c6a12769e055e87ecbf2d2fa61b9480834fb59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fdc21c56_346130b1",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2016-02-09T06:32:28Z",
       "side": 1,
       "message": "Bad copy-paste.",
+      "range": {
+        "startLine": 1751,
+        "startChar": 13,
+        "endLine": 1751,
+        "endChar": 24
+      },
+      "revId": "a1c6a12769e055e87ecbf2d2fa61b9480834fb59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd9a6476_55b87eee",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1751,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-09T19:06:09Z",
+      "side": 1,
+      "message": "Done. Same is true for \"ch\" above. And for the MIPS64 version of the code.",
+      "parentUuid": "fdc21c56_346130b1",
       "range": {
         "startLine": 1751,
         "startChar": 13,
