@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd83441c_8d8e65ea",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2329,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2016-02-09T18:37:41Z",
+      "side": 1,
+      "message": "is that because you are assuming that string_ids_off_ etc has been previously checked? if so, clarify comment? trying to think like a fuzzer here...",
+      "range": {
+        "startLine": 2329,
+        "startChar": 0,
+        "endLine": 2329,
+        "endChar": 46
+      },
+      "revId": "5e36a448a1c4f59024165e9a0ba29b0b1cab426d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
