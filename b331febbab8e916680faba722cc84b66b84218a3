@@ -46,6 +46,155 @@
       "revId": "b331febbab8e916680faba722cc84b66b84218a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdb504dc_7a19d9bc",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-09T12:48:37Z",
+      "side": 1,
+      "message": "The comment should say \"JValue* result\" and the line is too long.",
+      "range": {
+        "startLine": 447,
+        "startChar": 78,
+        "endLine": 447,
+        "endChar": 91
+      },
+      "revId": "b331febbab8e916680faba722cc84b66b84218a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1dc45060_55e94c9f",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-09T12:48:37Z",
+      "side": 1,
+      "message": "JValue* result",
+      "range": {
+        "startLine": 451,
+        "startChar": 50,
+        "endLine": 451,
+        "endChar": 63
+      },
+      "revId": "b331febbab8e916680faba722cc84b66b84218a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fde93cd0_5c3dfd15",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-09T12:48:37Z",
+      "side": 1,
+      "message": "Restore JValue* result",
+      "range": {
+        "startLine": 461,
+        "startChar": 45,
+        "endLine": 461,
+        "endChar": 66
+      },
+      "revId": "b331febbab8e916680faba722cc84b66b84218a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3de034e0_fef6c1a4",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-09T12:48:37Z",
+      "side": 1,
+      "message": "Why don\u0027t we directly \"ldr sp, [sp,#4]\" (after restoring r10)?",
+      "range": {
+        "startLine": 462,
+        "startChar": 4,
+        "endLine": 462,
+        "endChar": 18
+      },
+      "revId": "b331febbab8e916680faba722cc84b66b84218a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d9da072_9174bcd9",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1772,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-09T12:48:37Z",
+      "side": 1,
+      "message": "Why don\u0027t we align to 16-byte boundary here? Does the x86-64 native ABI require 16-byte alignment?",
+      "revId": "b331febbab8e916680faba722cc84b66b84218a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7daf0c90_58625d15",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-09T12:48:37Z",
+      "side": 1,
+      "message": "CHECK(memory !\u003d nullptr); I prefer to see \"Check failed\" instead of SIGSEGV.\n\nWe could avoid the extra allocation by having the stub allocate the frame and _then_ call a helper function to fill it with vregs but that looks like quite a lot of effort for a rare use case.",
+      "revId": "b331febbab8e916680faba722cc84b66b84218a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7daf0c90_985b155d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-09T12:48:37Z",
+      "side": 1,
+      "message": "compiled",
+      "range": {
+        "startLine": 581,
+        "startChar": 36,
+        "endLine": 581,
+        "endChar": 43
+      },
+      "revId": "b331febbab8e916680faba722cc84b66b84218a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
