@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "bd9a6476_b24c6043",
+        "filename": "runtime/interpreter/mterp/arm/op_goto_16.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-02-09T06:35:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd30a413_88b2bb5c",
+      "range": {
+        "startLine": 11,
+        "startChar": 16,
+        "endLine": 11,
+        "endChar": 21
+      },
+      "revId": "992a15639cf55f768f89d05a841fc1298d59090c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5da5e8c5_ff965f67",
         "filename": "runtime/interpreter/mterp/arm64/header.S",
         "patchSetId": 4
@@ -88,6 +112,30 @@
     },
     {
       "key": {
+        "uuid": "ddbd58cb_53cec42e",
+        "filename": "runtime/interpreter/mterp/out/mterp_arm.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-02-09T06:35:18Z",
+      "side": 1,
+      "message": "Yes - should have been rSELF.   Done.",
+      "parentUuid": "9d33e01f_8a53cf0d",
+      "range": {
+        "startLine": 1138,
+        "startChar": 4,
+        "endLine": 1138,
+        "endChar": 21
+      },
+      "revId": "992a15639cf55f768f89d05a841fc1298d59090c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd30a413_e8cb87be",
         "filename": "runtime/interpreter/mterp/out/mterp_arm64.S",
         "patchSetId": 4
@@ -99,6 +147,30 @@
       "writtenOn": "2016-02-09T02:01:56Z",
       "side": 1,
       "message": "Consider a macro, as it\u0027s always the same?",
+      "range": {
+        "startLine": 1094,
+        "startChar": 0,
+        "endLine": 1101,
+        "endChar": 6
+      },
+      "revId": "992a15639cf55f768f89d05a841fc1298d59090c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddbd58cb_f3bef085",
+        "filename": "runtime/interpreter/mterp/out/mterp_arm64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-02-09T06:35:18Z",
+      "side": 1,
+      "message": "I\u0027m a big fan of macros - and for the reason given.  However, when I tried to use multi-instruction macros for mterp back in the Dalvik days I ran into some problems.\n\nFirst, although they were good for repetition, they obscured which registers were getting stepped on.  Macros which perform may perform a call are particularly dangerous.  I burned myself on that one a few times.\n\nNext, there were a few cases in which the macro fit perfectly for most uses, but had a couple of uses in which I could usefully schedule instructions that would have been inside the macro elsewhere.  That lead to sometimes performing the operation using a macro, and sometimes not.  Ugly.\n\nFinally, because mterp relies on fixed-size code regions, you often needed to count instructions to fit the hot path in the main block and push the rest into the sister region.  Multi-instruction macros made that a little more difficult.\n\nSo, in the end I abandoned the effort to macroize mterp and stuck with single-instruction macros intended primary to make the code more readable.\n\nThe example here, though, may be a reasonable macro candidate.  I have some ideas about how to further reduce the cost of branch profiling, and doing it as a macro would be useful for A/B testing and comparisons (though again we may run into the instruction scheduling limitation).   I\u0027m inclined to leave these as-is, and revisit",
+      "parentUuid": "bd30a413_e8cb87be",
       "range": {
         "startLine": 1094,
         "startChar": 0,
