@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7da2acc0_4051ee50",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-09T09:07:45Z",
+      "side": 1,
+      "message": "Currently we keep the information used by the scheduler to decide how to schedule within `SchedulingNode`. We could move it out into the scheduler if required, for example if this diverges for different backends.",
+      "revId": "92aca378705444b232d863f09a92a896147506d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
