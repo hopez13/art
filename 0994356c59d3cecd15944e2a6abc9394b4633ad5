@@ -46,6 +46,30 @@
       "revId": "0994356c59d3cecd15944e2a6abc9394b4633ad5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd9a6476_12b28c30",
+        "filename": "test/569-checker-pattern-replacement/src-multidex/Base.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-09T16:26:40Z",
+      "side": 1,
+      "message": "I don\u0027t think we have one, but your other non-checker test files are 2+2.",
+      "parentUuid": "1dc45060_758ac8d9",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 21
+      },
+      "revId": "0994356c59d3cecd15944e2a6abc9394b4633ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
