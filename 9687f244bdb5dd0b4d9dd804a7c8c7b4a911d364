@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bdc1846e_407fa2b3",
+        "filename": "runtime/interpreter/mterp/out/mterp_arm64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2512,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-02-10T17:06:43Z",
+      "side": 1,
+      "message": "The whitespace here is actually working as intended.  This is the generated file, and the blank line corresponds to the expansion variable for the sign extension operation.  (See line 15 of op_iget.S).  In these two cases, no extension is necessary, so we expand to nothing.",
+      "parentUuid": "fdb5bcf8_823dbec6",
+      "range": {
+        "startLine": 2512,
+        "startChar": 0,
+        "endLine": 2512,
+        "endChar": 4
+      },
+      "revId": "9687f244bdb5dd0b4d9dd804a7c8c7b4a911d364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fdb5bcf8_a2579af8",
         "filename": "runtime/interpreter/mterp/out/mterp_arm64.S",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-10T16:01:59Z",
       "side": 1,
       "message": "Whitespace.",
+      "range": {
+        "startLine": 2569,
+        "startChar": 0,
+        "endLine": 2569,
+        "endChar": 4
+      },
+      "revId": "9687f244bdb5dd0b4d9dd804a7c8c7b4a911d364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7dbb8cf2_7ec5a9ac",
+        "filename": "runtime/interpreter/mterp/out/mterp_arm64.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2569,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-02-10T17:06:43Z",
+      "side": 1,
+      "message": "As above.",
+      "parentUuid": "fdb5bcf8_a2579af8",
       "range": {
         "startLine": 2569,
         "startChar": 0,
