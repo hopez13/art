@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fde93cd0_bc89a153",
+        "filename": "compiler/debug/elf_debug_loc_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-10T15:39:08Z",
+      "side": 1,
+      "message": "Or the tail of the last one? I think the format doesn\u0027t allow such match but even if it did, this would be OK as the offset would still point to the correct data. (If you find the same binary data anywhere else, you can just point the offset there as well.)",
+      "revId": "4a33fad2b708556684a2467da9b7723378cb8f2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3de034e0_a1d1781d",
+        "filename": "compiler/debug/elf_debug_loc_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-10T15:39:08Z",
+      "side": 1,
+      "message": "I don\u0027t like std::vector::at() because it\u0027s specified to throw a C++ exception which we do not support. Note that you implicitly rely on `debug_ranges_entry_size \u003e 0`, otherwise it would throw.\n\nI would prefer `debug_ranges_buffer-\u003edata() + previous_offset`.",
+      "range": {
+        "startLine": 302,
+        "startChar": 37,
+        "endLine": 302,
+        "endChar": 40
+      },
+      "revId": "4a33fad2b708556684a2467da9b7723378cb8f2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
