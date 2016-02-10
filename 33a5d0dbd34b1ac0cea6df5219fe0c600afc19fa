@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1da7f0d2_6ccf4377",
+        "filename": "runtime/interpreter/mterp/arm/binopWide2addr.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-10T21:02:00Z",
+      "side": 1,
+      "message": "This isn\u0027t consistent with binopWide.",
+      "range": {
+        "startLine": 23,
+        "startChar": 3,
+        "endLine": 23,
+        "endChar": 58
+      },
+      "revId": "33a5d0dbd34b1ac0cea6df5219fe0c600afc19fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
