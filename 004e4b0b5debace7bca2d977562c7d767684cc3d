@@ -46,6 +46,30 @@
       "revId": "004e4b0b5debace7bca2d977562c7d767684cc3d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd98a490_627bd651",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-02-10T17:50:41Z",
+      "side": 1,
+      "message": "Actually if we avoid checking \u0027!hother-\u003eIsConstant()\u0027 we can gain performance in case when the constant can not be encoded as an immediate operand into AND instructions. If we don\u0027t switch to BitwiseNegated we will have 3 instructions:\n mov r0, #large_constant\n neg r2, r1\n and r0, r0, r2\n\nWith BitwiseNegated it will be:\n\n mov r0, #large_constant\n bic r0, r0, r1",
+      "parentUuid": "1d729020_c5cbda67",
+      "range": {
+        "startLine": 261,
+        "startChar": 23,
+        "endLine": 263,
+        "endChar": 23
+      },
+      "revId": "004e4b0b5debace7bca2d977562c7d767684cc3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
