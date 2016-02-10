@@ -46,6 +46,30 @@
       "revId": "2486583423c901ee80533bac9ce02d6bbde58b46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdce9ca2_a80b03bc",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-10T18:36:15Z",
+      "side": 1,
+      "message": "Add logic for this case to to both java.lang.Math.round(float), and java.lang.Math.round(double) to work around this pathological case.\n\nUpdated 082-inline-execute test. There was already a test case for the double version of round(). Added test case for float version of round().",
+      "parentUuid": "fd977c52_cc1dcf58",
+      "range": {
+        "startLine": 892,
+        "startChar": 0,
+        "endLine": 899,
+        "endChar": 17
+      },
+      "revId": "2486583423c901ee80533bac9ce02d6bbde58b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
