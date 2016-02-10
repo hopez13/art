@@ -165,6 +165,54 @@
       "revId": "82c2b4a3de724c050d23fb48c2070f3f806a0f24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1dd0d03a_5e178967",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-02-10T19:15:30Z",
+      "side": 1,
+      "message": "Here is my interpretation of the oat file assistant API:\n\nThe user of the oat file assistant provides a dex location and oat location to use. If the user doesn\u0027t provide an oat location, \"the standard oat location\" is used. Thus, the user of the oat file assistant knows what the path to the oat file is. When the user calls MakeUpToDate, that tells the oat file assistant to generate the oat file if needed. The oat file assistant assumes the oat file can be written to if the user calls MakeUpToDate.",
+      "parentUuid": "f1d7a87c_6ab6d7fa",
+      "range": {
+        "startLine": 325,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 3
+      },
+      "revId": "82c2b4a3de724c050d23fb48c2070f3f806a0f24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9dc4c07e_82aca0ff",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-02-10T19:15:30Z",
+      "side": 1,
+      "message": "I think we wanted to test that compilation was happening, and that we weren\u0027t inadvertently running interpreted because of some bug.\n\nIt\u0027s not clear to me what behavior we are promising the users of PathClassLoader. If we are promising the code will run compiled, then the existing tests are good. If we are promising nothing about whether something runs compiled or interpreted, then we only need to test correct behavior. If we are promising something about performance and JIT is good enough for to meet that performance promise, then we should revise the test to test for performance and not compilation state.",
+      "parentUuid": "51c6b4da_e5a156b8",
+      "range": {
+        "startLine": 325,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 3
+      },
+      "revId": "82c2b4a3de724c050d23fb48c2070f3f806a0f24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
