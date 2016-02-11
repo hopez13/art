@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "7daf0c90_feb1590d",
+        "filename": "compiler/optimizing/prepare_for_register_allocation_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-11T09:15:55Z",
+      "side": 1,
+      "message": "Feel free to add that routine to HGraph, I may need a slightly different version of it.\n\nAnd please don\u0027t use \u0026*, if you want to return something via parameter, use **.",
+      "parentUuid": "b15ff0f8_9e745d68",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 46
+      },
+      "revId": "9c5f82824a44e06605e06849521893b0e7b10bb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd36e4dc_720c588f",
         "filename": "test/566-checker-codegen-select/src/Main.java",
         "patchSetId": 1
