@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5da5e8c5_2247101d",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 2598,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-11T09:45:32Z",
+      "side": 1,
+      "message": "This isn\u0027t fully true, as JitAtFirstUse will not use the interpreter.\n\nAlso not true for generic jni stub.",
+      "range": {
+        "startLine": 2598,
+        "startChar": 0,
+        "endLine": 2598,
+        "endChar": 33
+      },
+      "revId": "c94a61f06ffc13288c67891048128c987b29bf33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
