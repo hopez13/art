@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "fde93cd0_3f34a392",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-11T22:35:51Z",
+      "side": 1,
+      "message": "This won\u0027t work, we need the JValue result to be returned to the Java caller.\n\nI think we need to split MaybeDoOnStackReplacement to CheckIfCanDoOnStack and DoOnStackReplacement.",
+      "range": {
+        "startLine": 636,
+        "startChar": 0,
+        "endLine": 637,
+        "endChar": 84
+      },
+      "revId": "9687f244bdb5dd0b4d9dd804a7c8c7b4a911d364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fdb5bcf8_823dbec6",
         "filename": "runtime/interpreter/mterp/out/mterp_arm64.S",
         "patchSetId": 6
