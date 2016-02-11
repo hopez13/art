@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5da5e8c5_624d183d",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2324,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-11T09:12:08Z",
+      "side": 1,
+      "message": "(Given that this change is about having better error messages)\n\nIs that unreachable? Or should you say the access is out of bounds?",
+      "range": {
+        "startLine": 2322,
+        "startChar": 0,
+        "endLine": 2324,
+        "endChar": 3
+      },
+      "revId": "c9f0ba1a4a2c9366ffc2dc2f9c2d8d3f09bb2112",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
