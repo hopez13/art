@@ -22,6 +22,30 @@
       "revId": "a004b988809c9dae38c33f9a5bbb86cd177d2076",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d9be08c_04be58dd",
+        "filename": "runtime/arch/instruction_set_features.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-02-11T17:03:39Z",
+      "side": 1,
+      "message": "Agreed. FromVariant(\"default\", ..) makes more sense.",
+      "parentUuid": "9dc4c07e_421208e8",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 42
+      },
+      "revId": "a004b988809c9dae38c33f9a5bbb86cd177d2076",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
