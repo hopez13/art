@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bdb504dc_9d214788",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2986,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-11T10:51:20Z",
+      "side": 1,
+      "message": "Nit: take an HInstruction and do the cast to HCondition here?",
+      "range": {
+        "startLine": 2986,
+        "startChar": 9,
+        "endLine": 2986,
+        "endChar": 29
+      },
+      "revId": "914f24fe8def01ceaf12f3f97315da875e7fbf33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3de034e0_812f1c84",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2998,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-11T10:51:20Z",
+      "side": 1,
+      "message": "I raised a ticket on our side to provide a better CSEL macro in VIXL and update this code.",
+      "revId": "914f24fe8def01ceaf12f3f97315da875e7fbf33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dde478f9_7e58ed29",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3008,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-11T10:51:20Z",
+      "side": 1,
+      "message": "`DCHECK_NE` ?",
+      "range": {
+        "startLine": 3008,
+        "startChar": 4,
+        "endLine": 3008,
+        "endChar": 10
+      },
+      "revId": "914f24fe8def01ceaf12f3f97315da875e7fbf33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1dc45060_fb4de7b4",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3050,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-11T10:51:20Z",
+      "side": 1,
+      "message": "Nit: There is an implicit `Operand` constructor for constants and registers, so you could remove this.",
+      "range": {
+        "startLine": 3050,
+        "startChar": 41,
+        "endLine": 3050,
+        "endChar": 48
+      },
+      "revId": "914f24fe8def01ceaf12f3f97315da875e7fbf33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
