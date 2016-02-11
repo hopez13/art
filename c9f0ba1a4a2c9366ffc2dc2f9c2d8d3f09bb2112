@@ -22,6 +22,30 @@
       "revId": "c9f0ba1a4a2c9366ffc2dc2f9c2d8d3f09bb2112",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd0fc4b0_1e4a3dfd",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2324,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-11T17:56:46Z",
+      "side": 1,
+      "message": "It should be unreachable, but I wanted to be a bit defensive (and with minimum effort).",
+      "parentUuid": "5da5e8c5_624d183d",
+      "range": {
+        "startLine": 2322,
+        "startChar": 0,
+        "endLine": 2324,
+        "endChar": 3
+      },
+      "revId": "c9f0ba1a4a2c9366ffc2dc2f9c2d8d3f09bb2112",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
