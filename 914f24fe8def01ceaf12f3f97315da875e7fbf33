@@ -25,6 +25,76 @@
     },
     {
       "key": {
+        "uuid": "fde93cd0_df13bf78",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2986,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-11T11:06:37Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "bdb504dc_9d214788",
+      "range": {
+        "startLine": 2986,
+        "startChar": 9,
+        "endLine": 2986,
+        "endChar": 29
+      },
+      "revId": "914f24fe8def01ceaf12f3f97315da875e7fbf33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7daf0c90_1e0c4d8e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2995,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-11T11:06:37Z",
+      "side": 1,
+      "message": "Why this restriction?",
+      "range": {
+        "startLine": 2995,
+        "startChar": 6,
+        "endLine": 2995,
+        "endChar": 78
+      },
+      "revId": "914f24fe8def01ceaf12f3f97315da875e7fbf33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1dc45060_dbf90b98",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2997,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-11T11:06:37Z",
+      "side": 1,
+      "message": "If the other input is 1 or -1, you\u0027re about to make it impossible to emit CSET or CSETM. Maybe you should introduce a new SelectVariant kCset? (And add additional test cases.)",
+      "range": {
+        "startLine": 2997,
+        "startChar": 26,
+        "endLine": 2997,
+        "endChar": 36
+      },
+      "revId": "914f24fe8def01ceaf12f3f97315da875e7fbf33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3de034e0_812f1c84",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 3
@@ -65,6 +135,53 @@
     },
     {
       "key": {
+        "uuid": "1dc45060_1b1aa3b5",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3008,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-11T11:06:37Z",
+      "side": 1,
+      "message": "Only if you add operator\u003c\u003c(std::ostream\u0026,SelectVariant).",
+      "parentUuid": "dde478f9_7e58ed29",
+      "range": {
+        "startLine": 3008,
+        "startChar": 4,
+        "endLine": 3008,
+        "endChar": 10
+      },
+      "revId": "914f24fe8def01ceaf12f3f97315da875e7fbf33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5da5e8c5_62a998ed",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3020,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-11T11:06:37Z",
+      "side": 1,
+      "message": "I would prefer to require register if the constant is not in the range [-1, 1].",
+      "range": {
+        "startLine": 3020,
+        "startChar": 28,
+        "endLine": 3020,
+        "endChar": 76
+      },
+      "revId": "914f24fe8def01ceaf12f3f97315da875e7fbf33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1dc45060_fb4de7b4",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 3
@@ -81,6 +198,29 @@
         "startChar": 41,
         "endLine": 3050,
         "endChar": 48
+      },
+      "revId": "914f24fe8def01ceaf12f3f97315da875e7fbf33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7daf0c90_befc4189",
+        "filename": "test/570-checker-select/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-11T11:06:37Z",
+      "side": 1,
+      "message": "There are 2 selects here. Should we add assertions for the second one? (And the same 4 times below.)",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 3
       },
       "revId": "914f24fe8def01ceaf12f3f97315da875e7fbf33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
