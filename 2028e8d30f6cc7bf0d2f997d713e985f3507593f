@@ -22,6 +22,30 @@
       "revId": "2028e8d30f6cc7bf0d2f997d713e985f3507593f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1dd53033_657f61b4",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4530,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-02-12T23:02:10Z",
+      "side": 1,
+      "message": "Good point. Otherwise we might not force access-checks on it which could cause it to be accepted at runtime.",
+      "parentUuid": "bdc1846e_a98f8917",
+      "range": {
+        "startLine": 4530,
+        "startChar": 8,
+        "endLine": 4530,
+        "endChar": 27
+      },
+      "revId": "2028e8d30f6cc7bf0d2f997d713e985f3507593f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
