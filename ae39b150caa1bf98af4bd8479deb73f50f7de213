@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dde478f9_0196ae01",
+        "filename": "compiler/optimizing/prepare_for_register_allocation_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-12T15:13:15Z",
+      "side": 1,
+      "message": "Should we leave it as just a pc-relative fixup pass then?",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 45
+      },
+      "revId": "ae39b150caa1bf98af4bd8479deb73f50f7de213",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
