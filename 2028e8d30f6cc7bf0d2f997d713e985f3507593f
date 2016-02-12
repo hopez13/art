@@ -46,6 +46,30 @@
       "revId": "2028e8d30f6cc7bf0d2f997d713e985f3507593f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7df0ecdc_8d5036d9",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4530,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-12T23:09:53Z",
+      "side": 1,
+      "message": "Not so much concerned about the AC interpreter. I don\u0027t know what the right semantics are there. If you\u0027re concerned about the interpreter, then all of this is wrong already and we should not fail hard. That would be a change we should not make now, though...\n\nI was more worried that it would pass with the unresolved reference at compile time, setting the status to verified, and at runtime the class could be resolved (e.g., extradex etc).\n\nThe current solution looks in line with that...",
+      "parentUuid": "1dd53033_657f61b4",
+      "range": {
+        "startLine": 4530,
+        "startChar": 8,
+        "endLine": 4530,
+        "endChar": 27
+      },
+      "revId": "2028e8d30f6cc7bf0d2f997d713e985f3507593f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
