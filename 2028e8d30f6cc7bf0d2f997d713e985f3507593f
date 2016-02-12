@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bdc1846e_a98f8917",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4530,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-12T22:47:59Z",
+      "side": 1,
+      "message": "Hm. I think it\u0027s necessary to emit a soft failure when the field is null, so that this does get tested again at runtime. What do you think?",
+      "range": {
+        "startLine": 4530,
+        "startChar": 8,
+        "endLine": 4530,
+        "endChar": 27
+      },
+      "revId": "2028e8d30f6cc7bf0d2f997d713e985f3507593f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
