@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1ddb703a_6306966e",
+        "filename": "compiler/Android.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-12T11:54:59Z",
+      "side": 1,
+      "message": "Move to LIBART_COMPILER_SRC_FILES_x86",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 52
+      },
+      "revId": "4a0b38296c3632cacf3c6b8f36c755bb2364d005",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bdb504dc_1dcb7798",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 6
@@ -18,6 +41,29 @@
         "startChar": 5,
         "endLine": 366,
         "endChar": 10
+      },
+      "revId": "4a0b38296c3632cacf3c6b8f36c755bb2364d005",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d9da072_f71a585d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-12T11:54:59Z",
+      "side": 1,
+      "message": "I\u0027d prefer if you\u0027d just return the new block where the HIf is, and avoid the block parameters. It\u0027s then straightforward to fetch the true block and the else block.",
+      "range": {
+        "startLine": 370,
+        "startChar": 0,
+        "endLine": 372,
+        "endChar": 61
       },
       "revId": "4a0b38296c3632cacf3c6b8f36c755bb2364d005",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
