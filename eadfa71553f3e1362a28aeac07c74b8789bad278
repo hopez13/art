@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9dc4c07e_734040dd",
+        "filename": "runtime/interpreter/mterp/mips/op_cmpl_double.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-12T06:54:23Z",
+      "side": 1,
+      "message": "Our OC MIPS code generators have implementations with fewer comparisons and conditional branches. Perhaps, this is OK for now, but should probably be improved in the future.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 29
+      },
+      "revId": "eadfa71553f3e1362a28aeac07c74b8789bad278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3dacb4b4_25e5cdf5",
+        "filename": "runtime/interpreter/mterp/mips/op_double_to_int.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-12T06:54:23Z",
+      "side": 1,
+      "message": "Our OC MIPS code generators have implementations with fewer comparisons and conditional branches. Perhaps, this is OK for now, but should probably be improved in the future.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 41
+      },
+      "revId": "eadfa71553f3e1362a28aeac07c74b8789bad278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7dbb8cf2_92a18c70",
+        "filename": "runtime/interpreter/mterp/mips/op_shl_int.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-12T06:54:23Z",
+      "side": 1,
+      "message": "These are redundant, aren\u0027t they? (appears in other shifts as well).",
+      "range": {
+        "startLine": 1,
+        "startChar": 25,
+        "endLine": 1,
+        "endChar": 54
+      },
+      "revId": "eadfa71553f3e1362a28aeac07c74b8789bad278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fde3fc1c_f6330daa",
+        "filename": "runtime/interpreter/mterp/mips/op_shl_int_2addr.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-12T06:54:23Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1,
+        "startChar": 30,
+        "endLine": 1,
+        "endChar": 59
+      },
+      "revId": "eadfa71553f3e1362a28aeac07c74b8789bad278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1dd0d03a_0433004e",
+        "filename": "runtime/interpreter/mterp/mips/op_shl_int_lit8.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-12T06:54:23Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1,
+        "startChar": 29,
+        "endLine": 1,
+        "endChar": 58
+      },
+      "revId": "eadfa71553f3e1362a28aeac07c74b8789bad278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
