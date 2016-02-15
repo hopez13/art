@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5da5e8c5_281b6f64",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 841,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-15T14:50:38Z",
+      "side": 1,
+      "message": "kBitsPerByte?",
+      "range": {
+        "startLine": 841,
+        "startChar": 27,
+        "endLine": 841,
+        "endChar": 28
+      },
+      "revId": "7c3ded1027a2c255fa84beecdfad12e5e4206d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1dc45060_29e555f6",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-15T14:50:38Z",
+      "side": 1,
+      "message": "How about moving this to the if line 833?",
+      "range": {
+        "startLine": 841,
+        "startChar": 71,
+        "endLine": 843,
+        "endChar": 49
+      },
+      "revId": "7c3ded1027a2c255fa84beecdfad12e5e4206d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
