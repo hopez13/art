@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "9d9da072_b43fee6b",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2986,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-15T13:13:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fde93cd0_df13bf78",
+      "range": {
+        "startLine": 2986,
+        "startChar": 9,
+        "endLine": 2986,
+        "endChar": 29
+      },
+      "revId": "914f24fe8def01ceaf12f3f97315da875e7fbf33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7daf0c90_1e0c4d8e",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 3
@@ -60,6 +84,30 @@
       "writtenOn": "2016-02-11T11:06:37Z",
       "side": 1,
       "message": "Why this restriction?",
+      "range": {
+        "startLine": 2995,
+        "startChar": 6,
+        "endLine": 2995,
+        "endChar": 78
+      },
+      "revId": "914f24fe8def01ceaf12f3f97315da875e7fbf33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7daf0c90_1e68cdf5",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2995,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-15T13:13:33Z",
+      "side": 1,
+      "message": "I didn\u0027t want to flip an FP condition, but fair enough. Removed and flipped in this case.",
+      "parentUuid": "7daf0c90_1e0c4d8e",
       "range": {
         "startLine": 2995,
         "startChar": 6,
@@ -182,6 +230,30 @@
     },
     {
       "key": {
+        "uuid": "5da5e8c5_c8ff634e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3020,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-15T13:13:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5da5e8c5_62a998ed",
+      "range": {
+        "startLine": 3020,
+        "startChar": 28,
+        "endLine": 3020,
+        "endChar": 76
+      },
+      "revId": "914f24fe8def01ceaf12f3f97315da875e7fbf33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1dc45060_fb4de7b4",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 3
@@ -193,6 +265,30 @@
       "writtenOn": "2016-02-11T10:51:20Z",
       "side": 1,
       "message": "Nit: There is an implicit `Operand` constructor for constants and registers, so you could remove this.",
+      "range": {
+        "startLine": 3050,
+        "startChar": 41,
+        "endLine": 3050,
+        "endChar": 48
+      },
+      "revId": "914f24fe8def01ceaf12f3f97315da875e7fbf33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7daf0c90_4cb29fc8",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3050,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-15T13:13:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1dc45060_fb4de7b4",
       "range": {
         "startLine": 3050,
         "startChar": 41,
