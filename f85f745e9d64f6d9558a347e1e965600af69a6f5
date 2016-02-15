@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd4c7816_3b02b7ec",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-15T16:12:12Z",
+      "side": 1,
+      "message": "Maybe mention one more time that you can remove `load_class` even if `load_class-\u003eNeedsAccessCheck`",
+      "range": {
+        "startLine": 458,
+        "startChar": 0,
+        "endLine": 458,
+        "endChar": 35
+      },
+      "revId": "f85f745e9d64f6d9558a347e1e965600af69a6f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
