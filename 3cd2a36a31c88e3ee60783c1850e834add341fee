@@ -45,6 +45,30 @@
       "revId": "3cd2a36a31c88e3ee60783c1850e834add341fee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5da5e8c5_885cbb55",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2156,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-15T12:13:43Z",
+      "side": 1,
+      "message": "Copy-pasted code. Mark, do you care to comment? https://android-review.googlesource.com/#/c/138100/5/compiler/optimizing/code_generator_x86.cc@1373",
+      "parentUuid": "7daf0c90_4ce45fc9",
+      "range": {
+        "startLine": 2155,
+        "startChar": 71,
+        "endLine": 2156,
+        "endChar": 61
+      },
+      "revId": "3cd2a36a31c88e3ee60783c1850e834add341fee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
