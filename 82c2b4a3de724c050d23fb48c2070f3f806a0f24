@@ -213,6 +213,54 @@
       "revId": "82c2b4a3de724c050d23fb48c2070f3f806a0f24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ddb703a_26681cf6",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-02-15T18:43:34Z",
+      "side": 1,
+      "message": "This interpretation leaks the implicit \"standard location\" to more places making difficult to maintain.\n\nAlso, in practice, having write-permissions to the \"standard location\" is an exception (i.e. only system server will be able to generate something there and not the rest of the apps, and that\u0027s rarely gonna be needed). \n\nI don\u0027t really see why we should keep this assumption around.\n\nI\u0027m ok to have \"oat_location !\u003d nullptr\" test here instead of OatFileAssistant (to make some progress) but on the long run I think relying on the implicit location adds unnecessary complexity.",
+      "parentUuid": "1dd0d03a_5e178967",
+      "range": {
+        "startLine": 325,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 3
+      },
+      "revId": "82c2b4a3de724c050d23fb48c2070f3f806a0f24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ddb703a_66622416",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-02-15T18:43:34Z",
+      "side": 1,
+      "message": "We don\u0027t make any promises for the PathClassLoader.",
+      "parentUuid": "9dc4c07e_82aca0ff",
+      "range": {
+        "startLine": 325,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 3
+      },
+      "revId": "82c2b4a3de724c050d23fb48c2070f3f806a0f24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
