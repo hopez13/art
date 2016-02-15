@@ -22,6 +22,30 @@
       "revId": "4242c17c7758b819039c1449f90240d2e2cf05c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d20402f_798cc7f1",
+        "filename": "test/etc/run-test-jar",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-15T16:19:19Z",
+      "side": 1,
+      "message": "144 and 004 use SIGQUIT, so I did not want to duplicate a run script that would set the flag.\n\nI don\u0027t have strong opinion really. It just feels that we should be consistent and stop (indrectly) testing libunwind in all our run-tests.",
+      "parentUuid": "dde478f9_84a64cd6",
+      "range": {
+        "startLine": 423,
+        "startChar": 18,
+        "endLine": 423,
+        "endChar": 52
+      },
+      "revId": "4242c17c7758b819039c1449f90240d2e2cf05c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
