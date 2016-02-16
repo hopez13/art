@@ -46,6 +46,30 @@
       "revId": "08f520c2399d178a1a86996a9776e44169969c32",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1dc45060_8969098a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-16T11:01:25Z",
+      "side": 1,
+      "message": "\u003e The values of locals still should be known at points where we have\n \u003e HNativeDebugInfo - which should be the start of every java line\n \u003e number.  As general rule of thumb, the PC at the start of java line\n \u003e number should have correct local variable mapping.  Any other PCs\n \u003e are best-effort.  I include start of basic block in the best-effort\n \u003e now.  The debugger should not stop there in normal circumstances.\n \u003e \n \u003e Note that, in general, basic block will start with HNativeDebugInfo\n \u003e anyway.\n\nWhy?",
+      "parentUuid": "dd4c7816_5b18e308",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 67
+      },
+      "revId": "08f520c2399d178a1a86996a9776e44169969c32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
