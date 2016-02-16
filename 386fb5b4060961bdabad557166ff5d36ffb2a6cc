@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d71b053_b0ed76ad",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 4225,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-02-16T18:18:01Z",
+      "side": 1,
+      "message": "Needs code from https://android-review.googlesource.com/201492 to implement Java semantics properly\n\nPlease look at other HInstructions in that CL as well.",
+      "range": {
+        "startLine": 4225,
+        "startChar": 4,
+        "endLine": 4225,
+        "endChar": 10
+      },
+      "revId": "386fb5b4060961bdabad557166ff5d36ffb2a6cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
