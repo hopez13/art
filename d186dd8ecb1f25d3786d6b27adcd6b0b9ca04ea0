@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1ddb703a_0644003e",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-16T12:06:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ddb703a_c67218b3",
+      "range": {
+        "startLine": 307,
+        "startChar": 64,
+        "endLine": 307,
+        "endChar": 81
+      },
+      "revId": "d186dd8ecb1f25d3786d6b27adcd6b0b9ca04ea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dde478f9_4467e4f5",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-16T11:26:58Z",
       "side": 1,
       "message": "this is a pretty big scope, not sure if doable, but did you try having a different method?",
+      "range": {
+        "startLine": 317,
+        "startChar": 2,
+        "endLine": 317,
+        "endChar": 3
+      },
+      "revId": "d186dd8ecb1f25d3786d6b27adcd6b0b9ca04ea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5da5e8c5_d33cb41c",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-16T12:06:39Z",
+      "side": 1,
+      "message": "I\u0027d rather not. If you look at all the things you need to return from it (memory, frame_size, sahdow_frame, native_pc), it feels cleaner to just do all of it here.",
+      "parentUuid": "dde478f9_4467e4f5",
       "range": {
         "startLine": 317,
         "startChar": 2,
