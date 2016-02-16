@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dde478f9_04115c70",
+        "filename": "test/570-checker-osr/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-16T10:35:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3de034e0_870d6c1a",
+      "range": {
+        "startLine": 94,
+        "startChar": 52,
+        "endLine": 94,
+        "endChar": 61
+      },
+      "revId": "da8a392034db1de9ad362fa3acf8c06e65c33192",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7daf0c90_07bfa083",
         "filename": "test/570-checker-osr/src/Main.java",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-16T10:32:23Z",
       "side": 1,
       "message": "ensureHasOsrCode",
+      "range": {
+        "startLine": 137,
+        "startChar": 28,
+        "endLine": 137,
+        "endChar": 41
+      },
+      "revId": "da8a392034db1de9ad362fa3acf8c06e65c33192",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dde478f9_24ad7867",
+        "filename": "test/570-checker-osr/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-16T10:35:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7daf0c90_07bfa083",
       "range": {
         "startLine": 137,
         "startChar": 28,
