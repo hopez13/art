@@ -152,6 +152,30 @@
       "revId": "870520c708fe59c29394040c66b8d2b8b362d124",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd1d04f9_1a333dd8",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2071,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-02-16T21:04:33Z",
+      "side": 1,
+      "message": "Yes, intrinsics that are marked as \"Handled as HIR instructions\" are already lowered into HIR during simplification. I am in fact going to make another macro that checks we never reach these (so we will have UNIMPLEMENTED_INTRINSIC and UNREACHED_INTRINSIC).\n\nMips implements a few intrinsics that are always lowered to HIR, so that code is esssentially dead now.",
+      "parentUuid": "1d71b053_f310e8a4",
+      "range": {
+        "startLine": 2071,
+        "startChar": 33,
+        "endLine": 2071,
+        "endChar": 49
+      },
+      "revId": "870520c708fe59c29394040c66b8d2b8b362d124",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
