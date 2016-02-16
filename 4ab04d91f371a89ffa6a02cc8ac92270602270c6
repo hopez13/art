@@ -22,6 +22,30 @@
       "revId": "4ab04d91f371a89ffa6a02cc8ac92270602270c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd7f7c1f_55767ea9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2865,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-16T18:01:53Z",
+      "side": 1,
+      "message": "There is an AllowThreadSuspension below, we should not hold the lock for the whole function duration.",
+      "parentUuid": "7d8c6c87_b07ed8f0",
+      "range": {
+        "startLine": 2865,
+        "startChar": 0,
+        "endLine": 2865,
+        "endChar": 77
+      },
+      "revId": "4ab04d91f371a89ffa6a02cc8ac92270602270c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
