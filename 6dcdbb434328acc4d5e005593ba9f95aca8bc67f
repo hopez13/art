@@ -1,0 +1,406 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fde93cd0_ffa79b7d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1619,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T10:29:19Z",
+      "side": 1,
+      "message": "Do not use implicit conversion to bool, use explicit `!\u003d 0u`.",
+      "range": {
+        "startLine": 1619,
+        "startChar": 8,
+        "endLine": 1619,
+        "endChar": 50
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d9da072_54396289",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T10:29:19Z",
+      "side": 1,
+      "message": "const auto\u0026 entry",
+      "range": {
+        "startLine": 97,
+        "startChar": 7,
+        "endLine": 97,
+        "endChar": 15
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fde93cd0_df981f31",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T10:29:19Z",
+      "side": 1,
+      "message": "Add \"\\n\".",
+      "range": {
+        "startLine": 112,
+        "startChar": 13,
+        "endLine": 112,
+        "endChar": 14
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d9da072_94690a69",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T10:29:19Z",
+      "side": 1,
+      "message": "kArenaAllocScheduling",
+      "range": {
+        "startLine": 185,
+        "startChar": 58,
+        "endLine": 185,
+        "endChar": 59
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ddb703a_60dbec97",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T10:29:19Z",
+      "side": 1,
+      "message": "!candidates.empty()",
+      "range": {
+        "startLine": 197,
+        "startChar": 9,
+        "endLine": 197,
+        "endChar": 30
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1dc45060_9e8ea1ea",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T10:29:19Z",
+      "side": 1,
+      "message": "The delay depends on the successor delays, so I think this loop needs to iterate in reverse order instead of the pseudo-random order provided by HashMap.",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 3
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3de034e0_4413623f",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T10:29:19Z",
+      "side": 1,
+      "message": "The way this function is written, I\u0027d almost expect `switch (instruction-\u003eGetKind()) { ... }`.",
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d9da072_f474165f",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T10:29:19Z",
+      "side": 1,
+      "message": "Add kArenaAllocScheduling.",
+      "range": {
+        "startLine": 36,
+        "startChar": 42,
+        "endLine": 36,
+        "endChar": 57
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ddb703a_2083a487",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T10:29:19Z",
+      "side": 1,
+      "message": "Make this a const function with a const-reference result type.",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 50
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ddb703a_4088b0a1",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T10:29:19Z",
+      "side": 1,
+      "message": "Why do you need this indirection? It\u0027s just storing a SchedulingNode*.",
+      "range": {
+        "startLine": 119,
+        "startChar": 6,
+        "endLine": 119,
+        "endChar": 19
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7daf0c90_277bc49e",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T10:29:19Z",
+      "side": 1,
+      "message": "This API forces the selector to go through the whole nodes array. This is not very efficient.",
+      "range": {
+        "startLine": 235,
+        "startChar": 26,
+        "endLine": 235,
+        "endChar": 85
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdb504dc_3d611bb1",
+        "filename": "compiler/optimizing/scheduler.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T10:29:19Z",
+      "side": 1,
+      "message": "nodes[index] \u003d nodes.back();",
+      "range": {
+        "startLine": 244,
+        "startChar": 4,
+        "endLine": 244,
+        "endChar": 58
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7daf0c90_87bd70e0",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T10:29:19Z",
+      "side": 1,
+      "message": "kArm64DataProcWithShifterOpCost",
+      "range": {
+        "startLine": 37,
+        "startChar": 25,
+        "endLine": 37,
+        "endChar": 52
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d20402f_79212794",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T10:29:19Z",
+      "side": 1,
+      "message": "kArm64MultiplyAccumulateCost",
+      "range": {
+        "startLine": 50,
+        "startChar": 25,
+        "endLine": 50,
+        "endChar": 49
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d9da072_250ca68e",
+        "filename": "compiler/optimizing/scheduler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T10:29:19Z",
+      "side": 1,
+      "message": "One per line.",
+      "range": {
+        "startLine": 80,
+        "startChar": 52,
+        "endLine": 81,
+        "endChar": 77
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ddb703a_66e944a0",
+        "filename": "compiler/optimizing/scheduler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T10:29:19Z",
+      "side": 1,
+      "message": "Add mips/mips64.",
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d9da072_850b9273",
+        "filename": "runtime/arch/arm64/instruction_set_features_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T10:29:19Z",
+      "side": 1,
+      "message": "I don\u0027t think the scheduling should depend on these. There should be a separate flag.",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 60
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ddb703a_a65b4c5c",
+        "filename": "test/706-checker-scheduler/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T10:29:19Z",
+      "side": 1,
+      "message": "We don\u0027t support tests for particular CPU variants and this test will fail for denver64 or kryo.",
+      "range": {
+        "startLine": 25,
+        "startChar": 18,
+        "endLine": 25,
+        "endChar": 23
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
