@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ddb703a_c67218b3",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-02-16T11:26:58Z",
+      "side": 1,
+      "message": "explain why",
+      "range": {
+        "startLine": 307,
+        "startChar": 64,
+        "endLine": 307,
+        "endChar": 81
+      },
+      "revId": "d186dd8ecb1f25d3786d6b27adcd6b0b9ca04ea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dde478f9_4467e4f5",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-02-16T11:26:58Z",
+      "side": 1,
+      "message": "this is a pretty big scope, not sure if doable, but did you try having a different method?",
+      "range": {
+        "startLine": 317,
+        "startChar": 2,
+        "endLine": 317,
+        "endChar": 3
+      },
+      "revId": "d186dd8ecb1f25d3786d6b27adcd6b0b9ca04ea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
