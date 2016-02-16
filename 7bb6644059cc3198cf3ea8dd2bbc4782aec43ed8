@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1dc45060_292f1541",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-16T12:06:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1dc45060_a996c5c2",
+      "revId": "7bb6644059cc3198cf3ea8dd2bbc4782aec43ed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dde478f9_64cea02f",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 3
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "5da5e8c5_13333c4e",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-16T12:06:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dde478f9_64cea02f",
+      "range": {
+        "startLine": 363,
+        "startChar": 37,
+        "endLine": 363,
+        "endChar": 48
+      },
+      "revId": "7bb6644059cc3198cf3ea8dd2bbc4782aec43ed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dde478f9_a4c7c80d",
         "filename": "runtime/jit/jit.cc",
         "patchSetId": 3
@@ -53,6 +95,24 @@
       "writtenOn": "2016-02-16T10:58:25Z",
       "side": 1,
       "message": "Maybe add\n\n  \u003c\u003c DexRegisterLocation::PrettyDescriptor(location);\n\n?",
+      "revId": "7bb6644059cc3198cf3ea8dd2bbc4782aec43ed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5da5e8c5_f337b835",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-16T12:06:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dde478f9_a4c7c80d",
       "revId": "7bb6644059cc3198cf3ea8dd2bbc4782aec43ed8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
