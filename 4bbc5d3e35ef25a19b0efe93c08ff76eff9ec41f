@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd82644f_b25a60f9",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-16T18:09:35Z",
+      "side": 1,
+      "message": "I think this might be only necessary for GSS, is it worth checking for that?",
+      "range": {
+        "startLine": 597,
+        "startChar": 15,
+        "endLine": 597,
+        "endChar": 39
+      },
+      "revId": "4bbc5d3e35ef25a19b0efe93c08ff76eff9ec41f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
