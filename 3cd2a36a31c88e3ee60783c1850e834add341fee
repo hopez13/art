@@ -93,6 +93,30 @@
       "revId": "3cd2a36a31c88e3ee60783c1850e834add341fee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd255844_f3b1d0c3",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2156,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-02-16T14:00:09Z",
+      "side": 1,
+      "message": "This was probably a workaround for an old RA problem, possibly as part of the baseline compiler.  That wording sounds like something Nicolas might have helped me with.",
+      "parentUuid": "5da5e8c5_885cbb55",
+      "range": {
+        "startLine": 2155,
+        "startChar": 71,
+        "endLine": 2156,
+        "endChar": 61
+      },
+      "revId": "3cd2a36a31c88e3ee60783c1850e834add341fee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
