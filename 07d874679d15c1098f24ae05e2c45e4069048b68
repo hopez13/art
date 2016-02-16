@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1dc45060_24be5cde",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T15:56:29Z",
+      "side": 1,
+      "message": "TryInlineOrReplace()? It will only try one approach, not both.",
+      "range": {
+        "startLine": 489,
+        "startChar": 15,
+        "endLine": 489,
+        "endChar": 34
+      },
+      "revId": "07d874679d15c1098f24ae05e2c45e4069048b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ddb703a_46bd282f",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T15:56:29Z",
+      "side": 1,
+      "message": "Can you move this to the TryInlineAndReplace()?",
+      "range": {
+        "startLine": 507,
+        "startChar": 0,
+        "endLine": 522,
+        "endChar": 0
+      },
+      "revId": "07d874679d15c1098f24ae05e2c45e4069048b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dde478f9_64b22060",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T15:56:29Z",
+      "side": 1,
+      "message": "*return_replacement \u003d nullptr; (Do not rely on initialization by the caller.)",
+      "revId": "07d874679d15c1098f24ae05e2c45e4069048b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdb504dc_63a3f0d8",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T15:56:29Z",
+      "side": 1,
+      "message": "*return_replacement \u003d nullptr;",
+      "revId": "07d874679d15c1098f24ae05e2c45e4069048b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ddb703a_26b81c40",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-16T15:56:29Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "07d874679d15c1098f24ae05e2c45e4069048b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
