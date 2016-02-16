@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d8c6c87_b07ed8f0",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2865,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2016-02-16T17:51:36Z",
+      "side": 1,
+      "message": "Question, does a lock acquisition feel like a potential thread suspension?",
+      "range": {
+        "startLine": 2865,
+        "startChar": 0,
+        "endLine": 2865,
+        "endChar": 77
+      },
+      "revId": "4ab04d91f371a89ffa6a02cc8ac92270602270c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
