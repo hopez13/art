@@ -117,6 +117,30 @@
       "revId": "3cd2a36a31c88e3ee60783c1850e834add341fee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdb504dc_235658a9",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2156,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-16T14:04:53Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/#/c/138100/1/compiler/optimizing/code_generator_x86.cc@1377 has the full explanation. I can\u0027t recall not fidn why the comment was changed.",
+      "parentUuid": "dd255844_f3b1d0c3",
+      "range": {
+        "startLine": 2155,
+        "startChar": 71,
+        "endLine": 2156,
+        "endChar": 61
+      },
+      "revId": "3cd2a36a31c88e3ee60783c1850e834add341fee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
