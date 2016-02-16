@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fd7f7c1f_320f48be",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1390,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-02-16T13:43:38Z",
+      "side": 1,
+      "message": "I am not clear why this should be reverted.  Any reason?  It generates better code.  Did you want this in a different CL?",
+      "parentUuid": "1ddb703a_23d1ee77",
+      "range": {
+        "startLine": 1378,
+        "startChar": 2,
+        "endLine": 1390,
+        "endChar": 59
+      },
+      "revId": "9d338dace47d004a80104172379c69f9d10dc3e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3de034e0_e4e8eefa",
         "filename": "compiler/optimizing/code_generator_x86.cc",
         "patchSetId": 4
