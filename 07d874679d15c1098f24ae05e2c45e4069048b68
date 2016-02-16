@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bdb504dc_0394f467",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-16T16:05:39Z",
+      "side": 1,
+      "message": "As discussed, Replace s not PatternMatch, it\u0027s just replcaing the instruction.",
+      "parentUuid": "1dc45060_24be5cde",
+      "range": {
+        "startLine": 489,
+        "startChar": 15,
+        "endLine": 489,
+        "endChar": 34
+      },
+      "revId": "07d874679d15c1098f24ae05e2c45e4069048b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ddb703a_46bd282f",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-16T15:56:29Z",
       "side": 1,
       "message": "Can you move this to the TryInlineAndReplace()?",
+      "range": {
+        "startLine": 507,
+        "startChar": 0,
+        "endLine": 522,
+        "endChar": 0
+      },
+      "revId": "07d874679d15c1098f24ae05e2c45e4069048b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d20402f_dcbdc1e1",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-16T16:05:39Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "1ddb703a_46bd282f",
       "range": {
         "startLine": 507,
         "startChar": 0,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "3de034e0_f2cb5067",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-16T16:05:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dde478f9_64b22060",
+      "revId": "07d874679d15c1098f24ae05e2c45e4069048b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bdb504dc_63a3f0d8",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 2
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "dde478f9_c4a854ec",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-16T16:05:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdb504dc_63a3f0d8",
+      "revId": "07d874679d15c1098f24ae05e2c45e4069048b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ddb703a_26b81c40",
         "filename": "compiler/optimizing/inliner.h",
         "patchSetId": 2
@@ -93,6 +177,24 @@
       "writtenOn": "2016-02-16T15:56:29Z",
       "side": 1,
       "message": "Line too long.",
+      "revId": "07d874679d15c1098f24ae05e2c45e4069048b68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7daf0c90_e711cce2",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-16T16:05:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ddb703a_26b81c40",
       "revId": "07d874679d15c1098f24ae05e2c45e4069048b68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
