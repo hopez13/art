@@ -118,6 +118,30 @@
       "revId": "f76815a747efc4e7402b6f04d7fc3ef90f2bd1d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd7ab832_d457cdf7",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-17T16:29:46Z",
+      "side": 1,
+      "message": "In the long-term, you should not, though, as it\u0027s still a goal to remove it to get rid of the second store. Bill reported a noticeable slow-down after fixing all the missing ref-array cleans.",
+      "parentUuid": "7daf0c90_928a0cd7",
+      "range": {
+        "startLine": 745,
+        "startChar": 25,
+        "endLine": 745,
+        "endChar": 41
+      },
+      "revId": "f76815a747efc4e7402b6f04d7fc3ef90f2bd1d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
