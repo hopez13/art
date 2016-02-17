@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7daf0c90_b2c7100e",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-17T10:17:42Z",
+      "side": 1,
+      "message": "According to a comment at declaration, this being non-null does not guarantee it being a reference.",
+      "range": {
+        "startLine": 745,
+        "startChar": 25,
+        "endLine": 745,
+        "endChar": 41
+      },
+      "revId": "f76815a747efc4e7402b6f04d7fc3ef90f2bd1d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
