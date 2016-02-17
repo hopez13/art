@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d9d30d4_cdbc49e4",
+        "filename": "runtime/base/scoped_arena_containers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-17T21:46:45Z",
+      "side": 1,
+      "message": "I guess ptr being null isn\u0027t hit today, as otherwise things would have been crashing?",
+      "range": {
+        "startLine": 224,
+        "startChar": 4,
+        "endLine": 224,
+        "endChar": 25
+      },
+      "revId": "8817760ca9f0590be373f5939cc86941e25d8f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
