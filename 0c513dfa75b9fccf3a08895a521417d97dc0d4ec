@@ -16,6 +16,70 @@
       "revId": "0c513dfa75b9fccf3a08895a521417d97dc0d4ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd7f7c1f_84a82c51",
+        "filename": "test/575-checker-isnan/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-17T20:48:28Z",
+      "side": 1,
+      "message": "PTAL?",
+      "parentUuid": "3d76744b_ee7f94ef",
+      "revId": "0c513dfa75b9fccf3a08895a521417d97dc0d4ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd255844_67ac1aff",
+        "filename": "test/575-checker-isnan/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-17T20:48:28Z",
+      "side": 1,
+      "message": "There are no subnormal test cases. I created subnormal test cases which I put into CL 202812 when I wrote isNaN intrinsic support. You\u0027re welcome to steal them, and any of the others tests you find useful. :-)",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 50
+      },
+      "revId": "0c513dfa75b9fccf3a08895a521417d97dc0d4ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d8fa87c_6c117270",
+        "filename": "test/575-checker-isnan/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-17T20:48:28Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 51
+      },
+      "revId": "0c513dfa75b9fccf3a08895a521417d97dc0d4ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
