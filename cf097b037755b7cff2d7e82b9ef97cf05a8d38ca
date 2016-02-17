@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7daf0c90_32d4e0bf",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-17T10:02:21Z",
+      "side": 1,
+      "message": "That\u0027s an insane amount of instructions.... I guess the argument is that bitcount is so little used that taking the bloat for the small number of invocations is ok?",
+      "revId": "cf097b037755b7cff2d7e82b9ef97cf05a8d38ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
