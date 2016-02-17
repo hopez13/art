@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9d9da072_cb43e987",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 4225,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-17T12:41:13Z",
+      "side": 1,
+      "message": "Are you sure?  The interpreter implements rem-float/rem-double by calling fmod/fmodf from libm.",
+      "parentUuid": "1d71b053_b0ed76ad",
+      "range": {
+        "startLine": 4225,
+        "startChar": 4,
+        "endLine": 4225,
+        "endChar": 10
+      },
+      "revId": "386fb5b4060961bdabad557166ff5d36ffb2a6cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd4c7816_7ec58d03",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 15
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-16T18:23:52Z",
       "side": 1,
       "message": "Twice the same.",
+      "range": {
+        "startLine": 4236,
+        "startChar": 0,
+        "endLine": 4251,
+        "endChar": 3
+      },
+      "revId": "386fb5b4060961bdabad557166ff5d36ffb2a6cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7daf0c90_320ea018",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 4251,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-17T12:41:13Z",
+      "side": 1,
+      "message": "D\u0027oh!  Rebase leftovers.  Fixed in PS16.",
+      "parentUuid": "dd4c7816_7ec58d03",
       "range": {
         "startLine": 4236,
         "startChar": 0,
