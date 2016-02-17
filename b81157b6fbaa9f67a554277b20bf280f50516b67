@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5d8fa87c_1bb7be20",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-17T17:29:23Z",
+      "side": 1,
+      "message": "I wanted it to be consistent with the check below, which is for __APPLE__.",
+      "parentUuid": "9d85a05b_4596ca02",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "b81157b6fbaa9f67a554277b20bf280f50516b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d8fa87c_fbcafa92",
         "filename": "runtime/arch/x86/thread_x86.cc",
         "patchSetId": 2
@@ -89,6 +113,30 @@
     },
     {
       "key": {
+        "uuid": "5d8fa87c_7bdfea51",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-17T17:29:23Z",
+      "side": 1,
+      "message": "Yeah, I can clamp it to the Thread size.\n\n(For x86-64, see the corresponding thread_x86_64.cc, where we exactly use ARCH_SET_GS :-) ).",
+      "parentUuid": "9d85a05b_e0bd6ce1",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 31
+      },
+      "revId": "b81157b6fbaa9f67a554277b20bf280f50516b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd255844_7c9eed2d",
         "filename": "runtime/arch/x86/thread_x86.cc",
         "patchSetId": 2
@@ -135,6 +183,24 @@
       "writtenOn": "2016-02-17T06:21:00Z",
       "side": 1,
       "message": "is it too late for me to be reviewing code, or is there a subtle reason why L100-L104 isn\u0027t just the single line\n\n  gdt_entry.entry_number \u003d gdt_entry_number;\n\n?",
+      "revId": "b81157b6fbaa9f67a554277b20bf280f50516b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d76744b_78228e8c",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-17T17:29:23Z",
+      "side": 1,
+      "message": "It\u0027s semantically equivalent. I just like to be expressive about the -1 literal as an input to the syscall (\u0027cause I hate missing inline documentation, I don\u0027t like to have to look up magic values).\n\nIf you strongly prefer the simpler code (which I, btw, would hope to be output by the compiler), I\u0027ll change.",
+      "parentUuid": "3d76744b_75c8571f",
       "revId": "b81157b6fbaa9f67a554277b20bf280f50516b67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
