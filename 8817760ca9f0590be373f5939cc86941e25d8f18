@@ -118,6 +118,30 @@
       "revId": "8817760ca9f0590be373f5939cc86941e25d8f18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d85a05b_26c2acfd",
+        "filename": "runtime/base/scoped_arena_containers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-17T22:26:48Z",
+      "side": 1,
+      "message": "before it wouldn\u0027t handle:\nunique_ptr q;\nq.reset(non_null)\nsince that calls the deleter on null",
+      "parentUuid": "1deff033_86b510fc",
+      "range": {
+        "startLine": 224,
+        "startChar": 4,
+        "endLine": 224,
+        "endChar": 25
+      },
+      "revId": "8817760ca9f0590be373f5939cc86941e25d8f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
