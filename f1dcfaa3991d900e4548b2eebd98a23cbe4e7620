@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd7f7c1f_841b4c62",
+        "filename": "test/575-checker-isnan/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-02-17T21:03:00Z",
+      "side": 1,
+      "message": "I \"borrowed\" a few from your tests here. But please keep yours too. It is always good to have a few of them in slightly different context (e.g. I have some in an array so it is less likely they are constant folded).\n\nPTAL!",
+      "range": {
+        "startLine": 57,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 15
+      },
+      "revId": "f1dcfaa3991d900e4548b2eebd98a23cbe4e7620",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
