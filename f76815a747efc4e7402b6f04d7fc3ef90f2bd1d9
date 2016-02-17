@@ -22,6 +22,30 @@
       "revId": "f76815a747efc4e7402b6f04d7fc3ef90f2bd1d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdb504dc_ce586362",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-17T10:21:23Z",
+      "side": 1,
+      "message": "Comment looks stalled really, as no one actually checks the return value with GetVReg.\n\nBut still, why would that matter here?",
+      "parentUuid": "7daf0c90_b2c7100e",
+      "range": {
+        "startLine": 745,
+        "startChar": 25,
+        "endLine": 745,
+        "endChar": 41
+      },
+      "revId": "f76815a747efc4e7402b6f04d7fc3ef90f2bd1d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
