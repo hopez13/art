@@ -94,6 +94,30 @@
       "revId": "004e4b0b5debace7bca2d977562c7d767684cc3d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd7f7c1f_18c34257",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-02-17T15:09:44Z",
+      "side": 1,
+      "message": "Artem is right indeed. I removed the check, added his example (thanks!) and updated the constant test.",
+      "parentUuid": "dde478f9_be3995d9",
+      "range": {
+        "startLine": 261,
+        "startChar": 23,
+        "endLine": 263,
+        "endChar": 23
+      },
+      "revId": "004e4b0b5debace7bca2d977562c7d767684cc3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
