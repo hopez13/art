@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "dd7ab832_7774db0f",
+        "filename": "runtime/base/scoped_arena_containers.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-17T19:49:32Z",
+      "side": 1,
+      "message": "remove \u0027it\u0027?",
+      "range": {
+        "startLine": 208,
+        "startChar": 44,
+        "endLine": 208,
+        "endChar": 46
+      },
+      "revId": "361e04aaa5d3eca9f978a802ee44b1213f31da58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd82644f_01867405",
+        "filename": "runtime/verifier/register_line-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-17T19:49:32Z",
+      "side": 1,
+      "message": "Is it safe to do these when ptr is null?",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 27
+      },
+      "revId": "361e04aaa5d3eca9f978a802ee44b1213f31da58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1dc45060_44b278c8",
         "filename": "runtime/verifier/register_line.h",
         "patchSetId": 4
