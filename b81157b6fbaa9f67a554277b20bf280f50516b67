@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "5d8fa87c_fbcafa92",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1090553
+      },
+      "writtenOn": "2016-02-17T17:14:51Z",
+      "side": 1,
+      "message": "I\u0027m a bit puzzled by this comment.  Sharing a slot between multiple ART runtime instances sounds entirely sensible, but sharing a slot between multiple kernel threads is possibly dangerous is some other library allocates a slot on just one thread.  If you can use __thread here, it would be slightly safer.  Admittedly, this is unlikely to matter in practice.",
+      "revId": "b81157b6fbaa9f67a554277b20bf280f50516b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d8fa87c_7874d00f",
         "filename": "runtime/arch/x86/thread_x86.cc",
         "patchSetId": 2
@@ -48,6 +65,30 @@
     },
     {
       "key": {
+        "uuid": "9d85a05b_e0bd6ce1",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1090553
+      },
+      "writtenOn": "2016-02-17T17:14:51Z",
+      "side": 1,
+      "message": "What is the actual intended size of the data structure pointed to by the descriptor?  If you want to have an unlimited size (which, if you port to 64-bit, you\u0027ll have no choice about), set limit_in_pages to 1 and limit to 0xFFFFF.  If you want to clamp it to, say, sizeof(Thread), then doing that is fine, too.\n\n(If you port to 64-bit, just use arch_prctl(ARCH_SET_GS, ...) and be done with it.)",
+      "parentUuid": "5d8fa87c_7874d00f",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 31
+      },
+      "revId": "b81157b6fbaa9f67a554277b20bf280f50516b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd255844_7c9eed2d",
         "filename": "runtime/arch/x86/thread_x86.cc",
         "patchSetId": 2
@@ -59,6 +100,24 @@
       "writtenOn": "2016-02-17T06:21:00Z",
       "side": 1,
       "message": "comment that you don\u0027t need a lock because you know this happens while there\u0027s still only one thread?",
+      "revId": "b81157b6fbaa9f67a554277b20bf280f50516b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd7ab832_344ad126",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1090553
+      },
+      "writtenOn": "2016-02-17T17:14:51Z",
+      "side": 1,
+      "message": "If gdt_entry_number were __thread, then this would be a nonissue.",
+      "parentUuid": "dd255844_7c9eed2d",
       "revId": "b81157b6fbaa9f67a554277b20bf280f50516b67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
