@@ -16,6 +16,24 @@
       "revId": "cf097b037755b7cff2d7e82b9ef97cf05a8d38ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d8fa87c_5bfa2664",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1056098
+      },
+      "writtenOn": "2016-02-17T10:14:44Z",
+      "side": 1,
+      "message": "I\u0027m going to look at the alternatives (btw, we have the same problem with bit reversal). I\u0027ll look up Hackers Delight and fxtbook. Perhaps the optimal solution would be to use a 256-entry LUT. But then the question is where to put it (ensuring it\u0027s not going to be duplicated if there\u0027s more than one method using it) and how to access it (our assembler does not implement literals or anything like that at the moment, there\u0027s just support for branches to labels, we\u0027ll get to this at some point). Another option is probably to make a regular asm implementation using just a few registers (which we\u0027ll request from the compiler for \"temps\") and call it.",
+      "parentUuid": "7daf0c90_32d4e0bf",
+      "revId": "cf097b037755b7cff2d7e82b9ef97cf05a8d38ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
