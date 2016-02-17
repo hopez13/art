@@ -94,6 +94,30 @@
       "revId": "f76815a747efc4e7402b6f04d7fc3ef90f2bd1d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7daf0c90_928a0cd7",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-17T10:31:01Z",
+      "side": 1,
+      "message": "OK, good point. Well the comment is indeed stalled:\nhttps://cs.corp.google.com/#android/art/runtime/globals.h\u0026l\u003d62\n\nWe can rely on the reference array being there and having objects in it.",
+      "parentUuid": "bdb504dc_ee552727",
+      "range": {
+        "startLine": 745,
+        "startChar": 25,
+        "endLine": 745,
+        "endChar": 41
+      },
+      "revId": "f76815a747efc4e7402b6f04d7fc3ef90f2bd1d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
