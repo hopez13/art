@@ -46,6 +46,54 @@
       "revId": "4bbc5d3e35ef25a19b0efe93c08ff76eff9ec41f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d76744b_957b8350",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1015885
+      },
+      "writtenOn": "2016-02-17T09:29:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd82644f_b25a60f9",
+      "range": {
+        "startLine": 597,
+        "startChar": 15,
+        "endLine": 597,
+        "endChar": 39
+      },
+      "revId": "4bbc5d3e35ef25a19b0efe93c08ff76eff9ec41f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd2a1c13_e3ca5c93",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1015885
+      },
+      "writtenOn": "2016-02-17T09:29:38Z",
+      "side": 1,
+      "message": "\u003e I think for SS. fallback space is non_moving space, so it needs\n \u003e dirty card to record references from non_moving to bump pointer\n \u003e space.\n\nThis is not necessory as SS collects non moving space. so no need to mark the card here",
+      "parentUuid": "dd255844_3c25d5ee",
+      "range": {
+        "startLine": 597,
+        "startChar": 15,
+        "endLine": 597,
+        "endChar": 39
+      },
+      "revId": "4bbc5d3e35ef25a19b0efe93c08ff76eff9ec41f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
