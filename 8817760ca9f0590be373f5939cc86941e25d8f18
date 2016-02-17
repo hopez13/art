@@ -94,6 +94,30 @@
       "revId": "8817760ca9f0590be373f5939cc86941e25d8f18",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1deff033_86b510fc",
+        "filename": "runtime/base/scoped_arena_containers.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-17T22:19:45Z",
+      "side": 1,
+      "message": "Yeah. And the new pointer is *null*, so the deleter is only called for non-null data.",
+      "parentUuid": "fd7f7c1f_87f7cea0",
+      "range": {
+        "startLine": 224,
+        "startChar": 4,
+        "endLine": 224,
+        "endChar": 25
+      },
+      "revId": "8817760ca9f0590be373f5939cc86941e25d8f18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
