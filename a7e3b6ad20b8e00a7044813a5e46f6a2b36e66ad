@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1ddb703a_d14c9444",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-17T16:28:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1dc45060_2f971566",
+      "range": {
+        "startLine": 233,
+        "startChar": 18,
+        "endLine": 235,
+        "endChar": 65
+      },
+      "revId": "a7e3b6ad20b8e00a7044813a5e46f6a2b36e66ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dde478f9_efa0c919",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 2
@@ -71,6 +95,54 @@
     },
     {
       "key": {
+        "uuid": "dd4c7816_1ec00963",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-17T16:28:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1dc45060_4f9c5188",
+      "range": {
+        "startLine": 266,
+        "startChar": 75,
+        "endLine": 266,
+        "endChar": 76
+      },
+      "revId": "a7e3b6ad20b8e00a7044813a5e46f6a2b36e66ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3de034e0_b2c54878",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-17T16:28:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dde478f9_efa0c919",
+      "range": {
+        "startLine": 266,
+        "startChar": 65,
+        "endLine": 266,
+        "endChar": 66
+      },
+      "revId": "a7e3b6ad20b8e00a7044813a5e46f6a2b36e66ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5da5e8c5_8ed2831f",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2016-02-17T15:42:23Z",
       "side": 1,
       "message": "Nit: /* info */ 0",
+      "range": {
+        "startLine": 304,
+        "startChar": 58,
+        "endLine": 304,
+        "endChar": 59
+      },
+      "revId": "a7e3b6ad20b8e00a7044813a5e46f6a2b36e66ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdb504dc_ae288f63",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-17T16:28:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5da5e8c5_8ed2831f",
       "range": {
         "startLine": 304,
         "startChar": 58,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "1ddb703a_f1499031",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-17T16:28:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d20402f_fcd52563",
+      "range": {
+        "startLine": 324,
+        "startChar": 10,
+        "endLine": 324,
+        "endChar": 28
+      },
+      "revId": "a7e3b6ad20b8e00a7044813a5e46f6a2b36e66ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ddb703a_f13270d1",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2016-02-17T15:42:23Z",
       "side": 1,
       "message": "Introduce a helper template to factor this pattern:\n\n  x.Start();\n  x.Write();\n  x.End();\n\n?",
+      "range": {
+        "startLine": 590,
+        "startChar": 0,
+        "endLine": 604,
+        "endChar": 19
+      },
+      "revId": "a7e3b6ad20b8e00a7044813a5e46f6a2b36e66ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5da5e8c5_8ed9633f",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-17T16:28:34Z",
+      "side": 1,
+      "message": "I added a function WriteCachedSection(). This generalizes the naming pattern where a Write...Section() function performs Start()+writing+End(), see WriteNoBitsSection(), but Write...() without the \"Section\" writes only data.",
+      "parentUuid": "1ddb703a_f13270d1",
       "range": {
         "startLine": 590,
         "startChar": 0,
