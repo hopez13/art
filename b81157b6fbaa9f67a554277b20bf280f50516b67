@@ -204,6 +204,24 @@
       "revId": "b81157b6fbaa9f67a554277b20bf280f50516b67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d71b053_074e8a66",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2016-02-17T17:32:39Z",
+      "side": 1,
+      "message": "how about, as long as you\u0027re not freeing this anyway, moving the static from global scope to here. that addresses the __APPLE__ oddity, reduces the scope, and lets you put the documentation here, where it\u0027s more needed.",
+      "parentUuid": "3d76744b_78228e8c",
+      "revId": "b81157b6fbaa9f67a554277b20bf280f50516b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
