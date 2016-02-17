@@ -166,6 +166,30 @@
       "revId": "f76815a747efc4e7402b6f04d7fc3ef90f2bd1d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd7f7c1f_b8b6aeb8",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-17T16:43:25Z",
+      "side": 1,
+      "message": "Nah, once we get there, we\u0027ll have to comb through all three interpreters, anyways.\n\nHow about a DCHECK for GetVReg() \u003d\u003d GetVRegReference()?",
+      "parentUuid": "5da5e8c5_0e0c338d",
+      "range": {
+        "startLine": 745,
+        "startChar": 25,
+        "endLine": 745,
+        "endChar": 41
+      },
+      "revId": "f76815a747efc4e7402b6f04d7fc3ef90f2bd1d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
