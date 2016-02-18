@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "8240dd43_16f5fc35",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2016-02-18T21:26:24Z",
+      "side": 1,
+      "message": "regardless which set of names you choose, \u003csys/syscall.h\u003e should give you both.",
+      "revId": "2642a06596a8c77f1bfe3803a8797da806807555",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "620e892a_9d6b632b",
         "filename": "runtime/arch/x86/thread_x86.cc",
         "patchSetId": 4
