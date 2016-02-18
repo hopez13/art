@@ -319,6 +319,24 @@
     },
     {
       "key": {
+        "uuid": "0234edda_6c0d9b89",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-18T17:43:20Z",
+      "side": 1,
+      "message": "Using the groups, i.e. unary/binary operation, can have a slightly negative impact on performance since you have more virtual calls. On the other hand, I think we should prioritize the readability over performance gains unless we find out they are significant. And I haven\u0027t made up my mind yet about what style is more readable here.",
+      "parentUuid": "7d862c98_2900754d",
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d9da072_f474165f",
         "filename": "compiler/optimizing/scheduler.h",
         "patchSetId": 4
