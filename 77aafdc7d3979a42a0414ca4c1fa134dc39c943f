@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9dda00a8_891079a4",
+        "filename": "test/575-checker-string-init-alias/smali/TestCase.smali",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-18T09:11:34Z",
+      "side": 1,
+      "message": "Nit: You might want to do in-order CHECK here, to make sure the Deopt is between the NewInstance and String.\u003cinit\u003e. But you\u0027re running assertIsInterpreted anyway...",
+      "range": {
+        "startLine": 48,
+        "startChar": 9,
+        "endLine": 48,
+        "endChar": 12
+      },
+      "revId": "77aafdc7d3979a42a0414ca4c1fa134dc39c943f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
