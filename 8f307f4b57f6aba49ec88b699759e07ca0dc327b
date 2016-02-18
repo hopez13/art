@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d9d30d4_8d6081ae",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2579,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-02-18T15:01:26Z",
+      "side": 1,
+      "message": "I don\u0027t think the purpose of that method is to handle instrumentation/debugging. IIRC, its purpose is really to return the correct bridge depending on the nature of the method, not the context.\n\nI think a better place is in the callers, at least the ones that change entrypoint during execution.",
+      "range": {
+        "startLine": 2579,
+        "startChar": 25,
+        "endLine": 2579,
+        "endChar": 43
+      },
+      "revId": "8f307f4b57f6aba49ec88b699759e07ca0dc327b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3da2f411_cef56336",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2588,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-02-18T15:01:26Z",
+      "side": 1,
+      "message": "ShouldUseInterpreterEntrypoint now",
+      "range": {
+        "startLine": 2588,
+        "startChar": 27,
+        "endLine": 2588,
+        "endChar": 40
+      },
+      "revId": "8f307f4b57f6aba49ec88b699759e07ca0dc327b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9dda00a8_49bfa182",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-02-18T15:01:26Z",
+      "side": 1,
+      "message": "Please add a comment describing the class.",
+      "range": {
+        "startLine": 574,
+        "startChar": 6,
+        "endLine": 574,
+        "endChar": 35
+      },
+      "revId": "8f307f4b57f6aba49ec88b699759e07ca0dc327b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
