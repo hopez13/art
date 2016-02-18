@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "4225059f_16685cf1",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1976,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-02-18T17:38:30Z",
+      "side": 1,
+      "message": "Is -\u003e If",
+      "range": {
+        "startLine": 1976,
+        "startChar": 9,
+        "endLine": 1976,
+        "endChar": 10
+      },
+      "revId": "634a9618cfb086b10b3b78b0321a8d67f70cf575",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d76744b_a91f463f",
         "filename": "test/082-inline-execute/src/Main.java",
         "patchSetId": 2
@@ -66,6 +89,29 @@
         "startChar": 0,
         "endLine": 44,
         "endChar": 24
+      },
+      "revId": "634a9618cfb086b10b3b78b0321a8d67f70cf575",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e200b9f1_1bed1bab",
+        "filename": "test/082-inline-execute/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 842,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-02-18T17:38:30Z",
+      "side": 1,
+      "message": "please end every comment like this with a period\n(here and below)",
+      "range": {
+        "startLine": 842,
+        "startChar": 7,
+        "endLine": 842,
+        "endChar": 12
       },
       "revId": "634a9618cfb086b10b3b78b0321a8d67f70cf575",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
