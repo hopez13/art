@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "820b7d17_a1428432",
+        "filename": "runtime/gc/collector/immune_spaces.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-18T22:33:31Z",
+      "side": 1,
+      "message": "Add a comment to GetOatFileBegin (image_space.h and image.h) about this or even change their names to reflect this to minimize the confusion?",
+      "range": {
+        "startLine": 49,
+        "startChar": 33,
+        "endLine": 49,
+        "endChar": 48
+      },
+      "revId": "ab0b7ba5ea723ee2112d19dfb6d646ff9ffa756f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "620e892a_2b8f7119",
+        "filename": "runtime/gc/collector/immune_spaces_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-18T22:33:31Z",
+      "side": 1,
+      "message": "Update this comment and say DummyImageSpace has the oat file after a gap?",
+      "range": {
+        "startLine": 92,
+        "startChar": 2,
+        "endLine": 92,
+        "endChar": 58
+      },
+      "revId": "ab0b7ba5ea723ee2112d19dfb6d646ff9ffa756f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c23655de_783439c5",
+        "filename": "runtime/gc/collector/immune_spaces_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-18T22:33:31Z",
+      "side": 1,
+      "message": "Is it possible to pass these in through the constructor?",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 52
+      },
+      "revId": "ab0b7ba5ea723ee2112d19dfb6d646ff9ffa756f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "021f8d56_14d9746c",
         "filename": "runtime/oat_file.h",
         "patchSetId": 1
