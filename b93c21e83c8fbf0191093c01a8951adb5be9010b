@@ -16,6 +16,24 @@
       "revId": "b93c21e83c8fbf0191093c01a8951adb5be9010b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd6504c6_da06e5b3",
+        "filename": "runtime/gc/allocator/rosalloc.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1676,
+      "author": {
+        "id": 1012355
+      },
+      "writtenOn": "2016-02-18T00:07:22Z",
+      "side": 0,
+      "message": "Yes. But it seems that we could also save 1 slot when bitmap is used. Do you know why we need to align the tmp_unaligned_header_size to bracket_size instead of kObjectAlignment from line 1680 to 1683?",
+      "parentUuid": "fd993cfa_dc5b4d2e",
+      "revId": "b93c21e83c8fbf0191093c01a8951adb5be9010b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
