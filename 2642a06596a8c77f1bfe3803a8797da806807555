@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "620e892a_9d6b632b",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2016-02-18T21:18:14Z",
+      "side": 1,
+      "message": "perhaps reword:\n\nOn Linux there are 3 TLS GDT entries. We use one of those to ...\n\nThe current wording makes it sound like a global will reference something thread-local, which would be nonsense. The later sentences add the necessary detail, but putting that the GDT entry is thread-local first would make things clearer imo.",
+      "range": {
+        "startLine": 89,
+        "startChar": 24,
+        "endLine": 89,
+        "endChar": 33
+      },
+      "revId": "2642a06596a8c77f1bfe3803a8797da806807555",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "820b7d17_1b43df1d",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2016-02-18T21:18:14Z",
+      "side": 1,
+      "message": "runtimes vs processes? What\u0027s the relation with art::Runtime?",
+      "range": {
+        "startLine": 94,
+        "startChar": 43,
+        "endLine": 94,
+        "endChar": 51
+      },
+      "revId": "2642a06596a8c77f1bfe3803a8797da806807555",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
