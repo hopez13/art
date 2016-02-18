@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3dcbd4e3_26fb762b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-18T15:14:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d9d30d4_0d265195",
+      "range": {
+        "startLine": 10,
+        "startChar": 17,
+        "endLine": 10,
+        "endChar": 25
+      },
+      "revId": "4dfb471da49622d78599f14098884be13907bff4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1dc610da_8512223a",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-18T14:55:49Z",
       "side": 1,
       "message": "Move to class.cc?",
+      "range": {
+        "startLine": 1123,
+        "startChar": 44,
+        "endLine": 1127,
+        "endChar": 3
+      },
+      "revId": "4dfb471da49622d78599f14098884be13907bff4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdabfced_ecf02b48",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1127,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-18T15:14:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1dc610da_8512223a",
       "range": {
         "startLine": 1123,
         "startChar": 44,
