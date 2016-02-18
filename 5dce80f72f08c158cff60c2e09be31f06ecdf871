@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4225059f_3906abb6",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1297,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-18T21:04:55Z",
+      "side": 1,
+      "message": "danalbert says there are no tests in libc++ for any precision guarantees, and that this likely bottoms out in libm. Considering there were issues on at least x86 (see sqrt discussion there), I don\u0027t think it\u0027s this simple...",
+      "range": {
+        "startLine": 1265,
+        "startChar": 4,
+        "endLine": 1297,
+        "endChar": 61
+      },
+      "revId": "5dce80f72f08c158cff60c2e09be31f06ecdf871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
