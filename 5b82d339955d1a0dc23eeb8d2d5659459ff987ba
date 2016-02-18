@@ -118,6 +118,30 @@
       "revId": "5b82d339955d1a0dc23eeb8d2d5659459ff987ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e247d965_a3ccba80",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-18T16:55:07Z",
+      "side": 1,
+      "message": "Not sure what you\u0027re asking. You\u0027d end up not inlining methods that haven\u0027t been verified yet...",
+      "parentUuid": "e200b9f1_bbcce780",
+      "range": {
+        "startLine": 560,
+        "startChar": 8,
+        "endLine": 560,
+        "endChar": 36
+      },
+      "revId": "5b82d339955d1a0dc23eeb8d2d5659459ff987ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
