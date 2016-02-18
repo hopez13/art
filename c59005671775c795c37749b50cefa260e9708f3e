@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fdc4dcd3_0473d6b8",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-18T14:41:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1dc610da_a52f5e86",
+      "range": {
+        "startLine": 389,
+        "startChar": 63,
+        "endLine": 390,
+        "endChar": 91
+      },
+      "revId": "c59005671775c795c37749b50cefa260e9708f3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7dd1cc8b_e85bf32d",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-18T14:26:25Z",
       "side": 1,
       "message": "nit: I think it would be clearer to use \nall_targets_inlined and one_target_inlined\ninstead of\none_target_not_inlined and ont_target_inlined",
+      "range": {
+        "startLine": 424,
+        "startChar": 7,
+        "endLine": 424,
+        "endChar": 29
+      },
+      "revId": "c59005671775c795c37749b50cefa260e9708f3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3dcbd4e3_864d0a6c",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-18T14:41:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7dd1cc8b_e85bf32d",
       "range": {
         "startLine": 424,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1d9d30d4_0d1f7141",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-18T14:41:36Z",
+      "side": 1,
+      "message": "It will: invoking trash your registers and can have all side effects.\n\nIf we do deoptimize, the next compilation may not HDeoptimize anymore.",
+      "parentUuid": "ddbf1831_83d85ef5",
+      "range": {
+        "startLine": 455,
+        "startChar": 6,
+        "endLine": 456,
+        "endChar": 74
+      },
+      "revId": "c59005671775c795c37749b50cefa260e9708f3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d9d30d4_6d0555f3",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2016-02-18T14:26:25Z",
       "side": 1,
       "message": "don\u0027t you work with a copy here? if not, I think you should.",
+      "range": {
+        "startLine": 467,
+        "startChar": 48,
+        "endLine": 467,
+        "endChar": 71
+      },
+      "revId": "c59005671775c795c37749b50cefa260e9708f3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdabfced_4c6dffce",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-18T14:41:36Z",
+      "side": 1,
+      "message": "No, we shouldn\u0027t copy, as it contains gc roots that need to be known by the GC.",
+      "parentUuid": "1d9d30d4_6d0555f3",
       "range": {
         "startLine": 467,
         "startChar": 48,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "fdc4dcd3_a448025c",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-18T14:41:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdc4dcd3_847fc687",
+      "range": {
+        "startLine": 170,
+        "startChar": 26,
+        "endLine": 170,
+        "endChar": 27
+      },
+      "revId": "c59005671775c795c37749b50cefa260e9708f3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ddbf1831_03c58e04",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2016-02-18T14:26:25Z",
       "side": 1,
       "message": "why \"ForInlining\"?",
+      "range": {
+        "startLine": 982,
+        "startChar": 26,
+        "endLine": 982,
+        "endChar": 37
+      },
+      "revId": "c59005671775c795c37749b50cefa260e9708f3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d9d30d4_4d197959",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-18T14:41:36Z",
+      "side": 1,
+      "message": "To make it specific. It\u0027s the only user, and it leaves the graph in a broken state that fits the inliner.",
+      "parentUuid": "ddbf1831_03c58e04",
       "range": {
         "startLine": 982,
         "startChar": 26,
