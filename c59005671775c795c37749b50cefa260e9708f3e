@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1dc610da_a52f5e86",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-02-18T14:26:25Z",
+      "side": 1,
+      "message": "can you add a comment why you don\u0027t need access checks and why is it in dex cache.",
+      "range": {
+        "startLine": 389,
+        "startChar": 63,
+        "endLine": 390,
+        "endChar": 91
+      },
+      "revId": "c59005671775c795c37749b50cefa260e9708f3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7dd1cc8b_e85bf32d",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-02-18T14:26:25Z",
+      "side": 1,
+      "message": "nit: I think it would be clearer to use \nall_targets_inlined and one_target_inlined\ninstead of\none_target_not_inlined and ont_target_inlined",
+      "range": {
+        "startLine": 424,
+        "startChar": 7,
+        "endLine": 424,
+        "endChar": 29
+      },
+      "revId": "c59005671775c795c37749b50cefa260e9708f3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddbf1831_83d85ef5",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-02-18T14:26:25Z",
+      "side": 1,
+      "message": "Would be interested to be able to quantify if this (i.e. deoptimizing instead of invoking) is an actual optimization :).",
+      "range": {
+        "startLine": 455,
+        "startChar": 6,
+        "endLine": 456,
+        "endChar": 74
+      },
+      "revId": "c59005671775c795c37749b50cefa260e9708f3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d9d30d4_6d0555f3",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-02-18T14:26:25Z",
+      "side": 1,
+      "message": "don\u0027t you work with a copy here? if not, I think you should.",
+      "range": {
+        "startLine": 467,
+        "startChar": 48,
+        "endLine": 467,
+        "endChar": 71
+      },
+      "revId": "c59005671775c795c37749b50cefa260e9708f3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdc4dcd3_847fc687",
+        "filename": "compiler/optimizing/inliner.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-02-18T14:26:25Z",
+      "side": 1,
+      "message": "extra space",
+      "range": {
+        "startLine": 170,
+        "startChar": 26,
+        "endLine": 170,
+        "endChar": 27
+      },
+      "revId": "c59005671775c795c37749b50cefa260e9708f3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddbf1831_03c58e04",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-02-18T14:26:25Z",
+      "side": 1,
+      "message": "why \"ForInlining\"?",
+      "range": {
+        "startLine": 982,
+        "startChar": 26,
+        "endLine": 982,
+        "endChar": 37
+      },
+      "revId": "c59005671775c795c37749b50cefa260e9708f3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
