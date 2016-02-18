@@ -46,6 +46,30 @@
       "revId": "5b82d339955d1a0dc23eeb8d2d5659459ff987ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4225059f_3607d86b",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-18T16:45:40Z",
+      "side": 1,
+      "message": "I mean: the code that\u0027s trying to be inlined has not been touched before. Example\n\n if (TRUE DURING PROFILING) {\n   A.a();\n } else {\n   B.b();\n }\n\nAssuming the second call-site is definite (final, static, w/e), it is not a given that B has been verified when you inline.\n\n(I make the distinction to A as that would have been executed and thus initialized and thus verified.)\n\n\nI was asking what you see in practice: how much code is structured this way and bails out?",
+      "parentUuid": "0234edda_cca6cfd6",
+      "range": {
+        "startLine": 560,
+        "startChar": 8,
+        "endLine": 560,
+        "endChar": 36
+      },
+      "revId": "5b82d339955d1a0dc23eeb8d2d5659459ff987ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
