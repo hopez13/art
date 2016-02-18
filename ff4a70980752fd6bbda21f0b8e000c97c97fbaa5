@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fdc4dcd3_e43e7aa2",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1006,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-02-18T16:17:30Z",
+      "side": 1,
+      "message": "I have missed this in PS2 - we need to know the full CodeInfo size so we can have the dchecked MemoryRegion reads.",
+      "range": {
+        "startLine": 1006,
+        "startChar": 14,
+        "endLine": 1006,
+        "endChar": 58
+      },
+      "revId": "ff4a70980752fd6bbda21f0b8e000c97c97fbaa5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
