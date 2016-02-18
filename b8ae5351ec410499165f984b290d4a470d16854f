@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d9034ca_9eb1bd2e",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2016-02-18T01:28:32Z",
+      "side": 1,
+      "message": "really? isn\u0027t that just the _NR_* names? and you used the SYS_* name anyway?",
+      "revId": "b8ae5351ec410499165f984b290d4a470d16854f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
