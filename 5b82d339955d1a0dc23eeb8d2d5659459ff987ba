@@ -94,6 +94,30 @@
       "revId": "5b82d339955d1a0dc23eeb8d2d5659459ff987ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e200b9f1_bbcce780",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-18T16:52:09Z",
+      "side": 1,
+      "message": "I do understand that. I thought I made that clear, by giving the part about \"definite.\" The whole surrounding was only there to show that even in the root method to be compiled, which has been executed (except for always-jit), this case can happen.\n\nThe question remains: Out of curiosity, how much inlining do you \"lose?\"",
+      "parentUuid": "8259bd47_c8cfcf74",
+      "range": {
+        "startLine": 560,
+        "startChar": 8,
+        "endLine": 560,
+        "endChar": 36
+      },
+      "revId": "5b82d339955d1a0dc23eeb8d2d5659459ff987ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
