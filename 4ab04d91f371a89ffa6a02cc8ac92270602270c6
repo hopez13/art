@@ -46,6 +46,54 @@
       "revId": "4ab04d91f371a89ffa6a02cc8ac92270602270c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddde385a_d401329e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2865,
+      "author": {
+        "id": 1096239
+      },
+      "writtenOn": "2016-02-18T09:37:14Z",
+      "side": 1,
+      "message": "It will make current thread waitting on the lock.\nBut if we do not acquire the lock, the current thread will modify the class data during the GC thread visiting the class.\n\nOr is there any way could guarantee this function execute complete always before GC start ?\n\nIn other words,should we ensure that the class data could not be modified during GC visiting the class ?\n\nthanks",
+      "parentUuid": "7d8c6c87_b07ed8f0",
+      "range": {
+        "startLine": 2865,
+        "startChar": 0,
+        "endLine": 2865,
+        "endChar": 77
+      },
+      "revId": "4ab04d91f371a89ffa6a02cc8ac92270602270c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddde385a_d43372aa",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2865,
+      "author": {
+        "id": 1096239
+      },
+      "writtenOn": "2016-02-18T09:37:14Z",
+      "side": 1,
+      "message": "we did not hold the lock for the whole function.\nthe lock is in a struct.\nlike this:\nLoadClassMembers() \n{\n  {\n   ...\n   classlinker_classes_lock;\n   ...\n   }\n\n   self-\u003eAllowThreadSuspension();\n}",
+      "parentUuid": "fd7f7c1f_55767ea9",
+      "range": {
+        "startLine": 2865,
+        "startChar": 0,
+        "endLine": 2865,
+        "endChar": 77
+      },
+      "revId": "4ab04d91f371a89ffa6a02cc8ac92270602270c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
