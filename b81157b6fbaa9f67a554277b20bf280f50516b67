@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "9d85a05b_abee65d7",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-18T21:11:49Z",
+      "side": 1,
+      "message": "(Removed) Done",
+      "parentUuid": "5d8fa87c_1bb7be20",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "b81157b6fbaa9f67a554277b20bf280f50516b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d8fa87c_fbcafa92",
         "filename": "runtime/arch/x86/thread_x86.cc",
         "patchSetId": 2
@@ -125,6 +149,30 @@
       "side": 1,
       "message": "Yeah, I can clamp it to the Thread size.\n\n(For x86-64, see the corresponding thread_x86_64.cc, where we exactly use ARCH_SET_GS :-) ).",
       "parentUuid": "9d85a05b_e0bd6ce1",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 31
+      },
+      "revId": "b81157b6fbaa9f67a554277b20bf280f50516b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd2a1c13_09ec5970",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-18T21:11:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d8fa87c_7bdfea51",
       "range": {
         "startLine": 66,
         "startChar": 0,
@@ -219,6 +267,24 @@
       "side": 1,
       "message": "how about, as long as you\u0027re not freeing this anyway, moving the static from global scope to here. that addresses the __APPLE__ oddity, reduces the scope, and lets you put the documentation here, where it\u0027s more needed.",
       "parentUuid": "3d76744b_78228e8c",
+      "revId": "b81157b6fbaa9f67a554277b20bf280f50516b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd82644f_6100a04e",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-18T21:11:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d71b053_074e8a66",
       "revId": "b81157b6fbaa9f67a554277b20bf280f50516b67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
