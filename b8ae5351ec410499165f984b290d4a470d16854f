@@ -16,6 +16,24 @@
       "revId": "b8ae5351ec410499165f984b290d4a470d16854f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "021f8d56_d4fd3c84",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-18T21:11:49Z",
+      "side": 1,
+      "message": "Yeah, sorry, I was flip-flopping. I think we actually use __NR more in art/, guess I should go with it...",
+      "parentUuid": "3d9034ca_9eb1bd2e",
+      "revId": "b8ae5351ec410499165f984b290d4a470d16854f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
