@@ -553,6 +553,30 @@
     },
     {
       "key": {
+        "uuid": "1d8b70a4_d766c4f8",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-18T15:14:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7daf0c90_87bd70e0",
+      "range": {
+        "startLine": 37,
+        "startChar": 25,
+        "endLine": 37,
+        "endChar": 52
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d20402f_79212794",
         "filename": "compiler/optimizing/scheduler_arm64.h",
         "patchSetId": 4
@@ -564,6 +588,30 @@
       "writtenOn": "2016-02-16T10:29:19Z",
       "side": 1,
       "message": "kArm64MultiplyAccumulateCost",
+      "range": {
+        "startLine": 50,
+        "startChar": 25,
+        "endLine": 50,
+        "endChar": 49
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd9478c3_a12f3a86",
+        "filename": "compiler/optimizing/scheduler_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-18T15:14:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d20402f_79212794",
       "range": {
         "startLine": 50,
         "startChar": 25,
@@ -599,6 +647,30 @@
     },
     {
       "key": {
+        "uuid": "bd6504c6_637ff0b3",
+        "filename": "compiler/optimizing/scheduler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-18T15:14:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d9da072_250ca68e",
+      "range": {
+        "startLine": 80,
+        "startChar": 52,
+        "endLine": 81,
+        "endChar": 77
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ddb703a_66e944a0",
         "filename": "compiler/optimizing/scheduler_test.cc",
         "patchSetId": 4
@@ -610,6 +682,24 @@
       "writtenOn": "2016-02-16T10:29:19Z",
       "side": 1,
       "message": "Add mips/mips64.",
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d6840a0_7fbf8782",
+        "filename": "compiler/optimizing/scheduler_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-18T15:14:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ddb703a_66e944a0",
       "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -639,6 +729,30 @@
     },
     {
       "key": {
+        "uuid": "5d8968a7_e54f9207",
+        "filename": "runtime/arch/arm64/instruction_set_features_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-18T15:14:41Z",
+      "side": 1,
+      "message": "Agreed. Removed.",
+      "parentUuid": "9d9da072_850b9273",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 60
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ddb703a_a65b4c5c",
         "filename": "test/706-checker-scheduler/src/Main.java",
         "patchSetId": 4
@@ -650,6 +764,30 @@
       "writtenOn": "2016-02-16T10:29:19Z",
       "side": 1,
       "message": "We don\u0027t support tests for particular CPU variants and this test will fail for denver64 or kryo.",
+      "range": {
+        "startLine": 25,
+        "startChar": 18,
+        "endLine": 25,
+        "endChar": 23
+      },
+      "revId": "6dcdbb434328acc4d5e005593ba9f95aca8bc67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d8968a7_05555698",
+        "filename": "test/706-checker-scheduler/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-18T15:14:41Z",
+      "side": 1,
+      "message": "Now running scheduling for all ARM64 variants. I can introduce a flag to enable/disable it as a future improvement.",
+      "parentUuid": "1ddb703a_a65b4c5c",
       "range": {
         "startLine": 25,
         "startChar": 18,
