@@ -70,6 +70,30 @@
       "revId": "5b82d339955d1a0dc23eeb8d2d5659459ff987ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8259bd47_c8cfcf74",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-18T16:49:10Z",
+      "side": 1,
+      "message": "Profiling is not related here. This code can try inlining a call that is in a block that was never executed, but whose resolve method hasn\u0027t been verified.",
+      "parentUuid": "4225059f_3607d86b",
+      "range": {
+        "startLine": 560,
+        "startChar": 8,
+        "endLine": 560,
+        "endChar": 36
+      },
+      "revId": "5b82d339955d1a0dc23eeb8d2d5659459ff987ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
