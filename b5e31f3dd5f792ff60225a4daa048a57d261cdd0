@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02a94d5f_a42e226a",
+        "filename": "runtime/gc/space/memory_tool_malloc_space-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-19T00:42:41Z",
+      "side": 1,
+      "message": "Not really happy with this, as it relies on independent internals. But don\u0027t see a better way.",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 57
+      },
+      "revId": "b5e31f3dd5f792ff60225a4daa048a57d261cdd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
