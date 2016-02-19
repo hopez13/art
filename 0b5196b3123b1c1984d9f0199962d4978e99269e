@@ -22,6 +22,30 @@
       "revId": "0b5196b3123b1c1984d9f0199962d4978e99269e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2199973_566ed202",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1969,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-19T01:15:51Z",
+      "side": 1,
+      "message": "Yes, they should have correct relocation data.",
+      "parentUuid": "8240dd43_108984e2",
+      "range": {
+        "startLine": 1969,
+        "startChar": 6,
+        "endLine": 1969,
+        "endChar": 52
+      },
+      "revId": "0b5196b3123b1c1984d9f0199962d4978e99269e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
