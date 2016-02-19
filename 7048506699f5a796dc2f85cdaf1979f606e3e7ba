@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "a2b881d5_79a567cb",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-02-19T19:34:21Z",
+      "side": 1,
+      "message": "I was thinking in adding a new status code but I still don\u0027t see the case when this can happen.\n\nIf we have a pre-compiled app with its dex stripped then it\u0027s odex file will either be up to date (if compiled pic) or need relocation. Both paths are covered above.\n\nAm I missing a case?",
+      "parentUuid": "c2301515_6b8931e2",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 71
+      },
+      "revId": "7048506699f5a796dc2f85cdaf1979f606e3e7ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2d2d5e6_a11e0851",
         "filename": "runtime/oat_file_assistant.cc",
         "patchSetId": 2
@@ -83,6 +107,30 @@
       "writtenOn": "2016-02-19T19:10:16Z",
       "side": 1,
       "message": "How does this relate to go/aog/200364? What if an application uses a DexClassLoader to try and explicitly aot-compile their dex file, but there exists an extract-only dex file. Don\u0027t we want to do compilation in that case via MakeUpToDate?",
+      "range": {
+        "startLine": 180,
+        "startChar": 4,
+        "endLine": 180,
+        "endChar": 38
+      },
+      "revId": "7048506699f5a796dc2f85cdaf1979f606e3e7ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62a769c0_0f96e569",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-02-19T19:34:21Z",
+      "side": 1,
+      "message": "We don\u0027t extract secondary dex files so we should not hit that case.\n\nHowever, you are right that we need more tweaking in the other CL. That was in my plans.\n\nWe need tweaking mostly because we do plan to profile guide compile the secondary dex file. The simple strategy I\u0027m planning to implement is that as soon as you call DexClassLoader we\u0027ll gonna fully compile the apk in case it wasn\u0027t done before. I\u0027m still thinking if that\u0027s actually the best thing to do.",
+      "parentUuid": "02a94d5f_4acad793",
       "range": {
         "startLine": 180,
         "startChar": 4,
