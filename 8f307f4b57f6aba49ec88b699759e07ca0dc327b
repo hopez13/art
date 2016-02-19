@@ -234,6 +234,30 @@
       "revId": "8f307f4b57f6aba49ec88b699759e07ca0dc327b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2bec18e_29068d3d",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-19T12:18:30Z",
+      "side": 1,
+      "message": "This sounds brittle, we might as an optimization fall back to AOT code once the debugger is detached. So i\u0027d prefer to just invalidate unconditionally.",
+      "parentUuid": "c2d2d5e6_1bad07cc",
+      "range": {
+        "startLine": 634,
+        "startChar": 0,
+        "endLine": 634,
+        "endChar": 37
+      },
+      "revId": "8f307f4b57f6aba49ec88b699759e07ca0dc327b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
