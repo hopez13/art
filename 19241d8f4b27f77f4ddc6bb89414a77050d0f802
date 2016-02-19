@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "82dc5dfe_76c4685e",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-02-19T17:34:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2bbb59e_ea2b87c3",
+      "range": {
+        "startLine": 584,
+        "startChar": 10,
+        "endLine": 585,
+        "endChar": 45
+      },
+      "revId": "19241d8f4b27f77f4ddc6bb89414a77050d0f802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "421b45b8_a62ec6d4",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-19T12:18:30Z",
       "side": 1,
       "message": "This looks like the only thing interesting to keep in this method. I would remove everything else: don\u0027t bother updating the entrypoint, just expect the runtime to do the interpreter -\u003e jit transition.",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 63
+      },
+      "revId": "19241d8f4b27f77f4ddc6bb89414a77050d0f802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2d5e1d0_97e1cce6",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-02-19T17:34:14Z",
+      "side": 1,
+      "message": "Sorry can you be more specific? We need to install the entry-exit stub as wrapper around quick code. However if there is no quick code that can be used, I install the interpreter bridge (if entry-exit stub is installed, then seems to me there will be double instrumentation happening, one by the entry-exit stub and the other by interpreter).\n\nI also have a question on Instrumentation::UpdateMethodsCode(), which is called by jit to install jitted code in method. However when entry_exit_stubs_installed_ is true, GetQuickInstrumentationEntryPoint() is installed, not jitted code. The entry-exit stub will still call GetQuickCodeFor() to get the oat code to call, instead of the jitted code.",
+      "parentUuid": "421b45b8_a62ec6d4",
       "range": {
         "startLine": 155,
         "startChar": 0,
