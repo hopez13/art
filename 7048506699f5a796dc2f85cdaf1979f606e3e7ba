@@ -22,6 +22,53 @@
       "revId": "7048506699f5a796dc2f85cdaf1979f606e3e7ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2301515_6b8931e2",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-02-19T18:45:57Z",
+      "side": 1,
+      "message": "Yes, if the original dex files have been stripped from the apk, which happens for pre-compiled apps on the system partition.\n\nMaybe add another possible status result for this case? The idea is that the package manager should not try to compile, even though the oat file is out of date, because compilation will fail without access to the original dex files.",
+      "parentUuid": "02d06de3_cc76efa9",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 71
+      },
+      "revId": "7048506699f5a796dc2f85cdaf1979f606e3e7ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2d2d5e6_a11e0851",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-02-19T18:45:57Z",
+      "side": 1,
+      "message": "I don\u0027t think fall-through is worth it here. Just duplicate the \u0027return true;\u0027.",
+      "range": {
+        "startLine": 179,
+        "startChar": 40,
+        "endLine": 179,
+        "endChar": 55
+      },
+      "revId": "7048506699f5a796dc2f85cdaf1979f606e3e7ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
