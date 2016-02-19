@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2bbb59e_ea2b87c3",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-19T12:18:30Z",
+      "side": 1,
+      "message": "One per line.",
+      "range": {
+        "startLine": 584,
+        "startChar": 10,
+        "endLine": 585,
+        "endChar": 45
+      },
+      "revId": "19241d8f4b27f77f4ddc6bb89414a77050d0f802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "421b45b8_a62ec6d4",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-19T12:18:30Z",
+      "side": 1,
+      "message": "This looks like the only thing interesting to keep in this method. I would remove everything else: don\u0027t bother updating the entrypoint, just expect the runtime to do the interpreter -\u003e jit transition.",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 63
+      },
+      "revId": "19241d8f4b27f77f4ddc6bb89414a77050d0f802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
