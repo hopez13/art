@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "428185c7_3689f8e2",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-02-19T12:05:06Z",
+      "side": 1,
+      "message": "If the app was updated then we should not even look at its precompiled odex file. That would be wrong since it\u0027s another version. If that happens that\u0027s a bug we need to fix.\n\nI will rename the flags to better express the intention.",
+      "parentUuid": "22aad153_45b3aa35",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 5
+      },
+      "revId": "a57144cdafdf274e438baf56e44bc6e4e7382358",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "021f8d56_3d09f30b",
         "filename": "runtime/oat_file_assistant.h",
         "patchSetId": 1
@@ -144,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "421b45b8_e64f1eab",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-02-19T12:05:06Z",
+      "side": 1,
+      "message": "see go/ag/868994",
+      "parentUuid": "62b849a7_6736f2e6",
+      "range": {
+        "startLine": 75,
+        "startChar": 21,
+        "endLine": 75,
+        "endChar": 66
+      },
+      "revId": "a57144cdafdf274e438baf56e44bc6e4e7382358",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c23655de_7881d925",
         "filename": "runtime/oat_file_assistant.h",
         "patchSetId": 1
@@ -203,6 +251,30 @@
       "side": 1,
       "message": "So it is a refinement of UpToDate into two possibilities:\n1. ExtractOnly UpToDate\n2. Compiled UpToDate\n\nCould we change the names so it\u0027s clear the two options are disjoint? Perhaps:\n\nkNoDexOptNeeded for (2)\nkDexOptOptional for (1)\n\nMy understanding is that ExtractOnly was added so that the package manager would not compile things in this state, but the bug suggests you want it to compile in this state. Can you clarify where in the package manager it is decided to treat ExtractOnly as not needing compilation, and where it is decided to treat ExtractOnly as needing compilation? That is, if you get kDexOptOptional, who decides when to run dexopt and how do they make that decision?",
       "parentUuid": "22681102_3596706a",
+      "range": {
+        "startLine": 76,
+        "startChar": 5,
+        "endLine": 76,
+        "endChar": 26
+      },
+      "revId": "a57144cdafdf274e438baf56e44bc6e4e7382358",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6224c9f3_4741ce82",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-02-19T12:05:06Z",
+      "side": 1,
+      "message": "ExtractOnly is really a \"quirk\" to improve performance. It kinda messes previous runtime assumptions. An extract-only apk is up to date from the runtime perspective but depending on the use case the package manager might consider that\u0027s not good enough. I will re-name the flags to better capture the new heeds.",
+      "parentUuid": "02a94d5f_c4223e8b",
       "range": {
         "startLine": 76,
         "startChar": 5,
