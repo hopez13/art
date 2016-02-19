@@ -69,6 +69,29 @@
       "revId": "7048506699f5a796dc2f85cdaf1979f606e3e7ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02a94d5f_4acad793",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-02-19T19:10:16Z",
+      "side": 1,
+      "message": "How does this relate to go/aog/200364? What if an application uses a DexClassLoader to try and explicitly aot-compile their dex file, but there exists an extract-only dex file. Don\u0027t we want to do compilation in that case via MakeUpToDate?",
+      "range": {
+        "startLine": 180,
+        "startChar": 4,
+        "endLine": 180,
+        "endChar": 38
+      },
+      "revId": "7048506699f5a796dc2f85cdaf1979f606e3e7ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
