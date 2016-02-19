@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c2d2d5e6_3bb80b3c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2579,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-02-19T11:48:38Z",
+      "side": 1,
+      "message": "I left this method unchanged and updated a few callers.",
+      "parentUuid": "1d9d30d4_8d6081ae",
+      "range": {
+        "startLine": 2579,
+        "startChar": 25,
+        "endLine": 2579,
+        "endChar": 43
+      },
+      "revId": "8f307f4b57f6aba49ec88b699759e07ca0dc327b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3da2f411_cef56336",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-18T15:01:26Z",
       "side": 1,
       "message": "ShouldUseInterpreterEntrypoint now",
+      "range": {
+        "startLine": 2588,
+        "startChar": 27,
+        "endLine": 2588,
+        "endChar": 40
+      },
+      "revId": "8f307f4b57f6aba49ec88b699759e07ca0dc327b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2a3597e_e992b1cf",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2588,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-02-19T11:48:38Z",
+      "side": 1,
+      "message": "Removed the change.",
+      "parentUuid": "3da2f411_cef56336",
       "range": {
         "startLine": 2588,
         "startChar": 27,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "02a94d5f_47cad093",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2646,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-02-19T11:48:38Z",
+      "side": 1,
+      "message": "I added a IsInBootImageOatFIle() to test directly if some code is in boot image oat file. That should be precise.",
+      "parentUuid": "3dcbd4e3_e63e7ea2",
+      "range": {
+        "startLine": 2643,
+        "startChar": 0,
+        "endLine": 2646,
+        "endChar": 32
+      },
+      "revId": "8f307f4b57f6aba49ec88b699759e07ca0dc327b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9dda00a8_49bfa182",
         "filename": "runtime/debugger.cc",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "e2ca7938_d118c409",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-02-19T11:48:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9dda00a8_49bfa182",
+      "range": {
+        "startLine": 574,
+        "startChar": 6,
+        "endLine": 574,
+        "endChar": 35
+      },
+      "revId": "8f307f4b57f6aba49ec88b699759e07ca0dc327b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d9d30d4_cd68c986",
         "filename": "runtime/debugger.cc",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2016-02-18T15:49:54Z",
       "side": 1,
       "message": "Why do you need this flag?",
+      "range": {
+        "startLine": 634,
+        "startChar": 0,
+        "endLine": 634,
+        "endChar": 37
+      },
+      "revId": "8f307f4b57f6aba49ec88b699759e07ca0dc327b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2d2d5e6_1bad07cc",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-02-19T11:48:38Z",
+      "side": 1,
+      "message": "A debugger can be attached multiple times so I added this flag to do it just once.",
+      "parentUuid": "1d9d30d4_cd68c986",
       "range": {
         "startLine": 634,
         "startChar": 0,
