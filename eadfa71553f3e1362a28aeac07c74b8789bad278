@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "c2981592_25ca7864",
+        "filename": "runtime/interpreter/mterp/mips/op_shl_int.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-19T22:45:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7dbb8cf2_92a18c70",
+      "range": {
+        "startLine": 1,
+        "startChar": 25,
+        "endLine": 1,
+        "endChar": 54
+      },
+      "revId": "eadfa71553f3e1362a28aeac07c74b8789bad278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fde3fc1c_f6330daa",
         "filename": "runtime/interpreter/mterp/mips/op_shl_int_2addr.S",
         "patchSetId": 2
@@ -94,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "a2c4017e_39e86ff7",
+        "filename": "runtime/interpreter/mterp/mips/op_shl_int_2addr.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-19T22:45:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fde3fc1c_f6330daa",
+      "range": {
+        "startLine": 1,
+        "startChar": 30,
+        "endLine": 1,
+        "endChar": 59
+      },
+      "revId": "eadfa71553f3e1362a28aeac07c74b8789bad278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1dd0d03a_0433004e",
         "filename": "runtime/interpreter/mterp/mips/op_shl_int_lit8.S",
         "patchSetId": 2
@@ -105,6 +153,30 @@
       "writtenOn": "2016-02-12T06:54:23Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 1,
+        "startChar": 29,
+        "endLine": 1,
+        "endChar": 58
+      },
+      "revId": "eadfa71553f3e1362a28aeac07c74b8789bad278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2b0b90b_7b513fdc",
+        "filename": "runtime/interpreter/mterp/mips/op_shl_int_lit8.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-19T22:45:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1dd0d03a_0433004e",
       "range": {
         "startLine": 1,
         "startChar": 29,
