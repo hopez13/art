@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "223f31ea_ddde4b21",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 993,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-02-19T10:38:02Z",
+      "side": 1,
+      "message": "Roland: I have said yesterday that I choose not use Uleb128 because of performance cost of accessing later fields.  However, I have realized there is easy way around that.  I could decode the whole header in CodeInfo constructor, and keep the data as fields of CodeInfo.  I do not think there is any difference in size to the current approach, it would potentially make the code clearer by using known hammer.",
+      "range": {
+        "startLine": 993,
+        "startChar": 4,
+        "endLine": 993,
+        "endChar": 20
+      },
+      "revId": "ff4a70980752fd6bbda21f0b8e000c97c97fbaa5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fdc4dcd3_e43e7aa2",
         "filename": "runtime/stack_map.h",
         "patchSetId": 3
