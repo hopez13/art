@@ -46,6 +46,30 @@
       "revId": "5dce80f72f08c158cff60c2e09be31f06ecdf871",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2d5e1d0_94e78a29",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1297,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-19T16:18:55Z",
+      "side": 1,
+      "message": "Can\u0027t find it anymore, but here\u0027s one CL in ART: https://android-review.googlesource.com/167350. There were others in libcore.\n\n(I do remember Mark saying that Intel had to use some precision library. E.g., we could use fdlibm.)",
+      "parentUuid": "22c1f119_adf83d69",
+      "range": {
+        "startLine": 1265,
+        "startChar": 4,
+        "endLine": 1297,
+        "endChar": 61
+      },
+      "revId": "5dce80f72f08c158cff60c2e09be31f06ecdf871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
