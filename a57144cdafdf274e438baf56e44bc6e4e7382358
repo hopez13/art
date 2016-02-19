@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "22aad153_45b3aa35",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-02-19T00:40:51Z",
+      "side": 1,
+      "message": "You can have both an oat and an odex file if the app was a pre-compiled system app that has since received an update. I think this code could be restructured to make it more clear what the distinction is between kOatIsExtractOnly and kNoDexOptNeeded; but I need to think about it a little bit.",
+      "parentUuid": "02d06de3_6c9b3b90",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 5
+      },
+      "revId": "a57144cdafdf274e438baf56e44bc6e4e7382358",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "021f8d56_3d09f30b",
         "filename": "runtime/oat_file_assistant.h",
         "patchSetId": 1
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "62b849a7_6736f2e6",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-02-19T00:40:51Z",
+      "side": 1,
+      "message": "typo? Do you mean go/aog/203660?\n\nPartly I was asking to get a better sense of who is doing something different based on this result.",
+      "parentUuid": "223f31ea_1d9b9390",
+      "range": {
+        "startLine": 75,
+        "startChar": 21,
+        "endLine": 75,
+        "endChar": 66
+      },
+      "revId": "a57144cdafdf274e438baf56e44bc6e4e7382358",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c23655de_7881d925",
         "filename": "runtime/oat_file_assistant.h",
         "patchSetId": 1
@@ -131,6 +179,30 @@
       "side": 1,
       "message": "I should move some of the comments from the cc file here. From the runtime perspective an ExtractOnly oat file is UpToDate as there is no need for relocation of compilation. That\u0027s why I didn\u0027t bother adding it to the OatStatus enum.\n\nThe status is only useful for the caller of DexOptNeeded as a refinement of UpToDate. The caller can decide if it wants to do a \"proper\" compilation or not. This unlocks the possibility  to compile apks even if we only extracted them before. See the referred bug for when this is desirable.",
       "parentUuid": "c23655de_7881d925",
+      "range": {
+        "startLine": 76,
+        "startChar": 5,
+        "endLine": 76,
+        "endChar": 26
+      },
+      "revId": "a57144cdafdf274e438baf56e44bc6e4e7382358",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02a94d5f_c4223e8b",
+        "filename": "runtime/oat_file_assistant.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-02-19T00:40:51Z",
+      "side": 1,
+      "message": "So it is a refinement of UpToDate into two possibilities:\n1. ExtractOnly UpToDate\n2. Compiled UpToDate\n\nCould we change the names so it\u0027s clear the two options are disjoint? Perhaps:\n\nkNoDexOptNeeded for (2)\nkDexOptOptional for (1)\n\nMy understanding is that ExtractOnly was added so that the package manager would not compile things in this state, but the bug suggests you want it to compile in this state. Can you clarify where in the package manager it is decided to treat ExtractOnly as not needing compilation, and where it is decided to treat ExtractOnly as needing compilation? That is, if you get kDexOptOptional, who decides when to run dexopt and how do they make that decision?",
+      "parentUuid": "22681102_3596706a",
       "range": {
         "startLine": 76,
         "startChar": 5,
