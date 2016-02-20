@@ -94,6 +94,30 @@
       "revId": "5dce80f72f08c158cff60c2e09be31f06ecdf871",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62a5a9c6_424b3429",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1297,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-02-20T00:03:10Z",
+      "side": 1,
+      "message": "Here\u0027s my impression of the state of the world:\n\n- Static evaluation here would use libm.\n\n- The actual Math.java implementation in libcore also bottoms out at (a possibly different) libm. We often use intrinsics that may have better understood properties.\n\n- We use libm even when the C specification refers to the \"current rounding mode\", and the Java one does not.   I presume that if you visibly change rounding modes in JNI code, you\u0027re on your own?\n\n- The Java spec mostly has accuracy specifications, typically \"correctly rounded\" for the easy stuff and \"within 1 ulp\" for the harder stuff.\n\n- The C++ spec refers to the C spec.\n\n- The C11 spec says (N1570, 5.2.4.2.2): \"The accuracy of the floating-point operations (+, -, *, /) and of the library functions in \u003cmath.h\u003e and \u003ccomplex.h\u003e that return floating-point results is implementation-defined ... The implementation may state that the accuracy is unknown.\"\n\n- C11 allows intermediate results to be evaluated to higher precision unless FLT_EVAL_METHOD (float.h) is 0, which seems to hold for gcc on my Linux box, with c11 and clang, but not c++11.  C++ should provide it in \u003ccfloat\u003e.\n\n- C11 Annex F states that if __STDC_IEC_559__ is defined then IEEE guarantees apply.  This probably doesn\u0027t technically apply to C++.  It seems to be defined for the old gcc on my linux box, but not clang\n\n- The IEEE standard requires correct rounding for rational operations and square roots, and recommends it for basic transcendental functions.  Aside from the important problem that the latter is only a recommendation (which I\u0027m not sure anyone implements?), this seems stronger than Java.\n\nTentative conclusion: This is safe for non-transcendental (possibly only in c11 code), and if __STDC_IEC_559__ is defined.  We may also need to check FLT_EVAL_METHOD \u003d\u003d 0 in some cases.\n\nFor transcendentals, it doesn\u0027t look to me like anything is guaranteed, but we might have a sufficiently high quality library everyplace to make it work.\n\nOther theories?",
+      "parentUuid": "22aad153_7968cfc4",
+      "range": {
+        "startLine": 1265,
+        "startChar": 4,
+        "endLine": 1297,
+        "endChar": 61
+      },
+      "revId": "5dce80f72f08c158cff60c2e09be31f06ecdf871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
