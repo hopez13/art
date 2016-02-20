@@ -190,6 +190,52 @@
     },
     {
       "key": {
+        "uuid": "62a5a9c6_a50b2a73",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-20T01:20:42Z",
+      "side": 1,
+      "message": "Is this correct? I think that a class can have code in multiple boot oat files for the copied default method case.",
+      "range": {
+        "startLine": 580,
+        "startChar": 19,
+        "endLine": 580,
+        "endChar": 38
+      },
+      "revId": "8f307f4b57f6aba49ec88b699759e07ca0dc327b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2b0b90b_fedd3dfc",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-20T01:20:42Z",
+      "side": 1,
+      "message": "This is implemented by only looking at the class object, keep in mind that there are classes not in the boot image that have methods with code in the boot image (since we compile everything in the boot image).",
+      "range": {
+        "startLine": 581,
+        "startChar": 39,
+        "endLine": 581,
+        "endChar": 59
+      },
+      "revId": "8f307f4b57f6aba49ec88b699759e07ca0dc327b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d9d30d4_cd68c986",
         "filename": "runtime/debugger.cc",
         "patchSetId": 2
