@@ -283,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "e2def959_9f0bc373",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-02-22T21:39:04Z",
+      "side": 1,
+      "message": "PS3 checks code directly instead of class object so it should be fine.",
+      "parentUuid": "22dbb13a_bd8a7fd3",
+      "range": {
+        "startLine": 580,
+        "startChar": 0,
+        "endLine": 593,
+        "endChar": 16
+      },
+      "revId": "8f307f4b57f6aba49ec88b699759e07ca0dc327b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d9d30d4_cd68c986",
         "filename": "runtime/debugger.cc",
         "patchSetId": 2
