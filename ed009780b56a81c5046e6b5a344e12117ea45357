@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2c1f56d_c17f31ec",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6516,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-02-22T18:34:54Z",
+      "side": 1,
+      "message": "This will sign extend into the Immediate() class, but that is okay as long as the codegen knows to just use the 32-bit.",
+      "revId": "ed009780b56a81c5046e6b5a344e12117ea45357",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
