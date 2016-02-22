@@ -141,6 +141,53 @@
       "revId": "19241d8f4b27f77f4ddc6bb89414a77050d0f802",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62b209f8_571f8cf2",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-22T22:51:50Z",
+      "side": 1,
+      "message": "Since JIT won\u0027t update the entry point (for now it\u0027s too risky to expose entry points that are not in an ArtMethod\u0027s entry point), we won\u0027t get performance under JIT anyway.\n\nActually, why do you need to change this method at all? To get \"accurate\" method tracing in the presence of inlining? I think that did not work even before, as Quick was inlining within the boot image.",
+      "parentUuid": "c2981592_564c1417",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 63
+      },
+      "revId": "19241d8f4b27f77f4ddc6bb89414a77050d0f802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82affd8e_d8958d68",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-22T22:51:50Z",
+      "side": 1,
+      "message": "Why? This is an \"undeoptimize operation\", why can\u0027t you restore the AOT code?",
+      "range": {
+        "startLine": 791,
+        "startChar": 2,
+        "endLine": 793,
+        "endChar": 7
+      },
+      "revId": "19241d8f4b27f77f4ddc6bb89414a77050d0f802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
