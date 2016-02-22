@@ -259,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "c2981592_8b7715a5",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-22T17:39:16Z",
+      "side": 1,
+      "message": "Maybe looking to see if the declaring class of each method is in the image would be good enough. I.e.\nif (heap-\u003eObjectIsInBootImageSpace(m.GetDeclaringClass()))\n\nFor copied methods, the declaring class remains the same as where it was copied from.",
+      "parentUuid": "22dbb13a_bd8a7fd3",
+      "range": {
+        "startLine": 580,
+        "startChar": 0,
+        "endLine": 593,
+        "endChar": 16
+      },
+      "revId": "8f307f4b57f6aba49ec88b699759e07ca0dc327b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d9d30d4_cd68c986",
         "filename": "runtime/debugger.cc",
         "patchSetId": 2
