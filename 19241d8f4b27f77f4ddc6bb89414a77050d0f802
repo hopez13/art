@@ -117,6 +117,30 @@
       "revId": "19241d8f4b27f77f4ddc6bb89414a77050d0f802",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2981592_564c1417",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-02-22T21:39:04Z",
+      "side": 1,
+      "message": "Method tracing and debugger on at the same time should be extremely rare. Even when that happens it should be fine some debuggability is reduced. I think we should keep the entry-exit stubs for good method tracing performance.",
+      "parentUuid": "c283b51b_8a456b91",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 63
+      },
+      "revId": "19241d8f4b27f77f4ddc6bb89414a77050d0f802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
