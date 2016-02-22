@@ -46,6 +46,30 @@
       "revId": "c755657bc50a36c67587c2ba81b96b99c7691c43",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22dbb13a_60b68cbd",
+        "filename": "runtime/base/bit_utils.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-22T19:30:32Z",
+      "side": 1,
+      "message": "I would be OK with removing the check for unsigned types. 0-bit signed doesn\u0027t make sense.",
+      "parentUuid": "c283b51b_6adf5782",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 1
+      },
+      "revId": "c755657bc50a36c67587c2ba81b96b99c7691c43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
