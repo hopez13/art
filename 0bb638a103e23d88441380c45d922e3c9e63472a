@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22dbb13a_3d62efb6",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-22T13:33:25Z",
+      "side": 1,
+      "message": "For length\u003d\u003d32, the behavior is undefined per 5.8/1 (C++11). And I suspect we want to support this use case.",
+      "range": {
+        "startLine": 141,
+        "startChar": 21,
+        "endLine": 141,
+        "endChar": 33
+      },
+      "revId": "0bb638a103e23d88441380c45d922e3c9e63472a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42c98578_9695acbb",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-22T13:33:25Z",
+      "side": 1,
+      "message": "Undefined behavior for bit_count \u003d\u003d 32.",
+      "range": {
+        "startLine": 72,
+        "startChar": 25,
+        "endLine": 72,
+        "endChar": 39
+      },
+      "revId": "0bb638a103e23d88441380c45d922e3c9e63472a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42c98578_96276c93",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-22T13:33:25Z",
+      "side": 1,
+      "message": "Either use memcpy() or `static_assert(alignof(StackMapEncoding) \u003d\u003d 1, \"...\")` to make sure we don\u0027t hit SIGBUS/BUS_ADRALN on ARM and MIPS.",
+      "range": {
+        "startLine": 995,
+        "startChar": 4,
+        "endLine": 995,
+        "endChar": 73
+      },
+      "revId": "0bb638a103e23d88441380c45d922e3c9e63472a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
