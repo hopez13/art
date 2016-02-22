@@ -93,6 +93,30 @@
       "revId": "19241d8f4b27f77f4ddc6bb89414a77050d0f802",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c283b51b_8a456b91",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-22T09:46:00Z",
+      "side": 1,
+      "message": "How about we kill those entry-exit stubs and just rely on the interpreter? With mterp we should get enough performance benefits that I think we can afford it.",
+      "parentUuid": "a2d5e1d0_97e1cce6",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 63
+      },
+      "revId": "19241d8f4b27f77f4ddc6bb89414a77050d0f802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
