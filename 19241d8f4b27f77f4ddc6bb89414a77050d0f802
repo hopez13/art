@@ -168,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "62a5a9c6_94fa9223",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-02-22T23:06:18Z",
+      "side": 1,
+      "message": "I just try to handle the situation that when both method tracing and debugger are on, use interpreter for boot image code. Otherwise, just use the entry-exit stub as was done before.",
+      "parentUuid": "62b209f8_571f8cf2",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 63
+      },
+      "revId": "19241d8f4b27f77f4ddc6bb89414a77050d0f802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82affd8e_d8958d68",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 3
@@ -179,6 +203,30 @@
       "writtenOn": "2016-02-22T22:51:50Z",
       "side": 1,
       "message": "Why? This is an \"undeoptimize operation\", why can\u0027t you restore the AOT code?",
+      "range": {
+        "startLine": 791,
+        "startChar": 2,
+        "endLine": 793,
+        "endChar": 7
+      },
+      "revId": "19241d8f4b27f77f4ddc6bb89414a77050d0f802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2981592_5171bead",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-02-22T23:06:18Z",
+      "side": 1,
+      "message": "For the purpose of debugging framework code. NeedDebugVersionForBootImageCode() basically detects situations when boot image oat code shouldn\u0027t be used.",
+      "parentUuid": "82affd8e_d8958d68",
       "range": {
         "startLine": 791,
         "startChar": 2,
