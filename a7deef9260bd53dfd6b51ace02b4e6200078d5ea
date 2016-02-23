@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2c1f56d_97d05019",
+        "filename": "runtime/gc/allocation_record.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-23T19:00:17Z",
+      "side": 1,
+      "message": "Does this mean we visit the class gc roots only up to the max count but we visit the methods in the stack traces all the way? Why the difference?",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 20
+      },
+      "revId": "a7deef9260bd53dfd6b51ace02b4e6200078d5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
