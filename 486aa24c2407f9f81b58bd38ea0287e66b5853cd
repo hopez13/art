@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22c49160_788f1d18",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-23T10:46:25Z",
+      "side": 1,
+      "message": "Can you do this with a loop instead of recursion? Recursion in a compiler is prone to stack overflow.\n\nIs the overflow check actually needed?",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 9
+      },
+      "revId": "486aa24c2407f9f81b58bd38ea0287e66b5853cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
