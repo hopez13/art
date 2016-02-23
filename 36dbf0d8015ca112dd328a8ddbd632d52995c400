@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a220812e_99519b09",
+        "filename": "test/555-checker-regression-x86const/build",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-02-23T16:47:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a220812e_396e4fcc",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 57
+      },
+      "revId": "36dbf0d8015ca112dd328a8ddbd632d52995c400",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22dbb13a_23e64e94",
         "filename": "test/555-checker-regression-x86const/build",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-23T16:39:11Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 34,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 38
+      },
+      "revId": "36dbf0d8015ca112dd328a8ddbd632d52995c400",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42c98578_39868b3f",
+        "filename": "test/555-checker-regression-x86const/build",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-02-23T16:47:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22dbb13a_23e64e94",
       "range": {
         "startLine": 34,
         "startChar": 2,
