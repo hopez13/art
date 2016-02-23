@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2981592_694bb629",
+        "filename": "runtime/gc/collector/immune_spaces.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-23T20:05:06Z",
+      "side": 1,
+      "message": "Add a short comment on how we pick the best region in English?",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 3
+      },
+      "revId": "7d9c3ac57a11b1e508ec96d27ad3464e651c7568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2def959_b755839b",
+        "filename": "runtime/gc/collector/immune_spaces_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-23T20:05:06Z",
+      "side": 1,
+      "message": "Explain oat_begin and oat_end?",
+      "revId": "7d9c3ac57a11b1e508ec96d27ad3464e651c7568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62be89e4_b42fd9d1",
+        "filename": "runtime/gc/collector/immune_spaces_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-23T20:05:06Z",
+      "side": 1,
+      "message": "Having both oat_offset/oat_size and oat_begin/oat_end seems to have a bit of redundancy and could causes some potential consistency issue? \n\nIs it sufficient to have only either one?",
+      "range": {
+        "startLine": 104,
+        "startChar": 33,
+        "endLine": 105,
+        "endChar": 59
+      },
+      "revId": "7d9c3ac57a11b1e508ec96d27ad3464e651c7568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82bb7df1_b09d9e30",
+        "filename": "runtime/gc/collector/immune_spaces_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-23T20:05:06Z",
+      "side": 1,
+      "message": "Can you remind me what we do with the zygote/non-moving space coming right after the boot image/oat?\n\nIf we don\u0027t include the oat if there\u0027s no image after, then could we miss including the zygote/non-moving space in the immune region?\n\nDo we have a test for a dummy zygote/non-moving space?",
+      "range": {
+        "startLine": 186,
+        "startChar": 2,
+        "endLine": 186,
+        "endChar": 69
+      },
+      "revId": "7d9c3ac57a11b1e508ec96d27ad3464e651c7568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22d0113b_d2d8256b",
+        "filename": "runtime/gc/collector/immune_spaces_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-23T20:05:06Z",
+      "side": 1,
+      "message": "Can we also describe the intended layout in terms of Image1, Image2, Image3, Image1Oat, and Image2Oat in a similar way? That would make it easier to read the following code.",
+      "range": {
+        "startLine": 231,
+        "startChar": 10,
+        "endLine": 231,
+        "endChar": 46
+      },
+      "revId": "7d9c3ac57a11b1e508ec96d27ad3464e651c7568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62a5a9c6_8116d1da",
+        "filename": "runtime/gc/collector/immune_spaces_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-23T20:05:06Z",
+      "side": 1,
+      "message": "Should this be kImage2OatSize?",
+      "range": {
+        "startLine": 246,
+        "startChar": 37,
+        "endLine": 246,
+        "endChar": 51
+      },
+      "revId": "7d9c3ac57a11b1e508ec96d27ad3464e651c7568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62a5a9c6_21ca6593",
+        "filename": "runtime/gc/collector/immune_spaces_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-23T20:05:06Z",
+      "side": 1,
+      "message": "last?",
+      "range": {
+        "startLine": 258,
+        "startChar": 7,
+        "endLine": 258,
+        "endChar": 11
+      },
+      "revId": "7d9c3ac57a11b1e508ec96d27ad3464e651c7568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
