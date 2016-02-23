@@ -49,6 +49,52 @@
     },
     {
       "key": {
+        "uuid": "a2b881d5_9c2ea9d5",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-02-23T08:45:24Z",
+      "side": 1,
+      "message": "As Nicolas said, I think you need to do this every time a debugger connects. But you should also restore the compiled code when the debugger disconnects.",
+      "range": {
+        "startLine": 630,
+        "startChar": 6,
+        "endLine": 630,
+        "endChar": 34
+      },
+      "revId": "19241d8f4b27f77f4ddc6bb89414a77050d0f802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2bd19cb_56079269",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-02-23T08:45:24Z",
+      "side": 1,
+      "message": "One per line",
+      "range": {
+        "startLine": 111,
+        "startChar": 9,
+        "endLine": 111,
+        "endChar": 57
+      },
+      "revId": "19241d8f4b27f77f4ddc6bb89414a77050d0f802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "421b45b8_a62ec6d4",
         "filename": "runtime/instrumentation.cc",
         "patchSetId": 3
@@ -227,6 +273,30 @@
       "side": 1,
       "message": "For the purpose of debugging framework code. NeedDebugVersionForBootImageCode() basically detects situations when boot image oat code shouldn\u0027t be used.",
       "parentUuid": "82affd8e_d8958d68",
+      "range": {
+        "startLine": 791,
+        "startChar": 2,
+        "endLine": 793,
+        "endChar": 7
+      },
+      "revId": "19241d8f4b27f77f4ddc6bb89414a77050d0f802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2bd19cb_760c8e8b",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 793,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-02-23T08:45:24Z",
+      "side": 1,
+      "message": "Not sure about this either. When the debugger is about to disconnect, it undeoptimizes every method where a breakpoint is set (see Instrumentation::DisableDeoptimization).\n\nSo here, NeedDebugVersionForBootImageCode would still return true and you would not restore the compiled code.",
+      "parentUuid": "c2981592_5171bead",
       "range": {
         "startLine": 791,
         "startChar": 2,
