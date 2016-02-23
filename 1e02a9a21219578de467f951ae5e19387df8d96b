@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c2c1f56d_9d187198",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-02-23T21:47:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2def959_b790e3ca",
+      "range": {
+        "startLine": 136,
+        "startChar": 4,
+        "endLine": 136,
+        "endChar": 48
+      },
+      "revId": "1e02a9a21219578de467f951ae5e19387df8d96b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2c1f56d_d75b68fc",
         "filename": "runtime/modifiers.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-23T19:30:09Z",
       "side": 1,
       "message": "Typo.",
+      "range": {
+        "startLine": 55,
+        "startChar": 74,
+        "endLine": 55,
+        "endChar": 85
+      },
+      "revId": "1e02a9a21219578de467f951ae5e19387df8d96b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2def959_ea13223f",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-02-23T21:47:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2c1f56d_d75b68fc",
       "range": {
         "startLine": 55,
         "startChar": 74,
