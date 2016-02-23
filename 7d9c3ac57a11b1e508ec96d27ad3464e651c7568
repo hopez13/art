@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "02e4ed24_b690e5ca",
+        "filename": "runtime/gc/collector/immune_spaces.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-23T20:33:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2981592_694bb629",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 3
+      },
+      "revId": "7d9c3ac57a11b1e508ec96d27ad3464e651c7568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2def959_b755839b",
         "filename": "runtime/gc/collector/immune_spaces_test.cc",
         "patchSetId": 2
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "82bb7df1_50b9a242",
+        "filename": "runtime/gc/collector/immune_spaces_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-23T20:33:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2def959_b755839b",
+      "revId": "7d9c3ac57a11b1e508ec96d27ad3464e651c7568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62be89e4_b42fd9d1",
         "filename": "runtime/gc/collector/immune_spaces_test.cc",
         "patchSetId": 2
@@ -53,6 +95,30 @@
       "writtenOn": "2016-02-23T20:05:06Z",
       "side": 1,
       "message": "Having both oat_offset/oat_size and oat_begin/oat_end seems to have a bit of redundancy and could causes some potential consistency issue? \n\nIs it sufficient to have only either one?",
+      "range": {
+        "startLine": 104,
+        "startChar": 33,
+        "endLine": 105,
+        "endChar": 59
+      },
+      "revId": "7d9c3ac57a11b1e508ec96d27ad3464e651c7568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62a5a9c6_5cb1cc0c",
+        "filename": "runtime/gc/collector/immune_spaces_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-23T20:33:51Z",
+      "side": 1,
+      "message": "Currently we use the oat_offset + oat_size to reserve memory to ensure there is no overlapping maps.\ni.e. [image1][reserve][image1oat]\nthen place [image2oat] in the reserve section by passing in oat_begin and oat_end.",
+      "parentUuid": "62be89e4_b42fd9d1",
       "range": {
         "startLine": 104,
         "startChar": 33,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "c2981592_e90586a9",
+        "filename": "runtime/gc/collector/immune_spaces_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-23T20:33:51Z",
+      "side": 1,
+      "message": "That gets included, it is tested when we add the space beginning at GetOatFileEnd below.",
+      "parentUuid": "82bb7df1_b09d9e30",
+      "range": {
+        "startLine": 186,
+        "startChar": 2,
+        "endLine": 186,
+        "endChar": 69
+      },
+      "revId": "7d9c3ac57a11b1e508ec96d27ad3464e651c7568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22d0113b_d2d8256b",
         "filename": "runtime/gc/collector/immune_spaces_test.cc",
         "patchSetId": 2
@@ -99,6 +189,30 @@
       "writtenOn": "2016-02-23T20:05:06Z",
       "side": 1,
       "message": "Can we also describe the intended layout in terms of Image1, Image2, Image3, Image1Oat, and Image2Oat in a similar way? That would make it easier to read the following code.",
+      "range": {
+        "startLine": 231,
+        "startChar": 10,
+        "endLine": 231,
+        "endChar": 46
+      },
+      "revId": "7d9c3ac57a11b1e508ec96d27ad3464e651c7568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2c1f56d_c27f243b",
+        "filename": "runtime/gc/collector/immune_spaces_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-23T20:33:51Z",
+      "side": 1,
+      "message": "Its hard to do that since GetImageEnd goes through image header. So the image spaces can not have a faked Begin(). I would have to reserve a large block of memory then manually create all the images by unmapping and remapping at the right addresses.",
+      "parentUuid": "22d0113b_d2d8256b",
       "range": {
         "startLine": 231,
         "startChar": 10,
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "62be89e4_9425f58b",
+        "filename": "runtime/gc/collector/immune_spaces_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-23T20:33:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62a5a9c6_8116d1da",
+      "range": {
+        "startLine": 246,
+        "startChar": 37,
+        "endLine": 246,
+        "endChar": 51
+      },
+      "revId": "7d9c3ac57a11b1e508ec96d27ad3464e651c7568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62a5a9c6_21ca6593",
         "filename": "runtime/gc/collector/immune_spaces_test.cc",
         "patchSetId": 2
@@ -145,6 +283,30 @@
       "writtenOn": "2016-02-23T20:05:06Z",
       "side": 1,
       "message": "last?",
+      "range": {
+        "startLine": 258,
+        "startChar": 7,
+        "endLine": 258,
+        "endChar": 11
+      },
+      "revId": "7d9c3ac57a11b1e508ec96d27ad3464e651c7568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22d0113b_8dd5ec01",
+        "filename": "runtime/gc/collector/immune_spaces_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-23T20:33:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62a5a9c6_21ca6593",
       "range": {
         "startLine": 258,
         "startChar": 7,
