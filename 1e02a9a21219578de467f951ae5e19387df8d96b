@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2def959_b790e3ca",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-23T19:30:09Z",
+      "side": 1,
+      "message": "I\u0027d add a DCHECK here for (miranda -\u003e copied \u0026\u0026 conflict -\u003e copied).",
+      "range": {
+        "startLine": 136,
+        "startChar": 4,
+        "endLine": 136,
+        "endChar": 48
+      },
+      "revId": "1e02a9a21219578de467f951ae5e19387df8d96b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2c1f56d_d75b68fc",
+        "filename": "runtime/modifiers.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-23T19:30:09Z",
+      "side": 1,
+      "message": "Typo.",
+      "range": {
+        "startLine": 55,
+        "startChar": 74,
+        "endLine": 55,
+        "endChar": 85
+      },
+      "revId": "1e02a9a21219578de467f951ae5e19387df8d96b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
