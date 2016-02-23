@@ -22,6 +22,29 @@
       "revId": "16e51beb9a771ffe7be833173e3dd5f2dac63892",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2981592_a9c41eb3",
+        "filename": "runtime/gc/allocation_record.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-23T20:09:41Z",
+      "side": 1,
+      "message": "Do we have a similar race when disabling it? If we reorder these here, could it cause a different issue?",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 82
+      },
+      "revId": "16e51beb9a771ffe7be833173e3dd5f2dac63892",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
