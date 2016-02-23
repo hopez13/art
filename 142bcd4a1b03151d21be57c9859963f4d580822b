@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02e4ed24_09de7ef8",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-02-23T21:51:09Z",
+      "side": 1,
+      "message": "Can you make all condition testing more readable? Such as:\nif (info1 is constant) {\n  return MulConstantAndRange();\n}\nif (info2 is constant) {\n  return MulConstantAndRange();\n}\nif (info1 is positive/negative range \u0026\u0026 info2 is positive/negative range) {\n  return MulTwoNonZeroSpanningRanges();\n}",
+      "revId": "142bcd4a1b03151d21be57c9859963f4d580822b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
