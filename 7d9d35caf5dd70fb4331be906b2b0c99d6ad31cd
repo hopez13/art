@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02e4ed24_a90acab5",
+        "filename": "compiler/linker/multi_oat_relative_patcher.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-02-23T23:13:03Z",
+      "side": 1,
+      "message": "Bit weirded out by this method (that was defined before). If offsets can\u0027t be zero, why do we need the bool?",
+      "range": {
+        "startLine": 125,
+        "startChar": 4,
+        "endLine": 125,
+        "endChar": 77
+      },
+      "revId": "7d9d35caf5dd70fb4331be906b2b0c99d6ad31cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
