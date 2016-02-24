@@ -251,6 +251,30 @@
       "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82bb7df1_71826585",
+        "filename": "test/564-checker-negbitwise/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-24T14:38:39Z",
+      "side": 1,
+      "message": "Isn\u0027t the order of ParameterValue instructions expected to be in the same as for arguments? If so I don\u0027t think we should use CHECK-DAG here. And the other instructions below are also strictly ordered due to data dependencies.",
+      "parentUuid": "82affd8e_bbda935d",
+      "range": {
+        "startLine": 39,
+        "startChar": 6,
+        "endLine": 39,
+        "endChar": 11
+      },
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
