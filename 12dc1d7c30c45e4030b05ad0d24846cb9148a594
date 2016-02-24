@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "22dbb13a_c6a698d6",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-24T11:18:24Z",
+      "side": 1,
+      "message": "Comment added to the public function GetOatIndexForDexFile().",
+      "parentUuid": "22dbb13a_637bf602",
+      "range": {
+        "startLine": 503,
+        "startChar": 4,
+        "endLine": 503,
+        "endChar": 20
+      },
+      "revId": "12dc1d7c30c45e4030b05ad0d24846cb9148a594",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2bd19cb_36cf76a3",
         "filename": "compiler/image_writer.h",
         "patchSetId": 11
