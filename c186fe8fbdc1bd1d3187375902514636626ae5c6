@@ -141,6 +141,30 @@
       "revId": "c186fe8fbdc1bd1d3187375902514636626ae5c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42c98578_bc21a997",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-24T11:39:27Z",
+      "side": 1,
+      "message": "I think I had to introduce this because of shift operators on long values, which may/do use an int value as second operand.  The other case (binop(int, long)) is probably not necessary.\n\nWe can keep this is as-is in this CL.  I\u0027ll check and clean that up in a follow-up CL.",
+      "parentUuid": "82bb7df1_b1159d60",
+      "range": {
+        "startLine": 184,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 59
+      },
+      "revId": "c186fe8fbdc1bd1d3187375902514636626ae5c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
