@@ -166,6 +166,24 @@
     },
     {
       "key": {
+        "uuid": "a2b881d5_9ff13b8b",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-24T15:16:52Z",
+      "side": 1,
+      "message": "Yes, we do that in other places (see e.g. HandleShift methods in code generators).",
+      "parentUuid": "62a5a9c6_b1efdea0",
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c283b51b_cd313dd0",
         "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
         "patchSetId": 5
@@ -242,6 +260,24 @@
       "side": 1,
       "message": "Done (I think you just meant `op`).",
       "parentUuid": "02c30d5c_fa1b215f",
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02c30d5c_7a5631a8",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-24T15:16:52Z",
+      "side": 1,
+      "message": "Right; I read this too fast and thought `op` was a HInstruction at first.",
+      "parentUuid": "62be89e4_e95697fd",
       "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -471,6 +507,30 @@
     },
     {
       "key": {
+        "uuid": "a2b881d5_5fe8839b",
+        "filename": "test/564-checker-negbitwise/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-24T15:16:52Z",
+      "side": 1,
+      "message": "Thanks for pointing out the issue in other tests!  I\u0027ll take care of them.",
+      "parentUuid": "62be89e4_691cc758",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 1
+      },
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82affd8e_bbda935d",
         "filename": "test/564-checker-negbitwise/src/Main.java",
         "patchSetId": 5
@@ -506,6 +566,30 @@
       "side": 1,
       "message": "Isn\u0027t the order of ParameterValue instructions expected to be in the same as for arguments? If so I don\u0027t think we should use CHECK-DAG here. And the other instructions below are also strictly ordered due to data dependencies.",
       "parentUuid": "82affd8e_bbda935d",
+      "range": {
+        "startLine": 39,
+        "startChar": 6,
+        "endLine": 39,
+        "endChar": 11
+      },
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22dbb13a_062fa068",
+        "filename": "test/564-checker-negbitwise/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-24T15:16:52Z",
+      "side": 1,
+      "message": "Right.  I would keep DCHECKs for ParameterValue instructions, but I think we should switch to DCHECK-DAGs for other instructions, as we do not want to enforce a specific order here (and dependencies introduced by use-def information are enough).",
+      "parentUuid": "82bb7df1_71826585",
       "range": {
         "startLine": 39,
         "startChar": 6,
