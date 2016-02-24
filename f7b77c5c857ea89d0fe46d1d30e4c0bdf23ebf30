@@ -122,6 +122,46 @@
     },
     {
       "key": {
+        "uuid": "a2b881d5_3f9bcf90",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-24T11:44:06Z",
+      "side": 1,
+      "message": "For consistency with the first return statement (line 172), I\u0027d change that to\n\n  decltype(x \u0026 ~y)",
+      "range": {
+        "startLine": 170,
+        "startChar": 34,
+        "endLine": 170,
+        "endChar": 49
+      },
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02c30d5c_fa196159",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-24T11:44:06Z",
+      "side": 1,
+      "message": "For the sake of completion, could you add static_assert\u0027s to make sure that the result type of `x \u0026 ~y` is the same as the result type of `x | ~y` and `x ^ ~y`?",
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62b209f8_1a6b7983",
         "filename": "compiler/optimizing/nodes_arm64.h",
         "patchSetId": 5
