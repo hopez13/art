@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "e2b0b90b_e405aba9",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-02-24T10:43:04Z",
+      "side": 1,
+      "message": "Oh yes indeed, forgot about this! Fixed.",
+      "parentUuid": "22dbb13a_e3954668",
+      "range": {
+        "startLine": 263,
+        "startChar": 6,
+        "endLine": 263,
+        "endChar": 13
+      },
+      "revId": "c186fe8fbdc1bd1d3187375902514636626ae5c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62b209f8_ba1fed3e",
         "filename": "compiler/optimizing/nodes_arm64.h",
         "patchSetId": 4
