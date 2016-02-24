@@ -1,0 +1,193 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c283b51b_ad24098f",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1866,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-24T11:29:14Z",
+      "side": 1,
+      "message": "\u003c\u003c instr-\u003eGetType()",
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2b881d5_dc6e613c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1874,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-24T11:29:14Z",
+      "side": 1,
+      "message": "Nit: long line.",
+      "range": {
+        "startLine": 1874,
+        "startChar": 0,
+        "endLine": 1874,
+        "endChar": 101
+      },
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a220812e_f9b7771e",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1880,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-24T11:29:14Z",
+      "side": 1,
+      "message": "Style: one statement per line (here and below).",
+      "range": {
+        "startLine": 1880,
+        "startChar": 4,
+        "endLine": 1880,
+        "endChar": 57
+      },
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42c98578_3c3679e5",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-24T11:29:14Z",
+      "side": 1,
+      "message": "Maybe DCHECK the type of `op` here?",
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c283b51b_cd313dd0",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-24T11:29:14Z",
+      "side": 1,
+      "message": "Nit: use operator `?:` instead?",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 5
+      },
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02c30d5c_fa1b215f",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-24T11:29:14Z",
+      "side": 1,
+      "message": "\u003c\u003c op-\u003eDebugName()",
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62b209f8_1a6b7983",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-24T11:29:14Z",
+      "side": 1,
+      "message": "Style: move `return` statement on its own line (here and below).",
+      "range": {
+        "startLine": 172,
+        "startChar": 6,
+        "endLine": 172,
+        "endChar": 45
+      },
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42c98578_fc424133",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-24T11:29:14Z",
+      "side": 1,
+      "message": "Replace with\n\n  UNREACHABLE();\n\nand remove comment on line 175.",
+      "range": {
+        "startLine": 176,
+        "startChar": 44,
+        "endLine": 176,
+        "endChar": 53
+      },
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c283b51b_0d5d15f4",
+        "filename": "test/564-checker-negbitwise/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-24T11:29:14Z",
+      "side": 1,
+      "message": "Nit: indentation is off.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 1
+      },
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
