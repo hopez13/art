@@ -599,6 +599,30 @@
       "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82bb7df1_71d02575",
+        "filename": "test/564-checker-negbitwise/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-24T15:27:52Z",
+      "side": 1,
+      "message": "I think CHECK is better below as well. There is no need for CHECK-DAG, since the order is guaranteed thanks to data dependencies and arguments order.\n\nCHECK-DAG is used if we are unsure of the order the instructions appear. For example in\n\n    int foo(int x, int y) {\n      int a \u003d x + y;\n      int b \u003d x - y;\n      int res \u003d a * b;\n      return res;\n    }\n\nwe would need CHECK-DAG because `a` is not necessarily computed before `b`.\n\n    CHECK       \u003c\u003cy\u003e\u003e        ParameterValue\n    CHECK       \u003c\u003cx\u003e\u003e        ParameterValue\n    CHECK-DAG   \u003c\u003ca:i\\d+\u003e\u003e   Add [\u003c\u003cx\u003e\u003e,\u003c\u003cy\u003e\u003e]\n    CHECK-DAG   \u003c\u003cb:i\\d+\u003e\u003e   Sub [\u003c\u003cx\u003e\u003e,\u003c\u003cy\u003e\u003e]\n    CHECK       \u003c\u003cres:i\\d+\u003e\u003e Mul [\u003c\u003ca\u003e\u003e,\u003c\u003cb\u003e\u003e]\n    CHECK                    Return \u003c\u003cres\u003e\u003e\n\nOr correct me if I am wrong. Maybe David can help us conclude here.",
+      "parentUuid": "22dbb13a_062fa068",
+      "range": {
+        "startLine": 39,
+        "startChar": 6,
+        "endLine": 39,
+        "endChar": 11
+      },
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
