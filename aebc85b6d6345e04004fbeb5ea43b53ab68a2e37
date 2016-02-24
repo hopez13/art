@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42c98578_fcf8816a",
+        "filename": "runtime/interpreter/mterp/x86/op_packed_switch.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2016-02-24T06:01:25Z",
+      "side": 1,
+      "message": "vice versa. This is a bug.",
+      "range": {
+        "startLine": 18,
+        "startChar": 12,
+        "endLine": 18,
+        "endChar": 23
+      },
+      "revId": "aebc85b6d6345e04004fbeb5ea43b53ab68a2e37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
