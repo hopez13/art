@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "22dbb13a_23b3ae36",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-24T10:36:51Z",
+      "side": 1,
+      "message": "Done (comment). IMO, \"index\" is the most appropriate description.",
+      "parentUuid": "a2b881d5_5cd41137",
+      "range": {
+        "startLine": 455,
+        "startChar": 9,
+        "endLine": 455,
+        "endChar": 21
+      },
+      "revId": "12dc1d7c30c45e4030b05ad0d24846cb9148a594",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42c98578_fc116172",
         "filename": "compiler/image_writer.h",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-24T09:18:41Z",
       "side": 1,
       "message": "Update comment.",
+      "range": {
+        "startLine": 496,
+        "startChar": 1,
+        "endLine": 496,
+        "endChar": 43
+      },
+      "revId": "12dc1d7c30c45e4030b05ad0d24846cb9148a594",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c283b51b_4d09cd0a",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-24T10:36:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42c98578_fc116172",
       "range": {
         "startLine": 496,
         "startChar": 1,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "22c49160_3b12ffac",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-24T10:36:51Z",
+      "side": 1,
+      "message": "I can\u0027t think of any useful comment that would convey more information than the name itself.",
+      "parentUuid": "a220812e_596b035f",
+      "range": {
+        "startLine": 503,
+        "startChar": 4,
+        "endLine": 503,
+        "endChar": 20
+      },
+      "revId": "12dc1d7c30c45e4030b05ad0d24846cb9148a594",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2bd19cb_36cf76a3",
         "filename": "compiler/image_writer.h",
         "patchSetId": 11
@@ -82,6 +154,30 @@
       "writtenOn": "2016-02-24T09:18:41Z",
       "side": 1,
       "message": "when do you decide whether you want a dchecked_vector or a std::vector?",
+      "range": {
+        "startLine": 536,
+        "startChar": 2,
+        "endLine": 536,
+        "endChar": 19
+      },
+      "revId": "12dc1d7c30c45e4030b05ad0d24846cb9148a594",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a220812e_59f0e3f4",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-24T10:36:51Z",
+      "side": 1,
+      "message": "This comes to the ImageWriter as an external argument, so I chose to keep it as std::vector\u003c\u003e. For stuff used internally by the class I prefer the dchecked_vector\u003c\u003e.",
+      "parentUuid": "e2bd19cb_36cf76a3",
       "range": {
         "startLine": 536,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "82affd8e_3b01239e",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-24T10:36:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22c49160_fbb0870b",
+      "range": {
+        "startLine": 538,
+        "startChar": 0,
+        "endLine": 538,
+        "endChar": 72
+      },
+      "revId": "12dc1d7c30c45e4030b05ad0d24846cb9148a594",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c283b51b_8d24a5a8",
         "filename": "compiler/linker/arm/relative_patcher_arm_base.cc",
         "patchSetId": 11
@@ -128,6 +248,30 @@
       "writtenOn": "2016-02-24T09:18:41Z",
       "side": 1,
       "message": "comments please.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 33
+      },
+      "revId": "12dc1d7c30c45e4030b05ad0d24846cb9148a594",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c283b51b_0de6f593",
+        "filename": "compiler/linker/arm/relative_patcher_arm_base.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-24T10:36:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c283b51b_8d24a5a8",
       "range": {
         "startLine": 45,
         "startChar": 0,
