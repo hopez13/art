@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2b0b90b_a4fa0323",
+        "filename": "runtime/gc/collector/immune_spaces.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-24T02:41:47Z",
+      "side": 1,
+      "message": "Do we treat the zygote space as image\u003dtrue? Maybe would \"non_oat\" work better?",
+      "range": {
+        "startLine": 62,
+        "startChar": 57,
+        "endLine": 62,
+        "endChar": 70
+      },
+      "revId": "660471a0a8b474529279245ba6ebdd31917845f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2b0b90b_e42a4b74",
+        "filename": "runtime/gc/collector/immune_spaces_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-24T02:41:47Z",
+      "side": 1,
+      "message": "Is this line to be removed?",
+      "range": {
+        "startLine": 249,
+        "startChar": 2,
+        "endLine": 249,
+        "endChar": 37
+      },
+      "revId": "660471a0a8b474529279245ba6ebdd31917845f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62a5a9c6_ad2544a4",
+        "filename": "runtime/gc/collector/immune_spaces_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-24T02:41:47Z",
+      "side": 1,
+      "message": "Should the third space be an image space or not?\n\nIt would be cleaner if we either rename \"kImage3Size\" to \"kSpace3Size\" or rename \"last\" to \"space3\"?",
+      "range": {
+        "startLine": 250,
+        "startChar": 2,
+        "endLine": 250,
+        "endChar": 12
+      },
+      "revId": "660471a0a8b474529279245ba6ebdd31917845f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
