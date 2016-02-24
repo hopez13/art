@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "22dbb13a_637bf602",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-24T10:41:30Z",
+      "side": 1,
+      "message": "This CL has been there for so long that you now associate the definition of index to it :)\n\nSo it\u0027s an index into what? That could be a start for a comment...",
+      "parentUuid": "22c49160_3b12ffac",
+      "range": {
+        "startLine": 503,
+        "startChar": 4,
+        "endLine": 503,
+        "endChar": 20
+      },
+      "revId": "12dc1d7c30c45e4030b05ad0d24846cb9148a594",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2bd19cb_36cf76a3",
         "filename": "compiler/image_writer.h",
         "patchSetId": 11
