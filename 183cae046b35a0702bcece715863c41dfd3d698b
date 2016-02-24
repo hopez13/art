@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "82bb7df1_27a02fbc",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-02-24T19:02:59Z",
+      "side": 1,
+      "message": "Ah, I meant that I am testing that, but it is inconsistent compared to L399.\n\nSo removed.",
+      "parentUuid": "e2b0b90b_47490106",
+      "range": {
+        "startLine": 393,
+        "startChar": 25,
+        "endLine": 393,
+        "endChar": 26
+      },
+      "revId": "183cae046b35a0702bcece715863c41dfd3d698b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22d0113b_69ca7f65",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-24T19:01:21Z",
       "side": 1,
       "message": "Same.",
+      "range": {
+        "startLine": 427,
+        "startChar": 30,
+        "endLine": 427,
+        "endChar": 31
+      },
+      "revId": "183cae046b35a0702bcece715863c41dfd3d698b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2def959_a0fe567d",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-02-24T19:02:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22d0113b_69ca7f65",
       "range": {
         "startLine": 427,
         "startChar": 30,
