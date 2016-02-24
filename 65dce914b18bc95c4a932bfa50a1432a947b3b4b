@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c2981592_ddf27cbe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-24T20:29:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62be89e4_e97fb7eb",
+      "range": {
+        "startLine": 10,
+        "startChar": 30,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "65dce914b18bc95c4a932bfa50a1432a947b3b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22d0113b_46de92f9",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2016-02-24T17:35:12Z",
       "side": 1,
       "message": "perhaps a comment, even as simple as saying this is magic bit twiddling",
+      "revId": "65dce914b18bc95c4a932bfa50a1432a947b3b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2c1f56d_f4553f9a",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-24T20:29:15Z",
+      "side": 1,
+      "message": "I can cite the URL which has the algorithm or I can add a comment which expresses the algorithm:\n\n\"A generalization of the best bit counting method to integers of bit-widths upto 128 (parameterized by type T) is this:\n\nv \u003d v - ((v \u003e\u003e 1) \u0026 (T)~(T)0/3);                           // temp\nv \u003d (v \u0026 (T)~(T)0/15*3) + ((v \u003e\u003e 2) \u0026 (T)~(T)0/15*3);      // temp\nv \u003d (v + (v \u003e\u003e 4)) \u0026 (T)~(T)0/255*15;                      // temp\nc \u003d (T)(v * ((T)~(T)0/255)) \u003e\u003e (sizeof(T) - 1) * CHAR_BIT; // count\"\n\nDoes this give enough information? I haven\u0027t sifted through the algorithm and figured out what it \"means\". I basically did a cut\u0027n\u0027paste job.",
+      "parentUuid": "22d0113b_46de92f9",
       "revId": "65dce914b18bc95c4a932bfa50a1432a947b3b4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "e2def959_5df8b990",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-24T20:29:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82bb7df1_546e2f02",
+      "revId": "65dce914b18bc95c4a932bfa50a1432a947b3b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2def959_5ddf991d",
         "filename": "compiler/utils/mips64/assembler_mips64.cc",
         "patchSetId": 1
@@ -70,6 +130,24 @@
       "writtenOn": "2016-02-24T17:35:12Z",
       "side": 1,
       "message": "tests for the new instructions?",
+      "revId": "65dce914b18bc95c4a932bfa50a1432a947b3b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2981592_58f8ba90",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-24T20:29:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2def959_5ddf991d",
       "revId": "65dce914b18bc95c4a932bfa50a1432a947b3b4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
