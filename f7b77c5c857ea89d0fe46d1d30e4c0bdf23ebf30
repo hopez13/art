@@ -184,6 +184,24 @@
     },
     {
       "key": {
+        "uuid": "e2b0b90b_07377939",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-02-24T17:37:03Z",
+      "side": 1,
+      "message": "All right, no problem. Done.",
+      "parentUuid": "a2b881d5_9ff13b8b",
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c283b51b_cd313dd0",
         "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
         "patchSetId": 5
@@ -531,6 +549,30 @@
     },
     {
       "key": {
+        "uuid": "62a5a9c6_71627682",
+        "filename": "test/564-checker-negbitwise/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-02-24T17:37:03Z",
+      "side": 1,
+      "message": "You\u0027re welcome, thank you for taking care of that!",
+      "parentUuid": "a2b881d5_5fe8839b",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 1
+      },
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82affd8e_bbda935d",
         "filename": "test/564-checker-negbitwise/src/Main.java",
         "patchSetId": 5
@@ -638,6 +680,30 @@
       "side": 1,
       "message": "The intent behind CHECK-DAG is to be robust to potential changes introduced by previous passes (especially if the order of basic blocks has changed).  I agree that in that case, CHECK works as well as CHECK-DAG.  It is less obvious in more complex expressions, such as in lines 158­–163, so I believe the consensus was to use CHECK-DAG by default in most Checker tests.\n\nDavid is out of the office this week.  I\u0027m fine with the current implementation, so we can merge it as-is and maybe change CHECKs to CHECK-DAGs in a follow-up CL if needed. :)",
       "parentUuid": "82bb7df1_71d02575",
+      "range": {
+        "startLine": 39,
+        "startChar": 6,
+        "endLine": 39,
+        "endChar": 11
+      },
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02e4ed24_a242dfe5",
+        "filename": "test/564-checker-negbitwise/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-02-24T17:37:03Z",
+      "side": 1,
+      "message": "All right so I\u0027ll leave it as-is for now.",
+      "parentUuid": "62b209f8_1ab37936",
       "range": {
         "startLine": 39,
         "startChar": 6,
