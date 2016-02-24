@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a220812e_f95bf7cd",
+        "filename": "runtime/interpreter/mterp/x86/bincmp.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-24T09:01:35Z",
+      "side": 1,
+      "message": "Could you make this a helper? Looks like it\u0027s the same assembly code for all branching variants.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 6
+      },
+      "revId": "fcd40e70ee1ff7466f5b8fc7c6c7911227d0e00a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
