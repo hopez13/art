@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "e2b0b90b_da64c4b2",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-02-24T21:29:00Z",
+      "side": 1,
+      "message": "Yes, a citation and high level description of the code would be nice, so one can easier relate the MIPS code to what is being done (or course, you guys read MIPS like it is english, but this helps the lesser educated like myself :-)",
+      "parentUuid": "c2c1f56d_f4553f9a",
+      "revId": "65dce914b18bc95c4a932bfa50a1432a947b3b4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82bb7df1_546e2f02",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
