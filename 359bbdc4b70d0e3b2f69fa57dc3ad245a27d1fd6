@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2def959_20da66ec",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-24T21:18:49Z",
+      "side": 1,
+      "message": "MulR6",
+      "range": {
+        "startLine": 870,
+        "startChar": 9,
+        "endLine": 870,
+        "endChar": 15
+      },
+      "revId": "359bbdc4b70d0e3b2f69fa57dc3ad245a27d1fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02e4ed24_3d1050dd",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-24T21:18:49Z",
+      "side": 1,
+      "message": "There\u0027s MulR2() that stores the least significant half of the product in a GPR instead of LO.",
+      "range": {
+        "startLine": 872,
+        "startChar": 0,
+        "endLine": 873,
+        "endChar": 19
+      },
+      "revId": "359bbdc4b70d0e3b2f69fa57dc3ad245a27d1fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2c1f56d_b9621f7f",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-24T21:18:49Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 919,
+        "startChar": 0,
+        "endLine": 921,
+        "endChar": 36
+      },
+      "revId": "359bbdc4b70d0e3b2f69fa57dc3ad245a27d1fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2981592_ddb71c4d",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-24T21:18:49Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 923,
+        "startChar": 0,
+        "endLine": 927,
+        "endChar": 22
+      },
+      "revId": "359bbdc4b70d0e3b2f69fa57dc3ad245a27d1fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2c1f56d_9f485b5b",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-24T21:18:49Z",
+      "side": 1,
+      "message": "Can be \"no overlap\" as we\u0027re done using \"in\" before we start using \"out\".",
+      "range": {
+        "startLine": 939,
+        "startChar": 52,
+        "endLine": 939,
+        "endChar": 66
+      },
+      "revId": "359bbdc4b70d0e3b2f69fa57dc3ad245a27d1fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22d0113b_c974f3da",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-24T21:18:49Z",
+      "side": 1,
+      "message": "The least significant half of an integer product is the same for both signed and unsigned multiplication. This instruction isn\u0027t really needed, MulR6() should be enough.",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 260,
+        "endChar": 1
+      },
+      "revId": "359bbdc4b70d0e3b2f69fa57dc3ad245a27d1fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
