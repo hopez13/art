@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2981592_1f07bc3c",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2003,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-02-24T00:03:06Z",
+      "side": 1,
+      "message": "since you pass IsR6(), I find this parameter documentation a bit redundant; up to you though",
+      "range": {
+        "startLine": 2003,
+        "startChar": 64,
+        "endLine": 2003,
+        "endChar": 68
+      },
+      "revId": "d1851485f1db89beec2bd8e0759f466ee93f0ff6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82bb7df1_59df8d1d",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1177,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-02-24T00:03:06Z",
+      "side": 1,
+      "message": "Don\u0027t forget to add a test in assembler_mips_test for this new one",
+      "range": {
+        "startLine": 1177,
+        "startChar": 20,
+        "endLine": 1177,
+        "endChar": 26
+      },
+      "revId": "d1851485f1db89beec2bd8e0759f466ee93f0ff6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
