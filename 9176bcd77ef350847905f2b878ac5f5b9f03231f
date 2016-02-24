@@ -22,6 +22,30 @@
       "revId": "9176bcd77ef350847905f2b878ac5f5b9f03231f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2def959_c02f22d1",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-24T19:07:50Z",
+      "side": 1,
+      "message": "You mean adding another return statement? That works too I guess. The if statements are small enough that I don\u0027t think they are worth changing.",
+      "parentUuid": "c2981592_bd51f8de",
+      "range": {
+        "startLine": 340,
+        "startChar": 4,
+        "endLine": 351,
+        "endChar": 5
+      },
+      "revId": "9176bcd77ef350847905f2b878ac5f5b9f03231f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
