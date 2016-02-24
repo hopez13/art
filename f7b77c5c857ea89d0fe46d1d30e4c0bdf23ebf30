@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a29b218c_24eb865b",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1866,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-02-24T14:48:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c283b51b_ad24098f",
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2b881d5_dc6e613c",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 5
@@ -30,6 +48,30 @@
       "writtenOn": "2016-02-24T11:29:14Z",
       "side": 1,
       "message": "Nit: long line.",
+      "range": {
+        "startLine": 1874,
+        "startChar": 0,
+        "endLine": 1874,
+        "endChar": 101
+      },
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82bb7df1_b1047df9",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1874,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-02-24T14:48:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2b881d5_dc6e613c",
       "range": {
         "startLine": 1874,
         "startChar": 0,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "02e4ed24_22070f3d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1880,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-02-24T14:48:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a220812e_f9b7771e",
+      "range": {
+        "startLine": 1880,
+        "startChar": 4,
+        "endLine": 1880,
+        "endChar": 57
+      },
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42c98578_3c3679e5",
         "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
         "patchSetId": 5
@@ -76,6 +142,24 @@
       "writtenOn": "2016-02-24T11:29:14Z",
       "side": 1,
       "message": "Maybe DCHECK the type of `op` here?",
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62a5a9c6_b1efdea0",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-02-24T14:48:37Z",
+      "side": 1,
+      "message": "Is it useful considering that HArm64BitwiseNegatedRight\u0027s constructor already checks that?",
+      "parentUuid": "42c98578_3c3679e5",
       "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "62be89e4_294daf68",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-02-24T14:48:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c283b51b_cd313dd0",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 258,
+        "endChar": 5
+      },
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02c30d5c_fa1b215f",
         "filename": "compiler/optimizing/nodes_arm64.h",
         "patchSetId": 5
@@ -116,6 +224,24 @@
       "writtenOn": "2016-02-24T11:29:14Z",
       "side": 1,
       "message": "\u003c\u003c op-\u003eDebugName()",
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62be89e4_e95697fd",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-02-24T14:48:37Z",
+      "side": 1,
+      "message": "Done (I think you just meant `op`).",
+      "parentUuid": "02c30d5c_fa1b215f",
       "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -162,6 +288,48 @@
     },
     {
       "key": {
+        "uuid": "62be89e4_e92fb781",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-02-24T14:48:37Z",
+      "side": 1,
+      "message": "Done using some C++11 magic.",
+      "parentUuid": "02c30d5c_fa196159",
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22d0113b_2301489e",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-02-24T14:48:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2b881d5_3f9bcf90",
+      "range": {
+        "startLine": 170,
+        "startChar": 34,
+        "endLine": 170,
+        "endChar": 49
+      },
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62b209f8_1a6b7983",
         "filename": "compiler/optimizing/nodes_arm64.h",
         "patchSetId": 5
@@ -173,6 +341,30 @@
       "writtenOn": "2016-02-24T11:29:14Z",
       "side": 1,
       "message": "Style: move `return` statement on its own line (here and below).",
+      "range": {
+        "startLine": 172,
+        "startChar": 6,
+        "endLine": 172,
+        "endChar": 45
+      },
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62be89e4_891f1b4e",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-02-24T14:48:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62b209f8_1a6b7983",
       "range": {
         "startLine": 172,
         "startChar": 6,
@@ -208,6 +400,30 @@
     },
     {
       "key": {
+        "uuid": "02e4ed24_62aab74a",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-02-24T14:48:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42c98578_fc424133",
+      "range": {
+        "startLine": 176,
+        "startChar": 44,
+        "endLine": 176,
+        "endChar": 53
+      },
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c283b51b_0d5d15f4",
         "filename": "test/564-checker-negbitwise/src/Main.java",
         "patchSetId": 5
@@ -219,6 +435,30 @@
       "writtenOn": "2016-02-24T11:29:14Z",
       "side": 1,
       "message": "Nit: indentation is off.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 1
+      },
+      "revId": "f7b77c5c857ea89d0fe46d1d30e4c0bdf23ebf30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62be89e4_691cc758",
+        "filename": "test/564-checker-negbitwise/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1087715
+      },
+      "writtenOn": "2016-02-24T14:48:37Z",
+      "side": 1,
+      "message": "Done. For the record, this was copy/pasted from another test, it appears that these tests have the same indentation issue:\n- 550-checker-multiply-accumulate\n- 551-checker-shifter-operand\n- 565-checker-doublenegbitwise",
+      "parentUuid": "c283b51b_0d5d15f4",
       "range": {
         "startLine": 2,
         "startChar": 0,
