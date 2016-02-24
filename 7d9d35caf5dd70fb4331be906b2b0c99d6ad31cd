@@ -22,6 +22,30 @@
       "revId": "7d9d35caf5dd70fb4331be906b2b0c99d6ad31cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42c98578_7cd471be",
+        "filename": "compiler/linker/multi_oat_relative_patcher.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-24T10:36:51Z",
+      "side": 1,
+      "message": "I was thinking about that but decided not to address it in this CL.",
+      "parentUuid": "02e4ed24_a90acab5",
+      "range": {
+        "startLine": 125,
+        "startChar": 4,
+        "endLine": 125,
+        "endChar": 77
+      },
+      "revId": "7d9d35caf5dd70fb4331be906b2b0c99d6ad31cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
