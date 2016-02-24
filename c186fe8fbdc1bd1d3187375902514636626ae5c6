@@ -45,6 +45,30 @@
       "revId": "c186fe8fbdc1bd1d3187375902514636626ae5c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82bb7df1_b1159d60",
+        "filename": "compiler/optimizing/nodes_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-02-24T10:31:01Z",
+      "side": 1,
+      "message": "Interesting.\n\nKevin copied that from implementations for other instructions. I had a look but I cannot understand how this could happen here or for other nodes.\n- Type conversions implicitly removed. Cannot be the reason since neither int-\u003elong nor long-\u003eint are implicitly removed.\n- The constant folding pass correctly updates the type of constants through HTypeConversion.\n\nRoland, you implemented the commit introducing that. Can you help us here?",
+      "parentUuid": "62b209f8_ba1fed3e",
+      "range": {
+        "startLine": 184,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 59
+      },
+      "revId": "c186fe8fbdc1bd1d3187375902514636626ae5c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
