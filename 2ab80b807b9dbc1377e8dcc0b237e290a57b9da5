@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22c49160_7b5637a8",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1784,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-25T12:44:00Z",
+      "side": 1,
+      "message": "This comment is not clear to me; do you mean \"Multi-byte UTF-16 involved\"?",
+      "range": {
+        "startLine": 1784,
+        "startChar": 63,
+        "endLine": 1784,
+        "endChar": 81
+      },
+      "revId": "2ab80b807b9dbc1377e8dcc0b237e290a57b9da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22dbb13a_11e51c20",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1798,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-25T12:44:00Z",
+      "side": 1,
+      "message": "Why is this logic here (and not in `art_quick_indexof`)?",
+      "range": {
+        "startLine": 1791,
+        "startChar": 4,
+        "endLine": 1798,
+        "endChar": 3
+      },
+      "revId": "2ab80b807b9dbc1377e8dcc0b237e290a57b9da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82affd8e_be7b614e",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1913,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-25T12:44:00Z",
+      "side": 1,
+      "message": "Why is there no null check similar to the ones on lines 1886 and 1943?",
+      "revId": "2ab80b807b9dbc1377e8dcc0b237e290a57b9da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a220812e_dccf01d1",
+        "filename": "runtime/arch/mips/asm_support_mips.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-25T12:44:00Z",
+      "side": 1,
+      "message": "What about implementing and using these `MINs` and `MINu` macros for MIPS64 as well?",
+      "range": {
+        "startLine": 133,
+        "startChar": 7,
+        "endLine": 133,
+        "endChar": 11
+      },
+      "revId": "2ab80b807b9dbc1377e8dcc0b237e290a57b9da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02c30d5c_3d0cb35c",
+        "filename": "runtime/arch/mips/asm_support_mips.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-25T12:44:00Z",
+      "side": 1,
+      "message": "The only difference between the definitions of `MINu` and `MINs` is this line; could you try to refactor these definitions?",
+      "range": {
+        "startLine": 157,
+        "startChar": 2,
+        "endLine": 157,
+        "endChar": 26
+      },
+      "revId": "2ab80b807b9dbc1377e8dcc0b237e290a57b9da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
