@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22dbb13a_f10350ef",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-25T09:43:07Z",
+      "side": 1,
+      "message": ", but only for ... \n\n(to make sure the anomalies comment applies to the c \u003c\u003d 0.\n\nAlso maybe also explain what anomalies if c \u003e 0.",
+      "range": {
+        "startLine": 219,
+        "startChar": 36,
+        "endLine": 219,
+        "endChar": 40
+      },
+      "revId": "413a15fbbcc243ed7f882066b2f3b1729b4d3c06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
