@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c283b51b_708908e2",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-02-25T14:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2bd19cb_f9bdeff9",
+      "range": {
+        "startLine": 259,
+        "startChar": 46,
+        "endLine": 259,
+        "endChar": 51
+      },
+      "revId": "37955ac3a3cac4e7cc3bf2c2ea1eb486ab9b789a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22c49160_7b247748",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "a220812e_dc2dc146",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-02-25T14:17:56Z",
+      "side": 1,
+      "message": "Done - added comment.\n\nI am still thinking that if it was actual bug, you would have encountered it by now, but I just wanted to be safe then sorry.  In particular, I want the DCHECK function to be happy, even if the runtime might never read the memory.",
+      "parentUuid": "22c49160_7b247748",
+      "range": {
+        "startLine": 272,
+        "startChar": 6,
+        "endLine": 272,
+        "endChar": 65
+      },
+      "revId": "37955ac3a3cac4e7cc3bf2c2ea1eb486ab9b789a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2b881d5_1fca8b92",
         "filename": "compiler/optimizing/stack_map_stream.h",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2016-02-25T13:42:37Z",
       "side": 1,
       "message": "const or drop the \u0026. But make it consistent with DexRegisterMap.",
+      "range": {
+        "startLine": 170,
+        "startChar": 27,
+        "endLine": 170,
+        "endChar": 46
+      },
+      "revId": "37955ac3a3cac4e7cc3bf2c2ea1eb486ab9b789a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a220812e_9c374997",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-02-25T14:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2b881d5_1fca8b92",
       "range": {
         "startLine": 170,
         "startChar": 27,
