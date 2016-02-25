@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22d0113b_cc4e3c39",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-02-25T17:22:37Z",
+      "side": 1,
+      "message": "The link is good, but would you mind adding a bit of a description in here too?\n\nalso, any perf data on how well this compares to e.g. simply a counting loop?",
+      "range": {
+        "startLine": 850,
+        "startChar": 58,
+        "endLine": 850,
+        "endChar": 78
+      },
+      "revId": "ddaa4ee4ae2e735cb50a7790171fd2fa9de5a16c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
