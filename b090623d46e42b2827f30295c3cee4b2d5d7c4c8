@@ -22,6 +22,30 @@
       "revId": "b090623d46e42b2827f30295c3cee4b2d5d7c4c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02e4ed24_0752de0b",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-02-25T13:45:56Z",
+      "side": 1,
+      "message": "Done (and it was done correctly in all of the assembly handlers)",
+      "parentUuid": "a2b881d5_bfc0bf9e",
+      "range": {
+        "startLine": 784,
+        "startChar": 0,
+        "endLine": 785,
+        "endChar": 35
+      },
+      "revId": "b090623d46e42b2827f30295c3cee4b2d5d7c4c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
