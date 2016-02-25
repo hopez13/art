@@ -166,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "42c98578_5ff08746",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-25T10:28:04Z",
+      "side": 1,
+      "message": "Thumb does not require consecutive registers. Is this compiled in ARM mode?",
+      "parentUuid": "62be89e4_5d6c1942",
+      "range": {
+        "startLine": 936,
+        "startChar": 4,
+        "endLine": 936,
+        "endChar": 45
+      },
+      "revId": "b908ba88299747571984289ad5f62b45ac3586bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85a702bf_124d2a1c",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 1
