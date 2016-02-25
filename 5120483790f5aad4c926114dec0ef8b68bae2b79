@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42c98578_4ae9a3cf",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-02-25T16:09:10Z",
+      "side": 1,
+      "message": "Reordered arguments.  I found it highly irritating that the parameters were in random order.  The order is now the same as the order used in memory which is also the order of fields in StackMapEncoding.",
+      "range": {
+        "startLine": 143,
+        "startChar": 46,
+        "endLine": 143,
+        "endChar": 58
+      },
+      "revId": "5120483790f5aad4c926114dec0ef8b68bae2b79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22c49160_5ea089bc",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-02-25T16:09:10Z",
+      "side": 1,
+      "message": "Finish rebase - CheckCodeInfo needed to be adjusted to the API change.",
+      "range": {
+        "startLine": 490,
+        "startChar": 43,
+        "endLine": 490,
+        "endChar": 67
+      },
+      "revId": "5120483790f5aad4c926114dec0ef8b68bae2b79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62b209f8_5d65ebab",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-02-25T16:09:10Z",
+      "side": 1,
+      "message": "* I made this into a helper class since I want to reuse the logic for CodeInfo.\n* It also reduces repetition.  I was worried about mixing the wrong *BitOffset, *BitSize and check_max somewhere.\n* The check_max is replaced with min_value.  It is equivalent in size, but it is much faster to calculate.  It also allow for more then one magic value, which I might need later.\n* The Load/Store code is intentionally kept in header to allow for inclining.",
+      "range": {
+        "startLine": 661,
+        "startChar": 7,
+        "endLine": 661,
+        "endChar": 20
+      },
+      "revId": "5120483790f5aad4c926114dec0ef8b68bae2b79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
