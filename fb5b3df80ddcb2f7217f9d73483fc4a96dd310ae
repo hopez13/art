@@ -22,6 +22,30 @@
       "revId": "fb5b3df80ddcb2f7217f9d73483fc4a96dd310ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02e4ed24_98718bea",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-25T22:01:40Z",
+      "side": 1,
+      "message": "OK. I\u0027ll keep it 8 byte aligned but weaken the comments/error messages.",
+      "parentUuid": "22dbb13a_acc32baa",
+      "range": {
+        "startLine": 982,
+        "startChar": 66,
+        "endLine": 982,
+        "endChar": 100
+      },
+      "revId": "fb5b3df80ddcb2f7217f9d73483fc4a96dd310ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
