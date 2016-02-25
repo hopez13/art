@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "e2bd19cb_d9c03367",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-25T14:02:55Z",
+      "side": 1,
+      "message": "Sure; I pointed this out mostly for style reasons (within the ART code base).",
+      "parentUuid": "62b209f8_7df54f35",
+      "range": {
+        "startLine": 483,
+        "startChar": 49,
+        "endLine": 483,
+        "endChar": 74
+      },
+      "revId": "6192f5e451107c8c27dc6f45affbae5cd1b555aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42c98578_ffc9536f",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 1
