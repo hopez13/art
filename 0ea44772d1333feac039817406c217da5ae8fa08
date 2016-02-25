@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2bd19cb_3c37553a",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 619,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-25T16:53:22Z",
+      "side": 1,
+      "message": "Nit: extra space.",
+      "range": {
+        "startLine": 619,
+        "startChar": 48,
+        "endLine": 619,
+        "endChar": 49
+      },
+      "revId": "0ea44772d1333feac039817406c217da5ae8fa08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c283b51b_b04d403f",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-25T16:53:22Z",
+      "side": 1,
+      "message": "Suggestion: Maybe DCHECK that `new_method` is the same as the one found by FindVirtualMethodForInterface in the initial implementation?",
+      "revId": "0ea44772d1333feac039817406c217da5ae8fa08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62b209f8_1d2e1343",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-25T16:53:22Z",
+      "side": 1,
+      "message": "Similar suggestion with FindVirtualMethodForVirtual.",
+      "revId": "0ea44772d1333feac039817406c217da5ae8fa08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
