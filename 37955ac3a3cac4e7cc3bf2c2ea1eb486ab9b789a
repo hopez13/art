@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e2bd19cb_f9bdeff9",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-25T14:02:55Z",
+      "side": 1,
+      "message": "Nit: /* expandable */ false",
+      "range": {
+        "startLine": 259,
+        "startChar": 46,
+        "endLine": 259,
+        "endChar": 51
+      },
+      "revId": "37955ac3a3cac4e7cc3bf2c2ea1eb486ab9b789a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22c49160_7b247748",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 2
