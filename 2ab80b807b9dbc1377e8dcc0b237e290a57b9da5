@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e2b0b90b_93d06719",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1784,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-25T18:14:50Z",
+      "side": 1,
+      "message": "I can improve the comment:\n\n\u0027The \"bltu\" conditional branch tests to see if the character value fits in a valid 16-bit (MIPS halfword) value. If it doesn\u0027t then the character being searched for, if it exists in the string, is encoded/stored in the string using UTF-16 into two (16-bit) halfwords. Currently the assembly code used to implement this intrinsic doesn\u0027t support searching for a character stored as two halfwords so we fallback to using the generic implementation of indexOf().\u0027\n\nIs this okay?",
+      "parentUuid": "22c49160_7b5637a8",
+      "range": {
+        "startLine": 1784,
+        "startChar": 63,
+        "endLine": 1784,
+        "endChar": 81
+      },
+      "revId": "2ab80b807b9dbc1377e8dcc0b237e290a57b9da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22dbb13a_11e51c20",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-25T12:44:00Z",
       "side": 1,
       "message": "Why is this logic here (and not in `art_quick_indexof`)?",
+      "range": {
+        "startLine": 1791,
+        "startChar": 4,
+        "endLine": 1798,
+        "endChar": 3
+      },
+      "revId": "2ab80b807b9dbc1377e8dcc0b237e290a57b9da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a29b218c_c3df261c",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1798,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-25T18:14:50Z",
+      "side": 1,
+      "message": "I\u0027m not sure what you\u0027re asking.\n\nIf you\u0027re asking why there isn\u0027t logic in `art_quick_indexof` to choose between \"seleqz/selnez\", and \"movz/movn\", none of these instruction appear in `art_quick_indexof`. They did appear in an earlier version of the CL but since then I\u0027ve defined/used the MINu macro which conditionally selects between the R6, and pre-R6 instructions. See the file runtime/arch/mips/asm_support_mips.S.\n\nIf you are asking why doesn\u0027t `art_quick_indexof` have a test for \u0027fromIndex \u003c 0\u0027? It doesn\u0027t need to, this code prevents that condition from happening when `art_quick_indexof` is called.\n\nOr are you asking something else?",
+      "parentUuid": "22dbb13a_11e51c20",
       "range": {
         "startLine": 1791,
         "startChar": 4,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "82bb7df1_3af39dc4",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1913,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-25T18:14:50Z",
+      "side": 1,
+      "message": "Because I patterned to code after the ARM implementation, and the ARM implementation of these three intrinsics follows the same pattern. I can add the test. Is this a bug in the ARM implementation?",
+      "parentUuid": "82affd8e_be7b614e",
+      "revId": "2ab80b807b9dbc1377e8dcc0b237e290a57b9da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a220812e_dccf01d1",
         "filename": "runtime/arch/mips/asm_support_mips.S",
         "patchSetId": 9
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "e2def959_f2e78ccb",
+        "filename": "runtime/arch/mips/asm_support_mips.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-25T18:14:50Z",
+      "side": 1,
+      "message": "They can be implemented for MIPS64 but weren\u0027t because only because we\u0027re not supporting pre-R6 64-bit MIPS implementations so the MIPS64 doesn\u0027t need to use #if-#else-#endif.\n\nDo you want these macros added to this patch or do you want them in a separate patch?",
+      "parentUuid": "a220812e_dccf01d1",
+      "range": {
+        "startLine": 133,
+        "startChar": 7,
+        "endLine": 133,
+        "endChar": 11
+      },
+      "revId": "2ab80b807b9dbc1377e8dcc0b237e290a57b9da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02c30d5c_3d0cb35c",
         "filename": "runtime/arch/mips/asm_support_mips.S",
         "patchSetId": 9
@@ -99,6 +189,30 @@
       "writtenOn": "2016-02-25T12:44:00Z",
       "side": 1,
       "message": "The only difference between the definitions of `MINu` and `MINs` is this line; could you try to refactor these definitions?",
+      "range": {
+        "startLine": 157,
+        "startChar": 2,
+        "endLine": 157,
+        "endChar": 26
+      },
+      "revId": "2ab80b807b9dbc1377e8dcc0b237e290a57b9da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2b0b90b_136e9701",
+        "filename": "runtime/arch/mips/asm_support_mips.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-25T18:14:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02c30d5c_3d0cb35c",
       "range": {
         "startLine": 157,
         "startChar": 2,
