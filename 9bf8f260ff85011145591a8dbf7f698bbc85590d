@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "82affd8e_7e5629a8",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-02-25T15:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c283b51b_d0c2b4fc",
+      "range": {
+        "startLine": 452,
+        "startChar": 38,
+        "endLine": 452,
+        "endChar": 42
+      },
+      "revId": "9bf8f260ff85011145591a8dbf7f698bbc85590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c283b51b_f0bfb87f",
         "filename": "runtime/stack.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "42c98578_3f866b3f",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-02-25T15:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c283b51b_f0bfb87f",
+      "range": {
+        "startLine": 355,
+        "startChar": 34,
+        "endLine": 355,
+        "endChar": 38
+      },
+      "revId": "9bf8f260ff85011145591a8dbf7f698bbc85590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2bd19cb_b9c37771",
         "filename": "runtime/stack_map.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-02-25T13:55:06Z",
       "side": 1,
       "message": "Why not putting this in a `default` case of the switch statement?",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 65
+      },
+      "revId": "9bf8f260ff85011145591a8dbf7f698bbc85590d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82affd8e_9e6a1d59",
+        "filename": "runtime/stack_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-02-25T15:11:06Z",
+      "side": 1,
+      "message": "so we still get warning from compiler about missing enum values",
+      "parentUuid": "e2bd19cb_b9c37771",
       "range": {
         "startLine": 52,
         "startChar": 2,
