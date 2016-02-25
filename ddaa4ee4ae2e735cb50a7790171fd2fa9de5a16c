@@ -22,6 +22,30 @@
       "revId": "ddaa4ee4ae2e735cb50a7790171fd2fa9de5a16c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a29b218c_e63238d3",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-25T19:31:31Z",
+      "side": 1,
+      "message": "New comment:\n\n  // https://graphics.stanford.edu/~seander/bithacks.html#CountBitsSetParallel\n  //\n  // A generalization of the best bit counting method to integers of\n  // bit-widths up to 128 (parameterized by type T) is this:\n  //\n  // v \u003d v - ((v \u003e\u003e 1) \u0026 (T)~(T)0/3);                           // temp\n  // v \u003d (v \u0026 (T)~(T)0/15*3) + ((v \u003e\u003e 2) \u0026 (T)~(T)0/15*3);      // temp\n  // v \u003d (v + (v \u003e\u003e 4)) \u0026 (T)~(T)0/255*15;                      // temp\n  // c \u003d (T)(v * ((T)~(T)0/255)) \u003e\u003e (sizeof(T) - 1) * BITS_PER_BYTE; // count\n  //\n  // For comparison, for 32-bit quantities, this algorithm can be executed\n  // using 20 MIPS instructions (the calls to LoadConst32() generate two\n  // machine instructions each for the values being used in this algorithm).\n  // A(n unrolled) loop based algorithm which was used previously required\n  // 25 instructions.\n  //\n  // For 64-bit quantities, this algorithm gets executed twice, (once\n  // for in_lo, and again for in_hi), but saves a few instructions\n  // because the mask values only have to be loaded once.  Using this\n  // algorithm the count for a 64-bit operand can be performed in 33\n  // instructions compared to a loop based algorithm which required 47\n  // instructions.",
+      "parentUuid": "22d0113b_cc4e3c39",
+      "range": {
+        "startLine": 850,
+        "startChar": 58,
+        "endLine": 850,
+        "endChar": 78
+      },
+      "revId": "ddaa4ee4ae2e735cb50a7790171fd2fa9de5a16c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
