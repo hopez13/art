@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e2def959_b22fc4d1",
+        "filename": "runtime/jdwp/jdwp_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-02-25T17:46:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a220812e_7cf7d53c",
+      "range": {
+        "startLine": 695,
+        "startChar": 3,
+        "endLine": 696,
+        "endChar": 37
+      },
+      "revId": "a75133a48898a8078aeacf2e828dc4abaf79028e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22dbb13a_517fa487",
         "filename": "runtime/jdwp/jdwp_handler.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-25T09:29:00Z",
       "side": 1,
       "message": "InvokeMethod",
+      "range": {
+        "startLine": 1500,
+        "startChar": 46,
+        "endLine": 1500,
+        "endChar": 57
+      },
+      "revId": "a75133a48898a8078aeacf2e828dc4abaf79028e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2c1f56d_a7cb09bf",
+        "filename": "runtime/jdwp/jdwp_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-02-25T17:46:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22dbb13a_517fa487",
       "range": {
         "startLine": 1500,
         "startChar": 46,
