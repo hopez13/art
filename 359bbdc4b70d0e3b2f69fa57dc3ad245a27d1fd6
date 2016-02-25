@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c2981592_70b1520d",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-25T06:34:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2def959_20da66ec",
+      "range": {
+        "startLine": 870,
+        "startChar": 9,
+        "endLine": 870,
+        "endChar": 15
+      },
+      "revId": "359bbdc4b70d0e3b2f69fa57dc3ad245a27d1fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02e4ed24_3d1050dd",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-24T21:18:49Z",
       "side": 1,
       "message": "There\u0027s MulR2() that stores the least significant half of the product in a GPR instead of LO.",
+      "range": {
+        "startLine": 872,
+        "startChar": 0,
+        "endLine": 873,
+        "endChar": 19
+      },
+      "revId": "359bbdc4b70d0e3b2f69fa57dc3ad245a27d1fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62be89e4_38fcd3d2",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 873,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-25T06:34:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02e4ed24_3d1050dd",
       "range": {
         "startLine": 872,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "62a5a9c6_cb250ba4",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-25T06:34:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2c1f56d_b9621f7f",
+      "range": {
+        "startLine": 919,
+        "startChar": 0,
+        "endLine": 921,
+        "endChar": 36
+      },
+      "revId": "359bbdc4b70d0e3b2f69fa57dc3ad245a27d1fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2981592_ddb71c4d",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2016-02-24T21:18:49Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 923,
+        "startChar": 0,
+        "endLine": 927,
+        "endChar": 22
+      },
+      "revId": "359bbdc4b70d0e3b2f69fa57dc3ad245a27d1fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82bb7df1_f4c65c11",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-25T06:34:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2981592_ddb71c4d",
       "range": {
         "startLine": 923,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "e2def959_17da0aec",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-25T06:34:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2c1f56d_9f485b5b",
+      "range": {
+        "startLine": 939,
+        "startChar": 52,
+        "endLine": 939,
+        "endChar": 66
+      },
+      "revId": "359bbdc4b70d0e3b2f69fa57dc3ad245a27d1fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22d0113b_c974f3da",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2016-02-24T21:18:49Z",
       "side": 1,
       "message": "The least significant half of an integer product is the same for both signed and unsigned multiplication. This instruction isn\u0027t really needed, MulR6() should be enough.",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 260,
+        "endChar": 1
+      },
+      "revId": "359bbdc4b70d0e3b2f69fa57dc3ad245a27d1fd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2981592_b08b5ad9",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-25T06:34:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22d0113b_c974f3da",
       "range": {
         "startLine": 257,
         "startChar": 0,
