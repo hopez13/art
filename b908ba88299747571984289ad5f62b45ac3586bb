@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "22d0113b_bdc9f123",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-25T03:24:54Z",
+      "side": 1,
+      "message": "This assembly fast path code applies for the SS/GSS collectors with TLAB enabled. Neither of these are the current default.",
+      "parentUuid": "e5599e74_7df6134b",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "b908ba88299747571984289ad5f62b45ac3586bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c55c9a66_fff1778d",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 1
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "a29b218c_67318bec",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 935,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-25T03:24:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e59a7e77_1571967a",
+      "range": {
+        "startLine": 935,
+        "startChar": 4,
+        "endLine": 935,
+        "endChar": 23
+      },
+      "revId": "b908ba88299747571984289ad5f62b45ac3586bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4568aa02_58708173",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 1
@@ -82,6 +130,30 @@
       "writtenOn": "2015-12-16T11:56:56Z",
       "side": 1,
       "message": "Are the THREAD_LOCAL_END_OFFSET+THREAD_LOCAL_POS_OFFSET consecutive and within the LDRD range?",
+      "range": {
+        "startLine": 936,
+        "startChar": 4,
+        "endLine": 936,
+        "endChar": 45
+      },
+      "revId": "b908ba88299747571984289ad5f62b45ac3586bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62be89e4_5d6c1942",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-25T03:24:54Z",
+      "side": 1,
+      "message": "Yes, but we don\u0027t have consecutive registers available here.",
+      "parentUuid": "4568aa02_58708173",
       "range": {
         "startLine": 936,
         "startChar": 4,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "22d0113b_7dceb9d1",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 942,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-25T03:24:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85a702bf_124d2a1c",
+      "range": {
+        "startLine": 942,
+        "startChar": 11,
+        "endLine": 942,
+        "endChar": 13
+      },
+      "revId": "b908ba88299747571984289ad5f62b45ac3586bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "056cf246_46c9b42c",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 1
@@ -128,6 +224,30 @@
       "writtenOn": "2015-12-16T11:56:56Z",
       "side": 1,
       "message": "Make this 16-bit by using a low register, say r1.",
+      "range": {
+        "startLine": 945,
+        "startChar": 4,
+        "endLine": 945,
+        "endChar": 23
+      },
+      "revId": "b908ba88299747571984289ad5f62b45ac3586bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02e4ed24_2485d8f9",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-25T03:24:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "056cf246_46c9b42c",
       "range": {
         "startLine": 945,
         "startChar": 4,
