@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "a220812e_9c6429b2",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-25T11:45:26Z",
+      "side": 1,
+      "message": "We should display the expected and actual kind here, either by printing them after the DCHECK expression or by implementing operator\u003c\u003c for art::DexRegisterLocation::Kind.",
+      "range": {
+        "startLine": 473,
+        "startChar": 10,
+        "endLine": 473,
+        "endChar": 55
+      },
+      "revId": "6192f5e451107c8c27dc6f45affbae5cd1b555aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2bd19cb_39cf67a3",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-25T11:45:26Z",
+      "side": 1,
+      "message": "Use DCHECK_EQ.",
+      "range": {
+        "startLine": 474,
+        "startChar": 10,
+        "endLine": 474,
+        "endChar": 16
+      },
+      "revId": "6192f5e451107c8c27dc6f45affbae5cd1b555aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a220812e_bc69ed88",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-25T11:45:26Z",
+      "side": 1,
+      "message": "Nit: add parentheses around expression.",
+      "range": {
+        "startLine": 483,
+        "startChar": 49,
+        "endLine": 483,
+        "endChar": 74
+      },
+      "revId": "6192f5e451107c8c27dc6f45affbae5cd1b555aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42c98578_ffc9536f",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 1
@@ -18,6 +87,29 @@
         "startChar": 0,
         "endLine": 519,
         "endChar": 9
+      },
+      "revId": "6192f5e451107c8c27dc6f45affbae5cd1b555aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22dbb13a_71d4a037",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-25T11:45:26Z",
+      "side": 1,
+      "message": "This method never returns `false`; maybe make it return nothing and change the call site to\n\n  if (kIsDebugBuild) {\n    CheckCodeInfo(region);\n  }\n\n?  We could also introduce a new macro for this pattern by the way (DRUN?  Or maybe DEXECUTE?).",
+      "range": {
+        "startLine": 523,
+        "startChar": 2,
+        "endLine": 523,
+        "endChar": 14
       },
       "revId": "6192f5e451107c8c27dc6f45affbae5cd1b555aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
