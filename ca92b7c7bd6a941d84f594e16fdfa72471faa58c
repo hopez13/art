@@ -188,6 +188,30 @@
       "revId": "ca92b7c7bd6a941d84f594e16fdfa72471faa58c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42c98578_a51a688e",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1594,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-26T20:09:52Z",
+      "side": 1,
+      "message": "The new implementation in libcore/ojluni/ is making 2 comparisons on the raw integral value. This CL returns to the pre-ojluni roots (see libcore/luni/ in Marshmallow) and doing a single FP comparison.",
+      "parentUuid": "22dbb13a_57beb42c",
+      "range": {
+        "startLine": 1572,
+        "startChar": 0,
+        "endLine": 1594,
+        "endChar": 80
+      },
+      "revId": "ca92b7c7bd6a941d84f594e16fdfa72471faa58c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
