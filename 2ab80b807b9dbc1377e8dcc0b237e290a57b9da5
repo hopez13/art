@@ -168,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "82affd8e_61b3ec63",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1798,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-26T18:55:22Z",
+      "side": 1,
+      "message": "Yes please.\n\nI think we should somehow consider runtime entrypoints as an \"internal API\", and introducing discrepancies in implementations across architectures is error prone IMO.",
+      "parentUuid": "82bb7df1_3eeeead8",
+      "range": {
+        "startLine": 1791,
+        "startChar": 4,
+        "endLine": 1798,
+        "endChar": 3
+      },
+      "revId": "2ab80b807b9dbc1377e8dcc0b237e290a57b9da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82affd8e_be7b614e",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 9
@@ -233,6 +257,24 @@
       "side": 1,
       "message": "I\u0027ve added the check, and it will be in the next version of the CL.\n\nLet me know if it should be taken out.",
       "parentUuid": "22c49160_7e5c65f5",
+      "revId": "2ab80b807b9dbc1377e8dcc0b237e290a57b9da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02c30d5c_8862e7e2",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1913,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-26T18:55:22Z",
+      "side": 1,
+      "message": "Thanks.  I\u0027m investigating internally on whether these null checks are required.",
+      "parentUuid": "2271f153_c7d3a2d5",
       "revId": "2ab80b807b9dbc1377e8dcc0b237e290a57b9da5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -322,6 +364,30 @@
       "side": 1,
       "message": "It will be in the next version of this CL.",
       "parentUuid": "62b209f8_808f1c17",
+      "range": {
+        "startLine": 133,
+        "startChar": 7,
+        "endLine": 133,
+        "endChar": 11
+      },
+      "revId": "2ab80b807b9dbc1377e8dcc0b237e290a57b9da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42c98578_85680cf4",
+        "filename": "runtime/arch/mips/asm_support_mips.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-26T18:55:22Z",
+      "side": 1,
+      "message": "Great!",
+      "parentUuid": "c2981592_9fc62111",
       "range": {
         "startLine": 133,
         "startChar": 7,
