@@ -1,0 +1,349 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2b0b90b_09c4285c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1794,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T00:19:52Z",
+      "side": 1,
+      "message": "If we define registering as incrementing the num_native_bytes_registered_ counter, this doesn\u0027t attempt to do this, which the name prefix \"TryTo\" typically suggests.\n\nA better name?\n\nMaybe directly use !IsOutOfMemoryOnAllocation (and remove this function)?\nMaybe something like CheckOutOfMemoryOnNativeAllocation()?\nMaybe have\n\nif (!IsOutOfMemoryOnAllocation\u003ckGrow\u003e(alloc_size)) {\n  num_native_bytes_registered_.FetchAndAddSequentiallyConsistent(bytes);\n  size_t new_bytes_allocated \u003d static_cast\u003csize_t\u003e(\n      num_bytes_allocated_.FetchAndAddSequentiallyConsistent(bytes)) + bytes;\n  if (IsGcConcurrent()) {\n    CheckConcurrentGC(self, new_bytes_allocated);\n  }\n}\n\nin this function?",
+      "range": {
+        "startLine": 1794,
+        "startChar": 11,
+        "endLine": 1794,
+        "endChar": 30
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2981592_9932c1d2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1798,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T00:19:52Z",
+      "side": 1,
+      "message": "Likewise, this doesn\u0027t \"register\", either.\n\nA better name?\n\nMaybe CheckOutOfMemoryOnNativeAllocationWithGc()?\nMaybe we change TryToRegisterNative to increment num_native_bytes_registered_?",
+      "range": {
+        "startLine": 1798,
+        "startChar": 11,
+        "endLine": 1798,
+        "endChar": 31
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "628f697d_925cfa26",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1803,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T00:19:52Z",
+      "side": 1,
+      "message": "kGcCauseForNativeAlloc to make it easier to see what\u0027s causing this GC in the log?",
+      "range": {
+        "startLine": 1803,
+        "startChar": 50,
+        "endLine": 1803,
+        "endChar": 66
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82bb7df1_cea7437f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1813,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T00:19:52Z",
+      "side": 1,
+      "message": "kGcCauseForNativeAlloc",
+      "range": {
+        "startLine": 1813,
+        "startChar": 41,
+        "endLine": 1813,
+        "endChar": 57
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2981592_d98cc963",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1827,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T00:19:52Z",
+      "side": 1,
+      "message": "kGcCauseForNativeAlloc",
+      "range": {
+        "startLine": 1827,
+        "startChar": 40,
+        "endLine": 1827,
+        "endChar": 56
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2b0b90b_e92a1c74",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1845,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T00:19:52Z",
+      "side": 1,
+      "message": "\"native allocation\"?",
+      "range": {
+        "startLine": 1845,
+        "startChar": 16,
+        "endLine": 1845,
+        "endChar": 26
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "628f697d_7274f69f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1849,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T00:19:52Z",
+      "side": 1,
+      "message": "kGcCauseForNativeAlloc",
+      "range": {
+        "startLine": 1849,
+        "startChar": 42,
+        "endLine": 1849,
+        "endChar": 58
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2271f153_ed61e5b2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3534,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T00:19:52Z",
+      "side": 1,
+      "message": "If we change bytes_allocated_before_gc and bytes_allocated so they only include managed-heap bytes (subtract the native bytes), then we don\u0027t need to worry about native bytes at all here (don\u0027t need to pass in native_bytes_registered_before_gc or subtract any native bytes in line 3589)?",
+      "range": {
+        "startLine": 3534,
+        "startChar": 39,
+        "endLine": 3534,
+        "endChar": 64
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "628f697d_92515a09",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3551,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T00:19:52Z",
+      "side": 1,
+      "message": "target_utilization?",
+      "range": {
+        "startLine": 3551,
+        "startChar": 13,
+        "endLine": 3551,
+        "endChar": 19
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2b0b90b_490110e7",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3589,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T00:19:52Z",
+      "side": 1,
+      "message": "What if native_bytes_registered_before_gc \u003c native_bytes_registered?\n\nShould we add 0 to freed_bytes if native_bytes_registered_before_gc \u003c native_bytes_registered?",
+      "range": {
+        "startLine": 3589,
+        "startChar": 10,
+        "endLine": 3589,
+        "endChar": 71
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "628f697d_f2ea2655",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3874,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T00:19:52Z",
+      "side": 1,
+      "message": "Good question. How about throwing an exception if the counters would underflow like the old code?",
+      "range": {
+        "startLine": 3872,
+        "startChar": 0,
+        "endLine": 3874,
+        "endChar": 15
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a29b218c_b75d7cf5",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T00:19:52Z",
+      "side": 1,
+      "message": "I think we don\u0027t need this as this version of CheckConcurrentGC doesn\u0027t take an object as a parameter and RequestConcurrentGC() it calls doesn\u0027t need this, either.",
+      "range": {
+        "startLine": 855,
+        "startChar": 6,
+        "endLine": 855,
+        "endChar": 43
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62a5a9c6_53e3edc2",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T00:19:52Z",
+      "side": 1,
+      "message": "Is it clearer if we change \"ultimately available\" to \"successfully registered\"?\n\nDrop \"registered\" from \"the registered native allocation\" in the next line because if it may not be registered (yet)?",
+      "range": {
+        "startLine": 884,
+        "startChar": 43,
+        "endLine": 884,
+        "endChar": 63
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62be89e4_2807e06a",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T00:19:52Z",
+      "side": 1,
+      "message": "I think we don\u0027t need this here as IsOutOfMemoryOnAllocation doesn\u0027t, either.",
+      "range": {
+        "startLine": 915,
+        "startChar": 46,
+        "endLine": 915,
+        "endChar": 84
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a29b218c_d2f92e6e",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1184,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T00:19:52Z",
+      "side": 1,
+      "message": "We don\u0027t need this comment change any more?",
+      "range": {
+        "startLine": 1183,
+        "startChar": 57,
+        "endLine": 1184,
+        "endChar": 10
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

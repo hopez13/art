@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2b0b90b_898b98d9",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T00:19:52Z",
+      "side": 0,
+      "message": "Why drop this?\n\nWe should keep this for a performance reason as it\u0027s used to constant fold (\"optimize away\" at compile time) the IsGcConcurrent() check at run time (after inlining) for some allocator types. This code is part of the hot (managed-heap) allocation paths.\n\nThat may mean that we need to keep kAllocatorTypeRegisterNative just for this case.",
+      "range": {
+        "startLine": 396,
+        "startChar": 58,
+        "endLine": 396,
+        "endChar": 72
+      },
+      "revId": "88f38e9b4e9ba0aca3d6fd4823be3a7226c87f33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
