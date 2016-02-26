@@ -164,6 +164,30 @@
       "revId": "ca92b7c7bd6a941d84f594e16fdfa72471faa58c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22dbb13a_57beb42c",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1594,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-26T18:40:07Z",
+      "side": 1,
+      "message": "No, but the Java version is oddly making a lot more comparisons than this one.",
+      "parentUuid": "4276e54b_54c7647f",
+      "range": {
+        "startLine": 1572,
+        "startChar": 0,
+        "endLine": 1594,
+        "endChar": 80
+      },
+      "revId": "ca92b7c7bd6a941d84f594e16fdfa72471faa58c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
