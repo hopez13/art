@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "22c49160_3e4d8d69",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1576,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-26T11:13:34Z",
+      "side": 1,
+      "message": "Why do we need environment or cache?",
+      "range": {
+        "startLine": 1576,
+        "startChar": 25,
+        "endLine": 1576,
+        "endChar": 49
+      },
+      "revId": "ca92b7c7bd6a941d84f594e16fdfa72471faa58c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a220812e_df3053eb",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1590,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-26T11:13:34Z",
+      "side": 1,
+      "message": "IIUC, having the raw conversion between the HNotEqual and HSelect will force materialization of the HNotEqual. Please reorder.",
+      "range": {
+        "startLine": 1590,
+        "startChar": 2,
+        "endLine": 1590,
+        "endChar": 65
+      },
+      "revId": "ca92b7c7bd6a941d84f594e16fdfa72471faa58c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82affd8e_21de54f9",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -13,6 +59,30 @@
       "writtenOn": "2016-02-26T09:24:20Z",
       "side": 1,
       "message": "This isn\u0027t what the Java implementation is doing. Is that expected?",
+      "range": {
+        "startLine": 1572,
+        "startChar": 0,
+        "endLine": 1594,
+        "endChar": 80
+      },
+      "revId": "ca92b7c7bd6a941d84f594e16fdfa72471faa58c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22c49160_1e48d158",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1594,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-02-26T11:13:34Z",
+      "side": 1,
+      "message": "It is what our old implementation was doing. The result is the same.",
+      "parentUuid": "82affd8e_21de54f9",
       "range": {
         "startLine": 1572,
         "startChar": 0,
