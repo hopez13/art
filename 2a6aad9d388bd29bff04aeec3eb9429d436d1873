@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82bb7df1_9ef9766f",
+        "filename": "test/577-checker-fp2int/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-02-26T17:20:31Z",
+      "side": 1,
+      "message": "note that this reordering was strictly speaking not necessary since both version pass (David would be so proud of me!!!!) ,but it was just for my own expectation of the order in the HIR",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 57
+      },
+      "revId": "2a6aad9d388bd29bff04aeec3eb9429d436d1873",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
