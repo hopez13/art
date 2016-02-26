@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82affd8e_21de54f9",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1594,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-26T09:24:20Z",
+      "side": 1,
+      "message": "This isn\u0027t what the Java implementation is doing. Is that expected?",
+      "range": {
+        "startLine": 1572,
+        "startChar": 0,
+        "endLine": 1594,
+        "endChar": 80
+      },
+      "revId": "ca92b7c7bd6a941d84f594e16fdfa72471faa58c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
