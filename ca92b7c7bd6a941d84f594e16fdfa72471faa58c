@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e2b0b90b_cd6beb5d",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1576,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-02-26T17:11:30Z",
+      "side": 1,
+      "message": "Force of habit I am afraid.\n\nWe don\u0027t seem to set kNoEnvironmentOrCache on any of our intrinsics. But here it makes sense no to indeed.",
+      "parentUuid": "22c49160_3e4d8d69",
+      "range": {
+        "startLine": 1576,
+        "startChar": 25,
+        "endLine": 1576,
+        "endChar": 49
+      },
+      "revId": "ca92b7c7bd6a941d84f594e16fdfa72471faa58c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a220812e_df3053eb",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
