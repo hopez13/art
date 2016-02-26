@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "82bb7df1_3eeeead8",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1798,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-26T16:54:39Z",
+      "side": 1,
+      "message": "Honestly, I don\u0027t know why it\u0027s here. I don\u0027t know if an earlier version of the ARM code put it here and I mimicked the code, or if I accidentally left it out of the assembly code and fixed it here when a bug showed up.\n\nShould I move it so the code is consistent across architectures?",
+      "parentUuid": "22dbb13a_772bb078",
+      "range": {
+        "startLine": 1791,
+        "startChar": 4,
+        "endLine": 1798,
+        "endChar": 3
+      },
+      "revId": "2ab80b807b9dbc1377e8dcc0b237e290a57b9da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82affd8e_be7b614e",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 9
@@ -191,6 +215,24 @@
       "side": 1,
       "message": "I also noticed that discrepancy on ARM, but I didn\u0027t dig further to see it this is a bug.  I\u0027ll have a look at it.",
       "parentUuid": "82bb7df1_3af39dc4",
+      "revId": "2ab80b807b9dbc1377e8dcc0b237e290a57b9da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2271f153_c7d3a2d5",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1913,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-26T16:54:39Z",
+      "side": 1,
+      "message": "I\u0027ve added the check, and it will be in the next version of the CL.\n\nLet me know if it should be taken out.",
+      "parentUuid": "22c49160_7e5c65f5",
       "revId": "2ab80b807b9dbc1377e8dcc0b237e290a57b9da5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -268,6 +310,30 @@
     },
     {
       "key": {
+        "uuid": "c2981592_9fc62111",
+        "filename": "runtime/arch/mips/asm_support_mips.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-26T16:54:39Z",
+      "side": 1,
+      "message": "It will be in the next version of this CL.",
+      "parentUuid": "62b209f8_808f1c17",
+      "range": {
+        "startLine": 133,
+        "startChar": 7,
+        "endLine": 133,
+        "endChar": 11
+      },
+      "revId": "2ab80b807b9dbc1377e8dcc0b237e290a57b9da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02c30d5c_3d0cb35c",
         "filename": "runtime/arch/mips/asm_support_mips.S",
         "patchSetId": 9
@@ -327,6 +393,30 @@
       "side": 1,
       "message": "\u003e Done\n\nI presume this is coming in a follow-up patch set?",
       "parentUuid": "e2b0b90b_136e9701",
+      "range": {
+        "startLine": 157,
+        "startChar": 2,
+        "endLine": 157,
+        "endChar": 26
+      },
+      "revId": "2ab80b807b9dbc1377e8dcc0b237e290a57b9da5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4276e54b_74c4e079",
+        "filename": "runtime/arch/mips/asm_support_mips.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-26T16:54:39Z",
+      "side": 1,
+      "message": "Yes, it\u0027s already implemented, and tested.",
+      "parentUuid": "62b209f8_a07340f0",
       "range": {
         "startLine": 157,
         "startChar": 2,
