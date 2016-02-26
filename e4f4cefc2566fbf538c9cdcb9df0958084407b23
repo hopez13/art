@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "62be89e4_e15d8350",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1798,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T19:13:13Z",
+      "side": 1,
+      "message": "Yes, that seems like a good idea.",
+      "parentUuid": "82bb7df1_2ef11ff9",
+      "range": {
+        "startLine": 1798,
+        "startChar": 11,
+        "endLine": 1798,
+        "endChar": 31
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "628f697d_925cfa26",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 4
@@ -129,6 +153,30 @@
       "side": 1,
       "message": "I think this CL removes kGcCauseForNativeAlloc, I dont care too much if we keep it or not. I suppose more data is usually better than less.",
       "parentUuid": "82bb7df1_cea7437f",
+      "range": {
+        "startLine": 1813,
+        "startChar": 41,
+        "endLine": 1813,
+        "endChar": 57
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2981592_0aa08dbb",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1813,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T19:13:13Z",
+      "side": 1,
+      "message": "I thought more about this, and as Mathieu says, it may not really matter a lot whether we use kGcCauseForAlloc or kGcCauseForNativeAlloc because it just attributes the GC cause to the last allocation attempt, which may not necessarily be the largest contributor to the memory use. In an extreme case where there\u0027s very few managed-heap allocations and a large amount of native allocations, it could be useful, though.",
+      "parentUuid": "c2c1f56d_19ab354e",
       "range": {
         "startLine": 1813,
         "startChar": 41,
@@ -233,6 +281,30 @@
     },
     {
       "key": {
+        "uuid": "c2c1f56d_daf9286e",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3534,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T19:13:13Z",
+      "side": 1,
+      "message": "Another thought is that since we include native allocations for OOME, we may want to include native bytes into the allocation rate computation in this function. We could go either way?",
+      "parentUuid": "2271f153_ed61e5b2",
+      "range": {
+        "startLine": 3534,
+        "startChar": 39,
+        "endLine": 3534,
+        "endChar": 64
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "628f697d_92515a09",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 4
@@ -291,6 +363,30 @@
       "side": 1,
       "message": "Also, we even though we have enqueued references at this point, the native allocations probably have not been finalized yet, does it really make sense to look at this?",
       "parentUuid": "e2b0b90b_490110e7",
+      "range": {
+        "startLine": 3589,
+        "startChar": 10,
+        "endLine": 3589,
+        "endChar": 71
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2271f153_c2b7104d",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3589,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T19:13:13Z",
+      "side": 1,
+      "message": "Mathieu and I chatted in person, and if we use a total-native-bytes-freed-ever counter that never decreases, we may avoid a counter underflow issue?",
+      "parentUuid": "62be89e4_ab32cad1",
       "range": {
         "startLine": 3589,
         "startChar": 10,

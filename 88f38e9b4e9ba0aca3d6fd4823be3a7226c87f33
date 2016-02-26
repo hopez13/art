@@ -46,6 +46,30 @@
       "revId": "88f38e9b4e9ba0aca3d6fd4823be3a7226c87f33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62be89e4_21637b1b",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-26T19:13:13Z",
+      "side": 0,
+      "message": "Agreed. It looks like a slow path.",
+      "parentUuid": "e2b0b90b_29824484",
+      "range": {
+        "startLine": 396,
+        "startChar": 58,
+        "endLine": 396,
+        "endChar": 72
+      },
+      "revId": "88f38e9b4e9ba0aca3d6fd4823be3a7226c87f33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
