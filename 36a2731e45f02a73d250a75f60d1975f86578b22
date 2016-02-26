@@ -1,0 +1,326 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a220812e_5ffa0326",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2339,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-26T13:14:44Z",
+      "side": 1,
+      "message": "Replace with\n\n  MinimumBitsToStore(Primitive::kPrimLast)\n\nand introduce a `kPrimLast \u003d kPrimVoid` alias in the definition of the `Primitive` enum?",
+      "range": {
+        "startLine": 2339,
+        "startChar": 43,
+        "endLine": 2339,
+        "endChar": 45
+      },
+      "revId": "36a2731e45f02a73d250a75f60d1975f86578b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62b209f8_a0d7c008",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3466,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-26T13:14:44Z",
+      "side": 1,
+      "message": "Replace with\n\n  MinimumBitsToStore(ComparisonBias::kLast)\n\nand introduce a `kLast \u003d kLtBias` alias in the definition of the `ComparisonBias` enum?",
+      "range": {
+        "startLine": 3466,
+        "startChar": 53,
+        "endLine": 3466,
+        "endChar": 54
+      },
+      "revId": "36a2731e45f02a73d250a75f60d1975f86578b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02c30d5c_88f3c7c1",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3681,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-26T13:14:44Z",
+      "side": 1,
+      "message": "Replace with\n\n  MinimumBitsToStore(kMaxInvokeType)\n\n?",
+      "range": {
+        "startLine": 3681,
+        "startChar": 57,
+        "endLine": 3681,
+        "endChar": 58
+      },
+      "revId": "36a2731e45f02a73d250a75f60d1975f86578b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a220812e_ff13d73e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3684,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-26T13:14:44Z",
+      "side": 1,
+      "message": "Replace with\n\n  MinimumBitsToStore(Primitive::kPrimLast)\n\nand introduce a `kPrimLast \u003d kPrimVoid` alias in the definition of the `Primitive` enum?",
+      "range": {
+        "startLine": 3684,
+        "startChar": 49,
+        "endLine": 3684,
+        "endChar": 50
+      },
+      "revId": "36a2731e45f02a73d250a75f60d1975f86578b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c283b51b_b088e04d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 4028,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-26T13:14:44Z",
+      "side": 1,
+      "message": "Replace with\n\n  MinimumBitsToStore(kMaxInvokeType)\n\n?",
+      "range": {
+        "startLine": 4028,
+        "startChar": 58,
+        "endLine": 4028,
+        "endChar": 59
+      },
+      "revId": "36a2731e45f02a73d250a75f60d1975f86578b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02c30d5c_c8d4df06",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 4031,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-26T13:14:44Z",
+      "side": 1,
+      "message": "Replace with\n\n  MinimumBitsToStore(ClinitCheckRequirement::kLast)\n\nand introduce a `kLast \u003d kImplicit` alias in the definition of the `ClinitCheckRequirement` enum?",
+      "range": {
+        "startLine": 4031,
+        "startChar": 61,
+        "endLine": 4031,
+        "endChar": 62
+      },
+      "revId": "36a2731e45f02a73d250a75f60d1975f86578b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82affd8e_0195d0f5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 4946,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-26T13:14:44Z",
+      "side": 1,
+      "message": "Replace with\n\n  MinimumBitsToStore(Primitive::kPrimLast)\n\nand introduce a `kPrimLast \u003d kPrimVoid` alias in the definition of the `Primitive` enum?",
+      "range": {
+        "startLine": 4946,
+        "startChar": 43,
+        "endLine": 4946,
+        "endChar": 45
+      },
+      "revId": "36a2731e45f02a73d250a75f60d1975f86578b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2b881d5_021cf057",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 5256,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-26T13:14:44Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 5256,
+        "startChar": 60,
+        "endLine": 5256,
+        "endChar": 61
+      },
+      "revId": "36a2731e45f02a73d250a75f60d1975f86578b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22dbb13a_37bf68da",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 5696,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-26T13:14:44Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 5696,
+        "startChar": 48,
+        "endLine": 5696,
+        "endChar": 50
+      },
+      "revId": "36a2731e45f02a73d250a75f60d1975f86578b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a220812e_9f089b09",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 5754,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-26T13:14:44Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 5754,
+        "startChar": 48,
+        "endLine": 5754,
+        "endChar": 50
+      },
+      "revId": "36a2731e45f02a73d250a75f60d1975f86578b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c283b51b_9074bc12",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 5873,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-26T13:14:44Z",
+      "side": 1,
+      "message": "Replace with\n\n  MinimumBitsToStore(TypeCheckKind::kLastCheckKind)\n\nand introduce a `kLastCheckKind \u003d kArrayCheck` alias in the definition of the `TypeCheckKind` enum?",
+      "range": {
+        "startLine": 5873,
+        "startChar": 52,
+        "endLine": 5873,
+        "endChar": 53
+      },
+      "revId": "36a2731e45f02a73d250a75f60d1975f86578b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22dbb13a_7707306a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 5961,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-26T13:14:44Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 5961,
+        "startChar": 52,
+        "endLine": 5961,
+        "endChar": 53
+      },
+      "revId": "36a2731e45f02a73d250a75f60d1975f86578b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22dbb13a_970cbc8c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 5984,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-26T13:14:44Z",
+      "side": 1,
+      "message": "Replace with\n\n  MinimumBitsToStore(MemBarrierKind::kLastBarrierKind)\n\nand introduce a `kLastBarrierKind \u003d kNTStoreStore` alias in the definition of the `MemBarrierKind` enum?",
+      "range": {
+        "startLine": 5984,
+        "startChar": 50,
+        "endLine": 5984,
+        "endChar": 52
+      },
+      "revId": "36a2731e45f02a73d250a75f60d1975f86578b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62b209f8_00f86c8f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6026,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-26T13:14:44Z",
+      "side": 1,
+      "message": "Replace with\n\n  MinimumBitsToStore(OperationKind::kLastOperation)\n\nand introduce a `kLastOperation \u003d kExit` alias in the definition of the `OperationKind` enum?\n\n(BTW, shouldn\u0027t this value be equal to `2u` instead of `4u`?)",
+      "range": {
+        "startLine": 6026,
+        "startChar": 52,
+        "endLine": 6026,
+        "endChar": 54
+      },
+      "revId": "36a2731e45f02a73d250a75f60d1975f86578b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
