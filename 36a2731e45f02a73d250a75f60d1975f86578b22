@@ -321,6 +321,30 @@
       "revId": "36a2731e45f02a73d250a75f60d1975f86578b22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a220812e_9fd97ba0",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6026,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-02-26T15:58:19Z",
+      "side": 1,
+      "message": "Did you leave this one as-is on purpose?  If so, I\u0027m not sure to understand why; it might be worth a comment.",
+      "parentUuid": "62b209f8_00f86c8f",
+      "range": {
+        "startLine": 6026,
+        "startChar": 52,
+        "endLine": 6026,
+        "endChar": 54
+      },
+      "revId": "36a2731e45f02a73d250a75f60d1975f86578b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
