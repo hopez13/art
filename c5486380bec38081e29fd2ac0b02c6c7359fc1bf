@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82bb7df1_e0fe8b7e",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2167,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-27T03:47:34Z",
+      "side": 1,
+      "message": "Shorter and more straightforward:\n\n    clz  TMP, in_hi\n    li   AT, 0x80000000\n    srlv AT, AT, TMP\n    and  out_hi, AT, in_hi\n    clz  TMP, in_lo\n    li   AT, 0x80000000\n    srlv AT, AT, TMP\n    and  out_lo, AT, in_lo\n    if (R6) {\n      seleqz out_lo, out_lo, out_hi\n    } else {\n      movn out_lo, ZERO, out_hi\n    }\n\nAnd if we get another temp register or make it overlapping, we can save one li.",
+      "range": {
+        "startLine": 2133,
+        "startChar": 0,
+        "endLine": 2167,
+        "endChar": 5
+      },
+      "revId": "c5486380bec38081e29fd2ac0b02c6c7359fc1bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02594de9_4446ce9c",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2180,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-27T03:47:34Z",
+      "side": 1,
+      "message": "Shorter:\n\n    li   AT, 0x80000000\n    srlv AT, AT, TMP\n    and  out, AT, in",
+      "range": {
+        "startLine": 2177,
+        "startChar": 0,
+        "endLine": 2180,
+        "endChar": 77
+      },
+      "revId": "c5486380bec38081e29fd2ac0b02c6c7359fc1bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02e4ed24_2f70086f",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2241,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-27T03:47:34Z",
+      "side": 1,
+      "message": "Shorter:\n\n    subu TMP, ZERO, in_lo\n    and  out_lo, TMP, in_lo\n    subu TMP, ZERO, in_hi\n    and  out_hi, TMP, in_hi\n    if (R6) {\n      seleqz out_hi, out_hi, out_lo\n    } else {\n      movn out_hi, ZERO, out_lo\n    }",
+      "range": {
+        "startLine": 2214,
+        "startChar": 0,
+        "endLine": 2241,
+        "endChar": 5
+      },
+      "revId": "c5486380bec38081e29fd2ac0b02c6c7359fc1bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82bb7df1_e0a7abd0",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2249,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-02-27T03:47:34Z",
+      "side": 1,
+      "message": "Shorter (the classic x \u0026 -x):\n\n    subu TMP, ZERO, in\n    and  out, TMP, in",
+      "range": {
+        "startLine": 2246,
+        "startChar": 0,
+        "endLine": 2249,
+        "endChar": 26
+      },
+      "revId": "c5486380bec38081e29fd2ac0b02c6c7359fc1bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
