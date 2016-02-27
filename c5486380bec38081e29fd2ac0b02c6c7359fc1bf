@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e2b0b90b_01151c82",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2167,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-27T16:11:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82bb7df1_e0fe8b7e",
+      "range": {
+        "startLine": 2133,
+        "startChar": 0,
+        "endLine": 2167,
+        "endChar": 5
+      },
+      "revId": "c5486380bec38081e29fd2ac0b02c6c7359fc1bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02594de9_4446ce9c",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-02-27T03:47:34Z",
       "side": 1,
       "message": "Shorter:\n\n    li   AT, 0x80000000\n    srlv AT, AT, TMP\n    and  out, AT, in",
+      "range": {
+        "startLine": 2177,
+        "startChar": 0,
+        "endLine": 2180,
+        "endChar": 77
+      },
+      "revId": "c5486380bec38081e29fd2ac0b02c6c7359fc1bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2e32149_e1bde6dd",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2180,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-27T16:11:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02594de9_4446ce9c",
       "range": {
         "startLine": 2177,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4276e54b_35fbaf90",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2241,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-27T16:11:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02e4ed24_2f70086f",
+      "range": {
+        "startLine": 2214,
+        "startChar": 0,
+        "endLine": 2241,
+        "endChar": 5
+      },
+      "revId": "c5486380bec38081e29fd2ac0b02c6c7359fc1bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82bb7df1_e0a7abd0",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-02-27T03:47:34Z",
       "side": 1,
       "message": "Shorter (the classic x \u0026 -x):\n\n    subu TMP, ZERO, in\n    and  out, TMP, in",
+      "range": {
+        "startLine": 2246,
+        "startChar": 0,
+        "endLine": 2249,
+        "endChar": 26
+      },
+      "revId": "c5486380bec38081e29fd2ac0b02c6c7359fc1bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82bb7df1_e02c4bde",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2249,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-02-27T16:11:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82bb7df1_e0a7abd0",
       "range": {
         "startLine": 2246,
         "startChar": 0,
