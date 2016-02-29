@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42f42502_7e57b12f",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1880,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-29T12:00:10Z",
+      "side": 1,
+      "message": "Update/CopyMetadata? Nobody needs to know all the things it does internally, and it applies to other places than the inliner.",
+      "range": {
+        "startLine": 1880,
+        "startChar": 13,
+        "endLine": 1880,
+        "endChar": 54
+      },
+      "revId": "15a3dbee4d67b36ae16ead1c9fb78f3c1c8f0530",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62eda937_ffb57faf",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2190,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-29T12:00:10Z",
+      "side": 1,
+      "message": "Also use here",
+      "range": {
+        "startLine": 2165,
+        "startChar": 1,
+        "endLine": 2190,
+        "endChar": 57
+      },
+      "revId": "15a3dbee4d67b36ae16ead1c9fb78f3c1c8f0530",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62eda937_9fb0b3c1",
+        "filename": "test/578-polymorphic-inlining/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-02-29T12:00:10Z",
+      "side": 1,
+      "message": "Not used",
+      "range": {
+        "startLine": 25,
+        "startChar": 21,
+        "endLine": 25,
+        "endChar": 36
+      },
+      "revId": "15a3dbee4d67b36ae16ead1c9fb78f3c1c8f0530",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
