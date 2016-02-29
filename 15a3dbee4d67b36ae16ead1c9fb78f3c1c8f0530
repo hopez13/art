@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "02c30d5c_c39200d0",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1880,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-29T12:18:12Z",
+      "side": 1,
+      "message": "As discussed, UpdateLoopAndTryInformationOfNewBlock.",
+      "parentUuid": "42f42502_7e57b12f",
+      "range": {
+        "startLine": 1880,
+        "startChar": 13,
+        "endLine": 1880,
+        "endChar": 54
+      },
+      "revId": "15a3dbee4d67b36ae16ead1c9fb78f3c1c8f0530",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62eda937_ffb57faf",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "62eda937_1f9dc32e",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2190,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-29T12:18:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62eda937_ffb57faf",
+      "range": {
+        "startLine": 2165,
+        "startChar": 1,
+        "endLine": 2190,
+        "endChar": 57
+      },
+      "revId": "15a3dbee4d67b36ae16ead1c9fb78f3c1c8f0530",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62eda937_9fb0b3c1",
         "filename": "test/578-polymorphic-inlining/src/Main.java",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-02-29T12:00:10Z",
       "side": 1,
       "message": "Not used",
+      "range": {
+        "startLine": 25,
+        "startChar": 21,
+        "endLine": 25,
+        "endChar": 36
+      },
+      "revId": "15a3dbee4d67b36ae16ead1c9fb78f3c1c8f0530",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2f8b9fc_5b95a3f4",
+        "filename": "test/578-polymorphic-inlining/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-02-29T12:18:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62eda937_9fb0b3c1",
       "range": {
         "startLine": 25,
         "startChar": 21,
