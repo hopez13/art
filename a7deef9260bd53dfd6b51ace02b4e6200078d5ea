@@ -46,6 +46,30 @@
       "revId": "a7deef9260bd53dfd6b51ace02b4e6200078d5ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c26bb568_71adc7f8",
+        "filename": "runtime/gc/allocation_record.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-02-29T19:48:32Z",
+      "side": 1,
+      "message": "That\u0027s probably worth an updated comment (lines 102-103)?",
+      "parentUuid": "82ea9d1e_26d52200",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 20
+      },
+      "revId": "a7deef9260bd53dfd6b51ace02b4e6200078d5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
