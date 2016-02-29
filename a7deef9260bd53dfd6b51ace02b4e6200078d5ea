@@ -22,6 +22,30 @@
       "revId": "a7deef9260bd53dfd6b51ace02b4e6200078d5ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82ea9d1e_26d52200",
+        "filename": "runtime/gc/allocation_record.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-02-29T19:20:22Z",
+      "side": 1,
+      "message": "We need to keep all the stack trace valid but only need class elements for the first ~64k due to that is the max that DDMS supports.",
+      "parentUuid": "c2c1f56d_97d05019",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 20
+      },
+      "revId": "a7deef9260bd53dfd6b51ace02b4e6200078d5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
