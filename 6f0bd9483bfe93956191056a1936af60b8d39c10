@@ -22,6 +22,30 @@
       "revId": "6f0bd9483bfe93956191056a1936af60b8d39c10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e211990a_9661cab4",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-03-01T23:44:05Z",
+      "side": 1,
+      "message": "Renamed to UNREACHABLE and added the FATAL suggestion (I was playing with the latter, but then chickened out; but with backing from you I dare to venture there!)",
+      "parentUuid": "e2b0b90b_0ced4caa",
+      "range": {
+        "startLine": 213,
+        "startChar": 8,
+        "endLine": 213,
+        "endChar": 17
+      },
+      "revId": "6f0bd9483bfe93956191056a1936af60b8d39c10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
