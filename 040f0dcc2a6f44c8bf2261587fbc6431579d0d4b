@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "620689d1_1743f48b",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-01T12:30:10Z",
+      "side": 1,
+      "message": "the comment is now pretty useless :)",
+      "range": {
+        "startLine": 571,
+        "startChar": 2,
+        "endLine": 571,
+        "endChar": 79
+      },
+      "revId": "040f0dcc2a6f44c8bf2261587fbc6431579d0d4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62eda937_c295445e",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 2
@@ -41,6 +64,52 @@
         "startChar": 7,
         "endLine": 610,
         "endChar": 67
+      },
+      "revId": "040f0dcc2a6f44c8bf2261587fbc6431579d0d4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a220812e_8d43918a",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-01T12:30:10Z",
+      "side": 1,
+      "message": "share this logic with L575-L587? Otherwise it\u0027s easy to miss if one changes.",
+      "range": {
+        "startLine": 618,
+        "startChar": 4,
+        "endLine": 620,
+        "endChar": 45
+      },
+      "revId": "040f0dcc2a6f44c8bf2261587fbc6431579d0d4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62eda937_82b4dcff",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-01T12:30:10Z",
+      "side": 1,
+      "message": "point",
+      "range": {
+        "startLine": 625,
+        "startChar": 9,
+        "endLine": 625,
+        "endChar": 14
       },
       "revId": "040f0dcc2a6f44c8bf2261587fbc6431579d0d4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
