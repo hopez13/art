@@ -22,6 +22,30 @@
       "revId": "c992e39be1787c870d806ff480bc9528768e1679",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c209f5de_ba3311dd",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1916,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-01T12:33:24Z",
+      "side": 1,
+      "message": "Could you replace the null checks with a comment similar to the one in https://android-review.googlesource.com/#/c/205381/1/compiler/optimizing/intrinsics_mips64.cc ?",
+      "parentUuid": "42f42502_9ecefda3",
+      "range": {
+        "startLine": 1916,
+        "startChar": 2,
+        "endLine": 1916,
+        "endChar": 50
+      },
+      "revId": "c992e39be1787c870d806ff480bc9528768e1679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
