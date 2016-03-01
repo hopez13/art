@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22ef3134_17012c25",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-03-01T00:24:44Z",
+      "side": 1,
+      "message": "loop-based. Also the \"used previously\" puts a form of history in the comments that are a bit unclear. Just compare it to \"a loop-based implementation\".",
+      "range": {
+        "startLine": 863,
+        "startChar": 30,
+        "endLine": 863,
+        "endChar": 39
+      },
+      "revId": "a4c89e4498aea93347efee4e1a021e897481398d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a26ec178_f224594c",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-03-01T00:24:44Z",
+      "side": 1,
+      "message": "loop-based",
+      "range": {
+        "startLine": 870,
+        "startChar": 37,
+        "endLine": 870,
+        "endChar": 42
+      },
+      "revId": "a4c89e4498aea93347efee4e1a021e897481398d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
