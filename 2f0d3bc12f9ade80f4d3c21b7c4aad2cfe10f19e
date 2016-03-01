@@ -22,6 +22,30 @@
       "revId": "2f0d3bc12f9ade80f4d3c21b7c4aad2cfe10f19e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2b881d5_e870bbac",
+        "filename": "test/Android.run-test.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-01T18:42:09Z",
+      "side": 1,
+      "message": "No, the macro is misleading, it\u0027s disabling it for \"all targets\" which means for this makefile host and target. Yeah.",
+      "parentUuid": "e2b0b90b_3665f7ac",
+      "range": {
+        "startLine": 228,
+        "startChar": 2,
+        "endLine": 228,
+        "endChar": 11
+      },
+      "revId": "2f0d3bc12f9ade80f4d3c21b7c4aad2cfe10f19e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
