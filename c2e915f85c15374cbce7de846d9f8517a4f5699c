@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "620689d1_772990cb",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6513,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-01T12:21:59Z",
+      "side": 1,
+      "message": "So it\u0027s cmpxchng that requires EAX? Please add that as a comment.\n\nMoving it to EAX in the slow path does not require you to request EAX as a temp.",
+      "parentUuid": "a26ec178_687f163d",
+      "range": {
+        "startLine": 6513,
+        "startChar": 48,
+        "endLine": 6513,
+        "endChar": 51
+      },
+      "revId": "c2e915f85c15374cbce7de846d9f8517a4f5699c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82037dbe_9836153b",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 1
