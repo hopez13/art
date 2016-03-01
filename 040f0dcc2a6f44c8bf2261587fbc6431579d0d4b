@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a220812e_ad3bf521",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-01T11:28:03Z",
+      "side": 1,
+      "message": "executed",
+      "range": {
+        "startLine": 11,
+        "startChar": 12,
+        "endLine": 11,
+        "endChar": 19
+      },
+      "revId": "040f0dcc2a6f44c8bf2261587fbc6431579d0d4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62eda937_c295445e",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-01T11:28:03Z",
+      "side": 1,
+      "message": "Maybe add a bit of explanation about this strategy?  (I don\u0027t remember what was the rationale behind this choice.)",
+      "range": {
+        "startLine": 610,
+        "startChar": 7,
+        "endLine": 610,
+        "endChar": 67
+      },
+      "revId": "040f0dcc2a6f44c8bf2261587fbc6431579d0d4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2b881d5_adddf559",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-01T11:28:03Z",
+      "side": 1,
+      "message": "I think you can use a range-based for-loop here.",
+      "range": {
+        "startLine": 638,
+        "startChar": 8,
+        "endLine": 640,
+        "endChar": 9
+      },
+      "revId": "040f0dcc2a6f44c8bf2261587fbc6431579d0d4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42f42502_be24994b",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-01T11:28:03Z",
+      "side": 1,
+      "message": "Nit: DCHECK (to be consistent with the style used in line 639 – and also elsewhere, I think).",
+      "range": {
+        "startLine": 687,
+        "startChar": 8,
+        "endLine": 687,
+        "endChar": 13
+      },
+      "revId": "040f0dcc2a6f44c8bf2261587fbc6431579d0d4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "620689d1_d7405c82",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-01T11:28:03Z",
+      "side": 1,
+      "message": "nor",
+      "range": {
+        "startLine": 705,
+        "startChar": 56,
+        "endLine": 705,
+        "endChar": 58
+      },
+      "revId": "040f0dcc2a6f44c8bf2261587fbc6431579d0d4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "421d051a_b66848f7",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-01T11:28:03Z",
+      "side": 1,
+      "message": "Nit: add parens.",
+      "range": {
+        "startLine": 866,
+        "startChar": 6,
+        "endLine": 866,
+        "endChar": 69
+      },
+      "revId": "040f0dcc2a6f44c8bf2261587fbc6431579d0d4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02806d4d_4f8cb161",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-01T11:28:03Z",
+      "side": 1,
+      "message": "Nit: add parens.",
+      "range": {
+        "startLine": 187,
+        "startChar": 6,
+        "endLine": 187,
+        "endChar": 31
+      },
+      "revId": "040f0dcc2a6f44c8bf2261587fbc6431579d0d4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
