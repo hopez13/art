@@ -22,6 +22,30 @@
       "revId": "b6347b7a3dbf9f55cbd638c630e9d044d6d53ac6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62be89e4_8dcf11a1",
+        "filename": "test/530-checker-loops/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-03-01T17:18:34Z",
+      "side": 1,
+      "message": "Ah, I am just putting back the comment that was already there , but was removed when you split the module in two. I just like to have separator sections between the parts.",
+      "parentUuid": "620689d1_f706406c",
+      "range": {
+        "startLine": 635,
+        "startChar": 0,
+        "endLine": 638,
+        "endChar": 4
+      },
+      "revId": "b6347b7a3dbf9f55cbd638c630e9d044d6d53ac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
