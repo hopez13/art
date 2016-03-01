@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42f42502_9ecefda3",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1916,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-01T12:31:46Z",
+      "side": 1,
+      "message": "I checked and the null check are indeed unnecessary in the case of the StringNewStringFromChars intrinsic (see https://android-review.googlesource.com/#/c/205381/).",
+      "range": {
+        "startLine": 1916,
+        "startChar": 2,
+        "endLine": 1916,
+        "endChar": 50
+      },
+      "revId": "c992e39be1787c870d806ff480bc9528768e1679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
