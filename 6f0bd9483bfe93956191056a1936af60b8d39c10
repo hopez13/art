@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2b0b90b_0ced4caa",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-01T23:35:58Z",
+      "side": 1,
+      "message": "I\u0027d call it UNREACHABLE_..., as that\u0027s the name of the macro/attribute in C land.\n\nCould you also maybe not use UNIMPLEMENTED_INTRINSIC and instead use a special version that LOG(FATAL)s? That way it would also act as a guard for the expected behavior.",
+      "range": {
+        "startLine": 213,
+        "startChar": 8,
+        "endLine": 213,
+        "endChar": 17
+      },
+      "revId": "6f0bd9483bfe93956191056a1936af60b8d39c10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
