@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62bbe93b_0fd5a5ff",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-02T09:24:24Z",
+      "side": 1,
+      "message": "Yuck. Could OpenJdK have a finalizer to do this instead?",
+      "range": {
+        "startLine": 438,
+        "startChar": 0,
+        "endLine": 446,
+        "endChar": 29
+      },
+      "revId": "ac78e82756e060cfc41158992430d3221621a436",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
