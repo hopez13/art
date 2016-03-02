@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c209f5de_7dcdf37a",
+        "filename": "test/048-reflect-v8/build",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-03-02T08:38:28Z",
+      "side": 1,
+      "message": "Maybe we should enforce (or at least check) that USE_JACK\u003dtrue in the default-build script if you pass any of the experimental flags (\u0027default-methods\u0027 or \u0027lambda\u0027) which need 1.8 support.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 20
+      },
+      "revId": "d56d59f9f9018b4323d2209e13e0258f350cdd95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "421d051a_d956d7fd",
+        "filename": "test/962-iface-static/src/iface.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-03-02T08:38:28Z",
+      "side": 1,
+      "message": "IFace ?",
+      "range": {
+        "startLine": 16,
+        "startChar": 17,
+        "endLine": 16,
+        "endChar": 22
+      },
+      "revId": "d56d59f9f9018b4323d2209e13e0258f350cdd95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a220812e_0d3301ae",
+        "filename": "test/963-default-range-smali/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-03-02T08:38:28Z",
+      "side": 1,
+      "message": "nit: space",
+      "revId": "d56d59f9f9018b4323d2209e13e0258f350cdd95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
