@@ -142,6 +142,30 @@
       "revId": "2aa87150da27fb89e7dbea4f6f40368d987077c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e27a7932_0f9449ba",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-02T19:29:07Z",
+      "side": 1,
+      "message": "No, I am fine with it. It was just intricate from just reading this part of the code, that\u0027s all (and the broad comment \"Make sure compiled methods have a ProfilingInfo object.\")",
+      "parentUuid": "c209f5de_ddb7df4c",
+      "range": {
+        "startLine": 708,
+        "startChar": 31,
+        "endLine": 708,
+        "endChar": 92
+      },
+      "revId": "2aa87150da27fb89e7dbea4f6f40368d987077c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
