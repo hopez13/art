@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82037dbe_db19a7be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-02T11:17:38Z",
+      "side": 1,
+      "message": "Also mention that the MIPS32 and MIPS64 rotation intrinsics (IntegerRotateRight, LongRotateRight, IntegerRotateLeft, LongRotateLeft) are now handled as HIR constructs, similarly to all other architectures.",
+      "revId": "a402a5a263752749a3c9e5825bde266dd209170d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82037dbe_fb146b88",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-02T11:17:38Z",
+      "side": 1,
+      "message": "Maybe also show the intrinsic\u0027s name in the log by adding\n\n  \u003c\u003c invoke-\u003eGetIntrinsic()\n\n?",
+      "revId": "a402a5a263752749a3c9e5825bde266dd209170d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2b16159_31f2908e",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-02T11:17:38Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "a402a5a263752749a3c9e5825bde266dd209170d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
