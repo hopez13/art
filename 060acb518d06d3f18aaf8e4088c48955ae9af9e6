@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62bbe93b_6f98b12e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-02T14:23:46Z",
+      "side": 1,
+      "message": "I find InterpretOnly and None obscure.\n\nwhat\u0027s the difference between Extract/Interpret/None ?\n\nfrom the compilation_level perspective what do they mean?",
+      "range": {
+        "startLine": 1035,
+        "startChar": 4,
+        "endLine": 1048,
+        "endChar": 3
+      },
+      "revId": "060acb518d06d3f18aaf8e4088c48955ae9af9e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
