@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62eda937_223fd06c",
+        "filename": "tools/run-jdwp-tests.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-03-02T08:13:32Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we also remove this so we don\u0027t compile the boot image in debuggable mode?",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 82
+      },
+      "revId": "87e89f1139eafa63e8de791a9c90501602602356",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
