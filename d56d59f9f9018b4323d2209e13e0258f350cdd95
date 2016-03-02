@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "02feade5_f2b80542",
+        "filename": "test/048-reflect-v8/build",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-03-02T19:08:11Z",
+      "side": 1,
+      "message": "It will fail already. The bigger problem is that we still don\u0027t default to a version of jack that supports default-methods when not running through make.",
+      "parentUuid": "c209f5de_7dcdf37a",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 20
+      },
+      "revId": "d56d59f9f9018b4323d2209e13e0258f350cdd95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "421d051a_d956d7fd",
         "filename": "test/962-iface-static/src/iface.java",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "82ea9d1e_b254be2a",
+        "filename": "test/962-iface-static/src/iface.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-03-02T19:08:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "421d051a_d956d7fd",
+      "range": {
+        "startLine": 16,
+        "startChar": 17,
+        "endLine": 16,
+        "endChar": 22
+      },
+      "revId": "d56d59f9f9018b4323d2209e13e0258f350cdd95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a220812e_0d3301ae",
         "filename": "test/963-default-range-smali/src/Main.java",
         "patchSetId": 3
@@ -59,6 +107,24 @@
       "writtenOn": "2016-03-02T08:38:28Z",
       "side": 1,
       "message": "nit: space",
+      "revId": "d56d59f9f9018b4323d2209e13e0258f350cdd95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2b0b90b_6a6390ec",
+        "filename": "test/963-default-range-smali/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-03-02T19:08:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a220812e_0d3301ae",
       "revId": "d56d59f9f9018b4323d2209e13e0258f350cdd95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
