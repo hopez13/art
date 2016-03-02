@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22ef3134_dfd4ed69",
+        "filename": "runtime/gc/allocation_record.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-02T21:50:36Z",
+      "side": 1,
+      "message": "Is this required? Could you just use the block end to implicitly delete?",
+      "range": {
+        "startLine": 258,
+        "startChar": 4,
+        "endLine": 260,
+        "endChar": 16
+      },
+      "revId": "0b2655ba69bf008e979398e2f53b28370c52d166",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
