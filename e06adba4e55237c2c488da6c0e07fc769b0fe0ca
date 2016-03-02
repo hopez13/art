@@ -46,6 +46,30 @@
       "revId": "e06adba4e55237c2c488da6c0e07fc769b0fe0ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e27a7932_4b37a638",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1936,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-03-02T17:07:06Z",
+      "side": 1,
+      "message": "After making the change the emulator boots but I can\u0027t connect using \"adb shell\". When I put the second, and third arguments back, \"adb shell\" resumes working. Need to test to see if I can just delete the third argument.",
+      "parentUuid": "42f42502_a13598d9",
+      "range": {
+        "startLine": 1934,
+        "startChar": 0,
+        "endLine": 1936,
+        "endChar": 89
+      },
+      "revId": "e06adba4e55237c2c488da6c0e07fc769b0fe0ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
