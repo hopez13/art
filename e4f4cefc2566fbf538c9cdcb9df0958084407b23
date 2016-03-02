@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e211990a_a8329fa6",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1794,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-02T23:03:30Z",
+      "side": 1,
+      "message": "not applicable anymore.",
+      "parentUuid": "e2b0b90b_09c4285c",
+      "range": {
+        "startLine": 1794,
+        "startChar": 11,
+        "endLine": 1794,
+        "endChar": 30
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2981592_9932c1d2",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 4
@@ -95,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e2b0b90b_c5c177a3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1798,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-02T23:03:30Z",
+      "side": 1,
+      "message": "Better now?",
+      "parentUuid": "62be89e4_e15d8350",
+      "range": {
+        "startLine": 1798,
+        "startChar": 11,
+        "endLine": 1798,
+        "endChar": 31
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "628f697d_925cfa26",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 4
@@ -106,6 +154,30 @@
       "writtenOn": "2016-02-26T00:19:52Z",
       "side": 1,
       "message": "kGcCauseForNativeAlloc to make it easier to see what\u0027s causing this GC in the log?",
+      "range": {
+        "startLine": 1803,
+        "startChar": 50,
+        "endLine": 1803,
+        "endChar": 66
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e211990a_884c0319",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1803,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-02T23:03:30Z",
+      "side": 1,
+      "message": "When sharing this code with AllocateInternalWithGc, we would need to pass this in as an extra argument. I\u0027m fine doing that if you prefer.",
+      "parentUuid": "628f697d_925cfa26",
       "range": {
         "startLine": 1803,
         "startChar": 50,
@@ -189,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "a26ec178_316e6202",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1813,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-02T23:03:30Z",
+      "side": 1,
+      "message": "I can pass the cause as an extra argument if you prefer.",
+      "parentUuid": "c2981592_0aa08dbb",
+      "range": {
+        "startLine": 1813,
+        "startChar": 41,
+        "endLine": 1813,
+        "endChar": 57
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2981592_d98cc963",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 4
@@ -200,6 +296,30 @@
       "writtenOn": "2016-02-26T00:19:52Z",
       "side": 1,
       "message": "kGcCauseForNativeAlloc",
+      "range": {
+        "startLine": 1827,
+        "startChar": 40,
+        "endLine": 1827,
+        "endChar": 56
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82ea9d1e_f8862795",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1827,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-02T23:03:30Z",
+      "side": 1,
+      "message": "same.",
+      "parentUuid": "c2981592_d98cc963",
       "range": {
         "startLine": 1827,
         "startChar": 40,
@@ -235,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "a2e32149_f8790257",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1845,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-02T23:03:30Z",
+      "side": 1,
+      "message": "Would it be worth passing a boolean to AllocateInternalWithGc to indicate we are doing native allocation, for the purposes of setting the cause for alloc and better messages?\n\nOr, I could rename the Null allocator to a RegisterNative allocator, and check for that in AllocateInternalWithGc to decide what the cause for alloc is and what to put in messages.\n\nThoughts?",
+      "parentUuid": "e2b0b90b_e92a1c74",
+      "range": {
+        "startLine": 1845,
+        "startChar": 16,
+        "endLine": 1845,
+        "endChar": 26
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "628f697d_7274f69f",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 4
@@ -246,6 +390,30 @@
       "writtenOn": "2016-02-26T00:19:52Z",
       "side": 1,
       "message": "kGcCauseForNativeAlloc",
+      "range": {
+        "startLine": 1849,
+        "startChar": 42,
+        "endLine": 1849,
+        "endChar": 58
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a26ec178_5157562f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1849,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-02T23:03:30Z",
+      "side": 1,
+      "message": "same.",
+      "parentUuid": "628f697d_7274f69f",
       "range": {
         "startLine": 1849,
         "startChar": 42,
@@ -316,6 +484,30 @@
       "writtenOn": "2016-02-26T00:19:52Z",
       "side": 1,
       "message": "target_utilization?",
+      "range": {
+        "startLine": 3551,
+        "startChar": 13,
+        "endLine": 3551,
+        "endChar": 19
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a26ec178_310c225c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3551,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-02T23:03:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "628f697d_92515a09",
       "range": {
         "startLine": 3551,
         "startChar": 13,
@@ -422,6 +614,30 @@
     },
     {
       "key": {
+        "uuid": "e211990a_681087de",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3874,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-02T23:03:30Z",
+      "side": 1,
+      "message": "To me that seems arbitrary. It ensures the total sum of all users don\u0027t call RegisterNativeFree more than RegisterNativeAlloc was called, but it does nothing to prevent a malicious caller from \"stealing\" native allocation memory from another caller. Perhaps that\u0027s better than nothing. I\u0027ll add the exception back in.",
+      "parentUuid": "628f697d_f2ea2655",
+      "range": {
+        "startLine": 3872,
+        "startChar": 0,
+        "endLine": 3874,
+        "endChar": 15
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a29b218c_b75d7cf5",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 4
@@ -433,6 +649,30 @@
       "writtenOn": "2016-02-26T00:19:52Z",
       "side": 1,
       "message": "I think we don\u0027t need this as this version of CheckConcurrentGC doesn\u0027t take an object as a parameter and RequestConcurrentGC() it calls doesn\u0027t need this, either.",
+      "range": {
+        "startLine": 855,
+        "startChar": 6,
+        "endLine": 855,
+        "endChar": 43
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02feade5_2e1a09b2",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-02T23:03:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a29b218c_b75d7cf5",
       "range": {
         "startLine": 855,
         "startChar": 6,
@@ -468,6 +708,30 @@
     },
     {
       "key": {
+        "uuid": "e2b0b90b_65d06375",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-02T23:03:30Z",
+      "side": 1,
+      "message": "not applicable anymore.",
+      "parentUuid": "62a5a9c6_53e3edc2",
+      "range": {
+        "startLine": 884,
+        "startChar": 43,
+        "endLine": 884,
+        "endChar": 63
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62be89e4_2807e06a",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 4
@@ -491,6 +755,30 @@
     },
     {
       "key": {
+        "uuid": "e27a7932_383e29a3",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-02T23:03:30Z",
+      "side": 1,
+      "message": "not applicable anymore.",
+      "parentUuid": "62be89e4_2807e06a",
+      "range": {
+        "startLine": 915,
+        "startChar": 46,
+        "endLine": 915,
+        "endChar": 84
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a29b218c_d2f92e6e",
         "filename": "runtime/gc/heap.h",
         "patchSetId": 4
@@ -502,6 +790,30 @@
       "writtenOn": "2016-02-26T00:19:52Z",
       "side": 1,
       "message": "We don\u0027t need this comment change any more?",
+      "range": {
+        "startLine": 1183,
+        "startChar": 57,
+        "endLine": 1184,
+        "endChar": 10
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02594de9_bfb540b0",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1184,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-02T23:03:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a29b218c_d2f92e6e",
       "range": {
         "startLine": 1183,
         "startChar": 57,
