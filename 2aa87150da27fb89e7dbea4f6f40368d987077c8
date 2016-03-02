@@ -22,6 +22,30 @@
       "revId": "2aa87150da27fb89e7dbea4f6f40368d987077c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42f42502_816fbc37",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-02T17:45:56Z",
+      "side": 1,
+      "message": "Because we collect profiling info (see line 702). I\u0027ll add a comment.",
+      "parentUuid": "a26ec178_7d76f167",
+      "range": {
+        "startLine": 708,
+        "startChar": 31,
+        "endLine": 708,
+        "endChar": 92
+      },
+      "revId": "2aa87150da27fb89e7dbea4f6f40368d987077c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
