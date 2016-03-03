@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2b16159_74fb668f",
+        "filename": "test/579-inline-infinite/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-03T09:46:17Z",
+      "side": 1,
+      "message": "I don\u0027t understand this change. There\u0027s code in the inliner to not inline infinite loops.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 5
+      },
+      "revId": "1a864e379b10aefb311769e379618c5bd991ddd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
