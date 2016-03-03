@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8209bdb1_027ade98",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1712,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-03-03T14:43:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62bbe93b_b2be7eda",
+      "range": {
+        "startLine": 1709,
+        "startChar": 0,
+        "endLine": 1712,
+        "endChar": 58
+      },
+      "revId": "29506e90275f1e8feab7f2961a01a604bb021835",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2b16159_94b08ac1",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e2a6f926_2efa2725",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1736,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-03-03T14:43:37Z",
+      "side": 1,
+      "message": "It seems it\u0027s from intrinsics_x86_64.cc. I agree we don\u0027t need it.",
+      "parentUuid": "a2b16159_94b08ac1",
+      "range": {
+        "startLine": 1736,
+        "startChar": 0,
+        "endLine": 1736,
+        "endChar": 38
+      },
+      "revId": "29506e90275f1e8feab7f2961a01a604bb021835",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62eda937_e50a12b7",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -59,6 +107,24 @@
       "writtenOn": "2016-03-03T11:59:12Z",
       "side": 1,
       "message": "extra line",
+      "revId": "29506e90275f1e8feab7f2961a01a604bb021835",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2e961fc_da6f198c",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1846,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-03-03T14:43:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62eda937_e50a12b7",
       "revId": "29506e90275f1e8feab7f2961a01a604bb021835",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
