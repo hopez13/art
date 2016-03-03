@@ -190,6 +190,30 @@
       "revId": "e06adba4e55237c2c488da6c0e07fc769b0fe0ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82ea9d1e_79017624",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1936,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-03T21:09:01Z",
+      "side": 1,
+      "message": "jeffhao, what\u0027s the reason for this weird 64-bit code with many inputs? (coming from commit 848f70a3d)",
+      "parentUuid": "a26ec178_6333abad",
+      "range": {
+        "startLine": 1934,
+        "startChar": 0,
+        "endLine": 1936,
+        "endChar": 89
+      },
+      "revId": "e06adba4e55237c2c488da6c0e07fc769b0fe0ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
