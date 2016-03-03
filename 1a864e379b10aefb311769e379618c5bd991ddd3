@@ -22,6 +22,30 @@
       "revId": "1a864e379b10aefb311769e379618c5bd991ddd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2b881d5_537f9c87",
+        "filename": "test/579-inline-infinite/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2016-03-03T10:00:49Z",
+      "side": 1,
+      "message": "Optimizing compiler has a bug. Indeed inliner checks whether the method contains infinite loop or not. It checks whether the graph corresponding to inlining method contains or not exit_block_ set. This field is set by builder in the beginning. After that exit block can be removed but no one clear exit_block_ field in graph. As result graph contains a link to block which is removed. So inliner does not really detect that inlining method contains the infinite loop.\n\nI hope this helps.",
+      "parentUuid": "a2b16159_74fb668f",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 5
+      },
+      "revId": "1a864e379b10aefb311769e379618c5bd991ddd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
