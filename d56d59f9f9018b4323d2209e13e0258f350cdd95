@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "62eda937_652f2268",
+        "filename": "test/048-reflect-v8/build",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-03-03T08:42:36Z",
+      "side": 1,
+      "message": "It\u0027s because you need to set some environment variables (like our make does, including JACK_VERSION) to select the right jack when running run-test manually.\nI agree it\u0027s not ideal but the Jack versionning is supported only by the build right now.",
+      "parentUuid": "02feade5_f2b80542",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 20
+      },
+      "revId": "d56d59f9f9018b4323d2209e13e0258f350cdd95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "421d051a_d956d7fd",
         "filename": "test/962-iface-static/src/iface.java",
         "patchSetId": 3
