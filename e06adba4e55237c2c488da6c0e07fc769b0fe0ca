@@ -166,6 +166,30 @@
       "revId": "e06adba4e55237c2c488da6c0e07fc769b0fe0ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a26ec178_6333abad",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1936,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-03-03T15:52:09Z",
+      "side": 1,
+      "message": "Long story short I think my conclusion was wrong. I think when tested the change w/only one argument I made some other mistake. Retested and another code search and decided to try the change again. Now it works.",
+      "parentUuid": "a2b16159_144e5a39",
+      "range": {
+        "startLine": 1934,
+        "startChar": 0,
+        "endLine": 1936,
+        "endChar": 89
+      },
+      "revId": "e06adba4e55237c2c488da6c0e07fc769b0fe0ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
