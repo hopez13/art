@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "c2d7357d_aa31ef46",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1877,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2016-03-03T10:13:08Z",
+      "side": 1,
+      "message": "BTW, mentioned only now - so in this method we do not need code below.",
+      "range": {
+        "startLine": 1875,
+        "startChar": 2,
+        "endLine": 1877,
+        "endChar": 3
+      },
+      "revId": "1a864e379b10aefb311769e379618c5bd991ddd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2b16159_74fb668f",
         "filename": "test/579-inline-infinite/src/Main.java",
         "patchSetId": 1
