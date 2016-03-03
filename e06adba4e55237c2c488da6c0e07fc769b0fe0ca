@@ -214,6 +214,30 @@
       "revId": "e06adba4e55237c2c488da6c0e07fc769b0fe0ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a26ec178_340deb89",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 1936,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-03-03T22:03:58Z",
+      "side": 1,
+      "message": "This looks like a typo added through cut and paste from VisitStringNewStringFromChars. This method should only have one argument, and there\u0027s a similar issue in the arm64 version.",
+      "parentUuid": "82ea9d1e_79017624",
+      "range": {
+        "startLine": 1934,
+        "startChar": 0,
+        "endLine": 1936,
+        "endChar": 89
+      },
+      "revId": "e06adba4e55237c2c488da6c0e07fc769b0fe0ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
