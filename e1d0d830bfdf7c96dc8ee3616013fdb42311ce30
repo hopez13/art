@@ -22,6 +22,30 @@
       "revId": "e1d0d830bfdf7c96dc8ee3616013fdb42311ce30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82d1bd8e_eb000d23",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-03T20:20:18Z",
+      "side": 1,
+      "message": "It has thread local buffers to allocate in. It\u0027s just that we aren\u0027t calling it \"TLAB\".",
+      "parentUuid": "a220812e_a81e83f4",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 29
+      },
+      "revId": "e1d0d830bfdf7c96dc8ee3616013fdb42311ce30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
