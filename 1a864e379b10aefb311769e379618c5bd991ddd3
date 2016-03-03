@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "620689d1_ba6aed7c",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2016-03-03T10:17:08Z",
+      "side": 1,
+      "message": "by commenting this out I\u0027ve got \n+Thread: 78119 \"main\"\n+Registers:\n+    rax: 0xa6dbba5eb94f6100    rbx: 0x00007f5ab77cd228    rcx: 0x00007f5ab77ce250    rdx: 0x00007fff9b299930\n+    rdi: 0x0000000000000078    rsi: 0x00007fff9b299938    rbp: 0x00007fff9b299920    rsp: 0x00007fff9b2998f0\n+    r8 : 0x00007f5ab77cee28    r9 : 0x00007f5ab77cee20    r10: 0x00007f5ab77ce548    r11: 0x00007f5b8ce51c00\n+    r12: 0x00007f5ab77cd228    r13: 0x00007f5ab77cd150    r14: 0x00007f5ab77ced48    r15: 0x00007fff9b299930\n+    rip: 0x00007f5b8e36056d    eflags: 0x00010206 [ PF IF ]\n+     cs: 0x00000033     gs: 0x00000000     fs: 0x00000000\n+\n+Backtrace:\n+\t#00 pc 000000000033256d  out/host/linux-x86/lib64/libartd-compiler.so (void art::ReplaceElement\u003cart::dchecked_vector\u003cart::HBasicBlock*, art::ArenaAllocatorAdapter\u003cart::HBasicBlock*\u003e \u003e, art::HBasicBlock*\u003e(art::dchecked_vector\u003cart::HBasicBlock*, art::ArenaAllocatorAdapter\u003cart::HBasicBlock*\u003e \u003e\u0026, art::HBasicBlock* const\u0026, art::HBasicBlock* const\u0026)+29)\n+\t  std::__1::vector\u003cart::HBasicBlock*, art::ArenaAllocatorAdapter\u003cart::HBasicBlock*\u003e \u003e::begin()\n+\t   external/libcxx/include/vector:1464\n+\t  void art::ReplaceElement\u003cart::dchecked_vector\u003cart::HBasicBlock*, art::ArenaAllocatorAdapter\u003cart::HBasicBlock*\u003e \u003e, art::HBasicBlock*\u003e(art::dchecked_vector\u003cart::HBasicBlock*, art::ArenaAllocatorAdapter\u003cart::HBasicBlock*\u003e \u003e\u0026, art::HBasicBlock* const\u0026, art::HBasicBlock* const\u0026)\n+\t   art/runtime/base/stl_util.h:137",
+      "range": {
+        "startLine": 130,
+        "startChar": 6,
+        "endLine": 132,
+        "endChar": 7
+      },
+      "revId": "1a864e379b10aefb311769e379618c5bd991ddd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2d7357d_aa31ef46",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
