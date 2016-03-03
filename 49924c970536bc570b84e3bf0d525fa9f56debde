@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82ea9d1e_ec7e698a",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-03-03T17:29:44Z",
+      "side": 1,
+      "message": "That looks like a very nice concise implementation. Any perf numbers? Can\u0027t wait to try this out on my reversi/checkers app!",
+      "range": {
+        "startLine": 383,
+        "startChar": 5,
+        "endLine": 383,
+        "endChar": 9
+      },
+      "revId": "49924c970536bc570b84e3bf0d525fa9f56debde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
