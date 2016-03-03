@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62eda937_6501e2e7",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2016-03-03T04:53:39Z",
+      "side": 1,
+      "message": "May be decide whether to profile all branches or only backward branches basing on events. As I understand other interpreters do in this way, correct?",
+      "range": {
+        "startLine": 655,
+        "startChar": 2,
+        "endLine": 655,
+        "endChar": 19
+      },
+      "revId": "7fd920184a3489ad772df19aaffeefc983d3db03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
