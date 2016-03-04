@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "421d051a_9fea7f54",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1737,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-04T10:02:17Z",
+      "side": 1,
+      "message": "Remove this, as this is always what you are passing?\n\nWhich leads me to ask: if you wrote this, why don\u0027t you actually check it at the call sites?",
+      "range": {
+        "startLine": 1737,
+        "startChar": 69,
+        "endLine": 1737,
+        "endChar": 77
+      },
+      "revId": "368ec01dcdcf0c0a50e62d1a193a7f601d320775",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
