@@ -22,6 +22,30 @@
       "revId": "38b2d1883e08cd7bf4cddc46a3082ecdffa087c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2b0b90b_450c428a",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-03-04T02:04:39Z",
+      "side": 1,
+      "message": "Because the instruction encoding changed when we moved to R6.",
+      "parentUuid": "c26bb568_e98c5563",
+      "range": {
+        "startLine": 539,
+        "startChar": 10,
+        "endLine": 539,
+        "endChar": 12
+      },
+      "revId": "38b2d1883e08cd7bf4cddc46a3082ecdffa087c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
