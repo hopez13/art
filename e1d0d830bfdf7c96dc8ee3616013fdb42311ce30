@@ -46,6 +46,30 @@
       "revId": "e1d0d830bfdf7c96dc8ee3616013fdb42311ce30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62bbe93b_d29062cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-04T11:15:11Z",
+      "side": 1,
+      "message": "I see. So IIUC this is an improvement for memory allocation for concurrent collector only. What are the numbers compared to the current collector?",
+      "parentUuid": "82d1bd8e_eb000d23",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 29
+      },
+      "revId": "e1d0d830bfdf7c96dc8ee3616013fdb42311ce30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
