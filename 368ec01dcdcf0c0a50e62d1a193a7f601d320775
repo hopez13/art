@@ -22,6 +22,30 @@
       "revId": "368ec01dcdcf0c0a50e62d1a193a7f601d320775",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c2e65528_46a7d219",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1737,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-03-04T11:04:22Z",
+      "side": 1,
+      "message": "The SystemArrayCopy intrinsic makes use of SystemArrayCopyOptimizations, which can cause true to be passed here.\n\nWe are upstreaming SystemArrayCopyChar first as it\u0027s essentially the simpler version. I could remove this parameter(?), but it will be re-added soon by SystemArrayCopy.",
+      "parentUuid": "421d051a_9fea7f54",
+      "range": {
+        "startLine": 1737,
+        "startChar": 69,
+        "endLine": 1737,
+        "endChar": 77
+      },
+      "revId": "368ec01dcdcf0c0a50e62d1a193a7f601d320775",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
