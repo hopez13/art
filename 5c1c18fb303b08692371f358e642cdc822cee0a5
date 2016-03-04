@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e27a7932_a46aea79",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-04T02:05:32Z",
+      "side": 1,
+      "message": "typo here?",
+      "range": {
+        "startLine": 9,
+        "startChar": 52,
+        "endLine": 9,
+        "endChar": 55
+      },
+      "revId": "5c1c18fb303b08692371f358e642cdc822cee0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2e32149_4c6e6302",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1370,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-04T02:05:32Z",
+      "side": 1,
+      "message": "I think this calls GcRoot::Read() with read barrier enabled. Would that cause a crash?\n\nHow about we use unordered_set\u003cmirror::Class*\u003e or something other than ClassTable::ClassSet for new_class_set and avoid the issue of disabling read barriers because these aren\u0027t reachable from GC yet?",
+      "range": {
+        "startLine": 1370,
+        "startChar": 39,
+        "endLine": 1370,
+        "endChar": 43
+      },
+      "revId": "5c1c18fb303b08692371f358e642cdc822cee0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82d1bd8e_d1f4d63b",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1372,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-04T02:05:32Z",
+      "side": 1,
+      "message": "Read\u003ckWithoutReadBarrier\u003e like line 1365?",
+      "range": {
+        "startLine": 1372,
+        "startChar": 28,
+        "endLine": 1372,
+        "endChar": 32
+      },
+      "revId": "5c1c18fb303b08692371f358e642cdc822cee0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2e32149_2c7f9fb3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1375,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-04T02:05:32Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1375,
+        "startChar": 42,
+        "endLine": 1375,
+        "endChar": 46
+      },
+      "revId": "5c1c18fb303b08692371f358e642cdc822cee0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c26bb568_cc6e3fcb",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1377,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-04T02:05:32Z",
+      "side": 1,
+      "message": "Read\u003ckWithoutReadBarrier\u003e like line 1365?",
+      "range": {
+        "startLine": 1377,
+        "startChar": 31,
+        "endLine": 1377,
+        "endChar": 35
+      },
+      "revId": "5c1c18fb303b08692371f358e642cdc822cee0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2b0b90b_25d9363c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1380,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-04T02:05:32Z",
+      "side": 1,
+      "message": "I think this calls GcRoot::Read() with read barrier enabled. Would that cause a crash? I don\u0027t know why this is already a problem as this was in the old code.",
+      "range": {
+        "startLine": 1380,
+        "startChar": 31,
+        "endLine": 1380,
+        "endChar": 49
+      },
+      "revId": "5c1c18fb303b08692371f358e642cdc822cee0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2e32149_ec5db750",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-04T02:05:32Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 1383,
+        "startChar": 32,
+        "endLine": 1383,
+        "endChar": 50
+      },
+      "revId": "5c1c18fb303b08692371f358e642cdc822cee0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02feade5_a3762a64",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1425,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-04T02:05:32Z",
+      "side": 1,
+      "message": "typo?",
+      "range": {
+        "startLine": 1425,
+        "startChar": 3,
+        "endLine": 1425,
+        "endChar": 5
+      },
+      "revId": "5c1c18fb303b08692371f358e642cdc822cee0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a26ec178_e589db14",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1701,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-04T02:05:32Z",
+      "side": 1,
+      "message": "Do we want to disable the read barrier here?",
+      "range": {
+        "startLine": 1701,
+        "startChar": 21,
+        "endLine": 1701,
+        "endChar": 25
+      },
+      "revId": "5c1c18fb303b08692371f358e642cdc822cee0a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
