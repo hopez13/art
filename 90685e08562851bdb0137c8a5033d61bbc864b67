@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a26ec178_ab32d1d1",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1999,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-03-04T21:06:09Z",
+      "side": 1,
+      "message": "Good idea, I will try to do this soon.",
+      "parentUuid": "02cf8da0_916bcb5e",
+      "range": {
+        "startLine": 1998,
+        "startChar": 6,
+        "endLine": 1999,
+        "endChar": 50
+      },
+      "revId": "90685e08562851bdb0137c8a5033d61bbc864b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2e65528_bba1fbd2",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-03-02T15:04:14Z",
       "side": 1,
       "message": "I think delay 1s is too short. For example launch time of Facebook messages is 5.1s, Runkeeper 1.9s. So ClassProfileTask will collect information during app launch for these applications. I know that this task will be executed in separate thread, but we need not additional CPU work during app launch. May be set delay equals to 5s or greater? What do you think?",
+      "range": {
+        "startLine": 3648,
+        "startChar": 63,
+        "endLine": 3648,
+        "endChar": 67
+      },
+      "revId": "90685e08562851bdb0137c8a5033d61bbc864b67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82ea9d1e_2334d7c3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3648,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-03-04T21:06:09Z",
+      "side": 1,
+      "message": "This was doing 1 second delay 5 times, so around 5 seconds. The current logic is 2 seconds but I think 5 seconds is fine.",
+      "parentUuid": "c2e65528_bba1fbd2",
       "range": {
         "startLine": 3648,
         "startChar": 63,
