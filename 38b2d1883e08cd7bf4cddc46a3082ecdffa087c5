@@ -46,6 +46,30 @@
       "revId": "38b2d1883e08cd7bf4cddc46a3082ecdffa087c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e211990a_85d86439",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-04T02:07:34Z",
+      "side": 1,
+      "message": "Sorry, the whole naming scheme is not intuitive at all. To me this reads as \"Rev2 variant of Clz.\" In which case the question would be \"Why is this not protected for R1?\"",
+      "parentUuid": "e2b0b90b_450c428a",
+      "range": {
+        "startLine": 539,
+        "startChar": 10,
+        "endLine": 539,
+        "endChar": 12
+      },
+      "revId": "38b2d1883e08cd7bf4cddc46a3082ecdffa087c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
