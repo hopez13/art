@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82037dbe_c11a58b4",
+        "filename": "compiler/debug/elf_debug_info_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-04T11:55:00Z",
+      "side": 1,
+      "message": "nit: one argument per line.",
+      "range": {
+        "startLine": 245,
+        "startChar": 29,
+        "endLine": 246,
+        "endChar": 66
+      },
+      "revId": "d20c86b7bfae9ade947101e01f34940b11a8dfd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2b16159_f706386c",
+        "filename": "compiler/debug/elf_debug_info_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-04T11:55:00Z",
+      "side": 1,
+      "message": "const (here and all other places).",
+      "range": {
+        "startLine": 440,
+        "startChar": 24,
+        "endLine": 440,
+        "endChar": 27
+      },
+      "revId": "d20c86b7bfae9ade947101e01f34940b11a8dfd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
