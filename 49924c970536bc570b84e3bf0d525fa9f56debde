@@ -22,6 +22,30 @@
       "revId": "49924c970536bc570b84e3bf0d525fa9f56debde",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cf8da0_8afef47d",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-03-04T16:14:33Z",
+      "side": 1,
+      "message": "Hi Aart,\nActually I didn\u0027t run real life Android application to test the performance improvement of this intrinsic.\nI measured the performance on a micro benchmark I wrote in C and assembly, as shown below.\n\nThe \u0027gpr\u0027 version is written according to how ART compiles and generates code from the java implementation of Long.bigCount in libcore.\nThe \u0027neon\u0027 version is the one I used in the intrinsic implementation.\n\nCompared to the \u0027gpr\u0027 version, the \u0027neon\u0027 version is:\n* On A53: 1.9x faster to complete following loop.\n* On A57: 1.5x faster to complete following loop.\n* On A72: 1.3x faster to complete following loop.\n\nSo I guess any application which relies heavily on bitCount should benefit from this neon implementation on ARM64.                                                                        \n\n---------------------------------------\n\nvoid perf_test() {\nfor (int i\u003d0; i\u003c1000000000; i++)\n  {popcount_64_gpr(i);}\n}\n\n\u003cpopcount_64_gpr\u003e:\n  mov x3,#0x3333333333333333\n  mov x2, #0x5555555555555555\n  mov w0, #0x7f\n  and x2, x2, x1, lsr #1\n  sub x1, x1, x2\n  and x2, x1, #0x3333333333333333\n  and x1, x3, x1, lsr #2\n  add x1, x2, x1\n  add x1, x1, x1, lsr #4\n  and x1, x1, #0xf0f0f0f0f0f0f0f\n  add x1, x1, x1, lsr #8\n  add x1, x1, x1, lsr #16\n  add x1, x1, x1, lsr #32\n  and w0, w0, w1\n  ret\n\n\u003cpopcount_64_neon\u003e:\n  fmov d0, x0\n  cnt v0.8b, v0.8b\n  addv b0, v0.8b\n  fmov x0, d0\n  ret",
+      "parentUuid": "82ea9d1e_ec7e698a",
+      "range": {
+        "startLine": 383,
+        "startChar": 5,
+        "endLine": 383,
+        "endChar": 9
+      },
+      "revId": "49924c970536bc570b84e3bf0d525fa9f56debde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
