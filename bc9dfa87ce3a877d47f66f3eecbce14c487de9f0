@@ -46,6 +46,75 @@
       "revId": "bc9dfa87ce3a877d47f66f3eecbce14c487de9f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "620689d1_7dfccf5d",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-04T11:22:44Z",
+      "side": 1,
+      "message": "Could we have that logic somehow in NeedsCurrentMethod.",
+      "range": {
+        "startLine": 549,
+        "startChar": 0,
+        "endLine": 557,
+        "endChar": 44
+      },
+      "revId": "bc9dfa87ce3a877d47f66f3eecbce14c487de9f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82037dbe_61df0c1e",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-04T11:22:44Z",
+      "side": 1,
+      "message": "WillHaveCallFreeIntrinsicsCodeGen?",
+      "range": {
+        "startLine": 223,
+        "startChar": 7,
+        "endLine": 223,
+        "endChar": 27
+      },
+      "revId": "bc9dfa87ce3a877d47f66f3eecbce14c487de9f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "421d051a_3f236b91",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-04T11:22:44Z",
+      "side": 1,
+      "message": "This feels like abusing the intrinsic infrastructure :)\n\nIf that\u0027s how we need to do it please add big comments on the SetLocations(nullptr).\n\nThere\u0027s a lot of side effects going on in both HasIntrinsicsCodeGen and TryDispatch, and we need to be varey careful.",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 17
+      },
+      "revId": "bc9dfa87ce3a877d47f66f3eecbce14c487de9f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
