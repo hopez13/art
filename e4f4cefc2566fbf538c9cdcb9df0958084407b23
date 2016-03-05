@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "57f5c93b_a295e064",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1798,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-05T01:44:14Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "e2b0b90b_c5c177a3",
+      "range": {
+        "startLine": 1798,
+        "startChar": 11,
+        "endLine": 1798,
+        "endChar": 31
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "628f697d_925cfa26",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 4
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "When sharing this code with AllocateInternalWithGc, we would need to pass this in as an extra argument. I\u0027m fine doing that if you prefer.",
       "parentUuid": "628f697d_925cfa26",
+      "range": {
+        "startLine": 1803,
+        "startChar": 50,
+        "endLine": 1803,
+        "endChar": 66
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02214d86_078e58ea",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1803,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-05T01:44:14Z",
+      "side": 1,
+      "message": "Let\u0027s not worry about this.",
+      "parentUuid": "e211990a_884c0319",
       "range": {
         "startLine": 1803,
         "startChar": 50,
@@ -285,6 +333,30 @@
     },
     {
       "key": {
+        "uuid": "57f5c93b_c257c42b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1813,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-05T01:44:14Z",
+      "side": 1,
+      "message": "Let\u0027s not worry about this.",
+      "parentUuid": "a26ec178_316e6202",
+      "range": {
+        "startLine": 1813,
+        "startChar": 41,
+        "endLine": 1813,
+        "endChar": 57
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c2981592_d98cc963",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 4
@@ -367,6 +439,30 @@
       "side": 1,
       "message": "Would it be worth passing a boolean to AllocateInternalWithGc to indicate we are doing native allocation, for the purposes of setting the cause for alloc and better messages?\n\nOr, I could rename the Null allocator to a RegisterNative allocator, and check for that in AllocateInternalWithGc to decide what the cause for alloc is and what to put in messages.\n\nThoughts?",
       "parentUuid": "e2b0b90b_e92a1c74",
+      "range": {
+        "startLine": 1845,
+        "startChar": 16,
+        "endLine": 1845,
+        "endChar": 26
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37fcd52a_1e3ced76",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1845,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-05T01:44:14Z",
+      "side": 1,
+      "message": "Let\u0027s not worry about this. But if you prefer to do it, you\u0027re welcome to.",
+      "parentUuid": "a2e32149_f8790257",
       "range": {
         "startLine": 1845,
         "startChar": 16,
@@ -626,6 +722,30 @@
       "side": 1,
       "message": "To me that seems arbitrary. It ensures the total sum of all users don\u0027t call RegisterNativeFree more than RegisterNativeAlloc was called, but it does nothing to prevent a malicious caller from \"stealing\" native allocation memory from another caller. Perhaps that\u0027s better than nothing. I\u0027ll add the exception back in.",
       "parentUuid": "628f697d_f2ea2655",
+      "range": {
+        "startLine": 3872,
+        "startChar": 0,
+        "endLine": 3874,
+        "endChar": 15
+      },
+      "revId": "e4f4cefc2566fbf538c9cdcb9df0958084407b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e21b5959_03c48eb1",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3874,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-05T01:44:14Z",
+      "side": 1,
+      "message": "Agreed.",
+      "parentUuid": "e211990a_681087de",
       "range": {
         "startLine": 3872,
         "startChar": 0,
