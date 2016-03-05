@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02214d86_e705bc30",
+        "filename": "runtime/gc/collector/semi_space-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-05T00:50:45Z",
+      "side": 1,
+      "message": "How about something like \u003c\u003c \"Tried to mark an object in the to-space \" \u003c\u003c obj \u003c\u003c \" (maybe visiting the same GC root or field more than once)\" or leave such a comment?",
+      "revId": "fe45fabcb727a281c1be0872ac7e194a1f5abc50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
