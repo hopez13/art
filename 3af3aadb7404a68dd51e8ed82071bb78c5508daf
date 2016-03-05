@@ -1,0 +1,199 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37fcd52a_c1fb448c",
+        "filename": "runtime/gc/allocator_type.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-05T01:44:14Z",
+      "side": 1,
+      "message": "Maybe add that kAllocatorTypeNull can be used to check the OOME condition to this comment?",
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f705ddfe_dff55f32",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-05T01:44:14Z",
+      "side": 1,
+      "message": "Is the indentation right here?",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 46
+      },
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97ebc162_a41ccc58",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-05T01:44:14Z",
+      "side": 1,
+      "message": "If all the cases of the switch should return, this is unreachable code? If so, UNREACHABLE()?",
+      "range": {
+        "startLine": 409,
+        "startChar": 2,
+        "endLine": 409,
+        "endChar": 15
+      },
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17f7d148_3d620fa7",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1768,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-05T01:44:14Z",
+      "side": 1,
+      "message": "Returning here would miss the VLOG(heap) below. Return after the VLOG?",
+      "range": {
+        "startLine": 1768,
+        "startChar": 14,
+        "endLine": 1768,
+        "endChar": 25
+      },
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17f7d148_fd94a7bb",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1827,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-05T01:44:14Z",
+      "side": 1,
+      "message": "DCHECK here that results.object_allocated is null?",
+      "range": {
+        "startLine": 1827,
+        "startChar": 2,
+        "endLine": 1827,
+        "endChar": 3
+      },
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e21b5959_c6b8c4f0",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3832,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-05T01:44:14Z",
+      "side": 1,
+      "message": "It\u0027s not universally followed around here, but how about \"/*instrumented*/ false\"?",
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "770bad18_185ac520",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3851,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-05T01:44:14Z",
+      "side": 1,
+      "message": "break -\u003e return? To prevent a malicious caller from affecting num_native_bytes_freed_ever_ and num_bytes_allocated_?",
+      "range": {
+        "startLine": 3851,
+        "startChar": 6,
+        "endLine": 3851,
+        "endChar": 12
+      },
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97ebc162_c448f058",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1202,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-05T01:44:14Z",
+      "side": 1,
+      "message": "I think this should be uint64_t so that we won\u0027t overflow this counter in 32 bit mode. size_t is 32 bit in 32 bit mode.",
+      "range": {
+        "startLine": 1202,
+        "startChar": 9,
+        "endLine": 1202,
+        "endChar": 15
+      },
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57f5c93b_62ceb8aa",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1202,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-05T01:44:14Z",
+      "side": 1,
+      "message": "If we call the above counter \"registered\", would like to call this \"unregistered\"? Up to you.",
+      "range": {
+        "startLine": 1202,
+        "startChar": 17,
+        "endLine": 1202,
+        "endChar": 45
+      },
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
