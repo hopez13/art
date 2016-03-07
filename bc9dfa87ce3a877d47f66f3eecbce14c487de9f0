@@ -211,6 +211,30 @@
       "revId": "bc9dfa87ce3a877d47f66f3eecbce14c487de9f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2222d18a_65762668",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-07T18:12:11Z",
+      "side": 1,
+      "message": "1 sucks :) I actually prefer the current version. Any input from Andreas?",
+      "parentUuid": "17935119_3df6afb0",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 17
+      },
+      "revId": "bc9dfa87ce3a877d47f66f3eecbce14c487de9f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
