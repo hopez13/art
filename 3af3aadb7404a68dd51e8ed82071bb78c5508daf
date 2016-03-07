@@ -111,6 +111,29 @@
     },
     {
       "key": {
+        "uuid": "77672d0f_b8a97957",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2733,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-07T19:35:28Z",
+      "side": 1,
+      "message": "Also, how about we print num_native_bytes_registered_ along with this GC log to make it easier to see how much native bytes are registered?\n\nHere\u0027s an example of the current GC log:\n\n\"Background concurrent mark sweep GC freed 8229(16MB) AllocSpace objects, 0(0B) LOS objects, 15% free, 21MB/25MB, paused 8.393ms total 47.865ms\"\n\nMaybe if 6 MB out of the 21 MB is native bytes, change \"21MB/25MB\" to \"21MB(6MB)/25MB\" or \"21MB/25MB (native:6MB)\" or something along the line?\n\nThere may be an alternative way to export the native bytes.",
+      "range": {
+        "startLine": 2732,
+        "startChar": 47,
+        "endLine": 2733,
+        "endChar": 41
+      },
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e21b5959_c6b8c4f0",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 7
