@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97be618f_6cec93e4",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-03-07T21:58:14Z",
+      "side": 1,
+      "message": "minor nitpick, but I find reusing the same size for different loops a bit unclean.\n\nWhat is wrong with\n\nfor (size_t size \u003d ...., i \u003d 0; i \u003c size; i++)",
+      "range": {
+        "startLine": 560,
+        "startChar": 25,
+        "endLine": 560,
+        "endChar": 26
+      },
+      "revId": "043218069b41d29ef797e3db27599c28a00f6030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
