@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "778e4df1_40a4eed0",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-03-07T17:36:31Z",
+      "side": 1,
+      "message": "I think I prefer std::fill_n, memcpy is easy to get a wrong length if someone changes the type of the array.",
+      "range": {
+        "startLine": 140,
+        "startChar": 6,
+        "endLine": 140,
+        "endChar": 12
+      },
+      "revId": "a1e1bea12bd5199d5e87058464fa021acd6efaab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
