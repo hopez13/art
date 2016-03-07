@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c26575c5_fa400982",
+        "filename": "compiler/debug/elf_debug_writer.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2016-03-07T12:27:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a24de15b_11aa0c9b",
+      "range": {
+        "startLine": 46,
+        "startChar": 51,
+        "endLine": 46,
+        "endChar": 89
+      },
+      "revId": "b4c81da93f9f05c00f4895c6557d85da958f9d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "029a2dee_bc9a018a",
         "filename": "compiler/elf_builder.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-03-04T23:53:29Z",
       "side": 1,
       "message": "Can we just replace all uses of bitmap with \"const InstructionSetFeatures* features\"?\nIt seems to me that we convert always back to features anyway and typed features are more descriptive than \"bitmap\".",
+      "range": {
+        "startLine": 910,
+        "startChar": 2,
+        "endLine": 910,
+        "endChar": 20
+      },
+      "revId": "b4c81da93f9f05c00f4895c6557d85da958f9d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a268819f_990c7b8f",
+        "filename": "compiler/elf_builder.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2016-03-07T12:27:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "029a2dee_bc9a018a",
       "range": {
         "startLine": 910,
         "startChar": 2,
