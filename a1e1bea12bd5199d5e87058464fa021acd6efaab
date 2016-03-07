@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "978741d1_24fe9c52",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-07T20:13:15Z",
+      "side": 1,
+      "message": "Maybe rename this to ClearInlineCacheGcRoots() or something like that to make it clearer that this only clear the classes and not the whole InlineCaches?",
+      "range": {
+        "startLine": 137,
+        "startChar": 7,
+        "endLine": 137,
+        "endChar": 24
+      },
+      "revId": "a1e1bea12bd5199d5e87058464fa021acd6efaab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "778e4df1_40a4eed0",
         "filename": "runtime/jit/profiling_info.h",
         "patchSetId": 2
