@@ -235,6 +235,30 @@
       "revId": "bc9dfa87ce3a877d47f66f3eecbce14c487de9f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37af7563_9abd7dfb",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-08T03:27:45Z",
+      "side": 1,
+      "message": "I am torn. I understand Nicolas - keep this independent. But using the actual dispatch code here is just as ugly. Maybe hide this behind a function to make it look slightly better?",
+      "parentUuid": "2222d18a_65762668",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 17
+      },
+      "revId": "bc9dfa87ce3a877d47f66f3eecbce14c487de9f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
