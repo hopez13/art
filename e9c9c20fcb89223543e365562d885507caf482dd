@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "37f215a8_4eec53b2",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-08T11:55:59Z",
+      "side": 1,
+      "message": "I suppose this is the answer to my question.\nDoes this mean the method is optimized, but vmap_table_offset does not contain CodeInfo but something else?",
+      "range": {
+        "startLine": 770,
+        "startChar": 6,
+        "endLine": 770,
+        "endChar": 60
+      },
+      "revId": "e9c9c20fcb89223543e365562d885507caf482dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5756a946_57ecccb1",
         "filename": "compiler/oat_writer.cc",
         "patchSetId": 1
