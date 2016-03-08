@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "378e9542_4e7c73f9",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1760,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-08T20:39:51Z",
+      "side": 1,
+      "message": "Realign all the \u003c\u003c at the same column (old code issue)?",
+      "range": {
+        "startLine": 1760,
+        "startChar": 18,
+        "endLine": 1760,
+        "endChar": 20
+      },
+      "revId": "f69e14e6bc23471ab94489037e840ed745f26bae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "378e9542_9144be95",
+        "filename": "test/004-NativeAllocations/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-08T20:39:51Z",
+      "side": 1,
+      "message": "Should we also check that a RuntimeException gets thrown here (insert code after line 92 that aborts or print something that would cause the test to fail)?",
+      "range": {
+        "startLine": 92,
+        "startChar": 52,
+        "endLine": 92,
+        "endChar": 53
+      },
+      "revId": "f69e14e6bc23471ab94489037e840ed745f26bae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
