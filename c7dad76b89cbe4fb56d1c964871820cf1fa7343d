@@ -46,6 +46,30 @@
       "revId": "c7dad76b89cbe4fb56d1c964871820cf1fa7343d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37af7563_5ac9459f",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-03-08T03:12:34Z",
+      "side": 1,
+      "message": "Looks plausible.\n\nI would definitely test on +-1/2+-1ulp and +-infinity and NaN.  But I don\u0027t see why it wouldn\u0027t work.",
+      "parentUuid": "37af7563_aff919dd",
+      "range": {
+        "startLine": 950,
+        "startChar": 5,
+        "endLine": 950,
+        "endChar": 35
+      },
+      "revId": "c7dad76b89cbe4fb56d1c964871820cf1fa7343d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
