@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "77080d64_907014aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-03-08T18:01:39Z",
+      "side": 1,
+      "message": "hate to piss on your parade, but this could do with a better commit message.\n\n\"Tweak JIT hotness threshold\" or similar might be better.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "c0f632ebad4c24ffb7c068c0ad357a85233d6add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37af7563_40be3292",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 1
