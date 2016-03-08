@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37af7563_40be3292",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-08T17:52:33Z",
+      "side": 1,
+      "message": "We\u0027ll want to play with this number.  As part of my rework of branch profiling, I\u0027ve changed the hotness counter to be a signed 16-bit int, so threshold would be capped at 32767.  I could go to 32 bits, but that would involve increasing the shadow frame size by 4 bytes.",
+      "revId": "c0f632ebad4c24ffb7c068c0ad357a85233d6add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
