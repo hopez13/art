@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "37af7563_efccf185",
+        "filename": "runtime/gc/allocator_type.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-08T00:36:04Z",
+      "side": 1,
+      "message": "I renamed it kAllocatorTypeRegisterNative and added a comment about OOME.",
+      "parentUuid": "37fcd52a_c1fb448c",
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f705ddfe_dff55f32",
         "filename": "runtime/gc/heap-inl.h",
         "patchSetId": 7
@@ -30,6 +48,30 @@
       "writtenOn": "2016-03-05T01:44:14Z",
       "side": 1,
       "message": "Is the indentation right here?",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 46
+      },
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37af7563_8fc9bd74",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-08T00:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f705ddfe_dff55f32",
       "range": {
         "startLine": 259,
         "startChar": 0,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "37af7563_4fe74501",
+        "filename": "runtime/gc/heap-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-08T00:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97ebc162_a41ccc58",
+      "range": {
+        "startLine": 409,
+        "startChar": 2,
+        "endLine": 409,
+        "endChar": 15
+      },
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17f7d148_3d620fa7",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 7
@@ -76,6 +142,30 @@
       "writtenOn": "2016-03-05T01:44:14Z",
       "side": 1,
       "message": "Returning here would miss the VLOG(heap) below. Return after the VLOG?",
+      "range": {
+        "startLine": 1768,
+        "startChar": 14,
+        "endLine": 1768,
+        "endChar": 25
+      },
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37af7563_4f0e658b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1768,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-08T00:36:04Z",
+      "side": 1,
+      "message": "I moved the VLOG up. One consequence is we won\u0027t get the update to count_delayed_oom_ in this case. Is that acceptable?",
+      "parentUuid": "17f7d148_3d620fa7",
       "range": {
         "startLine": 1768,
         "startChar": 14,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "37af7563_8ffbfd8c",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1827,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-08T00:36:04Z",
+      "side": 1,
+      "message": "In theory we shouldn\u0027t be looking at results.object_allocated unless TryToAllocate returned true, so I would rather not add the DCHECK here.",
+      "parentUuid": "17f7d148_fd94a7bb",
+      "range": {
+        "startLine": 1827,
+        "startChar": 2,
+        "endLine": 1827,
+        "endChar": 3
+      },
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77672d0f_b8a97957",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 7
@@ -122,6 +236,30 @@
       "writtenOn": "2016-03-07T19:35:28Z",
       "side": 1,
       "message": "Also, how about we print num_native_bytes_registered_ along with this GC log to make it easier to see how much native bytes are registered?\n\nHere\u0027s an example of the current GC log:\n\n\"Background concurrent mark sweep GC freed 8229(16MB) AllocSpace objects, 0(0B) LOS objects, 15% free, 21MB/25MB, paused 8.393ms total 47.865ms\"\n\nMaybe if 6 MB out of the 21 MB is native bytes, change \"21MB/25MB\" to \"21MB(6MB)/25MB\" or \"21MB/25MB (native:6MB)\" or something along the line?\n\nThere may be an alternative way to export the native bytes.",
+      "range": {
+        "startLine": 2732,
+        "startChar": 47,
+        "endLine": 2733,
+        "endChar": 41
+      },
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37af7563_6f36c13b",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2733,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-08T00:36:04Z",
+      "side": 1,
+      "message": "\"21MB/25MB (6MB native)\" okay?",
+      "parentUuid": "77672d0f_b8a97957",
       "range": {
         "startLine": 2732,
         "startChar": 47,
@@ -151,6 +289,24 @@
     },
     {
       "key": {
+        "uuid": "37af7563_2f40c97f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3832,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-08T00:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e21b5959_c6b8c4f0",
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "770bad18_185ac520",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 7
@@ -162,6 +318,30 @@
       "writtenOn": "2016-03-05T01:44:14Z",
       "side": 1,
       "message": "break -\u003e return? To prevent a malicious caller from affecting num_native_bytes_freed_ever_ and num_bytes_allocated_?",
+      "range": {
+        "startLine": 3851,
+        "startChar": 6,
+        "endLine": 3851,
+        "endChar": 12
+      },
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37af7563_8f4e9db2",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3851,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-08T00:36:04Z",
+      "side": 1,
+      "message": "Done. And I added a test case to catch this bug.",
+      "parentUuid": "770bad18_185ac520",
       "range": {
         "startLine": 3851,
         "startChar": 6,
@@ -213,6 +393,54 @@
         "startChar": 17,
         "endLine": 1202,
         "endChar": 45
+      },
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37af7563_efd71104",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1202,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-08T00:36:04Z",
+      "side": 1,
+      "message": "I changed \"registered\" above to \"allocated\". I think it makes more sense that way.",
+      "parentUuid": "57f5c93b_62ceb8aa",
+      "range": {
+        "startLine": 1202,
+        "startChar": 17,
+        "endLine": 1202,
+        "endChar": 45
+      },
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37af7563_8fe45df7",
+        "filename": "runtime/gc/heap.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 1202,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-08T00:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97ebc162_c448f058",
+      "range": {
+        "startLine": 1202,
+        "startChar": 9,
+        "endLine": 1202,
+        "endChar": 15
       },
       "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
