@@ -22,6 +22,75 @@
       "revId": "dfab4a1641cf603660c11330a455ecaf133e39ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "570ce9bf_67f9b22e",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1970,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-03-08T23:54:31Z",
+      "side": 1,
+      "message": "It looks like RecordPcInfo() should be moved to after Jalr()\u0026Nop().\nSee https://android-review.googlesource.com/#/c/205382/.",
+      "range": {
+        "startLine": 1968,
+        "startChar": 0,
+        "endLine": 1970,
+        "endChar": 11
+      },
+      "revId": "dfab4a1641cf603660c11330a455ecaf133e39ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "570ce9bf_e70b6208",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 2003,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-03-08T23:54:31Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2001,
+        "startChar": 0,
+        "endLine": 2003,
+        "endChar": 11
+      },
+      "revId": "dfab4a1641cf603660c11330a455ecaf133e39ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "570ce9bf_c7105e33",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 2032,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-03-08T23:54:31Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2030,
+        "startChar": 0,
+        "endLine": 2032,
+        "endChar": 11
+      },
+      "revId": "dfab4a1641cf603660c11330a455ecaf133e39ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
