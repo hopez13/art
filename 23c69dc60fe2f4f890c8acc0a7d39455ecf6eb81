@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "b7fe056e_32d33080",
+        "filename": "runtime/interpreter/mterp/arm/alt_stub.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "REFRESH_IBASE\n\nWhy do we need to do this here? How can the callee-save r8 change?",
+      "range": {
+        "startLine": 8,
+        "startChar": 4,
+        "endLine": 8,
+        "endChar": 84
+      },
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_f261a87e",
+        "filename": "runtime/interpreter/mterp/arm/binopLit8.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "Missing \u0027)\u0027 at end off comment.",
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_72ddb888",
+        "filename": "runtime/interpreter/mterp/arm/binopWide.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "VREG_INDEX_TO_ADDR here and in a lot of other places,\n\n    git grep -E \u0027add.*, rFP, .*, lsl #2\u0027 runtime/interpreter/mterp/arm/",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 54
+      },
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a431f35_2b50795a",
         "filename": "runtime/interpreter/mterp/arm/entry.S",
         "patchSetId": 5
@@ -49,6 +112,98 @@
     },
     {
       "key": {
+        "uuid": "b7fe056e_f29ec8d8",
+        "filename": "runtime/interpreter/mterp/arm/entry.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "Wrong comment, rFP points to vregs.",
+      "range": {
+        "startLine": 50,
+        "startChar": 53,
+        "endLine": 50,
+        "endChar": 100
+      },
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_d272a46e",
+        "filename": "runtime/interpreter/mterp/arm/entry.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "REFRESH_IBASE?",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 57
+      },
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_f2752859",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "REFRESH_IBASE\n\nWhy do we need to do this here? How can the callee-save r8 change?",
+      "range": {
+        "startLine": 103,
+        "startChar": 4,
+        "endLine": 103,
+        "endChar": 57
+      },
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_92781c53",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 118,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 75
+      },
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a3e5b9d_4efeb384",
         "filename": "runtime/interpreter/mterp/arm/header.S",
         "patchSetId": 5
@@ -89,6 +244,126 @@
         "startChar": 17,
         "endLine": 2,
         "endChar": 21
+      },
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_3254d09d",
+        "filename": "runtime/interpreter/mterp/arm/op_const.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "Missing \u0027)\u0027 at end off comments.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 57
+      },
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_1259ccd5",
+        "filename": "runtime/interpreter/mterp/arm/op_const_16.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "Missing \u0027)\u0027 at end off comment.",
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_724e5811",
+        "filename": "runtime/interpreter/mterp/arm/op_const_high16.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "Missing \u0027)\u0027 at end off comment.",
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_525354b3",
+        "filename": "runtime/interpreter/mterp/arm/op_const_string_jumbo.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "Missing \u0027)\u0027 at end off comments.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 57
+      },
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_b2672094",
+        "filename": "runtime/interpreter/mterp/arm/op_const_wide_16.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "Missing \u0027)\u0027 at end off comment.",
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_5267d4b5",
+        "filename": "runtime/interpreter/mterp/arm/op_mul_long.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "You could use `r1, r2` here and in op_mul_long_2addr.S and the r10 would remain free for some other uses. (Maybe it would be useful as rZERO for SET_VREG and CLEAR_SHADOW_PAIR.)",
+      "range": {
+        "startLine": 28,
+        "startChar": 12,
+        "endLine": 28,
+        "endChar": 19
       },
       "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
