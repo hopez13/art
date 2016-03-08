@@ -158,6 +158,29 @@
     },
     {
       "key": {
+        "uuid": "b7fe056e_f2fc08cf",
+        "filename": "runtime/interpreter/mterp/arm/op_cmp_long.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:40:18Z",
+      "side": 1,
+      "message": "Misleading comment, for cmp-long(Long.MIN_VALUE, Long.MAX_VALUE) we would get IP\u003d1 but the result of the comparison should be -1.\n\nOn the other hand, we could do\n\n  cmp r0, r2       // Same CCs as `sub ip, r0, r2`.\n  sbcs ip, r1, r3  // Sets correct CCs for checking LT (but not EQ/NE).\n  mov ip, #0\n  mvnlt ip, #0     // -1\n  cmpeq r0, r2     // For correct EQ/NE, we may need to repeat the first CMP.\n  orrne ip, #1",
+      "range": {
+        "startLine": 9,
+        "startChar": 7,
+        "endLine": 13,
+        "endChar": 35
+      },
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7fe056e_529074c6",
         "filename": "runtime/interpreter/mterp/arm/op_goto.S",
         "patchSetId": 7
