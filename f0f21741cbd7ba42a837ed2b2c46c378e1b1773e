@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7fe056e_b25d6051",
+        "filename": "compiler/elf_writer_quick.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T13:42:27Z",
+      "side": 1,
+      "message": "Forward declaration of InstructionSetFeatures would be enough here.",
+      "revId": "f0f21741cbd7ba42a837ed2b2c46c378e1b1773e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
