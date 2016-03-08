@@ -178,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "378e9542_d1e486f8",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1768,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-08T20:39:51Z",
+      "side": 1,
+      "message": "Not a big deal, but the original code probably intended to print the consistent counter values. How about either adding a bool local variable that saves the return value of TryToAllocate and, if true, returns after the VLOG at the original location, or using an RAII to do the VLOG at the end of the scope ending at line 1793?",
+      "parentUuid": "37af7563_4f0e658b",
+      "range": {
+        "startLine": 1768,
+        "startChar": 14,
+        "endLine": 1768,
+        "endChar": 25
+      },
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17f7d148_fd94a7bb",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 7
@@ -260,6 +284,30 @@
       "side": 1,
       "message": "\"21MB/25MB (6MB native)\" okay?",
       "parentUuid": "77672d0f_b8a97957",
+      "range": {
+        "startLine": 2732,
+        "startChar": 47,
+        "endLine": 2733,
+        "endChar": 41
+      },
+      "revId": "3af3aadb7404a68dd51e8ed82071bb78c5508daf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "378e9542_91a83ea6",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2733,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-03-08T20:39:51Z",
+      "side": 1,
+      "message": "LGTM.",
+      "parentUuid": "37af7563_6f36c13b",
       "range": {
         "startLine": 2732,
         "startChar": 47,
