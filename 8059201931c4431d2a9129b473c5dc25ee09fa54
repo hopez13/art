@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7fe056e_12138cae",
+        "filename": "compiler/debug/elf_debug_line_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-08T10:13:06Z",
+      "side": 1,
+      "message": "Why do we end up here if the method is not native-debuggable?",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 97
+      },
+      "revId": "8059201931c4431d2a9129b473c5dc25ee09fa54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_7208187b",
+        "filename": "compiler/debug/method_debug_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-08T10:13:06Z",
+      "side": 1,
+      "message": "is_native_debuggable",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 20
+      },
+      "revId": "8059201931c4431d2a9129b473c5dc25ee09fa54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
