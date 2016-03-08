@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "378e9542_b1ed3aae",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1637,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-03-08T20:46:22Z",
+      "side": 1,
+      "message": "Hans please check if I picked the right internal barrier for each of the external method calls.",
+      "range": {
+        "startLine": 1637,
+        "startChar": 6,
+        "endLine": 1637,
+        "endChar": 24
+      },
+      "revId": "1193259cb37c9763a111825aa04718a409d07145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
