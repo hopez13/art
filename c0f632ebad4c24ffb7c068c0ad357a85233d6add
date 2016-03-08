@@ -57,6 +57,24 @@
       "revId": "c0f632ebad4c24ffb7c068c0ad357a85233d6add",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_12042cae",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-08T18:07:52Z",
+      "side": 1,
+      "message": "If it makes things simpler to have that threshold to 0xffff or 0x7ffff, then we might as well go with it.",
+      "parentUuid": "37af7563_60600ee0",
+      "revId": "c0f632ebad4c24ffb7c068c0ad357a85233d6add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
