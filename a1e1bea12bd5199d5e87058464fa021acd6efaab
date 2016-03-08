@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d761b920_73d000c8",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-08T14:46:03Z",
+      "side": 1,
+      "message": "Good point. Changed to ClearGcRootsInInlineCaches.",
+      "parentUuid": "978741d1_24fe9c52",
+      "range": {
+        "startLine": 137,
+        "startChar": 7,
+        "endLine": 137,
+        "endChar": 24
+      },
+      "revId": "a1e1bea12bd5199d5e87058464fa021acd6efaab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "778e4df1_40a4eed0",
         "filename": "runtime/jit/profiling_info.h",
         "patchSetId": 2
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "OK, let me try that.",
       "parentUuid": "778e4df1_40a4eed0",
+      "range": {
+        "startLine": 140,
+        "startChar": 6,
+        "endLine": 140,
+        "endChar": 12
+      },
+      "revId": "a1e1bea12bd5199d5e87058464fa021acd6efaab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_d2c0e4f6",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-08T14:46:03Z",
+      "side": 1,
+      "message": "Actually, this is not working with containers.",
+      "parentUuid": "e26d19b5_b36f988c",
       "range": {
         "startLine": 140,
         "startChar": 6,
