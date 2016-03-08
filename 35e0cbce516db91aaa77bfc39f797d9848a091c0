@@ -22,6 +22,30 @@
       "revId": "35e0cbce516db91aaa77bfc39f797d9848a091c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97d581d1_11b40c47",
+        "filename": "test/530-checker-lse/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-03-08T07:08:09Z",
+      "side": 0,
+      "message": "That\u0027s not related to this change. I just simplified the testcase. I think that line was added when HNewInstance has a hidden HClinitCheck. Now the HClinitCHeck is explicit.",
+      "parentUuid": "97be618f_4c318f40",
+      "range": {
+        "startLine": 154,
+        "startChar": 17,
+        "endLine": 154,
+        "endChar": 20
+      },
+      "revId": "35e0cbce516db91aaa77bfc39f797d9848a091c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
