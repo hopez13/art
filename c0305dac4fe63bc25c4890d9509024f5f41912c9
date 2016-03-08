@@ -22,6 +22,30 @@
       "revId": "c0305dac4fe63bc25c4890d9509024f5f41912c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_9222dc99",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2548,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-08T15:17:43Z",
+      "side": 1,
+      "message": "Before as in \"in the past\".\n\nThe symbolizer creates a copy of the given oat file with symbols added into it.\nDue to oversight we would copy 64-bit ELF file into 32-bit ELF file.\nAs far as my git archaeology tells me this was always the case.\nI have touched this file many times, and have never noticed.  I feel bad.",
+      "parentUuid": "b7fe056e_1236ec39",
+      "range": {
+        "startLine": 2548,
+        "startChar": 27,
+        "endLine": 2548,
+        "endChar": 33
+      },
+      "revId": "c0305dac4fe63bc25c4890d9509024f5f41912c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
