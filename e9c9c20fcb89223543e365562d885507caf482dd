@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5756a946_57ecccb1",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-08T11:50:01Z",
+      "side": 1,
+      "message": "I have noticed some methods can have code size \u003d\u003d 0.\nIs that expected?",
+      "range": {
+        "startLine": 822,
+        "startChar": 28,
+        "endLine": 822,
+        "endChar": 66
+      },
+      "revId": "e9c9c20fcb89223543e365562d885507caf482dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7fe056e_92fe5c7d",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 1
@@ -13,6 +36,30 @@
       "writtenOn": "2016-03-08T10:15:29Z",
       "side": 1,
       "message": "how about true",
+      "range": {
+        "startLine": 929,
+        "startChar": 24,
+        "endLine": 932,
+        "endChar": 45
+      },
+      "revId": "e9c9c20fcb89223543e365562d885507caf482dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7fb1d84_ecc9cb73",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 932,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-08T11:50:01Z",
+      "side": 1,
+      "message": "Right! This is optimizing_compiler.cc after all.",
+      "parentUuid": "b7fe056e_92fe5c7d",
       "range": {
         "startLine": 929,
         "startChar": 24,
