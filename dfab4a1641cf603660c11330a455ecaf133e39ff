@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7fe056e_323210ef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-08T15:12:31Z",
+      "side": 1,
+      "message": "- java.lang.StringFactory.newStringFromBytes(byte[] data, int high, int offset, int byteCount)\n- java.lang.StringFactory.newStringFromChars(int offset, int charCount, char[] data)\n- java.lang.StringFactory.newStringFromString(String toCopy)",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 42
+      },
+      "revId": "dfab4a1641cf603660c11330a455ecaf133e39ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
