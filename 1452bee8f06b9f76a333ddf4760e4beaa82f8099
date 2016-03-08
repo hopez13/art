@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "b7fe056e_b251e0db",
+        "filename": "runtime/interpreter/mterp/arm/fbinop2addr.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "UBFX r9, rINST, #8, #4",
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_924e5c3b",
+        "filename": "runtime/interpreter/mterp/arm/fbinopWide2addr.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "UBFX r9, rINST, #8, #4",
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e727e6f2_4a76f36f",
         "filename": "runtime/interpreter/mterp/arm/footer.S",
         "patchSetId": 7
@@ -67,6 +101,143 @@
         "endLine": 149,
         "endChar": 24
       },
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_f24b6829",
+        "filename": "runtime/interpreter/mterp/arm/funop.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "UBFX r9, rINST, #8, #4",
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_d248e42f",
+        "filename": "runtime/interpreter/mterp/arm/funopNarrower.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "UBFX r9, rINST, #8, #4",
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_32817080",
+        "filename": "runtime/interpreter/mterp/arm/funopWider.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "UBFX r9, rINST, #8, #4",
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_529074c6",
+        "filename": "runtime/interpreter/mterp/arm/op_goto.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "We\u0027re already using UBFX for many other ops, so there\u0027s no reason to avoid SBFX here.",
+      "range": {
+        "startLine": 8,
+        "startChar": 4,
+        "endLine": 8,
+        "endChar": 43
+      },
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_b29440bb",
+        "filename": "runtime/interpreter/mterp/arm/op_goto.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "SBFX+ADDS, even the comment says that the ADD sets flags.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 69
+      },
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_92913ccb",
+        "filename": "runtime/interpreter/mterp/arm/op_goto.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 69
+      },
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7fe056e_1286ec97",
+        "filename": "runtime/interpreter/mterp/arm/op_instance_of.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T18:03:16Z",
+      "side": 1,
+      "message": "UBFX r9, rINST, #8, #4",
       "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
