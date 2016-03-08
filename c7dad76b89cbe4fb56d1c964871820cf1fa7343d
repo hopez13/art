@@ -22,6 +22,30 @@
       "revId": "c7dad76b89cbe4fb56d1c964871820cf1fa7343d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37af7563_aff919dd",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-03-08T00:55:37Z",
+      "side": 1,
+      "message": "Yeah, I think it should be done simlar to this (except for the rounding direction for negative half-way values):\n\nhttps://github.com/freebsd/freebsd/blob/master/lib/msun/src/s_round.c\n\nSomething like this?:\n\n    long round(double x)\n    {\n      double t;\n      if (x \u003e\u003d 0)\n      {\n        t \u003d floor(x);\n        if (x - t \u003e\u003d 0.5)\n          t +\u003d 1;\n      }\n      else\n      {\n        t \u003d ceil(x);\n        if (t - x \u003e 0.5)\n          t -\u003d 1;\n      }\n      return (long)t;\n    }",
+      "parentUuid": "37af7563_2caf77c8",
+      "range": {
+        "startLine": 950,
+        "startChar": 5,
+        "endLine": 950,
+        "endChar": 35
+      },
+      "revId": "c7dad76b89cbe4fb56d1c964871820cf1fa7343d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
