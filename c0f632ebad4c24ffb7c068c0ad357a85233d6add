@@ -16,6 +16,24 @@
       "revId": "c0f632ebad4c24ffb7c068c0ad357a85233d6add",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37af7563_60600ee0",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-08T18:00:23Z",
+      "side": 1,
+      "message": "On second thought, I can deal with this as-is.  To speed up branch profiling, I\u0027m caching a countdown value - and that\u0027s what\u0027s limited to signed 16-bits.  The actual threshold can be as large as you want - I\u0027ll just do updates in no-larger-than 16-bit batches.",
+      "parentUuid": "37af7563_40be3292",
+      "revId": "c0f632ebad4c24ffb7c068c0ad357a85233d6add",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
