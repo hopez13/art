@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7fb1d84_aca863a5",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-08T09:15:33Z",
+      "side": 1,
+      "message": "Use `HasCurrentMethodInput()` and change the comment below accordingly.",
+      "range": {
+        "startLine": 551,
+        "startChar": 57,
+        "endLine": 551,
+        "endChar": 74
+      },
+      "revId": "589c124f7b2eb8620b6b33ab51d480d5a71a7ed3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
