@@ -46,6 +46,30 @@
       "revId": "c0305dac4fe63bc25c4890d9509024f5f41912c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37af7563_b5108adb",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2548,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-08T15:55:53Z",
+      "side": 1,
+      "message": "The comment isn\u0027t about oatdump\u0027s past. It\u0027s about the OatWriter/ElfBuilder\u0027s past...",
+      "parentUuid": "b7fe056e_9222dc99",
+      "range": {
+        "startLine": 2548,
+        "startChar": 27,
+        "endLine": 2548,
+        "endChar": 33
+      },
+      "revId": "c0305dac4fe63bc25c4890d9509024f5f41912c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
