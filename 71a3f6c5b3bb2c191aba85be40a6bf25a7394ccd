@@ -46,6 +46,30 @@
       "revId": "71a3f6c5b3bb2c191aba85be40a6bf25a7394ccd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3776954b_eec0ff4c",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1467,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2016-03-09T08:49:02Z",
+      "side": 1,
+      "message": "When I put kNoOutputOverlap then DCHECK(!invoke_-\u003eGetLocations()-\u003eGetLiveRegisters()-\u003eContainsCoreRegister(out.reg())) fails (line 125). I doubt that is wise to remove this DCHECK? On the other hand, ARM64 uses kOutputOverlap in similar scenario.",
+      "parentUuid": "37af7563_80b42ab2",
+      "range": {
+        "startLine": 1467,
+        "startChar": 60,
+        "endLine": 1467,
+        "endChar": 74
+      },
+      "revId": "71a3f6c5b3bb2c191aba85be40a6bf25a7394ccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
