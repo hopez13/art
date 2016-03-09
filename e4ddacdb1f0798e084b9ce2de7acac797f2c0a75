@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "570ce9bf_81aecef7",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1739,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-03-09T18:33:55Z",
+      "side": 0,
+      "message": "heads up: in b/26327751 we decided we may implement these two rounding intrinsics in the HIR (so that we get efficient implementations on all architectures)",
+      "range": {
+        "startLine": 1739,
+        "startChar": 39,
+        "endLine": 1739,
+        "endChar": 40
+      },
+      "revId": "e4ddacdb1f0798e084b9ce2de7acac797f2c0a75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
