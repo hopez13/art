@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37313583_5620b483",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-09T15:43:17Z",
+      "side": 1,
+      "message": "Well if you want to be precise, not always. I think that due to the set up environment the test should generally load it at the right address.  But I am happy with removing the dump as it is expected behavior on host in many cases.",
+      "range": {
+        "startLine": 172,
+        "startChar": 12,
+        "endLine": 172,
+        "endChar": 18
+      },
+      "revId": "7a0b0567ba68ee40a342563ebbcc5344515e77fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
