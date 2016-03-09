@@ -45,6 +45,30 @@
       "revId": "f738b378c38129b101dd09d760574b6c4299059b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "570ce9bf_d67daa8e",
+        "filename": "compiler/image_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-09T16:26:54Z",
+      "side": 1,
+      "message": "Because Optimizing with the default values is significantly slower than Quick (but I need the default values for the determinism test). I\u0027d like to avoid slowing down test-art-host.\n\nI was thinking 4 was OK as a compromise for the devices with more cores. :-) I\u0027ll change it to the default 2.",
+      "parentUuid": "37313583_f61c60af",
+      "range": {
+        "startLine": 52,
+        "startChar": 59,
+        "endLine": 52,
+        "endChar": 84
+      },
+      "revId": "f738b378c38129b101dd09d760574b6c4299059b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
