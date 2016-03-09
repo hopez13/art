@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "570ce9bf_bcd21547",
+        "filename": "runtime/interpreter/mterp/arm/alt_stub.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-09T22:47:39Z",
+      "side": 1,
+      "message": "This is the Dalvik interpreter switch mechanism.  Dalvik\u0027s mterp used this to avoid having to do any polling-style suspend checks or debugger/profiler attach/detach checks.  Instead, when a suspend was requested or debugger/profiler state changed, the requesting thread would walk the thread list and set the current ibase to the alternate mterp table.  The ibase refresh needs to happen at suspend points (but could happen elsewhere).  When set to the alternate ibase, control goes to this handler, which also calls out to MterpCheckBefore() to handle the uncommon cases (such as doing a suspend or switching to the full debug interpreter).\n\nArt\u0027s mterp is currently only using the alternate interpreter mechanism for development debugging \u0026 tracing, but we will be rolling to it for suspend and debugger checks in a future release.  Eliminating the polling-style suspend and debugger checks is a significant win.\n\nWhen I implemented this in Dalvik years ago, though, it was a little tricky because this ibase rewrite happens without threads being stopped.  It took a while to get it right, so I thought it best to start with the safe and slow polling mechanism.  I do expect to go there, though.",
+      "parentUuid": "b7fe056e_32d33080",
+      "range": {
+        "startLine": 8,
+        "startChar": 4,
+        "endLine": 8,
+        "endChar": 84
+      },
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7fe056e_f261a87e",
         "filename": "runtime/interpreter/mterp/arm/binopLit8.S",
         "patchSetId": 5
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "570ce9bf_7ca37d79",
+        "filename": "runtime/interpreter/mterp/arm/binopLit8.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-09T22:47:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7fe056e_f261a87e",
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7fe056e_72ddb888",
         "filename": "runtime/interpreter/mterp/arm/binopWide.S",
         "patchSetId": 5
@@ -53,6 +95,30 @@
       "writtenOn": "2016-03-08T18:03:16Z",
       "side": 1,
       "message": "VREG_INDEX_TO_ADDR here and in a lot of other places,\n\n    git grep -E \u0027add.*, rFP, .*, lsl #2\u0027 runtime/interpreter/mterp/arm/",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 54
+      },
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "570ce9bf_d09ecd7c",
+        "filename": "runtime/interpreter/mterp/arm/binopWide.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-09T22:47:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7fe056e_72ddb888",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -135,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "570ce9bf_30b08906",
+        "filename": "runtime/interpreter/mterp/arm/entry.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-09T22:47:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7fe056e_f29ec8d8",
+      "range": {
+        "startLine": 50,
+        "startChar": 53,
+        "endLine": 50,
+        "endChar": 100
+      },
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7fe056e_d272a46e",
         "filename": "runtime/interpreter/mterp/arm/entry.S",
         "patchSetId": 5
@@ -146,6 +236,30 @@
       "writtenOn": "2016-03-08T18:03:16Z",
       "side": 1,
       "message": "REFRESH_IBASE?",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 57
+      },
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "570ce9bf_f0c0b14c",
+        "filename": "runtime/interpreter/mterp/arm/entry.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-09T22:47:39Z",
+      "side": 1,
+      "message": "see other rIBASE comment.",
+      "parentUuid": "b7fe056e_d272a46e",
       "range": {
         "startLine": 58,
         "startChar": 4,
@@ -181,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "570ce9bf_90d05517",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-09T22:47:39Z",
+      "side": 1,
+      "message": "See other rIBASE comment.",
+      "parentUuid": "b7fe056e_f2752859",
+      "range": {
+        "startLine": 103,
+        "startChar": 4,
+        "endLine": 103,
+        "endChar": 57
+      },
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7fe056e_92781c53",
         "filename": "runtime/interpreter/mterp/arm/footer.S",
         "patchSetId": 5
@@ -192,6 +330,30 @@
       "writtenOn": "2016-03-08T18:03:16Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 118,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 75
+      },
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "570ce9bf_50cadd68",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-09T22:47:39Z",
+      "side": 1,
+      "message": "See other rIBASE comment.",
+      "parentUuid": "b7fe056e_92781c53",
       "range": {
         "startLine": 118,
         "startChar": 4,
@@ -274,6 +436,30 @@
     },
     {
       "key": {
+        "uuid": "570ce9bf_30e2c9ea",
+        "filename": "runtime/interpreter/mterp/arm/op_const.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-09T22:47:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7fe056e_3254d09d",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 57
+      },
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7fe056e_1259ccd5",
         "filename": "runtime/interpreter/mterp/arm/op_const_16.S",
         "patchSetId": 5
@@ -291,6 +477,24 @@
     },
     {
       "key": {
+        "uuid": "570ce9bf_b00c798e",
+        "filename": "runtime/interpreter/mterp/arm/op_const_16.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-09T22:47:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7fe056e_1259ccd5",
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7fe056e_724e5811",
         "filename": "runtime/interpreter/mterp/arm/op_const_high16.S",
         "patchSetId": 5
@@ -302,6 +506,24 @@
       "writtenOn": "2016-03-08T18:03:16Z",
       "side": 1,
       "message": "Missing \u0027)\u0027 at end off comment.",
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "570ce9bf_70ff217b",
+        "filename": "runtime/interpreter/mterp/arm/op_const_high16.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-09T22:47:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7fe056e_724e5811",
       "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -331,6 +553,30 @@
     },
     {
       "key": {
+        "uuid": "570ce9bf_10310542",
+        "filename": "runtime/interpreter/mterp/arm/op_const_string_jumbo.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-09T22:47:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7fe056e_525354b3",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 57
+      },
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7fe056e_b2672094",
         "filename": "runtime/interpreter/mterp/arm/op_const_wide_16.S",
         "patchSetId": 5
@@ -348,6 +594,24 @@
     },
     {
       "key": {
+        "uuid": "570ce9bf_b03fd90b",
+        "filename": "runtime/interpreter/mterp/arm/op_const_wide_16.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-09T22:47:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7fe056e_b2672094",
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7fe056e_5267d4b5",
         "filename": "runtime/interpreter/mterp/arm/op_mul_long.S",
         "patchSetId": 5
@@ -359,6 +623,30 @@
       "writtenOn": "2016-03-08T18:03:16Z",
       "side": 1,
       "message": "You could use `r1, r2` here and in op_mul_long_2addr.S and the r10 would remain free for some other uses. (Maybe it would be useful as rZERO for SET_VREG and CLEAR_SHADOW_PAIR.)",
+      "range": {
+        "startLine": 28,
+        "startChar": 12,
+        "endLine": 28,
+        "endChar": 19
+      },
+      "revId": "23c69dc60fe2f4f890c8acc0a7d39455ecf6eb81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "570ce9bf_10dd85fa",
+        "filename": "runtime/interpreter/mterp/arm/op_mul_long.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-09T22:47:39Z",
+      "side": 1,
+      "message": "Yes, thanks (and it looks like lr is available as a temp here as well).  Might find more value using r10 as the branch profiling countdown register.  I\u0027ll add a TUNING comment here for now and revisit.",
+      "parentUuid": "b7fe056e_5267d4b5",
       "range": {
         "startLine": 28,
         "startChar": 12,
