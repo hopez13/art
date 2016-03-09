@@ -22,6 +22,30 @@
       "revId": "5a862ccead6ef517ed145075ee4d83f04a96a6df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37313583_f6e9c064",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-09T15:11:22Z",
+      "side": 1,
+      "message": "So does code_size \u003d\u003d 0 mean?  How come we can produce no code?\nIs my assumption that vmap_table is then reused for something else and does not hold CodeInfo correct?",
+      "parentUuid": "37313583_36aad84b",
+      "range": {
+        "startLine": 811,
+        "startChar": 61,
+        "endLine": 811,
+        "endChar": 75
+      },
+      "revId": "5a862ccead6ef517ed145075ee4d83f04a96a6df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
