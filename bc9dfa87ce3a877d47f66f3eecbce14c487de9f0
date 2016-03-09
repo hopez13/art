@@ -283,6 +283,30 @@
       "revId": "bc9dfa87ce3a877d47f66f3eecbce14c487de9f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "570ce9bf_76aefefa",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-03-09T17:15:22Z",
+      "side": 1,
+      "message": "Andreas? Can you please comment whether this suffices?\nThis is my \"last\" N bug that I would like to squash!",
+      "parentUuid": "37af7563_c02222e9",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 17
+      },
+      "revId": "bc9dfa87ce3a877d47f66f3eecbce14c487de9f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
