@@ -181,6 +181,30 @@
     },
     {
       "key": {
+        "uuid": "570ce9bf_f0e9d164",
+        "filename": "runtime/interpreter/mterp/arm/op_cmp_long.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-09T22:47:39Z",
+      "side": 1,
+      "message": "Very nice!  Done.",
+      "parentUuid": "b7fe056e_f2fc08cf",
+      "range": {
+        "startLine": 9,
+        "startChar": 7,
+        "endLine": 13,
+        "endChar": 35
+      },
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7fe056e_529074c6",
         "filename": "runtime/interpreter/mterp/arm/op_goto.S",
         "patchSetId": 7
@@ -192,6 +216,30 @@
       "writtenOn": "2016-03-08T18:03:16Z",
       "side": 1,
       "message": "We\u0027re already using UBFX for many other ops, so there\u0027s no reason to avoid SBFX here.",
+      "range": {
+        "startLine": 8,
+        "startChar": 4,
+        "endLine": 8,
+        "endChar": 43
+      },
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "570ce9bf_70284164",
+        "filename": "runtime/interpreter/mterp/arm/op_goto.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-09T22:47:39Z",
+      "side": 1,
+      "message": "Done, and also in op_const_4.S.",
+      "parentUuid": "b7fe056e_529074c6",
       "range": {
         "startLine": 8,
         "startChar": 4,
@@ -227,6 +275,30 @@
     },
     {
       "key": {
+        "uuid": "570ce9bf_105ea5ef",
+        "filename": "runtime/interpreter/mterp/arm/op_goto.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-09T22:47:39Z",
+      "side": 1,
+      "message": "Fixed in later CL, but since rewritten.",
+      "parentUuid": "b7fe056e_b29440bb",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 69
+      },
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7fe056e_92913ccb",
         "filename": "runtime/interpreter/mterp/arm/op_goto.S",
         "patchSetId": 7
@@ -250,6 +322,30 @@
     },
     {
       "key": {
+        "uuid": "570ce9bf_d057edce",
+        "filename": "runtime/interpreter/mterp/arm/op_goto.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-09T22:47:39Z",
+      "side": 1,
+      "message": "Fixed in later CL, but since rewritten.",
+      "parentUuid": "b7fe056e_92913ccb",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 69
+      },
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7fe056e_1286ec97",
         "filename": "runtime/interpreter/mterp/arm/op_instance_of.S",
         "patchSetId": 7
@@ -261,6 +357,24 @@
       "writtenOn": "2016-03-08T18:03:16Z",
       "side": 1,
       "message": "UBFX r9, rINST, #8, #4",
+      "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "570ce9bf_70aba1e9",
+        "filename": "runtime/interpreter/mterp/arm/op_instance_of.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-09T22:47:39Z",
+      "side": 1,
+      "message": "done.  Also: fbinop2addr.S, fbinopWid2addr.S, funopNarrower.S, funop.S,",
+      "parentUuid": "b7fe056e_1286ec97",
       "revId": "1452bee8f06b9f76a333ddf4760e4beaa82f8099",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
