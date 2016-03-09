@@ -70,6 +70,30 @@
       "revId": "71a3f6c5b3bb2c191aba85be40a6bf25a7394ccd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37313583_76429089",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1467,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-09T11:04:02Z",
+      "side": 1,
+      "message": "Oh yes, the inputs will be considered live at that instruction and restored. And will overwrite the output with kNoOutputOverlap.\n\nYou can add this as a comment or, remove the kOutputOverlap, that\u0027s the default.",
+      "parentUuid": "3776954b_eec0ff4c",
+      "range": {
+        "startLine": 1467,
+        "startChar": 60,
+        "endLine": 1467,
+        "endChar": 74
+      },
+      "revId": "71a3f6c5b3bb2c191aba85be40a6bf25a7394ccd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
