@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "37313583_1658fc5b",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1479,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-09T12:08:39Z",
+      "side": 1,
+      "message": "You can drop this; we haven\u0027t implemented read barrier support on MIPS yet.",
+      "range": {
+        "startLine": 1479,
+        "startChar": 18,
+        "endLine": 1479,
+        "endChar": 45
+      },
+      "revId": "e1099d3c64673263b66434a91870a41421854c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37313583_3655f822",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1501,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-09T12:08:39Z",
+      "side": 1,
+      "message": "\u003c\u003c type",
+      "revId": "e1099d3c64673263b66434a91870a41421854c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "570ce9bf_b0823ec1",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 1
@@ -25,6 +65,29 @@
     },
     {
       "key": {
+        "uuid": "37313583_d6dcc400",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1525,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-09T12:08:39Z",
+      "side": 1,
+      "message": "You can convert this to a simple `else` (and drop lines 1534–1537) as you already made the test on lines 1500–1501.",
+      "range": {
+        "startLine": 1525,
+        "startChar": 4,
+        "endLine": 1525,
+        "endChar": 76
+      },
+      "revId": "e1099d3c64673263b66434a91870a41421854c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "570ce9bf_10946af5",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 1
@@ -41,6 +104,69 @@
         "startChar": 5,
         "endLine": 1536,
         "endChar": 20
+      },
+      "revId": "e1099d3c64673263b66434a91870a41421854c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37313583_96e64cd1",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1612,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-09T12:08:39Z",
+      "side": 1,
+      "message": "\u003c\u003c type",
+      "revId": "e1099d3c64673263b66434a91870a41421854c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37313583_76ee10aa",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1618,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-09T12:08:39Z",
+      "side": 1,
+      "message": "Move to line 1625.",
+      "range": {
+        "startLine": 1618,
+        "startChar": 2,
+        "endLine": 1618,
+        "endChar": 17
+      },
+      "revId": "e1099d3c64673263b66434a91870a41421854c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37313583_16fb1c67",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1653,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-09T12:08:39Z",
+      "side": 1,
+      "message": "Replace with\n\n  locations-\u003eInAt(3).AsRegister\u003cRegister\u003e()\n\nto make up for the removal of `value` on line 1618.",
+      "range": {
+        "startLine": 1653,
+        "startChar": 30,
+        "endLine": 1653,
+        "endChar": 35
       },
       "revId": "e1099d3c64673263b66434a91870a41421854c2e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
