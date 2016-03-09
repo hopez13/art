@@ -46,6 +46,30 @@
       "revId": "5a862ccead6ef517ed145075ee4d83f04a96a6df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17719153_4df9192e",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-09T15:15:54Z",
+      "side": 1,
+      "message": "That\u0027s the quickened map when we quicken dex opcodes.",
+      "parentUuid": "37313583_f6e9c064",
+      "range": {
+        "startLine": 811,
+        "startChar": 61,
+        "endLine": 811,
+        "endChar": 75
+      },
+      "revId": "5a862ccead6ef517ed145075ee4d83f04a96a6df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
