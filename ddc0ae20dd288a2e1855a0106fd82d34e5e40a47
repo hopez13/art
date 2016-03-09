@@ -46,6 +46,30 @@
       "revId": "ddc0ae20dd288a2e1855a0106fd82d34e5e40a47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37313583_d63604ca",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5769,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-09T15:59:46Z",
+      "side": 1,
+      "message": "Do you anticipate this to be used in future? If so, add the tests, otherwise just remove it and change LocationsBuilderARM::VisitBitwiseNegatedRight() to simply require registers.",
+      "parentUuid": "77172dd9_f87d318e",
+      "range": {
+        "startLine": 5768,
+        "startChar": 54,
+        "endLine": 5769,
+        "endChar": 25
+      },
+      "revId": "ddc0ae20dd288a2e1855a0106fd82d34e5e40a47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
