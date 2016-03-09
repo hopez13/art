@@ -70,6 +70,30 @@
       "revId": "5a862ccead6ef517ed145075ee4d83f04a96a6df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37313583_769290cf",
+        "filename": "compiler/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-09T16:39:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17719153_4df9192e",
+      "range": {
+        "startLine": 811,
+        "startChar": 61,
+        "endLine": 811,
+        "endChar": 75
+      },
+      "revId": "5a862ccead6ef517ed145075ee4d83f04a96a6df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
