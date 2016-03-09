@@ -22,6 +22,30 @@
       "revId": "ddc0ae20dd288a2e1855a0106fd82d34e5e40a47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77172dd9_f87d318e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5769,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-03-09T15:54:41Z",
+      "side": 1,
+      "message": "We could exercise it with manual tests.",
+      "parentUuid": "37313583_360098e4",
+      "range": {
+        "startLine": 5768,
+        "startChar": 54,
+        "endLine": 5769,
+        "endChar": 25
+      },
+      "revId": "ddc0ae20dd288a2e1855a0106fd82d34e5e40a47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
