@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "570ce9bf_5f1426cf",
+        "filename": "dex2oat/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003981
+      },
+      "writtenOn": "2016-03-10T01:42:59Z",
+      "side": 1,
+      "message": "A LOCAL variable here doesn\u0027t work. It will he cleared by $(CLEAR_VARS) in build-art-executable.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 23
+      },
+      "revId": "3d4d91109ce207ef2149d4f3fd7c5828c00a56f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
