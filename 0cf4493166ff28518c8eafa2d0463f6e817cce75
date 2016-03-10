@@ -213,6 +213,30 @@
       "revId": "0cf4493166ff28518c8eafa2d0463f6e817cce75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37313583_f69f8088",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1626,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2016-03-10T08:27:37Z",
+      "side": 1,
+      "message": "Please, do not emit extra NOPs. The debug line info can be used not only for debugging with gdb or lldb, but for low-level profiling with tools like the linux perf, Streamline or VTune. The extra NOPs might affect performance dramatically. Is it so important to have a distinct debugging PcInfo record if we have already put one at the same place? I suggest that in such cases we just omit the PcInfo for the sake of keeping the generated code as if it is not native-debuggable.\nIf you agree, I will prepare a simple patch.",
+      "parentUuid": "8a68ef71_2a9cbf2c",
+      "range": {
+        "startLine": 1626,
+        "startChar": 0,
+        "endLine": 1626,
+        "endChar": 49
+      },
+      "revId": "0cf4493166ff28518c8eafa2d0463f6e817cce75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
