@@ -142,6 +142,30 @@
       "revId": "039eaee1df168985cc24ceb5c3852df095d7b23d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37313583_b9f33b4f",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2520,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-10T17:07:26Z",
+      "side": 1,
+      "message": "The other two options are:\n - do not add extra option, and just change --symbolize to omit .text and .rodata.\n - add another option which modifies the behavior of --symbolize. In which case the question is what the default should be and how it should be called.\n\nBoth of those kind of depend on how and if the --symbolize is used. I do not know the answer to that so I went along non-intrusive path.",
+      "parentUuid": "37313583_39464b4a",
+      "range": {
+        "startLine": 2520,
+        "startChar": 37,
+        "endLine": 2520,
+        "endChar": 56
+      },
+      "revId": "039eaee1df168985cc24ceb5c3852df095d7b23d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
