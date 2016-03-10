@@ -94,6 +94,30 @@
       "revId": "2048b01dfec8877d672a4da41a158f68b12b5337",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37313583_39172b25",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-10T17:35:43Z",
+      "side": 0,
+      "message": "Actually, some are already there. I just forgot about them. See 552-checker-sharpening.",
+      "parentUuid": "37313583_791da344",
+      "range": {
+        "startLine": 23,
+        "startChar": 7,
+        "endLine": 23,
+        "endChar": 31
+      },
+      "revId": "2048b01dfec8877d672a4da41a158f68b12b5337",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
