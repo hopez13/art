@@ -22,6 +22,29 @@
       "revId": "620776b3bf840246c50c21a0261259d42aafd8a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37313583_d9ae3765",
+        "filename": "compiler/optimizing/pc_relative_fixups_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-10T15:07:37Z",
+      "side": 1,
+      "message": "Also please add that you assume creating the locations is the only side effect of calling the locations builder.",
+      "range": {
+        "startLine": 228,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 73
+      },
+      "revId": "620776b3bf840246c50c21a0261259d42aafd8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
