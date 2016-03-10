@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37313583_598d47ef",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-10T16:19:26Z",
+      "side": 1,
+      "message": "I think this only applies to the app, we currently don\u0027t propagate the debuggable information of boot.oat.",
+      "range": {
+        "startLine": 627,
+        "startChar": 7,
+        "endLine": 627,
+        "endChar": 30
+      },
+      "revId": "8fa19398d579db1db0cd0c23505a6a72caa7a612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
