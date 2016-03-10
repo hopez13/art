@@ -261,6 +261,30 @@
       "revId": "0cf4493166ff28518c8eafa2d0463f6e817cce75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5706a9d0_f7076068",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1626,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2016-03-10T10:01:35Z",
+      "side": 1,
+      "message": "I would vote for 3.\nAnother option is to maintain the separate map https://android-review.googlesource.com/186220\nI\u0027m not sure we should care about correct line number info for non-debuggable case.",
+      "parentUuid": "37313583_768cd063",
+      "range": {
+        "startLine": 1626,
+        "startChar": 0,
+        "endLine": 1626,
+        "endChar": 49
+      },
+      "revId": "0cf4493166ff28518c8eafa2d0463f6e817cce75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
