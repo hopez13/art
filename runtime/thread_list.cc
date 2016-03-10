@@ -1408,7 +1408,12 @@ void ThreadList::Unregister(Thread* self) {
     } else {
       MutexLock mu2(self, *Locks::thread_suspend_count_lock_);
       if (!self->IsSuspended()) {
-        list_.remove(self);
+        struct is_equal {
+            explicit is_equal(const Thread* t) : t_(t) { }
+            bool operator() (const Thread* other) { return t_ == other; }
+            private: const Thread* t_;
+        };
+        list_.remove_if(is_equal(self));
         break;
       }
     }
