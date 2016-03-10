@@ -22,6 +22,30 @@
       "revId": "039eaee1df168985cc24ceb5c3852df095d7b23d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37313583_b95edb1a",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2520,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-10T16:34:03Z",
+      "side": 1,
+      "message": "It is input.\n--symbolize\u003dfile.oat means symbolize file.oat (and output to stdout)\n--generate-debug-info\u003dfile.oat means generate debug info for file.oat (and output to stdout)",
+      "parentUuid": "37313583_d95f171a",
+      "range": {
+        "startLine": 2520,
+        "startChar": 37,
+        "endLine": 2520,
+        "endChar": 56
+      },
+      "revId": "039eaee1df168985cc24ceb5c3852df095d7b23d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
