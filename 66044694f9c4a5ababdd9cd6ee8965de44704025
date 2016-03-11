@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_60f8b868",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_5ae575f0",
+      "range": {
+        "startLine": 50,
+        "startChar": 27,
+        "endLine": 50,
+        "endChar": 48
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7a61927_f4058ef2",
         "filename": "runtime/art_method.h",
         "patchSetId": 12
@@ -36,6 +60,30 @@
       "writtenOn": "2016-03-11T00:19:14Z",
       "side": 1,
       "message": "INT16_MAX or even std::numeric_limits\u003cint16_t\u003e::min()?",
+      "range": {
+        "startLine": 478,
+        "startChar": 51,
+        "endLine": 478,
+        "endChar": 59
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_c0036c2f",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7a61927_f4058ef2",
       "range": {
         "startLine": 478,
         "startChar": 51,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_80ade464",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Perhaps a more extensive comment discussing how we live with imprecision?  As we\u0027ve discussed, hotness is a hint and not worth the cost of atomicity.  With the previous setup, at worst we\u0027d end up submitting multiple compilation requests for the same method.  My concern with the addition of batch updates is that we\u0027re much more likely to wrap around, and the penalty is slightly worse.  In the new world, a wrap-around would usually mean we\u0027d stop checking for OSR.  Again, it\u0027s still unlikely and it\u0027s lost opportunity rather than incorrectness - so not a huge deal.  But, at least attempting to avoid wrap-around would greatly decrease the likelihood of inadvertently disabling OSR checks.",
+      "parentUuid": "b76525c6_7ae239eb",
+      "range": {
+        "startLine": 477,
+        "startChar": 0,
+        "endLine": 482,
+        "endChar": 3
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7995dfa_fc16498a",
         "filename": "runtime/instrumentation.h",
         "patchSetId": 12
@@ -82,6 +154,30 @@
       "writtenOn": "2016-03-11T13:48:34Z",
       "side": 1,
       "message": "Sort of feels very ad-hoc to the JIT. How about hard coding it in the interpreters, just like we do for osr?",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 48
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_e08788cf",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Could you expand on this?  The previous hard-coding of the OSR check in the interpreter was actually the biggest contributor to the slowdown (it was happening on every branch, even for cold methods).  It had to do this because it was decoupled from the instrumentation\u0027s hotness mechanism - so it didn\u0027t know whether the method was hot enough to check or not.  By coupling it to hotness, we are able to avoid the check until there is at least a possibility of a compiled loop header entry.  I thought about completely bypassing the instrumentation framework for hotness, but it seemed a little unclean to me to have some profiling information come from instrumentation and some from a side channel.  But, perhaps I misunderstand your comment here.",
+      "parentUuid": "f7995dfa_fc16498a",
       "range": {
         "startLine": 104,
         "startChar": 0,
@@ -141,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_e05ca8f5",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "At least in my opinion, the cost of being precise here far exceeds the benefits of avoiding a missed osr check in a rare circumstance.  In this case, though, I believe that even if a concurrent update undid a transition to kMethodCheckForOSR, we would correct it on a subsequent backwards branch.  I suspect the most likely case of a bad update would be if two threads picked up the hotness_count just below OSR threshold.  The first added a count that crossed threshold and set kMethodCheckForOSR.  The second then updates to just below threshold, wiping out the first\u0027s transition.  But, if it\u0027s hot, someone will cross the threshold again.  In general, though we are imprecise with hotness, I think we can live with multiple threshold crossings.  The worst case is if we somehow wrongly go negative (either kHotnessDisabled or some other odd negative value).  In that case, we effectively turn off profiling and won\u0027t have the opportunity to self-correct.  So long as we attempt to avoid wrap-around on updates, that case seems exceedingly unlikely to me.",
+      "parentUuid": "b76525c6_ba6cd19c",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 99
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_fa3009e5",
         "filename": "runtime/interpreter/mterp/arm/bincmp.S",
         "patchSetId": 12
@@ -152,6 +272,30 @@
       "writtenOn": "2016-03-11T14:58:14Z",
       "side": 1,
       "message": "Update comment.",
+      "range": {
+        "startLine": 2,
+        "startChar": 58,
+        "endLine": 4,
+        "endChar": 38
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_e052e8ae",
+        "filename": "runtime/interpreter/mterp/arm/bincmp.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_fa3009e5",
       "range": {
         "startLine": 2,
         "startChar": 58,
@@ -187,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_40681c65",
+        "filename": "runtime/interpreter/mterp/arm/binopWide.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Moved (along with the others) to https://android-review.googlesource.com/#/c/188977/",
+      "parentUuid": "b76525c6_7a6b19bf",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 54
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_9a31cdec",
         "filename": "runtime/interpreter/mterp/arm/entry.S",
         "patchSetId": 12
@@ -198,6 +366,30 @@
       "writtenOn": "2016-03-11T14:58:14Z",
       "side": 1,
       "message": "stmfd sp!, {r3,r4-r10,fp,lr}  @ Arbitrarily save r3 for 64-bit alignment.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 50
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_2065108b",
+        "filename": "runtime/interpreter/mterp/arm/entry.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_9a31cdec",
       "range": {
         "startLine": 37,
         "startChar": 0,
@@ -227,6 +419,24 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_80fb2465",
+        "filename": "runtime/interpreter/mterp/arm/fbinop2addr.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Not sure I understand.  The r3 setup is all alu ops, so I thought it best to add distance between the load and use of s1 (though I doubt it makes much difference here)....",
+      "parentUuid": "b76525c6_9adc6d00",
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_ba08514d",
         "filename": "runtime/interpreter/mterp/arm/footer.S",
         "patchSetId": 12
@@ -238,6 +448,30 @@
       "writtenOn": "2016-03-11T14:58:14Z",
       "side": 1,
       "message": "Looking at MterpAddHotnessBatch() and MterpSetUpHotnessCountdown(), it seems that we should never hit the \u003d\u003d0 case.\n\nThis could be abused to streamline the assembly a bit if we make kMethodCheckForOSR \u003d -1 and kMethodHotnessDisable \u003d -2:\n\n    cmp rPROFILE, #METHOD_CHECK_OSR  @ Actually cmn rPROFILE, #1\n    beq .L_osr_check\n    subgts rPROFILE, #1\n    beq .L_add_batch\n\nand we don\u0027t need to branch there and back for kMethodHotnessDisable.",
+      "range": {
+        "startLine": 144,
+        "startChar": 42,
+        "endLine": 144,
+        "endChar": 65
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_3415515d",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Abused.",
+      "parentUuid": "b76525c6_ba08514d",
       "range": {
         "startLine": 144,
         "startChar": 42,
@@ -273,6 +507,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_00dd7488",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "I\u0027d doubt it\u0027s any different these days (arm folks chime in?).  From my ancient history of working with machines that had more ALUs that shift/rotate units, I tend to add when a shl would do.  Just old habits...",
+      "parentUuid": "b76525c6_dae6e5d1",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 64
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_ba64d1f3",
         "filename": "runtime/interpreter/mterp/arm/footer.S",
         "patchSetId": 12
@@ -284,6 +542,24 @@
       "writtenOn": "2016-03-11T14:58:14Z",
       "side": 1,
       "message": "Interleave with the FETCH sequence for better scheduling.",
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_00b45446",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_ba64d1f3",
       "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -313,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_00373495",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_5a49f559",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 79
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_7a46b94a",
         "filename": "runtime/interpreter/mterp/arm/footer.S",
         "patchSetId": 12
@@ -330,6 +630,24 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_e03b087f",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_7a46b94a",
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "173991b4_ade9dd65",
         "filename": "runtime/interpreter/mterp/arm/header.S",
         "patchSetId": 12
@@ -341,6 +659,30 @@
       "writtenOn": "2016-03-11T13:48:34Z",
       "side": 1,
       "message": "Neat, so you do reserve a register for arm.",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 42
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_203eb06e",
+        "filename": "runtime/interpreter/mterp/arm/header.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Thank vmarko for that.  He noticed the under-utilization of r10.",
+      "parentUuid": "173991b4_ade9dd65",
       "range": {
         "startLine": 75,
         "startChar": 0,
@@ -376,6 +718,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_c0536cb5",
+        "filename": "runtime/interpreter/mterp/arm/header.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_3aee01a9",
+      "range": {
+        "startLine": 114,
+        "startChar": 27,
+        "endLine": 114,
+        "endChar": 54
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_1a269db0",
         "filename": "runtime/interpreter/mterp/arm/op_if_eq.S",
         "patchSetId": 12
@@ -387,6 +753,30 @@
       "writtenOn": "2016-03-11T14:58:14Z",
       "side": 1,
       "message": "Obsolete parameter in all the op_if_*.S files, including arm64.",
+      "range": {
+        "startLine": 1,
+        "startChar": 26,
+        "endLine": 1,
+        "endChar": 39
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_20f070f0",
+        "filename": "runtime/interpreter/mterp/arm/op_if_eq.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_1a269db0",
       "range": {
         "startLine": 1,
         "startChar": 26,
@@ -422,6 +812,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_80fde4ca",
+        "filename": "runtime/interpreter/mterp/arm/zcmp.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_3a2361a1",
+      "range": {
+        "startLine": 2,
+        "startChar": 58,
+        "endLine": 4,
+        "endChar": 38
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_daeee56a",
         "filename": "runtime/interpreter/mterp/arm64/bincmp.S",
         "patchSetId": 12
@@ -433,6 +847,30 @@
       "writtenOn": "2016-03-11T14:58:14Z",
       "side": 1,
       "message": "Update comment.",
+      "range": {
+        "startLine": 2,
+        "startChar": 58,
+        "endLine": 4,
+        "endChar": 38
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_c0252c49",
+        "filename": "runtime/interpreter/mterp/arm64/bincmp.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_daeee56a",
       "range": {
         "startLine": 2,
         "startChar": 58,
@@ -468,6 +906,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_0020d434",
+        "filename": "runtime/interpreter/mterp/arm64/footer.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_5a9f35d5",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 23
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_5a1ad54e",
         "filename": "runtime/interpreter/mterp/arm64/footer.S",
         "patchSetId": 12
@@ -479,6 +941,30 @@
       "writtenOn": "2016-03-11T14:58:14Z",
       "side": 1,
       "message": "If \u003d\u003d0 is impossible (see comments for arm), we can use TBNZ instead of CMP+BLE.",
+      "range": {
+        "startLine": 138,
+        "startChar": 43,
+        "endLine": 138,
+        "endChar": 66
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_54745d9d",
+        "filename": "runtime/interpreter/mterp/arm64/footer.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_5a1ad54e",
       "range": {
         "startLine": 138,
         "startChar": 43,
@@ -514,6 +1000,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_a02aa016",
+        "filename": "runtime/interpreter/mterp/arm64/footer.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_1a205d83",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 25
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_9a80ed7d",
         "filename": "runtime/interpreter/mterp/arm64/header.S",
         "patchSetId": 12
@@ -525,6 +1035,30 @@
       "writtenOn": "2016-03-11T14:58:14Z",
       "side": 1,
       "message": "OFF_FP(0)",
+      "range": {
+        "startLine": 120,
+        "startChar": 27,
+        "endLine": 120,
+        "endChar": 54
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_2017d0d6",
+        "filename": "runtime/interpreter/mterp/arm64/header.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_9a80ed7d",
       "range": {
         "startLine": 120,
         "startChar": 27,
@@ -560,6 +1094,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_00d3b44d",
+        "filename": "runtime/interpreter/mterp/arm64/op_goto_32.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_ba85b18c",
+      "range": {
+        "startLine": 16,
+        "startChar": 12,
+        "endLine": 16,
+        "endChar": 34
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_9a0b8d09",
         "filename": "runtime/interpreter/mterp/arm64/zcmp.S",
         "patchSetId": 12
@@ -571,6 +1129,30 @@
       "writtenOn": "2016-03-11T14:58:14Z",
       "side": 1,
       "message": "Update comment.",
+      "range": {
+        "startLine": 2,
+        "startChar": 58,
+        "endLine": 4,
+        "endChar": 38
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_20da305f",
+        "filename": "runtime/interpreter/mterp/arm64/zcmp.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_9a0b8d09",
       "range": {
         "startLine": 2,
         "startChar": 58,
@@ -606,6 +1188,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_40c49c7b",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Correct - fixed (but in truth, we this is a case not to care about unless we really want to optimize an infinite loop).",
+      "parentUuid": "d7a61927_d487b2cf",
+      "range": {
+        "startLine": 649,
+        "startChar": 6,
+        "endLine": 649,
+        "endChar": 16
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_7af87968",
         "filename": "runtime/interpreter/mterp/mterp.cc",
         "patchSetId": 12
@@ -617,6 +1223,30 @@
       "writtenOn": "2016-03-11T14:58:14Z",
       "side": 1,
       "message": "return MterpSetUpHotnessCountdown(method, shadow_frame);",
+      "range": {
+        "startLine": 708,
+        "startChar": 0,
+        "endLine": 709,
+        "endChar": 45
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_80be84f3",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_7af87968",
       "range": {
         "startLine": 708,
         "startChar": 0,
@@ -652,6 +1282,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_a09f4089",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7a61927_9436cadf",
+      "range": {
+        "startLine": 197,
+        "startChar": 41,
+        "endLine": 197,
+        "endChar": 49
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_9a82adf3",
         "filename": "runtime/stack.h",
         "patchSetId": 12
@@ -675,6 +1329,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_40765c17",
+        "filename": "runtime/stack.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_9a82adf3",
+      "range": {
+        "startLine": 470,
+        "startChar": 2,
+        "endLine": 470,
+        "endChar": 11
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_7a2319ee",
         "filename": "runtime/stack.h",
         "patchSetId": 12
@@ -686,6 +1364,30 @@
       "writtenOn": "2016-03-11T14:58:14Z",
       "side": 1,
       "message": "Alternatively, drop number_of_vregs_ and dex_pc_? The first is in code_item_-\u003eregisters_size_, the second can be calculated from code_item_ and dex_pc_ptr_.",
+      "range": {
+        "startLine": 473,
+        "startChar": 2,
+        "endLine": 473,
+        "endChar": 85
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_80704419",
+        "filename": "runtime/stack.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-11T20:19:10Z",
+      "side": 1,
+      "message": "Dropping both seems promising - updated TUNING comment and will take a look at doing so in another CL.",
+      "parentUuid": "b76525c6_7a2319ee",
       "range": {
         "startLine": 473,
         "startChar": 2,
