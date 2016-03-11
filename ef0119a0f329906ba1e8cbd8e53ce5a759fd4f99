@@ -22,6 +22,30 @@
       "revId": "ef0119a0f329906ba1e8cbd8e53ce5a759fd4f99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_bae93166",
+        "filename": "compiler/debug/elf_debug_line_writer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-11T14:12:56Z",
+      "side": 0,
+      "message": "I would love to! It is still used for adding the [DEDUP] into .strtab though. However, Tamas keeps telling me about once a week that it is evil and I should remove it. I am inlined to agree. The debugger/tool can still infer it is deduped method if it has two symbols for the same address.  It does not need to have the tag. Either way, that would be separate CL.",
+      "parentUuid": "b76525c6_1a3f7dbc",
+      "range": {
+        "startLine": 88,
+        "startChar": 14,
+        "endLine": 88,
+        "endChar": 21
+      },
+      "revId": "ef0119a0f329906ba1e8cbd8e53ce5a759fd4f99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
