@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7a61927_f4058ef2",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-03-11T00:19:14Z",
+      "side": 1,
+      "message": "INT16_MAX or even std::numeric_limits\u003cint16_t\u003e::min()?",
+      "range": {
+        "startLine": 478,
+        "startChar": 51,
+        "endLine": 478,
+        "endChar": 59
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_d487b2cf",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-03-11T00:19:14Z",
+      "side": 1,
+      "message": "Isn\u0027t a zero offset also backwards? Or we don\u0027t care about this particular case?",
+      "range": {
+        "startLine": 649,
+        "startChar": 6,
+        "endLine": 649,
+        "endChar": 16
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_9436cadf",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-03-11T00:19:14Z",
+      "side": 1,
+      "message": "Ditto. Or maybe even have a descriptively named constant instead of this max for a generic type?",
+      "range": {
+        "startLine": 197,
+        "startChar": 41,
+        "endLine": 197,
+        "endChar": 49
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
