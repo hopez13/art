@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b76525c6_3a5b615c",
+        "filename": "compiler/optimizing/block_builder.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-03-11T13:07:23Z",
+      "side": 1,
+      "message": "I thought we talked about this. I can and I will, but wanted to leave it to a follow-up because it requires splitting existing blocks. Do you want me to do it right away?",
+      "parentUuid": "37313583_5926a7b1",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 1
+      },
+      "revId": "45109ff8632b11d02b491531052128a42a52231b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37313583_792363a0",
         "filename": "compiler/optimizing/block_builder.cc",
         "patchSetId": 13
@@ -36,6 +60,30 @@
       "writtenOn": "2016-03-10T18:14:25Z",
       "side": 1,
       "message": "Do that in first instruction run? (line 77)",
+      "range": {
+        "startLine": 201,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 1
+      },
+      "revId": "45109ff8632b11d02b491531052128a42a52231b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_1aa3fd79",
+        "filename": "compiler/optimizing/block_builder.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-03-11T13:07:23Z",
+      "side": 1,
+      "message": "Done in the second, but those will get merged.",
+      "parentUuid": "37313583_792363a0",
       "range": {
         "startLine": 201,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b76525c6_3aa0c16a",
+        "filename": "compiler/optimizing/block_builder.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-03-11T13:07:23Z",
+      "side": 1,
+      "message": "Rephrased, DCHECKs added.",
+      "parentUuid": "37313583_19202f91",
+      "range": {
+        "startLine": 226,
+        "startChar": 62,
+        "endLine": 226,
+        "endChar": 75
+      },
+      "revId": "45109ff8632b11d02b491531052128a42a52231b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37313583_19490f5b",
         "filename": "compiler/optimizing/block_builder.h",
         "patchSetId": 13
@@ -82,6 +154,30 @@
       "writtenOn": "2016-03-10T18:14:25Z",
       "side": 1,
       "message": "Comments here please, or high-level comments on the class.",
+      "range": {
+        "startLine": 41,
+        "startChar": 3,
+        "endLine": 41,
+        "endChar": 15
+      },
+      "revId": "45109ff8632b11d02b491531052128a42a52231b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_bab3f1c8",
+        "filename": "compiler/optimizing/block_builder.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-03-11T13:07:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37313583_19490f5b",
       "range": {
         "startLine": 41,
         "startChar": 3,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "b76525c6_dab8a5a7",
+        "filename": "compiler/optimizing/block_builder.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-03-11T13:07:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37313583_992bdf7b",
+      "range": {
+        "startLine": 48,
+        "startChar": 60,
+        "endLine": 48,
+        "endChar": 75
+      },
+      "revId": "45109ff8632b11d02b491531052128a42a52231b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37313583_b9301be4",
         "filename": "compiler/optimizing/block_builder.h",
         "patchSetId": 13
@@ -128,6 +248,30 @@
       "writtenOn": "2016-03-10T18:14:25Z",
       "side": 1,
       "message": "Comments please.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 65
+      },
+      "revId": "45109ff8632b11d02b491531052128a42a52231b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_fabd6994",
+        "filename": "compiler/optimizing/block_builder.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-03-11T13:07:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37313583_b9301be4",
       "range": {
         "startLine": 54,
         "startChar": 0,
