@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "b76525c6_bdebebcb",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T20:35:51Z",
+      "side": 1,
+      "message": "The way it\u0027s written, it can theoretically overflow when 2 threads pass the check and then increment. Though I would expect -O2 to optimize away the extra loads, we should at least make it explicit:\n\n  int16_t count \u003d hotness_count_;  // Single read.\n  if ((count \u003e\u003d 0) \u0026\u0026 (count \u003c std::numeric_limits\u003cint16_t\u003e::max())) {\n    ++count;\n    hotness_count_ \u003d count;  // Single write.\n  }\n  return count;\n\nand maybe mark the hotness_count_ volatile; though the meaning of volatile is very weak in C++, it should prevent the compiler from introducing extra reads/writes.",
+      "parentUuid": "d7a61927_80ade464",
+      "range": {
+        "startLine": 477,
+        "startChar": 0,
+        "endLine": 482,
+        "endChar": 3
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7995dfa_fc16498a",
         "filename": "runtime/instrumentation.h",
         "patchSetId": 12
@@ -431,6 +455,24 @@
       "side": 1,
       "message": "Not sure I understand.  The r3 setup is all alu ops, so I thought it best to add distance between the load and use of s1 (though I doubt it makes much difference here)....",
       "parentUuid": "b76525c6_9adc6d00",
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_fdf563a3",
+        "filename": "runtime/interpreter/mterp/arm/fbinop2addr.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T20:35:51Z",
+      "side": 1,
+      "message": "Moving discussion to https://android-review.googlesource.com/207970 .",
+      "parentUuid": "d7a61927_80fb2465",
       "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
