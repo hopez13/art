@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b76525c6_ddb5fff4",
+        "filename": "runtime/interpreter/mterp/arm/entry.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T19:41:20Z",
+      "side": 1,
+      "message": "vregs (fix the comment on all architectures)",
+      "range": {
+        "startLine": 50,
+        "startChar": 62,
+        "endLine": 50,
+        "endChar": 99
+      },
+      "revId": "8756c28a5bfe97c24192774927c042cc5a58167f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_bdc04b4c",
+        "filename": "runtime/interpreter/mterp/arm/fbinop2addr.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T19:41:20Z",
+      "side": 1,
+      "message": "Maybe reorder to allow more dual-issued instructions?",
+      "revId": "8756c28a5bfe97c24192774927c042cc5a58167f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_1dd05715",
+        "filename": "runtime/interpreter/mterp/arm/fbinopWide2addr.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T19:41:20Z",
+      "side": 1,
+      "message": "Reorder?",
+      "revId": "8756c28a5bfe97c24192774927c042cc5a58167f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
