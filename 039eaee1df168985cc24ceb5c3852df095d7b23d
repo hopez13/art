@@ -166,6 +166,30 @@
       "revId": "039eaee1df168985cc24ceb5c3852df095d7b23d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_1a45bd8f",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2520,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-11T10:39:34Z",
+      "side": 1,
+      "message": "Renamed to --generate-debug-info-for\u003d",
+      "parentUuid": "37313583_b9f33b4f",
+      "range": {
+        "startLine": 2520,
+        "startChar": 37,
+        "endLine": 2520,
+        "endChar": 56
+      },
+      "revId": "039eaee1df168985cc24ceb5c3852df095d7b23d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
