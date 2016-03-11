@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "b76525c6_3dd8bb35",
+        "filename": "runtime/interpreter/mterp/arm/fbinop2addr.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T20:44:32Z",
+      "side": 1,
+      "message": "I don\u0027t know if modern ARM CPUs have 2 ALUs (or shift-rotate units or whatever) per core. If so, the UBFX would be better paired with the \"mov r3, rINST, lsr #12\" and the \"flds s1, [r3]\" would be paired with \"VREG_INDEX_TO_ADDR r9, r9\". Otherwise, it doesn\u0027t really matter but I\u0027d still try to avoid sequences of directly dependent instructions in a row.",
+      "parentUuid": "b76525c6_bdc04b4c",
+      "revId": "8756c28a5bfe97c24192774927c042cc5a58167f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_1dd05715",
         "filename": "runtime/interpreter/mterp/arm/fbinopWide2addr.S",
         "patchSetId": 1
