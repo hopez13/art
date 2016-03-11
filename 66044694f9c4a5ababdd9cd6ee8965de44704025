@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b76525c6_5ae575f0",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-11T13:48:34Z",
+      "side": 1,
+      "message": "Disabled?",
+      "range": {
+        "startLine": 50,
+        "startChar": 27,
+        "endLine": 50,
+        "endChar": 48
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7a61927_f4058ef2",
         "filename": "runtime/art_method.h",
         "patchSetId": 12
@@ -18,6 +41,121 @@
         "startChar": 51,
         "endLine": 478,
         "endChar": 59
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_7ae239eb",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-11T13:48:34Z",
+      "side": 1,
+      "message": "The counter isn\u0027t atomic, so you can\u0027t assume it will not overflow...",
+      "range": {
+        "startLine": 477,
+        "startChar": 0,
+        "endLine": 482,
+        "endChar": 3
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7995dfa_fc16498a",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-11T13:48:34Z",
+      "side": 1,
+      "message": "Sort of feels very ad-hoc to the JIT. How about hard coding it in the interpreters, just like we do for osr?",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 48
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_3a71a1ad",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-11T13:48:34Z",
+      "side": 1,
+      "message": "That looks fragile knowing the counter gets concurrently updated.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 99
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_7a6b19bf",
+        "filename": "runtime/interpreter/mterp/arm/binopWide.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-11T13:48:34Z",
+      "side": 1,
+      "message": "Unrelated to profiling?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 54
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "173991b4_ade9dd65",
+        "filename": "runtime/interpreter/mterp/arm/header.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-11T13:48:34Z",
+      "side": 1,
+      "message": "Neat, so you do reserve a register for arm.",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 42
       },
       "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
