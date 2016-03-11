@@ -94,6 +94,29 @@
       "revId": "e1d0d830bfdf7c96dc8ee3616013fdb42311ce30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_9a30ed3f",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1156,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T10:39:13Z",
+      "side": 1,
+      "message": "Arbitrarily save R3 as well to save one instruction here and one on POP?",
+      "range": {
+        "startLine": 1155,
+        "startChar": 0,
+        "endLine": 1156,
+        "endChar": 86
+      },
+      "revId": "e1d0d830bfdf7c96dc8ee3616013fdb42311ce30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
