@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b76525c6_fd0c838f",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1648,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T21:40:40Z",
+      "side": 1,
+      "message": "Why not \"mvn x0, #0\"?\n(This is mostly copy-pasted - I should have asked this in https://android-review.googlesource.com/187537 .)",
+      "range": {
+        "startLine": 1647,
+        "startChar": 0,
+        "endLine": 1648,
+        "endChar": 75
+      },
+      "revId": "0eb142f45749b8fd48bc83748d27deab08da9fef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_1d021759",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1673,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T21:40:40Z",
+      "side": 1,
+      "message": "TBNZ (though you will have to introduce the bit-position equivalent of ACCESS_FLAGS_CLASS_IS_FINALIZABLE)",
+      "range": {
+        "startLine": 1672,
+        "startChar": 0,
+        "endLine": 1673,
+        "endChar": 50
+      },
+      "revId": "0eb142f45749b8fd48bc83748d27deab08da9fef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_3dffdb7b",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1677,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T21:40:40Z",
+      "side": 1,
+      "message": "Out of range for LDP? (LDP has only signed imm7\u003c\u003c3, i.e. -512 \u003c\u003d offset \u003c 512.)",
+      "range": {
+        "startLine": 1676,
+        "startChar": 0,
+        "endLine": 1677,
+        "endChar": 48
+      },
+      "revId": "0eb142f45749b8fd48bc83748d27deab08da9fef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
