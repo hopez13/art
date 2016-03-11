@@ -117,6 +117,53 @@
     },
     {
       "key": {
+        "uuid": "b76525c6_ba6cd19c",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "Would you prefer std::atomic\u003cint16_t\u003e::load(memory_order_relaxed)?",
+      "parentUuid": "b76525c6_3a71a1ad",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 99
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_fa3009e5",
+        "filename": "runtime/interpreter/mterp/arm/bincmp.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "Update comment.",
+      "range": {
+        "startLine": 2,
+        "startChar": 58,
+        "endLine": 4,
+        "endChar": 38
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_7a6b19bf",
         "filename": "runtime/interpreter/mterp/arm/binopWide.S",
         "patchSetId": 12
@@ -140,6 +187,149 @@
     },
     {
       "key": {
+        "uuid": "b76525c6_9a31cdec",
+        "filename": "runtime/interpreter/mterp/arm/entry.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "stmfd sp!, {r3,r4-r10,fp,lr}  @ Arbitrarily save r3 for 64-bit alignment.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 50
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_9adc6d00",
+        "filename": "runtime/interpreter/mterp/arm/fbinop2addr.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "Why here? Wouldn\u0027t it be better interleaved with the r3 setup?",
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_ba08514d",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "Looking at MterpAddHotnessBatch() and MterpSetUpHotnessCountdown(), it seems that we should never hit the \u003d\u003d0 case.\n\nThis could be abused to streamline the assembly a bit if we make kMethodCheckForOSR \u003d -1 and kMethodHotnessDisable \u003d -2:\n\n    cmp rPROFILE, #METHOD_CHECK_OSR  @ Actually cmn rPROFILE, #1\n    beq .L_osr_check\n    subgts rPROFILE, #1\n    beq .L_add_batch\n\nand we don\u0027t need to branch there and back for kMethodHotnessDisable.",
+      "range": {
+        "startLine": 144,
+        "startChar": 42,
+        "endLine": 144,
+        "endChar": 65
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_dae6e5d1",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "Is\n\n    add r2, rINST, rINST\n    ldrh rINST, [rPC, r2]!\n\nbetter, worse or the same as\n\n    add rPC, rINST, shl #1\n    ldrh rINST, [rPC]\n\n?",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 64
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_ba64d1f3",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "Interleave with the FETCH sequence for better scheduling.",
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_5a49f559",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "ldmfdlt sp!, {r3,r4-r10,fp,pc}  @ Arbitrarily pop alignment word to r3.",
+      "range": {
+        "startLine": 259,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 79
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_7a46b94a",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "ldmfd sp!, {r3,r4-r10,fp,pc}  @ Arbitrarily pop alignment word to r3.",
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "173991b4_ade9dd65",
         "filename": "runtime/interpreter/mterp/arm/header.S",
         "patchSetId": 12
@@ -156,6 +346,236 @@
         "startChar": 0,
         "endLine": 75,
         "endChar": 42
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_3aee01a9",
+        "filename": "runtime/interpreter/mterp/arm/header.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "OFF_FP(0)",
+      "range": {
+        "startLine": 114,
+        "startChar": 27,
+        "endLine": 114,
+        "endChar": 54
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_1a269db0",
+        "filename": "runtime/interpreter/mterp/arm/op_if_eq.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "Obsolete parameter in all the op_if_*.S files, including arm64.",
+      "range": {
+        "startLine": 1,
+        "startChar": 26,
+        "endLine": 1,
+        "endChar": 39
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_3a2361a1",
+        "filename": "runtime/interpreter/mterp/arm/zcmp.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "Update comment.",
+      "range": {
+        "startLine": 2,
+        "startChar": 58,
+        "endLine": 4,
+        "endChar": 38
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_daeee56a",
+        "filename": "runtime/interpreter/mterp/arm64/bincmp.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "Update comment.",
+      "range": {
+        "startLine": 2,
+        "startChar": 58,
+        "endLine": 4,
+        "endChar": 38
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_5a9f35d5",
+        "filename": "runtime/interpreter/mterp/arm64/footer.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "This label is unused after you fix op_goto_32.S (there is no ORRS on arm64).",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 23
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_5a1ad54e",
+        "filename": "runtime/interpreter/mterp/arm64/footer.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "If \u003d\u003d0 is impossible (see comments for arm), we can use TBNZ instead of CMP+BLE.",
+      "range": {
+        "startLine": 138,
+        "startChar": 43,
+        "endLine": 138,
+        "endChar": 66
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_1a205d83",
+        "filename": "runtime/interpreter/mterp/arm64/footer.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "CBNZ",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 25
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_9a80ed7d",
+        "filename": "runtime/interpreter/mterp/arm64/header.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "OFF_FP(0)",
+      "range": {
+        "startLine": 120,
+        "startChar": 27,
+        "endLine": 120,
+        "endChar": 54
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_ba85b18c",
+        "filename": "runtime/interpreter/mterp/arm64/op_goto_32.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "*NoFlags",
+      "range": {
+        "startLine": 16,
+        "startChar": 12,
+        "endLine": 16,
+        "endChar": 34
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_9a0b8d09",
+        "filename": "runtime/interpreter/mterp/arm64/zcmp.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "Update comment.",
+      "range": {
+        "startLine": 2,
+        "startChar": 58,
+        "endLine": 4,
+        "endChar": 38
       },
       "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -186,6 +606,29 @@
     },
     {
       "key": {
+        "uuid": "b76525c6_7af87968",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "return MterpSetUpHotnessCountdown(method, shadow_frame);",
+      "range": {
+        "startLine": 708,
+        "startChar": 0,
+        "endLine": 709,
+        "endChar": 45
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7a61927_9436cadf",
         "filename": "runtime/jit/jit_instrumentation.cc",
         "patchSetId": 12
@@ -202,6 +645,52 @@
         "startChar": 41,
         "endLine": 197,
         "endChar": 49
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_9a82adf3",
+        "filename": "runtime/stack.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "const uint16_t*",
+      "range": {
+        "startLine": 470,
+        "startChar": 2,
+        "endLine": 470,
+        "endChar": 11
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_7a2319ee",
+        "filename": "runtime/stack.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-11T14:58:14Z",
+      "side": 1,
+      "message": "Alternatively, drop number_of_vregs_ and dex_pc_? The first is in code_item_-\u003eregisters_size_, the second can be calculated from code_item_ and dex_pc_ptr_.",
+      "range": {
+        "startLine": 473,
+        "startChar": 2,
+        "endLine": 473,
+        "endChar": 85
       },
       "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
