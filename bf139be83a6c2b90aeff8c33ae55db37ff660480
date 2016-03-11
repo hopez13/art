@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7a61927_77f87b68",
+        "filename": "runtime/oat_quick_method_header.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-11T19:04:48Z",
+      "side": 1,
+      "message": "Remove. I think this was unnecessary before already. kStackAlignment is size_t...",
+      "range": {
+        "startLine": 122,
+        "startChar": 29,
+        "endLine": 122,
+        "endChar": 48
+      },
+      "revId": "bf139be83a6c2b90aeff8c33ae55db37ff660480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
