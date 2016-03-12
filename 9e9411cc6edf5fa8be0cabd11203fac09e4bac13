@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "976821a0_994abb54",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-12T13:39:15Z",
+      "side": 1,
+      "message": "Sorry for the misleading commit title; this issue had nothing to do with a TimeoutException, but with failing assertion in the test (\"memory was not released after calling System.gc()\").",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 49
+      },
+      "revId": "9e9411cc6edf5fa8be0cabd11203fac09e4bac13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
