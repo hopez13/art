@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b76525c6_7daa334c",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1887,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-14T10:20:02Z",
+      "side": 1,
+      "message": "Will that override the -Xcompiler-option passed? eg --verify-none/verify-at-runtime.",
+      "range": {
+        "startLine": 1887,
+        "startChar": 21,
+        "endLine": 1887,
+        "endChar": 54
+      },
+      "revId": "770b39eb564ec16c672ace83515535b055edb2b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
