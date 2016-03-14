@@ -46,6 +46,30 @@
       "revId": "10d4c08c0ea9df0a85a11e1c77974df24078c0ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_5de72f2a",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-14T17:01:28Z",
+      "side": 1,
+      "message": "Thanks Valdimir; I thought the alignement part was indeed part of the requirement, hence my comment. :)",
+      "parentUuid": "b74a8540_751d0253",
+      "range": {
+        "startLine": 1078,
+        "startChar": 61,
+        "endLine": 1078,
+        "endChar": 64
+      },
+      "revId": "10d4c08c0ea9df0a85a11e1c77974df24078c0ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
