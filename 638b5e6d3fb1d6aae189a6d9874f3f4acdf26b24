@@ -22,6 +22,30 @@
       "revId": "638b5e6d3fb1d6aae189a6d9874f3f4acdf26b24",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_ddb33f5f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-14T15:18:14Z",
+      "side": 1,
+      "message": "I wanted to remove it, but the symbolizer still needs to know.\nI can easily replace it with kGenerateDebugInfo now, but I need the extra key-value pair either way.\nIt can be properly removed once boot.oat is non-debuggable.",
+      "parentUuid": "b76525c6_5dd1ef6e",
+      "range": {
+        "startLine": 1035,
+        "startChar": 0,
+        "endLine": 1037,
+        "endChar": 95
+      },
+      "revId": "638b5e6d3fb1d6aae189a6d9874f3f4acdf26b24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
