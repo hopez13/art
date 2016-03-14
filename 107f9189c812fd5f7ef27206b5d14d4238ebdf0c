@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7a61927_03261454",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-03-14T17:55:55Z",
+      "side": 1,
+      "message": "I\u0027m not sure I like overloading fields like this but if we are going to can we at least either \n\na) change the name to something more descriptive or\nb) make it a union with descriptive names.",
+      "range": {
+        "startLine": 614,
+        "startChar": 0,
+        "endLine": 617,
+        "endChar": 32
+      },
+      "revId": "107f9189c812fd5f7ef27206b5d14d4238ebdf0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_4362dca7",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2157,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-03-14T17:55:55Z",
+      "side": 1,
+      "message": "I believe all the asm trampolines used to do this for you. Why can they not still do so?",
+      "range": {
+        "startLine": 2141,
+        "startChar": 0,
+        "endLine": 2157,
+        "endChar": 3
+      },
+      "revId": "107f9189c812fd5f7ef27206b5d14d4238ebdf0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_634f1839",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2231,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-03-14T17:55:55Z",
+      "side": 1,
+      "message": "null check.",
+      "range": {
+        "startLine": 2229,
+        "startChar": 0,
+        "endLine": 2231,
+        "endChar": 74
+      },
+      "revId": "107f9189c812fd5f7ef27206b5d14d4238ebdf0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_c34b6c02",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2236,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-03-14T17:55:55Z",
+      "side": 1,
+      "message": "This still seems somewhat race-y to me (although I think it\u0027s a benign race but still).",
+      "range": {
+        "startLine": 2234,
+        "startChar": 0,
+        "endLine": 2236,
+        "endChar": 36
+      },
+      "revId": "107f9189c812fd5f7ef27206b5d14d4238ebdf0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_0368d487",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2237,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-03-14T17:55:55Z",
+      "side": 1,
+      "message": "I realize linear-alloc doesn\u0027t currently support free\u0027ing memory but we really should have some comment about where it would/could be done, since that ability is a TODO.\n\nIt seems to me we just leak the old table every time we hit a new conflict. If I understand this change right this array should be per-referrer method so it might be okay (i.e. the current_table is almost always empty) but we should at least have a comment to this effect and a test that the impact is negligible.",
+      "range": {
+        "startLine": 2237,
+        "startChar": 0,
+        "endLine": 2237,
+        "endChar": 54
+      },
+      "revId": "107f9189c812fd5f7ef27206b5d14d4238ebdf0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_0354549c",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2242,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-03-14T17:55:55Z",
+      "side": 1,
+      "message": "No fence needed here?",
+      "range": {
+        "startLine": 2240,
+        "startChar": 3,
+        "endLine": 2242,
+        "endChar": 48
+      },
+      "revId": "107f9189c812fd5f7ef27206b5d14d4238ebdf0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
