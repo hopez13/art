@@ -70,6 +70,30 @@
       "revId": "770b39eb564ec16c672ace83515535b055edb2b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_9d4aa754",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1887,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-14T11:38:09Z",
+      "side": 1,
+      "message": "Yes, I\u0027ll file a bug to keep track of this.",
+      "parentUuid": "b76525c6_1dca171a",
+      "range": {
+        "startLine": 1887,
+        "startChar": 21,
+        "endLine": 1887,
+        "endChar": 54
+      },
+      "revId": "770b39eb564ec16c672ace83515535b055edb2b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
