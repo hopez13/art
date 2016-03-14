@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b76525c6_bd084b4d",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-14T10:15:43Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 484,
+        "startChar": 6,
+        "endLine": 484,
+        "endChar": 8
+      },
+      "revId": "3e3f3b1105710b0d9fdc79d5179941e98afaaa64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_ddfdff55",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-14T10:15:43Z",
+      "side": 1,
+      "message": "Unused",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 10
+      },
+      "revId": "3e3f3b1105710b0d9fdc79d5179941e98afaaa64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_1d185796",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-14T10:15:43Z",
+      "side": 1,
+      "message": "Break the line before std::min.",
+      "range": {
+        "startLine": 197,
+        "startChar": 21,
+        "endLine": 197,
+        "endChar": 30
+      },
+      "revId": "3e3f3b1105710b0d9fdc79d5179941e98afaaa64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
