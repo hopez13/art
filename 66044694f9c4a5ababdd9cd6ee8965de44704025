@@ -191,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "b76525c6_dd825fc2",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-14T10:38:10Z",
+      "side": 1,
+      "message": "I\u0027m still a bit hesitant on relying on volatile for this. We could think in the future to have AOT code also increment the counter, and we probably don\u0027t want to check for overflows.\n\nI really liked the idea that overflowing did not matter.",
+      "parentUuid": "d7a61927_0da5a8dd",
+      "range": {
+        "startLine": 477,
+        "startChar": 0,
+        "endLine": 482,
+        "endChar": 3
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7995dfa_fc16498a",
         "filename": "runtime/instrumentation.h",
         "patchSetId": 12
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "Could you expand on this?  The previous hard-coding of the OSR check in the interpreter was actually the biggest contributor to the slowdown (it was happening on every branch, even for cold methods).  It had to do this because it was decoupled from the instrumentation\u0027s hotness mechanism - so it didn\u0027t know whether the method was hot enough to check or not.  By coupling it to hotness, we are able to avoid the check until there is at least a possibility of a compiled loop header entry.  I thought about completely bypassing the instrumentation framework for hotness, but it seemed a little unclean to me to have some profiling information come from instrumentation and some from a side channel.  But, perhaps I misunderstand your comment here.",
       "parentUuid": "f7995dfa_fc16498a",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 48
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_fd8723cf",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-14T10:38:10Z",
+      "side": 1,
+      "message": "Yeah, my comment was about bypassing the instrumentation framework. That method seems very JIT hotness counting specific, and instead of going through the instrumentation, you could call direclty the method that does what you want from, eg, the Jit class..",
+      "parentUuid": "d7a61927_e08788cf",
       "range": {
         "startLine": 104,
         "startChar": 0,
@@ -297,6 +345,30 @@
       "side": 1,
       "message": "At least in my opinion, the cost of being precise here far exceeds the benefits of avoiding a missed osr check in a rare circumstance.  In this case, though, I believe that even if a concurrent update undid a transition to kMethodCheckForOSR, we would correct it on a subsequent backwards branch.  I suspect the most likely case of a bad update would be if two threads picked up the hotness_count just below OSR threshold.  The first added a count that crossed threshold and set kMethodCheckForOSR.  The second then updates to just below threshold, wiping out the first\u0027s transition.  But, if it\u0027s hot, someone will cross the threshold again.  In general, though we are imprecise with hotness, I think we can live with multiple threshold crossings.  The worst case is if we somehow wrongly go negative (either kHotnessDisabled or some other odd negative value).  In that case, we effectively turn off profiling and won\u0027t have the opportunity to self-correct.  So long as we attempt to avoid wrap-around on updates, that case seems exceedingly unlikely to me.",
       "parentUuid": "b76525c6_ba6cd19c",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 99
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_3d8a7bd9",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-14T10:38:10Z",
+      "side": 1,
+      "message": "Actually, I forgot that we are already fragile with the counter. So whatever we check against is fine.\n\nI did add a command line option for the osr threshold. How is that interacting with this change?",
+      "parentUuid": "d7a61927_e05ca8f5",
       "range": {
         "startLine": 73,
         "startChar": 0,
