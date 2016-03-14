@@ -22,6 +22,30 @@
       "revId": "770b39eb564ec16c672ace83515535b055edb2b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_bdda0be9",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1887,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-14T10:26:25Z",
+      "side": 1,
+      "message": "Yes. Since they are parse sequentially and overridden with the last one.",
+      "parentUuid": "b76525c6_7daa334c",
+      "range": {
+        "startLine": 1887,
+        "startChar": 21,
+        "endLine": 1887,
+        "endChar": 54
+      },
+      "revId": "770b39eb564ec16c672ace83515535b055edb2b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
