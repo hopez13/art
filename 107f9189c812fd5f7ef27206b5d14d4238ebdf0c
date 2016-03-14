@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_a60f4e4d",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-03-14T18:06:29Z",
+      "side": 1,
+      "message": "maybe \u0027method_misc_data_\u0027?",
+      "parentUuid": "b76525c6_c0999297",
+      "range": {
+        "startLine": 614,
+        "startChar": 0,
+        "endLine": 617,
+        "endChar": 32
+      },
+      "revId": "107f9189c812fd5f7ef27206b5d14d4238ebdf0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7a61927_4362dca7",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 5
