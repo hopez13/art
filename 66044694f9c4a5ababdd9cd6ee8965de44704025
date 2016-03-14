@@ -215,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_0c6761b6",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-14T21:21:35Z",
+      "side": 1,
+      "message": "Well, I think overflow is going to matter in some way no matter what we do.  In all cases, we have the possibility of triggering multiple compilation requests for the same method when we do updates near state change boundaries. The existing code has that same race condition, but in addition allows multiple compilation requests via wrap-around.  And, with only a 16-bit hotness counter, I could imagine worst-case scenarios of swarms of requests for the same hot computational method while the JIT is busy compiling other methods.\n\nThat said, though, I think I can see a way to put this code back to the way you had it and still avoid the performance hit of doing an OSR check for all branches even when an OSR entry cannot exist.\n\nLet\u0027s take this off-line, and I\u0027ll summarize the discussion here afterwards.",
+      "parentUuid": "b76525c6_dd825fc2",
+      "range": {
+        "startLine": 477,
+        "startChar": 0,
+        "endLine": 482,
+        "endChar": 3
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7995dfa_fc16498a",
         "filename": "runtime/instrumentation.h",
         "patchSetId": 12
@@ -369,6 +393,30 @@
       "side": 1,
       "message": "Actually, I forgot that we are already fragile with the counter. So whatever we check against is fine.\n\nI did add a command line option for the osr threshold. How is that interacting with this change?",
       "parentUuid": "d7a61927_e05ca8f5",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 99
+      },
+      "revId": "66044694f9c4a5ababdd9cd6ee8965de44704025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_4c7169ac",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-14T21:21:35Z",
+      "side": 1,
+      "message": "Re: osr threshold option - the interaction here isn\u0027t affected by command-line changes to the osr threshold.  kMethodCheckForOSR is a state that says the method has gone hot enough to trigger an OSR compilation, so we should check to see if there is an available entry.  AddSamples() is who cares about the actual value of the threshold - and it will pick up the command-line changes.",
+      "parentUuid": "b76525c6_3d8a7bd9",
       "range": {
         "startLine": 73,
         "startChar": 0,
