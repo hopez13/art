@@ -22,6 +22,30 @@
       "revId": "10d4c08c0ea9df0a85a11e1c77974df24078c0ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b74a8540_751d0253",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-14T16:55:53Z",
+      "side": 1,
+      "message": "No, the sentence is correct:\n\n  - must be consecutive (strict requirement for LDRD)\n  - are (even thought they don\u0027t have to be) 8 byte aligned for performance.\n\n(Changing \"are\" to \"be\" would imply strict requirement on the second part.)",
+      "parentUuid": "b74a8540_1574b69c",
+      "range": {
+        "startLine": 1078,
+        "startChar": 61,
+        "endLine": 1078,
+        "endChar": 64
+      },
+      "revId": "10d4c08c0ea9df0a85a11e1c77974df24078c0ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
