@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b76525c6_80c79a5c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-14T18:53:12Z",
+      "side": 1,
+      "message": "dependent",
+      "range": {
+        "startLine": 13,
+        "startChar": 51,
+        "endLine": 13,
+        "endChar": 59
+      },
+      "revId": "ce24b53c429d0fba90cabbe488c21c01792b7148",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_c0eb52cb",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-14T18:53:12Z",
+      "side": 1,
+      "message": "Nit: put on a single line.",
+      "range": {
+        "startLine": 870,
+        "startChar": 13,
+        "endLine": 871,
+        "endChar": 44
+      },
+      "revId": "ce24b53c429d0fba90cabbe488c21c01792b7148",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_e0f056b6",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1789,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-14T18:53:12Z",
+      "side": 1,
+      "message": "You should swap the arguments, as `assertDoubleEquals` takes the expected value first.",
+      "range": {
+        "startLine": 1789,
+        "startChar": 23,
+        "endLine": 1789,
+        "endChar": 68
+      },
+      "revId": "ce24b53c429d0fba90cabbe488c21c01792b7148",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
