@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b76525c6_c0999297",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-14T18:01:45Z",
+      "side": 1,
+      "message": "I think I\u0027d prefer changing the name.",
+      "parentUuid": "d7a61927_03261454",
+      "range": {
+        "startLine": 614,
+        "startChar": 0,
+        "endLine": 617,
+        "endChar": 32
+      },
+      "revId": "107f9189c812fd5f7ef27206b5d14d4238ebdf0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7a61927_4362dca7",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-03-14T17:55:55Z",
       "side": 1,
       "message": "I believe all the asm trampolines used to do this for you. Why can they not still do so?",
+      "range": {
+        "startLine": 2141,
+        "startChar": 0,
+        "endLine": 2157,
+        "endChar": 3
+      },
+      "revId": "107f9189c812fd5f7ef27206b5d14d4238ebdf0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_e09e967c",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2157,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-14T18:01:45Z",
+      "side": 1,
+      "message": "I wish, but unfortunately not arm. That one is kind of important :)",
+      "parentUuid": "d7a61927_4362dca7",
       "range": {
         "startLine": 2141,
         "startChar": 0,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "b76525c6_00a46acf",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2236,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-14T18:01:45Z",
+      "side": 1,
+      "message": "Yeah that\u0027s benign (and intentional). I\u0027ll add a comment.",
+      "parentUuid": "d7a61927_c34b6c02",
+      "range": {
+        "startLine": 2234,
+        "startChar": 0,
+        "endLine": 2236,
+        "endChar": 36
+      },
+      "revId": "107f9189c812fd5f7ef27206b5d14d4238ebdf0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7a61927_0368d487",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 5
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "b76525c6_20a96ea9",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2237,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-14T18:01:45Z",
+      "side": 1,
+      "message": "It frees memory when the class loader gets deallocated. For the null class loader, it\u0027s alive throughout the lifetime of the app, so no need to care.\n\nAnd yes we do leak the table every time we hit a new conflict. That\u0027s a tradeoff compared to making the table fixed size.",
+      "parentUuid": "d7a61927_0368d487",
+      "range": {
+        "startLine": 2237,
+        "startChar": 0,
+        "endLine": 2237,
+        "endChar": 54
+      },
+      "revId": "107f9189c812fd5f7ef27206b5d14d4238ebdf0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7a61927_0354549c",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 5
@@ -128,6 +224,30 @@
       "writtenOn": "2016-03-14T17:55:55Z",
       "side": 1,
       "message": "No fence needed here?",
+      "range": {
+        "startLine": 2240,
+        "startChar": 3,
+        "endLine": 2242,
+        "endChar": 48
+      },
+      "revId": "107f9189c812fd5f7ef27206b5d14d4238ebdf0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_60b36615",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2242,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-14T18:01:45Z",
+      "side": 1,
+      "message": "No, it\u0027s only the data in the table that must be visible before going further.",
+      "parentUuid": "d7a61927_0354549c",
       "range": {
         "startLine": 2240,
         "startChar": 3,
