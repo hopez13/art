@@ -22,6 +22,30 @@
       "revId": "ab4a4d2b12d517af74b75ed22bebf7dec2bdf130",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_9fca4c18",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-15T15:20:30Z",
+      "side": 1,
+      "message": "Nope. FATAL actually signals abort, which we wanted to avoid here.",
+      "parentUuid": "b76525c6_4074a2d4",
+      "range": {
+        "startLine": 448,
+        "startChar": 14,
+        "endLine": 452,
+        "endChar": 22
+      },
+      "revId": "ab4a4d2b12d517af74b75ed22bebf7dec2bdf130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
