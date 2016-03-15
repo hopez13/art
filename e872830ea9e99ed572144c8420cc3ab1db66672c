@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc842acd_4204f235",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4227,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-03-15T18:57:35Z",
+      "side": 1,
+      "message": "It should probably set the code item to null (e.g. for default methods) explicitly.",
+      "revId": "e872830ea9e99ed572144c8420cc3ab1db66672c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc842acd_22ff6e4e",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-03-15T18:57:35Z",
+      "side": 1,
+      "message": "Why isn\u0027t there a DCHECK in GetCodeItem?",
+      "revId": "e872830ea9e99ed572144c8420cc3ab1db66672c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
