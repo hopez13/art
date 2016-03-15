@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b76525c6_4074a2d4",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-15T09:31:11Z",
+      "side": 1,
+      "message": "Isn\u0027t LOG(ERROR) \u0026\u0026 exit(1) equivalent to LOG(FATAL) ?",
+      "range": {
+        "startLine": 448,
+        "startChar": 14,
+        "endLine": 452,
+        "endChar": 22
+      },
+      "revId": "ab4a4d2b12d517af74b75ed22bebf7dec2bdf130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
