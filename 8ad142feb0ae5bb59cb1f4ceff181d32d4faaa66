@@ -22,6 +22,30 @@
       "revId": "8ad142feb0ae5bb59cb1f4ceff181d32d4faaa66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc842acd_426ab2ee",
+        "filename": "test/004-checker-UnsafeTest18/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-03-15T18:55:22Z",
+      "side": 1,
+      "message": "Should be relying on the implementation of AtomicBoolean for the Unsafe unit test? Why not test the Unsafe methods directly?\n\nLooking at the current implementation of AtomicBoolean it\u0027s not using any of the new 1.8 methods yet, am I looking in the wrong place?",
+      "parentUuid": "bc842acd_423f120c",
+      "range": {
+        "startLine": 253,
+        "startChar": 10,
+        "endLine": 253,
+        "endChar": 23
+      },
+      "revId": "8ad142feb0ae5bb59cb1f4ceff181d32d4faaa66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
