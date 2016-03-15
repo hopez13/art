@@ -46,6 +46,30 @@
       "revId": "8ad142feb0ae5bb59cb1f4ceff181d32d4faaa66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc842acd_62aed666",
+        "filename": "test/004-checker-UnsafeTest18/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-03-15T18:57:59Z",
+      "side": 1,
+      "message": "Igor: no, this unit test uses the unsafe memory fence between the write of m.l in the main thread and the reads of m.l in the spawned threads.\n\nIt is just that we also need a *relaxed memory* signal between the two, but after/before the fence. Java does not really provide that, so I used atomic boolean with weak set. The problem is that these are implemented with a true happens-before relation (probably), so that memory visibility is derived through these.",
+      "parentUuid": "bc842acd_426ab2ee",
+      "range": {
+        "startLine": 253,
+        "startChar": 10,
+        "endLine": 253,
+        "endChar": 23
+      },
+      "revId": "8ad142feb0ae5bb59cb1f4ceff181d32d4faaa66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
