@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_bfb0e807",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-15T14:56:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_60ad2662",
+      "range": {
+        "startLine": 497,
+        "startChar": 22,
+        "endLine": 497,
+        "endChar": 23
+      },
+      "revId": "0b6bbb16098f33419faa10c86362ce3648bdf9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_80aa3a49",
         "filename": "runtime/art_method.h",
         "patchSetId": 16
@@ -36,6 +60,30 @@
       "writtenOn": "2016-03-15T12:30:02Z",
       "side": 1,
       "message": "But explain volatile?",
+      "range": {
+        "startLine": 545,
+        "startChar": 73,
+        "endLine": 545,
+        "endChar": 83
+      },
+      "revId": "0b6bbb16098f33419faa10c86362ce3648bdf9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_1fbc9ce1",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-15T14:56:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_80aa3a49",
       "range": {
         "startLine": 545,
         "startChar": 73,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_1fddbcfa",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-15T14:56:15Z",
+      "side": 1,
+      "message": "Nah, I\u0027m fine with it.",
+      "parentUuid": "b76525c6_c0da72ea",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 30
+      },
+      "revId": "0b6bbb16098f33419faa10c86362ce3648bdf9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_e08216c2",
         "filename": "runtime/interpreter/mterp/arm/op_goto.S",
         "patchSetId": 16
@@ -82,6 +154,30 @@
       "writtenOn": "2016-03-15T12:30:02Z",
       "side": 1,
       "message": "Actually somehow nice code cleanup :). Let\u0027s measure the performance hit though.",
+      "range": {
+        "startLine": 9,
+        "startChar": 12,
+        "endLine": 9,
+        "endChar": 41
+      },
+      "revId": "0b6bbb16098f33419faa10c86362ce3648bdf9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_5fb62401",
+        "filename": "runtime/interpreter/mterp/arm/op_goto.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-15T14:56:15Z",
+      "side": 1,
+      "message": "Actually, may not have much of a choice here.  Mterp relies on fixed size buckets.  Dalvik used 64-byte buckets, but to make development easier I doubled that to 128.  But, but I do intend to go back to 64.  That\u0027s generally large enough to handle the fast paths of most instructions, but won\u0027t be for branches now.  We\u0027d have to have a direct branch to the overflow region anyway, so I thought I\u0027d just do it up front and share the common handling.  Still, I can and will see if it makes a measurable difference.",
+      "parentUuid": "b76525c6_e08216c2",
       "range": {
         "startLine": 9,
         "startChar": 12,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_3fbb58ea",
+        "filename": "runtime/interpreter/mterp/arm64/zcmp.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-15T14:56:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_e03a161d",
+      "range": {
+        "startLine": 10,
+        "startChar": 40,
+        "endLine": 10,
+        "endChar": 43
+      },
+      "revId": "0b6bbb16098f33419faa10c86362ce3648bdf9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_0088eae0",
         "filename": "runtime/interpreter/mterp/mterp.cc",
         "patchSetId": 16
@@ -128,6 +248,30 @@
       "writtenOn": "2016-03-15T12:30:02Z",
       "side": 1,
       "message": "Maybe call this MterpMaybeDoOnStackReplacement? Otherwise it might be confusing given the comment line 665.",
+      "range": {
+        "startLine": 660,
+        "startChar": 16,
+        "endLine": 660,
+        "endChar": 32
+      },
+      "revId": "0b6bbb16098f33419faa10c86362ce3648bdf9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_df4fb4ad",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-15T14:56:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_0088eae0",
       "range": {
         "startLine": 660,
         "startChar": 16,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_7fffa07a",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-15T14:56:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_a05f3e1a",
+      "range": {
+        "startLine": 669,
+        "startChar": 15,
+        "endLine": 669,
+        "endChar": 41
+      },
+      "revId": "0b6bbb16098f33419faa10c86362ce3648bdf9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_c06432f5",
         "filename": "runtime/interpreter/mterp/mterp.cc",
         "patchSetId": 16
@@ -174,6 +342,30 @@
       "writtenOn": "2016-03-15T12:30:02Z",
       "side": 1,
       "message": "2 more spaces",
+      "range": {
+        "startLine": 670,
+        "startChar": 2,
+        "endLine": 670,
+        "endChar": 17
+      },
+      "revId": "0b6bbb16098f33419faa10c86362ce3648bdf9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_dffcd486",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-15T14:56:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_c06432f5",
       "range": {
         "startLine": 670,
         "startChar": 2,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_bff90896",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-15T14:56:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_e0593636",
+      "range": {
+        "startLine": 674,
+        "startChar": 6,
+        "endLine": 675,
+        "endChar": 48
+      },
+      "revId": "0b6bbb16098f33419faa10c86362ce3648bdf9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_005f0a19",
         "filename": "runtime/interpreter/mterp/mterp.cc",
         "patchSetId": 16
@@ -220,6 +436,30 @@
       "writtenOn": "2016-03-15T12:30:02Z",
       "side": 1,
       "message": "Cooment?",
+      "range": {
+        "startLine": 702,
+        "startChar": 19,
+        "endLine": 702,
+        "endChar": 39
+      },
+      "revId": "0b6bbb16098f33419faa10c86362ce3648bdf9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_1f313c42",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-15T14:56:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_005f0a19",
       "range": {
         "startLine": 702,
         "startChar": 19,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_5f3bc421",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-15T14:56:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_20740e9d",
+      "range": {
+        "startLine": 702,
+        "startChar": 40,
+        "endLine": 703,
+        "endChar": 52
+      },
+      "revId": "0b6bbb16098f33419faa10c86362ce3648bdf9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_606e06d1",
         "filename": "runtime/jit/jit_instrumentation.cc",
         "patchSetId": 16
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_5f646421",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-15T14:56:15Z",
+      "side": 1,
+      "message": "As I define it, a negative counter value means we no longer wish to count - either we\u0027ve disabled counting (kHotnessDisabled (-2)) or we\u0027ve already gone hot and are checking for OSR (kMethodCheckForOSR (-1)).  These are currently end states - so no going back.  It occurs to me though that you\u0027d probably want to reset a method\u0027s hotness_count_ to zero if the associated translation is purged form the translation cache.\n\nActually, I suppose we could add a bit of a sanity check here.  Because in practice we\u0027ll never have a really large batch update, we won\u0027t ever wrap around and reach -1 or -2.  So, we could check here and if we find a negative starting_count that is not -1 or -2, we could assume a bad wrap around and reset to zero.",
+      "parentUuid": "b76525c6_606e06d1",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 3
+      },
+      "revId": "0b6bbb16098f33419faa10c86362ce3648bdf9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_806b1abe",
         "filename": "runtime/jit/jit_instrumentation.cc",
         "patchSetId": 16
@@ -289,6 +577,30 @@
       "writtenOn": "2016-03-15T12:30:02Z",
       "side": 1,
       "message": "Use if/else instead of early returns? I found the code easier to follow with if/else.",
+      "range": {
+        "startLine": 171,
+        "startChar": 4,
+        "endLine": 171,
+        "endChar": 10
+      },
+      "revId": "0b6bbb16098f33419faa10c86362ce3648bdf9e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a61927_7f5b205b",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-15T14:56:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b76525c6_806b1abe",
       "range": {
         "startLine": 171,
         "startChar": 4,
