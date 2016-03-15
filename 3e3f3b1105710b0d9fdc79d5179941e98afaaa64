@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d7a61927_3fd518b7",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-15T15:20:54Z",
+      "side": 1,
+      "message": "Let\u0027s chat about what profiling you need here.  I was envisioning quite distinct uses of BRANCH_INSTRUMENTATION and BACKWARDS_BRANCH_INSTRUMENTATION.  Note also that I\u0027ve changed the jit to no longer request Branch() profiling.  Right now, we only care about hotness with respect to branches.  The old Branch() handled hotness and served as a placeholder for branch bias profiling.  I split the two, with the expectation that when the JIT is ready, bias profiling would be fleshed out.  Because it is so expensive, though, I\u0027d imagine the sequence to be\n\n   hotness up to warm: just record hotness\n   hotness crosses warm: allocate profiling structures\n   hotness from warm to hot: profile expensive actions, which in the future would include branch bias profiling.\n   hotness crosses hot: request translation and disable expensive profiling actions.\n   hotness crosses osr: disable all profiling and begin osr checks.\n\nIn short, Branch() and BackwardsBranches() are independent.  We could have the BRANCH_INSTRUMENTATION macro also test for backwards branches, but we have to check direction later on anyway for suspend checks.",
+      "parentUuid": "b76525c6_7d94f3f6",
+      "range": {
+        "startLine": 643,
+        "startChar": 0,
+        "endLine": 643,
+        "endChar": 41
+      },
+      "revId": "3e3f3b1105710b0d9fdc79d5179941e98afaaa64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_ddfdff55",
         "filename": "runtime/interpreter/mterp/arm/footer.S",
         "patchSetId": 15
