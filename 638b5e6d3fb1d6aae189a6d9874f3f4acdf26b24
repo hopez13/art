@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b76525c6_833244ce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-16T17:26:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cd5a6d1_7112383c",
+      "range": {
+        "startLine": 17,
+        "startChar": 10,
+        "endLine": 17,
+        "endChar": 16
+      },
+      "revId": "638b5e6d3fb1d6aae189a6d9874f3f4acdf26b24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_5dd1ef6e",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 2
@@ -83,6 +107,30 @@
       "writtenOn": "2016-03-16T17:17:53Z",
       "side": 1,
       "message": "This should be two, shouldn\u0027t it? Each element in the list constitutes a single argument...\n\n(It isn\u0027t relevant for the oat_file_assistant, which merges things, but the JIT inspects them one by one...)",
+      "range": {
+        "startLine": 122,
+        "startChar": 4,
+        "endLine": 122,
+        "endChar": 69
+      },
+      "revId": "638b5e6d3fb1d6aae189a6d9874f3f4acdf26b24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_c3627cb7",
+        "filename": "runtime/native/dalvik_system_ZygoteHooks.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-16T17:26:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cd5a6d1_911a3c4b",
       "range": {
         "startLine": 122,
         "startChar": 4,
