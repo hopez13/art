@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b76525c6_4374acd4",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-03-16T13:09:46Z",
+      "side": 1,
+      "message": "This should be enabled differently (see comment below)",
+      "range": {
+        "startLine": 48,
+        "startChar": 17,
+        "endLine": 48,
+        "endChar": 21
+      },
+      "revId": "e46eaab9aa38541027c869d647eb5ac19a600b4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_6381b0e9",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-03-16T13:09:46Z",
+      "side": 1,
+      "message": "This should be implicitly enabled here. Why ANDROID_COMPILE_WITH_JACK is not set?",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 78,
+        "endChar": 17
+      },
+      "revId": "e46eaab9aa38541027c869d647eb5ac19a600b4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
