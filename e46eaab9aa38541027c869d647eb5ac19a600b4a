@@ -69,6 +69,30 @@
       "revId": "e46eaab9aa38541027c869d647eb5ac19a600b4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b74a8540_9b94575f",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-03-16T13:16:42Z",
+      "side": 1,
+      "message": "Ah yes, of course. So you can also remove lines 77 to 79: testing ANDROID_COMPILE_WITH_JACK is no longer needed now.",
+      "parentUuid": "d79459c3_245ed84b",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 78,
+        "endChar": 17
+      },
+      "revId": "e46eaab9aa38541027c869d647eb5ac19a600b4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
