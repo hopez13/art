@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d79459c3_44c7640f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-16T14:08:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b74a8540_989a9d9a",
+      "range": {
+        "startLine": 9,
+        "startChar": 17,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "91dc3460a5f74691340d71e41f2ae53f48bfb70a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c2afa7a_cec243a8",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-03-16T12:20:48Z",
       "side": 1,
       "message": "As discussed, you don\u0027t need this flag.",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 38
+      },
+      "revId": "91dc3460a5f74691340d71e41f2ae53f48bfb70a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_83aa4449",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-16T14:08:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c2afa7a_cec243a8",
       "range": {
         "startLine": 266,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f7723d90_fabac1e3",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-16T14:08:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc1ea258_3ae699d4",
+      "range": {
+        "startLine": 301,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 17
+      },
+      "revId": "91dc3460a5f74691340d71e41f2ae53f48bfb70a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d79459c3_644f00b0",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-03-16T12:20:48Z",
       "side": 1,
       "message": "stats_ !\u003d nullptr",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 14
+      },
+      "revId": "91dc3460a5f74691340d71e41f2ae53f48bfb70a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d79459c3_24ca581a",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-16T14:08:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d79459c3_644f00b0",
       "range": {
         "startLine": 37,
         "startChar": 8,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "b74a8540_1b022759",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-16T14:08:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "373e959c_b19f7a89",
+      "range": {
+        "startLine": 38,
+        "startChar": 24,
+        "endLine": 38,
+        "endChar": 25
+      },
+      "revId": "91dc3460a5f74691340d71e41f2ae53f48bfb70a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c3926d3_7478c69d",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2016-03-16T12:20:48Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 43,
+        "startChar": 8,
+        "endLine": 43,
+        "endChar": 14
+      },
+      "revId": "91dc3460a5f74691340d71e41f2ae53f48bfb70a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "973661c6_4fe5c1f0",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-16T14:08:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c3926d3_7478c69d",
       "range": {
         "startLine": 43,
         "startChar": 8,
