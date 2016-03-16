@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b76525c6_a3e4a88c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2676,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-16T15:59:07Z",
+      "side": 1,
+      "message": "I have removed the condition on JitAtFirstUse and replaced with IsNativeDebuggable.\n\nThis means JitAtFirstUse has its pure meaning again - instead for waiting for method to get hot in the interpreter, it will JIT it when it is used for first time, and it will wait for this compilation to complete.\n\nJitAtFirstUse no longer affects decisions about AOT vs JIT code.",
+      "range": {
+        "startLine": 2676,
+        "startChar": 6,
+        "endLine": 2676,
+        "endChar": 35
+      },
+      "revId": "04dd2a9bccc733ed47801ab0a3129131fdb3f293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76525c6_c3e99c65",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2685,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-16T15:59:07Z",
+      "side": 1,
+      "message": "This is counter-part to the code in Debugger:GoActive. I missed it in PS1.",
+      "range": {
+        "startLine": 2685,
+        "startChar": 4,
+        "endLine": 2685,
+        "endChar": 10
+      },
+      "revId": "04dd2a9bccc733ed47801ab0a3129131fdb3f293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
