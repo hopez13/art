@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7bff930_5248ea05",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-03-16T13:52:03Z",
+      "side": 1,
+      "message": "I think a NullConstant should return true for IsZeroBitPattern, unless you think that there is a chance of null not being 0.  You can then simplify this.\n\nI have heard of machines with non-0 NULL pointers, but not in the last 30 years or so.  Perhaps you can add a static_assert for this.",
+      "range": {
+        "startLine": 916,
+        "startChar": 58,
+        "endLine": 916,
+        "endChar": 81
+      },
+      "revId": "afc8cf747e6e5964b5b267be8503dc6bed64b6d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
