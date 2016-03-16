@@ -139,8 +139,8 @@ class MyClassNatives {
         float f9, int i10, float f10);
 
     // Normal native
-    native static void stackArgsSignExtendedMips64(int i1, int i2, int i3, int i4, int i5, int i6,
-        int i7, int i8);
+    native static long getStackArgSignExtendedMips64(int i1, int i2, int i3, int i4, int i5, int i6,
+        int stack_arg);
 
     // Normal native
     static native double logD(double d);
@@ -273,8 +273,8 @@ class MyClassNatives {
         float f9, int i10, float f10);
 
     @FastNative
-    native static void stackArgsSignExtendedMips64_Fast(int i1, int i2, int i3, int i4, int i5, int i6,
-        int i7, int i8);
+    native static long getStackArgSignExtendedMips64_Fast(int i1, int i2, int i3, int i4, int i5, int i6,
+        int stack_arg);
 
     @FastNative
     static native double logD_Fast(double d);
@@ -316,8 +316,8 @@ class MyClassNatives {
         float f9, int i10, float f10);
 
     @CriticalNative
-    native static void stackArgsSignExtendedMips64_Critical(int i1, int i2, int i3, int i4, int i5, int i6,
-        int i7, int i8);
+    native static long getStackArgSignExtendedMips64_Critical(int i1, int i2, int i3, int i4, int i5, int i6,
+        int stack_arg);
 
     @CriticalNative
     static native double logD_Critical(double d);
