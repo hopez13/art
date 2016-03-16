@@ -163,6 +163,30 @@
       "revId": "04dd2a9bccc733ed47801ab0a3129131fdb3f293",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cc1b619_edff2578",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-16T18:53:58Z",
+      "side": 1,
+      "message": "The debugger type of the run configuration has to be switched from Java to Native. (internally we have a lot of bike-shedding how these should be called)\n\nIf that is done, android studio will start the app with \"adb shell am start\" with additional -N flag.  This in turn will be transalted by the activity manager to the DEBUG_NATIVE_DEBUGGABLE flag.\n\nWe definitely do not want to do this for normal Java debugging flow.",
+      "parentUuid": "9cd5a6d1_b4f96e94",
+      "range": {
+        "startLine": 629,
+        "startChar": 75,
+        "endLine": 629,
+        "endChar": 93
+      },
+      "revId": "04dd2a9bccc733ed47801ab0a3129131fdb3f293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
