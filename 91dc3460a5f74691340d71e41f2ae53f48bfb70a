@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b74a8540_989a9d9a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-16T12:22:09Z",
+      "side": 1,
+      "message": "size",
+      "range": {
+        "startLine": 9,
+        "startChar": 17,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "91dc3460a5f74691340d71e41f2ae53f48bfb70a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c2afa7a_cec243a8",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 1
