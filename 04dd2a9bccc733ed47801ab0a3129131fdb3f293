@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "1cc1b619_4d94395f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2682,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-16T17:40:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b74a8540_5bc4af09",
+      "range": {
+        "startLine": 2682,
+        "startChar": 4,
+        "endLine": 2682,
+        "endChar": 8
+      },
+      "revId": "04dd2a9bccc733ed47801ab0a3129131fdb3f293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b76525c6_c3e99c65",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -82,6 +106,30 @@
       "writtenOn": "2016-03-16T17:30:46Z",
       "side": 1,
       "message": "In what circumstances an app is considered \"native debuggable\"? Is it limited to a specific config or is it true when running under Android Studio, ... ?\n\nI\u0027m asking the question because it impacts the debuggability of Java stack frames in the boot image. So if \"native debuggable\" is something that will be true quite often, we won\u0027t \"deoptimize\" boot image methods for the Java debugging.",
+      "range": {
+        "startLine": 629,
+        "startChar": 75,
+        "endLine": 629,
+        "endChar": 93
+      },
+      "revId": "04dd2a9bccc733ed47801ab0a3129131fdb3f293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cc1b619_0d9e317d",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-16T17:40:59Z",
+      "side": 1,
+      "message": "It is limited to specific config of Android Studio when we debug using LLDB instead of JDWP. The target audience is C++ developers who might have just a bit of java source code in the application. We will not use JDWP to set breakpoints, step or view local variables in this config.",
+      "parentUuid": "b76525c6_a35d88f4",
       "range": {
         "startLine": 629,
         "startChar": 75,
