@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1cc1b619_0d2dd18d",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-17T11:49:34Z",
+      "side": 1,
+      "message": "Calin: The DCHECK is triggered here. I have separated the code out, submitted it separately, and rebased on top of it.\n\nThe most important part is that the checks happen only in DebugBuild.",
+      "range": {
+        "startLine": 365,
+        "startChar": 2,
+        "endLine": 367,
+        "endChar": 3
+      },
+      "revId": "91ba29573265e4cd046fbd4a6dac342a0a2fc5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
