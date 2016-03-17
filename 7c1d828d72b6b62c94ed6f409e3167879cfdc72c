@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc14e289_93ff8679",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1782,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-03-17T22:50:37Z",
+      "side": 1,
+      "message": "please remove this header, we consistently do *not* use that in all the other files now, and I like to keep the inter architecture style a bit consistent",
+      "range": {
+        "startLine": 1782,
+        "startChar": 17,
+        "endLine": 1782,
+        "endChar": 27
+      },
+      "revId": "7c1d828d72b6b62c94ed6f409e3167879cfdc72c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
