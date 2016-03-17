@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9cd5a6d1_3a82452b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-03-17T21:26:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7bff930_0c8adbd8",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 37
+      },
+      "revId": "ef14f0910d68160b475f240a61f04de24a7b9f45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7bff930_8ccd2bae",
         "filename": "compiler/utils/mips64/assembler_mips64.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-03-15T23:41:26Z",
       "side": 1,
       "message": "Following the renaming of EmitDinsu() to LoadReplicatedConst32(), this should also be renamed.\n\nInstrCountForLoadReplicatedConst32() is a bit long, but is much more descriptive.",
+      "range": {
+        "startLine": 1049,
+        "startChar": 11,
+        "endLine": 1049,
+        "endChar": 21
+      },
+      "revId": "ef14f0910d68160b475f240a61f04de24a7b9f45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cd5a6d1_fa735d24",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1049,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-03-17T21:26:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7bff930_8ccd2bae",
       "range": {
         "startLine": 1049,
         "startChar": 11,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9cd5a6d1_9a70111a",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-03-17T21:26:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7bff930_cc5283af",
+      "range": {
+        "startLine": 1056,
+        "startChar": 13,
+        "endLine": 1056,
+        "endChar": 61
+      },
+      "revId": "ef14f0910d68160b475f240a61f04de24a7b9f45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7bff930_ac0bc708",
         "filename": "compiler/utils/mips64/assembler_mips64.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-03-15T23:41:26Z",
       "side": 1,
       "message": "I don\u0027t think this comment adds value.",
+      "range": {
+        "startLine": 1062,
+        "startChar": 0,
+        "endLine": 1062,
+        "endChar": 26
+      },
+      "revId": "ef14f0910d68160b475f240a61f04de24a7b9f45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cd5a6d1_85999296",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-03-17T21:26:01Z",
+      "side": 1,
+      "message": "Deleted.",
+      "parentUuid": "d7bff930_ac0bc708",
       "range": {
         "startLine": 1062,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "9cd5a6d1_ba6dd542",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-03-17T21:26:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7bff930_6c9f0fd6",
+      "range": {
+        "startLine": 1063,
+        "startChar": 22,
+        "endLine": 1063,
+        "endChar": 31
+      },
+      "revId": "ef14f0910d68160b475f240a61f04de24a7b9f45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7bff930_2c7cf745",
         "filename": "compiler/utils/mips64/assembler_mips64.cc",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2016-03-15T23:41:26Z",
       "side": 1,
       "message": "Insert:\n\n  int32_t y \u003d High32Bits(value);\n  CHECK_EQ(x, y);",
+      "range": {
+        "startLine": 1065,
+        "startChar": 0,
+        "endLine": 1065,
+        "endChar": 0
+      },
+      "revId": "ef14f0910d68160b475f240a61f04de24a7b9f45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cd5a6d1_45a3aaca",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-03-17T21:26:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7bff930_2c7cf745",
       "range": {
         "startLine": 1065,
         "startChar": 0,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "9cd5a6d1_e5a73ed4",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1078,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-03-17T21:26:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7bff930_2cc4f77a",
+      "range": {
+        "startLine": 1078,
+        "startChar": 6,
+        "endLine": 1078,
+        "endChar": 16
+      },
+      "revId": "ef14f0910d68160b475f240a61f04de24a7b9f45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7bff930_ec549ff5",
         "filename": "compiler/utils/mips64/assembler_mips64.h",
         "patchSetId": 1
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "9cd5a6d1_da769917",
+        "filename": "compiler/utils/mips64/assembler_mips64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-03-17T21:26:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7bff930_ec549ff5",
+      "range": {
+        "startLine": 516,
+        "startChar": 0,
+        "endLine": 517,
+        "endChar": 39
+      },
+      "revId": "ef14f0910d68160b475f240a61f04de24a7b9f45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7bff930_77e518f1",
         "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
         "patchSetId": 1
@@ -197,6 +389,30 @@
       "writtenOn": "2016-03-15T23:41:26Z",
       "side": 1,
       "message": "Too cryptic, IMO. It could\u0027ve been an underscored integer suffix (_1, _2, etc) just as well, not pretending to convey any additional info, which there really isn\u0027t. Perhaps the only utility of a name here is to locate a failing test case by its name.\n\nI\u0027d like someone else\u0027s (google\u0027s) opinion here.",
+      "range": {
+        "startLine": 1953,
+        "startChar": 39,
+        "endLine": 1953,
+        "endChar": 50
+      },
+      "revId": "ef14f0910d68160b475f240a61f04de24a7b9f45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc6b9e2f_838b9edb",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1953,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-03-17T21:26:01Z",
+      "side": 1,
+      "message": "In this case, the test values are created by loading an unsigned 16-bit int, and shifting left. The \"W1\" here says that the unsigned int being load is 1 bit wide. The \"S47\" says that unsigned int value is shifted left 47 places.  Test cases for LoadConst64() in some way are derived from the method used to load the constant into a register.\n\nHTH.",
+      "parentUuid": "d7bff930_77e518f1",
       "range": {
         "startLine": 1953,
         "startChar": 39,
