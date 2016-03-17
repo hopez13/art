@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cb846d6_3914cf95",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4362,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-17T19:49:23Z",
+      "side": 1,
+      "message": "Any constant.",
+      "range": {
+        "startLine": 4362,
+        "startChar": 24,
+        "endLine": 4362,
+        "endChar": 46
+      },
+      "revId": "78f6f0f575a0521e0246b3e8c88d960fe546008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fce942d0_7c18f9b6",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4363,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-17T19:49:23Z",
+      "side": 1,
+      "message": "In my opinion, this is going in the wrong direction. HRor should be unified with other shifts on all architectures. And I believe the other shifts also need to handle boolean/byte/short/char.",
+      "revId": "78f6f0f575a0521e0246b3e8c88d960fe546008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
