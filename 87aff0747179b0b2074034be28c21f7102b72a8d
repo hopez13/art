@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5c3deeec_3fd767c5",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-17T13:24:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cc1b619_2d59ad2a",
+      "revId": "87aff0747179b0b2074034be28c21f7102b72a8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fccf8245_ec888be0",
         "filename": "test/586-checker-null-array-get/src/Main.java",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2016-03-17T11:15:37Z",
       "side": 1,
       "message": "I\u0027d used CHECK-DAG (here and below).",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 11
+      },
+      "revId": "87aff0747179b0b2074034be28c21f7102b72a8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fccf8245_0c407711",
+        "filename": "test/586-checker-null-array-get/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-17T13:24:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fccf8245_ec888be0",
       "range": {
         "startLine": 31,
         "startChar": 6,
