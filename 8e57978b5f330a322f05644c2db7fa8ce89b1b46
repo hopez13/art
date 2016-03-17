@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c3deeec_dfe0fbe3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2725,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-17T08:45:26Z",
+      "side": 0,
+      "message": "Where did that go? Should you DCHECK it n the IsNativeDebuggable part?",
+      "range": {
+        "startLine": 2725,
+        "startChar": 6,
+        "endLine": 2725,
+        "endChar": 61
+      },
+      "revId": "8e57978b5f330a322f05644c2db7fa8ce89b1b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
