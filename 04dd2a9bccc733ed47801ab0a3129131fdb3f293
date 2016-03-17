@@ -187,6 +187,30 @@
       "revId": "04dd2a9bccc733ed47801ab0a3129131fdb3f293",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc842acd_25d1b8cc",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1048574
+      },
+      "writtenOn": "2016-03-17T00:02:36Z",
+      "side": 1,
+      "message": "This is not a replacement for JDWP based Java debugging.  This is an enhancement to the C++ debugging experience.  An app developer who prioritizes a rich Java debugging experience should and will get JDWP.  A developer who prioritizes a rich C++ experience with some Java awareness will get this debugger.",
+      "parentUuid": "1cc1b619_edff2578",
+      "range": {
+        "startLine": 629,
+        "startChar": 75,
+        "endLine": 629,
+        "endChar": 93
+      },
+      "revId": "04dd2a9bccc733ed47801ab0a3129131fdb3f293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
