@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "3cc67a31_71147296",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-17T16:45:28Z",
+      "side": 1,
+      "message": "If you want the fastest possible for a single-entry table:\n\n    ldr r4, [r0]\n  .Limt_table_iterate:\n    cmp r4, r12\n    bne .Limt_table_next_entry\n    // First entry is a hit.\n    ldr r0, [r0, #__SIZEOF_POINTER__]\n    ldr pc, [r0, #ART_METHOD_QUICK_CODE_OFFSET_32]\n  .Limt_table_next_entry:\n    cbz r4, .Lconflict_trampoline\n    ldr r4, [r0, #(2 * __SIZEOF_POINTER__)]!\n    b .Limt_table_iterate  // We could unroll the loop instead.\n                           // (Copy-paste the CMP+BNE+LDR+LDR above.)",
+      "parentUuid": "1ced36ca_0d1ed1a5",
+      "revId": "24bcff1550e51e17310585d078dad36ef9c79976",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dccabe38_cb9335d2",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 8
