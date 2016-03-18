@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "3ce03ae0_3ee109bc",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 1236,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-18T10:43:01Z",
+      "side": 1,
+      "message": "r0",
+      "range": {
+        "startLine": 1236,
+        "startChar": 8,
+        "endLine": 1236,
+        "endChar": 10
+      },
+      "revId": "7d0495308c79cece6e959bfaa1927392a3063ebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cdb763a_bd727fe8",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 1707,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-18T10:43:01Z",
+      "side": 1,
+      "message": "With this approach, the swap x0\u003c-\u003exIP1 was unnecessary but it doesn\u0027t matter.",
+      "revId": "7d0495308c79cece6e959bfaa1927392a3063ebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9cb846d6_9975dbd5",
         "filename": "runtime/art_method-inl.h",
         "patchSetId": 9
