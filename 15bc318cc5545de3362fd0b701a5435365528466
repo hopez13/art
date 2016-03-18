@@ -65,6 +65,30 @@
     },
     {
       "key": {
+        "uuid": "3ce03ae0_de766565",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1417,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-18T18:13:13Z",
+      "side": 1,
+      "message": "No, it adds an undesirable CFI_RESTORE(REG_VAR(reg)).",
+      "parentUuid": "dce47ef9_5b598302",
+      "range": {
+        "startLine": 1416,
+        "startChar": 0,
+        "endLine": 1417,
+        "endChar": 29
+      },
+      "revId": "15bc318cc5545de3362fd0b701a5435365528466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cdb763a_9d5223de",
         "filename": "runtime/art_method.h",
         "patchSetId": 10
