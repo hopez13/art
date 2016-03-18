@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "fc14e289_4e30c43e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-18T16:03:02Z",
+      "side": 1,
+      "message": "Yup, it was unexpected to all of us, and dallison tried for quite a while to figure this out.\n\nNicolas, the comment on why is below.\n\nI guess I need to refactor the comments yet another time...",
+      "parentUuid": "fc14e289_6b82d22b",
+      "range": {
+        "startLine": 536,
+        "startChar": 15,
+        "endLine": 536,
+        "endChar": 82
+      },
+      "revId": "04d8c5f51976c514d913edbc9e441a585e8f35c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fce942d0_bc65218e",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
