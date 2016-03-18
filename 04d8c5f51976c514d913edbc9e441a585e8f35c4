@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "fc14e289_30995d95",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2016-03-18T22:49:28Z",
+      "side": 1,
+      "message": "See b/27718174#comment10 for the gory details, but the short version is that VM_GROWSDOWN mappings (like the main stack) have strange behavior.  The kernel keeps a virtual guard page at the end of the VM_GROWSDOWN mapping - if you map a guard page manually, the kernel will fault at the page before the guard page.",
+      "parentUuid": "fc14e289_9fab04ba",
+      "range": {
+        "startLine": 536,
+        "startChar": 15,
+        "endLine": 536,
+        "endChar": 82
+      },
+      "revId": "04d8c5f51976c514d913edbc9e441a585e8f35c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fce942d0_bc65218e",
         "filename": "runtime/thread.cc",
         "patchSetId": 2
