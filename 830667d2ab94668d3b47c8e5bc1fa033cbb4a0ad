@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bccc2a7e_02478af7",
+        "filename": "test/587-inline-class-error/smali/VerifyError.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-18T16:12:40Z",
+      "side": 1,
+      "message": "Yeah, not sure it\u0027s a bug. Maybe it\u0027s a micro-optimizing and the class linker doesn\u0027t initialize the embedded vtable length if there\u0027s no static fields (that are placed after the embedded vtable length).",
+      "parentUuid": "5cd96e3d_df201b95",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 24
+      },
+      "revId": "830667d2ab94668d3b47c8e5bc1fa033cbb4a0ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cd6320e_40642ec4",
         "filename": "test/587-inline-class-error/src/Main.java",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2016-03-18T12:54:52Z",
       "side": 1,
       "message": "Also call TestCase.topLevel(new VerifyError[] { null })` and catch the NPE. (Use reflection to construct the array?)",
+      "revId": "830667d2ab94668d3b47c8e5bc1fa033cbb4a0ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bccc2a7e_22272e53",
+        "filename": "test/587-inline-class-error/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-18T16:12:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cd6320e_40642ec4",
       "revId": "830667d2ab94668d3b47c8e5bc1fa033cbb4a0ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
