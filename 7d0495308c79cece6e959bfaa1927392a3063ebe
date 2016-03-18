@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cb846d6_9975dbd5",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-18T10:37:14Z",
+      "side": 1,
+      "message": "add comment.",
+      "range": {
+        "startLine": 466,
+        "startChar": 20,
+        "endLine": 466,
+        "endChar": 41
+      },
+      "revId": "7d0495308c79cece6e959bfaa1927392a3063ebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dce47ef9_5be6e3d4",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-18T10:37:14Z",
+      "side": 1,
+      "message": "just looking at this class, it seems magic that you\u0027re able to iterate over this array. Comment where the allocation happens.",
+      "range": {
+        "startLine": 109,
+        "startChar": 1,
+        "endLine": 109,
+        "endChar": 20
+      },
+      "revId": "7d0495308c79cece6e959bfaa1927392a3063ebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcb50adc_ba23719f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 5844,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-18T10:37:14Z",
+      "side": 1,
+      "message": "I don\u0027t really get it. But we can talk offline.",
+      "range": {
+        "startLine": 5843,
+        "startChar": 4,
+        "endLine": 5844,
+        "endChar": 24
+      },
+      "revId": "7d0495308c79cece6e959bfaa1927392a3063ebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ce03ae0_fe55e124",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2228,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-18T10:37:14Z",
+      "side": 1,
+      "message": "do you have any intuitive measure of how badly this can get? same bellow.",
+      "range": {
+        "startLine": 2228,
+        "startChar": 45,
+        "endLine": 2228,
+        "endChar": 49
+      },
+      "revId": "7d0495308c79cece6e959bfaa1927392a3063ebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
