@@ -25,6 +25,46 @@
     },
     {
       "key": {
+        "uuid": "3ce03ae0_be90b9c6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-18T16:50:46Z",
+      "side": 1,
+      "message": "Also, maybe mention that this is supported on ARM, ARM64, x86 and x86-64?",
+      "revId": "15bc318cc5545de3362fd0b701a5435365528466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dce47ef9_5b598302",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 1417,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-18T16:50:46Z",
+      "side": 1,
+      "message": "Maybe use:\n\n  POP eax\n\ninstead?",
+      "range": {
+        "startLine": 1416,
+        "startChar": 0,
+        "endLine": 1417,
+        "endChar": 29
+      },
+      "revId": "15bc318cc5545de3362fd0b701a5435365528466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cdb763a_9d5223de",
         "filename": "runtime/art_method.h",
         "patchSetId": 10
