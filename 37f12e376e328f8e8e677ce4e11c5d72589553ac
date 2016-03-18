@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bcb50adc_9da787d5",
+        "filename": "test/587-inline-class-error/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-18T16:21:11Z",
+      "side": 1,
+      "message": "This is `TestCase.topLevel(null)` and the NPE will be thrown on the aget-object. I\u0027d rather see the NPE thrown by the invoke-virtual from `TestCase.topLevel(new VerifyError[] { null })`.",
+      "range": {
+        "startLine": 30,
+        "startChar": 6,
+        "endLine": 30,
+        "endChar": 93
+      },
+      "revId": "37f12e376e328f8e8e677ce4e11c5d72589553ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cd6320e_43999893",
+        "filename": "test/587-inline-class-error/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-18T16:21:11Z",
+      "side": 1,
+      "message": "And you should check `e.getCause() instanceof NullPointerException` here.",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 17
+      },
+      "revId": "37f12e376e328f8e8e677ce4e11c5d72589553ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
