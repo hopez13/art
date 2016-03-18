@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9cb846d6_d962f382",
+        "filename": "test/587-inline-class-error/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-18T16:22:13Z",
+      "side": 1,
+      "message": "Does this really work?  I didn\u0027t know you could do that.",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 49
+      },
+      "revId": "37f12e376e328f8e8e677ce4e11c5d72589553ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcb50adc_9da787d5",
         "filename": "test/587-inline-class-error/src/Main.java",
         "patchSetId": 3
