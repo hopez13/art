@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "bcb50adc_5df08fb4",
+        "filename": "test/587-inline-class-error/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-18T16:35:30Z",
+      "side": 1,
+      "message": "I don\u0027t think you can. VerifyError is erroneous, and AFAICS reflection does not allow you to create an array of an erroneous class.",
+      "parentUuid": "bcb50adc_9da787d5",
+      "range": {
+        "startLine": 30,
+        "startChar": 6,
+        "endLine": 30,
+        "endChar": 93
+      },
+      "revId": "37f12e376e328f8e8e677ce4e11c5d72589553ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cd6320e_43999893",
         "filename": "test/587-inline-class-error/src/Main.java",
         "patchSetId": 3
@@ -59,6 +83,30 @@
       "writtenOn": "2016-03-18T16:21:11Z",
       "side": 1,
       "message": "And you should check `e.getCause() instanceof NullPointerException` here.",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 17
+      },
+      "revId": "37f12e376e328f8e8e677ce4e11c5d72589553ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ccf6672_e1e54624",
+        "filename": "test/587-inline-class-error/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-18T16:35:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cd6320e_43999893",
       "range": {
         "startLine": 33,
         "startChar": 6,
