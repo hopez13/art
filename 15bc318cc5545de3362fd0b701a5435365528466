@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "fc14e289_ae9e9827",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-03-18T16:34:56Z",
+      "side": 1,
+      "message": "\u003e Replace with\n \u003e \n \u003e Entry* entries_;\n \u003e \n \u003e as this is not really a null-sized array?\n\nType name[0] acts as a pointer to the end of the struct (or the next field but that use is rare). Having it here is intentional since the Entry\u0027s appear in memory right at the end of this struct.",
+      "parentUuid": "bccc2a7e_820d5ad3",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 20
+      },
+      "revId": "15bc318cc5545de3362fd0b701a5435365528466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dce47ef9_1b361bcc",
         "filename": "runtime/art_method.h",
         "patchSetId": 10
@@ -156,6 +180,29 @@
         "startChar": 0,
         "endLine": 313,
         "endChar": 68
+      },
+      "revId": "15bc318cc5545de3362fd0b701a5435365528466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_aec7b80f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 6101,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-03-18T16:34:56Z",
+      "side": 1,
+      "message": "Have you made sure that this method continues to work correctly now that there are multiple conflict methods?\n\nThis line especially seems like it could have problems.\n\nI think you need to replace any IMT conflict methods with the generic one in the loop there or else they could call superclass methods.",
+      "range": {
+        "startLine": 6101,
+        "startChar": 0,
+        "endLine": 6101,
+        "endChar": 73
       },
       "revId": "15bc318cc5545de3362fd0b701a5435365528466",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
