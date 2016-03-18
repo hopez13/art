@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc14e289_95b763fd",
+        "filename": "compiler/utils/mips/assembler_mips_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-03-18T22:12:40Z",
+      "side": 1,
+      "message": "LlR2? Here and for the last argument of DriverStr(). Other tests in this file use the R2 suffix. I don\u0027t know if all of the pre-R6 instructions do.\n\nShould they?",
+      "range": {
+        "startLine": 492,
+        "startChar": 26,
+        "endLine": 492,
+        "endChar": 28
+      },
+      "revId": "550608121b1aa45adb12e0dcadefe5e4ade9f8c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_75bc67df",
+        "filename": "compiler/utils/mips/assembler_mips_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-03-18T22:12:40Z",
+      "side": 1,
+      "message": "ScR2? Here and for the last argument of DriverStr().\n\nSee above for additional comments.",
+      "range": {
+        "startLine": 496,
+        "startChar": 26,
+        "endLine": 496,
+        "endChar": 28
+      },
+      "revId": "550608121b1aa45adb12e0dcadefe5e4ade9f8c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_f5f97793",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-03-18T22:12:40Z",
+      "side": 1,
+      "message": "Should this line be moved next to line 186 (or move line 186 next to this line)?\n\nAdd comments to show which line is for R2/R6.",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 320,
+        "endChar": 51
+      },
+      "revId": "550608121b1aa45adb12e0dcadefe5e4ade9f8c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_f54a179c",
+        "filename": "disassembler/disassembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-03-18T22:12:40Z",
+      "side": 1,
+      "message": "Should this line be moved next to line 184 (or move line 184 next to this line)?\n\nAdd comments to show which line is for R2/R6.",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 51
+      },
+      "revId": "550608121b1aa45adb12e0dcadefe5e4ade9f8c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
