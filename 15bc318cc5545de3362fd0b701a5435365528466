@@ -89,6 +89,29 @@
     },
     {
       "key": {
+        "uuid": "fc14e289_44e6e306",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-03-18T18:41:39Z",
+      "side": 1,
+      "message": "This method is no longer accurate. Either update it to be (and use it in preference to IsRuntimeMethod), rename it (maybe IsImtConflictMethodDuringCompilation?), or remove it to be less confusing.",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 1
+      },
+      "revId": "15bc318cc5545de3362fd0b701a5435365528466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cdb763a_9d5223de",
         "filename": "runtime/art_method.h",
         "patchSetId": 10
