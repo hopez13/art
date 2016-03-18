@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9ccf6672_014a2a25",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4362,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-18T12:22:46Z",
+      "side": 1,
+      "message": "I\u0027m not sure to follow; what do you mean by \"any constant\"?",
+      "parentUuid": "9cb846d6_3914cf95",
+      "range": {
+        "startLine": 4362,
+        "startChar": 24,
+        "endLine": 4362,
+        "endChar": 46
+      },
+      "revId": "78f6f0f575a0521e0246b3e8c88d960fe546008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fce942d0_7c18f9b6",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2016-03-17T19:49:23Z",
       "side": 1,
       "message": "In my opinion, this is going in the wrong direction. HRor should be unified with other shifts on all architectures. And I believe the other shifts also need to handle boolean/byte/short/char.",
+      "revId": "78f6f0f575a0521e0246b3e8c88d960fe546008b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcb50adc_da4ca544",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4363,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-18T12:22:46Z",
+      "side": 1,
+      "message": "Right; I reverted the changes in the code generators and made sure HRor\u0027s type was either int or long instead (which is admittedly simpler!).",
+      "parentUuid": "fce942d0_7c18f9b6",
       "revId": "78f6f0f575a0521e0246b3e8c88d960fe546008b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
