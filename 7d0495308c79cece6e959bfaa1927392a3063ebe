@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9cb846d6_d958335e",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 1236,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-18T11:49:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ce03ae0_3ee109bc",
+      "range": {
+        "startLine": 1236,
+        "startChar": 8,
+        "endLine": 1236,
+        "endChar": 10
+      },
+      "revId": "7d0495308c79cece6e959bfaa1927392a3063ebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cdb763a_bd727fe8",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 9
@@ -65,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "3ce03ae0_5eb895a3",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-18T11:49:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cb846d6_9975dbd5",
+      "range": {
+        "startLine": 466,
+        "startChar": 20,
+        "endLine": 466,
+        "endChar": 41
+      },
+      "revId": "7d0495308c79cece6e959bfaa1927392a3063ebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dce47ef9_5be6e3d4",
         "filename": "runtime/art_method.h",
         "patchSetId": 9
@@ -76,6 +124,30 @@
       "writtenOn": "2016-03-18T10:37:14Z",
       "side": 1,
       "message": "just looking at this class, it seems magic that you\u0027re able to iterate over this array. Comment where the allocation happens.",
+      "range": {
+        "startLine": 109,
+        "startChar": 1,
+        "endLine": 109,
+        "endChar": 20
+      },
+      "revId": "7d0495308c79cece6e959bfaa1927392a3063ebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cb846d6_f90fb74b",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-18T11:49:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dce47ef9_5be6e3d4",
       "range": {
         "startLine": 109,
         "startChar": 1,
@@ -127,6 +199,53 @@
         "startChar": 45,
         "endLine": 2228,
         "endChar": 49
+      },
+      "revId": "7d0495308c79cece6e959bfaa1927392a3063ebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cd96e3d_3f6667fd",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2228,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-18T11:49:43Z",
+      "side": 1,
+      "message": "If your craft an interface class with lots of methods, and manage to get them to the same slot, as well as calling all of them at runtime, that\u0027s pretty bad. Even worst if you create multiple interfaces like this. The bound is the number of methods a class can have.",
+      "parentUuid": "3ce03ae0_fe55e124",
+      "range": {
+        "startLine": 2228,
+        "startChar": 45,
+        "endLine": 2228,
+        "endChar": 49
+      },
+      "revId": "7d0495308c79cece6e959bfaa1927392a3063ebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cd6320e_60593203",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 2240,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-18T11:49:43Z",
+      "side": 1,
+      "message": "Leak will be number of threads executing this at the same time for the same class. Chances of happening repeatedly: 0.",
+      "range": {
+        "startLine": 2238,
+        "startChar": 0,
+        "endLine": 2240,
+        "endChar": 23
       },
       "revId": "7d0495308c79cece6e959bfaa1927392a3063ebe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
