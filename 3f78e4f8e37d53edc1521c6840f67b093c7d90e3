@@ -22,6 +22,30 @@
       "revId": "3f78e4f8e37d53edc1521c6840f67b093c7d90e3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_cbc4a67f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-18T15:18:32Z",
+      "side": 1,
+      "message": "Comment above already describes it, but I moved the comments around a bit.",
+      "parentUuid": "3ce03ae0_1e828df5",
+      "range": {
+        "startLine": 538,
+        "startChar": 0,
+        "endLine": 540,
+        "endChar": 27
+      },
+      "revId": "3f78e4f8e37d53edc1521c6840f67b093c7d90e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
