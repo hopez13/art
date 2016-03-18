@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1cdb763a_5ddc1b8c",
+        "filename": "test/586-checker-null-array-get/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-18T16:36:41Z",
+      "side": 1,
+      "message": "Where is this used?",
+      "range": {
+        "startLine": 56,
+        "startChar": 21,
+        "endLine": 56,
+        "endChar": 30
+      },
+      "revId": "daabcebd9bac29acb2a94498051b1e5772fa5774",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
