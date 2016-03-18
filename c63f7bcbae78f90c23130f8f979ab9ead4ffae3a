@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bccc2a7e_82547a9d",
+        "filename": "tools/libcore_failures.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-18T15:44:56Z",
+      "side": 1,
+      "message": "missing \"",
+      "range": {
+        "startLine": 277,
+        "startChar": 53,
+        "endLine": 277,
+        "endChar": 54
+      },
+      "revId": "c63f7bcbae78f90c23130f8f979ab9ead4ffae3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bccc2a7e_624f760b",
+        "filename": "tools/libcore_failures.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-18T15:44:56Z",
+      "side": 1,
+      "message": "spaces instead of tabs.",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 4
+      },
+      "revId": "c63f7bcbae78f90c23130f8f979ab9ead4ffae3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
