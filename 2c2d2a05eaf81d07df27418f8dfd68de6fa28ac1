@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bccc2a7e_851804b8",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-19T14:19:24Z",
+      "side": 1,
+      "message": "gcc or clang is complaining about this:\n\nerror: variable \u0027dont_optimize_this\u0027 set but not used [-Werror\u003dunused-but-set-variable]\n\nhttps://build.chromium.org/p/client.art/builders/mips32-ndebug/builds/2664/steps/build%20target/logs/stdio",
+      "range": {
+        "startLine": 563,
+        "startChar": 1,
+        "endLine": 563,
+        "endChar": 38
+      },
+      "revId": "2c2d2a05eaf81d07df27418f8dfd68de6fa28ac1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
