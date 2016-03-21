@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7cd6320e_4385188b",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-21T13:26:15Z",
+      "side": 1,
+      "message": "Nit: 0x1ff (to be consistent with the style used in this file).",
+      "range": {
+        "startLine": 501,
+        "startChar": 33,
+        "endLine": 501,
+        "endChar": 38
+      },
+      "revId": "90a3404b0f2ce1d50f8e0744c20f41fc1955b362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cd6320e_638a1c9c",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-21T13:26:15Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 507,
+        "startChar": 33,
+        "endLine": 507,
+        "endChar": 38
+      },
+      "revId": "90a3404b0f2ce1d50f8e0744c20f41fc1955b362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cd6320e_838f20a9",
+        "filename": "compiler/utils/mips/assembler_mips_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-21T13:26:15Z",
+      "side": 1,
+      "message": "I think we should exercise R6 instructions as well (in general, not just LL and SC), maybe in another CL.  Perhaps we could split the existing AssemblerMIPSTest class in two subclasses?",
+      "range": {
+        "startLine": 492,
+        "startChar": 28,
+        "endLine": 492,
+        "endChar": 30
+      },
+      "revId": "90a3404b0f2ce1d50f8e0744c20f41fc1955b362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
