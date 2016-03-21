@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1cdb763a_1d9a939a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-21T10:23:26Z",
+      "side": 1,
+      "message": "Hmmm, I\u0027ll say \"does not find a target method in the table\". Is that better?",
+      "parentUuid": "7cd6320e_a08dfa61",
+      "range": {
+        "startLine": 12,
+        "startChar": 23,
+        "endLine": 12,
+        "endChar": 48
+      },
+      "revId": "15bc318cc5545de3362fd0b701a5435365528466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ce03ae0_be90b9c6",
         "filename": "/COMMIT_MSG",
         "patchSetId": 10
@@ -36,6 +60,24 @@
       "writtenOn": "2016-03-18T16:50:46Z",
       "side": 1,
       "message": "Also, maybe mention that this is supported on ARM, ARM64, x86 and x86-64?",
+      "revId": "15bc318cc5545de3362fd0b701a5435365528466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcb50adc_1d80d77b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-21T10:23:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ce03ae0_be90b9c6",
       "revId": "15bc318cc5545de3362fd0b701a5435365528466",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -112,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "bcb50adc_3d859b8c",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-21T10:23:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc14e289_44e6e306",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 1
+      },
+      "revId": "15bc318cc5545de3362fd0b701a5435365528466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cdb763a_9d5223de",
         "filename": "runtime/art_method.h",
         "patchSetId": 10
@@ -123,6 +189,30 @@
       "writtenOn": "2016-03-18T16:15:41Z",
       "side": 1,
       "message": "Replace with a `for` loop?",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 5
+      },
+      "revId": "15bc318cc5545de3362fd0b701a5435365528466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcb50adc_3d6e7b94",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-21T10:23:26Z",
+      "side": 1,
+      "message": "Why? There is no bound, which makes me prefer a while loop. How would you write it?",
+      "parentUuid": "1cdb763a_9d5223de",
       "range": {
         "startLine": 59,
         "startChar": 0,
@@ -228,6 +318,30 @@
     },
     {
       "key": {
+        "uuid": "9cb846d6_7c3f150c",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-21T10:23:26Z",
+      "side": 1,
+      "message": "As Alex says, putting Entry* entries_ means we have a pointer to an array in the structure, which is opposite to what we want: an inlined array in the structure.",
+      "parentUuid": "fc14e289_ae9e9827",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 20
+      },
+      "revId": "15bc318cc5545de3362fd0b701a5435365528466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dce47ef9_1b361bcc",
         "filename": "runtime/art_method.h",
         "patchSetId": 10
@@ -239,6 +353,30 @@
       "writtenOn": "2016-03-18T16:15:41Z",
       "side": 1,
       "message": "Maybe give another name to this member, as it serves different purposes?  What about turning it into a union?",
+      "range": {
+        "startLine": 620,
+        "startChar": 10,
+        "endLine": 620,
+        "endChar": 31
+      },
+      "revId": "15bc318cc5545de3362fd0b701a5435365528466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cdb763a_fd94076a",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-21T10:23:26Z",
+      "side": 1,
+      "message": "See discussion earlier in this change.",
+      "parentUuid": "dce47ef9_1b361bcc",
       "range": {
         "startLine": 620,
         "startChar": 10,
@@ -274,6 +412,30 @@
     },
     {
       "key": {
+        "uuid": "bccc2a7e_e56e30ce",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-21T10:23:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ce03ae0_9e521dde",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 313,
+        "endChar": 68
+      },
+      "revId": "15bc318cc5545de3362fd0b701a5435365528466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc14e289_aec7b80f",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 10
@@ -285,6 +447,30 @@
       "writtenOn": "2016-03-18T16:34:56Z",
       "side": 1,
       "message": "Have you made sure that this method continues to work correctly now that there are multiple conflict methods?\n\nThis line especially seems like it could have problems.\n\nI think you need to replace any IMT conflict methods with the generic one in the loop there or else they could call superclass methods.",
+      "range": {
+        "startLine": 6101,
+        "startChar": 0,
+        "endLine": 6101,
+        "endChar": 73
+      },
+      "revId": "15bc318cc5545de3362fd0b701a5435365528466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cd96e3d_c2c7640f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 6101,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-21T10:23:26Z",
+      "side": 1,
+      "message": "That\u0027s an excellent catch Alex. Turns out it was a problem as SetIMTRef was keeping the conflict already in place. I fixed SetIMTRef, and added a test.",
+      "parentUuid": "fc14e289_aec7b80f",
       "range": {
         "startLine": 6101,
         "startChar": 0,
