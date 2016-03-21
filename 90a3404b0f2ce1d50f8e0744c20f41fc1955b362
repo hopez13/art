@@ -68,6 +68,30 @@
       "revId": "90a3404b0f2ce1d50f8e0744c20f41fc1955b362",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_e576e216",
+        "filename": "compiler/utils/mips/assembler_mips_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-03-21T18:22:45Z",
+      "side": 1,
+      "message": "Roland, in Alexey\u0027s defense, there currently isn\u0027t a place to put the MIPS32R6 tests. That place is being created by CL 209230. If Alexey\u0027s CL gets merged first, I\u0027ll add the ll/sc tests to CL 209230.\n\nIf CL 209230 gets merged first, Alexey is welcome to get my R6 ll/sc tests from me (which I have already tested in my private build tree), and add them to this patch, or, if he prefers, to write his own version of the tests, and add them to this CL. Or the tests could be added in a third CL as you have mentioned.\n\nReally, we\u0027re trying to do the right thing here! :-)",
+      "parentUuid": "7cd6320e_838f20a9",
+      "range": {
+        "startLine": 492,
+        "startChar": 28,
+        "endLine": 492,
+        "endChar": 30
+      },
+      "revId": "90a3404b0f2ce1d50f8e0744c20f41fc1955b362",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
