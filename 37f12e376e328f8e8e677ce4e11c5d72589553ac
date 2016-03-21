@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "dce47ef9_fbe24f19",
+        "filename": "test/587-inline-class-error/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-21T11:25:40Z",
+      "side": 1,
+      "message": "Good point, I now do this in smali.",
+      "parentUuid": "9ccf6672_81b0fa24",
+      "range": {
+        "startLine": 30,
+        "startChar": 6,
+        "endLine": 30,
+        "endChar": 93
+      },
+      "revId": "37f12e376e328f8e8e677ce4e11c5d72589553ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cd6320e_43999893",
         "filename": "test/587-inline-class-error/src/Main.java",
         "patchSetId": 3
