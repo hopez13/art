@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9cb846d6_dcabc14c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-21T14:26:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bccc2a7e_2580187c",
+      "revId": "2fdb384b02b6ff07ed6a71f2cd79cdba2eb2b2d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bccc2a7e_45851c8b",
         "filename": "runtime/debugger.cc",
         "patchSetId": 2
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "bcb50adc_60b766fe",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3307,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-21T14:26:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bccc2a7e_45851c8b",
+      "range": {
+        "startLine": 3307,
+        "startChar": 57,
+        "endLine": 3307,
+        "endChar": 78
+      },
+      "revId": "2fdb384b02b6ff07ed6a71f2cd79cdba2eb2b2d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dce47ef9_9ea779d5",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 2
@@ -53,6 +95,30 @@
       "writtenOn": "2016-03-21T14:17:19Z",
       "side": 1,
       "message": "You say you need this to avoid \"lock violation\". Can you elaborate a bit please? I\u0027m not sure I understand why you need this.",
+      "range": {
+        "startLine": 369,
+        "startChar": 15,
+        "endLine": 369,
+        "endChar": 81
+      },
+      "revId": "2fdb384b02b6ff07ed6a71f2cd79cdba2eb2b2d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cb846d6_1cd7f9c4",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-21T14:26:17Z",
+      "side": 1,
+      "message": "Comment added in the commit message. Is that better?",
+      "parentUuid": "dce47ef9_9ea779d5",
       "range": {
         "startLine": 369,
         "startChar": 15,
