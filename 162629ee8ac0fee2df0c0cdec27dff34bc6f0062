@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cd96e3d_e5f9d26c",
+        "filename": "compiler/dex/compiler_ir.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-21T18:22:50Z",
+      "side": 0,
+      "message": "You\u0027re removing the CompilationUnit, so you should purge it from the code base, for example from the DexCompilationUnit.",
+      "range": {
+        "startLine": 162,
+        "startChar": 7,
+        "endLine": 162,
+        "endChar": 22
+      },
+      "revId": "162629ee8ac0fee2df0c0cdec27dff34bc6f0062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
