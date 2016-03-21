@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dce47ef9_db14b3d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-21T10:31:48Z",
+      "side": 1,
+      "message": "will it? Regardless, we should probably do it.",
+      "parentUuid": "9ccf6672_61abf6ba",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 23
+      },
+      "revId": "da1ea637e336f76b9a0490e50057950939773018",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc14e289_247007dd",
         "filename": "test/586-checker-null-array-get/src/Main.java",
         "patchSetId": 3
@@ -53,6 +77,24 @@
       "writtenOn": "2016-03-18T18:38:31Z",
       "side": 1,
       "message": "Add checker for this method also?",
+      "revId": "da1ea637e336f76b9a0490e50057950939773018",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bccc2a7e_8532c4ea",
+        "filename": "test/586-checker-null-array-get/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-21T10:31:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc14e289_247007dd",
       "revId": "da1ea637e336f76b9a0490e50057950939773018",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
