@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fc14e289_d0cd6280",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-03-21T18:49:09Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "fc14e289_65ae7266",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 37
+      },
+      "revId": "a2b4e3790335ea26cd625a154373f3e8d3f37f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc14e289_457d368c",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-03-21T17:34:58Z",
       "side": 1,
       "message": "I assume it\u0027s too late to remove the LZ4HC option entirely at this point for a backward compatibility reason?",
+      "range": {
+        "startLine": 232,
+        "startChar": 24,
+        "endLine": 232,
+        "endChar": 41
+      },
+      "revId": "a2b4e3790335ea26cd625a154373f3e8d3f37f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_10c89a6b",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-03-21T18:49:09Z",
+      "side": 1,
+      "message": "Well its not used, but I prefer leaving it here in case the bug gets fixed eventually.",
+      "parentUuid": "fc14e289_457d368c",
       "range": {
         "startLine": 232,
         "startChar": 24,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "fc14e289_70e62e07",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-03-21T18:49:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc14e289_e5ca6217",
+      "revId": "a2b4e3790335ea26cd625a154373f3e8d3f37f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc14e289_2513da7a",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -76,6 +142,24 @@
       "writtenOn": "2016-03-21T17:34:58Z",
       "side": 1,
       "message": "Why has this line moved up here?",
+      "revId": "a2b4e3790335ea26cd625a154373f3e8d3f37f6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_90f5aaa6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1546,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-03-21T18:49:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc14e289_2513da7a",
       "revId": "a2b4e3790335ea26cd625a154373f3e8d3f37f6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
