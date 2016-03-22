@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dc6b9e2f_438a869b",
+        "filename": "compiler/utils/mips/assembler_mips32r6_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-03-22T23:40:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc14e289_b3a1e272",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "ef78a48da3d4f3ea56678e940202b33bcb4abf4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc14e289_53d6aec5",
         "filename": "compiler/utils/mips/assembler_mips32r6_test.cc",
         "patchSetId": 1
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "fc14e289_5775da99",
+        "filename": "compiler/utils/mips/assembler_mips32r6_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-03-22T23:40:07Z",
+      "side": 1,
+      "message": "Yes, but when they\u0027re reproduced here it verifies that setting the mode to mips32r6 doesn\u0027t break them.",
+      "parentUuid": "dc6b9e2f_2364aac3",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 274,
+        "endChar": 1
+      },
+      "revId": "ef78a48da3d4f3ea56678e940202b33bcb4abf4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc6b9e2f_4359a602",
         "filename": "compiler/utils/mips/assembler_mips32r6_test.cc",
         "patchSetId": 1
@@ -82,6 +130,30 @@
       "writtenOn": "2016-03-17T23:32:42Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 312,
+        "startChar": 0,
+        "endLine": 346,
+        "endChar": 1
+      },
+      "revId": "ef78a48da3d4f3ea56678e940202b33bcb4abf4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_976f52ca",
+        "filename": "compiler/utils/mips/assembler_mips32r6_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-03-22T23:40:07Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "dc6b9e2f_4359a602",
       "range": {
         "startLine": 312,
         "startChar": 0,
