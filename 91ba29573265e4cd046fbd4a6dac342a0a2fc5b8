@@ -401,6 +401,30 @@
       "revId": "91ba29573265e4cd046fbd4a6dac342a0a2fc5b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cd96e3d_c573ee24",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-22T15:23:43Z",
+      "side": 1,
+      "message": "The decoded header depends only on the first few bytes of the MemoryRegion (the ULEB128 encoded header).  It does not depend on anything else.\n\nNote that the same approach was not possible before with the stack map encoding which is why it is passed around. However, in this case it is all contained in CodeInfo.",
+      "parentUuid": "dce47ef9_1ebb693b",
+      "range": {
+        "startLine": 1261,
+        "startChar": 2,
+        "endLine": 1261,
+        "endChar": 25
+      },
+      "revId": "91ba29573265e4cd046fbd4a6dac342a0a2fc5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
