@@ -46,6 +46,30 @@
       "revId": "796d63050a18f263b93ea34951a61deaecab3422",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_82943960",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 2233,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-22T16:48:30Z",
+      "side": 1,
+      "message": "Lots of invariants implicit in the calls...",
+      "parentUuid": "7cd6320e_269ae29a",
+      "range": {
+        "startLine": 2233,
+        "startChar": 2,
+        "endLine": 2233,
+        "endChar": 44
+      },
+      "revId": "796d63050a18f263b93ea34951a61deaecab3422",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
