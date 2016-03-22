@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7cd6320e_e9fc4d86",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-22T18:33:24Z",
+      "side": 1,
+      "message": "On the other hand, the standard allocator may have different alignment requirements that would make it even worse. I\u0027ll update the comment.",
+      "parentUuid": "9ccf6672_f5e340ed",
+      "range": {
+        "startLine": 34,
+        "startChar": 83,
+        "endLine": 34,
+        "endChar": 97
+      },
+      "revId": "fd7e3caa0dfdb6f07044a20d5e2f34f147224ef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fce942d0_25bd74de",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 1
