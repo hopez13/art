@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cb846d6_7fbd4792",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-22T18:26:11Z",
+      "side": 1,
+      "message": "Remove the \u0027\\\u0027 and preceding whitespace.",
+      "range": {
+        "startLine": 196,
+        "startChar": 93,
+        "endLine": 196,
+        "endChar": 94
+      },
+      "revId": "cb7333c0e000fe8e73532674812dc36300246eef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bccc2a7e_88681b86",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-22T18:26:11Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 111,
+        "startChar": 93,
+        "endLine": 111,
+        "endChar": 94
+      },
+      "revId": "cb7333c0e000fe8e73532674812dc36300246eef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ce03ae0_a4efc6a3",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-22T18:26:11Z",
+      "side": 1,
+      "message": "Why uint16_t instead of int16_t?",
+      "range": {
+        "startLine": 188,
+        "startChar": 69,
+        "endLine": 188,
+        "endChar": 77
+      },
+      "revId": "cb7333c0e000fe8e73532674812dc36300246eef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
