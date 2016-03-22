@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fce942d0_62b5b244",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-22T14:02:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cd6320e_66630aac",
+      "range": {
+        "startLine": 239,
+        "startChar": 38,
+        "endLine": 239,
+        "endChar": 60
+      },
+      "revId": "91ba29573265e4cd046fbd4a6dac342a0a2fc5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cc1b619_0d2dd18d",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 15
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "1cdb763a_60212c3a",
+        "filename": "compiler/optimizing/stack_map_test.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-22T14:02:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcb50adc_830e4484",
+      "range": {
+        "startLine": 26,
+        "startChar": 12,
+        "endLine": 26,
+        "endChar": 26
+      },
+      "revId": "91ba29573265e4cd046fbd4a6dac342a0a2fc5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dce47ef9_1e5fe9eb",
         "filename": "runtime/base/bit_utils.h",
         "patchSetId": 15
@@ -82,6 +130,30 @@
       "writtenOn": "2016-03-22T13:32:15Z",
       "side": 1,
       "message": "why this change?",
+      "range": {
+        "startLine": 272,
+        "startChar": 23,
+        "endLine": 272,
+        "endChar": 50
+      },
+      "revId": "91ba29573265e4cd046fbd4a6dac342a0a2fc5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ccf6672_8a680f86",
+        "filename": "runtime/base/bit_utils.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-22T14:02:34Z",
+      "side": 1,
+      "message": "See the change in memory_region.h\nI consider MaxInt\u003cuint32_t\u003e(0) a valid call which should return 0.",
+      "parentUuid": "dce47ef9_1e5fe9eb",
       "range": {
         "startLine": 272,
         "startChar": 23,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "9ccf6672_ca793756",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-22T14:02:34Z",
+      "side": 1,
+      "message": "Done, thanks :-)",
+      "parentUuid": "bcb50adc_e3fc6086",
+      "range": {
+        "startLine": 715,
+        "startChar": 5,
+        "endLine": 715,
+        "endChar": 11
+      },
+      "revId": "91ba29573265e4cd046fbd4a6dac342a0a2fc5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcb50adc_43350c2d",
         "filename": "runtime/stack_map.h",
         "patchSetId": 15
@@ -128,6 +224,30 @@
       "writtenOn": "2016-03-22T13:32:15Z",
       "side": 1,
       "message": "Do you need this here?\n\nWe designed the StackMaps to be a direct reflection of the memory region. Adding a state introduces some complexity on top of it.",
+      "range": {
+        "startLine": 1261,
+        "startChar": 2,
+        "endLine": 1261,
+        "endChar": 25
+      },
+      "revId": "91ba29573265e4cd046fbd4a6dac342a0a2fc5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cdb763a_e0145cd3",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-22T14:02:34Z",
+      "side": 1,
+      "message": "The first few bytes of the header are encoded in memory as ULEB128. This field holds the decoded values.\n\nIt is not required, but it is very desirable optimization (as opposed to decoding it again whenever we need any of the header fields).\n\nOne of the first patch sets of this CL uses different approach where the fields are single byte where postivie values represent themself, but negative values are memory offsets to full uint32_t. This approached avoided need for this field. However, on second though, I changed it to just standard ULEB128 which most people know, and caching of the result here.",
+      "parentUuid": "bcb50adc_43350c2d",
       "range": {
         "startLine": 1261,
         "startChar": 2,
