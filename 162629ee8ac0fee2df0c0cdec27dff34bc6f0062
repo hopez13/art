@@ -22,6 +22,29 @@
       "revId": "162629ee8ac0fee2df0c0cdec27dff34bc6f0062",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_62149d96",
+        "filename": "compiler/dex/quick/x86/assemble_x86.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2016-03-22T17:04:57Z",
+      "side": 0,
+      "message": "Note, this code is likely in better health than the combined:\nhttps://android.googlesource.com/platform/art/+/master/compiler/utils/x86/assembler_x86.h (+.cc)\nhttps://android.googlesource.com/platform/art/+/master/compiler/utils/x86_64/assembler_x86_64.h (+.cc)\n1 source file for 32 and 64-bit, endless copy pasting of emit routines that introduces bugs, inlinable, ~2000 lines of code vs ~5000 lines... It should be on someone\u0027s (Intel?) radar to clean-up the x86 assemblers.",
+      "range": {
+        "startLine": 554,
+        "startChar": 0,
+        "endLine": 554,
+        "endChar": 2
+      },
+      "revId": "162629ee8ac0fee2df0c0cdec27dff34bc6f0062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
