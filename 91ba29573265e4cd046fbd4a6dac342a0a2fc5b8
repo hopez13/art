@@ -377,6 +377,30 @@
       "revId": "91ba29573265e4cd046fbd4a6dac342a0a2fc5b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dce47ef9_1ebb693b",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-22T15:18:44Z",
+      "side": 1,
+      "message": "No, you\u0027re adding a state that is not in the MemoryRegion.",
+      "parentUuid": "3ce03ae0_649e9e7e",
+      "range": {
+        "startLine": 1261,
+        "startChar": 2,
+        "endLine": 1261,
+        "endChar": 25
+      },
+      "revId": "91ba29573265e4cd046fbd4a6dac342a0a2fc5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
