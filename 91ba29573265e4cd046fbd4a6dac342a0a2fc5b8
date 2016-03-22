@@ -305,6 +305,30 @@
       "revId": "91ba29573265e4cd046fbd4a6dac342a0a2fc5b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ce03ae0_c173e424",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-22T14:41:36Z",
+      "side": 1,
+      "message": "Nicolas, are you happy with this optimization? I\u0027m ok in order to avoid decoding every time we query.",
+      "parentUuid": "bccc2a7e_685bd72c",
+      "range": {
+        "startLine": 1261,
+        "startChar": 2,
+        "endLine": 1261,
+        "endChar": 25
+      },
+      "revId": "91ba29573265e4cd046fbd4a6dac342a0a2fc5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
