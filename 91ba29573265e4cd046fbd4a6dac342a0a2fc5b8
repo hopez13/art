@@ -425,6 +425,30 @@
       "revId": "91ba29573265e4cd046fbd4a6dac342a0a2fc5b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ce03ae0_c4d6920a",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-22T15:36:21Z",
+      "side": 1,
+      "message": "Not sure what the debate is here :)\n\nCodeInfo is just a view of a MemoryRegion. If you need to add state to it, you\u0027re free to create a new data structure.",
+      "parentUuid": "5cd96e3d_c573ee24",
+      "range": {
+        "startLine": 1261,
+        "startChar": 2,
+        "endLine": 1261,
+        "endChar": 25
+      },
+      "revId": "91ba29573265e4cd046fbd4a6dac342a0a2fc5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
