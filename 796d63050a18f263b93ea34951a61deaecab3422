@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc14e289_67382fcd",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 2233,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-22T15:59:08Z",
+      "side": 1,
+      "message": "Should this really be a CHECK? Things function perfectly fine without an IMT conflict table, just a tad slower...\n\n(It\u0027s a bit unfortunate that it isn\u0027t as easy to avoid the abort when allocating the method, the code of which is ugly, btw.)",
+      "range": {
+        "startLine": 2233,
+        "startChar": 2,
+        "endLine": 2233,
+        "endChar": 44
+      },
+      "revId": "796d63050a18f263b93ea34951a61deaecab3422",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
