@@ -281,6 +281,30 @@
       "revId": "91ba29573265e4cd046fbd4a6dac342a0a2fc5b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bccc2a7e_685bd72c",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-22T14:27:31Z",
+      "side": 1,
+      "message": "Sorry, \"cache\" was poor choice of words. It is always decoded in constructor.\n\nI have marked it const to make it more obvious it does not hold mutable state, and added comment.",
+      "parentUuid": "3ce03ae0_81d71c38",
+      "range": {
+        "startLine": 1261,
+        "startChar": 2,
+        "endLine": 1261,
+        "endChar": 25
+      },
+      "revId": "91ba29573265e4cd046fbd4a6dac342a0a2fc5b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
