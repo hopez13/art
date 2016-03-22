@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dce47ef9_be3a75c7",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-22T10:32:08Z",
+      "side": 1,
+      "message": "Too late for this change, but note for both of us: if we need to change something in this file, or related to bit vectors, a comment could be useful here.",
+      "range": {
+        "startLine": 489,
+        "startChar": 0,
+        "endLine": 494,
+        "endChar": 3
+      },
+      "revId": "f6a35de9eeefb20f6446f1b4815b4dcb0161d09c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
