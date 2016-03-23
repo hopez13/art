@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fc14e289_c554719e",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-23T18:31:46Z",
+      "side": 1,
+      "message": "We could do it that way. Was a conservative lower bound.",
+      "parentUuid": "fc14e289_c5e1114b",
+      "range": {
+        "startLine": 244,
+        "startChar": 92,
+        "endLine": 244,
+        "endChar": 109
+      },
+      "revId": "9fb8b9e52a07fa6cab6367143506626c0feb640e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc14e289_45cd21d4",
         "filename": "test/run-test",
         "patchSetId": 2
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "means we don\u0027t verify at all. for the brave ones :)",
       "parentUuid": "fc14e289_45cd21d4",
+      "range": {
+        "startLine": 256,
+        "startChar": 90,
+        "endLine": 256,
+        "endChar": 101
+      },
+      "revId": "9fb8b9e52a07fa6cab6367143506626c0feb640e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_850399a7",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-23T18:31:46Z",
+      "side": 1,
+      "message": "--no-verify passes -Xverify:none to the runtime and --compiler-filter\u003dverify-none to the prebuild stage.",
+      "parentUuid": "5c416ed6_5f7d2b40",
       "range": {
         "startLine": 256,
         "startChar": 90,
