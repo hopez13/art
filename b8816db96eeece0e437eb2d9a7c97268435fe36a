@@ -16,6 +16,24 @@
       "revId": "b8816db96eeece0e437eb2d9a7c97268435fe36a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fce942d0_054a3825",
+        "filename": "test/589-checker-irreducible-lifetime-hole/smali/IrreducibleLoop.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-23T13:34:26Z",
+      "side": 1,
+      "message": "Unfortunately doing so will not trigger the crash.",
+      "parentUuid": "5cd96e3d_6821173a",
+      "revId": "b8816db96eeece0e437eb2d9a7c97268435fe36a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
