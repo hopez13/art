@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cd96e3d_6821173a",
+        "filename": "test/589-checker-irreducible-lifetime-hole/smali/IrreducibleLoop.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-23T13:27:54Z",
+      "side": 1,
+      "message": "Please add another invoke $noinline$m here, so that simple goto-to-goto simplification doesn\u0027t turn this to a normal loop with header at :b49.",
+      "revId": "b8816db96eeece0e437eb2d9a7c97268435fe36a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
