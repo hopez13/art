@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cb846d6_ff1dd753",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-23T09:22:07Z",
+      "side": 1,
+      "message": "Why adding 4? I would only add one \"compile-profile\".",
+      "range": {
+        "startLine": 260,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 33
+      },
+      "revId": "a62d2f04a6ecf804f8a78e722a6ca8ccb2dfa931",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dce47ef9_7e82ad2b",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1862,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-23T09:22:07Z",
+      "side": 1,
+      "message": "looks like this will leak line 1881.",
+      "range": {
+        "startLine": 1862,
+        "startChar": 19,
+        "endLine": 1862,
+        "endChar": 23
+      },
+      "revId": "a62d2f04a6ecf804f8a78e722a6ca8ccb2dfa931",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
