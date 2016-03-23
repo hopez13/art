@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fc14e289_d23b957d",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-23T17:47:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c416ed6_ff343f33",
+      "range": {
+        "startLine": 79,
+        "startChar": 8,
+        "endLine": 79,
+        "endChar": 29
+      },
+      "revId": "cb7333c0e000fe8e73532674812dc36300246eef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9cb846d6_7fbd4792",
         "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
         "patchSetId": 21
@@ -36,6 +60,30 @@
       "writtenOn": "2016-03-22T18:26:11Z",
       "side": 1,
       "message": "Remove the \u0027\\\u0027 and preceding whitespace.",
+      "range": {
+        "startLine": 196,
+        "startChar": 93,
+        "endLine": 196,
+        "endChar": 94
+      },
+      "revId": "cb7333c0e000fe8e73532674812dc36300246eef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_1266cd98",
+        "filename": "runtime/interpreter/interpreter_goto_table_impl.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-23T17:47:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cb846d6_7fbd4792",
       "range": {
         "startLine": 196,
         "startChar": 93,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "fc14e289_d20d55d2",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-23T17:47:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c416ed6_9f39732a",
+      "range": {
+        "startLine": 85,
+        "startChar": 8,
+        "endLine": 85,
+        "endChar": 29
+      },
+      "revId": "cb7333c0e000fe8e73532674812dc36300246eef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bccc2a7e_88681b86",
         "filename": "runtime/interpreter/interpreter_switch_impl.cc",
         "patchSetId": 21
@@ -82,6 +154,30 @@
       "writtenOn": "2016-03-22T18:26:11Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 111,
+        "startChar": 93,
+        "endLine": 111,
+        "endChar": 94
+      },
+      "revId": "cb7333c0e000fe8e73532674812dc36300246eef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_32f2e9fb",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-23T17:47:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bccc2a7e_88681b86",
       "range": {
         "startLine": 111,
         "startChar": 93,
@@ -165,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "fc14e289_922c7d34",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 21
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-23T17:47:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ce03ae0_046cfad3",
+      "range": {
+        "startLine": 143,
+        "startChar": 40,
+        "endLine": 143,
+        "endChar": 67
+      },
+      "revId": "cb7333c0e000fe8e73532674812dc36300246eef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcb50adc_0395d463",
         "filename": "runtime/interpreter/mterp/arm/footer.S",
         "patchSetId": 21
@@ -176,6 +296,30 @@
       "writtenOn": "2016-03-23T09:37:47Z",
       "side": 1,
       "message": "Add a comment? \"If rProfile is 0, we already have reported the hotness change\"?",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 30
+      },
+      "revId": "cb7333c0e000fe8e73532674812dc36300246eef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_d2b0b525",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 21
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-23T17:47:17Z",
+      "side": 1,
+      "message": "Actually, we should never see an rPROFILE of 0 here.  We report we reach zero, and then reset it back to a non-zero countdown.  I\u0027ll change the bge to a bgt and add a comment to explain.",
+      "parentUuid": "bcb50adc_0395d463",
       "range": {
         "startLine": 262,
         "startChar": 0,
@@ -211,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "fc14e289_85dc39e6",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-23T17:47:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c416ed6_1f4ec3b2",
+      "range": {
+        "startLine": 654,
+        "startChar": 0,
+        "endLine": 655,
+        "endChar": 46
+      },
+      "revId": "cb7333c0e000fe8e73532674812dc36300246eef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cdb763a_8332c2ea",
         "filename": "runtime/interpreter/mterp/mterp.cc",
         "patchSetId": 21
@@ -222,6 +390,30 @@
       "writtenOn": "2016-03-23T09:37:47Z",
       "side": 1,
       "message": "Add a comment?",
+      "range": {
+        "startLine": 667,
+        "startChar": 0,
+        "endLine": 669,
+        "endChar": 82
+      },
+      "revId": "cb7333c0e000fe8e73532674812dc36300246eef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_a5bdf5df",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-23T17:47:17Z",
+      "side": 1,
+      "message": "Done, and removed the unnecessary DCHECK.",
+      "parentUuid": "1cdb763a_8332c2ea",
       "range": {
         "startLine": 667,
         "startChar": 0,
@@ -257,6 +449,30 @@
     },
     {
       "key": {
+        "uuid": "fc14e289_a5e69503",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-23T17:47:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c416ed6_3f4b87a3",
+      "range": {
+        "startLine": 687,
+        "startChar": 0,
+        "endLine": 687,
+        "endChar": 43
+      },
+      "revId": "cb7333c0e000fe8e73532674812dc36300246eef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cdb763a_a326deaf",
         "filename": "runtime/interpreter/mterp/mterp.cc",
         "patchSetId": 21
@@ -268,6 +484,30 @@
       "writtenOn": "2016-03-23T09:37:47Z",
       "side": 1,
       "message": "Maybe say that arm and arm64 do not use this anymore?",
+      "range": {
+        "startLine": 694,
+        "startChar": 0,
+        "endLine": 694,
+        "endChar": 72
+      },
+      "revId": "cb7333c0e000fe8e73532674812dc36300246eef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_05d7a907",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-23T17:47:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cdb763a_a326deaf",
       "range": {
         "startLine": 694,
         "startChar": 0,
@@ -303,6 +543,30 @@
     },
     {
       "key": {
+        "uuid": "fc14e289_85eb99ca",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-23T17:47:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cd6320e_89d661c3",
+      "range": {
+        "startLine": 703,
+        "startChar": 0,
+        "endLine": 703,
+        "endChar": 43
+      },
+      "revId": "cb7333c0e000fe8e73532674812dc36300246eef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ce03ae0_a4efc6a3",
         "filename": "runtime/jit/jit_instrumentation.cc",
         "patchSetId": 21
@@ -326,6 +590,30 @@
     },
     {
       "key": {
+        "uuid": "fc14e289_c53f510a",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-23T17:47:17Z",
+      "side": 1,
+      "message": "In earlier revisions, I changed the method\u0027s hotness counter from uint16_t to int16_t to keep it in sync with mterp\u0027s hotness countdown and to be able to store the magic kJitHotnessDisabled and kJitCheckForOSR codes.  Now, the method\u0027s hotness counter and mterp\u0027s hotness countdown are distinct.  Method\u0027s hotness_counter_ can go back to being uint16_t - which gives it a larger range.  The magic negative codes appear only in the shadow frame\u0027s hotness_countdown_ and cached_hotness_countdown_.",
+      "parentUuid": "3ce03ae0_a4efc6a3",
+      "range": {
+        "startLine": 188,
+        "startChar": 69,
+        "endLine": 188,
+        "endChar": 77
+      },
+      "revId": "cb7333c0e000fe8e73532674812dc36300246eef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcb50adc_637db0f3",
         "filename": "runtime/stack.h",
         "patchSetId": 21
@@ -337,6 +625,30 @@
       "writtenOn": "2016-03-23T09:37:47Z",
       "side": 1,
       "message": "Remove this and file a bug instead?",
+      "range": {
+        "startLine": 473,
+        "startChar": 0,
+        "endLine": 474,
+        "endChar": 63
+      },
+      "revId": "cb7333c0e000fe8e73532674812dc36300246eef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_a5d7b5c2",
+        "filename": "runtime/stack.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-23T17:47:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcb50adc_637db0f3",
       "range": {
         "startLine": 473,
         "startChar": 0,
