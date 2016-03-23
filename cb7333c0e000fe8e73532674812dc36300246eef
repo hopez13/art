@@ -141,6 +141,30 @@
     },
     {
       "key": {
+        "uuid": "3ce03ae0_046cfad3",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 21
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-23T10:03:46Z",
+      "side": 1,
+      "message": "Actually, it does make sense to reiterate that JIT_CHECK_OSR is -1, otherwise the SUBGTS is wrong. What about\n\n    // We need to subtract 1 from positive values and we should not\n    // see 0 here, so we may use the result of the comparison with -1.\n    #if JIT_CHECK_OSR !\u003d -1\n    #  error \"JIT_CHECK_OSR must be -1.\"\n    #endif",
+      "parentUuid": "dce47ef9_de70211b",
+      "range": {
+        "startLine": 143,
+        "startChar": 40,
+        "endLine": 143,
+        "endChar": 67
+      },
+      "revId": "cb7333c0e000fe8e73532674812dc36300246eef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcb50adc_0395d463",
         "filename": "runtime/interpreter/mterp/arm/footer.S",
         "patchSetId": 21
