@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc14e289_c5e1114b",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-23T18:23:45Z",
+      "side": 1,
+      "message": "Why not \"interpret-only\"?",
+      "range": {
+        "startLine": 244,
+        "startChar": 92,
+        "endLine": 244,
+        "endChar": 109
+      },
+      "revId": "9fb8b9e52a07fa6cab6367143506626c0feb640e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_45cd21d4",
+        "filename": "test/run-test",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-23T18:23:45Z",
+      "side": 1,
+      "message": "--no-verify means assume already verified (\"verify-none\"), or means don\u0027t verify at compile time (\"verify-at-runtime\")?",
+      "range": {
+        "startLine": 256,
+        "startChar": 90,
+        "endLine": 256,
+        "endChar": 101
+      },
+      "revId": "9fb8b9e52a07fa6cab6367143506626c0feb640e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
