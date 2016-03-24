@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dca63e27_ba992da8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-24T23:24:10Z",
+      "side": 1,
+      "message": "Smali test, something like this:\n\n   new-instance ...\n\n   if-eqz p0, :Label2\n\n :Label1\n   invoke \u003cinit\u003e\n   goto :end\n\n :Label2\n   invoke \u003cinit\u003e\n   goto :end\n\n :end\n   return void\n\nShould not be possible from Java-generated code, I think...",
+      "range": {
+        "startLine": 15,
+        "startChar": 26,
+        "endLine": 17,
+        "endChar": 34
+      },
+      "revId": "b9c3bbe2c0b94fde326f37f222cd88f294cfbe6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
