@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c5f5acd_a603062e",
+        "filename": "runtime/openjdkjvm/OpenjdkJvm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-03-24T11:59:30Z",
+      "side": 1,
+      "message": "is there really no better way of doing this ?",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 1
+      },
+      "revId": "9ae259f7d638ca30efcf5dacede784405c3b4792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c5f5acd_86fe0a4f",
+        "filename": "runtime/openjdkjvm/OpenjdkJvm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-03-24T11:59:30Z",
+      "side": 1,
+      "message": "this seems broken - why are you untagging the return value of close ?",
+      "range": {
+        "startLine": 296,
+        "startChar": 9,
+        "endLine": 296,
+        "endChar": 32
+      },
+      "revId": "9ae259f7d638ca30efcf5dacede784405c3b4792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
