@@ -127,6 +127,24 @@
     },
     {
       "key": {
+        "uuid": "dca63e27_5a93e910",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-03-24T22:59:46Z",
+      "side": 1,
+      "message": "My interpretation of that document was that arch/arm64/instruction_set_features_arm64.h should be *before* any system headers.\n\nAlso for some reason the external version adds a special rule for non-dir headers, I disagree and the internal version makes more sense.\n\n1. dir2/foo2.h.\n2. C system files.\n3. C++ system files.\n4. Google .h files.\n\nEspecially since the logic is \"With the preferred ordering, if dir2/foo2.h omits any necessary includes, the build of dir/foo.cc or dir/foo_test.cc will break. Thus, this rule ensures that build breaks show up first for the people working on these files, not for innocent people in other packages.\"",
+      "parentUuid": "dca63e27_7aace565",
+      "revId": "5ae66e5d982fe00d8c9d6040d71c5186d16ef2a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dca63e27_5460e279",
         "filename": "compiler/linker/arm64/relative_patcher_arm64.h",
         "patchSetId": 1
