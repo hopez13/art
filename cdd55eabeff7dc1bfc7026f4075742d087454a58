@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b76525c6_da8a659b",
+        "filename": "compiler/optimizing/block_builder.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-24T10:35:51Z",
+      "side": 1,
+      "message": "You should explain why you\u0027re making a difference.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 44
+      },
+      "revId": "cdd55eabeff7dc1bfc7026f4075742d087454a58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c5f5acd_064e9ab2",
+        "filename": "compiler/optimizing/builder.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-24T10:35:51Z",
+      "side": 1,
+      "message": "Add a comment.",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 73
+      },
+      "revId": "cdd55eabeff7dc1bfc7026f4075742d087454a58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c5f5acd_e61d7ea9",
+        "filename": "compiler/optimizing/bytecode_utils.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-24T10:35:51Z",
+      "side": 1,
+      "message": "DCHECK and just one (with a sparse_ ? : )",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 5
+      },
+      "revId": "cdd55eabeff7dc1bfc7026f4075742d087454a58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c5f5acd_a6178687",
+        "filename": "compiler/optimizing/bytecode_utils.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-24T10:35:51Z",
+      "side": 1,
+      "message": "ternary operator?",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 5
+      },
+      "revId": "cdd55eabeff7dc1bfc7026f4075742d087454a58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c5f5acd_462d72da",
+        "filename": "compiler/optimizing/bytecode_utils.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-24T10:35:51Z",
+      "side": 1,
+      "message": "indentation is off",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 69
+      },
+      "revId": "cdd55eabeff7dc1bfc7026f4075742d087454a58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c5f5acd_662aeec5",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-24T10:35:51Z",
+      "side": 1,
+      "message": "Maybe add a comment that this method may be called by the builder (so the grpah is not fully correct yet), or in any passes.",
+      "revId": "cdd55eabeff7dc1bfc7026f4075742d087454a58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c5f5acd_06277afc",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1852,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-24T10:35:51Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 1852,
+        "startChar": 0,
+        "endLine": 1852,
+        "endChar": 12
+      },
+      "revId": "cdd55eabeff7dc1bfc7026f4075742d087454a58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c5f5acd_2624f6f4",
+        "filename": "compiler/optimizing/ssa_builder.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-24T10:35:51Z",
+      "side": 1,
+      "message": "drop?",
+      "range": {
+        "startLine": 109,
+        "startChar": 75,
+        "endLine": 109,
+        "endChar": 78
+      },
+      "revId": "cdd55eabeff7dc1bfc7026f4075742d087454a58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
