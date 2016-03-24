@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c8b76a4_bdc11f52",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-24T22:51:26Z",
+      "side": 1,
+      "message": "Does it mean this flag never gets set now?\nEnableDebugFeatures (which happens post-fork) will call runtime-\u003eAddCompilerOption(\"--generate-debug-info\"); which in turn gets picked up by the JIT on creation.\nIf the JIT gets created pre-fork, does this path get broken?",
+      "range": {
+        "startLine": 177,
+        "startChar": 2,
+        "endLine": 177,
+        "endChar": 22
+      },
+      "revId": "72918ea854d182ef25b2352bfe1c46c1e916a141",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
