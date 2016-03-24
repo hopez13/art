@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "dca63e27_9f09c351",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-03-24T21:47:45Z",
+      "side": 1,
+      "message": "If a local header forgets to include the system header, it could \"work\" in one .cc file but then not in another which didn\u0027t also include the same header.\n\nVery similar to the problem this is trying to solve as well.",
+      "parentUuid": "dca63e27_9f6f03ff",
+      "revId": "5ae66e5d982fe00d8c9d6040d71c5186d16ef2a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dca63e27_5460e279",
         "filename": "compiler/linker/arm64/relative_patcher_arm64.h",
         "patchSetId": 1
