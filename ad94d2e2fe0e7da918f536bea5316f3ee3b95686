@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dca63e27_946feafe",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-03-24T20:52:57Z",
+      "side": 1,
+      "message": "Maybe this can only happen during runtime shutdown? Could add a DCHECK For that.",
+      "range": {
+        "startLine": 137,
+        "startChar": 61,
+        "endLine": 137,
+        "endChar": 84
+      },
+      "revId": "ad94d2e2fe0e7da918f536bea5316f3ee3b95686",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
