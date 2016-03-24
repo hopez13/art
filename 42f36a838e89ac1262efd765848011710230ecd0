@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c5f5acd_a6d546b9",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1657,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-24T13:27:12Z",
+      "side": 1,
+      "message": "Maybe add a comment why the order is this way (with the four steps). As we can see it\u0027s not that trivial.",
+      "range": {
+        "startLine": 1657,
+        "startChar": 0,
+        "endLine": 1657,
+        "endChar": 59
+      },
+      "revId": "42f36a838e89ac1262efd765848011710230ecd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c5f5acd_86d04aca",
+        "filename": "test/591-checker-regression-dead-loop/info.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-24T13:27:12Z",
+      "side": 1,
+      "message": "Not really :)",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 53
+      },
+      "revId": "42f36a838e89ac1262efd765848011710230ecd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c5f5acd_e6db3eec",
+        "filename": "test/591-checker-regression-dead-loop/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-03-24T13:27:12Z",
+      "side": 1,
+      "message": "2016",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "42f36a838e89ac1262efd765848011710230ecd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
