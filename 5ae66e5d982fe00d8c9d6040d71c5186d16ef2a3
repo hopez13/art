@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "dca63e27_9a86f106",
+        "filename": "compiler/linker/arm64/relative_patcher_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-24T22:47:33Z",
+      "side": 1,
+      "message": "Just check other files that actually had system headers. It\u0027s our current style.\n\n(And in case the codebase is consistent, a non-issue...)",
+      "parentUuid": "dca63e27_9f09c351",
+      "revId": "5ae66e5d982fe00d8c9d6040d71c5186d16ef2a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dca63e27_5460e279",
         "filename": "compiler/linker/arm64/relative_patcher_arm64.h",
         "patchSetId": 1
@@ -424,6 +442,30 @@
     },
     {
       "key": {
+        "uuid": "dca63e27_5ae129e5",
+        "filename": "sigchainlib/sigchain.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-24T22:47:33Z",
+      "side": 1,
+      "message": "Yeah, sorry, forgot to filter this one. iwyu constantly thinks it\u0027s necessary, as \"new\" has uncaught_exception, even though we do not compile with exception support.",
+      "parentUuid": "dca63e27_7f77b761",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 20
+      },
+      "revId": "5ae66e5d982fe00d8c9d6040d71c5186d16ef2a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dca63e27_ffdba792",
         "filename": "tools/dmtracedump/createtesttrace.cc",
         "patchSetId": 1
@@ -435,6 +477,30 @@
       "writtenOn": "2016-03-24T22:15:09Z",
       "side": 1,
       "message": "this seems random and wrong.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 19
+      },
+      "revId": "5ae66e5d982fe00d8c9d6040d71c5186d16ef2a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dca63e27_3a2d3ddc",
+        "filename": "tools/dmtracedump/createtesttrace.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-24T22:47:33Z",
+      "side": 1,
+      "message": "Line 409:\n int32_t opt \u003d getopt(argc, argv, \"v:d\");\n\nBut unistd.h should be enough for that. I don\u0027t have that build file anymore, when I get around to it, I\u0027ll look for the explanation (iwyu helpfully tells you what it thinks is needed from the header).",
+      "parentUuid": "dca63e27_ffdba792",
       "range": {
         "startLine": 23,
         "startChar": 0,
