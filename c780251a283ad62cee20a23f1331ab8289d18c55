@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fc14e289_405fc8e7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-24T05:35:55Z",
+      "side": 1,
+      "message": "Yes. (Probably should have marked the CL with WIP)",
+      "parentUuid": "9ccf6672_d5655c8d",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 4
+      },
+      "revId": "c780251a283ad62cee20a23f1331ab8289d18c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cd96e3d_688af79b",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "fc14e289_605ac4f9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-24T05:35:55Z",
+      "side": 1,
+      "message": "Yeah, Object is the right resolution. Still the same problem, it should be merged to not soft-fail something that should hard-fail.",
+      "parentUuid": "5cd96e3d_688af79b",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 37
+      },
+      "revId": "c780251a283ad62cee20a23f1331ab8289d18c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c416ed6_df04db3a",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-03-23T12:05:15Z",
       "side": 1,
       "message": "Isn\u0027t that more an internal problem in the verifier? How can we flag an array type unresolved if it\u0027s primitive?",
+      "range": {
+        "startLine": 4259,
+        "startChar": 0,
+        "endLine": 4262,
+        "endChar": 53
+      },
+      "revId": "c780251a283ad62cee20a23f1331ab8289d18c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_80270094",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4262,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-24T05:35:55Z",
+      "side": 1,
+      "message": "is_primitive means that the *operation* expects a primitive type. E.g., it\u0027s an aput, vs an aput-object...",
+      "parentUuid": "5c416ed6_df04db3a",
       "range": {
         "startLine": 4259,
         "startChar": 0,
@@ -243,6 +315,30 @@
       "writtenOn": "2016-03-23T12:05:15Z",
       "side": 1,
       "message": "Add a comment please, the one line 528 does not mention this early bailout.",
+      "range": {
+        "startLine": 531,
+        "startChar": 0,
+        "endLine": 534,
+        "endChar": 7
+      },
+      "revId": "c780251a283ad62cee20a23f1331ab8289d18c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_0065d0bf",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-24T05:35:55Z",
+      "side": 1,
+      "message": "I\u0027ll clarify, but 528 includes this. This one says that the resolvable part of a merged type exists (!zero) and is not an object array type -\u003e one element of the merge is not -\u003e bail.",
+      "parentUuid": "7cd6320e_4912993b",
       "range": {
         "startLine": 531,
         "startChar": 0,
