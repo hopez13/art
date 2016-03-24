@@ -68,6 +68,29 @@
       "revId": "d662351975526cfd5ff8070c83359594c8deea3d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c5f5acd_06fd3a7f",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5360,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-24T10:03:20Z",
+      "side": 1,
+      "message": "How can you guarantee that?",
+      "range": {
+        "startLine": 5360,
+        "startChar": 25,
+        "endLine": 5360,
+        "endChar": 74
+      },
+      "revId": "d662351975526cfd5ff8070c83359594c8deea3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
