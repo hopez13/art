@@ -91,6 +91,30 @@
       "revId": "d662351975526cfd5ff8070c83359594c8deea3d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc14e289_430fd281",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5360,
+      "author": {
+        "id": 1061369
+      },
+      "writtenOn": "2016-03-24T11:03:15Z",
+      "side": 1,
+      "message": "is_gc_marking is set and reset only at safepoint. If there is no safepoint between the two heap references (immediately after is_gc_marking test), we can say the two references are up to date (marked) with guard of !is_gc_marking.\n\nActually there is only one potential risk among code sequence: !is_gc_marking, load, load, cmpl. It\u0027s null check. If null check does not pass, the whole code sequence will canceled together, and the two heap references load are discarded together. We still can say the two load without read barrier are safe. right ?\n\nThe inexact !is_gc_marking guard has potential performance risk, because this guard is coarse grain, and always take slow path when concurrent marking.\n\nIf the exact baker\u0027s read barrier has been implemented, this patch should be abandoned.",
+      "parentUuid": "3c5f5acd_06fd3a7f",
+      "range": {
+        "startLine": 5360,
+        "startChar": 25,
+        "endLine": 5360,
+        "endChar": 74
+      },
+      "revId": "d662351975526cfd5ff8070c83359594c8deea3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
