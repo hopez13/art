@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7191fd0c_dfa69bd2",
+        "filename": "runtime/interpreter/mterp/arm64/footer.S",
+        "patchSetId": 22
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2016-03-25T09:35:31Z",
+      "side": 1,
+      "message": "Bill, why MterpAddHotnessBatch is not invoked here to updated the collected samples at the exit of mterp?",
+      "range": {
+        "startLine": 275,
+        "startChar": 0,
+        "endLine": 275,
+        "endChar": 10
+      },
+      "revId": "c1d6b341eed646e5adafc6c4fd4e3748f0292368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
