@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "51987933_41b954ec",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-03-25T16:45:47Z",
+      "side": 1,
+      "message": "note that I kept this DCHECK here so that if this crashes again, we get a very distinct stack trace, and not the generic nodes.h crash",
+      "range": {
+        "startLine": 461,
+        "startChar": 25,
+        "endLine": 461,
+        "endChar": 34
+      },
+      "revId": "f51b5c548065a4de32dc40e8dd944756be08c4d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
