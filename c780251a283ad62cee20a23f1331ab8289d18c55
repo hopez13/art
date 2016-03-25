@@ -189,6 +189,54 @@
     },
     {
       "key": {
+        "uuid": "dca63e27_3a941dba",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4264,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-25T03:19:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dce47ef9_6109327d",
+      "range": {
+        "startLine": 4264,
+        "startChar": 46,
+        "endLine": 4264,
+        "endChar": 51
+      },
+      "revId": "c780251a283ad62cee20a23f1331ab8289d18c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dca63e27_1a9161ca",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4264,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-25T03:19:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c416ed6_ff099f4f",
+      "range": {
+        "startLine": 4264,
+        "startChar": 40,
+        "endLine": 4264,
+        "endChar": 43
+      },
+      "revId": "c780251a283ad62cee20a23f1331ab8289d18c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cd96e3d_888f3ba9",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 1
@@ -200,6 +248,30 @@
       "writtenOn": "2016-03-23T12:05:15Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 4377,
+        "startChar": 0,
+        "endLine": 4385,
+        "endChar": 7
+      },
+      "revId": "c780251a283ad62cee20a23f1331ab8289d18c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dca63e27_da67d9b4",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4385,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-25T03:19:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cd96e3d_888f3ba9",
       "range": {
         "startLine": 4377,
         "startChar": 0,
@@ -258,6 +330,54 @@
     },
     {
       "key": {
+        "uuid": "dca63e27_7a77c561",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-25T03:19:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cdb763a_83456224",
+      "range": {
+        "startLine": 524,
+        "startChar": 26,
+        "endLine": 524,
+        "endChar": 27
+      },
+      "revId": "c780251a283ad62cee20a23f1331ab8289d18c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dca63e27_bad12d79",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-25T03:19:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c416ed6_bf03172e",
+      "range": {
+        "startLine": 524,
+        "startChar": 9,
+        "endLine": 524,
+        "endChar": 12
+      },
+      "revId": "c780251a283ad62cee20a23f1331ab8289d18c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dce47ef9_a1025a57",
         "filename": "runtime/verifier/reg_type.cc",
         "patchSetId": 1
@@ -281,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "dca63e27_9abf1125",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-25T03:19:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dce47ef9_a1025a57",
+      "range": {
+        "startLine": 528,
+        "startChar": 9,
+        "endLine": 528,
+        "endChar": 13
+      },
+      "revId": "c780251a283ad62cee20a23f1331ab8289d18c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ce03ae0_240d761c",
         "filename": "runtime/verifier/reg_type.cc",
         "patchSetId": 1
@@ -292,6 +436,30 @@
       "writtenOn": "2016-03-23T12:05:15Z",
       "side": 1,
       "message": "\u0026 (and * the down_cast) ?",
+      "range": {
+        "startLine": 529,
+        "startChar": 32,
+        "endLine": 529,
+        "endChar": 33
+      },
+      "revId": "c780251a283ad62cee20a23f1331ab8289d18c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dca63e27_fab4554a",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-25T03:19:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ce03ae0_240d761c",
       "range": {
         "startLine": 529,
         "startChar": 32,
@@ -374,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "3c3e7a9c_8efdfbcf",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-25T03:19:56Z",
+      "side": 1,
+      "message": "Code refactored, don\u0027t need this anymore.",
+      "parentUuid": "7cd6320e_69075dfc",
+      "range": {
+        "startLine": 544,
+        "startChar": 10,
+        "endLine": 544,
+        "endChar": 50
+      },
+      "revId": "c780251a283ad62cee20a23f1331ab8289d18c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c416ed6_5f19ab98",
         "filename": "runtime/verifier/reg_type.cc",
         "patchSetId": 1
@@ -408,6 +600,30 @@
       "writtenOn": "2016-03-23T12:05:15Z",
       "side": 1,
       "message": "Make it a soft error if both are object arrays?",
+      "range": {
+        "startLine": 878,
+        "startChar": 81,
+        "endLine": 879,
+        "endChar": 30
+      },
+      "revId": "c780251a283ad62cee20a23f1331ab8289d18c55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c3e7a9c_0ef2ebfb",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-25T03:19:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fce942d0_a526e4af",
       "range": {
         "startLine": 878,
         "startChar": 81,
