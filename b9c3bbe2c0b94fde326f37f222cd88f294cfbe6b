@@ -46,6 +46,30 @@
       "revId": "b9c3bbe2c0b94fde326f37f222cd88f294cfbe6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c3e7a9c_91bc3ee3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-25T01:38:55Z",
+      "side": 1,
+      "message": "Lots of apps use bytecode manipulation for stuff like dependency injection frameworks etc. I don\u0027t think it\u0027s possible from the Java side with a normal compiler. The evaluation rules for a \"new\" expression are pretty straight-forward, and I\u0027m not aware of any compiler splitting things for any reason...",
+      "parentUuid": "3c3e7a9c_8e5edbec",
+      "range": {
+        "startLine": 15,
+        "startChar": 26,
+        "endLine": 17,
+        "endChar": 34
+      },
+      "revId": "b9c3bbe2c0b94fde326f37f222cd88f294cfbe6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
