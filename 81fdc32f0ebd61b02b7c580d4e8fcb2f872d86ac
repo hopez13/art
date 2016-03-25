@@ -22,6 +22,30 @@
       "revId": "81fdc32f0ebd61b02b7c580d4e8fcb2f872d86ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51987933_7e251140",
+        "filename": "runtime/verifier/reg_type.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-25T16:31:56Z",
+      "side": 1,
+      "message": "It\u0027s a 4-space indent for a sub-expression, which is our regular style. I could alternatively move the whole RHS to 826, if you prefer.",
+      "parentUuid": "7191fd0c_df78dbca",
+      "range": {
+        "startLine": 825,
+        "startChar": 93,
+        "endLine": 826,
+        "endChar": 21
+      },
+      "revId": "81fdc32f0ebd61b02b7c580d4e8fcb2f872d86ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
