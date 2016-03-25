@@ -22,6 +22,30 @@
       "revId": "5d245a3c99ae6e6eff5f0ab44346726b51a1f0c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51987933_81843cd2",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 978,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-03-25T17:25:04Z",
+      "side": 1,
+      "message": "Oh yes, good catch, old comment.",
+      "parentUuid": "7191fd0c_7f074f3e",
+      "range": {
+        "startLine": 978,
+        "startChar": 76,
+        "endLine": 978,
+        "endChar": 90
+      },
+      "revId": "5d245a3c99ae6e6eff5f0ab44346726b51a1f0c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
