@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7191fd0c_3f6b07ee",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-25T16:30:56Z",
+      "side": 1,
+      "message": "I thought a bit more about this and it seems wrong to do this check here. We should not have added the duplicate in the first place. It seems that the proper fix is to make uninitialized_strings_ a set or test before adding to it.\n\nwdyt?",
+      "range": {
+        "startLine": 462,
+        "startChar": 9,
+        "endLine": 462,
+        "endChar": 34
+      },
+      "revId": "80045cc4f2291a9bfe9088319e86044fd90ba244",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
