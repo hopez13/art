@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "91f031de_257164a9",
+        "filename": "runtime/interpreter/mterp/arm/footer.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-28T22:48:35Z",
+      "side": 1,
+      "message": "Thanks - yes we do. Done.",
+      "parentUuid": "d1e62928_5248b4a9",
+      "range": {
+        "startLine": 181,
+        "startChar": 12,
+        "endLine": 181,
+        "endChar": 42
+      },
+      "revId": "695ba28783505d6d9eb9d2da483580a5bed97003",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51acf9b4_beb219c1",
         "filename": "runtime/interpreter/mterp/arm/op_packed_switch.S",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-03-28T10:09:58Z",
       "side": 1,
       "message": "Who set flags in this case?",
+      "range": {
+        "startLine": 20,
+        "startChar": 12,
+        "endLine": 20,
+        "endChar": 34
+      },
+      "revId": "695ba28783505d6d9eb9d2da483580a5bed97003",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91f031de_857a5088",
+        "filename": "runtime/interpreter/mterp/arm/op_packed_switch.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-28T22:48:35Z",
+      "side": 1,
+      "message": "The \"s\" in the \"movs\" is the modifier specifying setting of condition codes.",
+      "parentUuid": "51acf9b4_beb219c1",
       "range": {
         "startLine": 20,
         "startChar": 12,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "91f031de_c58858e7",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-28T22:48:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1bdedca_131e0cae",
+      "range": {
+        "startLine": 663,
+        "startChar": 6,
+        "endLine": 663,
+        "endChar": 44
+      },
+      "revId": "695ba28783505d6d9eb9d2da483580a5bed97003",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1bdedca_332308ef",
         "filename": "runtime/jit/jit_instrumentation.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-03-28T18:52:04Z",
       "side": 1,
       "message": "just wonder, why it is unit not int?",
+      "range": {
+        "startLine": 188,
+        "startChar": 69,
+        "endLine": 188,
+        "endChar": 70
+      },
+      "revId": "695ba28783505d6d9eb9d2da483580a5bed97003",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91f031de_251f2454",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-28T22:48:35Z",
+      "side": 1,
+      "message": "In an earlier version of this change, I was using int16 to hold the method\u0027s hotness counter and also using that field to store the special negative codes.  Now, the method\u0027s hotness counter is just for hotness and stays non-negative.  So, might as well use a uint16_t to allow for higher threshold values.",
+      "parentUuid": "f1bdedca_332308ef",
       "range": {
         "startLine": 188,
         "startChar": 69,
