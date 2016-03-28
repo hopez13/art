@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "11b60105_fcb9c9f1",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1947,
+      "author": {
+        "id": 1090418
+      },
+      "writtenOn": "2016-03-28T07:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dce47ef9_a12c1ae1",
+      "range": {
+        "startLine": 1947,
+        "startChar": 3,
+        "endLine": 1947,
+        "endChar": 5
+      },
+      "revId": "21c18da4051e73f2b6b914ee35a641c1ae260ce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dce47ef9_0124eef4",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-03-23T14:43:49Z",
       "side": 1,
       "message": "Could this be factored with CodeGenerator::CreateSystemArrayCopyLocationSummary?",
+      "range": {
+        "startLine": 1950,
+        "startChar": 5,
+        "endLine": 1950,
+        "endChar": 57
+      },
+      "revId": "21c18da4051e73f2b6b914ee35a641c1ae260ce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11b60105_dcbe0dd8",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1950,
+      "author": {
+        "id": 1090418
+      },
+      "writtenOn": "2016-03-28T07:50:43Z",
+      "side": 1,
+      "message": "CodeGenerator::CreateSystemArrayCopyLocationSummary use three temporary registers.\nWe want to use two temporary registers in order to reduce the register pressure in arm64.\nSo we don\u0027t use the CodeGenerator::CreateSystemArrayCopyLocationSummary.",
+      "parentUuid": "dce47ef9_0124eef4",
       "range": {
         "startLine": 1950,
         "startChar": 5,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "91f031de_b090f8ce",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2022,
+      "author": {
+        "id": 1090418
+      },
+      "writtenOn": "2016-03-28T07:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ce03ae0_44c0c29b",
+      "range": {
+        "startLine": 2022,
+        "startChar": 14,
+        "endLine": 2022,
+        "endChar": 16
+      },
+      "revId": "21c18da4051e73f2b6b914ee35a641c1ae260ce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cd96e3d_e8e52724",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2016-03-23T14:43:49Z",
       "side": 1,
       "message": "Use a single `if` and join conditions with `\u0026\u0026`?",
+      "range": {
+        "startLine": 2025,
+        "startChar": 2,
+        "endLine": 2026,
+        "endChar": 56
+      },
+      "revId": "21c18da4051e73f2b6b914ee35a641c1ae260ce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11b60105_bcb3410e",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2026,
+      "author": {
+        "id": 1090418
+      },
+      "writtenOn": "2016-03-28T07:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cd96e3d_e8e52724",
       "range": {
         "startLine": 2025,
         "startChar": 2,
@@ -111,6 +207,24 @@
     },
     {
       "key": {
+        "uuid": "91f031de_9095f4be",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2030,
+      "author": {
+        "id": 1090418
+      },
+      "writtenOn": "2016-03-28T07:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c416ed6_df605be3",
+      "revId": "21c18da4051e73f2b6b914ee35a641c1ae260ce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ce03ae0_c4abf2e5",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "91f031de_709bb0f2",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2112,
+      "author": {
+        "id": 1090418
+      },
+      "writtenOn": "2016-03-28T07:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ce03ae0_c4abf2e5",
+      "range": {
+        "startLine": 2112,
+        "startChar": 63,
+        "endLine": 2112,
+        "endChar": 73
+      },
+      "revId": "21c18da4051e73f2b6b914ee35a641c1ae260ce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cd96e3d_289aaf9a",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
@@ -145,6 +283,24 @@
       "writtenOn": "2016-03-23T14:43:49Z",
       "side": 1,
       "message": "Here I\u0027d add\n\n  // /* HeapReference\u003cClass\u003e */ temp3 \u003d temp1-\u003ecomponent_type_\n\nsimilarly to what was done in code generators.",
+      "revId": "21c18da4051e73f2b6b914ee35a641c1ae260ce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11b60105_5c48bda9",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2120,
+      "author": {
+        "id": 1090418
+      },
+      "writtenOn": "2016-03-28T07:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cd96e3d_289aaf9a",
       "revId": "21c18da4051e73f2b6b914ee35a641c1ae260ce0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -191,6 +347,48 @@
     },
     {
       "key": {
+        "uuid": "11b60105_bcea21c0",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2131,
+      "author": {
+        "id": 1090418
+      },
+      "writtenOn": "2016-03-28T07:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ccf6672_f0b18e0d",
+      "range": {
+        "startLine": 2131,
+        "startChar": 8,
+        "endLine": 2131,
+        "endChar": 68
+      },
+      "revId": "21c18da4051e73f2b6b914ee35a641c1ae260ce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11b60105_3c2cd1d7",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2131,
+      "author": {
+        "id": 1090418
+      },
+      "writtenOn": "2016-03-28T07:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ccf6672_d0a48ad2",
+      "revId": "21c18da4051e73f2b6b914ee35a641c1ae260ce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cd96e3d_489ff389",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
@@ -202,6 +400,24 @@
       "writtenOn": "2016-03-23T14:43:49Z",
       "side": 1,
       "message": "// /* HeapReference\u003cClass\u003e */ temp1 \u003d temp1-\u003ecomponent_type_",
+      "revId": "21c18da4051e73f2b6b914ee35a641c1ae260ce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11b60105_3c55f141",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2147,
+      "author": {
+        "id": 1090418
+      },
+      "writtenOn": "2016-03-28T07:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cd96e3d_489ff389",
       "revId": "21c18da4051e73f2b6b914ee35a641c1ae260ce0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -225,6 +441,24 @@
     },
     {
       "key": {
+        "uuid": "11b60105_1c52355a",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2149,
+      "author": {
+        "id": 1090418
+      },
+      "writtenOn": "2016-03-28T07:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cd6320e_09a6d11e",
+      "revId": "21c18da4051e73f2b6b914ee35a641c1ae260ce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fce942d0_05607878",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
@@ -236,6 +470,24 @@
       "writtenOn": "2016-03-23T14:43:49Z",
       "side": 1,
       "message": "// /* HeapReference\u003cClass\u003e */ temp1 \u003d src-\u003eklass_",
+      "revId": "21c18da4051e73f2b6b914ee35a641c1ae260ce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11b60105_dc228de9",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2159,
+      "author": {
+        "id": 1090418
+      },
+      "writtenOn": "2016-03-28T07:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fce942d0_05607878",
       "revId": "21c18da4051e73f2b6b914ee35a641c1ae260ce0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -259,6 +511,24 @@
     },
     {
       "key": {
+        "uuid": "11b60105_bc17c18d",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2161,
+      "author": {
+        "id": 1090418
+      },
+      "writtenOn": "2016-03-28T07:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ccf6672_10afd2aa",
+      "revId": "21c18da4051e73f2b6b914ee35a641c1ae260ce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fce942d0_c51770d5",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
@@ -270,6 +540,30 @@
       "writtenOn": "2016-03-23T14:43:49Z",
       "side": 1,
       "message": "value_can_be_null",
+      "range": {
+        "startLine": 2202,
+        "startChar": 48,
+        "endLine": 2202,
+        "endChar": 59
+      },
+      "revId": "21c18da4051e73f2b6b914ee35a641c1ae260ce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11b60105_9cef65d0",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2202,
+      "author": {
+        "id": 1090418
+      },
+      "writtenOn": "2016-03-28T07:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fce942d0_c51770d5",
       "range": {
         "startLine": 2202,
         "startChar": 48,
