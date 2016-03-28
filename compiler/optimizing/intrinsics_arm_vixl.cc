@@ -40,10 +40,12 @@ using helpers::LocationFrom;
 using helpers::LowRegisterFrom;
 using helpers::LowSRegisterFrom;
 using helpers::OutputDRegister;
+using helpers::OutputSRegister;
 using helpers::OutputRegister;
 using helpers::OutputVRegister;
 using helpers::RegisterFrom;
 using helpers::SRegisterFrom;
+using helpers::DRegisterFromS;
 
 using namespace vixl::aarch32;  // NOLINT(build/namespaces)
 
@@ -460,6 +462,227 @@ void IntrinsicLocationsBuilderARMVIXL::VisitMathAbsLong(HInvoke* invoke) {
 
 void IntrinsicCodeGeneratorARMVIXL::VisitMathAbsLong(HInvoke* invoke) {
   GenAbsInteger(invoke->GetLocations(), /* is64bit */ true, GetAssembler());
+}
+
+static void GenMinMaxFloat(HInstruction* invoke, bool is_min, ArmVIXLAssembler* assembler) {
+  Location op1_loc = invoke->GetLocations()->InAt(0);
+  Location op2_loc = invoke->GetLocations()->InAt(1);
+  Location out_loc = invoke->GetLocations()->Out();
+
+  // Optimization: don't generate any code if inputs are the same.
+  if (op1_loc.Equals(op2_loc)) {
+    DCHECK(out_loc.Equals(op1_loc));  // out_loc is set as SameAsFirstInput() in.
+    return;
+  }
+
+  vixl32::SRegister s1 = SRegisterFrom(op1_loc);
+  vixl32::SRegister s2 = SRegisterFrom(op2_loc);
+  vixl32::SRegister s_out = OutputSRegister(invoke);
+
+  vixl32::DRegister d1 = DRegisterFromS(s1);
+  vixl32::DRegister d2 = DRegisterFromS(s2);
+  UseScratchRegisterScope temps(assembler->GetVIXLAssembler());
+  vixl32::DRegister dt = temps.AcquireD();
+
+  // (1) Put the input S registers into the high or low lanes of two D registers;
+  // (2) SIMD VMIN/VMAX and put the result into temp D register (requires ARMv8);
+  // (3) Get the result from the high or low lane of temp D regsiter.
+
+  bool s1_s2_in_different_lanes = s1.Is(d1.GetLane(1)) ^  s2.Is(d2.GetLane(1));
+  bool s1_s2_both_in_high_lanes = s1.Is(d1.GetLane(1)) && s2.Is(d2.GetLane(1));
+
+  // (1) Prepare two D registers (d1 and d2),
+  // and make sure s1 and s2 align in their high or low lanes.
+  if (s1_s2_in_different_lanes) {
+    if (s2.Is(d2.GetLane(1))) {
+      // Align to low lane: d1:[__s1] , d2:[__s2]
+      __ Vmov(dt.GetLane(0), s2);
+      d2 = dt;
+    } else {
+      // Align to low lane: d1:[__s1] , d2:[__s2]
+      __ Vmov(dt.GetLane(0), s1);
+      d1 = dt;
+    }
+  }
+
+  // (2) SIMD VMIN / VMAX
+  // d1:[s1__]      d1:[__s1]
+  //     simd           simd
+  // d2:[s2__]  or  d2:[__s2]
+  //     vvvv           vvvv
+  // dt:[ss__]      dt:[__ss]
+  if (is_min) {
+    __ Vmin(F32, dt, d1, d2);
+  } else {
+    __ Vmax(F32, dt, d1, d2);
+  }
+
+  // (3) Get Result from dt:[ss__] or dt:[__ss].
+  __ Vmov(s_out, s1_s2_both_in_high_lanes ? dt.GetLane(1) : dt.GetLane(0));
+}
+
+static void CreateFPFPToFPLocations(ArenaAllocator* arena, HInvoke* invoke) {
+  LocationSummary* locations = new (arena) LocationSummary(invoke,
+                                                           LocationSummary::kNoCall,
+                                                           kIntrinsified);
+  locations->SetInAt(0, Location::RequiresFpuRegister());
+  locations->SetInAt(1, Location::RequiresFpuRegister());
+  locations->SetOut(Location::SameAsFirstInput());
+}
+
+void IntrinsicLocationsBuilderARMVIXL::VisitMathMinFloatFloat(HInvoke* invoke) {
+  if (features_.HasARMv8AInstructions()) {
+    CreateFPFPToFPLocations(arena_, invoke);
+  }
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitMathMinFloatFloat(HInvoke* invoke) {
+  DCHECK(codegen_->GetInstructionSetFeatures().HasARMv8AInstructions());
+  GenMinMaxFloat(invoke, /* is_min */ true, GetAssembler());
+}
+
+void IntrinsicLocationsBuilderARMVIXL::VisitMathMaxFloatFloat(HInvoke* invoke) {
+  if (features_.HasARMv8AInstructions()) {
+    CreateFPFPToFPLocations(arena_, invoke);
+  }
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitMathMaxFloatFloat(HInvoke* invoke) {
+  DCHECK(codegen_->GetInstructionSetFeatures().HasARMv8AInstructions());
+  GenMinMaxFloat(invoke, /* is_min */ false, GetAssembler());
+}
+
+static void GenMinMaxDouble(HInvoke* invoke, bool is_min, ArmVIXLAssembler* assembler) {
+  Location op1_loc = invoke->GetLocations()->InAt(0);
+  Location op2_loc = invoke->GetLocations()->InAt(1);
+  Location out_loc = invoke->GetLocations()->Out();
+
+  // Optimization: don't generate any code if inputs are the same.
+  if (op1_loc.Equals(op2_loc)) {
+    DCHECK(out_loc.Equals(op1_loc));  // out_loc is set as SameAsFirstInput() in.
+    return;
+  }
+
+  vixl32::DRegister op1 = DRegisterFrom(op1_loc);
+  vixl32::DRegister op2 = DRegisterFrom(op2_loc);
+  vixl32::DRegister out = OutputDRegister(invoke);
+  vixl32::Label nan, done;
+
+  DCHECK(op1.Is(out));
+
+  __ Vcmp(op1, op2);
+  __ Vmrs(RegisterOrAPSR_nzcv(kPcCode), FPSCR);
+  __ B(vs, &nan, /* far_target */ false);  // if un-ordered, go to NAN handling.
+
+  // (op1 > op2) or (op1 < op2)
+  vixl32::ConditionType cond = is_min ? gt : lt;
+  {
+    ExactAssemblyScope it_scope(assembler->GetVIXLAssembler(),
+                                2 * kMaxInstructionSizeInBytes,
+                                CodeBufferCheckScope::kMaximumSize);
+    __ it(cond);
+    __ vmov(cond, F64, out, op2);
+  }
+  __ B(ne, &done, /* far_target */ false);  // for <>(not equal), we've done min/max calculation.
+
+  // op1 == op2, handle +/-0.0
+  if (is_min) {
+    __ Vorr(F64, out, op1, op2);
+  } else {
+    __ Vand(F64, out, op1, op2);
+  }
+  __ B(&done);
+
+  // NaN input, return NaN.
+  __ Bind(&nan);
+  {
+    UseScratchRegisterScope temps(assembler->GetVIXLAssembler());
+    const vixl32::Register temp = temps.Acquire();
+    __ Movt(temp, static_cast<uint32_t>(kPositiveInfinityDouble >> 48));
+    __ Vmov(out, temp, temp);  // 0x7FF0xxxx7FF0xxxx is a valid double NaN value.
+  }
+
+  __ Bind(&done);
+}
+
+void IntrinsicLocationsBuilderARMVIXL::VisitMathMinDoubleDouble(HInvoke* invoke) {
+  CreateFPFPToFPLocations(arena_, invoke);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitMathMinDoubleDouble(HInvoke* invoke) {
+  GenMinMaxDouble(invoke, /* is_min */ true , GetAssembler());
+}
+
+void IntrinsicLocationsBuilderARMVIXL::VisitMathMaxDoubleDouble(HInvoke* invoke) {
+  CreateFPFPToFPLocations(arena_, invoke);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitMathMaxDoubleDouble(HInvoke* invoke) {
+  GenMinMaxDouble(invoke, /* is_min */ false, GetAssembler());
+}
+
+static void GenMinMaxLong(HInvoke* invoke, bool is_min, ArmVIXLAssembler* assembler) {
+  Location op1_loc = invoke->GetLocations()->InAt(0);
+  Location op2_loc = invoke->GetLocations()->InAt(1);
+  Location out_loc = invoke->GetLocations()->Out();
+
+  // Optimization: don't generate any code if inputs are the same.
+  if (op1_loc.Equals(op2_loc)) {
+    DCHECK(out_loc.Equals(op1_loc));  // out_loc is set as SameAsFirstInput() in location builder.
+    return;
+  }
+
+  vixl32::Register op1_lo = LowRegisterFrom(op1_loc);
+  vixl32::Register op1_hi = HighRegisterFrom(op1_loc);
+  vixl32::Register op2_lo = LowRegisterFrom(op2_loc);
+  vixl32::Register op2_hi = HighRegisterFrom(op2_loc);
+  vixl32::Register out_lo = LowRegisterFrom(out_loc);
+  vixl32::Register out_hi = HighRegisterFrom(out_loc);
+  UseScratchRegisterScope temps(assembler->GetVIXLAssembler());
+  const vixl32::Register temp = temps.Acquire();
+
+  DCHECK(op1_lo.Is(out_lo));
+  DCHECK(op1_hi.Is(out_hi));
+
+  // Compare op1 >= op2, or op1 < op2.
+  __ Cmp(out_lo, op2_lo);
+  __ Sbcs(temp, out_hi, op2_hi);
+
+  // Now the condition code is correct.
+  {
+    vixl32::ConditionType cond = is_min ? ge : lt;
+    ExactAssemblyScope it_scope(assembler->GetVIXLAssembler(),
+                                3 * kMaxInstructionSizeInBytes,
+                                CodeBufferCheckScope::kMaximumSize);
+    __ itt(cond);
+    __ mov(cond, out_lo, op2_lo);
+    __ mov(cond, out_hi, op2_hi);
+  }
+}
+
+static void CreateLongLongToLongLocations(ArenaAllocator* arena, HInvoke* invoke) {
+  LocationSummary* locations = new (arena) LocationSummary(invoke,
+                                                           LocationSummary::kNoCall,
+                                                           kIntrinsified);
+  locations->SetInAt(0, Location::RequiresRegister());
+  locations->SetInAt(1, Location::RequiresRegister());
+  locations->SetOut(Location::SameAsFirstInput());
+}
+
+void IntrinsicLocationsBuilderARMVIXL::VisitMathMinLongLong(HInvoke* invoke) {
+  CreateLongLongToLongLocations(arena_, invoke);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitMathMinLongLong(HInvoke* invoke) {
+  GenMinMaxLong(invoke, /* is_min */ true, GetAssembler());
+}
+
+void IntrinsicLocationsBuilderARMVIXL::VisitMathMaxLongLong(HInvoke* invoke) {
+  CreateLongLongToLongLocations(arena_, invoke);
+}
+
+void IntrinsicCodeGeneratorARMVIXL::VisitMathMaxLongLong(HInvoke* invoke) {
+  GenMinMaxLong(invoke, /* is_min */ false, GetAssembler());
 }
 
 static void GenMinMax(HInvoke* invoke, bool is_min, ArmVIXLAssembler* assembler) {
@@ -2766,12 +2989,6 @@ void IntrinsicCodeGeneratorARMVIXL::VisitMathFloor(HInvoke* invoke) {
   __ Vrintm(F64, F64, OutputDRegister(invoke), InputDRegisterAt(invoke, 0));
 }
 
-UNIMPLEMENTED_INTRINSIC(ARMVIXL, MathMinDoubleDouble)
-UNIMPLEMENTED_INTRINSIC(ARMVIXL, MathMinFloatFloat)
-UNIMPLEMENTED_INTRINSIC(ARMVIXL, MathMaxDoubleDouble)
-UNIMPLEMENTED_INTRINSIC(ARMVIXL, MathMaxFloatFloat)
-UNIMPLEMENTED_INTRINSIC(ARMVIXL, MathMinLongLong)
-UNIMPLEMENTED_INTRINSIC(ARMVIXL, MathMaxLongLong)
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, MathRint)
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, MathRoundDouble)   // Could be done by changing rounding mode, maybe?
 UNIMPLEMENTED_INTRINSIC(ARMVIXL, MathRoundFloat)    // Could be done by changing rounding mode, maybe?
