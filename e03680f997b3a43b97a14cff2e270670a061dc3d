@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "91f031de_10a9f956",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-29T12:52:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1bdedca_f37fd0ac",
+      "range": {
+        "startLine": 660,
+        "startChar": 22,
+        "endLine": 660,
+        "endChar": 23
+      },
+      "revId": "e03680f997b3a43b97a14cff2e270670a061dc3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1bdedca_337148df",
         "filename": "runtime/jit/jit_instrumentation.cc",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2016-03-29T07:04:44Z",
       "side": 1,
       "message": "else { set new_count as method counter}. Otherwise if count is less than (osr_method_threshold_ - hot_method_threshold_) counter of the method will never be updated.",
+      "revId": "e03680f997b3a43b97a14cff2e270670a061dc3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91f031de_d0b251c2",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-03-29T12:52:15Z",
+      "side": 1,
+      "message": "Actually, need to redo this.  We\u0027re no longer using method\u0027s hotness counter for the special kJitCheckForOSR code.",
+      "parentUuid": "f1bdedca_337148df",
       "revId": "e03680f997b3a43b97a14cff2e270670a061dc3d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
