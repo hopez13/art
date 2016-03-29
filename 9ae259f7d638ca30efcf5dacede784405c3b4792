@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "7141fdd6_3f2947c8",
+        "filename": "runtime/openjdkjvm/OpenjdkJvm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-03-29T13:17:20Z",
+      "side": 1,
+      "message": "I think that would be a better strategy. In the future, if we decide to add more things there (or rewrite them in java, which is too risky for this release) we can do so quite easily. What do you think ?",
+      "parentUuid": "b1c4557e_d951730c",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 1
+      },
+      "revId": "9ae259f7d638ca30efcf5dacede784405c3b4792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c5f5acd_86fe0a4f",
         "filename": "runtime/openjdkjvm/OpenjdkJvm.cc",
         "patchSetId": 1
