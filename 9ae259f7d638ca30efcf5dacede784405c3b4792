@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7141fdd6_1fdfa324",
+        "filename": "runtime/openjdkjvm/OpenjdkJvm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-03-29T12:51:05Z",
+      "side": 1,
+      "message": "did you actually enumerate the number of occurences of (3) ? I don\u0027t think there are a \"lot\", and besides many of them call through to common methods - like NetHooks.beforeTcpConnect. I would prefer that strategy to this one.",
+      "parentUuid": "7141fdd6_dfe05be4",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 1
+      },
+      "revId": "9ae259f7d638ca30efcf5dacede784405c3b4792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c5f5acd_86fe0a4f",
         "filename": "runtime/openjdkjvm/OpenjdkJvm.cc",
         "patchSetId": 1
