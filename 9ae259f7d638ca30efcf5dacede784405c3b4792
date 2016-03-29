@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7141fdd6_dfe05be4",
+        "filename": "runtime/openjdkjvm/OpenjdkJvm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1087625
+      },
+      "writtenOn": "2016-03-29T12:41:28Z",
+      "side": 1,
+      "message": "As discussed with pszczepaniak@, we have several possible solutions for tagging socket:\n1. Change every call to {socket, accept, close} to JVM version and do the tagging there. (The implementation)\n2. Same as 1, but call the underlying native tagging function directly. However the native function specifically binds to NetworkManagementSocketTagger, therefore would be broken if a different SocketTagger implementation is registered.\n3. Do tag/untag at each occurrence of {socket, accept, close}. This is a lot of duplicate code and hard to maintain.\n4. Rewrite functions involving these calls in pure Java.",
+      "parentUuid": "3c5f5acd_a603062e",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 1
+      },
+      "revId": "9ae259f7d638ca30efcf5dacede784405c3b4792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c5f5acd_86fe0a4f",
         "filename": "runtime/openjdkjvm/OpenjdkJvm.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-03-24T11:59:30Z",
       "side": 1,
       "message": "this seems broken - why are you untagging the return value of close ?",
+      "range": {
+        "startLine": 296,
+        "startChar": 9,
+        "endLine": 296,
+        "endChar": 32
+      },
+      "revId": "9ae259f7d638ca30efcf5dacede784405c3b4792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7141fdd6_ffe51ff1",
+        "filename": "runtime/openjdkjvm/OpenjdkJvm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1087625
+      },
+      "writtenOn": "2016-03-29T12:41:28Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "3c5f5acd_86fe0a4f",
       "range": {
         "startLine": 296,
         "startChar": 9,
