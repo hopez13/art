@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91f031de_25bf1ad6",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1457,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-03-29T21:55:38Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem safe. Why give over memory ownership to something else and then immediately proceed to keep using it?",
+      "revId": "49b0f45d5a9023653ab00c355735910aa51ee0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
