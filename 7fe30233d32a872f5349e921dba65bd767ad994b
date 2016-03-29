@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1bdedca_738e60f2",
+        "filename": "runtime/base/logging.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-29T11:16:08Z",
+      "side": 1,
+      "message": "Maybe introduce a `kLastLevel \u003d INTERNAL_FATAL` in the definition of LogSeverity (as we do in some other enums) and use it here?",
+      "range": {
+        "startLine": 189,
+        "startChar": 67,
+        "endLine": 189,
+        "endChar": 81
+      },
+      "revId": "7fe30233d32a872f5349e921dba65bd767ad994b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1bdedca_b38f18ea",
+        "filename": "runtime/base/logging.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-29T11:16:08Z",
+      "side": 1,
+      "message": "Nit: one per line.",
+      "range": {
+        "startLine": 240,
+        "startChar": 2,
+        "endLine": 242,
+        "endChar": 57
+      },
+      "revId": "7fe30233d32a872f5349e921dba65bd767ad994b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1bdedca_d39c9429",
+        "filename": "runtime/base/logging.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-29T11:16:08Z",
+      "side": 1,
+      "message": "Turn this into a char array as well?  Or maybe factor this with the code from lines 188­–190?",
+      "range": {
+        "startLine": 263,
+        "startChar": 2,
+        "endLine": 263,
+        "endChar": 35
+      },
+      "revId": "7fe30233d32a872f5349e921dba65bd767ad994b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1bdedca_336b08c0",
+        "filename": "runtime/base/logging.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-29T11:16:08Z",
+      "side": 1,
+      "message": "Factor with lines 188­–190?",
+      "range": {
+        "startLine": 298,
+        "startChar": 2,
+        "endLine": 300,
+        "endChar": 46
+      },
+      "revId": "7fe30233d32a872f5349e921dba65bd767ad994b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1bdedca_f3999036",
+        "filename": "runtime/base/logging.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-29T11:16:08Z",
+      "side": 1,
+      "message": "As you\u0027ve already added many `static_cast\u003csize_t\u003e` when using this enum\u0027s values as integers, maybe turn it into an `enum class`?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 4
+      },
+      "revId": "7fe30233d32a872f5349e921dba65bd767ad994b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1bdedca_b37638a2",
+        "filename": "runtime/verifier/method_verifier_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-29T11:16:08Z",
+      "side": 1,
+      "message": "Use ASSERT_EQ.",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 15
+      },
+      "revId": "7fe30233d32a872f5349e921dba65bd767ad994b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
