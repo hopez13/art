@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "b1c4557e_d951730c",
+        "filename": "runtime/openjdkjvm/OpenjdkJvm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1087625
+      },
+      "writtenOn": "2016-03-29T13:11:29Z",
+      "side": 1,
+      "message": "accept(): 2\nclose(): 36\nsocket(): 12\n\nAlternatively, (1) could also be done in libcore by using a different name, e.g. NET_{Socket,Accept,SocketClose}. Would you think this is a better strategy?",
+      "parentUuid": "7141fdd6_1fdfa324",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 1
+      },
+      "revId": "9ae259f7d638ca30efcf5dacede784405c3b4792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c5f5acd_86fe0a4f",
         "filename": "runtime/openjdkjvm/OpenjdkJvm.cc",
         "patchSetId": 1
