@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "7141fdd6_5f93eb18",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1950,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-29T15:18:21Z",
+      "side": 1,
+      "message": "Could you please add this explanation as a comment in your CL?",
+      "parentUuid": "11b60105_dcbe0dd8",
+      "range": {
+        "startLine": 1950,
+        "startChar": 5,
+        "endLine": 1950,
+        "endChar": 57
+      },
+      "revId": "21c18da4051e73f2b6b914ee35a641c1ae260ce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ce03ae0_44c0c29b",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
