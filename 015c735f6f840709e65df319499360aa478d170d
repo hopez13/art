@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91f031de_f05675aa",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2678,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-03-29T16:15:58Z",
+      "side": 1,
+      "message": "This seems wrong. We have always returned false when there was a non-abstract interface method without code. Default methods may not be native.\n\nI am not sure why you think we need to change it.",
+      "range": {
+        "startLine": 2672,
+        "startChar": 8,
+        "endLine": 2678,
+        "endChar": 9
+      },
+      "revId": "015c735f6f840709e65df319499360aa478d170d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
