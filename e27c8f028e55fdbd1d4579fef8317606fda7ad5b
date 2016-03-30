@@ -181,6 +181,24 @@
     },
     {
       "key": {
+        "uuid": "d1ae29f9_b257a0d7",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-30T16:36:20Z",
+      "side": 1,
+      "message": "For the moment, let\u0027s use whatever works here and add a comment. I\u0027ll clean this up later.\n\nAnd let\u0027s add `DCHECK(it.Current()-\u003eIsInBlock()` to HGraphVisitor::VisitBasicBlock() and see if anything else hits it.",
+      "parentUuid": "3174e57a_353e10bd",
+      "revId": "e27c8f028e55fdbd1d4579fef8317606fda7ad5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1e62928_52c79481",
         "filename": "test/593-amd64-simplifier/src/Main.java",
         "patchSetId": 2
