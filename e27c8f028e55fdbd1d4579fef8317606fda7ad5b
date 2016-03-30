@@ -109,6 +109,24 @@
     },
     {
       "key": {
+        "uuid": "b1b1b559_11130c81",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-03-30T15:42:56Z",
+      "side": 1,
+      "message": "It doesn\u0027t work because if you\u0027re iterating over instruction X and delete X-\u003enext, the next iteration will look at X-\u003enext-\u003enext which is null.",
+      "parentUuid": "3174e57a_75dc082e",
+      "revId": "e27c8f028e55fdbd1d4579fef8317606fda7ad5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1e62928_52c79481",
         "filename": "test/593-amd64-simplifier/src/Main.java",
         "patchSetId": 2
