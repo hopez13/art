@@ -22,6 +22,30 @@
       "revId": "d1537b569b6cd18297c5e02d13cdd588c4366c51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51f4f901_a45646a9",
+        "filename": "runtime/oat_file_assistant.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-30T14:59:17Z",
+      "side": 1,
+      "message": "If it\u0027s part of OdexFileNeedsRelocation, then if we have no patch info, OdexFileNeedsRelocation will be \u0027false\u0027, OdexFileIsUpToDate will be \u0027true\u0027, so it will look like we have a fully compiled, relocated oat file.\n\nThis is also consistent with having the \u0027HasOriginalDexFiles\u0027 check in this function.",
+      "parentUuid": "b1b1b559_f1400886",
+      "range": {
+        "startLine": 169,
+        "startChar": 50,
+        "endLine": 169,
+        "endChar": 70
+      },
+      "revId": "d1537b569b6cd18297c5e02d13cdd588c4366c51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
