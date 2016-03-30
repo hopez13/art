@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "319dc5d4_8d0ec118",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-30T17:05:49Z",
+      "side": 1,
+      "message": "boolean-\u003echar also satisfies the constraints.",
+      "revId": "c6ef22937707f0612da4e458c32cb4819e87f773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1da95a7_099ac93c",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-30T17:05:49Z",
+      "side": 1,
+      "message": "Maybe `Primitive::PrimitiveKind(input_type) \u003d\u003d Primitive::kPrimInt`? (Even though that includes the kPrimInt case handled above.)",
+      "range": {
+        "startLine": 793,
+        "startChar": 45,
+        "endLine": 796,
+        "endChar": 81
+      },
+      "revId": "c6ef22937707f0612da4e458c32cb4819e87f773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1a6cd26_0bc11dfd",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -13,6 +53,30 @@
       "writtenOn": "2016-03-30T16:14:04Z",
       "side": 1,
       "message": "We should never have result_type be kPrimBoolean, right? There\u0027s no bytecode instruction for it but can we generate it somehow? Might be worth a DCHECK",
+      "range": {
+        "startLine": 799,
+        "startChar": 7,
+        "endLine": 799,
+        "endChar": 42
+      },
+      "revId": "c6ef22937707f0612da4e458c32cb4819e87f773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1ae29f9_928b7ca2",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-30T17:05:49Z",
+      "side": 1,
+      "message": "I agree, the result_type should never be kPrimBoolean.",
+      "parentUuid": "f1a6cd26_0bc11dfd",
       "range": {
         "startLine": 799,
         "startChar": 7,
