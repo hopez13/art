@@ -199,6 +199,24 @@
     },
     {
       "key": {
+        "uuid": "11ac4106_aca8e353",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-03-30T16:51:59Z",
+      "side": 1,
+      "message": "Different suggestion: rewrite the simplifier to not do forward removals. From quickly skimming it, it looks like it\u0027s only TryMergeIntoUsersShifterOperand causing trouble.\n\nBTW, TryMergeIntoShifterOperand seems unused.",
+      "parentUuid": "d1ae29f9_b257a0d7",
+      "revId": "e27c8f028e55fdbd1d4579fef8317606fda7ad5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1e62928_52c79481",
         "filename": "test/593-amd64-simplifier/src/Main.java",
         "patchSetId": 2
