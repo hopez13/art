@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1bdedca_b399d849",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-30T10:11:08Z",
+      "side": 1,
+      "message": "You should pass \"success\" and store the return value in back to \"success\".",
+      "range": {
+        "startLine": 324,
+        "startChar": 40,
+        "endLine": 324,
+        "endChar": 44
+      },
+      "revId": "12ccdb3fd28b9f405ff6370fb984ee8954dd50bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1bdedca_d3a65480",
+        "filename": "patchoat/patchoat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-30T10:11:08Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 340,
+        "startChar": 40,
+        "endLine": 340,
+        "endChar": 44
+      },
+      "revId": "12ccdb3fd28b9f405ff6370fb984ee8954dd50bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
