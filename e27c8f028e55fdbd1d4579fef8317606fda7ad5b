@@ -126,6 +126,24 @@
     },
     {
       "key": {
+        "uuid": "3174e57a_75f328b2",
+        "filename": "test/593-amd64-simplifier/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-03-30T15:35:04Z",
+      "side": 1,
+      "message": "Sigh. Happy to do that too. I don\u0027t know what the convention for our typical regression test is, but this feels a bit odd. We don\u0027t necessarily want this particular pattern in our HIR per se, so someone changing something in the future may wonder why he/she has to preserve that particular set of operations.\n\nIt simply serves the fail-before/pass-after purpose for now with some sanity going forward.",
+      "parentUuid": "d1e62928_52c79481",
+      "revId": "e27c8f028e55fdbd1d4579fef8317606fda7ad5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d198e991_45557c40",
         "filename": "test/593-amd64-simplifier/src/Main.java",
         "patchSetId": 2
@@ -137,6 +155,30 @@
       "writtenOn": "2016-03-30T08:22:19Z",
       "side": 1,
       "message": "Nit: no space",
+      "range": {
+        "startLine": 25,
+        "startChar": 14,
+        "endLine": 25,
+        "endChar": 15
+      },
+      "revId": "e27c8f028e55fdbd1d4579fef8317606fda7ad5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3174e57a_15fcb483",
+        "filename": "test/593-amd64-simplifier/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-03-30T15:35:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d198e991_45557c40",
       "range": {
         "startLine": 25,
         "startChar": 14,
