@@ -145,6 +145,24 @@
     },
     {
       "key": {
+        "uuid": "11ac4106_cce9ef9d",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-03-30T15:56:21Z",
+      "side": 1,
+      "message": "Sry, wrong facts on my part. It currently holds together because we don\u0027t set the \"next\" pointer to null when we remove an instruction from the doubly linked list.\n\nIf we wanted to do this properly, we should have an iterator that remembers the previous instruction instead. That way we can remove the current instruction or any subsequent instruction and always find the next one. \n\nWDYT, Vladimir? You had your the instruction lists in your crosshairs for a while.",
+      "parentUuid": "3174e57a_752968c7",
+      "revId": "e27c8f028e55fdbd1d4579fef8317606fda7ad5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1e62928_52c79481",
         "filename": "test/593-amd64-simplifier/src/Main.java",
         "patchSetId": 2
