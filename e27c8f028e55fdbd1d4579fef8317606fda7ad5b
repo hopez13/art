@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d1d7097d_caa1c3bc",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-03-30T09:40:13Z",
+      "side": 1,
+      "message": "Ah, missed this - excellent point, Vladimir.\n\nYou don\u0027t need to record them though. The problem stems from the fact that HInstructionIterator pre-loads the `next_` pointer in Advance() in case the current instruction gets removed and does not account for forward removals.\n\nThe only time we can run into trouble is therefore if we remove the very next instruction. That could be accounted for with a custom iterator and without having to allocate a list.",
+      "parentUuid": "b1b1b559_51ae34a9",
+      "revId": "e27c8f028e55fdbd1d4579fef8317606fda7ad5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1e62928_52c79481",
         "filename": "test/593-amd64-simplifier/src/Main.java",
         "patchSetId": 2
