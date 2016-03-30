@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "b1b1b559_d1a184bc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-30T09:21:23Z",
+      "side": 1,
+      "message": "its?",
+      "range": {
+        "startLine": 10,
+        "startChar": 38,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "5c09c6fbb6aca7f275926dd9b484953e21795c0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1b08d0b_5be0c30c",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-30T09:21:23Z",
+      "side": 1,
+      "message": "As discussed offline, I think \"\\n\" would be preferable here.",
+      "range": {
+        "startLine": 183,
+        "startChar": 35,
+        "endLine": 183,
+        "endChar": 43
+      },
+      "revId": "5c09c6fbb6aca7f275926dd9b484953e21795c0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71bbbd3b_af929976",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 1
@@ -13,6 +59,30 @@
       "writtenOn": "2016-03-30T09:17:41Z",
       "side": 1,
       "message": "Style: Maybe \"output \u003c\u003c std::flush;\" would look more in line with the rest?",
+      "range": {
+        "startLine": 700,
+        "startChar": 4,
+        "endLine": 700,
+        "endChar": 20
+      },
+      "revId": "5c09c6fbb6aca7f275926dd9b484953e21795c0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71bbbd3b_8f97d566",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-30T09:21:23Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "71bbbd3b_af929976",
       "range": {
         "startLine": 700,
         "startChar": 4,
