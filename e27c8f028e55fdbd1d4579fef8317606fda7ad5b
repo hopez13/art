@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "3174e57a_75dc082e",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-03-30T15:28:00Z",
+      "side": 1,
+      "message": "Yes, this solution works because the instruction iterator already preloads the next. and we cannot reach instructions that are removed \"farther forward\" because the next pointer of the instructions before them will no longer point to them (if you want to remove that oddity, there are probably a lot of other places that rely on that already).\n\nSo what do you guys want to change here?",
+      "parentUuid": "b1da95a7_e9b3f50c",
+      "revId": "e27c8f028e55fdbd1d4579fef8317606fda7ad5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1e62928_52c79481",
         "filename": "test/593-amd64-simplifier/src/Main.java",
         "patchSetId": 2
