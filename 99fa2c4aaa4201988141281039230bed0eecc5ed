@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3174e57a_78dcfd2d",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-30T17:04:32Z",
+      "side": 1,
+      "message": "This needs a strong comment on the libcore side, IMHO. If we ever decided that SecurityManagers are useful, people might be surprised...",
+      "range": {
+        "startLine": 447,
+        "startChar": 0,
+        "endLine": 451,
+        "endChar": 1
+      },
+      "revId": "99fa2c4aaa4201988141281039230bed0eecc5ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
