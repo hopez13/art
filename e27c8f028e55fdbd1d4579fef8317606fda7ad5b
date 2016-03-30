@@ -163,6 +163,24 @@
     },
     {
       "key": {
+        "uuid": "3174e57a_353e10bd",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-03-30T16:11:14Z",
+      "side": 1,
+      "message": "I always assumed this was done by design to make this kind of stuff work :-)\n\nhow about a comment on that for now, and we brainstorm over a better fix (not only here) this Monday?",
+      "parentUuid": "11ac4106_cce9ef9d",
+      "revId": "e27c8f028e55fdbd1d4579fef8317606fda7ad5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1e62928_52c79481",
         "filename": "test/593-amd64-simplifier/src/Main.java",
         "patchSetId": 2
