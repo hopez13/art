@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71bbbd3b_af929976",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-30T09:17:41Z",
+      "side": 1,
+      "message": "Style: Maybe \"output \u003c\u003c std::flush;\" would look more in line with the rest?",
+      "range": {
+        "startLine": 700,
+        "startChar": 4,
+        "endLine": 700,
+        "endChar": 20
+      },
+      "revId": "5c09c6fbb6aca7f275926dd9b484953e21795c0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1b1b559_f19c888c",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 758,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-30T09:17:41Z",
+      "side": 1,
+      "message": "const char kNewLine \u003d \u0027\\n\u0027",
+      "range": {
+        "startLine": 758,
+        "startChar": 19,
+        "endLine": 758,
+        "endChar": 52
+      },
+      "revId": "5c09c6fbb6aca7f275926dd9b484953e21795c0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
