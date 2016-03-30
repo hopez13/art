@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "b1da95a7_e9b3f50c",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-03-30T10:06:21Z",
+      "side": 1,
+      "message": "I\u0027d opt for an HInstructionFwdRemovalIterator (or something along those lines), but I\u0027ll leave it up to Aart.",
+      "parentUuid": "f1a6cd26_8bbeadd6",
+      "revId": "e27c8f028e55fdbd1d4579fef8317606fda7ad5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1e62928_52c79481",
         "filename": "test/593-amd64-simplifier/src/Main.java",
         "patchSetId": 2
