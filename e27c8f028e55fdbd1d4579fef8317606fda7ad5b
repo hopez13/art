@@ -127,6 +127,24 @@
     },
     {
       "key": {
+        "uuid": "3174e57a_752968c7",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-03-30T15:46:01Z",
+      "side": 1,
+      "message": "Hmm, I do see a potential flaw though if we could remove a cascade of next instructions at once. Does not happen in this phase, but is that what you guys want to guard against?",
+      "parentUuid": "3174e57a_75dc082e",
+      "revId": "e27c8f028e55fdbd1d4579fef8317606fda7ad5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1e62928_52c79481",
         "filename": "test/593-amd64-simplifier/src/Main.java",
         "patchSetId": 2
