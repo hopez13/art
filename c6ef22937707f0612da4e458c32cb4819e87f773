@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ae14f033_f9a5d7c7",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-30T18:11:01Z",
+      "side": 1,
+      "message": "Right; I added this case as well.",
+      "parentUuid": "319dc5d4_8d0ec118",
+      "revId": "c6ef22937707f0612da4e458c32cb4819e87f773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1da95a7_099ac93c",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2016-03-30T17:05:49Z",
       "side": 1,
       "message": "Maybe `Primitive::PrimitiveKind(input_type) \u003d\u003d Primitive::kPrimInt`? (Even though that includes the kPrimInt case handled above.)",
+      "range": {
+        "startLine": 793,
+        "startChar": 45,
+        "endLine": 796,
+        "endChar": 81
+      },
+      "revId": "c6ef22937707f0612da4e458c32cb4819e87f773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1da95a7_a9cf3d2e",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-30T18:11:01Z",
+      "side": 1,
+      "message": "I prefer the current version, which is in tune with the other following tests.  Plus the overlap with the first test (line 792), that you mentioned.",
+      "parentUuid": "b1da95a7_099ac93c",
       "range": {
         "startLine": 793,
         "startChar": 45,
@@ -101,6 +143,30 @@
       "side": 1,
       "message": "As discussed offline, this is probably not needed, as this routine is about widening integral conversions; the only relevant case (boolean → boolean) is already covered by the test on line 792.",
       "parentUuid": "f1a6cd26_0bc11dfd",
+      "range": {
+        "startLine": 799,
+        "startChar": 7,
+        "endLine": 799,
+        "endChar": 42
+      },
+      "revId": "c6ef22937707f0612da4e458c32cb4819e87f773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e1fbc56_f4cef87d",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-30T18:11:01Z",
+      "side": 1,
+      "message": "\u003e I agree, the result_type should never be kPrimBoolean.\n\nDone in PS3.",
+      "parentUuid": "d1ae29f9_928b7ca2",
       "range": {
         "startLine": 799,
         "startChar": 7,
