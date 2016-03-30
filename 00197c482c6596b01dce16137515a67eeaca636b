@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3174e57a_159bd4f2",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-03-30T16:56:38Z",
+      "side": 1,
+      "message": "I removed this code in https://android-review.googlesource.com/202139.  Is there some reason it is being put back?",
+      "range": {
+        "startLine": 137,
+        "startChar": 5,
+        "endLine": 144,
+        "endChar": 18
+      },
+      "revId": "00197c482c6596b01dce16137515a67eeaca636b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3174e57a_b5ba2003",
+        "filename": "compiler/optimizing/scheduler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-03-30T16:56:38Z",
+      "side": 1,
+      "message": "InstructionTypedId",
+      "range": {
+        "startLine": 169,
+        "startChar": 25,
+        "endLine": 169,
+        "endChar": 43
+      },
+      "revId": "00197c482c6596b01dce16137515a67eeaca636b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
