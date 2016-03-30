@@ -16,6 +16,24 @@
       "revId": "49b0f45d5a9023653ab00c355735910aa51ee0ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1ae29f9_b2920077",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1457,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-03-30T09:12:54Z",
+      "side": 1,
+      "message": "I don\u0027t understand the question. This function does not give ownership to anything else, it creates a _non-owning_ vector of pointers. (Because Dex2Oat uses several APIs that take such non-owning vectors as arguments.)",
+      "parentUuid": "91f031de_25bf1ad6",
+      "revId": "49b0f45d5a9023653ab00c355735910aa51ee0ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
