@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d1ae29f9_52ae34a9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-03-30T09:32:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1b1b559_d1a184bc",
+      "range": {
+        "startLine": 10,
+        "startChar": 38,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "5c09c6fbb6aca7f275926dd9b484953e21795c0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1b08d0b_5be0c30c",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-03-30T09:21:23Z",
       "side": 1,
       "message": "As discussed offline, I think \"\\n\" would be preferable here.",
+      "range": {
+        "startLine": 183,
+        "startChar": 35,
+        "endLine": 183,
+        "endChar": 43
+      },
+      "revId": "5c09c6fbb6aca7f275926dd9b484953e21795c0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91b8313f_b0b958f3",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-03-30T09:32:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1b08d0b_5be0c30c",
       "range": {
         "startLine": 183,
         "startChar": 35,
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "11ac4106_cca1efbc",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 700,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-03-30T09:32:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71bbbd3b_8f97d566",
+      "range": {
+        "startLine": 700,
+        "startChar": 4,
+        "endLine": 700,
+        "endChar": 20
+      },
+      "revId": "5c09c6fbb6aca7f275926dd9b484953e21795c0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1b1b559_f19c888c",
         "filename": "compiler/optimizing/graph_visualizer.cc",
         "patchSetId": 1
@@ -106,6 +178,30 @@
       "writtenOn": "2016-03-30T09:17:41Z",
       "side": 1,
       "message": "const char kNewLine \u003d \u0027\\n\u0027",
+      "range": {
+        "startLine": 758,
+        "startChar": 19,
+        "endLine": 758,
+        "endChar": 52
+      },
+      "revId": "5c09c6fbb6aca7f275926dd9b484953e21795c0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1b1b559_b1b960f3",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 758,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-03-30T09:32:29Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "b1b1b559_f19c888c",
       "range": {
         "startLine": 758,
         "startChar": 19,
