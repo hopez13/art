@@ -89,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "d1d7097d_eade478a",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-30T17:24:29Z",
+      "side": 1,
+      "message": "As discussed offline, this is probably not needed, as this routine is about widening integral conversions; the only relevant case (boolean → boolean) is already covered by the test on line 792.",
+      "parentUuid": "f1a6cd26_0bc11dfd",
+      "range": {
+        "startLine": 799,
+        "startChar": 7,
+        "endLine": 799,
+        "endChar": 42
+      },
+      "revId": "c6ef22937707f0612da4e458c32cb4819e87f773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1b1b559_319d7035",
         "filename": "test/593-checker-boolean-to-integral-conversions/src/Main.java",
         "patchSetId": 1
@@ -100,6 +124,30 @@
       "writtenOn": "2016-03-30T16:14:04Z",
       "side": 1,
       "message": "Do you need to test all these passes? Why not just before and after the instruction simplifier?",
+      "range": {
+        "startLine": 31,
+        "startChar": 52,
+        "endLine": 31,
+        "endChar": 59
+      },
+      "revId": "c6ef22937707f0612da4e458c32cb4819e87f773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1ae29f9_b2868098",
+        "filename": "test/593-checker-boolean-to-integral-conversions/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-30T17:24:29Z",
+      "side": 1,
+      "message": "Because we are checking a regression here (from a failure found while compiling an APK), I like to check all the passes where a relevant simplification has been performed.  Also, because this is Java code (and not Dex bytecode), it is easy for such tests to no longer exercise what they were written for in the first place; checking more passes (especially the builder) minimizes that risk IMO.",
+      "parentUuid": "b1b1b559_319d7035",
       "range": {
         "startLine": 31,
         "startChar": 52,
@@ -135,6 +183,30 @@
     },
     {
       "key": {
+        "uuid": "b1da95a7_c9b711b0",
+        "filename": "test/593-checker-boolean-to-integral-conversions/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-30T17:24:29Z",
+      "side": 1,
+      "message": "I have taken the habit to use CHECK for ParameterValue instructions, as the order matters when there are more than one.  Even if those methods have a single argument, I decided to use CHECK to perpetuate this idiom.",
+      "parentUuid": "71bbbd3b_4fa4cd76",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 11
+      },
+      "revId": "c6ef22937707f0612da4e458c32cb4819e87f773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1116d0a_d606a26e",
         "filename": "test/593-checker-boolean-to-integral-conversions/src/Main.java",
         "patchSetId": 1
@@ -158,6 +230,30 @@
     },
     {
       "key": {
+        "uuid": "71bbbd3b_ef8821e7",
+        "filename": "test/593-checker-boolean-to-integral-conversions/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-30T17:24:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1116d0a_d606a26e",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 47
+      },
+      "revId": "c6ef22937707f0612da4e458c32cb4819e87f773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1a6cd26_2bc4d90c",
         "filename": "test/593-checker-boolean-to-integral-conversions/src/Main.java",
         "patchSetId": 1
@@ -169,6 +265,30 @@
       "writtenOn": "2016-03-30T16:14:04Z",
       "side": 1,
       "message": "unused",
+      "range": {
+        "startLine": 240,
+        "startChar": 0,
+        "endLine": 240,
+        "endChar": 57
+      },
+      "revId": "c6ef22937707f0612da4e458c32cb4819e87f773",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11ac4106_8cad2764",
+        "filename": "test/593-checker-boolean-to-integral-conversions/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-03-30T17:24:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1a6cd26_2bc4d90c",
       "range": {
         "startLine": 240,
         "startChar": 0,
