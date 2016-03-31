@@ -22,6 +22,30 @@
       "revId": "bd57eabeb79e8886c0c69710739340fe7ecc050b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3174e57a_ede76087",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-03-31T17:02:07Z",
+      "side": 1,
+      "message": "LINT does not understand curly braces. It thinks they are statement block.",
+      "parentUuid": "ee00a8f1_bbaaa7da",
+      "range": {
+        "startLine": 1048,
+        "startChar": 54,
+        "endLine": 1048,
+        "endChar": 60
+      },
+      "revId": "bd57eabeb79e8886c0c69710739340fe7ecc050b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
