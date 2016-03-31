@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae14f033_f94cb747",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-31T11:44:31Z",
+      "side": 1,
+      "message": "Add a comment that the only reason you attempt to do this if oat_location is null is to support existing tests.",
+      "range": {
+        "startLine": 332,
+        "startChar": 29,
+        "endLine": 332,
+        "endChar": 41
+      },
+      "revId": "1e860619cdcc9c0b6a202a247c50cf7633ac7b74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
