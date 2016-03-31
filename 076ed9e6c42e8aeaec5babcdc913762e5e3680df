@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3174e57a_cca2a11b",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2169,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-03-31T22:50:41Z",
+      "side": 1,
+      "message": "Seems like there could be some kind of check that this is a conflict method (either a runtime or a DCHECK).",
+      "revId": "076ed9e6c42e8aeaec5babcdc913762e5e3680df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3174e57a_4c6db18e",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2221,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-03-31T22:50:41Z",
+      "side": 1,
+      "message": "See 2169",
+      "revId": "076ed9e6c42e8aeaec5babcdc913762e5e3680df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
