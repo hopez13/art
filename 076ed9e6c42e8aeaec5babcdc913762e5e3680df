@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3174e57a_9760b675",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2169,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-03-31T23:45:21Z",
+      "side": 1,
+      "message": "I\u0027ll do this in a followup maybe. doing this would require hitting a bunch of other stuff.",
+      "parentUuid": "3174e57a_cca2a11b",
+      "revId": "076ed9e6c42e8aeaec5babcdc913762e5e3680df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3174e57a_4c6db18e",
         "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
         "patchSetId": 1
