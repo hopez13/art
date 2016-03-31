@@ -22,6 +22,30 @@
       "revId": "1e860619cdcc9c0b6a202a247c50cf7633ac7b74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3174e57a_8d5a6c5a",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-03-31T16:46:19Z",
+      "side": 1,
+      "message": "That\u0027s not something I think art should know/care about. What if the Zygote or SystemServer or some other privileged process wants to use a PathClassLoader that compiles code? What if se policy changes are made later so that we can access the dalvik cache?\n\nThis is part of the philosophical discussion I want to defer.",
+      "parentUuid": "ae14f033_f94cb747",
+      "range": {
+        "startLine": 332,
+        "startChar": 29,
+        "endLine": 332,
+        "endChar": 41
+      },
+      "revId": "1e860619cdcc9c0b6a202a247c50cf7633ac7b74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
