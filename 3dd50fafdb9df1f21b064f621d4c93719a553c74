@@ -22,6 +22,30 @@
       "revId": "3dd50fafdb9df1f21b064f621d4c93719a553c74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3174e57a_c307d56c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3761,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-03-31T18:43:16Z",
+      "side": 1,
+      "message": "You think somebody might be notifying on the lock randomly?\n\nWill change.",
+      "parentUuid": "3174e57a_4891227f",
+      "range": {
+        "startLine": 3761,
+        "startChar": 11,
+        "endLine": 3761,
+        "endChar": 33
+      },
+      "revId": "3dd50fafdb9df1f21b064f621d4c93719a553c74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
