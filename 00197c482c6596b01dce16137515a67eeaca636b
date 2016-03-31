@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ee00a8f1_db46939e",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-03-31T07:26:07Z",
+      "side": 1,
+      "message": "This must be a bad merge. Will fix it.",
+      "parentUuid": "3174e57a_159bd4f2",
+      "range": {
+        "startLine": 137,
+        "startChar": 5,
+        "endLine": 144,
+        "endChar": 18
+      },
+      "revId": "00197c482c6596b01dce16137515a67eeaca636b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3174e57a_b5ba2003",
         "filename": "compiler/optimizing/scheduler.cc",
         "patchSetId": 5
