@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee00a8f1_7bd41f6d",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 20
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-31T14:58:23Z",
+      "side": 1,
+      "message": "nit: code_info_encoding",
+      "range": {
+        "startLine": 159,
+        "startChar": 19,
+        "endLine": 159,
+        "endChar": 25
+      },
+      "revId": "477a062c82024a203d8db5ed40738bf47e2f81af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee00a8f1_9bcecbd2",
+        "filename": "compiler/optimizing/stack_map_stream.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-31T14:58:23Z",
+      "side": 1,
+      "message": "try to be consistent. This is referred to as encoding and header. \"encoding\" seems what you use the most.",
+      "range": {
+        "startLine": 77,
+        "startChar": 8,
+        "endLine": 77,
+        "endChar": 23
+      },
+      "revId": "477a062c82024a203d8db5ed40738bf47e2f81af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee00a8f1_3bde978b",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-31T14:58:23Z",
+      "side": 1,
+      "message": "Encode the encoding? Maybe compress?",
+      "range": {
+        "startLine": 1013,
+        "startChar": 7,
+        "endLine": 1013,
+        "endChar": 13
+      },
+      "revId": "477a062c82024a203d8db5ed40738bf47e2f81af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee00a8f1_dbc453b8",
+        "filename": "runtime/stack_map.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-03-31T14:58:23Z",
+      "side": 1,
+      "message": "I think you rename this to Encoding?\n\nexpand what it contains.",
+      "range": {
+        "startLine": 1027,
+        "startChar": 6,
+        "endLine": 1027,
+        "endChar": 12
+      },
+      "revId": "477a062c82024a203d8db5ed40738bf47e2f81af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
