@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3174e57a_3807cf6c",
+        "filename": "runtime/interpreter/unstarted_runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-01T03:25:40Z",
+      "side": 0,
+      "message": "Note that this already works actually, as Set() is doing assignability checks. So a minimal change would be to just bail from the loop if an exception is pending.\n\nI thought it nicer to clean up and extend the existing ObjectArray functionality, but if we have to, it\u0027s an almost-one-liner...",
+      "range": {
+        "startLine": 422,
+        "startChar": 8,
+        "endLine": 422,
+        "endChar": 53
+      },
+      "revId": "19a4784ce1b9c6a0b3d3cdb91a182baa7adbb946",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
