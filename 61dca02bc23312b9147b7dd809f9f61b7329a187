@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ee00a8f1_fe281d77",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-01T16:45:33Z",
+      "side": 1,
+      "message": "I changed the implementation in PS2; `is_long` is gone, and the assertion is much simpler.",
+      "parentUuid": "ee00a8f1_5e3a71c4",
+      "range": {
+        "startLine": 373,
+        "startChar": 2,
+        "endLine": 373,
+        "endChar": 22
+      },
+      "revId": "61dca02bc23312b9147b7dd809f9f61b7329a187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee198873_f69b9e3e",
         "filename": "test/564-checker-bitcount/src/Main.java",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-04-01T16:06:56Z",
       "side": 1,
       "message": "You could make these $noinline$ to guarantee the CHECKed code will be the one we run.",
+      "range": {
+        "startLine": 27,
+        "startChar": 21,
+        "endLine": 27,
+        "endChar": 36
+      },
+      "revId": "61dca02bc23312b9147b7dd809f9f61b7329a187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae14f033_3cb7bd4d",
+        "filename": "test/564-checker-bitcount/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-01T16:45:33Z",
+      "side": 1,
+      "message": "Right; done in PS2.",
+      "parentUuid": "ee198873_f69b9e3e",
       "range": {
         "startLine": 27,
         "startChar": 21,
