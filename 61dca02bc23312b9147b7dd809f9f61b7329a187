@@ -93,6 +93,30 @@
       "revId": "61dca02bc23312b9147b7dd809f9f61b7329a187",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aebeb08e_a9503d52",
+        "filename": "test/564-checker-bitcount/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-01T17:20:38Z",
+      "side": 1,
+      "message": "David, just for my own understanding, can you briefly explain what this $$ naming contention does. Enforce, test?",
+      "parentUuid": "ee198873_f69b9e3e",
+      "range": {
+        "startLine": 27,
+        "startChar": 21,
+        "endLine": 27,
+        "endChar": 36
+      },
+      "revId": "61dca02bc23312b9147b7dd809f9f61b7329a187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
