@@ -141,6 +141,30 @@
       "revId": "61dca02bc23312b9147b7dd809f9f61b7329a187",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aebeb08e_698b25a2",
+        "filename": "test/564-checker-bitcount/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-01T17:44:22Z",
+      "side": 1,
+      "message": "Thanks for the explanation.\n\nSo the test can break if the compiler changes its decisions later?",
+      "parentUuid": "ee00a8f1_def20148",
+      "range": {
+        "startLine": 27,
+        "startChar": 21,
+        "endLine": 27,
+        "endChar": 36
+      },
+      "revId": "61dca02bc23312b9147b7dd809f9f61b7329a187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
