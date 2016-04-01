@@ -46,6 +46,30 @@
       "revId": "9fc547ac3936fe88e9592f4a47afd7b134cb607c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aebeb08e_c93fb1b7",
+        "filename": "test/146-bad-interface/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-01T17:33:32Z",
+      "side": 1,
+      "message": "Yeah, I checked.\n\nYou could have done it by adding a custom run script with --secondary. Would have been less lines. :-)",
+      "parentUuid": "aed5d0d0_91f6bca2",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 3
+      },
+      "revId": "9fc547ac3936fe88e9592f4a47afd7b134cb607c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
