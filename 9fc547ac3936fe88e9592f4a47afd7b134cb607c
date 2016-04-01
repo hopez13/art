@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3174e57a_af90f20b",
+        "filename": "test/146-bad-interface/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-01T16:49:31Z",
+      "side": 1,
+      "message": "I\u0027m curious. I don\u0027t think you need to build your own PathClassLoader. The tests are run with\n\n  -cp src.jar:src-ex.jar\n\nAFAIK. So the test should already have access to the class.",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 3
+      },
+      "revId": "9fc547ac3936fe88e9592f4a47afd7b134cb607c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
