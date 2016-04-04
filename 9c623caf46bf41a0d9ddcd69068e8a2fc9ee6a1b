@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ee0d4e0_beea798b",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1068,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-04T13:59:11Z",
+      "side": 1,
+      "message": "stats_ !\u003d nullptr ? MakeUnique\u003cOptimizingCompilerStats\u003e() : nullptr",
+      "range": {
+        "startLine": 1068,
+        "startChar": 58,
+        "endLine": 1068,
+        "endChar": 96
+      },
+      "revId": "9c623caf46bf41a0d9ddcd69068e8a2fc9ee6a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
