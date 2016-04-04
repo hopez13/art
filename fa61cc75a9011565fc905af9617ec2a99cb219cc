@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aeb870d5_9c322938",
+        "filename": "runtime/stack.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-04T14:54:12Z",
+      "side": 1,
+      "message": "Seems unused (and is broken). Remove?",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 1
+      },
+      "revId": "fa61cc75a9011565fc905af9617ec2a99cb219cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
