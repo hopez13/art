@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6e3d98ed_df159b23",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1068,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-04T14:23:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ee0d4e0_beea798b",
+      "range": {
+        "startLine": 1068,
+        "startChar": 58,
+        "endLine": 1068,
+        "endChar": 96
+      },
+      "revId": "9c623caf46bf41a0d9ddcd69068e8a2fc9ee6a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e3d98ed_9f1b1357",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-04-04T14:03:49Z",
       "side": 1,
       "message": "We could also move some of this to a helper function.",
+      "range": {
+        "startLine": 1119,
+        "startChar": 0,
+        "endLine": 1153,
+        "endChar": 3
+      },
+      "revId": "9c623caf46bf41a0d9ddcd69068e8a2fc9ee6a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e3accf4_40e24e7c",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1153,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-04T14:23:12Z",
+      "side": 1,
+      "message": "Yes; will do in a follow-up CL.",
+      "parentUuid": "6e3d98ed_9f1b1357",
       "range": {
         "startLine": 1119,
         "startChar": 0,
