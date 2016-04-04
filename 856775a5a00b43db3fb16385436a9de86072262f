@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aeb870d5_2d6725f5",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3791,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-04T19:06:54Z",
+      "side": 1,
+      "message": "Separate CL for this, please. That is a separate bug in my change.",
+      "range": {
+        "startLine": 3789,
+        "startChar": 0,
+        "endLine": 3791,
+        "endChar": 78
+      },
+      "revId": "856775a5a00b43db3fb16385436a9de86072262f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeb870d5_2d4c8571",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2633,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-04T19:06:54Z",
+      "side": 1,
+      "message": "No conjunction necessary. The standard implementation is to or the bits...",
+      "range": {
+        "startLine": 2632,
+        "startChar": 8,
+        "endLine": 2633,
+        "endChar": 47
+      },
+      "revId": "856775a5a00b43db3fb16385436a9de86072262f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
