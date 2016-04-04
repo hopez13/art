@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aeb870d5_0e0c17ca",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5878,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-04-04T21:52:39Z",
+      "side": 1,
+      "message": "DCHECK",
+      "revId": "05ba71db68702904dccd8d411d6f6aa3b38d917c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeb870d5_2ece3bab",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2636,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-04-04T21:52:39Z",
+      "side": 1,
+      "message": "nit: magic number",
+      "range": {
+        "startLine": 2636,
+        "startChar": 35,
+        "endLine": 2636,
+        "endChar": 37
+      },
+      "revId": "05ba71db68702904dccd8d411d6f6aa3b38d917c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
