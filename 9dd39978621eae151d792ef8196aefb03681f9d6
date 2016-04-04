@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aeb870d5_333068cc",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-04T20:52:36Z",
+      "side": 1,
+      "message": "If you really want it pretty, why not store the old value?\n\n  const mirror::Class* old_common \u003d common_super_class;\n  common_super_class \u003d common_super_class-\u003eGetSuperClass();\n  DCHECK(common_super_class !\u003d nullptr) \u003c\u003c PrettyClass(old_common);\n\nThe compiler should do the right thing...",
+      "range": {
+        "startLine": 883,
+        "startChar": 4,
+        "endLine": 884,
+        "endChar": 42
+      },
+      "revId": "9dd39978621eae151d792ef8196aefb03681f9d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
