@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ee0d4e0_1e036d34",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-04T14:25:48Z",
+      "side": 1,
+      "message": "I think you should have kept the comment. The heap allocation should not be treated lightly, even if it\u0027s limited to the case when we\u0027re collecting stats.",
+      "revId": "12e1e034a587089e650cc2b00773261f6774fe3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
