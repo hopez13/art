@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aeb870d5_7b3ab2ab",
+        "filename": "test/594-invoke-super/smali/invoke-super.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-05T01:05:36Z",
+      "side": 1,
+      "message": "sending this out for discussion\n\nat the moment, this invoke-super calls A\u0027s foo (which could be one of the semantics :-), but in a very fragile way, since messing with the vtables even slightly breaks this already\n\nwe resolve the method\n void Y.foo()\ninto\n void A.foo()\n\nwith the following vtables for class Z (compiling) and class Y (method)\n\n\n+Class java.lang.Class\u003cZ\u003e status\u003dStatusInitialized\n+@0 java.lang.Object java.lang.Object.clone()\n....\n+@11 void Z.foo()\n\n\n+Class java.lang.Class\u003cY\u003e status\u003dStatusInitialized\n+@0 java.lang.Object java.lang.Object.clone()\n....\n+@11 void Y.foo()",
+      "range": {
+        "startLine": 32,
+        "startChar": 33,
+        "endLine": 32,
+        "endChar": 34
+      },
+      "revId": "32c842eb6b29016a237c55ae93ef2b7db7e2ccef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
