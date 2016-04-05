@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aeb870d5_31721baf",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1234,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-05T03:23:27Z",
+      "side": 1,
+      "message": "Where\u0027s the comment why this is necessary?",
+      "range": {
+        "startLine": 1234,
+        "startChar": 2,
+        "endLine": 1234,
+        "endChar": 81
+      },
+      "revId": "38d0143ef5cf1fe6a8a8559e22cc8e1e200918cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeb870d5_514cef71",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1513,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-05T03:23:27Z",
+      "side": 1,
+      "message": "Why is this \"oome?\"",
+      "range": {
+        "startLine": 1513,
+        "startChar": 21,
+        "endLine": 1513,
+        "endChar": 25
+      },
+      "revId": "38d0143ef5cf1fe6a8a8559e22cc8e1e200918cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeb870d5_f13c23c5",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 702,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-05T03:23:27Z",
+      "side": 1,
+      "message": "\"set the stack end (are trying to recursively throw a stack overflow error).\"",
+      "range": {
+        "startLine": 702,
+        "startChar": 13,
+        "endLine": 702,
+        "endChar": 39
+      },
+      "revId": "38d0143ef5cf1fe6a8a8559e22cc8e1e200918cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
