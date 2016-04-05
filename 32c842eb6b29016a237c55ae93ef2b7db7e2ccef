@@ -22,6 +22,30 @@
       "revId": "32c842eb6b29016a237c55ae93ef2b7db7e2ccef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeb870d5_b6f1c147",
+        "filename": "test/594-invoke-super/smali/invoke-super.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-05T01:34:58Z",
+      "side": 1,
+      "message": "Another interesting way to make this fail horribly (in a way very closely related to the bug, since it allows for the signature change), is to add a bar() method to A:\n\nclass A {\n  A() { System.out.println(\"new A\"); }\n  public void foo() { System.out.println(\"I am A\u0027s foo\"); }\n  public void bar() { System.out.println(\"I am A\u0027s bar\"); }\n}\n\nthen we get the following vtable for Z\n\n\n+Class java.lang.Class\u003cZ\u003e status\u003dStatusInitialized\n+@0 java.lang.Object java.lang.Object.clone()\n.....\n+@11 void A.bar()\n+@12 void Z.foo()\n\nand calling foo on Y actually prints A\u0027s bar since we are using the unrelated index 11 of Y!",
+      "parentUuid": "aeb870d5_7b3ab2ab",
+      "range": {
+        "startLine": 32,
+        "startChar": 33,
+        "endLine": 32,
+        "endChar": 34
+      },
+      "revId": "32c842eb6b29016a237c55ae93ef2b7db7e2ccef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
