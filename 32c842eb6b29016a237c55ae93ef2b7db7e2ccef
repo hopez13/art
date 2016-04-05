@@ -46,6 +46,30 @@
       "revId": "32c842eb6b29016a237c55ae93ef2b7db7e2ccef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aeb870d5_96691d86",
+        "filename": "test/594-invoke-super/smali/invoke-super.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-05T01:48:05Z",
+      "side": 1,
+      "message": "And, messing with the signature of bar() allows us to break the compiler with a crash, similar to what we saw in the existing bugs (but now with just a few lines of testing code)\n\ne.g. returning int:\n\nart/compiler/optimizing/optimizing_compiler.cc:198] Error after inliner: art::GraphChecker: Binary operation Add 101 has inputs of different kinds: PrimLong, and PrimInt.\n\nor returning reference:\n\n+dex2oatd F 10760 10767 art/compiler/optimizing/nodes.h:1933] Check failed: GetType() \u003d\u003d Primitive::kPrimNot (GetType()\u003dPrimVoid, Primitive::kPrimNot\u003dPrimNot)",
+      "parentUuid": "aeb870d5_b6f1c147",
+      "range": {
+        "startLine": 32,
+        "startChar": 33,
+        "endLine": 32,
+        "endChar": 34
+      },
+      "revId": "32c842eb6b29016a237c55ae93ef2b7db7e2ccef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
