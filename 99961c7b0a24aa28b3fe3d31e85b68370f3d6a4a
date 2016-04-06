@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0e525cad_dc34edda",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-06T11:34:44Z",
+      "side": 1,
+      "message": "Right.  If so, I guess we should also remove (or amend) the following comment before the definition of art::DeletableArenaObject in runtime/base/arena_object.h:\n\n  // Currently this is used by the quick compiler for debug reference counting arena allocations.\n\n?",
+      "parentUuid": "ee4c2816_5b40e332",
+      "revId": "99961c7b0a24aa28b3fe3d31e85b68370f3d6a4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e525cad_fc07693c",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
