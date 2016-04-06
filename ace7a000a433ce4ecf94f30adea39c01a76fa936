@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ea720d3_8e239999",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 5677,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-06T20:36:23Z",
+      "side": 1,
+      "message": "Although this may or may not be right to do as well, I don\u0027t think this is the way to solve this bug. I think the check in prepare_for_register_allocation is doing too much. Attaching my findings to the bug.",
+      "range": {
+        "startLine": 5677,
+        "startChar": 19,
+        "endLine": 5677,
+        "endChar": 30
+      },
+      "revId": "ace7a000a433ce4ecf94f30adea39c01a76fa936",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
