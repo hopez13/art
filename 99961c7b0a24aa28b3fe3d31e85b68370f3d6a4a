@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee4c2816_5b40e332",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-06T10:50:32Z",
+      "side": 1,
+      "message": "This is quite ugly. I think we should instead strengthen the ownership of all slow paths, changing the SlowPathCode to DeletableArenaObject\u003c\u003e and the CodeGenerator::slow_paths_ to ArenaVector\u003cstd::unique_ptr\u003cSlowPathCode\u003e\u003e.",
+      "revId": "99961c7b0a24aa28b3fe3d31e85b68370f3d6a4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e525cad_fc07693c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-06T10:50:32Z",
+      "side": 1,
+      "message": "Try to change the block_labels_ to ArenaVector\u003cvixl::Label\u003e instead and circumvent the Codegenerator::CommonInitializeLabels\u003c\u003e(), doing a simple resize().",
+      "revId": "99961c7b0a24aa28b3fe3d31e85b68370f3d6a4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
