@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ea720d3_0122ae7e",
+        "filename": "runtime/interpreter/interpreter_switch_impl.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-07T21:07:11Z",
+      "side": 1,
+      "message": "I assume this is for correctness, only? Somehow I\u0027d guess all fast interpreters should not be one-stepping this? (Or is this how the chunked instrumentation works?)\n\nWhy is kDexNoIndex OK? What\u0027s the fast interpreter gonna do with this? Is this important for the bailout? A comment would be nice.",
+      "range": {
+        "startLine": 79,
+        "startChar": 6,
+        "endLine": 81,
+        "endChar": 7
+      },
+      "revId": "c01952e3ebbfb4ccd8a62f0167285317c6ec2a3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
