@@ -123,6 +123,24 @@
       "revId": "99961c7b0a24aa28b3fe3d31e85b68370f3d6a4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e31b481_d9bab7e4",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-04-07T13:02:43Z",
+      "side": 1,
+      "message": "I just realised that what I implemented would break the veneer pool. Allowing copying/moving labels is not as simple as a trivial move constructor, so it may not come in the next VIXL release.",
+      "parentUuid": "6e1af804_f70f8013",
+      "revId": "99961c7b0a24aa28b3fe3d31e85b68370f3d6a4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
