@@ -141,6 +141,24 @@
       "revId": "99961c7b0a24aa28b3fe3d31e85b68370f3d6a4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e1af804_da35c12d",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-07T13:05:19Z",
+      "side": 1,
+      "message": "What about ArenaDeque\u003c\u003e then? That should not require copy constructor.",
+      "parentUuid": "4e31b481_d9bab7e4",
+      "revId": "99961c7b0a24aa28b3fe3d31e85b68370f3d6a4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
