@@ -55,6 +55,42 @@
     },
     {
       "key": {
+        "uuid": "6e1af804_b7f02843",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-04-07T12:35:39Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "ee4c2816_5b40e332",
+      "revId": "99961c7b0a24aa28b3fe3d31e85b68370f3d6a4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e1af804_57f66c3e",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-04-07T12:35:39Z",
+      "side": 1,
+      "message": "Removed the \u0027quick\u0027 part of comment since it has been removed.",
+      "parentUuid": "0e525cad_dc34edda",
+      "revId": "99961c7b0a24aa28b3fe3d31e85b68370f3d6a4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e525cad_fc07693c",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -66,6 +102,24 @@
       "writtenOn": "2016-04-06T10:50:32Z",
       "side": 1,
       "message": "Try to change the block_labels_ to ArenaVector\u003cvixl::Label\u003e instead and circumvent the Codegenerator::CommonInitializeLabels\u003c\u003e(), doing a simple resize().",
+      "revId": "99961c7b0a24aa28b3fe3d31e85b68370f3d6a4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e1af804_f70f8013",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 947,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-04-07T12:35:39Z",
+      "side": 1,
+      "message": "Using a vector does not compile because the copy constructor for Labels is disabled and we don\u0027t have a move constructor.\n\nI am pushing a patch to VIXL internally to add a move constructor, which fixes the issue here. I\u0027ll add a TODO to use a vector here once it is available (in the soon to be released next version of VIXL).",
+      "parentUuid": "0e525cad_fc07693c",
       "revId": "99961c7b0a24aa28b3fe3d31e85b68370f3d6a4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
