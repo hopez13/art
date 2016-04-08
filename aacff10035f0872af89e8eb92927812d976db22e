@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2e22c08a_e8074b6a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-04-08T17:33:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae4dd05b_d1ca441c",
+      "range": {
+        "startLine": 15,
+        "startChar": 38,
+        "endLine": 15,
+        "endChar": 46
+      },
+      "revId": "aacff10035f0872af89e8eb92927812d976db22e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae4dd05b_51bf347e",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2e22c08a_28fa4388",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-04-08T17:33:09Z",
+      "side": 1,
+      "message": "Period here is fine.",
+      "parentUuid": "ae4dd05b_51bf347e",
+      "range": {
+        "startLine": 637,
+        "startChar": 59,
+        "endLine": 637,
+        "endChar": 60
+      },
+      "revId": "aacff10035f0872af89e8eb92927812d976db22e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee1b4859_83915e77",
         "filename": "compiler/optimizing/instruction_builder.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-04-08T16:00:42Z",
       "side": 1,
       "message": "Style: use a pointer instead?  (I\u0027ve been told we should not use non-const references as arguments.)",
+      "range": {
+        "startLine": 570,
+        "startChar": 69,
+        "endLine": 570,
+        "endChar": 84
+      },
+      "revId": "aacff10035f0872af89e8eb92927812d976db22e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e22c08a_68db5b36",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-04-08T17:33:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee1b4859_83915e77",
       "range": {
         "startLine": 570,
         "startChar": 69,
