@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2e22c08a_281c034e",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-08T18:52:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8240dd43_16f5fc35",
+      "revId": "2642a06596a8c77f1bfe3803a8797da806807555",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "620e892a_9d6b632b",
         "filename": "runtime/arch/x86/thread_x86.cc",
         "patchSetId": 4
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "2e22c08a_a83473c0",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-08T18:52:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "620e892a_9d6b632b",
+      "range": {
+        "startLine": 89,
+        "startChar": 24,
+        "endLine": 89,
+        "endChar": 33
+      },
+      "revId": "2642a06596a8c77f1bfe3803a8797da806807555",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "820b7d17_1b43df1d",
         "filename": "runtime/arch/x86/thread_x86.cc",
         "patchSetId": 4
@@ -53,6 +95,30 @@
       "writtenOn": "2016-02-18T21:18:14Z",
       "side": 1,
       "message": "runtimes vs processes? What\u0027s the relation with art::Runtime?",
+      "range": {
+        "startLine": 94,
+        "startChar": 43,
+        "endLine": 94,
+        "endChar": 51
+      },
+      "revId": "2642a06596a8c77f1bfe3803a8797da806807555",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e22c08a_084d8741",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-08T18:52:41Z",
+      "side": 1,
+      "message": "Meant as art::Runtime.\n\n(Not that we allow multiple runtimes right now, but this would share between multiple CreateJavaVM instances.)",
+      "parentUuid": "820b7d17_1b43df1d",
       "range": {
         "startLine": 94,
         "startChar": 43,
