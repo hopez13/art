@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "2e22c08a_ab89cd52",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 927,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-04-08T18:34:39Z",
+      "side": 1,
+      "message": "slow?",
+      "range": {
+        "startLine": 927,
+        "startChar": 14,
+        "endLine": 927,
+        "endChar": 18
+      },
+      "revId": "77edbe16349920b989211b7059b284d63abf5c45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91f031de_d0881c50",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 2
@@ -18,6 +41,52 @@
         "startChar": 0,
         "endLine": 928,
         "endChar": 6
+      },
+      "revId": "77edbe16349920b989211b7059b284d63abf5c45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e22c08a_0ed4af07",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 951,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-04-08T18:34:39Z",
+      "side": 1,
+      "message": "References in dex cache GcRoots aren\u0027t currently poisoned. We do not need this line.",
+      "range": {
+        "startLine": 951,
+        "startChar": 4,
+        "endLine": 951,
+        "endChar": 25
+      },
+      "revId": "77edbe16349920b989211b7059b284d63abf5c45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e22c08a_ce18d7c0",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 971,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-04-08T18:34:39Z",
+      "side": 1,
+      "message": "References in dex cache GcRoots aren\u0027t currently poisoned. We do not need this line.",
+      "range": {
+        "startLine": 971,
+        "startChar": 4,
+        "endLine": 971,
+        "endChar": 25
       },
       "revId": "77edbe16349920b989211b7059b284d63abf5c45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
