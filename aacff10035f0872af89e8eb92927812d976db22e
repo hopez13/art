@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae4dd05b_d1ca441c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-08T16:00:42Z",
+      "side": 1,
+      "message": "enabled",
+      "range": {
+        "startLine": 15,
+        "startChar": 38,
+        "endLine": 15,
+        "endChar": 46
+      },
+      "revId": "aacff10035f0872af89e8eb92927812d976db22e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae4dd05b_51bf347e",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-08T16:00:42Z",
+      "side": 1,
+      "message": "If I understand this comment correctly, I think the comma should be replaced with a semi-colon or a period.",
+      "range": {
+        "startLine": 637,
+        "startChar": 59,
+        "endLine": 637,
+        "endChar": 60
+      },
+      "revId": "aacff10035f0872af89e8eb92927812d976db22e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee1b4859_83915e77",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-08T16:00:42Z",
+      "side": 1,
+      "message": "Style: use a pointer instead?  (I\u0027ve been told we should not use non-const references as arguments.)",
+      "range": {
+        "startLine": 570,
+        "startChar": 69,
+        "endLine": 570,
+        "endChar": 84
+      },
+      "revId": "aacff10035f0872af89e8eb92927812d976db22e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
