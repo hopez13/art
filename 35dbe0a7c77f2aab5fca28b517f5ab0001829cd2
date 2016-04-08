@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e22c08a_4e478721",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-04-08T19:07:54Z",
+      "side": 1,
+      "message": "References in dex cache GcRoots aren\u0027t currently poisoned. We do not need this line.",
+      "range": {
+        "startLine": 965,
+        "startChar": 4,
+        "endLine": 965,
+        "endChar": 25
+      },
+      "revId": "35dbe0a7c77f2aab5fca28b517f5ab0001829cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e22c08a_ae8abb9b",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 986,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-04-08T19:07:54Z",
+      "side": 1,
+      "message": "References in dex cache GcRoots aren\u0027t currently poisoned. We do not need this line.",
+      "range": {
+        "startLine": 986,
+        "startChar": 4,
+        "endLine": 986,
+        "endChar": 25
+      },
+      "revId": "35dbe0a7c77f2aab5fca28b517f5ab0001829cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e22c08a_ee6d938f",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-04-08T19:07:54Z",
+      "side": 1,
+      "message": "The sp isn\u0027t aligned by 16 here as we have five PUSH\u0027es up to this point?",
+      "revId": "35dbe0a7c77f2aab5fca28b517f5ab0001829cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e22c08a_8e297f38",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 999,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-04-08T19:07:54Z",
+      "side": 1,
+      "message": "I don\u0027t know if POP is any better.\n\nHow about \"addl LITERAL(4), %esp\"?\n\nI think addl is clearer as edx is overwritten in the next line and may be faster as it avoids a memory access (though likely a cache hit).",
+      "range": {
+        "startLine": 999,
+        "startChar": 4,
+        "endLine": 999,
+        "endChar": 11
+      },
+      "revId": "35dbe0a7c77f2aab5fca28b517f5ab0001829cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
