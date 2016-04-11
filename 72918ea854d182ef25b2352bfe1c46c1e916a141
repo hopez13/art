@@ -22,6 +22,30 @@
       "revId": "72918ea854d182ef25b2352bfe1c46c1e916a141",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee1b4859_e36db28f",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-11T14:19:21Z",
+      "side": 1,
+      "message": "Fixed in https://android-review.googlesource.com/#/c/210340/.",
+      "parentUuid": "1c8b76a4_bdc11f52",
+      "range": {
+        "startLine": 177,
+        "startChar": 2,
+        "endLine": 177,
+        "endChar": 22
+      },
+      "revId": "72918ea854d182ef25b2352bfe1c46c1e916a141",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
