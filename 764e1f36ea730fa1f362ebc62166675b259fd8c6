@@ -94,6 +94,30 @@
       "revId": "764e1f36ea730fa1f362ebc62166675b259fd8c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e22c08a_7d615278",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-11T17:18:22Z",
+      "side": 1,
+      "message": "So you want some logic in ReferenceTypeInfo::Create() ?\nOr somewhere else? \n\nYou need to be more specific, as I have become very familiar with this particular problem, but not so much with the full phase as of yet?\n\nIn any case, I will still send out my unit test, as it also exposes some issues",
+      "parentUuid": "ee1b4859_83cddeaf",
+      "range": {
+        "startLine": 685,
+        "startChar": 0,
+        "endLine": 687,
+        "endChar": 21
+      },
+      "revId": "764e1f36ea730fa1f362ebc62166675b259fd8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
