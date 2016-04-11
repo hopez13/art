@@ -93,6 +93,30 @@
       "revId": "0a01f6e5377f043cc3dffc3e6afebbcdfd3ee7e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b3d8aed_5f1b4bb8",
+        "filename": "dex2oat/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-11T21:01:59Z",
+      "side": 1,
+      "message": "Yeah, sorry, I misunderstood.\n\nThe actual issue is that this won\u0027t regenerate the boot image, I would think, as the actual boot image rule isn\u0027t phony. One has to manually delete it first, right?",
+      "parentUuid": "0ba96e5f_446e4e03",
+      "range": {
+        "startLine": 122,
+        "startChar": 2,
+        "endLine": 122,
+        "endChar": 45
+      },
+      "revId": "0a01f6e5377f043cc3dffc3e6afebbcdfd3ee7e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
