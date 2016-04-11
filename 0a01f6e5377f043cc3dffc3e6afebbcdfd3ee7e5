@@ -45,6 +45,30 @@
       "revId": "0a01f6e5377f043cc3dffc3e6afebbcdfd3ee7e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e22c08a_13ecce6a",
+        "filename": "dex2oat/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-11T19:48:59Z",
+      "side": 1,
+      "message": "With that dependency, wouldn\u0027t it build the image twice?",
+      "parentUuid": "2e22c08a_b3adbaac",
+      "range": {
+        "startLine": 122,
+        "startChar": 2,
+        "endLine": 122,
+        "endChar": 45
+      },
+      "revId": "0a01f6e5377f043cc3dffc3e6afebbcdfd3ee7e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
