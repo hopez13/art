@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e22c08a_b3585b09",
+        "filename": "compiler/optimizing/reference_type_propagation_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-11T18:58:06Z",
+      "side": 1,
+      "message": "Setting up a unit test for this was a bit elaborate, but in the end I am happy we can test the merging function with all sorts of scenarios now.\n\nPTAL, specifically at the questions below.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 9
+      },
+      "revId": "1cd2a005aa1e956c0093307f21eca8821a005bf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e22c08a_f352d3e6",
+        "filename": "compiler/optimizing/reference_type_propagation_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-11T18:58:06Z",
+      "side": 1,
+      "message": "this is now current behavior:\n\ninvalid AND error -\u003e error\nerror AND invalid  -\u003e error\n\nbut we probably want that Object(inexact) as well?",
+      "range": {
+        "startLine": 160,
+        "startChar": 5,
+        "endLine": 160,
+        "endChar": 9
+      },
+      "revId": "1cd2a005aa1e956c0093307f21eca8821a005bf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e22c08a_7347c321",
+        "filename": "compiler/optimizing/reference_type_propagation_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-11T18:58:06Z",
+      "side": 1,
+      "message": "The current code, as written, does\n\nString(inexact) AND String(inexact) \u003d String(inexact)\n\nmore or less what one would expect, but this fails (sic!) the check in create as well. Unwritten assumption, or bug?",
+      "revId": "1cd2a005aa1e956c0093307f21eca8821a005bf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
