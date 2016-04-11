@@ -46,6 +46,30 @@
       "revId": "764e1f36ea730fa1f362ebc62166675b259fd8c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e22c08a_3d835a81",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-11T17:05:09Z",
+      "side": 1,
+      "message": "I have not found an easy way to get a checker test for this, so I constructed a unit test for this method (seems complex enough that such a test is useful anyways).\n\nThis also brought up some questions, since some of the test cases that I came up with fail (merging imprecise types), which may be a bug, or at the very least an implied feature of clients of this method (always dangerous).\n\nPlease have a look at next CL.\n\nAnd yes, I plan to do Calin\u0027s idea on putting more checks in place, but like to do that separate from this fix.",
+      "parentUuid": "ee1b4859_03f64e3d",
+      "range": {
+        "startLine": 685,
+        "startChar": 0,
+        "endLine": 687,
+        "endChar": 21
+      },
+      "revId": "764e1f36ea730fa1f362ebc62166675b259fd8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
