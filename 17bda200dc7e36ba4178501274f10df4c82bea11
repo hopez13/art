@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee1b4859_2380aa71",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-11T14:22:14Z",
+      "side": 1,
+      "message": "extra space.",
+      "range": {
+        "startLine": 138,
+        "startChar": 20,
+        "endLine": 138,
+        "endChar": 22
+      },
+      "revId": "17bda200dc7e36ba4178501274f10df4c82bea11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bf71249_5d3b9bc6",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-11T14:22:14Z",
+      "side": 1,
+      "message": "Could you add a comment here that the thread_pool can only become null when all threads get interrupted, and we guard against that line 157?",
+      "revId": "17bda200dc7e36ba4178501274f10df4c82bea11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
