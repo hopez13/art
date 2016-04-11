@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee1b4859_63470249",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-11T12:45:27Z",
+      "side": 1,
+      "message": "This fixes MergeTypes, but maybe we have other places where we check assignability. Could we instead prevent a ReferenceTypeInfo to get an erroneous class? If we try to create one, it will automatically use Object instead?",
+      "range": {
+        "startLine": 685,
+        "startChar": 0,
+        "endLine": 687,
+        "endChar": 21
+      },
+      "revId": "764e1f36ea730fa1f362ebc62166675b259fd8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
