@@ -22,6 +22,30 @@
       "revId": "764e1f36ea730fa1f362ebc62166675b259fd8c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee1b4859_03f64e3d",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-11T13:12:18Z",
+      "side": 1,
+      "message": "We should be able to track that by looking at IsObjectClass(). I suggested that we should check that the class is not erronous as part of IsObjectClass().\n\nThat should protect us against the any mis-uses (and probably expose a few other places where we\u0027d crash)",
+      "parentUuid": "ee1b4859_63470249",
+      "range": {
+        "startLine": 685,
+        "startChar": 0,
+        "endLine": 687,
+        "endChar": 21
+      },
+      "revId": "764e1f36ea730fa1f362ebc62166675b259fd8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
