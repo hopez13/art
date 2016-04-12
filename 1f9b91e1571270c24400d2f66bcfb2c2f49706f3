@@ -22,6 +22,30 @@
       "revId": "1f9b91e1571270c24400d2f66bcfb2c2f49706f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b24aaf3_673df2a0",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-12T15:17:22Z",
+      "side": 1,
+      "message": "To avoid storing the hook in the Thread class. It felt to me that the Thread should be able to tell this without a hook from the framework (which can be done, but I prefer not to do it as part of this CL).\n\nNo strong opinion though. If you want, I can move it.",
+      "parentUuid": "6b3d8aed_94801227",
+      "range": {
+        "startLine": 638,
+        "startChar": 2,
+        "endLine": 638,
+        "endChar": 33
+      },
+      "revId": "1f9b91e1571270c24400d2f66bcfb2c2f49706f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
