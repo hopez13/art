@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b3d8aed_94801227",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-12T15:03:22Z",
+      "side": 1,
+      "message": "Why was this moved here? Doesn\u0027t Thread make more sense?",
+      "range": {
+        "startLine": 638,
+        "startChar": 2,
+        "endLine": 638,
+        "endChar": 33
+      },
+      "revId": "1f9b91e1571270c24400d2f66bcfb2c2f49706f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
