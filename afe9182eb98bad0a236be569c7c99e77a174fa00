@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b24aaf3_879586bb",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-12T15:49:29Z",
+      "side": 1,
+      "message": "I\u0027d say we should check against the warmup threshold, as we probably want some profiling info.",
+      "range": {
+        "startLine": 92,
+        "startChar": 61,
+        "endLine": 92,
+        "endChar": 67
+      },
+      "revId": "afe9182eb98bad0a236be569c7c99e77a174fa00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b24aaf3_a7988af3",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-12T15:49:29Z",
+      "side": 1,
+      "message": "Priority",
+      "range": {
+        "startLine": 158,
+        "startChar": 14,
+        "endLine": 158,
+        "endChar": 22
+      },
+      "revId": "afe9182eb98bad0a236be569c7c99e77a174fa00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b24aaf3_c79f7ed7",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-12T15:49:29Z",
+      "side": 1,
+      "message": "\u0026\u0026?",
+      "range": {
+        "startLine": 155,
+        "startChar": 36,
+        "endLine": 155,
+        "endChar": 38
+      },
+      "revId": "afe9182eb98bad0a236be569c7c99e77a174fa00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b24aaf3_276c9a98",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-12T15:49:29Z",
+      "side": 1,
+      "message": "prio?",
+      "range": {
+        "startLine": 172,
+        "startChar": 20,
+        "endLine": 172,
+        "endChar": 23
+      },
+      "revId": "afe9182eb98bad0a236be569c7c99e77a174fa00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
