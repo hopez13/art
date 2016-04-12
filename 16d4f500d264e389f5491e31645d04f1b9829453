@@ -22,6 +22,30 @@
       "revId": "16d4f500d264e389f5491e31645d04f1b9829453",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b3d8aed_a8685af3",
+        "filename": "dex2oat/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-12T15:42:23Z",
+      "side": 1,
+      "message": "It is about building an image. The dumping an image rules are in oatdump\u0027s Makefile. That\u0027s what I mirrored here.\n\nStrong objection?",
+      "parentUuid": "6b24aaf3_c7c2de50",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 58
+      },
+      "revId": "16d4f500d264e389f5491e31645d04f1b9829453",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
