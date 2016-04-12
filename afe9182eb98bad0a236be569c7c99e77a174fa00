@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6b24aaf3_27fbfad8",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-12T17:36:35Z",
+      "side": 1,
+      "message": "Done. This is just a sanity check anyway.",
+      "parentUuid": "6b24aaf3_879586bb",
+      "range": {
+        "startLine": 92,
+        "startChar": 61,
+        "endLine": 92,
+        "endChar": 67
+      },
+      "revId": "afe9182eb98bad0a236be569c7c99e77a174fa00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b24aaf3_a7988af3",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-04-12T15:49:29Z",
       "side": 1,
       "message": "Priority",
+      "range": {
+        "startLine": 158,
+        "startChar": 14,
+        "endLine": 158,
+        "endChar": 22
+      },
+      "revId": "afe9182eb98bad0a236be569c7c99e77a174fa00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b24aaf3_0700769d",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-12T17:36:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b24aaf3_a7988af3",
       "range": {
         "startLine": 158,
         "startChar": 14,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6b24aaf3_c75adec7",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-12T17:36:35Z",
+      "side": 1,
+      "message": "Initially I wanted a || but I think it\u0027s ok to restrict only to JankPerceptible in case StrictMode covers more.\n\nI added a todo to look more into the StrictMode hooks to make sure they give us what we want.",
+      "parentUuid": "6b24aaf3_c79f7ed7",
+      "range": {
+        "startLine": 155,
+        "startChar": 36,
+        "endLine": 155,
+        "endChar": 38
+      },
+      "revId": "afe9182eb98bad0a236be569c7c99e77a174fa00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b24aaf3_276c9a98",
         "filename": "runtime/parsed_options.cc",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2016-04-12T15:49:29Z",
       "side": 1,
       "message": "prio?",
+      "range": {
+        "startLine": 172,
+        "startChar": 20,
+        "endLine": 172,
+        "endChar": 23
+      },
+      "revId": "afe9182eb98bad0a236be569c7c99e77a174fa00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b24aaf3_6705f2ad",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-12T17:36:35Z",
+      "side": 1,
+      "message": "discusses offline. `pri` is ok.",
+      "parentUuid": "6b24aaf3_276c9a98",
       "range": {
         "startLine": 172,
         "startChar": 20,
