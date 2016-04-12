@@ -188,6 +188,24 @@
     },
     {
       "key": {
+        "uuid": "ab9dc271_a07fa436",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-04-12T21:52:07Z",
+      "side": 1,
+      "message": "I hear we also use 16-byte stack alignment for C++.",
+      "parentUuid": "6b24aaf3_e7f8c2d6",
+      "revId": "35dbe0a7c77f2aab5fca28b517f5ab0001829cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e22c08a_8e297f38",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 2
