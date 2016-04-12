@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b24aaf3_a761aa0d",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-12T11:33:21Z",
+      "side": 1,
+      "message": "Drop the explicit \"inline\", the function is implicitly inline because it\u0027s defined inside class definition.\n\n(Why was such a big function marked as ALWAYS_INLINE in the first place?)",
+      "range": {
+        "startLine": 815,
+        "startChar": 2,
+        "endLine": 815,
+        "endChar": 8
+      },
+      "revId": "a436600eb0909f0cfab41d83a33b50982a6ca108",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
