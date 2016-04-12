@@ -152,6 +152,24 @@
     },
     {
       "key": {
+        "uuid": "ab9dc271_1436fade",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-04-12T17:42:18Z",
+      "side": 1,
+      "message": "I think I heard that we align sp by 16 bytes on all architectures. Also SSE requires 16-byte alignment.",
+      "parentUuid": "6b24aaf3_27877a0a",
+      "revId": "35dbe0a7c77f2aab5fca28b517f5ab0001829cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e22c08a_8e297f38",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 2
