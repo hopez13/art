@@ -170,6 +170,24 @@
     },
     {
       "key": {
+        "uuid": "6b24aaf3_e7f8c2d6",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-12T18:07:14Z",
+      "side": 1,
+      "message": "Our \"compiled dex bytecode ABI\" requires 16B alignment but that\u0027s different from the native ABI and this is calling to C++, not compiled dex bytecode. I don\u0027t know about SSE.",
+      "parentUuid": "ab9dc271_1436fade",
+      "revId": "35dbe0a7c77f2aab5fca28b517f5ab0001829cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e22c08a_8e297f38",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 2
