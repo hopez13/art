@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6b24aaf3_c7bc9e8a",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-12T13:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b24aaf3_a79eca2d",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 72
+      },
+      "revId": "ee693c8f477c95d0081e75f9750d7067c10eac8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b24aaf3_879bc63d",
         "filename": "runtime/jit/jit_instrumentation.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6b24aaf3_a7c52a0e",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-12T13:25:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b24aaf3_879bc63d",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 20
+      },
+      "revId": "ee693c8f477c95d0081e75f9750d7067c10eac8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b24aaf3_e7a8c250",
         "filename": "runtime/jit/jit_instrumentation.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-04-12T13:09:03Z",
       "side": 1,
       "message": "Not sure that\u0027s relevant, given a Java method is not associated to a thread.",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 91
+      },
+      "revId": "ee693c8f477c95d0081e75f9750d7067c10eac8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b24aaf3_47d1cecd",
+        "filename": "runtime/jit/jit_instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-12T13:25:05Z",
+      "side": 1,
+      "message": "Ends up being semi-useful in debugging to get an idea that samples get recorded by the interesting thread.\n\nI can drop it. It\u0027s not that important.",
+      "parentUuid": "6b24aaf3_e7a8c250",
       "range": {
         "startLine": 167,
         "startChar": 0,
