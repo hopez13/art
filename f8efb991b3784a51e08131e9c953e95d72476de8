@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abcf8271_615e9623",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1824,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-12T14:35:25Z",
+      "side": 1,
+      "message": "element_size_shift (\"offset\" seems very odd in this context)",
+      "range": {
+        "startLine": 1824,
+        "startChar": 16,
+        "endLine": 1824,
+        "endChar": 30
+      },
+      "revId": "f8efb991b3784a51e08131e9c953e95d72476de8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
