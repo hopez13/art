@@ -46,6 +46,30 @@
       "revId": "16d4f500d264e389f5491e31645d04f1b9829453",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b24aaf3_2785ba90",
+        "filename": "dex2oat/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-12T15:45:16Z",
+      "side": 1,
+      "message": "No, as it won\u0027t be the first time we\u0027re abusing (IMO) the build system.",
+      "parentUuid": "6b3d8aed_a8685af3",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 58
+      },
+      "revId": "16d4f500d264e389f5491e31645d04f1b9829453",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
