@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "6b24aaf3_c7f49e99",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-12T09:47:35Z",
+      "side": 1,
+      "message": "Please copy this comment to the new code.",
+      "range": {
+        "startLine": 816,
+        "startChar": 0,
+        "endLine": 819,
+        "endChar": 79
+      },
+      "revId": "35dbe0a7c77f2aab5fca28b517f5ab0001829cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b24aaf3_872c66dd",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-12T09:47:35Z",
+      "side": 1,
+      "message": "Is using ebx better than addressing with the fs: prefix?",
+      "range": {
+        "startLine": 915,
+        "startChar": 0,
+        "endLine": 916,
+        "endChar": 88
+      },
+      "revId": "35dbe0a7c77f2aab5fca28b517f5ab0001829cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b24aaf3_a7488aad",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-12T09:47:35Z",
+      "side": 1,
+      "message": "Potential overflow. I would prefer `end - pos \u003c\u003d size` instead of `pos + size \u003c\u003d end`. Note that, assuming correct alignment of `end - pos`, you can do that comparison before rounding up the `size`.\n\n[Comment copied from https://android-review.googlesource.com/#/c/187537/1/runtime/arch/arm/quick_entrypoints_arm.S .]",
+      "range": {
+        "startLine": 917,
+        "startChar": 0,
+        "endLine": 918,
+        "endChar": 83
+      },
+      "revId": "35dbe0a7c77f2aab5fca28b517f5ab0001829cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e22c08a_4e478721",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 2
@@ -59,6 +128,24 @@
       "writtenOn": "2016-04-08T19:07:54Z",
       "side": 1,
       "message": "The sp isn\u0027t aligned by 16 here as we have five PUSH\u0027es up to this point?",
+      "revId": "35dbe0a7c77f2aab5fca28b517f5ab0001829cd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b24aaf3_27877a0a",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-12T09:47:35Z",
+      "side": 1,
+      "message": "If I remember correctly, the x86 native ABI requires only 8-byte alignment. (5xPUSH + return PC gives 24B.)",
+      "parentUuid": "2e22c08a_ee6d938f",
       "revId": "35dbe0a7c77f2aab5fca28b517f5ab0001829cd2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
