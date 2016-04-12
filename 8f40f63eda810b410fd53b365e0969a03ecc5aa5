@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b3d8aed_28af2aa9",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2008,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-12T15:11:10Z",
+      "side": 1,
+      "message": "Is this correct? It may be OK right now (because multidex uses one oat file), but I would say this isn\u0027t future-safe...",
+      "range": {
+        "startLine": 2008,
+        "startChar": 38,
+        "endLine": 2008,
+        "endChar": 85
+      },
+      "revId": "8f40f63eda810b410fd53b365e0969a03ecc5aa5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
