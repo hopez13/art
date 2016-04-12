@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab9dc271_3a27654d",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-12T20:20:46Z",
+      "side": 1,
+      "message": "Should this be conditional on whether the thread is sensitive?\n\nOtherwise we can\u0027t use a high weight (e.g., why not try out equal to warm) without destroying batch improvements for all threads.",
+      "range": {
+        "startLine": 668,
+        "startChar": 4,
+        "endLine": 669,
+        "endChar": 90
+      },
+      "revId": "af5e8cd94dad65bf514710284cc5c3d1892f64df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
