@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2bc632da_ebe00544",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-13T18:44:48Z",
+      "side": 1,
+      "message": "Scratch my comment on the lock errors. That was of course a result of requiring the lock here already. I have \"optimized\" the lock acquisition in CreateChecked() now that is possible, even though it was just for debug checks.\n\nPTAL",
+      "range": {
+        "startLine": 528,
+        "startChar": 11,
+        "endLine": 528,
+        "endChar": 28
+      },
+      "revId": "c3ef798450bea01f247cd79edc6022f0bd09d10e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
