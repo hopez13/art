@@ -22,6 +22,144 @@
       "revId": "c3ef798450bea01f247cd79edc6022f0bd09d10e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_b495c05e",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-13T19:03:32Z",
+      "side": 1,
+      "message": "CreateChecked(). We know this class and it should not be errornous, otherwise we\u0027re in big troubles.",
+      "range": {
+        "startLine": 433,
+        "startChar": 12,
+        "endLine": 433,
+        "endChar": 49
+      },
+      "revId": "c3ef798450bea01f247cd79edc6022f0bd09d10e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b5f1ef9_f89f317a",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-13T19:03:32Z",
+      "side": 1,
+      "message": "CreateChecked",
+      "range": {
+        "startLine": 555,
+        "startChar": 18,
+        "endLine": 555,
+        "endChar": 41
+      },
+      "revId": "c3ef798450bea01f247cd79edc6022f0bd09d10e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b79a672_56af14a7",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-13T19:03:32Z",
+      "side": 1,
+      "message": "CreateChecked",
+      "range": {
+        "startLine": 566,
+        "startChar": 20,
+        "endLine": 566,
+        "endChar": 43
+      },
+      "revId": "c3ef798450bea01f247cd79edc6022f0bd09d10e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb6dfab4_b395d85e",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-13T19:03:32Z",
+      "side": 1,
+      "message": "at this point we now that class_rti can\u0027t be errornous so CreateChecked.",
+      "range": {
+        "startLine": 594,
+        "startChar": 22,
+        "endLine": 594,
+        "endChar": 45
+      },
+      "revId": "c3ef798450bea01f247cd79edc6022f0bd09d10e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b547ee5_9090b46f",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-13T19:03:32Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 602,
+        "startChar": 24,
+        "endLine": 602,
+        "endChar": 47
+      },
+      "revId": "c3ef798450bea01f247cd79edc6022f0bd09d10e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b62eac1_f79f407a",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 717,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-13T19:03:32Z",
+      "side": 1,
+      "message": "this cam never be errornous, right? unless the CommonSuperClass is going wrong and it shouldn\u0027t. So let\u0027s dcheck that?",
+      "range": {
+        "startLine": 717,
+        "startChar": 40,
+        "endLine": 717,
+        "endChar": 58
+      },
+      "revId": "c3ef798450bea01f247cd79edc6022f0bd09d10e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
