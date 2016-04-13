@@ -22,6 +22,30 @@
       "revId": "448b7c458a3094fa36aec1772fd9836b68bc1c81",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bc632da_d4e5ea51",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2631,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-04-13T21:13:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bc632da_54457a17",
+      "range": {
+        "startLine": 2631,
+        "startChar": 41,
+        "endLine": 2631,
+        "endChar": 51
+      },
+      "revId": "448b7c458a3094fa36aec1772fd9836b68bc1c81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
