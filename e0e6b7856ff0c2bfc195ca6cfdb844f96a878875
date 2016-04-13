@@ -92,6 +92,30 @@
       "revId": "e0e6b7856ff0c2bfc195ca6cfdb844f96a878875",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bc632da_05de3256",
+        "filename": "compiler/optimizing/reference_type_propagation_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-13T18:35:28Z",
+      "side": 1,
+      "message": "Great, then I replace this with imprecise Object, so at least we go through that part of the code (using is_exact from original definition, and then returning in equals branch).\n\nThanks for clarifying.",
+      "parentUuid": "2b71d253_8d9aa18c",
+      "range": {
+        "startLine": 208,
+        "startChar": 34,
+        "endLine": 208,
+        "endChar": 51
+      },
+      "revId": "e0e6b7856ff0c2bfc195ca6cfdb844f96a878875",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
