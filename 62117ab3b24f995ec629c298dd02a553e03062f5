@@ -22,6 +22,30 @@
       "revId": "62117ab3b24f995ec629c298dd02a553e03062f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b5ab2dd_e57256e1",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-13T11:41:45Z",
+      "side": 1,
+      "message": "As discussed, I prefer ensuring this doesn\u0027t happen. I moved the check to JitOptions::CreateFromRuntimeArguments.",
+      "parentUuid": "2b2c722d_b56260e0",
+      "range": {
+        "startLine": 103,
+        "startChar": 10,
+        "endLine": 103,
+        "endChar": 39
+      },
+      "revId": "62117ab3b24f995ec629c298dd02a553e03062f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
