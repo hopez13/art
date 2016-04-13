@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb4c1a16_a449c80c",
+        "filename": "runtime/interpreter/unstarted_runtime_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-04-13T02:26:02Z",
+      "side": 1,
+      "message": "I think it\u0027s worse than that.  We really need bitwise comparison here, since we need to distinguish -0 and +0.\nCan we just reinterpret_cast\u003cint64_t\u003e and compare the results as int64_t?",
+      "range": {
+        "startLine": 181,
+        "startChar": 11,
+        "endLine": 182,
+        "endChar": 34
+      },
+      "revId": "4db1d0609e5f303faca322dba703faa4096ebe8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb4c1a16_e4fa70d3",
+        "filename": "runtime/interpreter/unstarted_runtime_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-04-13T02:26:02Z",
+      "side": 1,
+      "message": "I think the result should be -0.0, right?\nIt\u0027s probably good to leave this as is until it actually fails.\nAnother good test might be (double)((1l \u003c\u003c 53) - 1), which should map to itself.  And maybe (double)(1l \u003c\u003c 55), which should do the same.",
+      "range": {
+        "startLine": 647,
+        "startChar": 6,
+        "endLine": 647,
+        "endChar": 21
+      },
+      "revId": "4db1d0609e5f303faca322dba703faa4096ebe8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
