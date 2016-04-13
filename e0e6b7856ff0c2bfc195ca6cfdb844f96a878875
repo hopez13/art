@@ -22,6 +22,52 @@
       "revId": "e0e6b7856ff0c2bfc195ca6cfdb844f96a878875",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b71d253_ed95655d",
+        "filename": "compiler/optimizing/reference_type_propagation_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-13T00:13:07Z",
+      "side": 1,
+      "message": "So this falls back to what the result of Merge(Invalid, Errournous) should be. Right?\n\nIt is not \"wrong\" from the algorithm point of view to return errornous here since Invalid stands for \"no information yet\".\n\nHowever, these are all sketchy cases for sound reasoning.\n\nWhat I propose, and Nicolas also mentioned is to *not* allow a errornous ReferenceTypeInfo to be created.\n\nwe should DCHECK in RTI::Create() that the class handle is valid.\n\nThe caller should make sure that if the handle is not ok it falls back to the inexact object type. We could employ a helper for that if there are too many places to check but I don\u0027t think so.",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 23
+      },
+      "revId": "e0e6b7856ff0c2bfc195ca6cfdb844f96a878875",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b71d253_8d9aa18c",
+        "filename": "compiler/optimizing/reference_type_propagation_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-13T00:13:07Z",
+      "side": 1,
+      "message": "The string type can never be inexact. The class is final and we have a DCHECK that final classes get to be exact.",
+      "range": {
+        "startLine": 208,
+        "startChar": 34,
+        "endLine": 208,
+        "endChar": 51
+      },
+      "revId": "e0e6b7856ff0c2bfc195ca6cfdb844f96a878875",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
