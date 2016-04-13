@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6b1aea04_372e586b",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-13T16:33:23Z",
+      "side": 1,
+      "message": "To iterate on this: I was reading this code independently of knowing the entire goal of this CL. Just by looking at it it\u0027s not clear \"why is not jit a listener then?\".\n\nSo just some comments would be nice.",
+      "parentUuid": "2b71d253_2d212d91",
+      "range": {
+        "startLine": 632,
+        "startChar": 0,
+        "endLine": 639,
+        "endChar": 5
+      },
+      "revId": "379a191b2c2180f50c13d409f9bba69845da2a71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b1aea04_b706e8ff",
         "filename": "runtime/jit/jit.h",
         "patchSetId": 3
