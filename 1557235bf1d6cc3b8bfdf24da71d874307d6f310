@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb6dfab4_53af24a7",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-13T20:56:25Z",
+      "side": 1,
+      "message": "Add DCHECK(Runtime::Current()-\u003eIsAotCompiler()) ?",
+      "revId": "1557235bf1d6cc3b8bfdf24da71d874307d6f310",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b62eac1_d7b15c05",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1685,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-13T20:56:25Z",
+      "side": 1,
+      "message": "Inline this one with the one line 1691?",
+      "range": {
+        "startLine": 1680,
+        "startChar": 0,
+        "endLine": 1685,
+        "endChar": 1
+      },
+      "revId": "1557235bf1d6cc3b8bfdf24da71d874307d6f310",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
