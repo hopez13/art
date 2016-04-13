@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b71d253_2d212d91",
+        "filename": "runtime/interpreter/interpreter_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-13T15:48:29Z",
+      "side": 1,
+      "message": "could you have made Jit an instrumentation InstrumentationListener instead of adding the extra code here and below?",
+      "range": {
+        "startLine": 632,
+        "startChar": 0,
+        "endLine": 639,
+        "endChar": 5
+      },
+      "revId": "379a191b2c2180f50c13d409f9bba69845da2a71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b1aea04_b706e8ff",
+        "filename": "runtime/jit/jit.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-13T15:48:29Z",
+      "side": 1,
+      "message": "extra spaces",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 2
+      },
+      "revId": "379a191b2c2180f50c13d409f9bba69845da2a71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
