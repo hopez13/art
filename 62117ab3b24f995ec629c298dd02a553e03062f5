@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b2c722d_b56260e0",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-13T11:34:40Z",
+      "side": 1,
+      "message": "let\u0027s add (priority_thread_weight_ \u003e 1) as well to the condition. No point in making the other queries if the weight is \u003c\u003d1.\n\nI\u0027ll do that.",
+      "range": {
+        "startLine": 103,
+        "startChar": 10,
+        "endLine": 103,
+        "endChar": 39
+      },
+      "revId": "62117ab3b24f995ec629c298dd02a553e03062f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
