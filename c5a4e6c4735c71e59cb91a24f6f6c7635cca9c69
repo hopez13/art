@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2bc632da_18684cf2",
+        "filename": "runtime/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-14T15:28:21Z",
+      "side": 1,
+      "message": "Make it an else-if checking ART_TARGET_ANDROID, and an else with #error.",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 5
+      },
+      "revId": "c5a4e6c4735c71e59cb91a24f6f6c7635cca9c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bc632da_d86d1406",
+        "filename": "runtime/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-14T15:28:21Z",
+      "side": 1,
+      "message": "Should the true case only be true when kIsTargetBuild is true? Right now you depend on the right way of ART_TARGET_LINUX being used...",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 6
+      },
+      "revId": "c5a4e6c4735c71e59cb91a24f6f6c7635cca9c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
