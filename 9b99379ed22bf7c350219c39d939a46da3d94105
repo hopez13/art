@@ -22,6 +22,30 @@
       "revId": "9b99379ed22bf7c350219c39d939a46da3d94105",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b5f1ef9_d8f98d66",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-14T10:43:26Z",
+      "side": 1,
+      "message": "Calin told me that was for GetInexactObjectRti. Maybe we can get rid of ReferenceTypeInfo::CreateChecked then instead?",
+      "parentUuid": "eb1b3a59_e395b22b",
+      "range": {
+        "startLine": 521,
+        "startChar": 0,
+        "endLine": 532,
+        "endChar": 3
+      },
+      "revId": "9b99379ed22bf7c350219c39d939a46da3d94105",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
