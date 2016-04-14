@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0b732e96_34f29046",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-14T14:53:34Z",
+      "side": 1,
+      "message": "I was told the recommended version is \"auto\u0026\u0026\".",
+      "range": {
+        "startLine": 931,
+        "startChar": 7,
+        "endLine": 931,
+        "endChar": 12
+      },
+      "revId": "e1597561726595000253d44f154f24724172140f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b732e96_3427f0a8",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 4
@@ -25,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "0b732e96_d4ea3c53",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-14T14:53:34Z",
+      "side": 1,
+      "message": "we don\u0027t use C++ exceptions, so I strongly discourage the use of \"at()\" which is specified as throwing std::out_of_range. Use the \"operator[]\" instead.",
+      "range": {
+        "startLine": 357,
+        "startChar": 28,
+        "endLine": 357,
+        "endChar": 30
+      },
+      "revId": "e1597561726595000253d44f154f24724172140f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b732e96_142af471",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 4
@@ -41,6 +87,98 @@
         "startChar": 0,
         "endLine": 420,
         "endChar": 3
+      },
+      "revId": "e1597561726595000253d44f154f24724172140f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_14f5942d",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-14T14:53:34Z",
+      "side": 1,
+      "message": "Nit: Why not change the parameter to a std::unique_ptr\u003c\u003e and wrap the jump table right where it\u0027s constructed?",
+      "range": {
+        "startLine": 429,
+        "startChar": 27,
+        "endLine": 429,
+        "endChar": 58
+      },
+      "revId": "e1597561726595000253d44f154f24724172140f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_f4ef3860",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-14T14:53:34Z",
+      "side": 1,
+      "message": "Remove this unnecessary indirection.",
+      "range": {
+        "startLine": 629,
+        "startChar": 2,
+        "endLine": 629,
+        "endChar": 17
+      },
+      "revId": "e1597561726595000253d44f154f24724172140f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_d4015ceb",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-14T14:53:34Z",
+      "side": 1,
+      "message": "Please define as \"std::unique_ptr\u003cArm64Exception\u003e current_exception(...)\" and reorder the code below, so that the \"exception_blocks_.push_back(std::move(current_exception))\" is last.",
+      "range": {
+        "startLine": 614,
+        "startChar": 2,
+        "endLine": 614,
+        "endChar": 35
+      },
+      "revId": "e1597561726595000253d44f154f24724172140f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_74fc0818",
+        "filename": "compiler/utils/arm64/assembler_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-14T14:53:34Z",
+      "side": 1,
+      "message": "This is actually dangerous as the Arm64Exception is defined below so the compiler will actually see it as an incomplete type while compiling the Arm64Assembler constructor and destructor above. Can you reorder the two classes, please?",
+      "range": {
+        "startLine": 256,
+        "startChar": 2,
+        "endLine": 256,
+        "endChar": 65
       },
       "revId": "e1597561726595000253d44f154f24724172140f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
