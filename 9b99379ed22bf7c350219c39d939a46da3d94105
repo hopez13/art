@@ -46,6 +46,30 @@
       "revId": "9b99379ed22bf7c350219c39d939a46da3d94105",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_f462d8e0",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-14T14:00:30Z",
+      "side": 1,
+      "message": "I was suggesting to stay with ReferenceTypeInfo::Create() and DCHECK the type is not errornous. The actual number of callers that need to check for that is actually quite small (see my previous inline comments).",
+      "parentUuid": "8b5f1ef9_d8f98d66",
+      "range": {
+        "startLine": 521,
+        "startChar": 0,
+        "endLine": 532,
+        "endChar": 3
+      },
+      "revId": "9b99379ed22bf7c350219c39d939a46da3d94105",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
