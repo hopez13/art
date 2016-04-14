@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb1b3a59_e395b22b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-14T10:31:35Z",
+      "side": 1,
+      "message": "Why on the graph? I think it would be simpler to just incorporate that in ReferenceTypeInfo::Create, so that users of ReferenceTypeInfo don\u0027t need to think about how to create it.",
+      "range": {
+        "startLine": 521,
+        "startChar": 0,
+        "endLine": 532,
+        "endChar": 3
+      },
+      "revId": "9b99379ed22bf7c350219c39d939a46da3d94105",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
