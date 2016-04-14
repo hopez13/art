@@ -163,6 +163,30 @@
     },
     {
       "key": {
+        "uuid": "0b732e96_14803473",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-14T15:59:35Z",
+      "side": 1,
+      "message": "Or perhaps \"emplace_back()\".",
+      "parentUuid": "0b732e96_d4015ceb",
+      "range": {
+        "startLine": 614,
+        "startChar": 2,
+        "endLine": 614,
+        "endChar": 35
+      },
+      "revId": "e1597561726595000253d44f154f24724172140f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b732e96_74fc0818",
         "filename": "compiler/utils/arm64/assembler_arm64.h",
         "patchSetId": 4
