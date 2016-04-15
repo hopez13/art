@@ -94,6 +94,30 @@
       "revId": "14f3873e63698fcafcf58f10d1023a2560f3e644",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_570e2e58",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-15T11:34:37Z",
+      "side": 1,
+      "message": "(This feels like a more standard way to indicate ownership transfer to me.)",
+      "parentUuid": "0b732e96_1714b664",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 423,
+        "endChar": 3
+      },
+      "revId": "14f3873e63698fcafcf58f10d1023a2560f3e644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
