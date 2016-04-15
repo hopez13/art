@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c85f5c26_391d9bfc",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-04-15T23:12:52Z",
+      "side": 1,
+      "message": "Added more comments.\n// Create reference info if `instruction` is a reference type. This can be called\n// to add entry into ref_info_array_ as early as possible to help pre-existence-based\n// aliasing analysis.",
+      "parentUuid": "c85f5c26_6acc57b4",
+      "revId": "c247f32214e69883b55ec4d6ba44563752537760",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b732e96_973286d1",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -65,6 +83,30 @@
     },
     {
       "key": {
+        "uuid": "c85f5c26_39047bb2",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 5076,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-04-15T23:12:52Z",
+      "side": 1,
+      "message": "I added it to Equals().",
+      "parentUuid": "0b732e96_77132a3c",
+      "range": {
+        "startLine": 5063,
+        "startChar": 0,
+        "endLine": 5076,
+        "endChar": 16
+      },
+      "revId": "c247f32214e69883b55ec4d6ba44563752537760",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c85f5c26_0ab4bb12",
         "filename": "test/586-checker-null-array-get/src/Main.java",
         "patchSetId": 1
@@ -76,6 +118,30 @@
       "writtenOn": "2016-04-15T18:43:43Z",
       "side": 1,
       "message": "just for completeness, don\u0027t you want to run test1 at least?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 5
+      },
+      "revId": "c247f32214e69883b55ec4d6ba44563752537760",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c85f5c26_d938bf7e",
+        "filename": "test/586-checker-null-array-get/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-04-15T23:12:52Z",
+      "side": 1,
+      "message": "Added.",
+      "parentUuid": "c85f5c26_0ab4bb12",
       "range": {
         "startLine": 37,
         "startChar": 0,
