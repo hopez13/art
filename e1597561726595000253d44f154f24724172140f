@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6b62eac1_d7a87cb5",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-04-15T08:16:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b732e96_34f29046",
+      "range": {
+        "startLine": 931,
+        "startChar": 7,
+        "endLine": 931,
+        "endChar": 12
+      },
+      "revId": "e1597561726595000253d44f154f24724172140f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b732e96_3427f0a8",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-04-14T14:35:43Z",
       "side": 1,
       "message": "reset",
+      "range": {
+        "startLine": 944,
+        "startChar": 51,
+        "endLine": 944,
+        "endChar": 59
+      },
+      "revId": "e1597561726595000253d44f154f24724172140f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b62eac1_f7582006",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-04-15T08:16:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b732e96_3427f0a8",
       "range": {
         "startLine": 944,
         "startChar": 51,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8b5f1ef9_7877a15b",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-04-15T08:16:15Z",
+      "side": 1,
+      "message": "Changed to `[]`.",
+      "parentUuid": "0b732e96_d4ea3c53",
+      "range": {
+        "startLine": 357,
+        "startChar": 28,
+        "endLine": 357,
+        "endChar": 30
+      },
+      "revId": "e1597561726595000253d44f154f24724172140f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b732e96_142af471",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2016-04-14T14:35:43Z",
       "side": 1,
       "message": "Is this really needed?",
+      "range": {
+        "startLine": 416,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 3
+      },
+      "revId": "e1597561726595000253d44f154f24724172140f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b62eac1_174e7441",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-04-15T08:16:15Z",
+      "side": 1,
+      "message": "Removed.\nThis was a safety net, but one would really have to be badly intentioned to call it.",
+      "parentUuid": "0b732e96_142af471",
       "range": {
         "startLine": 416,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "4b79a672_f637408d",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-04-15T08:16:15Z",
+      "side": 1,
+      "message": "I agree it would clarify the ownership issues.\n\nWe do this late building of the `unique_ptr` for slow paths. Maybe we should clean those as well then. I think doing it in a separate patch would help keep this one small. So I\u0027ll add a TODO and upload a separate patch for that (along this one).",
+      "parentUuid": "0b732e96_14f5942d",
+      "range": {
+        "startLine": 429,
+        "startChar": 27,
+        "endLine": 429,
+        "endChar": 58
+      },
+      "revId": "e1597561726595000253d44f154f24724172140f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b732e96_f4ef3860",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2016-04-14T14:53:34Z",
       "side": 1,
       "message": "Remove this unnecessary indirection.",
+      "range": {
+        "startLine": 629,
+        "startChar": 2,
+        "endLine": 629,
+        "endChar": 17
+      },
+      "revId": "e1597561726595000253d44f154f24724172140f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b79a672_764410f5",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-04-15T08:16:15Z",
+      "side": 1,
+      "message": "I should have commented on this.\nRemoving this indirection breaks compilation, because `GetLabelOf()` must return a non-const `vixl::Label*`.\nFor other archs it works fine because `block_labels_` is a pointer.\n\nAnother solution is to remove `const` from the related methods, but I don\u0027t prefer it.",
+      "parentUuid": "0b732e96_f4ef3860",
       "range": {
         "startLine": 629,
         "startChar": 2,
@@ -187,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "0b732e96_549d4c8f",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-04-15T08:16:15Z",
+      "side": 1,
+      "message": "Yes I like it. It stays readable and avoids the explicit `std::unique_ptr` and `std::move`.",
+      "parentUuid": "0b732e96_14803473",
+      "range": {
+        "startLine": 614,
+        "startChar": 2,
+        "endLine": 614,
+        "endChar": 35
+      },
+      "revId": "e1597561726595000253d44f154f24724172140f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b732e96_74fc0818",
         "filename": "compiler/utils/arm64/assembler_arm64.h",
         "patchSetId": 4
@@ -198,6 +366,30 @@
       "writtenOn": "2016-04-14T14:53:34Z",
       "side": 1,
       "message": "This is actually dangerous as the Arm64Exception is defined below so the compiler will actually see it as an incomplete type while compiling the Arm64Assembler constructor and destructor above. Can you reorder the two classes, please?",
+      "range": {
+        "startLine": 256,
+        "startChar": 2,
+        "endLine": 256,
+        "endChar": 65
+      },
+      "revId": "e1597561726595000253d44f154f24724172140f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b79a672_39460ba0",
+        "filename": "compiler/utils/arm64/assembler_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-04-15T08:16:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b732e96_74fc0818",
       "range": {
         "startLine": 256,
         "startChar": 2,
