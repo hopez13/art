@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "0b732e96_d47f9ce7",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-04-15T08:27:50Z",
+      "side": 1,
+      "message": "Or what about renaming those `AddX` helpers to `AddAndOwnXX`? This would reduce the changes for slow paths.",
+      "parentUuid": "4b79a672_f637408d",
+      "range": {
+        "startLine": 429,
+        "startChar": 27,
+        "endLine": 429,
+        "endChar": 58
+      },
+      "revId": "e1597561726595000253d44f154f24724172140f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b732e96_f4ef3860",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 4
