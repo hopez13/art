@@ -118,6 +118,30 @@
       "revId": "14f3873e63698fcafcf58f10d1023a2560f3e644",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_977c4690",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-15T12:55:51Z",
+      "side": 1,
+      "message": "I wanted to return the plain pointer from CreateJumpTable() to indicate that we do _not_ transfer ownership.",
+      "parentUuid": "0b732e96_570e2e58",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 423,
+        "endChar": 3
+      },
+      "revId": "14f3873e63698fcafcf58f10d1023a2560f3e644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
