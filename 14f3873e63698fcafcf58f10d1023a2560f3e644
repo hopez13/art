@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b732e96_b7ddc2ff",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-15T11:08:41Z",
+      "side": 1,
+      "message": "I don\u0027t like this one at all, it\u0027s once again taking ownership of something passed as a raw pointer. What about\n\n    JumpTableARM64* CreateJumpTable(HPackedSwitch* switch_instr) {\n      jump_tables_.emplace_back(\n          new (GetGraph()-\u003eGetArena()) JumpTableARM64(switch_instr));\n      return jump_tables_.back().get();\n    }",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 423,
+        "endChar": 3
+      },
+      "revId": "14f3873e63698fcafcf58f10d1023a2560f3e644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
