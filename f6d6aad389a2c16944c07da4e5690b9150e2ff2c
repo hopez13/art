@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6b302ace_d6014aeb",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5185,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-15T17:23:42Z",
+      "side": 1,
+      "message": "Yes good point, that is actually a lot better design in case we change the logic later at one point. Thanks!\nDone.",
+      "parentUuid": "0b732e96_9734462f",
+      "range": {
+        "startLine": 5184,
+        "startChar": 4,
+        "endLine": 5185,
+        "endChar": 59
+      },
+      "revId": "f6d6aad389a2c16944c07da4e5690b9150e2ff2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b732e96_d7031e61",
         "filename": "compiler/optimizing/ssa_builder.cc",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2016-04-15T09:52:47Z",
       "side": 1,
       "message": "Nit: indent",
+      "revId": "f6d6aad389a2c16944c07da4e5690b9150e2ff2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b302ace_f6064e00",
+        "filename": "compiler/optimizing/ssa_builder.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-15T17:23:42Z",
+      "side": 1,
+      "message": "Done (by using your other idea :-)",
+      "parentUuid": "0b732e96_d7031e61",
       "revId": "f6d6aad389a2c16944c07da4e5690b9150e2ff2c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
