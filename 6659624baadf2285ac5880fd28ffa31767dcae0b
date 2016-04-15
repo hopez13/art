@@ -45,6 +45,23 @@
       "revId": "6659624baadf2285ac5880fd28ffa31767dcae0b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_d7ecfee0",
+        "filename": "test/800-smali/smali/b_28187158.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-15T09:46:30Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you end this method with `return-void` (to avoid \nan \"Execution can walk off end of code area\" verification error)?",
+      "revId": "6659624baadf2285ac5880fd28ffa31767dcae0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
