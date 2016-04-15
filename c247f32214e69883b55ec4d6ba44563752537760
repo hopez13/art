@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b732e96_973286d1",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-15T14:59:02Z",
+      "side": 1,
+      "message": "sgtm",
+      "range": {
+        "startLine": 709,
+        "startChar": 0,
+        "endLine": 713,
+        "endChar": 5
+      },
+      "revId": "c247f32214e69883b55ec4d6ba44563752537760",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_77132a3c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 5076,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-15T14:59:02Z",
+      "side": 1,
+      "message": "Please don\u0027t put any logic in this method, it should be only about the data contained in the HInstruction.",
+      "range": {
+        "startLine": 5063,
+        "startChar": 0,
+        "endLine": 5076,
+        "endChar": 16
+      },
+      "revId": "c247f32214e69883b55ec4d6ba44563752537760",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
