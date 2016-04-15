@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b79a672_19c86f94",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1056068
+      },
+      "writtenOn": "2016-04-15T17:51:56Z",
+      "side": 1,
+      "message": "Should be followed with\ninstruction-\u003eGetBlock()-\u003eRemoveInstruction(instruction);",
+      "range": {
+        "startLine": 945,
+        "startChar": 4,
+        "endLine": 945,
+        "endChar": 47
+      },
+      "revId": "a1280391404a7b2b1cb70a6bb2e921a69916141f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b79a672_f9b2d326",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1461,
+      "author": {
+        "id": 1056068
+      },
+      "writtenOn": "2016-04-15T17:51:56Z",
+      "side": 1,
+      "message": "Same as above should be followed with\ninstruction-\u003eGetBlock()-\u003eRemoveInstruction(instruction);",
+      "range": {
+        "startLine": 1461,
+        "startChar": 4,
+        "endLine": 1461,
+        "endChar": 47
+      },
+      "revId": "a1280391404a7b2b1cb70a6bb2e921a69916141f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
