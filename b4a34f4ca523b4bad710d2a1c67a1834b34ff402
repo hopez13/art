@@ -22,6 +22,23 @@
       "revId": "b4a34f4ca523b4bad710d2a1c67a1834b34ff402",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_d7679e20",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 4787,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-04-15T10:59:50Z",
+      "side": 1,
+      "message": "What about this? I like it because the declaration and ownership setup stays in one place. And the code using it uses the `unique_ptr` directly.\nI am hoping I can do something similar for slow-paths, maybe with perfect forwarding if necessary.",
+      "revId": "b4a34f4ca523b4bad710d2a1c67a1834b34ff402",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
