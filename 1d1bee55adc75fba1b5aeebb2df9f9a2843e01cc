@@ -16,6 +16,47 @@
       "revId": "1d1bee55adc75fba1b5aeebb2df9f9a2843e01cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_b78b0214",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 4822,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-15T10:51:38Z",
+      "side": 1,
+      "message": "This one looks good to me.",
+      "parentUuid": "0b732e96_572aaec0",
+      "revId": "1d1bee55adc75fba1b5aeebb2df9f9a2843e01cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_177bd6c4",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-15T10:51:38Z",
+      "side": 1,
+      "message": "Still here.",
+      "range": {
+        "startLine": 416,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 3
+      },
+      "revId": "1d1bee55adc75fba1b5aeebb2df9f9a2843e01cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
