@@ -332,6 +332,30 @@
     },
     {
       "key": {
+        "uuid": "4b79a672_d9b437ae",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-04-15T10:36:27Z",
+      "side": 1,
+      "message": "There were not too many `const` qualifiers to remove, so I did it here.",
+      "parentUuid": "cb4af641_559b9e2d",
+      "range": {
+        "startLine": 629,
+        "startChar": 2,
+        "endLine": 629,
+        "endChar": 17
+      },
+      "revId": "e1597561726595000253d44f154f24724172140f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b732e96_d4015ceb",
         "filename": "compiler/utils/arm64/assembler_arm64.cc",
         "patchSetId": 4
