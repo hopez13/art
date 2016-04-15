@@ -166,6 +166,30 @@
       "revId": "14f3873e63698fcafcf58f10d1023a2560f3e644",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b574aea_ef204133",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-04-15T13:17:44Z",
+      "side": 1,
+      "message": "I am ok to change it, but I prefer returning the `unique_ptr\u0026`.\nReturning a plain pointer does not indicate anything about ownership. Returning `unique_ptr\u0026` allows the user to use it as a plain pointer while clearly showing that the user code should not take ownership of it.\n\nUp to you. Let me know what you want in, and I\u0027ll update the patch.",
+      "parentUuid": "8b547ee5_f0ad80c2",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 423,
+        "endChar": 3
+      },
+      "revId": "14f3873e63698fcafcf58f10d1023a2560f3e644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
