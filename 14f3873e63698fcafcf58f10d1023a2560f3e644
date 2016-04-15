@@ -22,6 +22,30 @@
       "revId": "14f3873e63698fcafcf58f10d1023a2560f3e644",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb4af641_f541f219",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-04-15T11:14:58Z",
+      "side": 1,
+      "message": "+ returning a `unique_ptr\u003c\u003e\u0026` to explicitly indicate ownership to users.",
+      "parentUuid": "0b732e96_b7ddc2ff",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 423,
+        "endChar": 3
+      },
+      "revId": "14f3873e63698fcafcf58f10d1023a2560f3e644",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
