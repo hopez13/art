@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b732e96_b7bce2de",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4576,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-15T09:12:32Z",
+      "side": 1,
+      "message": "How do you know they\u0027re known?",
+      "range": {
+        "startLine": 4576,
+        "startChar": 11,
+        "endLine": 4576,
+        "endChar": 24
+      },
+      "revId": "6659624baadf2285ac5880fd28ffa31767dcae0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_97b7e6f9",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4576,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-15T09:12:32Z",
+      "side": 1,
+      "message": "What does that mean? You\u0027ve checked aot above and it will go line 4574 if we\u0027re aot.",
+      "range": {
+        "startLine": 4576,
+        "startChar": 26,
+        "endLine": 4576,
+        "endChar": 45
+      },
+      "revId": "6659624baadf2285ac5880fd28ffa31767dcae0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
