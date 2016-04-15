@@ -308,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "cb4af641_559b9e2d",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-15T09:16:54Z",
+      "side": 1,
+      "message": "Or \"mutable\" or \"const_cast\u003c\u003e\". Neither is very appealing but they do serve the purpose.\n\nIn the long term, I\u0027d remove the bogus const qualifier from GetLabelOf(). If that\u0027s too much work, just use a const_cast\u003c\u003e.\n\n(Note that I really want avoid the calls to \"::operator new/delete\".)",
+      "parentUuid": "4b79a672_764410f5",
+      "range": {
+        "startLine": 629,
+        "startChar": 2,
+        "endLine": 629,
+        "endChar": 17
+      },
+      "revId": "e1597561726595000253d44f154f24724172140f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b732e96_d4015ceb",
         "filename": "compiler/utils/arm64/assembler_arm64.cc",
         "patchSetId": 4
@@ -367,6 +391,30 @@
       "side": 1,
       "message": "Yes I like it. It stays readable and avoids the explicit `std::unique_ptr` and `std::move`.",
       "parentUuid": "0b732e96_14803473",
+      "range": {
+        "startLine": 614,
+        "startChar": 2,
+        "endLine": 614,
+        "endChar": 35
+      },
+      "revId": "e1597561726595000253d44f154f24724172140f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_f7b65afa",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-15T09:16:54Z",
+      "side": 1,
+      "message": "I\u0027d still want to create the object and assign ownership in the same expression. What about\n\n    exception_blocks_.push_back(new Arm64Exception(scratch, stack_adjust));\n    Arm64Exception *current_exception \u003d exception_blocks_.back().get();",
+      "parentUuid": "0b732e96_549d4c8f",
       "range": {
         "startLine": 614,
         "startChar": 2,
