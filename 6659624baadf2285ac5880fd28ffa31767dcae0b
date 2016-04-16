@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "6b302ace_1630422d",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4576,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-16T01:33:18Z",
+      "side": 1,
+      "message": "\"not\" was missing. Rewrote part of the comment.",
+      "parentUuid": "0b732e96_97b7e6f9",
+      "range": {
+        "startLine": 4576,
+        "startChar": 26,
+        "endLine": 4576,
+        "endChar": 45
+      },
+      "revId": "6659624baadf2285ac5880fd28ffa31767dcae0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b302ace_362d46d8",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4576,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-16T01:33:18Z",
+      "side": 1,
+      "message": "known \u003d resolved, in which case the assignability check is correct (and not just conservative). Clarified.",
+      "parentUuid": "0b732e96_b7bce2de",
+      "range": {
+        "startLine": 4576,
+        "startChar": 11,
+        "endLine": 4576,
+        "endChar": 24
+      },
+      "revId": "6659624baadf2285ac5880fd28ffa31767dcae0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b732e96_d7ecfee0",
         "filename": "test/800-smali/smali/b_28187158.smali",
         "patchSetId": 1
@@ -59,6 +107,24 @@
       "writtenOn": "2016-04-15T09:46:30Z",
       "side": 1,
       "message": "Shouldn\u0027t you end this method with `return-void` (to avoid \nan \"Execution can walk off end of code area\" verification error)?",
+      "revId": "6659624baadf2285ac5880fd28ffa31767dcae0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b302ace_7627bef5",
+        "filename": "test/800-smali/smali/b_28187158.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-16T01:33:18Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "0b732e96_d7ecfee0",
       "revId": "6659624baadf2285ac5880fd28ffa31767dcae0b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
