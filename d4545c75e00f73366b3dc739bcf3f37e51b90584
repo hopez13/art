@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a82a28bd_cfdcb12d",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-04-18T23:25:23Z",
+      "side": 1,
+      "message": "I don\u0027t think thats safe, if the owner thread unlocks and exists SuspendThreadByThreadId will return null. We can\u0027t just blindly put a new lock word since another thread could have locked the object or put a hash code in the lock word in the meantime.",
+      "range": {
+        "startLine": 677,
+        "startChar": 8,
+        "endLine": 677,
+        "endChar": 24
+      },
+      "revId": "d4545c75e00f73366b3dc739bcf3f37e51b90584",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
