@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b732e96_daec25e1",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 5445,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-18T09:21:11Z",
+      "side": 1,
+      "message": "Hmmm, don\u0027t we have a problem if we start saying Foo.class is the Object class if Foo is erroneous? For example:\n\nif (a instanceof Foo) ...\n\nWon\u0027t optimizing the instanceof say always true?\n\nSo maybe we can live with an invalid ReferenceTypeInfo instead?",
+      "range": {
+        "startLine": 5445,
+        "startChar": 28,
+        "endLine": 5445,
+        "endChar": 49
+      },
+      "revId": "4be65d2ef6c8b93cf19cdce50b80cfc1f9a9679d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
