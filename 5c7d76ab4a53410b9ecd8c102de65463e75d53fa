@@ -2,6 +2,63 @@
   "comments": [
     {
       "key": {
+        "uuid": "287c78a3_4943b192",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-18T19:15:31Z",
+      "side": 1,
+      "message": "can you please put a section in the commit message that we considered during this for all arch at HIR level, but you picked the arch specific version for the reasons you send me",
+      "revId": "5c7d76ab4a53410b9ecd8c102de65463e75d53fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "287c78a3_0945b993",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-18T19:15:31Z",
+      "side": 1,
+      "message": "please follow style guide, period at end",
+      "revId": "5c7d76ab4a53410b9ecd8c102de65463e75d53fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "287c78a3_898b0913",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-18T19:15:31Z",
+      "side": 1,
+      "message": "perhaps Float/Double is a bit more consistent naming?",
+      "range": {
+        "startLine": 35,
+        "startChar": 26,
+        "endLine": 35,
+        "endChar": 49
+      },
+      "revId": "5c7d76ab4a53410b9ecd8c102de65463e75d53fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b302ace_81a94eec",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
