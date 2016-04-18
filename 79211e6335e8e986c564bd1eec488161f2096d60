@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b732e96_7ac31156",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2059,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-18T09:16:23Z",
+      "side": 1,
+      "message": "I wish a workaround wouldn\u0027t require an architectural change like this one where we now need to go virtual.\n\nIf that is only used for GVN (?) could we move the workaround there?",
+      "range": {
+        "startLine": 2059,
+        "startChar": 2,
+        "endLine": 2059,
+        "endChar": 9
+      },
+      "revId": "79211e6335e8e986c564bd1eec488161f2096d60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
