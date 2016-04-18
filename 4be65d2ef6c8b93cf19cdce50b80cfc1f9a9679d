@@ -22,6 +22,30 @@
       "revId": "4be65d2ef6c8b93cf19cdce50b80cfc1f9a9679d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "287c78a3_58094112",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 5445,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-18T16:53:03Z",
+      "side": 1,
+      "message": "does that optimization look at exactness?\n\nare you proposing now to go back to the erroneous type, or make this invalid?\n\nCalin, any input?",
+      "parentUuid": "0b732e96_daec25e1",
+      "range": {
+        "startLine": 5445,
+        "startChar": 28,
+        "endLine": 5445,
+        "endChar": 49
+      },
+      "revId": "4be65d2ef6c8b93cf19cdce50b80cfc1f9a9679d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
