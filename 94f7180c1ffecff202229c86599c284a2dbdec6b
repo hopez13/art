@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0b732e96_3a96f9c5",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-18T17:01:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b732e96_1a277d91",
+      "range": {
+        "startLine": 624,
+        "startChar": 0,
+        "endLine": 624,
+        "endChar": 59
+      },
+      "revId": "94f7180c1ffecff202229c86599c284a2dbdec6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b732e96_3a24398a",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-04-18T15:45:00Z",
       "side": 1,
       "message": "HasEnvironment",
+      "range": {
+        "startLine": 628,
+        "startChar": 29,
+        "endLine": 628,
+        "endChar": 56
+      },
+      "revId": "94f7180c1ffecff202229c86599c284a2dbdec6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_da5345e7",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-18T17:01:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b732e96_3a24398a",
       "range": {
         "startLine": 628,
         "startChar": 29,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0b732e96_ba5e89f0",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-18T17:01:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b732e96_1a1cdd4d",
+      "range": {
+        "startLine": 629,
+        "startChar": 44,
+        "endLine": 629,
+        "endChar": 66
+      },
+      "revId": "94f7180c1ffecff202229c86599c284a2dbdec6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b732e96_5a16552d",
         "filename": "test/570-checker-osr/osr.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-04-18T15:37:32Z",
       "side": 1,
       "message": "has_osr_method_",
+      "range": {
+        "startLine": 46,
+        "startChar": 10,
+        "endLine": 46,
+        "endChar": 27
+      },
+      "revId": "94f7180c1ffecff202229c86599c284a2dbdec6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_fa580106",
+        "filename": "test/570-checker-osr/osr.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-18T17:01:49Z",
+      "side": 1,
+      "message": "Removed has_osr_method_.",
+      "parentUuid": "0b732e96_5a16552d",
       "range": {
         "startLine": 46,
         "startChar": 10,
