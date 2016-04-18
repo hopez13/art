@@ -46,6 +46,30 @@
       "revId": "4be65d2ef6c8b93cf19cdce50b80cfc1f9a9679d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_7aa07115",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 5445,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-18T17:02:34Z",
+      "side": 1,
+      "message": "We discussed this quite a bit with Calin. We already special case the LoadedClassRti to check invalid if the class is unresolved.\n\nSo I\u0027d suggest special casing the HLoadClass to either get a) an invalid RTI if the class is erroneous/unresolved, or b) a boolean flag in HLoadClass. I think I have a preference for a).",
+      "parentUuid": "287c78a3_58094112",
+      "range": {
+        "startLine": 5445,
+        "startChar": 28,
+        "endLine": 5445,
+        "endChar": 49
+      },
+      "revId": "4be65d2ef6c8b93cf19cdce50b80cfc1f9a9679d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
