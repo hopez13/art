@@ -22,6 +22,30 @@
       "revId": "480d5108fa62f28cbc2e7072610f974953ff73a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_ba04c93b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-18T12:38:39Z",
+      "side": 1,
+      "message": "Yes. We\u0027re holding the jit code cache lock and trying to lock the deoptimized lock.",
+      "parentUuid": "0b732e96_5af73574",
+      "range": {
+        "startLine": 9,
+        "startChar": 13,
+        "endLine": 9,
+        "endChar": 18
+      },
+      "revId": "480d5108fa62f28cbc2e7072610f974953ff73a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
