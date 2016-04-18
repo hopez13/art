@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b732e96_1a1cdd4d",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-18T15:37:32Z",
+      "side": 1,
+      "message": "! IsFromInlinedInvoke()",
+      "range": {
+        "startLine": 629,
+        "startChar": 44,
+        "endLine": 629,
+        "endChar": 66
+      },
+      "revId": "94f7180c1ffecff202229c86599c284a2dbdec6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_5a16552d",
+        "filename": "test/570-checker-osr/osr.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-18T15:37:32Z",
+      "side": 1,
+      "message": "has_osr_method_",
+      "range": {
+        "startLine": 46,
+        "startChar": 10,
+        "endLine": 46,
+        "endChar": 27
+      },
+      "revId": "94f7180c1ffecff202229c86599c284a2dbdec6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
