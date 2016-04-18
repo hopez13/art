@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b302ace_81a94eec",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2024,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-04-18T18:45:21Z",
+      "side": 1,
+      "message": "Replace with \"High32Bits(kPositiveInfinityDouble)\".",
+      "range": {
+        "startLine": 2024,
+        "startChar": 52,
+        "endLine": 2024,
+        "endChar": 105
+      },
+      "revId": "5c7d76ab4a53410b9ecd8c102de65463e75d53fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b302ace_c1c266a7",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2286,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-04-18T18:45:21Z",
+      "side": 1,
+      "message": "Replace with \"High32Bits(kPositiveInfinityDouble)\".",
+      "range": {
+        "startLine": 2286,
+        "startChar": 25,
+        "endLine": 2286,
+        "endChar": 55
+      },
+      "revId": "5c7d76ab4a53410b9ecd8c102de65463e75d53fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
