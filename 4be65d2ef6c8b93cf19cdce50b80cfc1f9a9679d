@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "287c78a3_1b58a32a",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 5445,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-18T17:51:47Z",
+      "side": 1,
+      "message": "I am not sure I follow. After suggestions, we only have two cases of \"CreateReferenceTypeInfoAndFixError\" left. So now you are saying that one of these should be \"CreateReferenceTypeInfoAndFixErrorToInvalid\" (while the other will remain the \"CreateReferenceTypeInfoAndFixErrorToInexactObject\")?",
+      "parentUuid": "0b732e96_da6505ab",
+      "range": {
+        "startLine": 5445,
+        "startChar": 28,
+        "endLine": 5445,
+        "endChar": 49
+      },
+      "revId": "4be65d2ef6c8b93cf19cdce50b80cfc1f9a9679d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b732e96_5a7ad546",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 8
@@ -120,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "287c78a3_7b7437ce",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-18T17:51:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b732e96_5a7ad546",
+      "range": {
+        "startLine": 253,
+        "startChar": 39,
+        "endLine": 253,
+        "endChar": 81
+      },
+      "revId": "4be65d2ef6c8b93cf19cdce50b80cfc1f9a9679d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b732e96_3a7d193e",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 8
@@ -131,6 +179,30 @@
       "writtenOn": "2016-04-18T17:31:59Z",
       "side": 1,
       "message": "ditto.",
+      "range": {
+        "startLine": 544,
+        "startChar": 6,
+        "endLine": 544,
+        "endChar": 53
+      },
+      "revId": "4be65d2ef6c8b93cf19cdce50b80cfc1f9a9679d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "287c78a3_db622b11",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-18T17:51:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b732e96_3a7d193e",
       "range": {
         "startLine": 544,
         "startChar": 6,
