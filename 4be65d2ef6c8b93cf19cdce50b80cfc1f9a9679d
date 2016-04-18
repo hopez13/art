@@ -70,6 +70,76 @@
       "revId": "4be65d2ef6c8b93cf19cdce50b80cfc1f9a9679d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_da6505ab",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 5445,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-18T17:31:59Z",
+      "side": 1,
+      "message": "Yes, I also prefer to make it invalid (option a). We already have a special handling for LoadedClass and it\u0027s easier than creating a special case.",
+      "parentUuid": "0b732e96_7aa07115",
+      "range": {
+        "startLine": 5445,
+        "startChar": 28,
+        "endLine": 5445,
+        "endChar": 49
+      },
+      "revId": "4be65d2ef6c8b93cf19cdce50b80cfc1f9a9679d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_5a7ad546",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-18T17:31:59Z",
+      "side": 1,
+      "message": "you can keep Create here. We know that object will not be erroneous.",
+      "range": {
+        "startLine": 253,
+        "startChar": 39,
+        "endLine": 253,
+        "endChar": 81
+      },
+      "revId": "4be65d2ef6c8b93cf19cdce50b80cfc1f9a9679d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b732e96_3a7d193e",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-18T17:31:59Z",
+      "side": 1,
+      "message": "ditto.",
+      "range": {
+        "startLine": 544,
+        "startChar": 6,
+        "endLine": 544,
+        "endChar": 53
+      },
+      "revId": "4be65d2ef6c8b93cf19cdce50b80cfc1f9a9679d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
