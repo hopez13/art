@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "48c60c32_0e9aab8c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 5445,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-18T21:48:47Z",
+      "side": 1,
+      "message": "I think the situation we need to have is\n- The rtp of HInstruction can never be invalid or erroneous. If it\u0027s erroneous, we fallback to inexact Object\n- The LoadedClassRti of a HLoadClass needs to be exact or invalid. If the class is unresolved or erroneous, we make it invalid.\n\nDoes that clarify the situation?",
+      "parentUuid": "287c78a3_db978bc2",
+      "range": {
+        "startLine": 5445,
+        "startChar": 28,
+        "endLine": 5445,
+        "endChar": 49
+      },
+      "revId": "4be65d2ef6c8b93cf19cdce50b80cfc1f9a9679d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b732e96_5a7ad546",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 8
