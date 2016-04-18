@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "0b732e96_dae0a544",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 5445,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-18T17:56:53Z",
+      "side": 1,
+      "message": "I\u0027ll leave it up to you if you want to have the helpers. I don\u0027t think they are really needed as it\u0027s easy to test locally if the class is erroneous or not.\n\nfor e.g. in VisitLoadClass()\n\nthe check to set it  will be:\nif (resolved_class !\u003d nullptr \u0026\u0026 !resolved_class-\u003eIsErroneous()).",
+      "parentUuid": "287c78a3_1b58a32a",
+      "range": {
+        "startLine": 5445,
+        "startChar": 28,
+        "endLine": 5445,
+        "endChar": 49
+      },
+      "revId": "4be65d2ef6c8b93cf19cdce50b80cfc1f9a9679d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b732e96_5a7ad546",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 8
