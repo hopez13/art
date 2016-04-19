@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0815f483_a479a2cb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-19T09:50:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0815f483_842d86d9",
+      "revId": "d49a90fb356594860651fbec4b8de5e317812dff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0815f483_a430822f",
         "filename": "test/570-checker-osr/src/Main.java",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2016-04-19T09:33:38Z",
       "side": 1,
       "message": "This doesn\u0027t sound related to OSR.",
+      "range": {
+        "startLine": 195,
+        "startChar": 4,
+        "endLine": 196,
+        "endChar": 65
+      },
+      "revId": "d49a90fb356594860651fbec4b8de5e317812dff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0815f483_048b5614",
+        "filename": "test/570-checker-osr/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-19T09:50:34Z",
+      "side": 1,
+      "message": "Changed the copy-pasted comment.",
+      "parentUuid": "0815f483_a430822f",
       "range": {
         "startLine": 195,
         "startChar": 4,
