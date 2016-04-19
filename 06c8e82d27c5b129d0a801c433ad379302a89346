@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8cf8871_e18386f5",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-19T13:14:46Z",
+      "side": 1,
+      "message": "I think the policy is to LOG(FATAL) invalid filters.",
+      "range": {
+        "startLine": 546,
+        "startChar": 6,
+        "endLine": 546,
+        "endChar": 32
+      },
+      "revId": "06c8e82d27c5b129d0a801c433ad379302a89346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88d6440b_0049465c",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-04-19T13:14:46Z",
+      "side": 1,
+      "message": "initialize in constructor.",
+      "range": {
+        "startLine": 707,
+        "startChar": 60,
+        "endLine": 707,
+        "endChar": 82
+      },
+      "revId": "06c8e82d27c5b129d0a801c433ad379302a89346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
