@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0815f483_446eeefe",
+        "filename": "test/570-checker-osr/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-04-19T09:57:36Z",
+      "side": 1,
+      "message": "For this test we need an inlined loop and have DCE re-run loop analysis after inlining.",
+      "range": {
+        "startLine": 195,
+        "startChar": 7,
+        "endLine": 196,
+        "endChar": 82
+      },
+      "revId": "d27030edb2938b9d8d106012bf215847f0faae7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
