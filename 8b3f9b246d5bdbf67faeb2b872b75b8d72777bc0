@@ -16,6 +16,24 @@
       "revId": "8b3f9b246d5bdbf67faeb2b872b75b8d72777bc0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a82a28bd_52098512",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-19T16:21:40Z",
+      "side": 1,
+      "message": "It is needed for the erroneous test.\nOtherwise I would have used\n\nklass !\u003d nullptr \u0026\u0026 !klass-\u003eIsErroneous()\n\nand used the single else",
+      "parentUuid": "0815f483_44954e2b",
+      "revId": "8b3f9b246d5bdbf67faeb2b872b75b8d72777bc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
