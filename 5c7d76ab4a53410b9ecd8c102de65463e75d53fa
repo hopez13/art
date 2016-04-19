@@ -59,6 +59,30 @@
     },
     {
       "key": {
+        "uuid": "0815f483_6417aa8e",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-04-19T09:27:02Z",
+      "side": 1,
+      "message": "Do you mean renaming the variable to \"kSinglePositiveInfinity\" (and \"kDoublePositiveInfinity\" respectively)?",
+      "parentUuid": "287c78a3_898b0913",
+      "range": {
+        "startLine": 35,
+        "startChar": 26,
+        "endLine": 35,
+        "endChar": 49
+      },
+      "revId": "5c7d76ab4a53410b9ecd8c102de65463e75d53fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b302ace_81a94eec",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
