@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0815f483_e45c3a56",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1246,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-04-19T10:02:29Z",
+      "side": 1,
+      "message": "Same as below, you only need to compare return types to preserve type consistency after GVN, don\u0027t you? This case is arguably more complicated because it you would still GVN IGETs with the same field offset on different classes. Could we compare the class idx (in FieldInfo) in InstructionDataEqual instead?",
+      "range": {
+        "startLine": 1246,
+        "startChar": 9,
+        "endLine": 1246,
+        "endChar": 53
+      },
+      "revId": "60efa3a3be0c119b6f76522d2a2759ef166dc3f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0815f483_c4801eec",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1251,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-04-19T10:02:29Z",
+      "side": 1,
+      "message": "I still think you\u0027re being too conservative here. At least for primitive types (wouldn\u0027t go so far with RTP), the return type of the HArrayGet always matches the component type of the input array. That\u0027s guaranteed by the verifier and I/F aliasing is resolved in the SsaBuilder.\n\nThe fact that the input array (Invoke) is replaced with the inlined NullConstant doesn\u0027t make a difference, so why not compare the return types instead? That can be in the generic Equals method and you don\u0027t need any additional virtual calls.",
+      "range": {
+        "startLine": 1251,
+        "startChar": 5,
+        "endLine": 1251,
+        "endChar": 56
+      },
+      "revId": "60efa3a3be0c119b6f76522d2a2759ef166dc3f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
