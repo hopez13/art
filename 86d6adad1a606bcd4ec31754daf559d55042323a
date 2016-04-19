@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8c11c6e_e0dc7602",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-04-19T19:05:37Z",
+      "side": 1,
+      "message": "We still need \"POISON_HEAP_REF edx\" before this movl as this is a field in the heap, not a dex cache GcRoot.",
+      "revId": "86d6adad1a606bcd4ec31754daf559d55042323a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
