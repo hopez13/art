@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a82a28bd_b2756198",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1246,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-04-19T19:03:38Z",
+      "side": 1,
+      "message": "The offset comparison is taken care of by InstructionDataEquals(). This method strictly only compares inputs. And HNullConstant is considered different from each other for just field loads.",
+      "parentUuid": "0815f483_e45c3a56",
+      "range": {
+        "startLine": 1246,
+        "startChar": 9,
+        "endLine": 1246,
+        "endChar": 53
+      },
+      "revId": "60efa3a3be0c119b6f76522d2a2759ef166dc3f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0815f483_c4801eec",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-04-19T10:02:29Z",
       "side": 1,
       "message": "I still think you\u0027re being too conservative here. At least for primitive types (wouldn\u0027t go so far with RTP), the return type of the HArrayGet always matches the component type of the input array. That\u0027s guaranteed by the verifier and I/F aliasing is resolved in the SsaBuilder.\n\nThe fact that the input array (Invoke) is replaced with the inlined NullConstant doesn\u0027t make a difference, so why not compare the return types instead? That can be in the generic Equals method and you don\u0027t need any additional virtual calls.",
+      "range": {
+        "startLine": 1251,
+        "startChar": 5,
+        "endLine": 1251,
+        "endChar": 56
+      },
+      "revId": "60efa3a3be0c119b6f76522d2a2759ef166dc3f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a82a28bd_f277d95a",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1251,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-04-19T19:03:38Z",
+      "side": 1,
+      "message": "This is a really rare case and I don\u0027t think we are trying to squeeze out performance here. The null check proceeding the instruction will throw exception.\n\nTreating NullConstant as different for field load is conceptually simple since null can represent different object types. We don\u0027t need to make Equals() complex by requiring mutator lock (for non primitive type case).\n\nFor the additional virtual call, I just renamed InstructionTypeEquals() to InstructionKindEquals() and got rid of one virtual call. I can use InstructionTypeEquals() for this bug and override that one, but that method seems misnamed in the first place.",
+      "parentUuid": "0815f483_c4801eec",
       "range": {
         "startLine": 1251,
         "startChar": 5,
