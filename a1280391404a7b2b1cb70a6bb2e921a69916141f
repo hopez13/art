@@ -92,6 +92,30 @@
       "revId": "a1280391404a7b2b1cb70a6bb2e921a69916141f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8659cc5_ba8a110e",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1461,
+      "author": {
+        "id": 1039815
+      },
+      "writtenOn": "2016-04-20T10:35:46Z",
+      "side": 1,
+      "message": "Why not wait for DCE?",
+      "parentUuid": "4b79a672_f9b2d326",
+      "range": {
+        "startLine": 1461,
+        "startChar": 4,
+        "endLine": 1461,
+        "endChar": 47
+      },
+      "revId": "a1280391404a7b2b1cb70a6bb2e921a69916141f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
