@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e8a6e026_cb1b95b6",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2016-04-20T10:36:59Z",
+      "side": 1,
+      "message": "to be consistent to other code.",
+      "parentUuid": "a868689f_b9213fea",
+      "range": {
+        "startLine": 945,
+        "startChar": 4,
+        "endLine": 945,
+        "endChar": 47
+      },
+      "revId": "a1280391404a7b2b1cb70a6bb2e921a69916141f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8a6e026_ab1c49b2",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
