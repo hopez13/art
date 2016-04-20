@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a868689f_b9213fea",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1039815
+      },
+      "writtenOn": "2016-04-20T10:35:00Z",
+      "side": 1,
+      "message": "DCE will do it anyways.",
+      "parentUuid": "4b79a672_19c86f94",
+      "range": {
+        "startLine": 945,
+        "startChar": 4,
+        "endLine": 945,
+        "endChar": 47
+      },
+      "revId": "a1280391404a7b2b1cb70a6bb2e921a69916141f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8a6e026_ab1c49b2",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 1
