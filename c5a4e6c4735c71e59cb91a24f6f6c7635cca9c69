@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e85340c8_49eca5ab",
+        "filename": "runtime/globals.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-20T08:22:38Z",
+      "side": 1,
+      "message": "Yes, that\u0027s fine, though I wouldn\u0027t care too much for 5 or 6. That\u0027s only relevant if there\u0027s an kIsTargetLinux without a kIsTargetBuild, which is already bad.\n\nAnyways, yes, this was what I implied with the comment below (which actually is the larger covering thing). This should be inside the ifdef in line 55.",
+      "parentUuid": "28163890_6558462c",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 5
+      },
+      "revId": "c5a4e6c4735c71e59cb91a24f6f6c7635cca9c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bc632da_d86d1406",
         "filename": "runtime/globals.h",
         "patchSetId": 1
