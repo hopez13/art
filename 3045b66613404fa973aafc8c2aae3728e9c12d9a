@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e85340c8_8f9b783d",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-20T21:50:49Z",
+      "side": 1,
+      "message": "So this is only for the (common) case that we\u0027re asked to open an APK. If I traced it correctly, HasOriginalDexFiles will be false if we\u0027re asked to open an actual dex file, in which case line 459f is relevant. Don\u0027t know how to fix that...",
+      "range": {
+        "startLine": 452,
+        "startChar": 10,
+        "endLine": 453,
+        "endChar": 60
+      },
+      "revId": "3045b66613404fa973aafc8c2aae3728e9c12d9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
