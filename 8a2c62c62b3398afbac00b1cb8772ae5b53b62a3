@@ -22,6 +22,30 @@
       "revId": "8a2c62c62b3398afbac00b1cb8772ae5b53b62a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e85340c8_4f5a6059",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-20T21:46:13Z",
+      "side": 1,
+      "message": "Yeah, so in a couple of years, when we catch up with the current upstream... :-(",
+      "parentUuid": "e85340c8_4ce7ce26",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 21
+      },
+      "revId": "8a2c62c62b3398afbac00b1cb8772ae5b53b62a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
