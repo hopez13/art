@@ -83,6 +83,30 @@
     },
     {
       "key": {
+        "uuid": "e85340c8_a53bf5ab",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-20T23:33:36Z",
+      "side": 1,
+      "message": "Actually I meant more Single-\u003eFloat\n(and keep Double as is).\n\nThis is a bit more consistent with all our other namings related to FP intrinsics.\n\nJust a nit",
+      "parentUuid": "0815f483_6417aa8e",
+      "range": {
+        "startLine": 35,
+        "startChar": 26,
+        "endLine": 35,
+        "endChar": 49
+      },
+      "revId": "5c7d76ab4a53410b9ecd8c102de65463e75d53fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b302ace_81a94eec",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
