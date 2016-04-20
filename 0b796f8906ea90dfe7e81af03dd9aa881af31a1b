@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8a6e026_eb8db1b6",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-20T17:56:02Z",
+      "side": 1,
+      "message": "Nit: `to_copy` is ambiguous to me: it could mean \"to be copied\" or \"destination of the copy\".  I think something like \"other\" or \"that\" might be less ambiguous, but it\u0027s your call.",
+      "range": {
+        "startLine": 65,
+        "startChar": 36,
+        "endLine": 65,
+        "endChar": 43
+      },
+      "revId": "0b796f8906ea90dfe7e81af03dd9aa881af31a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8a6e026_0b959db9",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-20T17:56:02Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 159,
+        "startChar": 44,
+        "endLine": 159,
+        "endChar": 51
+      },
+      "revId": "0b796f8906ea90dfe7e81af03dd9aa881af31a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8a6e026_6ba26121",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-20T17:56:02Z",
+      "side": 1,
+      "message": "Add\n\n  \u003c\u003c \"Could not find set for B\" \u003c\u003c block-\u003eGetBlockId()\n\nas you did in line 363?",
+      "revId": "0b796f8906ea90dfe7e81af03dd9aa881af31a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8a6e026_4b9fa5d7",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-20T17:56:02Z",
+      "side": 1,
+      "message": "`visited_blocks_`?",
+      "range": {
+        "startLine": 388,
+        "startChar": 17,
+        "endLine": 388,
+        "endChar": 31
+      },
+      "revId": "0b796f8906ea90dfe7e81af03dd9aa881af31a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8a6e026_ab6c4998",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-20T17:56:02Z",
+      "side": 1,
+      "message": "`dominated`?",
+      "range": {
+        "startLine": 502,
+        "startChar": 12,
+        "endLine": 502,
+        "endChar": 19
+      },
+      "revId": "0b796f8906ea90dfe7e81af03dd9aa881af31a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8a6e026_eb6651b6",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-20T17:56:02Z",
+      "side": 1,
+      "message": "As discussed offline, it would be nice to add a small comment on your selection strategy choice (\"better get an exact match than a non exact one\" + \"WillBeReferencedAgain is not cheap\").",
+      "range": {
+        "startLine": 529,
+        "startChar": 4,
+        "endLine": 538,
+        "endChar": 5
+      },
+      "revId": "0b796f8906ea90dfe7e81af03dd9aa881af31a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
