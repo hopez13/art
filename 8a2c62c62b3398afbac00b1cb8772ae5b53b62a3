@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e85340c8_4ce7ce26",
+        "filename": "runtime/arch/x86/thread_x86.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1090553
+      },
+      "writtenOn": "2016-04-20T21:36:27Z",
+      "side": 1,
+      "message": "Just a heads up:\n\nset_thread_area has bizarre semantics.  If you call set_thread_area while a selector (DS, ES, FS, or GS, but not CS or SS) already points to the GDT entry being edited, the resulting segment base in the CPU state is undefined *and may spontaneously change at unpredictable times* until you reload the segment register.  So you need this movw unconditionally.\n\nI\u0027m planning on changing this soon: if you use set_thread_area to change a currently loaded segment, the base will be updated immediately.  But that won\u0027t happen until 4.7 at the earliest.\n\nAlso, if you use CLONE_SETTLS instead, the update is effective immediately when the thread starts.\n\nOn a semi-related note, if you want to speed Thread creation on 64-bit systems, WRGSBASE is coming soon :)",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 21
+      },
+      "revId": "8a2c62c62b3398afbac00b1cb8772ae5b53b62a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
