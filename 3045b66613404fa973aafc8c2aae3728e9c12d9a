@@ -94,6 +94,30 @@
       "revId": "3045b66613404fa973aafc8c2aae3728e9c12d9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e85340c8_8a42793c",
+        "filename": "runtime/oat_file_manager.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-21T21:22:19Z",
+      "side": 1,
+      "message": "Huh?\n\nWhat I am saying: assume\n PathClassLoader(\"/data/local/tmp/x.dex\")\nwith x.dex being a bad version.\n\nThen the code would tell you !HasOriginalDexFiles, even though there *are* dex files, just invalid ones. So you would *not* get the message about the invalid version, but the message in line 459.\n\nYou only ever get here for APKs, because it\u0027s not attempting to load the dex files there (just inspecting the zip for a classes.dex entry, and the right checksum, maybe).\n\n(It\u0027s a minor nit and not blocking, as I don\u0027t know how to fix it nicely without doing double or triple work.)",
+      "parentUuid": "e85340c8_fe1bb3b5",
+      "range": {
+        "startLine": 452,
+        "startChar": 10,
+        "endLine": 453,
+        "endChar": 60
+      },
+      "revId": "3045b66613404fa973aafc8c2aae3728e9c12d9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
