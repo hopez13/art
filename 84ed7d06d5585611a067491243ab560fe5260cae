@@ -22,6 +22,30 @@
       "revId": "84ed7d06d5585611a067491243ab560fe5260cae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e85340c8_0028b732",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-21T00:40:26Z",
+      "side": 0,
+      "message": "(Or actuall CALLVAR)",
+      "parentUuid": "e85340c8_60d16b73",
+      "range": {
+        "startLine": 952,
+        "startChar": 9,
+        "endLine": 952,
+        "endChar": 12
+      },
+      "revId": "84ed7d06d5585611a067491243ab560fe5260cae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
