@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e8a6e026_ab50c9af",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-04-21T08:06:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8a6e026_eb8db1b6",
+      "range": {
+        "startLine": 65,
+        "startChar": 36,
+        "endLine": 65,
+        "endChar": 43
+      },
+      "revId": "0b796f8906ea90dfe7e81af03dd9aa881af31a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8a6e026_0b959db9",
         "filename": "compiler/optimizing/gvn.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-04-20T17:56:02Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 159,
+        "startChar": 44,
+        "endLine": 159,
+        "endChar": 51
+      },
+      "revId": "0b796f8906ea90dfe7e81af03dd9aa881af31a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8a6e026_8b550da0",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-04-21T08:06:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8a6e026_0b959db9",
       "range": {
         "startLine": 159,
         "startChar": 44,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "e8a6e026_eb4ad1fd",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-04-21T08:06:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8a6e026_6ba26121",
+      "revId": "0b796f8906ea90dfe7e81af03dd9aa881af31a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8a6e026_4b9fa5d7",
         "filename": "compiler/optimizing/gvn.cc",
         "patchSetId": 2
@@ -76,6 +142,30 @@
       "writtenOn": "2016-04-20T17:56:02Z",
       "side": 1,
       "message": "`visited_blocks_`?",
+      "range": {
+        "startLine": 388,
+        "startChar": 17,
+        "endLine": 388,
+        "endChar": 31
+      },
+      "revId": "0b796f8906ea90dfe7e81af03dd9aa881af31a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8a6e026_cb4f150c",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-04-21T08:06:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8a6e026_4b9fa5d7",
       "range": {
         "startLine": 388,
         "startChar": 17,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "e8a6e026_0b62bd80",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-04-21T08:06:42Z",
+      "side": 1,
+      "message": "You might be right. Dominee is apparently a minister of the Dutch church. :D",
+      "parentUuid": "e8a6e026_ab6c4998",
+      "range": {
+        "startLine": 502,
+        "startChar": 12,
+        "endLine": 502,
+        "endChar": 19
+      },
+      "revId": "0b796f8906ea90dfe7e81af03dd9aa881af31a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8a6e026_eb6651b6",
         "filename": "compiler/optimizing/gvn.cc",
         "patchSetId": 2
@@ -122,6 +236,30 @@
       "writtenOn": "2016-04-20T17:56:02Z",
       "side": 1,
       "message": "As discussed offline, it would be nice to add a small comment on your selection strategy choice (\"better get an exact match than a non exact one\" + \"WillBeReferencedAgain is not cheap\").",
+      "range": {
+        "startLine": 529,
+        "startChar": 4,
+        "endLine": 538,
+        "endChar": 5
+      },
+      "revId": "0b796f8906ea90dfe7e81af03dd9aa881af31a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8a6e026_6b5f01b9",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-04-21T08:06:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8a6e026_eb6651b6",
       "range": {
         "startLine": 529,
         "startChar": 4,
