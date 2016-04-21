@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e8a6e026_ce09e382",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-04-21T14:06:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e89420c3_5bf823d4",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 54
+      },
+      "revId": "cc857cfbe4a179dfa7935b7334f1efbb21f2ac76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8a6e026_8ebd1bdb",
         "filename": "compiler/optimizing/gvn.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2016-04-21T13:00:43Z",
       "side": 1,
       "message": "comment please",
+      "range": {
+        "startLine": 159,
+        "startChar": 56,
+        "endLine": 159,
+        "endChar": 64
+      },
+      "revId": "cc857cfbe4a179dfa7935b7334f1efbb21f2ac76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8a6e026_2effc777",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-04-21T14:06:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8a6e026_8ebd1bdb",
       "range": {
         "startLine": 159,
         "startChar": 56,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e8a6e026_0efc8b7f",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-04-21T14:06:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8a6e026_ceb723f7",
+      "range": {
+        "startLine": 428,
+        "startChar": 6,
+        "endLine": 428,
+        "endChar": 35
+      },
+      "revId": "cc857cfbe4a179dfa7935b7334f1efbb21f2ac76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8a6e026_2ecd0784",
         "filename": "compiler/optimizing/gvn.cc",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2016-04-21T13:00:43Z",
       "side": 1,
       "message": "Explain why you pass dominator_set as a reference. I guess that\u0027s because you know the size of the resulting set will be lower than the dominator_set?",
+      "range": {
+        "startLine": 430,
+        "startChar": 74,
+        "endLine": 430,
+        "endChar": 87
+      },
+      "revId": "cc857cfbe4a179dfa7935b7334f1efbb21f2ac76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8a6e026_8e387b22",
+        "filename": "compiler/optimizing/gvn.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-04-21T14:06:15Z",
+      "side": 1,
+      "message": "Huh? It can be both larger and smaller at the end of that iteration, depending on how much you add and kill... You\u0027re right that we start with `dominator_set` and only kill until line 466. Then it can grow again.\n\nIn the end it\u0027s just a sensible heuristic. You look at how much you\u0027re putting in the set before you start adding/killing. You\u0027re guaranteed at most 0.75 load factor, so that gives you some wiggling space.\n\nIf you used a predecessor, you\u0027re risking that the kills until 466 will not have a constant lookup.\n\nAdded a short comment, let me know if that\u0027s enough.",
+      "parentUuid": "e8a6e026_2ecd0784",
       "range": {
         "startLine": 430,
         "startChar": 74,
