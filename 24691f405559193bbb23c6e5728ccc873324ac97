@@ -59,6 +59,30 @@
     },
     {
       "key": {
+        "uuid": "483e0c9d_117a0ebf",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2232,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-04-22T18:15:35Z",
+      "side": 1,
+      "message": "Alternatively, change \"bool is64bit\" above to \"Primitive::Type type\", and pass \"Primitive::kPrimFloat\" here, and \"Primitive::kPrimDouble\" below. This will also require that you change the tests which use is64bit above to compare \"type\" against Primitive::kPrimFloat/Primitive::kPrimDouble. If you want an example see GenMinMaxFP() in compiler/optimizing/intrinsics_mips64.cc. I\u0027m good either way but thought I\u0027d comment since Aart is asking for the addition of comments here, and below.",
+      "parentUuid": "e85340c8_3055eacc",
+      "range": {
+        "startLine": 2232,
+        "startChar": 39,
+        "endLine": 2232,
+        "endChar": 40
+      },
+      "revId": "24691f405559193bbb23c6e5728ccc873324ac97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e85340c8_505ae6fc",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
