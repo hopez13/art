@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "a87f884b_67e0e6df",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-22T10:03:01Z",
+      "side": 1,
+      "message": "Nit: Baker",
+      "range": {
+        "startLine": 7,
+        "startChar": 43,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "83c1a3db838d05a85e2a07d10ca52d567896e9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "289d58d4_56abca99",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-22T10:03:01Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 71,
+        "startChar": 17,
+        "endLine": 71,
+        "endChar": 22
+      },
+      "revId": "83c1a3db838d05a85e2a07d10ca52d567896e9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "288b98a4_80a5d877",
         "filename": "runtime/gc/collector/concurrent_copying-inl.h",
         "patchSetId": 1
@@ -71,6 +117,29 @@
     },
     {
       "key": {
+        "uuid": "289d58d4_f6b2b608",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-22T10:03:01Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 324,
+        "startChar": 15,
+        "endLine": 324,
+        "endChar": 20
+      },
+      "revId": "83c1a3db838d05a85e2a07d10ca52d567896e9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4879ac72_f992d3d3",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
@@ -87,6 +156,29 @@
         "startChar": 0,
         "endLine": 343,
         "endChar": 7
+      },
+      "revId": "83c1a3db838d05a85e2a07d10ca52d567896e9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8a6e026_ee549fd2",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-22T10:03:01Z",
+      "side": 1,
+      "message": "Maybe remove?",
+      "range": {
+        "startLine": 708,
+        "startChar": 30,
+        "endLine": 708,
+        "endChar": 34
       },
       "revId": "83c1a3db838d05a85e2a07d10ca52d567896e9d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
