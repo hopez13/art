@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e8a6e026_aef9f7df",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-04-22T13:34:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "287c78a3_4943b192",
+      "revId": "5c7d76ab4a53410b9ecd8c102de65463e75d53fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "287c78a3_0945b993",
         "filename": "compiler/optimizing/intrinsics.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-04-18T19:15:31Z",
       "side": 1,
       "message": "please follow style guide, period at end",
+      "revId": "5c7d76ab4a53410b9ecd8c102de65463e75d53fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8a6e026_0ed3eb1f",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-04-22T13:34:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "287c78a3_0945b993",
       "revId": "5c7d76ab4a53410b9ecd8c102de65463e75d53fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -107,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "e8a6e026_4eddf325",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-04-22T13:34:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e85340c8_a53bf5ab",
+      "range": {
+        "startLine": 35,
+        "startChar": 26,
+        "endLine": 35,
+        "endChar": 49
+      },
+      "revId": "5c7d76ab4a53410b9ecd8c102de65463e75d53fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b302ace_81a94eec",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
@@ -130,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "e89420c3_5bc3c377",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2024,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-04-22T13:34:23Z",
+      "side": 1,
+      "message": "Unfortunately, High32Bits() can\u0027t be used together with static_assert().",
+      "parentUuid": "6b302ace_81a94eec",
+      "range": {
+        "startLine": 2024,
+        "startChar": 52,
+        "endLine": 2024,
+        "endChar": 105
+      },
+      "revId": "5c7d76ab4a53410b9ecd8c102de65463e75d53fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b302ace_c1c266a7",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 1
@@ -141,6 +225,30 @@
       "writtenOn": "2016-04-18T18:45:21Z",
       "side": 1,
       "message": "Replace with \"High32Bits(kPositiveInfinityDouble)\".",
+      "range": {
+        "startLine": 2286,
+        "startChar": 25,
+        "endLine": 2286,
+        "endChar": 55
+      },
+      "revId": "5c7d76ab4a53410b9ecd8c102de65463e75d53fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8659cc5_9d6e27ff",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2286,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-04-22T13:34:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b302ace_c1c266a7",
       "range": {
         "startLine": 2286,
         "startChar": 25,
