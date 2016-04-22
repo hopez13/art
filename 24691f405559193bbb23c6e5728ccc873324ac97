@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e85340c8_1029ce7a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-22T18:05:15Z",
+      "side": 1,
+      "message": "Next time I better be careful what I wish for :-)\nBut thanks for adding this explanation.",
+      "revId": "24691f405559193bbb23c6e5728ccc873324ac97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e85340c8_30eaca53",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-22T18:05:15Z",
+      "side": 1,
+      "message": "I would remove L34 and L35, and just keep L33. The rest is clear from the name, I would guess",
+      "revId": "24691f405559193bbb23c6e5728ccc873324ac97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e85340c8_3055eacc",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2232,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-22T18:05:15Z",
+      "side": 1,
+      "message": "/* is64bit */",
+      "range": {
+        "startLine": 2232,
+        "startChar": 39,
+        "endLine": 2232,
+        "endChar": 40
+      },
+      "revId": "24691f405559193bbb23c6e5728ccc873324ac97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e85340c8_505ae6fc",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2240,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-22T18:05:15Z",
+      "side": 1,
+      "message": "/* is64bit */",
+      "revId": "24691f405559193bbb23c6e5728ccc873324ac97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
