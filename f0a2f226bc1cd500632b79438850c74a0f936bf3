@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e85340c8_0212d6e9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-04-25T20:53:56Z",
+      "side": 1,
+      "message": "Because that is how Java works, e.g., b/19683465",
+      "range": {
+        "startLine": 14,
+        "startChar": 1,
+        "endLine": 15,
+        "endChar": 27
+      },
+      "revId": "f0a2f226bc1cd500632b79438850c74a0f936bf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a87f884b_f5e100b8",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 1
