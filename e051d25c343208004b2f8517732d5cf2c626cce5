@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2874787a_b80f7586",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-25T10:50:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "289d58d4_6149de5c",
+      "range": {
+        "startLine": 356,
+        "startChar": 2,
+        "endLine": 357,
+        "endChar": 37
+      },
+      "revId": "e051d25c343208004b2f8517732d5cf2c626cce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88864495_e3806c29",
         "filename": "runtime/base/arena_allocator.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-04-25T09:28:01Z",
       "side": 1,
       "message": "Which arena are you talking about here? Sry, maybe my morning coffee hasn\u0027t kicked in yet.",
+      "range": {
+        "startLine": 360,
+        "startChar": 7,
+        "endLine": 360,
+        "endChar": 80
+      },
+      "revId": "e051d25c343208004b2f8517732d5cf2c626cce5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e89420c3_fe855d36",
+        "filename": "runtime/base/arena_allocator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-25T10:50:11Z",
+      "side": 1,
+      "message": "The old arena is `*arena_head_`.",
+      "parentUuid": "88864495_e3806c29",
       "range": {
         "startLine": 360,
         "startChar": 7,
