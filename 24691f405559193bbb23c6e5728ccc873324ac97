@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "288b98a4_e01cdc01",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-04-25T16:19:40Z",
+      "side": 1,
+      "message": "Too verbose :-)? If you think that something is unnecessary, I can remove it, but I wanted to make the reasoning behind my decision as clear as possible.",
+      "parentUuid": "e85340c8_1029ce7a",
+      "revId": "24691f405559193bbb23c6e5728ccc873324ac97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e85340c8_30eaca53",
         "filename": "compiler/optimizing/intrinsics.h",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2016-04-22T18:05:15Z",
       "side": 1,
       "message": "I would remove L34 and L35, and just keep L33. The rest is clear from the name, I would guess",
+      "revId": "24691f405559193bbb23c6e5728ccc873324ac97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2874787a_78bebd80",
+        "filename": "compiler/optimizing/intrinsics.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-04-25T16:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e85340c8_30eaca53",
       "revId": "24691f405559193bbb23c6e5728ccc873324ac97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -83,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "288b98a4_c3360ac6",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2232,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-04-25T16:19:40Z",
+      "side": 1,
+      "message": "Thanks for the suggestion, but I\u0027d rather pass the minimal amount of information to the function, i.e. a bool.",
+      "parentUuid": "483e0c9d_117a0ebf",
+      "range": {
+        "startLine": 2232,
+        "startChar": 39,
+        "endLine": 2232,
+        "endChar": 40
+      },
+      "revId": "24691f405559193bbb23c6e5728ccc873324ac97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e85340c8_505ae6fc",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
@@ -94,6 +154,24 @@
       "writtenOn": "2016-04-22T18:05:15Z",
       "side": 1,
       "message": "/* is64bit */",
+      "revId": "24691f405559193bbb23c6e5728ccc873324ac97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c87cbc59_a8271f64",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2240,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-04-25T16:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e85340c8_505ae6fc",
       "revId": "24691f405559193bbb23c6e5728ccc873324ac97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
