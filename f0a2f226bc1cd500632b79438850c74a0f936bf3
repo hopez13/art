@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e85340c8_2d82637e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-25T23:13:05Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "e85340c8_0212d6e9",
+      "range": {
+        "startLine": 14,
+        "startChar": 1,
+        "endLine": 15,
+        "endChar": 27
+      },
+      "revId": "f0a2f226bc1cd500632b79438850c74a0f936bf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a87f884b_f5e100b8",
         "filename": "compiler/optimizing/reference_type_propagation.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-04-25T20:11:22Z",
       "side": 1,
       "message": "Sounds scary :)",
+      "range": {
+        "startLine": 51,
+        "startChar": 12,
+        "endLine": 51,
+        "endChar": 24
+      },
+      "revId": "f0a2f226bc1cd500632b79438850c74a0f936bf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e85340c8_0d79a74e",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-25T23:13:05Z",
+      "side": 1,
+      "message": "Supposed to be that way!",
+      "parentUuid": "a87f884b_f5e100b8",
       "range": {
         "startLine": 51,
         "startChar": 12,
