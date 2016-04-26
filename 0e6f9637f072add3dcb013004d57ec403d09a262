@@ -46,6 +46,30 @@
       "revId": "0e6f9637f072add3dcb013004d57ec403d09a262",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2898f932_de6785d9",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6259,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2016-04-26T16:52:11Z",
+      "side": 1,
+      "message": "Can you please let me know what ART configurations are still using GCC? We are planning to start removing support for GCC for anything other than vendor/ code (i.e. only 4 modules to my knowledge still can set LOCAL_CLANG :\u003d false, and ART is not one of them).",
+      "parentUuid": "289d58d4_877b3a48",
+      "range": {
+        "startLine": 6259,
+        "startChar": 8,
+        "endLine": 6259,
+        "endChar": 11
+      },
+      "revId": "0e6f9637f072add3dcb013004d57ec403d09a262",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
