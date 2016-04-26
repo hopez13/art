@@ -134,6 +134,63 @@
     },
     {
       "key": {
+        "uuid": "289d58d4_7c1185e4",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-26T15:03:54Z",
+      "side": 1,
+      "message": "Is this to \"promote\" temp0 from a W to an X register (before using it in a 64-bit move in line 1245)?  If so, I would add a comment.",
+      "range": {
+        "startLine": 1241,
+        "startChar": 2,
+        "endLine": 1241,
+        "endChar": 20
+      },
+      "revId": "69e58b855289d6b192e401c88c2e7cf73aaada54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8659cc5_0350f4aa",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1243,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-26T15:03:54Z",
+      "side": 1,
+      "message": "Mention in a comment that you are comparing four (4 * 16-bit) characters at a time in this loop?",
+      "revId": "69e58b855289d6b192e401c88c2e7cf73aaada54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2874787a_f8e48d57",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1253,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-26T15:03:54Z",
+      "side": 1,
+      "message": "Likewise, mention that you\u0027re comparing one (1 * 16-bit) character at a time in this loop?",
+      "revId": "69e58b855289d6b192e401c88c2e7cf73aaada54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "288b98a4_83e7a225",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -173,6 +230,29 @@
         "startChar": 0,
         "endLine": 1264,
         "endChar": 17
+      },
+      "revId": "69e58b855289d6b192e401c88c2e7cf73aaada54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "288b98a4_e3d5c635",
+        "filename": "runtime/arch/arm64/entrypoints_init_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-26T15:03:54Z",
+      "side": 1,
+      "message": "Maybe add a comment saying that this entrypoint is not needed on ARM64 the StringCompareTo intrinsics does not call the runtime?",
+      "range": {
+        "startLine": 137,
+        "startChar": 2,
+        "endLine": 137,
+        "endChar": 38
       },
       "revId": "69e58b855289d6b192e401c88c2e7cf73aaada54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
