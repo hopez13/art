@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a884e9cc_02a02a9f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6259,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2016-04-26T16:02:36Z",
+      "side": 1,
+      "message": "We don\u0027t use GCC any more. These should probably be \"clang\" instead. Alternatively, you can set the frame-larger-than value to something higher. The values there are just a heuristic, so perhaps you are only off by a few bytes (and it isn\u0027t worth hacking up this code, when you can just relax the threshold a bit).",
+      "range": {
+        "startLine": 6259,
+        "startChar": 8,
+        "endLine": 6259,
+        "endChar": 11
+      },
+      "revId": "0e6f9637f072add3dcb013004d57ec403d09a262",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
