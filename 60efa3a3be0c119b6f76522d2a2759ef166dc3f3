@@ -93,6 +93,30 @@
       "revId": "60efa3a3be0c119b6f76522d2a2759ef166dc3f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28e0f9df_fe5ec101",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1251,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-27T10:19:04Z",
+      "side": 1,
+      "message": "\u003e This is a really rare case and I don\u0027t think we are trying to\n \u003e squeeze out performance here. The null check proceeding the\n \u003e instruction will throw exception.\n \u003e \n \u003e Treating NullConstant as different for field load is conceptually\n \u003e simple since null can represent different object types. We don\u0027t\n \u003e need to make Equals() complex by requiring mutator lock (for non\n \u003e primitive type case).\n\nI agree. But just realized: we don\u0027t need the mutator lock was we\u0027re just doing a pointer comparison. Here\u0027s an alternative shorter CL that does what we should do, that is not GVN\u0027ing things that don\u0027t have the same type:\n\nhttps://android-review.googlesource.com/220683\n\n \u003e \n \u003e For the additional virtual call, I just renamed InstructionTypeEquals()\n \u003e to InstructionKindEquals() and got rid of one virtual call. I can\n \u003e use InstructionTypeEquals() for this bug and override that one, but\n \u003e that method seems misnamed in the first place.",
+      "parentUuid": "a82a28bd_f277d95a",
+      "range": {
+        "startLine": 1251,
+        "startChar": 5,
+        "endLine": 1251,
+        "endChar": 56
+      },
+      "revId": "60efa3a3be0c119b6f76522d2a2759ef166dc3f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
