@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a89a2976_d2dac426",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1177,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-04-27T14:05:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "289d58d4_7cc34578",
+      "range": {
+        "startLine": 1177,
+        "startChar": 60,
+        "endLine": 1177,
+        "endChar": 92
+      },
+      "revId": "69e58b855289d6b192e401c88c2e7cf73aaada54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8659cc5_a3be6824",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-04-26T14:15:11Z",
       "side": 1,
       "message": "Given the kOutputOverlap, why not\n\n    __ Subs(out, str, arg);\n    __ B(\u0026end, eq);",
+      "range": {
+        "startLine": 1217,
+        "startChar": 0,
+        "endLine": 1218,
+        "endChar": 25
+      },
+      "revId": "69e58b855289d6b192e401c88c2e7cf73aaada54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08c41560_d5c39c46",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1218,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-04-27T14:05:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8659cc5_a3be6824",
       "range": {
         "startLine": 1217,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "28c9d979_96c92c6d",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1224,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-04-27T14:05:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "288b98a4_6311b6e4",
+      "range": {
+        "startLine": 1223,
+        "startChar": 0,
+        "endLine": 1224,
+        "endChar": 30
+      },
+      "revId": "69e58b855289d6b192e401c88c2e7cf73aaada54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "289d58d4_5c43e9ee",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-04-26T14:15:11Z",
       "side": 1,
       "message": "Where did you set the condition? Should the \"__ Subs(out, temp0, temp1);\" be before this line? (That would also solve the problem that you didn\u0027t set \"out\" before the CBZ below.)",
+      "range": {
+        "startLine": 1226,
+        "startChar": 31,
+        "endLine": 1226,
+        "endChar": 33
+      },
+      "revId": "69e58b855289d6b192e401c88c2e7cf73aaada54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "889d6572_91c91c6d",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1226,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-04-27T14:05:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "289d58d4_5c43e9ee",
       "range": {
         "startLine": 1226,
         "startChar": 31,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "889d6572_b1c62058",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-04-27T14:05:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c87cbc59_eb5761fb",
+      "range": {
+        "startLine": 1227,
+        "startChar": 5,
+        "endLine": 1227,
+        "endChar": 13
+      },
+      "revId": "69e58b855289d6b192e401c88c2e7cf73aaada54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a87f884b_7525f09d",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -128,6 +248,24 @@
       "writtenOn": "2016-04-26T14:15:11Z",
       "side": 1,
       "message": "Please also repeat the alignment assertions from VisitStringEquals() - you\u0027re reading characters 4 at a time.",
+      "revId": "69e58b855289d6b192e401c88c2e7cf73aaada54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8b5c9db_7ab559dc",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1239,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-04-27T14:05:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a87f884b_7525f09d",
       "revId": "69e58b855289d6b192e401c88c2e7cf73aaada54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "a89a2976_7203d863",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-04-27T14:05:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "289d58d4_7c1185e4",
+      "range": {
+        "startLine": 1241,
+        "startChar": 2,
+        "endLine": 1241,
+        "endChar": 20
+      },
+      "revId": "69e58b855289d6b192e401c88c2e7cf73aaada54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8659cc5_0350f4aa",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -168,6 +330,24 @@
       "writtenOn": "2016-04-26T15:03:54Z",
       "side": 1,
       "message": "Mention in a comment that you are comparing four (4 * 16-bit) characters at a time in this loop?",
+      "revId": "69e58b855289d6b192e401c88c2e7cf73aaada54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28c9d979_f6c0a03c",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1243,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-04-27T14:05:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8659cc5_0350f4aa",
       "revId": "69e58b855289d6b192e401c88c2e7cf73aaada54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -191,6 +371,24 @@
     },
     {
       "key": {
+        "uuid": "28c9d979_d6c3a446",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1253,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-04-27T14:05:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2874787a_f8e48d57",
+      "revId": "69e58b855289d6b192e401c88c2e7cf73aaada54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "288b98a4_83e7a225",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -202,6 +400,30 @@
       "writtenOn": "2016-04-26T14:15:11Z",
       "side": 1,
       "message": "The fall-through to return_zero is wrong, we need to return the difference in lengths.\n\nYou can also do this without the loop:\n\n    // Get the bit position of the first character that differs.\n    temp1 \u003d temp0 ^ temp4;\n    temp1 \u003d RBIT(temp1);  // Or REV.\n    temp1 \u003d CLZ(temp1);\n    temp1 \u003d temp1 \u0026 ~15;  // BFIXL temp1, zr, #0, #4\n    if (temp2 \u003c (temp1 \u003e\u003e 4)) {  // CMP (shifted register)\n      goto end; // Alternatively do CSEL at the bottom.\n    }\n    // Extract the characters and calculate the difference.\n    temp0 \u003e\u003e\u003d temp1;\n    temp4 \u003e\u003e\u003d temp1;\n    temp0 \u0026\u003d 0xffff;  // UXTH\n    out \u003d temp0 - (temp4 \u0026 0xffff);  // SUB (extended register)",
+      "range": {
+        "startLine": 1254,
+        "startChar": 0,
+        "endLine": 1261,
+        "endChar": 28
+      },
+      "revId": "69e58b855289d6b192e401c88c2e7cf73aaada54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8b5c9db_fad7a9fb",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-04-27T14:05:29Z",
+      "side": 1,
+      "message": "Yes!",
+      "parentUuid": "288b98a4_83e7a225",
       "range": {
         "startLine": 1254,
         "startChar": 0,
@@ -237,6 +459,30 @@
     },
     {
       "key": {
+        "uuid": "68af5190_f8c0913c",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1264,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-04-27T14:05:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2874787a_38c7e5bd",
+      "range": {
+        "startLine": 1263,
+        "startChar": 0,
+        "endLine": 1264,
+        "endChar": 17
+      },
+      "revId": "69e58b855289d6b192e401c88c2e7cf73aaada54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "288b98a4_e3d5c635",
         "filename": "runtime/arch/arm64/entrypoints_init_arm64.cc",
         "patchSetId": 1
@@ -248,6 +494,30 @@
       "writtenOn": "2016-04-26T15:03:54Z",
       "side": 1,
       "message": "Maybe add a comment saying that this entrypoint is not needed on ARM64 the StringCompareTo intrinsics does not call the runtime?",
+      "range": {
+        "startLine": 137,
+        "startChar": 2,
+        "endLine": 137,
+        "endChar": 38
+      },
+      "revId": "69e58b855289d6b192e401c88c2e7cf73aaada54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28c9d979_566dd4f3",
+        "filename": "runtime/arch/arm64/entrypoints_init_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-04-27T14:05:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "288b98a4_e3d5c635",
       "range": {
         "startLine": 137,
         "startChar": 2,
