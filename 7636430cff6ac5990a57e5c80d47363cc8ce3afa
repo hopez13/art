@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48b28df7_174a7473",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-04-27T14:35:51Z",
+      "side": 1,
+      "message": "Nit: We\u0027re trying to use this style everywhere now (also, please use a 4-space indent):\n\n  invoke-\u003eInputAt(1)-\u003eCanBeNull()\n      ? LocationSummary::kCallOnSlowPath\n      : LocationSummary::kNoCall",
+      "range": {
+        "startLine": 1177,
+        "startChar": 61,
+        "endLine": 1179,
+        "endChar": 86
+      },
+      "revId": "7636430cff6ac5990a57e5c80d47363cc8ce3afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
