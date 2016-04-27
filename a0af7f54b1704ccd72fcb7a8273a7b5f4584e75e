@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "28c9d979_76e2d014",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-27T18:03:01Z",
+      "side": 1,
+      "message": "Previously, we would have called the wrong method, right? So, my vote goes to ThrowNoSuchMethodError(). We would not break anything that was previously working correctly.\n\nIf you think it\u0027s too radical for backward compatibility, check the dex file version and if it\u0027s \u003e\u003d 37, ThrowNoSuchmethodError(). If someone changes tools to generate version 37 and doesn\u0027t test that their app still works, it\u0027s their problem. (Though this approach will complicate the test.)",
+      "revId": "a0af7f54b1704ccd72fcb7a8273a7b5f4584e75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68083164_6517ac42",
         "filename": "test/594-invoke-super/src/Main.java",
         "patchSetId": 2
