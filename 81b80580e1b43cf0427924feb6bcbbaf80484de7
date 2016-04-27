@@ -16,6 +16,24 @@
       "revId": "81b80580e1b43cf0427924feb6bcbbaf80484de7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "889d6572_b1ab80e5",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-27T21:04:33Z",
+      "side": 1,
+      "message": "You\u0027re absolutely right, and we did discuss it with David earlier. We could say it\u0027s ok to have false negatives (so returning false while they are actually equal), but I guess we could come up with a very unlikely scenario of false positive.\n\nLet me see if I can add the ArtField to HFieldGet instead. This should do the trick.",
+      "parentUuid": "8801e53f_51b07404",
+      "revId": "81b80580e1b43cf0427924feb6bcbbaf80484de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
