@@ -22,6 +22,121 @@
       "revId": "7636430cff6ac5990a57e5c80d47363cc8ce3afa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8b5c9db_3a1da164",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1213,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-27T17:20:03Z",
+      "side": 1,
+      "message": "Avoid the allocation if you don\u0027t need it.",
+      "range": {
+        "startLine": 1213,
+        "startChar": 33,
+        "endLine": 1213,
+        "endChar": 85
+      },
+      "revId": "7636430cff6ac5990a57e5c80d47363cc8ce3afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8b5c9db_5a125553",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1251,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-27T17:20:03Z",
+      "side": 1,
+      "message": "We do not rely on the zeros here, we just need to be able to read the memory (satisfied by the alignment), we ignore the extra bits further down (lines 1274-1275).",
+      "range": {
+        "startLine": 1251,
+        "startChar": 51,
+        "endLine": 1251,
+        "endChar": 90
+      },
+      "revId": "7636430cff6ac5990a57e5c80d47363cc8ce3afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88b805d6_39ee8f33",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-27T17:20:03Z",
+      "side": 1,
+      "message": "Would it be beneficial for the A53 to interleave this with the ADD or SUBS below?",
+      "range": {
+        "startLine": 1253,
+        "startChar": 0,
+        "endLine": 1254,
+        "endChar": 44
+      },
+      "revId": "7636430cff6ac5990a57e5c80d47363cc8ce3afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48b28df7_7725709a",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-27T17:20:03Z",
+      "side": 1,
+      "message": "If you want one less instruction in the loop:\n\n  __ Subs(temp2, temp2, 4);\n  __ Add(temp1, temp1, char_size * 4);\n  __ Ccmp(temp4, temp0, NoFlag, gt);\n  __ B(eq, \u0026loop);\n  // Either some characters differ or we are at the end of the loop.\n  __ Add(temp2, temp2, 4);  // Interleave with code below for better scheduling?\n\nThe code below works just fine even if \"temp0 \u003d\u003d temp4\" because the ARM64 CLZ(0) is well-defined unlike the __builtin_clz(0). However, if you want to skip the extra calculations for a match, you can add CBZ after the EOR (which would rely on the zero padding).",
+      "range": {
+        "startLine": 1255,
+        "startChar": 0,
+        "endLine": 1260,
+        "endChar": 13
+      },
+      "revId": "7636430cff6ac5990a57e5c80d47363cc8ce3afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48b28df7_d71c7c5d",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1271,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-27T17:20:03Z",
+      "side": 1,
+      "message": "I see, ~0xf is a logical immediate, so this is a single instruction.",
+      "range": {
+        "startLine": 1271,
+        "startChar": 23,
+        "endLine": 1271,
+        "endChar": 35
+      },
+      "revId": "7636430cff6ac5990a57e5c80d47363cc8ce3afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
