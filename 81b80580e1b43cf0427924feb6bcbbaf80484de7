@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8801e53f_51b07404",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-04-27T17:15:31Z",
+      "side": 1,
+      "message": "The pointer wrapped by the handle can move if mutator lock isn\u0027t held, so in theory it opens up a race where IsEqual() can return true for handles that are different or vice versa. On line 262, race is when gc happens between the two Get\u0027s and update the references in the handles.\n\nSo looks to me the mutator lock is still needed.",
+      "revId": "81b80580e1b43cf0427924feb6bcbbaf80484de7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
