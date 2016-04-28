@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "889d6572_94c90a6d",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-04-28T13:21:33Z",
+      "side": 1,
+      "message": "Isn\u0027t this null during tests then?",
+      "range": {
+        "startLine": 521,
+        "startChar": 25,
+        "endLine": 521,
+        "endChar": 40
+      },
+      "revId": "01f9214d6dc92838dfc0b6c9c1a8ee2668b85d35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
