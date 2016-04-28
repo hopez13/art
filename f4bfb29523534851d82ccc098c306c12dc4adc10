@@ -22,6 +22,30 @@
       "revId": "f4bfb29523534851d82ccc098c306c12dc4adc10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68d6710e_83aac0e2",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1695,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-28T17:32:58Z",
+      "side": 1,
+      "message": "Braino: For a moment I forgot that I have direct access to the graph.",
+      "parentUuid": "68083164_01f96d5d",
+      "range": {
+        "startLine": 1695,
+        "startChar": 2,
+        "endLine": 1695,
+        "endChar": 38
+      },
+      "revId": "f4bfb29523534851d82ccc098c306c12dc4adc10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
