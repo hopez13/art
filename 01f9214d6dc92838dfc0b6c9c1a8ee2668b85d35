@@ -22,6 +22,30 @@
       "revId": "01f9214d6dc92838dfc0b6c9c1a8ee2668b85d35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "889d6572_f4c0963c",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-04-28T13:28:30Z",
+      "side": 1,
+      "message": "If you want to tests RTP with fields, you now need the field, yes.",
+      "parentUuid": "889d6572_94c90a6d",
+      "range": {
+        "startLine": 521,
+        "startChar": 25,
+        "endLine": 521,
+        "endChar": 40
+      },
+      "revId": "01f9214d6dc92838dfc0b6c9c1a8ee2668b85d35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
