@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28dab964_d525ab4c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-29T17:22:25Z",
+      "side": 1,
+      "message": "please add\n\nBUG\u003d26327751\n\nto commit message.",
+      "range": {
+        "startLine": 7,
+        "startChar": 34,
+        "endLine": 7,
+        "endChar": 35
+      },
+      "revId": "3ddf99c7ce58cae8e2b3503076881ff430c1082f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28dab964_4b811a9f",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2453,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-29T17:22:25Z",
+      "side": 1,
+      "message": "I would be helpful if you wrote the full pseudo code here in a top level comment, and then only use minor comments below to separate out the different parts. Now I have to scan over the full method to know how this is implemented.",
+      "revId": "3ddf99c7ce58cae8e2b3503076881ff430c1082f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28dab964_ebc0c6f2",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2454,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-29T17:22:25Z",
+      "side": 1,
+      "message": "period at end",
+      "range": {
+        "startLine": 2454,
+        "startChar": 14,
+        "endLine": 2454,
+        "endChar": 17
+      },
+      "revId": "3ddf99c7ce58cae8e2b3503076881ff430c1082f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28dab964_8b7702c4",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2518,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-29T17:22:25Z",
+      "side": 1,
+      "message": "This looks like a commented out comment, not an actual comment. I would rephrase this and all other comments in the google style (use sentences, not fragments).",
+      "range": {
+        "startLine": 2518,
+        "startChar": 15,
+        "endLine": 2518,
+        "endChar": 16
+      },
+      "revId": "3ddf99c7ce58cae8e2b3503076881ff430c1082f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28dab964_6badf640",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2529,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-04-29T17:22:25Z",
+      "side": 1,
+      "message": "plans for double too?",
+      "range": {
+        "startLine": 2529,
+        "startChar": 30,
+        "endLine": 2529,
+        "endChar": 45
+      },
+      "revId": "3ddf99c7ce58cae8e2b3503076881ff430c1082f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
