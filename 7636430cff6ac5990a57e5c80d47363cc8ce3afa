@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "28e0f9df_27ee589c",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-29T11:24:12Z",
+      "side": 1,
+      "message": "Under your assumptions for the most common cases, the CBZ is indeed useless.\n\nI\u0027m OK with the code as it is but you may want to consider changing the loop to the LDR+SUBS+LDR+ADD+CCMP+BEQ (plus the ADD after the loop). It has no taken branch at all if there\u0027s a difference in the first 4 characters.",
+      "parentUuid": "889d6572_14743a8b",
+      "range": {
+        "startLine": 1255,
+        "startChar": 0,
+        "endLine": 1260,
+        "endChar": 13
+      },
+      "revId": "7636430cff6ac5990a57e5c80d47363cc8ce3afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48b28df7_d71c7c5d",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
