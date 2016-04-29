@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2848f9fc_07bf5ce1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-04-29T21:55:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28dab964_d525ab4c",
+      "range": {
+        "startLine": 7,
+        "startChar": 34,
+        "endLine": 7,
+        "endChar": 35
+      },
+      "revId": "3ddf99c7ce58cae8e2b3503076881ff430c1082f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28dab964_4b811a9f",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 2
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "2848f9fc_64f97ed8",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2453,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-04-29T21:55:38Z",
+      "side": 1,
+      "message": "How\u0027s this for top-level pseudocode?\n\n  // if (in.isNaN) {\n  //   return 0;\n  // }\n\n  // if (in \u003c\u003d (float)Integer.MIN_VALUE) {\n  //   /*\n  //    * Needed for MIPS32 because values \u003c\u003d Integer.MIN_VALUE\n  //    * get output as Integer.MAX_VALUE by \"floor.w.s\" \u0026 Java requires Integer.MIN_VALUE.\n  //    */\n  //   return Integer.MIN_VALUE;\n  // }\n\n  // out \u003d floor(in);\n  // TMP \u003d (((in - out) \u003e\u003d 0.5f) \u0026\u0026 (out !\u003d java.lang.Integer.MAX_VALUE)) ? 1 : 0;\n  // return out +\u003d TMP;\n  //\n  // Note: Except for the two exception cases (in.isNaN \u0026\n  // in \u003c\u003d (float)Integer.MIN_VALUE), branching is avoided\n  // to keep from breaking the pipeline.",
+      "parentUuid": "28dab964_4b811a9f",
+      "revId": "3ddf99c7ce58cae8e2b3503076881ff430c1082f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28dab964_ebc0c6f2",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 2
@@ -53,6 +95,30 @@
       "writtenOn": "2016-04-29T17:22:25Z",
       "side": 1,
       "message": "period at end",
+      "range": {
+        "startLine": 2454,
+        "startChar": 14,
+        "endLine": 2454,
+        "endChar": 17
+      },
+      "revId": "3ddf99c7ce58cae8e2b3503076881ff430c1082f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2848f9fc_52d8c42d",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2454,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-04-29T21:55:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28dab964_ebc0c6f2",
       "range": {
         "startLine": 2454,
         "startChar": 14,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "2848f9fc_324978c1",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2518,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-04-29T21:55:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28dab964_8b7702c4",
+      "range": {
+        "startLine": 2518,
+        "startChar": 15,
+        "endLine": 2518,
+        "endChar": 16
+      },
+      "revId": "3ddf99c7ce58cae8e2b3503076881ff430c1082f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28dab964_6badf640",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 2
@@ -99,6 +189,30 @@
       "writtenOn": "2016-04-29T17:22:25Z",
       "side": 1,
       "message": "plans for double too?",
+      "range": {
+        "startLine": 2529,
+        "startChar": 30,
+        "endLine": 2529,
+        "endChar": 45
+      },
+      "revId": "3ddf99c7ce58cae8e2b3503076881ff430c1082f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2848f9fc_b234a83a",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2529,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-04-29T21:55:38Z",
+      "side": 1,
+      "message": "No, 32-bit processors don\u0027t support \"floor.l.d\".",
+      "parentUuid": "28dab964_6badf640",
       "range": {
         "startLine": 2529,
         "startChar": 30,
