@@ -285,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "48b28df7_1d8ff334",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-04-29T13:55:26Z",
+      "side": 1,
+      "message": "I prefer fewer branches (1 instead of 2), fewer instructions in the loop (6 instead of 7 but that\u0027s really about long identical strings) and maybe better instruction scheduling for A53 (putting SUBS between LDRs). But since I\u0027m not going to actually benchmark this myself, consider it only a suggestion, the decision is yours.",
+      "parentUuid": "68d6710e_a6afd23a",
+      "range": {
+        "startLine": 1255,
+        "startChar": 0,
+        "endLine": 1260,
+        "endChar": 13
+      },
+      "revId": "7636430cff6ac5990a57e5c80d47363cc8ce3afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48b28df7_d71c7c5d",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
