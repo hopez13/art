@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "68af5190_38d5a953",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-04-29T10:23:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48b28df7_174a7473",
+      "range": {
+        "startLine": 1177,
+        "startChar": 61,
+        "endLine": 1179,
+        "endChar": 86
+      },
+      "revId": "7636430cff6ac5990a57e5c80d47363cc8ce3afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a8b5c9db_3a1da164",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-04-27T17:20:03Z",
       "side": 1,
       "message": "Avoid the allocation if you don\u0027t need it.",
+      "range": {
+        "startLine": 1213,
+        "startChar": 33,
+        "endLine": 1213,
+        "endChar": 85
+      },
+      "revId": "7636430cff6ac5990a57e5c80d47363cc8ce3afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "889d6572_f1ed0801",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1213,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-04-29T10:23:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8b5c9db_3a1da164",
       "range": {
         "startLine": 1213,
         "startChar": 33,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "889d6572_31bf90e2",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1251,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-04-29T10:23:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8b5c9db_5a125553",
+      "range": {
+        "startLine": 1251,
+        "startChar": 51,
+        "endLine": 1251,
+        "endChar": 90
+      },
+      "revId": "7636430cff6ac5990a57e5c80d47363cc8ce3afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88b805d6_39ee8f33",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2016-04-27T17:20:03Z",
       "side": 1,
       "message": "Would it be beneficial for the A53 to interleave this with the ADD or SUBS below?",
+      "range": {
+        "startLine": 1253,
+        "startChar": 0,
+        "endLine": 1254,
+        "endChar": 44
+      },
+      "revId": "7636430cff6ac5990a57e5c80d47363cc8ce3afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "889d6572_d44ab244",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-04-29T10:23:54Z",
+      "side": 1,
+      "message": "Not the ADD, it\u0027s the load address. SUBS, yes, but see below.",
+      "parentUuid": "88b805d6_39ee8f33",
       "range": {
         "startLine": 1253,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "889d6572_14743a8b",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-04-29T10:23:54Z",
+      "side": 1,
+      "message": "A CBZ after the EOR only helps when the strings are equal and the same length, it doesn\u0027t stop strings that match up to a shorter length going through find_char_diff only to discard the difference as out of range.\n\nOptimizing this loop does speed up longer compare lengths (\u003e 32 Chars) but regresses shorter ones (especially \u003c\u003d 8).\n\nAs most string comparisons fail, and most different strings differ quickly, we think we should find differences in short compare lengths as fast as possible, and that is LDR/LDR/CMP/B ...",
+      "parentUuid": "48b28df7_7725709a",
+      "range": {
+        "startLine": 1255,
+        "startChar": 0,
+        "endLine": 1260,
+        "endChar": 13
+      },
+      "revId": "7636430cff6ac5990a57e5c80d47363cc8ce3afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48b28df7_d71c7c5d",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 2
@@ -134,6 +254,47 @@
         "endLine": 1271,
         "endChar": 35
       },
+      "revId": "7636430cff6ac5990a57e5c80d47363cc8ce3afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08c41560_d84d91b6",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1271,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-04-29T10:23:54Z",
+      "side": 1,
+      "message": "Yes, a single AND.",
+      "parentUuid": "48b28df7_d71c7c5d",
+      "range": {
+        "startLine": 1271,
+        "startChar": 23,
+        "endLine": 1271,
+        "endChar": 35
+      },
+      "revId": "7636430cff6ac5990a57e5c80d47363cc8ce3afa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48b28df7_fa8c0592",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-04-29T10:23:54Z",
+      "side": 1,
+      "message": "AND is faster here.",
       "revId": "7636430cff6ac5990a57e5c80d47363cc8ce3afa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
