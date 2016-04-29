@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2848f9fc_e117c042",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-04-29T18:55:29Z",
+      "side": 1,
+      "message": "That looks like a very good way to test whether this can be done statically.  I wasn\u0027t aware of is_iec559. I\u0027m still not sure exactly what it means. I\u0027ll inquire a bit more.\n\nI believe the IEEE standard recommends, but does not require, correctly rounded trig functions. AFAICT, nobody implements correctly rounded trig functions for floating point, so this sounds more like wishful thinking than anything else. (I believe it is possible, at least for most of them.  The question is whether it\u0027s possible at reasonable cost.) I don\u0027t think IEEE states the Java accuracy requirements (\u003c 1 ulp) anywhere.\n\nAgampe recently encountered an issue that the math library used with valgrind produces seriously inaccurate trig results, though that seemed to be the only context in which it failed.\n\nEven if we knew that both the compilers and runtime libraries satisfy Java accuracy constraints, we still wouldn\u0027t get a guarantee that the two produce the same answer. AFAICT, Java doesn\u0027t officially require that either. But I\u0027m still not sure whether it\u0027s actually OK to produce different answers.  Is it OK if I give 0.3 as an input to my program and sin(input) \u003d\u003d sin(0.3) returns false?",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 27
+      },
+      "revId": "2f1c57d3b75526a95c801390ed2fadfa9631dd37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
