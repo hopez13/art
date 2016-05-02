@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28a2b911_d47174d2",
+        "filename": "compiler/jni/jni_compiler_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-02T18:27:03Z",
+      "side": 1,
+      "message": "Would it work if we call ResetNativeLoader in JniCompilerTest::TearDown()?",
+      "range": {
+        "startLine": 97,
+        "startChar": 15,
+        "endLine": 97,
+        "endChar": 37
+      },
+      "revId": "afd4cff8d63c9734d29e17aec9ab547c1a6929b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
