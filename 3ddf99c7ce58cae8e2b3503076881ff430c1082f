@@ -156,6 +156,24 @@
     },
     {
       "key": {
+        "uuid": "28a2b911_b81c9668",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2453,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-05-02T23:38:47Z",
+      "side": 1,
+      "message": "Yes. That\u0027s a slightly cleverer version of what I had in mind. (Presumably the two out + TMP computations can also be merged, probably making it astoundingly hard for the uninitiated to reverse-engineer this code. I guess that\u0027s not important.)",
+      "parentUuid": "28a2b911_b82f76e5",
+      "revId": "3ddf99c7ce58cae8e2b3503076881ff430c1082f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28dab964_ebc0c6f2",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 2
