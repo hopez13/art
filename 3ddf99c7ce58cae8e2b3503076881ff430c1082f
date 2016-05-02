@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "28a2b911_c2a092b8",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2453,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-05-02T20:46:07Z",
+      "side": 1,
+      "message": "Much better. But as non-longer-a-MIPS-expert, it would greatly help me if the float-int conversions were more explicit. It looks like \"out\" is an int, necessitating the MAX_VALUE test? Presumably the ISA makes it hard to do the conversion later?\n\nSince Integer.MAX_VALUE can presumably only arise from overflow, isn\u0027t it cheaper just to do one test after evaluating the floor() function?",
+      "parentUuid": "2848f9fc_64f97ed8",
+      "revId": "3ddf99c7ce58cae8e2b3503076881ff430c1082f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28dab964_ebc0c6f2",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 2
