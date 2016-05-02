@@ -138,6 +138,24 @@
     },
     {
       "key": {
+        "uuid": "28a2b911_b82f76e5",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2453,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-05-02T23:25:48Z",
+      "side": 1,
+      "message": "If I understand you correctly you\u0027re looking at getting rid of this part of the code:\n\n  // if (in \u003c\u003d (float)Integer.MIN_VALUE) {\n  //   /*\n  //    * Needed for MIPS32 because values \u003c\u003d Integer.MIN_VALUE\n  //    * get output as Integer.MAX_VALUE by \"floor.w.s\" \u0026 Java requires Integer.MIN_VALUE.\n  //    */\n  //   return Integer.MIN_VALUE;\n  // }\n\nnot getting rid of the ((in - out) \u003e\u003d 0.5) part of the code, yes?\n\nSo the pseudocode would be:\n\n  // if (in.isNaN) {\n  //   return 0;\n  // }\n  //\n  // out \u003d floor(in);\n  //\n  // if (out \u003d\u003d Integer.MAX_VALUE) {\n  //   TMP \u003d (in \u003c 0.0f) ? 1 : 0;\n  //   /*\n  //    * If TMP is 1, then adding it to out will wrap its value from\n  //    * Integer.MAX_VALUE to Integer.MIN_VALUE.\n  //    */\n  //   return out +\u003d TMP;\n  // }\n  //\n  // TMP \u003d (((in - out) \u003e\u003d 0.5f) ? 1 : 0;\n  // return out +\u003d TMP;",
+      "parentUuid": "28a2b911_08cabbb1",
+      "revId": "3ddf99c7ce58cae8e2b3503076881ff430c1082f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28dab964_ebc0c6f2",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 2
