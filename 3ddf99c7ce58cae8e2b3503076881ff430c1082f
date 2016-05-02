@@ -120,6 +120,24 @@
     },
     {
       "key": {
+        "uuid": "28a2b911_08cabbb1",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2453,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-05-02T21:44:59Z",
+      "side": 1,
+      "message": "Could you unconditionally do the floor.w.s, and then test the output against Integer.MAX_VALUE? If you see MAX_VALUE, you then check the input against zero, and return MIN_VALUE or MAX_VALUE as appropriate.  Otherwise you just do the conditional increment by 1.\n\nOr am I misunderstanding the instruction semantics? It sounds like any overflow is indicated by MAX_VALUE.  Which is a good choice, since it can\u0027t otherwise be produced.",
+      "parentUuid": "28a2b911_7d9fc36f",
+      "revId": "3ddf99c7ce58cae8e2b3503076881ff430c1082f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28dab964_ebc0c6f2",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 2
