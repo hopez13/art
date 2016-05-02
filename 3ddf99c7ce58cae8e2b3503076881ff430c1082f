@@ -102,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "28a2b911_7d9fc36f",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2453,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-05-02T21:18:12Z",
+      "side": 1,
+      "message": "MIPS has a series of floor commands in the form of \"floor.x.y\" where x can be either l (64 bits) or w (32 bits), and y can be s (32 bits) or d (64 bits). Here we\u0027re dealing with floor.w.s. Both the input register, and the output register are FP registers but the output register holds a 32-bit integer value. So, yes, this is necessitating the MAX_VALUE test; it\u0027s also necessitating the explicit conversion back to \"float\" using the cvt.s.w command (via the Cvtsw() method).\n\n[Note: 32-bit MIPS (the case this code is dealing with) doesn\u0027t have support for floor.l.s, or floor.s.d so the intrinsic java.lang.Math.round(double) won\u0027t be implemented in this file.]\n\nI\u0027m not following the chain of logic for how only one test is required. If out \u003d\u003d Integer.MAX_VALUE then it\u0027s true that we don\u0027t need to test ((in - out) \u003e\u003d 0.5), so I can see how the first test could cause the code to skip the second test. But I wrote the code to avoid breaking the pipeline for either case by using conditional move instructions (selnez/movn/movf). Could you be more explicit about how you think the code could use a single test?\n\nThanks.",
+      "parentUuid": "28a2b911_c2a092b8",
+      "revId": "3ddf99c7ce58cae8e2b3503076881ff430c1082f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28dab964_ebc0c6f2",
         "filename": "compiler/optimizing/intrinsics_mips.cc",
         "patchSetId": 2
