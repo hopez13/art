@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ad595b75_e3e2803f",
+        "filename": "test/596-app-images/app_images.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-05-03T22:41:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad595b75_20d74e36",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 16
+      },
+      "revId": "bbcd96270f5e5d91b6db100f0dd90c7143503376",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad595b75_e0ec3605",
         "filename": "test/596-app-images/app_images.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ad595b75_23d63861",
+        "filename": "test/596-app-images/app_images.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-05-03T22:41:44Z",
+      "side": 1,
+      "message": "Removed. Just copied the header from another file with it.",
+      "parentUuid": "ad595b75_e0ec3605",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 40
+      },
+      "revId": "bbcd96270f5e5d91b6db100f0dd90c7143503376",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad595b75_a0cb5e80",
         "filename": "test/596-app-images/app_images.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-05-03T22:06:43Z",
       "side": 1,
       "message": "image_space-\u003eHasAddress?",
+      "range": {
+        "startLine": 62,
+        "startChar": 40,
+        "endLine": 62,
+        "endChar": 51
+      },
+      "revId": "bbcd96270f5e5d91b6db100f0dd90c7143503376",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad595b75_c3493c23",
+        "filename": "test/596-app-images/app_images.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-05-03T22:41:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad595b75_a0cb5e80",
       "range": {
         "startLine": 62,
         "startChar": 40,
