@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd6bef2f_4921c58f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-05-04T18:58:06Z",
+      "side": 1,
+      "message": "What does it mean? When we hunt down original references, we only traverse through null check and bound type.",
+      "range": {
+        "startLine": 737,
+        "startChar": 37,
+        "endLine": 737,
+        "endChar": 68
+      },
+      "revId": "900d3db0653ffb89a6f8af4424210a543c1f3a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd6bef2f_29ed6935",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 739,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-05-04T18:58:06Z",
+      "side": 1,
+      "message": "Kind of ambiguous. \"eliminate array gets\" seems more straightforward.",
+      "range": {
+        "startLine": 739,
+        "startChar": 73,
+        "endLine": 739,
+        "endChar": 93
+      },
+      "revId": "900d3db0653ffb89a6f8af4424210a543c1f3a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd6bef2f_e9b43148",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-05-04T18:58:06Z",
+      "side": 1,
+      "message": "I think there may be very rare cases where storing a value into a field of null constant ref, and loading a field (which is actually a different field) with the same offset from null constant ref, may trigger this assert since it\u0027s not array get. So we should probably relax the assert more.\n\nIt\u0027s almost not necessary. FindHeapLocationIndex() does compare GetDeclaringClassDefIndex() of the resolved field (for type based aliasing analysis), however since currently we don\u0027t compare dex_file (which can create unnecessary aliases, but very rare and benign), it might treat two null constant fields that should be different as the same instead,\nand then try to eliminate the load.",
+      "revId": "900d3db0653ffb89a6f8af4424210a543c1f3a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
