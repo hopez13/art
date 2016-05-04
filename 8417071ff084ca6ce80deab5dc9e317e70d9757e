@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "ad595b75_7a744e8a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2016-05-04T15:34:00Z",
+      "side": 1,
+      "message": "do you mean:\n\nRemove IMT for classes that only implement marker interfaces\n\n?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 68
+      },
+      "revId": "8417071ff084ca6ce80deab5dc9e317e70d9757e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad595b75_57d16367",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 1
