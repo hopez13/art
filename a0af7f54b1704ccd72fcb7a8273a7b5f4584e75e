@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "8d2ad7bd_49a3a160",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-05-04T10:56:56Z",
+      "side": 1,
+      "message": "Before submit please detail in the commit message what is the problem and the actual workaround.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 10
+      },
+      "revId": "a0af7f54b1704ccd72fcb7a8273a7b5f4584e75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28c9d979_76e2d014",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 2
