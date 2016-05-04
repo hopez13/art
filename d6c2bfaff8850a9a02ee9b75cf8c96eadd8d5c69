@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "edfb5384_4cb61fec",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6642,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-04T08:10:11Z",
+      "side": 1,
+      "message": "Could you be more explicit? Corruption sounds like memory corruption? But I don\u0027t see why adding it twice would lead to memory corruption? Do you want to say instead \"bogus vtable entries\"?",
+      "range": {
+        "startLine": 6641,
+        "startChar": 84,
+        "endLine": 6642,
+        "endChar": 55
+      },
+      "revId": "d6c2bfaff8850a9a02ee9b75cf8c96eadd8d5c69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
