@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad595b75_57d16367",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2379,
+      "author": {
+        "id": 1097978
+      },
+      "writtenOn": "2016-05-04T13:14:31Z",
+      "side": 1,
+      "message": "Temporal fix.\nCurrent implementation introduces IMT pointer to the java.lang.class instance and it should be supported by GCs for correct work. We plan to resolve this soon.",
+      "range": {
+        "startLine": 2379,
+        "startChar": 0,
+        "endLine": 2379,
+        "endChar": 4
+      },
+      "revId": "8417071ff084ca6ce80deab5dc9e317e70d9757e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
