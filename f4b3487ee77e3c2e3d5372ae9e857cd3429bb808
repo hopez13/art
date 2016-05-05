@@ -22,6 +22,30 @@
       "revId": "f4b3487ee77e3c2e3d5372ae9e857cd3429bb808",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd6bef2f_f60161a1",
+        "filename": "test/595-profile-saving/run",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-05-05T15:49:30Z",
+      "side": 1,
+      "message": "I think -Xcompiler-option is passed to dex2oat directly only for the prebuild step. --runtime-option \u0027-Xcompiler-option ...\u0027 is needed so the runtime knows about it too.",
+      "parentUuid": "edb513f9_5c5c3d3a",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 73
+      },
+      "revId": "f4b3487ee77e3c2e3d5372ae9e857cd3429bb808",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
