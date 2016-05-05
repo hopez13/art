@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "edb513f9_7c3ed919",
+        "filename": "test/596-deopt-new-string/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-05T09:04:17Z",
+      "side": 1,
+      "message": "$noinline$run0",
+      "range": {
+        "startLine": 45,
+        "startChar": 18,
+        "endLine": 45,
+        "endChar": 22
+      },
+      "revId": "557bf432a6b8856747588a73ff59042bdd73680f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edb513f9_5c3b1d28",
+        "filename": "test/596-deopt-new-string/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-05T09:04:17Z",
+      "side": 1,
+      "message": "Hopefully, that will trigger one deoptimization when ...",
+      "range": {
+        "startLine": 57,
+        "startChar": 15,
+        "endLine": 57,
+        "endChar": 29
+      },
+      "revId": "557bf432a6b8856747588a73ff59042bdd73680f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
