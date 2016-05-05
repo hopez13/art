@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "6d1763d9_2dbfe50b",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-05-05T23:48:29Z",
+      "side": 1,
+      "message": "I just meant the \"the null could be behind a field access\" part of the comment. A null check/bound check on null is still really null. But a field access on a null isn\u0027t really null.",
+      "parentUuid": "edb513f9_1c1eb5a9",
+      "range": {
+        "startLine": 737,
+        "startChar": 37,
+        "endLine": 737,
+        "endChar": 68
+      },
+      "revId": "900d3db0653ffb89a6f8af4424210a543c1f3a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd6bef2f_29ed6935",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -143,6 +167,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "cd6bef2f_e9b43148",
+      "revId": "900d3db0653ffb89a6f8af4424210a543c1f3a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d1763d9_1fbc84c9",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-05-05T23:48:29Z",
+      "side": 1,
+      "message": "LSE currently uses GetDeclaringClassDefIndex() (plus offset) but not dex_file so strictly it\u0027s not correctly typed. If CL 220683 goes in, we can type fields correctly with the ArtField in FieldInfo.\n\nSo the assert can stay the same if we do a follow-up in LSE after CL 220683 goes in, or CL 220683 includes the LSE part of the change.",
+      "parentUuid": "edb513f9_bc8101d7",
       "revId": "900d3db0653ffb89a6f8af4424210a543c1f3a08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
