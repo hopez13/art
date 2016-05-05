@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d1763d9_b23fd075",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-05-05T22:48:22Z",
+      "side": 1,
+      "message": "Note that perhaps we can make this even shorter, and simply use false here (and not add the parameter to EnterInterpreterFromInvoke() at all (there were a few other instances, in unstarted_runtime); please advise if that makes sense).",
+      "range": {
+        "startLine": 466,
+        "startChar": 65,
+        "endLine": 466,
+        "endChar": 77
+      },
+      "revId": "b99cfb79fb3dab0049bb58c39b1ca23bc4165e91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
