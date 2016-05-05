@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d1763d9_78f601a2",
+        "filename": "test/596-monitor-inflation/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-05-05T17:54:09Z",
+      "side": 1,
+      "message": "Doesn\u0027t need to be a member variable.",
+      "range": {
+        "startLine": 19,
+        "startChar": 42,
+        "endLine": 19,
+        "endChar": 45
+      },
+      "revId": "2721aa885b4d09734d2369604593936c2191a705",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d1763d9_98fe7579",
+        "filename": "test/596-monitor-inflation/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-05-05T17:54:09Z",
+      "side": 1,
+      "message": "What is the GC trying to accomplish? Test that the forwarding addresses don\u0027t overwrite any hash codes?",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 16
+      },
+      "revId": "2721aa885b4d09734d2369604593936c2191a705",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
