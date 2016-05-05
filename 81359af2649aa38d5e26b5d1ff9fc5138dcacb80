@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "6d1763d9_1b4fbfad",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-05-05T19:11:31Z",
+      "side": 1,
+      "message": "I\u0027m just worried about things like deopting at suspension point. It shouldn\u0027t happen right now. However if that ever happens, we shouldn\u0027t skip the dex instruction.",
+      "parentUuid": "edb513f9_9c38852e",
+      "range": {
+        "startLine": 519,
+        "startChar": 0,
+        "endLine": 519,
+        "endChar": 55
+      },
+      "revId": "81359af2649aa38d5e26b5d1ff9fc5138dcacb80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d2123e2_080a4779",
         "filename": "test/596-deopt-new-string/deopt.cc",
         "patchSetId": 1
