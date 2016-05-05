@@ -22,6 +22,30 @@
       "revId": "4f9a75a48ffa2ce5fe37f8c5f16b4d36a4897c43",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edb513f9_fc12e9a4",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1263,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-05T09:06:06Z",
+      "side": 1,
+      "message": "NullCheck on HNullConstant can have different types.",
+      "parentUuid": "cd6bef2f_acc7a755",
+      "range": {
+        "startLine": 1263,
+        "startChar": 45,
+        "endLine": 1263,
+        "endChar": 56
+      },
+      "revId": "4f9a75a48ffa2ce5fe37f8c5f16b4d36a4897c43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
