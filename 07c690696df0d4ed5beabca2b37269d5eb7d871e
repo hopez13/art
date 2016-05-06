@@ -16,6 +16,24 @@
       "revId": "07c690696df0d4ed5beabca2b37269d5eb7d871e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72f2e456_54a36c12",
+        "filename": "tools/dmtracedump/tracedump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-05-06T22:30:39Z",
+      "side": 1,
+      "message": "I inferred it to be reasonable, given the rest of the code, but superfluous anyway (new char[0] returns something sane, and growing would be OK also).  Removed.",
+      "parentUuid": "72f2e456_e91e2dfa",
+      "revId": "07c690696df0d4ed5beabca2b37269d5eb7d871e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
