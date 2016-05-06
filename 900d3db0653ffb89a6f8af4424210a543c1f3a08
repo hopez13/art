@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "cd53efc8_e317b292",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-06T09:58:53Z",
+      "side": 1,
+      "message": "Sure, it\u0027s an NPE. But I don\u0027t think we need to care.",
+      "parentUuid": "6d1763d9_2dbfe50b",
+      "range": {
+        "startLine": 737,
+        "startChar": 37,
+        "endLine": 737,
+        "endChar": 68
+      },
+      "revId": "900d3db0653ffb89a6f8af4424210a543c1f3a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd6bef2f_29ed6935",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -185,6 +209,24 @@
       "side": 1,
       "message": "LSE currently uses GetDeclaringClassDefIndex() (plus offset) but not dex_file so strictly it\u0027s not correctly typed. If CL 220683 goes in, we can type fields correctly with the ArtField in FieldInfo.\n\nSo the assert can stay the same if we do a follow-up in LSE after CL 220683 goes in, or CL 220683 includes the LSE part of the change.",
       "parentUuid": "edb513f9_bc8101d7",
+      "revId": "900d3db0653ffb89a6f8af4424210a543c1f3a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd53efc8_a311ba9f",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-06T09:58:53Z",
+      "side": 1,
+      "message": "I know all this is very confusing, but please consider this change as the fix for b/27831001. CL 220683 will just end up being an optimizing where we cache the ArtField.",
+      "parentUuid": "6d1763d9_1fbc84c9",
       "revId": "900d3db0653ffb89a6f8af4424210a543c1f3a08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
