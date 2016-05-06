@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72f2e456_e91e2dfa",
+        "filename": "tools/dmtracedump/tracedump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-05-06T22:04:00Z",
+      "side": 1,
+      "message": "Did you check the code to make sure this assert is true\n(1) offset \u003d\u003d 0 seems indeed impossible, although you have to chase through the parseXXX methods for that\n(2) can offset be the old length (in that case one could skip this step).\nProbably neither, but perhaps put that in the comment if you checked it.",
+      "revId": "07c690696df0d4ed5beabca2b37269d5eb7d871e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
