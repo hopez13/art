@@ -93,6 +93,29 @@
       "revId": "bffecf2746aafd971e05901def3977275e02b159",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d79eb73_9f829f62",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2016-05-06T18:47:37Z",
+      "side": 1,
+      "message": "I am going to revert this part for now - not sure the suffix is applicable to host...",
+      "range": {
+        "startLine": 480,
+        "startChar": 88,
+        "endLine": 480,
+        "endChar": 96
+      },
+      "revId": "bffecf2746aafd971e05901def3977275e02b159",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
