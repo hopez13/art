@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "928758d1_87f0ca0d",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2016-05-07T00:36:54Z",
+      "side": 1,
+      "message": "Just replace this with ${ANDROID_PRODUCT_OUT}, then you don\u0027t need the envsetup.sh change.",
+      "range": {
+        "startLine": 56,
+        "startChar": 18,
+        "endLine": 56,
+        "endChar": 68
+      },
+      "revId": "571d7ab57ecc37ada147830fa29385353c554ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
