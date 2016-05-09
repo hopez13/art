@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "f2fb3484_cc520f23",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-09T11:45:58Z",
+      "side": 1,
+      "message": "Not sure I understand. The comment says \"..originates from the null constant\", which IMO includes HFieldGet on a null. Is the comment confusing?",
+      "parentUuid": "928758d1_6107b6bd",
+      "range": {
+        "startLine": 737,
+        "startChar": 37,
+        "endLine": 737,
+        "endChar": 68
+      },
+      "revId": "900d3db0653ffb89a6f8af4424210a543c1f3a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd6bef2f_29ed6935",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
@@ -269,6 +293,24 @@
       "side": 1,
       "message": "CL 220683 would help the field typing in LSE (with some follow-up by using the ArtField instead of only the declaring class plus offset currently used in LSE). Before that happens, heap_value/instruction on line 741/742 may also be instance field get, although very unlikely.",
       "parentUuid": "cd53efc8_a311ba9f",
+      "revId": "900d3db0653ffb89a6f8af4424210a543c1f3a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2c25456_b48700c7",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-09T11:45:58Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "928758d1_24977c4a",
       "revId": "900d3db0653ffb89a6f8af4424210a543c1f3a08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
