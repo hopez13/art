@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "f266d435_9d0de72a",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-05-09T16:48:32Z",
+      "side": 1,
+      "message": "Ok. Probably I was still thinking about after field is strongly typed. In that case, we would create different heap locations when fields are different, even for the same null constant. Then we\u0027d stop wrong typing right at the field/array get at the null constant, instead of letting it propagate further and do special asserts downstream. I think we actually can turn line 733 into asserts once CL 220683 and its follow-up in done in LSE.",
+      "parentUuid": "f2fb3484_cc520f23",
+      "range": {
+        "startLine": 737,
+        "startChar": 37,
+        "endLine": 737,
+        "endChar": 68
+      },
+      "revId": "900d3db0653ffb89a6f8af4424210a543c1f3a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd6bef2f_29ed6935",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
