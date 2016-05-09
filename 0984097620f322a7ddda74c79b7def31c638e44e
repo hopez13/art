@@ -1,0 +1,325 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72af4490_78a64173",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4322,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-09T14:44:38Z",
+      "side": 1,
+      "message": "Nit: I believe we prefer this style:\n\n  Location CodeGeneratorX86::GenerateCalleeMethodStaticOrDirectCall(HInvokeStaticOrDirect* invoke,\n                                                                    Location temp) {",
+      "range": {
+        "startLine": 4321,
+        "startChar": 0,
+        "endLine": 4322,
+        "endChar": 51
+      },
+      "revId": "0984097620f322a7ddda74c79b7def31c638e44e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72af4490_389cc91d",
+        "filename": "compiler/optimizing/code_generator_x86.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-09T14:44:38Z",
+      "side": 1,
+      "message": "Nit: fits on a single line.",
+      "range": {
+        "startLine": 401,
+        "startChar": 0,
+        "endLine": 402,
+        "endChar": 52
+      },
+      "revId": "0984097620f322a7ddda74c79b7def31c638e44e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72af4490_b887f9c6",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 766,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-09T14:44:38Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 765,
+        "startChar": 0,
+        "endLine": 766,
+        "endChar": 51
+      },
+      "revId": "0984097620f322a7ddda74c79b7def31c638e44e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72af4490_988a35d0",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-09T14:44:38Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 397,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 52
+      },
+      "revId": "0984097620f322a7ddda74c79b7def31c638e44e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72af4490_b871b9ce",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2633,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-09T14:44:38Z",
+      "side": 1,
+      "message": "This intrinsic probably won\u0027t work as-is with the read barrier configuration, so you should add something like this:\n\n  if (kEmitCompilerReadBarrier) {\n    // Do not intrinsify this call with the read barrier configuration.\n    return;\n  }\n\nNote that we are safe for now as intrinsics that may use a slow path are currently disabled with the read barrier configuration (see line 63).",
+      "revId": "0984097620f322a7ddda74c79b7def31c638e44e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72af4490_f87b31aa",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2642,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-09T14:44:38Z",
+      "side": 1,
+      "message": "Likewise, ensure we are not using read barriers:\n\n  DCHECK(!kEmitCompilerReadBarrier);",
+      "revId": "0984097620f322a7ddda74c79b7def31c638e44e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72af4490_58b89d84",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2654,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-09T14:44:38Z",
+      "side": 1,
+      "message": "DCHECK(invoke_direct !\u003d nullptr);",
+      "range": {
+        "startLine": 2654,
+        "startChar": 2,
+        "endLine": 2654,
+        "endChar": 24
+      },
+      "revId": "0984097620f322a7ddda74c79b7def31c638e44e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72af4490_d8abcd2d",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2666,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-09T14:44:38Z",
+      "side": 1,
+      "message": "Please split the assertions:\n\n  DCHECK_NE(slow_path_flag_offset, 0u);\n  DCHECK_NE(disable_flag_offset, 0u);\n  DCHECK_NE(slow_path_flag_offset, disable_flag_offset);",
+      "range": {
+        "startLine": 2665,
+        "startChar": 0,
+        "endLine": 2666,
+        "endChar": 56
+      },
+      "revId": "0984097620f322a7ddda74c79b7def31c638e44e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72af4490_f8a89133",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2668,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-09T14:44:38Z",
+      "side": 1,
+      "message": "Check",
+      "range": {
+        "startLine": 2668,
+        "startChar": 5,
+        "endLine": 2668,
+        "endChar": 10
+      },
+      "revId": "0984097620f322a7ddda74c79b7def31c638e44e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72af4490_f8525122",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2670,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-09T14:44:38Z",
+      "side": 1,
+      "message": "Is there any alignment condition to use CMPW here?",
+      "range": {
+        "startLine": 2670,
+        "startChar": 7,
+        "endLine": 2670,
+        "endChar": 61
+      },
+      "revId": "0984097620f322a7ddda74c79b7def31c638e44e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72af4490_384da98c",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2721,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-09T14:44:38Z",
+      "side": 1,
+      "message": "Likewise.",
+      "revId": "0984097620f322a7ddda74c79b7def31c638e44e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72af4490_58425d5b",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2730,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-09T14:44:38Z",
+      "side": 1,
+      "message": "Likewise.",
+      "revId": "0984097620f322a7ddda74c79b7def31c638e44e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72af4490_7847216a",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2742,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-09T14:44:38Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 2742,
+        "startChar": 2,
+        "endLine": 2742,
+        "endChar": 24
+      },
+      "revId": "0984097620f322a7ddda74c79b7def31c638e44e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72af4490_b858d946",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2754,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-09T14:44:38Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 2753,
+        "startChar": 0,
+        "endLine": 2754,
+        "endChar": 56
+      },
+      "revId": "0984097620f322a7ddda74c79b7def31c638e44e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72af4490_d8558d0d",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2756,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-09T14:44:38Z",
+      "side": 1,
+      "message": "Check",
+      "range": {
+        "startLine": 2756,
+        "startChar": 5,
+        "endLine": 2756,
+        "endChar": 10
+      },
+      "revId": "0984097620f322a7ddda74c79b7def31c638e44e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
