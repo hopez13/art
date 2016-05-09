@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "929bd88c_36618ec5",
+        "filename": "runtime/native/java_lang_reflect_Constructor.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1010108
+      },
+      "writtenOn": "2016-05-09T23:50:10Z",
+      "side": 1,
+      "message": "The wrapper getParameterAnnotations creates the proper empty array of arrays if this returns nullptr. Just return nullptr in the proxy case?",
+      "range": {
+        "startLine": 89,
+        "startChar": 2,
+        "endLine": 98,
+        "endChar": 60
+      },
+      "revId": "33e00805be713f625ff6f7b5575b99fb9e511772",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
