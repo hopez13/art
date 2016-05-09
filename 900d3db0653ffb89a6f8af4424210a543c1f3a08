@@ -193,6 +193,30 @@
     },
     {
       "key": {
+        "uuid": "929bd88c_01fd2a16",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-05-09T17:29:59Z",
+      "side": 1,
+      "message": "That\u0027s true. Ok, now I get the picture. Yeah I think we can just fix the following asserts first. Should be good enough (except some very rase cases when dex_file needs to be considered).",
+      "parentUuid": "72af4490_389e89c7",
+      "range": {
+        "startLine": 737,
+        "startChar": 37,
+        "endLine": 737,
+        "endChar": 68
+      },
+      "revId": "900d3db0653ffb89a6f8af4424210a543c1f3a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd6bef2f_29ed6935",
         "filename": "compiler/optimizing/load_store_elimination.cc",
         "patchSetId": 1
