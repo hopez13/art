@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72af4490_d8e82d25",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-09T20:22:52Z",
+      "side": 1,
+      "message": "You still need this to be executed, regardless of force_interpreter.",
+      "range": {
+        "startLine": 282,
+        "startChar": 4,
+        "endLine": 282,
+        "endChar": 63
+      },
+      "revId": "454b6b592a682fd303c32b58b20d90c2c814550f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72af4490_f8e5f149",
+        "filename": "runtime/interpreter/interpreter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-09T20:22:52Z",
+      "side": 1,
+      "message": "Another naming discussion (I know I started it... :)). Would it make more sense to call this \"stay_in_interpreter\" ?",
+      "range": {
+        "startLine": 36,
+        "startChar": 16,
+        "endLine": 36,
+        "endChar": 33
+      },
+      "revId": "454b6b592a682fd303c32b58b20d90c2c814550f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
