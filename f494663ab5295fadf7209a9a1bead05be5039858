@@ -70,6 +70,30 @@
       "revId": "f494663ab5295fadf7209a9a1bead05be5039858",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f266d435_7a42915b",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-05-09T15:33:07Z",
+      "side": 1,
+      "message": "Yep. Right now, running test-art-host does not allow running test/run-test (without giving --optimizing). This does need a good cleanup. :-)",
+      "parentUuid": "f2fb3484_2c33d303",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 26
+      },
+      "revId": "f494663ab5295fadf7209a9a1bead05be5039858",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
