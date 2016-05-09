@@ -46,6 +46,30 @@
       "revId": "c85eb1b0085abd4ec0974528b7b8b3d147d72679",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929bd88c_dba28b0e",
+        "filename": "test/044-proxy/src/ConstructorProxy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-05-09T22:43:20Z",
+      "side": 1,
+      "message": "Why not directly call getExceptionTypes instead of toString.",
+      "parentUuid": "929bd88c_3b4a9747",
+      "range": {
+        "startLine": 37,
+        "startChar": 11,
+        "endLine": 37,
+        "endChar": 12
+      },
+      "revId": "c85eb1b0085abd4ec0974528b7b8b3d147d72679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
