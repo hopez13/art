@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f266d435_bd3703d2",
+        "filename": "tools/dmtracedump/tracedump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 869,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-05-09T16:51:16Z",
+      "side": 1,
+      "message": "nit: for offset \u003d\u003d pKeys-\u003efileLen we could obviously skip the whole reallocation, but I am not sure if this ever happens in practice, so code is okay with me.",
+      "range": {
+        "startLine": 869,
+        "startChar": 26,
+        "endLine": 869,
+        "endChar": 33
+      },
+      "revId": "505e9a38f837414f1831ccb3900dfd47450fb4f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
