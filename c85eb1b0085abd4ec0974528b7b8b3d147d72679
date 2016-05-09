@@ -22,6 +22,30 @@
       "revId": "c85eb1b0085abd4ec0974528b7b8b3d147d72679",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929bd88c_3b4a9747",
+        "filename": "test/044-proxy/src/ConstructorProxy.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-05-09T22:40:45Z",
+      "side": 1,
+      "message": "Since its always like $Proxy$NUMBER I didn\u0027t really think it was a good idea since it could change a bunch and we don\u0027t have any gaurentees about it.",
+      "parentUuid": "929bd88c_5b1b1b62",
+      "range": {
+        "startLine": 37,
+        "startChar": 11,
+        "endLine": 37,
+        "endChar": 12
+      },
+      "revId": "c85eb1b0085abd4ec0974528b7b8b3d147d72679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
