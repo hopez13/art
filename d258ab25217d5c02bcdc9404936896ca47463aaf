@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "92e3d849_614d56b5",
+        "filename": "test/044-proxy/src/ConstructorProxy.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-05-10T16:22:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2829c4f_b2b260f2",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 53
+      },
+      "revId": "d258ab25217d5c02bcdc9404936896ca47463aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2829c4f_92addc98",
         "filename": "test/044-proxy/src/ConstructorProxy.java",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "92e3d849_e1d326e2",
+        "filename": "test/044-proxy/src/ConstructorProxy.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-05-10T16:22:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2829c4f_92addc98",
+      "range": {
+        "startLine": 26,
+        "startChar": 27,
+        "endLine": 26,
+        "endChar": 28
+      },
+      "revId": "d258ab25217d5c02bcdc9404936896ca47463aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2829c4f_52c8d468",
         "filename": "test/044-proxy/src/ConstructorProxy.java",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2016-05-10T08:26:48Z",
       "side": 1,
       "message": "-\u003e \"We used to crash when asking the exception types of the constructor, because the runtime was not using the non-proxy ArtMethod\".",
+      "range": {
+        "startLine": 36,
+        "startChar": 7,
+        "endLine": 36,
+        "endChar": 52
+      },
+      "revId": "d258ab25217d5c02bcdc9404936896ca47463aaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92e3d849_61e0b6a9",
+        "filename": "test/044-proxy/src/ConstructorProxy.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-05-10T16:22:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2829c4f_52c8d468",
       "range": {
         "startLine": 36,
         "startChar": 7,
