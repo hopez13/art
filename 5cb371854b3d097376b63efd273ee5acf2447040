@@ -22,6 +22,30 @@
       "revId": "5cb371854b3d097376b63efd273ee5acf2447040",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2829c4f_32e67056",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1558,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-10T16:33:53Z",
+      "side": 1,
+      "message": "No, I don\u0027t see any reason to move this very specific behavior to a generic utility.\n\nBut we could actually delay adding the extra environment until PrepareForRegisterAllocation, so the BCE would not have to deal with the extra frame. Would you prefer that?",
+      "parentUuid": "92e3d849_a1f0fe75",
+      "range": {
+        "startLine": 1558,
+        "startChar": 37,
+        "endLine": 1558,
+        "endChar": 49
+      },
+      "revId": "5cb371854b3d097376b63efd273ee5acf2447040",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
