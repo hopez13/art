@@ -46,6 +46,30 @@
       "revId": "5cb371854b3d097376b63efd273ee5acf2447040",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92e3d849_41e5b21a",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1558,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-05-10T17:00:27Z",
+      "side": 1,
+      "message": "My comment was probably due to my concern that, although our HIR has a reasonably clean building API, changing and manipulating HIR later has become a bit cumbersome, trying to preserve all sorts of implicit invariant.\n\nThis change is no worse than others :-) but I was just hoping we could make this into a more general utility others could start to use too. If you don\u0027t see other use of it, it\u0027s fine.",
+      "parentUuid": "b2829c4f_32e67056",
+      "range": {
+        "startLine": 1558,
+        "startChar": 37,
+        "endLine": 1558,
+        "endChar": 49
+      },
+      "revId": "5cb371854b3d097376b63efd273ee5acf2447040",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
