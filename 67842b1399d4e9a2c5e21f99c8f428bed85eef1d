@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "721744d9_f83771eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-10T13:01:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2829c4f_d2604402",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 13
+      },
+      "revId": "67842b1399d4e9a2c5e21f99c8f428bed85eef1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2829c4f_32a99036",
         "filename": "compiler/optimizing/ssa_phi_elimination.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-05-10T12:56:32Z",
       "side": 1,
       "message": "nit: /* expandable */ false",
+      "range": {
+        "startLine": 132,
+        "startChar": 61,
+        "endLine": 132,
+        "endChar": 66
+      },
+      "revId": "67842b1399d4e9a2c5e21f99c8f428bed85eef1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "521a4004_77d610d3",
+        "filename": "compiler/optimizing/ssa_phi_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-10T13:01:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2829c4f_32a99036",
       "range": {
         "startLine": 132,
         "startChar": 61,
