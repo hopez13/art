@@ -22,6 +22,30 @@
       "revId": "dcc1ae72c8428925dfe1b4be6258e2478afcd9c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92e3d849_a10bdec7",
+        "filename": "test/044-proxy/src/ConstructorProxy.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-05-10T16:57:30Z",
+      "side": 1,
+      "message": "I\u0027d removed it using the gerrit web-edit thing in a previous ps. It came back by accident when I did your comments. It is gone in PS6",
+      "parentUuid": "b2829c4f_52df7477",
+      "range": {
+        "startLine": 45,
+        "startChar": 84,
+        "endLine": 45,
+        "endChar": 85
+      },
+      "revId": "dcc1ae72c8428925dfe1b4be6258e2478afcd9c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
