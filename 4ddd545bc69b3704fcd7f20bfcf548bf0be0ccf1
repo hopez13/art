@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d2255044_93b73c94",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-05-10T12:36:08Z",
+      "side": 1,
+      "message": "I have recently started getting familiar with the build system internals, so I am not sure if I have understood you correctly: As far I can see, the test-art-target-sync rule depends on the TEST_ART_TARGET_SYNC_DEPS variable, so I can adjust it, and then let the rule do its job. Is that what you meant?",
+      "parentUuid": "f266d435_bab1c99f",
+      "range": {
+        "startLine": 455,
+        "startChar": 0,
+        "endLine": 455,
+        "endChar": 82
+      },
+      "revId": "4ddd545bc69b3704fcd7f20bfcf548bf0be0ccf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b227fcf3_6aa13759",
         "filename": "test/valgrind-target-suppressions.txt",
         "patchSetId": 1
