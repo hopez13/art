@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "929bd88c_3e760093",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-05-10T15:07:58Z",
+      "side": 1,
+      "message": "The variable only describe the dependencies, but the rule does a simple general sync. As such, you also must install the file into $OUT/data.",
+      "parentUuid": "d2255044_93b73c94",
+      "range": {
+        "startLine": 455,
+        "startChar": 0,
+        "endLine": 455,
+        "endChar": 82
+      },
+      "revId": "4ddd545bc69b3704fcd7f20bfcf548bf0be0ccf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b227fcf3_6aa13759",
         "filename": "test/valgrind-target-suppressions.txt",
         "patchSetId": 1
