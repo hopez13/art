@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2829c4f_92cb9cb7",
+        "filename": "runtime/native/dalvik_system_DexFile.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-05-10T16:42:30Z",
+      "side": 1,
+      "message": "i think you\u0027d want this before getDexFileStatus to match nyc-dev",
+      "revId": "bdabcd7fed09f2ada7bf18e82d03562efc7d3583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
