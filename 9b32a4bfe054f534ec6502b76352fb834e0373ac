@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92e3d849_8af4ef94",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5320,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-05-10T18:46:53Z",
+      "side": 1,
+      "message": "What if it\u0027s a cycle that doesn\u0027t immediately go back to itself?\n\n  A -\u003e B -\u003e A\n\n?",
+      "revId": "9b32a4bfe054f534ec6502b76352fb834e0373ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
