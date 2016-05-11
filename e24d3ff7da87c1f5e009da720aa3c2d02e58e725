@@ -46,6 +46,30 @@
       "revId": "e24d3ff7da87c1f5e009da720aa3c2d02e58e725",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d211d00a_f3277054",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-05-11T16:07:41Z",
+      "side": 1,
+      "message": "The cleanest bash way I found is\n\n    public_libraries_path\u003d\"${ANDROID_PRODUCT_OUT}/.../public.libraries.txt\"\n    make_command+\u003d\" ${public_libraries_path#$(readlink -f $PWD/)}\"                \n\nbut it is not very portable because of `readlink` having a different behaviour on BSD and OSX.",
+      "parentUuid": "321dcc1b_16677cdc",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 111
+      },
+      "revId": "e24d3ff7da87c1f5e009da720aa3c2d02e58e725",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
