@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92e3d849_40dc8381",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6971,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-11T01:39:31Z",
+      "side": 0,
+      "message": "(Already commented in person) Removing this garbage-writing code may be a right fix for the race condition. But are there any other error cases that this code intended to detect which would become undetectable if we remove this code? If there\u0027s a synchronization that would avoid this race condition, it might be better, but I am not sure what the synchronization is.",
+      "range": {
+        "startLine": 6971,
+        "startChar": 4,
+        "endLine": 6971,
+        "endChar": 6
+      },
+      "revId": "718d4e269810c17d03df909c84b2f7bbd4f61fb9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
