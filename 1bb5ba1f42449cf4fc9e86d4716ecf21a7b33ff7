@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "321dcc1b_b67a08de",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-11T07:57:35Z",
+      "side": 1,
+      "message": "Would it be cleaner to do that check in the caller instead? It looks like only the debugger could lead to this situation.",
+      "range": {
+        "startLine": 691,
+        "startChar": 1,
+        "endLine": 694,
+        "endChar": 32
+      },
+      "revId": "1bb5ba1f42449cf4fc9e86d4716ecf21a7b33ff7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
