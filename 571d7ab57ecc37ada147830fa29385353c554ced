@@ -70,6 +70,30 @@
       "revId": "571d7ab57ecc37ada147830fa29385353c554ced",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32a22c12_6e08af1f",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-05-11T13:56:39Z",
+      "side": 1,
+      "message": "I need to take the relative path but it works fine in my testing. See the updated patch.",
+      "parentUuid": "72af4490_d84f4dae",
+      "range": {
+        "startLine": 56,
+        "startChar": 18,
+        "endLine": 56,
+        "endChar": 68
+      },
+      "revId": "571d7ab57ecc37ada147830fa29385353c554ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
