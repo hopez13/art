@@ -70,6 +70,30 @@
       "revId": "e24d3ff7da87c1f5e009da720aa3c2d02e58e725",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92e3d849_d2f4e495",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2016-05-11T18:52:29Z",
+      "side": 1,
+      "message": "And it\u0027s not actually the relative path from the current directory either -- it may be, but it may be an absolute path if OUT_DIR (or the common base) is set to an absolute directory.\n\nI\u0027d just set up a phony make target so that you don\u0027t need to specify a path here.",
+      "parentUuid": "d211d00a_f3277054",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 111
+      },
+      "revId": "e24d3ff7da87c1f5e009da720aa3c2d02e58e725",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
