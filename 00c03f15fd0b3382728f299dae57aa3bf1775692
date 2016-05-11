@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72866498_266fc21e",
+        "filename": "compiler/optimizing/intrinsics_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2509,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-11T21:19:48Z",
+      "side": 1,
+      "message": "Actually, on R6 (with NAN2008\u003d1) you can get here with in \u003c\u003d INT_MIN (including in \u003d -INF) because floor.w.s would convert it to INT_MIN. I\u0027d add a comment mentioning this case and possibly explaining why things still work in this case. Just so it\u0027s obvious this case isn\u0027t missing.",
+      "range": {
+        "startLine": 2509,
+        "startChar": 0,
+        "endLine": 2509,
+        "endChar": 19
+      },
+      "revId": "00c03f15fd0b3382728f299dae57aa3bf1775692",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
