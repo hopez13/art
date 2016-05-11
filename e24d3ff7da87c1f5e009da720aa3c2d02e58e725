@@ -22,6 +22,30 @@
       "revId": "e24d3ff7da87c1f5e009da720aa3c2d02e58e725",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "321dcc1b_16677cdc",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-05-11T15:15:49Z",
+      "side": 1,
+      "message": "I found ways to do it in bash, but none that I find better than this.",
+      "parentUuid": "321dcc1b_5618d463",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 111
+      },
+      "revId": "e24d3ff7da87c1f5e009da720aa3c2d02e58e725",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
