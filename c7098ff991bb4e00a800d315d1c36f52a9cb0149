@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d700e2f1_1ba51b66",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2016-05-12T14:14:30Z",
+      "side": 1,
+      "message": "Native debug info is needed not only for --debuggable, but for any other compilations with -g. --debuggable drastically affects the generated code (e.g. prevents inlining).\nPlease change it to GetGenerateDebugInfo().\nI will prepare a patch.",
+      "range": {
+        "startLine": 817,
+        "startChar": 27,
+        "endLine": 817,
+        "endChar": 46
+      },
+      "revId": "c7098ff991bb4e00a800d315d1c36f52a9cb0149",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37fcde2a_fecca19d",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2016-05-12T14:14:30Z",
+      "side": 1,
+      "message": "For accuracy of hardware level performance profiling I would suggest to avoid generating extra nops here. I propose to just skip recording PcInfo here.",
+      "range": {
+        "startLine": 820,
+        "startChar": 6,
+        "endLine": 820,
+        "endChar": 19
+      },
+      "revId": "c7098ff991bb4e00a800d315d1c36f52a9cb0149",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
