@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f247b43c_d67a3176",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-05-12T16:29:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d700e2f1_1bed1bd5",
+      "range": {
+        "startLine": 182,
+        "startChar": 28,
+        "endLine": 182,
+        "endChar": 65
+      },
+      "revId": "bd1352477523bd460202debfc7d9a028cab1ba7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57431250_6fdeb120",
         "filename": "disassembler/disassembler_arm.cc",
         "patchSetId": 2
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "f247b43c_b6ea0520",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-05-12T16:29:01Z",
+      "side": 1,
+      "message": "Okay, I thought \"run away\" was the term commonly used for the situation where a disassembler runs into e.g. a data area and starts showing nonsensical instructions, but since three people have asked about this now I changed the comment.",
+      "parentUuid": "9714aa34_99f13ba6",
+      "range": {
+        "startLine": 437,
+        "startChar": 40,
+        "endLine": 437,
+        "endChar": 47
+      },
+      "revId": "bd1352477523bd460202debfc7d9a028cab1ba7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1720ba90_b5dbe027",
         "filename": "disassembler/disassembler_arm.cc",
         "patchSetId": 2
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "f247b43c_d6ef912e",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-05-12T16:29:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1720ba90_b5dbe027",
+      "range": {
+        "startLine": 441,
+        "startChar": 17,
+        "endLine": 441,
+        "endChar": 18
+      },
+      "revId": "bd1352477523bd460202debfc7d9a028cab1ba7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1720ba90_d5ce5c6b",
         "filename": "disassembler/disassembler_arm.cc",
         "patchSetId": 2
@@ -106,6 +178,24 @@
       "writtenOn": "2016-05-12T09:15:11Z",
       "side": 1,
       "message": "Please add\n\n  DumpThumb2Literal(args, instr_ptr, ., ., /* U */ 1u, imm8 \u003c\u003c 2, kT2LitHexWord);",
+      "revId": "bd1352477523bd460202debfc7d9a028cab1ba7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f247b43c_f6f48d01",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1733,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-05-12T16:29:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1720ba90_d5ce5c6b",
       "revId": "bd1352477523bd460202debfc7d9a028cab1ba7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -158,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "f247b43c_56dc8181",
+        "filename": "disassembler/disassembler_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-05-12T16:29:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37fcde2a_ded445cc",
+      "range": {
+        "startLine": 63,
+        "startChar": 13,
+        "endLine": 63,
+        "endChar": 14
+      },
+      "revId": "bd1352477523bd460202debfc7d9a028cab1ba7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b711ae44_5ae395ec",
         "filename": "disassembler/disassembler_arm64.h",
         "patchSetId": 2
@@ -169,6 +283,30 @@
       "writtenOn": "2016-05-12T08:55:20Z",
       "side": 1,
       "message": "const?",
+      "range": {
+        "startLine": 64,
+        "startChar": 13,
+        "endLine": 64,
+        "endChar": 14
+      },
+      "revId": "bd1352477523bd460202debfc7d9a028cab1ba7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f247b43c_96e6e953",
+        "filename": "disassembler/disassembler_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-05-12T16:29:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b711ae44_5ae395ec",
       "range": {
         "startLine": 64,
         "startChar": 13,
