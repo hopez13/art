@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f247b43c_a2a8ff8a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-12T20:07:39Z",
+      "side": 1,
+      "message": "Yes, a normal exit causes a DCHECK failure. The DCHECK asserts that a mutex has no owner (being unlocked) in ~Mutex(). An atexit handler calls the destructor for the global Mutexes if we use the normal exit. But a program calls exit via System.exit() in an arbitrary time. In an arbitrary time, it\u0027s possible that one of the mutexes may happen to be locked.",
+      "parentUuid": "f247b43c_6721c9ee",
+      "range": {
+        "startLine": 10,
+        "startChar": 29,
+        "endLine": 10,
+        "endChar": 68
+      },
+      "revId": "249b4d1a9132338aeb28fcbfa3d31de3b188d9f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f247b43c_7308af1f",
         "filename": "runtime/runtime_options.def",
         "patchSetId": 1
