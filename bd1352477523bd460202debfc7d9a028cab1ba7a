@@ -48,6 +48,70 @@
     },
     {
       "key": {
+        "uuid": "9714aa34_99f13ba6",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-12T09:15:11Z",
+      "side": 1,
+      "message": "\"We can encounter this when interpreting raw data as instructions.\"",
+      "parentUuid": "57431250_6fdeb120",
+      "range": {
+        "startLine": 437,
+        "startChar": 40,
+        "endLine": 437,
+        "endChar": 47
+      },
+      "revId": "bd1352477523bd460202debfc7d9a028cab1ba7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1720ba90_b5dbe027",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-12T09:15:11Z",
+      "side": 1,
+      "message": "For consistency use \"(?)\".",
+      "range": {
+        "startLine": 441,
+        "startChar": 17,
+        "endLine": 441,
+        "endChar": 18
+      },
+      "revId": "bd1352477523bd460202debfc7d9a028cab1ba7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1720ba90_d5ce5c6b",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1733,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-12T09:15:11Z",
+      "side": 1,
+      "message": "Please add\n\n  DumpThumb2Literal(args, instr_ptr, ., ., /* U */ 1u, imm8 \u003c\u003c 2, kT2LitHexWord);",
+      "revId": "bd1352477523bd460202debfc7d9a028cab1ba7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "770bb618_d8ce8d6b",
         "filename": "disassembler/disassembler_arm64.cc",
         "patchSetId": 2
