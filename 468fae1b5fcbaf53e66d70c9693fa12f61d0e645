@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b75fee26_0adf1b49",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-13T09:43:28Z",
+      "side": 1,
+      "message": "This style is sort of confusing, as you\u0027re creating scopes ({}) only for the \u0027klass\u0027 variable: the handles remain live until scope at line 578 gets closed.\n\nI suggest drop the inner {}, and having two variables:\nHandle\u003cmirror::Class\u003e klass_klass \u003d ..\nHandle\u003cmirror::Class\u003e field_klass \u003d ..\n\n(We could also go with just one handle if you want).",
+      "range": {
+        "startLine": 580,
+        "startChar": 0,
+        "endLine": 589,
+        "endChar": 5
+      },
+      "revId": "468fae1b5fcbaf53e66d70c9693fa12f61d0e645",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
