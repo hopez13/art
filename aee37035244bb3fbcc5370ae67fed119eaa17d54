@@ -22,6 +22,30 @@
       "revId": "aee37035244bb3fbcc5370ae67fed119eaa17d54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17f7da48_8077788f",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1986,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-13T16:57:04Z",
+      "side": 1,
+      "message": "Thanks for the suggestion!  Done in PS6.\n\nIt\u0027s actually much better, and it can be used to check interfaces as well (I\u0027ll update https://android-review.googlesource.com/#/c/229431/).",
+      "parentUuid": "92e3d849_f92d9239",
+      "range": {
+        "startLine": 1973,
+        "startChar": 4,
+        "endLine": 1986,
+        "endChar": 5
+      },
+      "revId": "aee37035244bb3fbcc5370ae67fed119eaa17d54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
