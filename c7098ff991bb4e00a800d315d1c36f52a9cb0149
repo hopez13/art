@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "17f7da48_1db873f1",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-05-13T07:26:38Z",
+      "side": 1,
+      "message": "The trouble is that without --debuggable the compiler can not produce accurate line number information. Fixing this one case will not help.\n\nAlso, this method will add an extra stackmap, which increases the binary size (other than the generated DWARF sections). I do not want -g to affect the generated code (nops) and runtime data structures (stackmaps).\n\nIf we really need to keep extra line-numbers for non-debuggable compiles, I would go back to keeping them as a separate map, and then we can go all-in and include line numbers for any instructions with dex pc. It would still be in-accurate and noisy.\n\nCan I ask why you want this?  What sort of profiling are you doing?  Isn\u0027t knowing the expensive methods enough?  Does that have to be line-number granularity?  Is profiling with --debuggable not an option?",
+      "parentUuid": "d700e2f1_1ba51b66",
+      "range": {
+        "startLine": 817,
+        "startChar": 27,
+        "endLine": 817,
+        "endChar": 46
+      },
+      "revId": "c7098ff991bb4e00a800d315d1c36f52a9cb0149",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37fcde2a_fecca19d",
         "filename": "compiler/optimizing/code_generator.cc",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2016-05-12T14:14:30Z",
       "side": 1,
       "message": "For accuracy of hardware level performance profiling I would suggest to avoid generating extra nops here. I propose to just skip recording PcInfo here.",
+      "range": {
+        "startLine": 820,
+        "startChar": 6,
+        "endLine": 820,
+        "endChar": 19
+      },
+      "revId": "c7098ff991bb4e00a800d315d1c36f52a9cb0149",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9714aa34_dc38c12a",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2016-05-13T07:26:38Z",
+      "side": 1,
+      "message": "We need to record PcInfo here to get accurate line-number information for debuggable apps.\nThe condition above ensures that it happens only when there is a collision, which is reasonably rare.\nI still plan to remove the nop, but the proper fix is non-trivial.",
+      "parentUuid": "37fcde2a_fecca19d",
       "range": {
         "startLine": 820,
         "startChar": 6,
