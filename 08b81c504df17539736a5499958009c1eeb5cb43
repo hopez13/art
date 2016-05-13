@@ -22,6 +22,30 @@
       "revId": "08b81c504df17539736a5499958009c1eeb5cb43",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f247b43c_54238799",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-05-13T22:16:47Z",
+      "side": 1,
+      "message": "This needs a comment. This is actually not necessarily the right page, e.g., if the frame is crossing a frame boundary. I *think* it should be OK with the madvise below because the stack is large enough and the stack of this function should be small, but at least a comment necessary...",
+      "parentUuid": "f247b43c_54470769",
+      "range": {
+        "startLine": 522,
+        "startChar": 6,
+        "endLine": 523,
+        "endChar": 22
+      },
+      "revId": "08b81c504df17539736a5499958009c1eeb5cb43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
