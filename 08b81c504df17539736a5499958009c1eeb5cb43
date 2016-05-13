@@ -94,6 +94,30 @@
       "revId": "08b81c504df17539736a5499958009c1eeb5cb43",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f247b43c_f4eab320",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1005967
+      },
+      "writtenOn": "2016-05-13T22:23:41Z",
+      "side": 1,
+      "message": "We could call a ((noinline)) function and ask for its frame address.",
+      "parentUuid": "f247b43c_94aa4fe3",
+      "range": {
+        "startLine": 522,
+        "startChar": 6,
+        "endLine": 523,
+        "endChar": 22
+      },
+      "revId": "08b81c504df17539736a5499958009c1eeb5cb43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
