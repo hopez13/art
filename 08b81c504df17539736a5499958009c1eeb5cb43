@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f247b43c_54470769",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-05-13T22:10:58Z",
+      "side": 1,
+      "message": "Since you\u0027re touching this, please clean up using AlignDown from base/bit-utils.h",
+      "range": {
+        "startLine": 522,
+        "startChar": 6,
+        "endLine": 523,
+        "endChar": 22
+      },
+      "revId": "08b81c504df17539736a5499958009c1eeb5cb43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
