@@ -22,6 +22,30 @@
       "revId": "944e1645d29870c296356b238c1d57a6104f283e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b75fee26_0a5cbbd9",
+        "filename": "runtime/runtime.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1015680
+      },
+      "writtenOn": "2016-05-13T08:43:57Z",
+      "side": 1,
+      "message": "JNI_OnLoad/register_java_net_InetAddress in libcore",
+      "parentUuid": "b75fee26_ea6a87a3",
+      "range": {
+        "startLine": 585,
+        "startChar": 54,
+        "endLine": 585,
+        "endChar": 67
+      },
+      "revId": "944e1645d29870c296356b238c1d57a6104f283e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
