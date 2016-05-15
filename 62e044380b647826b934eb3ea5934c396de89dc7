@@ -22,6 +22,30 @@
       "revId": "62e044380b647826b934eb3ea5934c396de89dc7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57431250_d2a8a2ec",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1037563
+      },
+      "writtenOn": "2016-05-15T05:38:04Z",
+      "side": 1,
+      "message": "Mark, I think the comment is still correct: we just do not record a new debug PcInfo if we have already generated a StackMap at this PC.\nPlease suggest a better comment if you fill that this one should be changed.",
+      "parentUuid": "f247b43c_0de65fc2",
+      "range": {
+        "startLine": 835,
+        "startChar": 0,
+        "endLine": 835,
+        "endChar": 86
+      },
+      "revId": "62e044380b647826b934eb3ea5934c396de89dc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
