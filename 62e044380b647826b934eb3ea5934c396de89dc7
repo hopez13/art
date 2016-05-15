@@ -46,6 +46,30 @@
       "revId": "62e044380b647826b934eb3ea5934c396de89dc7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f247b43c_16b5803e",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-05-15T11:57:45Z",
+      "side": 1,
+      "message": "How about:\n// Only generate a new stack map entry if we have not already generated one for this PC.",
+      "parentUuid": "57431250_d2a8a2ec",
+      "range": {
+        "startLine": 835,
+        "startChar": 0,
+        "endLine": 835,
+        "endChar": 86
+      },
+      "revId": "62e044380b647826b934eb3ea5934c396de89dc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
