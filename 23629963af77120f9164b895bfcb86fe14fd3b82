@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f247b43c_bf70ff62",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-05-16T17:49:47Z",
+      "side": 1,
+      "message": "NO_INLINE\n\n(And I assume it\u0027s because neither GCC nor Clang update the builtin correctly?)",
+      "range": {
+        "startLine": 516,
+        "startChar": 0,
+        "endLine": 516,
+        "endChar": 25
+      },
+      "revId": "23629963af77120f9164b895bfcb86fe14fd3b82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
