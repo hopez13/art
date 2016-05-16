@@ -22,6 +22,30 @@
       "revId": "23629963af77120f9164b895bfcb86fe14fd3b82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f247b43c_6a92575b",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1005967
+      },
+      "writtenOn": "2016-05-16T17:58:40Z",
+      "side": 1,
+      "message": "__builtin_frame_address does not suppress inlining, and then it just returns the address of the caller\u0027s frame, because what else could it do?",
+      "parentUuid": "f247b43c_bf70ff62",
+      "range": {
+        "startLine": 516,
+        "startChar": 0,
+        "endLine": 516,
+        "endChar": 25
+      },
+      "revId": "23629963af77120f9164b895bfcb86fe14fd3b82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
