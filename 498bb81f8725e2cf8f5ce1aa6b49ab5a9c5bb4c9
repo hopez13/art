@@ -22,6 +22,30 @@
       "revId": "498bb81f8725e2cf8f5ce1aa6b49ab5a9c5bb4c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9714aa34_3f71ef98",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1964,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-16T11:18:49Z",
+      "side": 1,
+      "message": "I think it\u0027s clearer, as in that case the super class is itself, and it sounds odd to classify this as an \"invalid class definition ordering\".\n\nAlso, this case (lines 1959–1964) addresses an actual issue found by the scanner (bug 28685551).  The rest (lines 1966­–1980) is a natural extension covering circularity errors at higher levels, but we haven\u0027t met any of them with the scanner (yet).  I thought about submitting it in another CL, but the change was so small that it felt natural to put it here in this CL.",
+      "parentUuid": "37fcde2a_07101c3d",
+      "range": {
+        "startLine": 1959,
+        "startChar": 0,
+        "endLine": 1964,
+        "endChar": 5
+      },
+      "revId": "498bb81f8725e2cf8f5ce1aa6b49ab5a9c5bb4c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
