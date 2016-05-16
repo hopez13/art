@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f705e6fe_a24ddab6",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1995,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-16T12:02:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f705e6fe_0257ee48",
+      "range": {
+        "startLine": 1995,
+        "startChar": 37,
+        "endLine": 1995,
+        "endChar": 47
+      },
+      "revId": "d0f9d8841134f401dd678ad331f44e6c327ee3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57431250_722fb631",
         "filename": "runtime/dex_file_verifier.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-05-16T11:42:45Z",
       "side": 1,
       "message": "the interface refers",
+      "range": {
+        "startLine": 2020,
+        "startChar": 21,
+        "endLine": 2020,
+        "endChar": 36
+      },
+      "revId": "d0f9d8841134f401dd678ad331f44e6c327ee3b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b711ae44_fd94a39c",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2020,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-16T12:02:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57431250_722fb631",
       "range": {
         "startLine": 2020,
         "startChar": 21,
