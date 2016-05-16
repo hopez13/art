@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f247b43c_4df5b2fa",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-16T22:32:56Z",
+      "side": 1,
+      "message": "As discussed, you also need to fix the aliases in the shadow frame.",
+      "range": {
+        "startLine": 554,
+        "startChar": 0,
+        "endLine": 554,
+        "endChar": 74
+      },
+      "revId": "60263b3333989099f06f133b0cf30f27f48c885d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f247b43c_1a2e7e35",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-16T22:32:56Z",
+      "side": 1,
+      "message": "As discussed, I think what bothered me at the beginning if this else branch just doing a DCHECK. If we changed the code line 557 to:\n\n} else {\nDCHECK_EQ(instr-\u003eOpcode(), Instruction::NEW_INSTANCE)\n...\n}\n\nThat would work for me.",
+      "range": {
+        "startLine": 571,
+        "startChar": 0,
+        "endLine": 574,
+        "endChar": 7
+      },
+      "revId": "60263b3333989099f06f133b0cf30f27f48c885d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
