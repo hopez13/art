@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5724f2f2_2a345f9a",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-17T23:20:51Z",
+      "side": 1,
+      "message": "Nit: Add if (callee \u003d\u003d nullptr) return false and put a comment here on why it could be null. You can then drop the null check line 504.",
+      "range": {
+        "startLine": 502,
+        "startChar": 50,
+        "endLine": 502,
+        "endChar": 52
+      },
+      "revId": "8c3b4ee8d14e87c7502b3fff1a4358889afc3b74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
