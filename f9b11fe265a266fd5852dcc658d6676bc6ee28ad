@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b75fee26_6db911f9",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-05-17T08:58:13Z",
+      "side": 1,
+      "message": "IIRC ResolveMethod can throw an exception and return null if the method cannot be resolved. You should handle the exception when that happens.",
+      "range": {
+        "startLine": 494,
+        "startChar": 15,
+        "endLine": 494,
+        "endChar": 21
+      },
+      "revId": "f9b11fe265a266fd5852dcc658d6676bc6ee28ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f247b43c_bc59e24b",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 3
@@ -18,6 +41,76 @@
         "startChar": 8,
         "endLine": 498,
         "endChar": 25
+      },
+      "revId": "f9b11fe265a266fd5852dcc658d6676bc6ee28ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b75fee26_4dbe4de3",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-05-17T08:58:13Z",
+      "side": 1,
+      "message": "That\u0027s related to my comment above. If callee\u003d\u003dnullptr is a hard fail, I would even CHECK.",
+      "parentUuid": "f247b43c_bc59e24b",
+      "range": {
+        "startLine": 498,
+        "startChar": 8,
+        "endLine": 498,
+        "endChar": 25
+      },
+      "revId": "f9b11fe265a266fd5852dcc658d6676bc6ee28ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b75fee26_edcce19d",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-05-17T08:58:13Z",
+      "side": 1,
+      "message": "for (uint32_t i \u003d 0, e \u003d shadow_frame-\u003eNumberOfVRegs(); i \u003c e; ++i)",
+      "range": {
+        "startLine": 556,
+        "startChar": 2,
+        "endLine": 556,
+        "endChar": 62
+      },
+      "revId": "f9b11fe265a266fd5852dcc658d6676bc6ee28ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b75fee26_cdc91d8c",
+        "filename": "test/597-deopt-new-string/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-05-17T08:58:13Z",
+      "side": 1,
+      "message": "Why no \"System.exit(0); here ?",
+      "range": {
+        "startLine": 79,
+        "startChar": 20,
+        "endLine": 79,
+        "endChar": 26
       },
       "revId": "f9b11fe265a266fd5852dcc658d6676bc6ee28ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
