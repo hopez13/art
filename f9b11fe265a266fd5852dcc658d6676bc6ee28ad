@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "f2209484_d3e87ec9",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-05-17T20:14:27Z",
+      "side": 1,
+      "message": "It would be nice if we have that info. But we don\u0027t have that info when deoptimization is triggered (the special exception is thrown).",
+      "parentUuid": "f2209484_187eb507",
+      "range": {
+        "startLine": 498,
+        "startChar": 8,
+        "endLine": 498,
+        "endChar": 25
+      },
+      "revId": "f9b11fe265a266fd5852dcc658d6676bc6ee28ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b75fee26_edcce19d",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 3
