@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b75fee26_109bcc74",
+        "filename": "compiler/utils/arm/assembler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-17T10:16:03Z",
+      "side": 1,
+      "message": "Is this OK for Thumb? The T1 encoding is listed as \"1110|...\"",
+      "range": {
+        "startLine": 967,
+        "startChar": 43,
+        "endLine": 967,
+        "endChar": 60
+      },
+      "revId": "997b120809978446a997a8e1400f1d810e6f63c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
