@@ -144,6 +144,75 @@
     },
     {
       "key": {
+        "uuid": "b730ce13_a5c9a88c",
+        "filename": "compiler/utils/arm/assembler_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-05-17T17:57:27Z",
+      "side": 1,
+      "message": "please add some documentation to this enum for the folks less fluent in arm",
+      "range": {
+        "startLine": 668,
+        "startChar": 24,
+        "endLine": 668,
+        "endChar": 25
+      },
+      "revId": "997b120809978446a997a8e1400f1d810e6f63c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b730ce13_a57b6814",
+        "filename": "compiler/utils/arm/assembler_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 676,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-05-17T17:57:27Z",
+      "side": 1,
+      "message": "this file is not always consistent, but I thought we always try to avoid plain int, but specify sign and width explicitly",
+      "range": {
+        "startLine": 676,
+        "startChar": 47,
+        "endLine": 676,
+        "endChar": 48
+      },
+      "revId": "997b120809978446a997a8e1400f1d810e6f63c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b730ce13_88963b4c",
+        "filename": "compiler/utils/arm/assembler_arm.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-05-17T17:57:27Z",
+      "side": 1,
+      "message": "empty line between virtuals and inlines below",
+      "range": {
+        "startLine": 681,
+        "startChar": 75,
+        "endLine": 681,
+        "endChar": 76
+      },
+      "revId": "997b120809978446a997a8e1400f1d810e6f63c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b711ae44_c04572a8",
         "filename": "compiler/utils/arm/assembler_arm32.cc",
         "patchSetId": 1
