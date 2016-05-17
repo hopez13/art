@@ -22,6 +22,122 @@
       "revId": "997b120809978446a997a8e1400f1d810e6f63c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1720ba90_dec55951",
+        "filename": "compiler/utils/arm/assembler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-17T11:32:52Z",
+      "side": 1,
+      "message": "For which instruction(s)?  For \"VRINTA (floating-point)\", \"VRINTM (floating-point)\", \"VRINTN (floating-point)\", \"VRINTP (floating-point)\", bits 28-31 seem to be 1111 for both the A1 and the T1 encoding.",
+      "parentUuid": "b75fee26_109bcc74",
+      "range": {
+        "startLine": 967,
+        "startChar": 43,
+        "endLine": 967,
+        "endChar": 60
+      },
+      "revId": "997b120809978446a997a8e1400f1d810e6f63c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17f7da48_834e625f",
+        "filename": "compiler/utils/arm/assembler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-17T11:32:52Z",
+      "side": 1,
+      "message": "Why not put this between B23 and B21?  Likewise for other fields.",
+      "range": {
+        "startLine": 973,
+        "startChar": 21,
+        "endLine": 973,
+        "endChar": 28
+      },
+      "revId": "997b120809978446a997a8e1400f1d810e6f63c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b711ae44_c04572a8",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-17T11:32:52Z",
+      "side": 1,
+      "message": "Nit: /* is_64bit */ false",
+      "range": {
+        "startLine": 530,
+        "startChar": 68,
+        "endLine": 530,
+        "endChar": 85
+      },
+      "revId": "997b120809978446a997a8e1400f1d810e6f63c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57431250_9548c44d",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1119,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-17T11:32:52Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1119,
+        "startChar": 70,
+        "endLine": 1119,
+        "endChar": 87
+      },
+      "revId": "997b120809978446a997a8e1400f1d810e6f63c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1720ba90_5e0ca996",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1519,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-17T11:32:52Z",
+      "side": 1,
+      "message": "Maybe move these inside the `if` instruction in lines 1521–1524?\n\nAlso, why not using the 3-argument constructor:\n\n  FpRegister(uint32_t instr, uint16_t at_bit, uint16_t extra_at_bit)\n\nas the `size` information is at bit 8 (see line 205) in VRINT instructions?",
+      "range": {
+        "startLine": 1516,
+        "startChar": 0,
+        "endLine": 1519,
+        "endChar": 40
+      },
+      "revId": "997b120809978446a997a8e1400f1d810e6f63c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
