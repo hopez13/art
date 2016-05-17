@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "b75fee26_d053f458",
+        "filename": "compiler/utils/arm/assembler_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-17T13:42:53Z",
+      "side": 1,
+      "message": "Sorry, I was looking at the ARMv7 spec and the encoding seemed to match the VCVT there, except for this bit.",
+      "parentUuid": "d700e2f1_5ebef1e2",
+      "range": {
+        "startLine": 967,
+        "startChar": 43,
+        "endLine": 967,
+        "endChar": 60
+      },
+      "revId": "997b120809978446a997a8e1400f1d810e6f63c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17f7da48_834e625f",
         "filename": "compiler/utils/arm/assembler_arm.cc",
         "patchSetId": 1
