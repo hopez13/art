@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f2209484_4d05d1ac",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-05-17T19:50:59Z",
+      "side": 1,
+      "message": "We just returned from callee, so that method should resolve without problem. However I\u0027m worried about cases like runtime methods where we just return null. Maybe that won\u0027t happen but I really only care about if it\u0027s string init and return true for it. If in case there are pending exceptions (say due to oom), I\u0027ll pass that up to let the caller handle it.",
+      "parentUuid": "b75fee26_6db911f9",
+      "range": {
+        "startLine": 494,
+        "startChar": 15,
+        "endLine": 494,
+        "endChar": 21
+      },
+      "revId": "f9b11fe265a266fd5852dcc658d6676bc6ee28ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f247b43c_bc59e24b",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 3
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "f2209484_2d7b3518",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-05-17T19:50:59Z",
+      "side": 1,
+      "message": "As commented above, I\u0027m just worried about some special method where we just return null. I don\u0027t assert since I don\u0027t care about if that case is possible as long as I take care of string init.",
+      "parentUuid": "b75fee26_4dbe4de3",
+      "range": {
+        "startLine": 498,
+        "startChar": 8,
+        "endLine": 498,
+        "endChar": 25
+      },
+      "revId": "f9b11fe265a266fd5852dcc658d6676bc6ee28ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b75fee26_edcce19d",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 3
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "f2209484_4de95126",
+        "filename": "runtime/interpreter/interpreter_common.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-05-17T19:50:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b75fee26_edcce19d",
+      "range": {
+        "startLine": 556,
+        "startChar": 2,
+        "endLine": 556,
+        "endChar": 62
+      },
+      "revId": "f9b11fe265a266fd5852dcc658d6676bc6ee28ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b75fee26_cdc91d8c",
         "filename": "test/597-deopt-new-string/src/Main.java",
         "patchSetId": 3
@@ -106,6 +178,30 @@
       "writtenOn": "2016-05-17T08:58:13Z",
       "side": 1,
       "message": "Why no \"System.exit(0); here ?",
+      "range": {
+        "startLine": 79,
+        "startChar": 20,
+        "endLine": 79,
+        "endChar": 26
+      },
+      "revId": "f9b11fe265a266fd5852dcc658d6676bc6ee28ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2209484_4d787119",
+        "filename": "test/597-deopt-new-string/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-05-17T19:50:59Z",
+      "side": 1,
+      "message": "Changed return to System.exit(0).",
+      "parentUuid": "b75fee26_cdc91d8c",
       "range": {
         "startLine": 79,
         "startChar": 20,
