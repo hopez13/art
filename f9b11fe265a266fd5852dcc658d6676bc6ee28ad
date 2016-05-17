@@ -168,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "f2209484_13fa1684",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-17T20:18:06Z",
+      "side": 1,
+      "message": "OK. Please add a comment why you\u0027re playing it safe. Do you think we\u0027re always guaranteed to get a method and not null for any String init?",
+      "parentUuid": "f2209484_d3e87ec9",
+      "range": {
+        "startLine": 498,
+        "startChar": 8,
+        "endLine": 498,
+        "endChar": 25
+      },
+      "revId": "f9b11fe265a266fd5852dcc658d6676bc6ee28ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b75fee26_edcce19d",
         "filename": "runtime/interpreter/interpreter_common.cc",
         "patchSetId": 3
