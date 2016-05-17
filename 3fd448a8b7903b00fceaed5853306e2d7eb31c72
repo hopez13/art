@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f247b43c_62935408",
+        "filename": "runtime/debugger.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-17T12:17:53Z",
+      "side": 1,
+      "message": "Another option could be to pass a boolean to the UpdateMethodsCode, whether the caller was the debugger, but up to you.",
+      "range": {
+        "startLine": 585,
+        "startChar": 26,
+        "endLine": 585,
+        "endChar": 55
+      },
+      "revId": "3fd448a8b7903b00fceaed5853306e2d7eb31c72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
