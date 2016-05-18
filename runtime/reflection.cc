@@ -446,7 +446,7 @@ JValue InvokeWithVarArgs(const ScopedObjectAccessAlreadyRunnable& soa, jobject o
   // We want to make sure that the stack is not within a small distance from the
   // protected region in case we are calling into a leaf function whose stack
   // check has been elided.
-  if (UNLIKELY(__builtin_frame_address(0) < soa.Self()->GetStackEnd())) {
+  if (UNLIKELY(soa.Self()->IsBelowStackEnd())) {
     ThrowStackOverflowError(soa.Self());
     return JValue();
   }
@@ -477,7 +477,7 @@ JValue InvokeWithJValues(const ScopedObjectAccessAlreadyRunnable& soa, jobject o
   // We want to make sure that the stack is not within a small distance from the
   // protected region in case we are calling into a leaf function whose stack
   // check has been elided.
-  if (UNLIKELY(__builtin_frame_address(0) < soa.Self()->GetStackEnd())) {
+  if (UNLIKELY(soa.Self()->IsBelowStackEnd())) {
     ThrowStackOverflowError(soa.Self());
     return JValue();
   }
@@ -508,7 +508,7 @@ JValue InvokeVirtualOrInterfaceWithJValues(const ScopedObjectAccessAlreadyRunnab
   // We want to make sure that the stack is not within a small distance from the
   // protected region in case we are calling into a leaf function whose stack
   // check has been elided.
-  if (UNLIKELY(__builtin_frame_address(0) < soa.Self()->GetStackEnd())) {
+  if (UNLIKELY(soa.Self()->IsBelowStackEnd())) {
     ThrowStackOverflowError(soa.Self());
     return JValue();
   }
@@ -540,7 +540,7 @@ JValue InvokeVirtualOrInterfaceWithVarArgs(const ScopedObjectAccessAlreadyRunnab
   // We want to make sure that the stack is not within a small distance from the
   // protected region in case we are calling into a leaf function whose stack
   // check has been elided.
-  if (UNLIKELY(__builtin_frame_address(0) < soa.Self()->GetStackEnd())) {
+  if (UNLIKELY(soa.Self()->IsBelowStackEnd())) {
     ThrowStackOverflowError(soa.Self());
     return JValue();
   }
@@ -572,8 +572,7 @@ jobject InvokeMethod(const ScopedObjectAccessAlreadyRunnable& soa, jobject javaM
   // We want to make sure that the stack is not within a small distance from the
   // protected region in case we are calling into a leaf function whose stack
   // check has been elided.
-  if (UNLIKELY(__builtin_frame_address(0) <
-               soa.Self()->GetStackEndForInterpreter(true))) {
+  if (UNLIKELY(soa.Self()->IsBelowStackEndForInterpreter(true))) {
     ThrowStackOverflowError(soa.Self());
     return nullptr;
   }

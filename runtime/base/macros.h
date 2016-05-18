@@ -94,4 +94,10 @@ template<typename T> ART_FRIEND_TEST(test_set_name, individual_test)
 #define LOCKABLE CAPABILITY("mutex")
 #define SHARED_LOCKABLE SHARED_CAPABILITY("mutex")
 
+#if defined(__clang__)
+#if __has_feature(safe_stack)
+#define SAFE_STACK 1
+#endif
+#endif
+
 #endif  // ART_RUNTIME_BASE_MACROS_H_
