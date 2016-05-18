@@ -361,7 +361,7 @@ void EnterInterpreterFromInvoke(Thread* self,
                                 bool stay_in_interpreter) {
   DCHECK_EQ(self, Thread::Current());
   bool implicit_check = !Runtime::Current()->ExplicitStackOverflowChecks();
-  if (UNLIKELY(__builtin_frame_address(0) < self->GetStackEndForInterpreter(implicit_check))) {
+  if (UNLIKELY(self->IsBelowStackEndForInterpreter(implicit_check))) {
     ThrowStackOverflowError(self);
     return;
   }
@@ -573,7 +573,7 @@ JValue EnterInterpreterFromEntryPoint(Thread* self, const DexFile::CodeItem* cod
                                       ShadowFrame* shadow_frame) {
   DCHECK_EQ(self, Thread::Current());
   bool implicit_check = !Runtime::Current()->ExplicitStackOverflowChecks();
-  if (UNLIKELY(__builtin_frame_address(0) < self->GetStackEndForInterpreter(implicit_check))) {
+  if (UNLIKELY(self->IsBelowStackEndForInterpreter(implicit_check))) {
     ThrowStackOverflowError(self);
     return JValue();
   }
@@ -590,7 +590,7 @@ void ArtInterpreterToInterpreterBridge(Thread* self,
                                        ShadowFrame* shadow_frame,
                                        JValue* result) {
   bool implicit_check = !Runtime::Current()->ExplicitStackOverflowChecks();
-  if (UNLIKELY(__builtin_frame_address(0) < self->GetStackEndForInterpreter(implicit_check))) {
+  if (UNLIKELY(self->IsBelowStackEndForInterpreter(implicit_check))) {
     ThrowStackOverflowError(self);
     return;
   }
