@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "378e9e42_8e0e5b2b",
+        "filename": "runtime/dex_file_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1965,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-18T15:16:09Z",
+      "side": 1,
+      "message": "I don\u0027t think it makes sense to do one check for all versions and the other for \u003e\u003d37. They enforce the same rule.",
+      "parentUuid": "5724f2f2_c141262e",
+      "range": {
+        "startLine": 1960,
+        "startChar": 6,
+        "endLine": 1965,
+        "endChar": 7
+      },
+      "revId": "621b5eab8eed7746925bca489114d706ad455572",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5724f2f2_014cde60",
         "filename": "runtime/dex_file_verifier.cc",
         "patchSetId": 2
