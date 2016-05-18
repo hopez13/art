@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "378e9e42_ceace348",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 997,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-18T14:58:52Z",
+      "side": 1,
+      "message": "You could relax this and use CompareAndBranchIfZero() instead of cbz() - it would use CBZ if we happen to get a low register, CMP+BEQ otherwise.",
+      "range": {
+        "startLine": 996,
+        "startChar": 0,
+        "endLine": 997,
+        "endChar": 53
+      },
+      "revId": "2ede6b78499a8fccbb7629ebc9013bf2964ceebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "378e9e42_2e656710",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1000,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-18T14:58:52Z",
+      "side": 1,
+      "message": "Relax this at least for the kNoCall case.",
+      "range": {
+        "startLine": 1000,
+        "startChar": 47,
+        "endLine": 1000,
+        "endChar": 49
+      },
+      "revId": "2ede6b78499a8fccbb7629ebc9013bf2964ceebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "378e9e42_ce7dc3a1",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-18T14:58:52Z",
+      "side": 1,
+      "message": "CompareAndBranchIfZero()",
+      "range": {
+        "startLine": 1032,
+        "startChar": 0,
+        "endLine": 1033,
+        "endChar": 41
+      },
+      "revId": "2ede6b78499a8fccbb7629ebc9013bf2964ceebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "378e9e42_4e3c73d0",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-18T14:58:52Z",
+      "side": 1,
+      "message": "Merge as SUBS.",
+      "range": {
+        "startLine": 1042,
+        "startChar": 0,
+        "endLine": 1045,
+        "endChar": 39
+      },
+      "revId": "2ede6b78499a8fccbb7629ebc9013bf2964ceebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "378e9e42_0e498b7f",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1053,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-18T14:58:52Z",
+      "side": 1,
+      "message": "Reorder with CBZ above for better instruction scheduling?",
+      "range": {
+        "startLine": 1053,
+        "startChar": 2,
+        "endLine": 1053,
+        "endChar": 46
+      },
+      "revId": "2ede6b78499a8fccbb7629ebc9013bf2964ceebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "378e9e42_6e484f79",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1057,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-18T14:58:52Z",
+      "side": 1,
+      "message": "The loop below is unrolled to actually compare 4 characters at a time, so it needs 8B alignment to avoid over-reading, which can cause SIGSEGV in the extremely rare case that you\u0027re exactly at the end of the allocated heap. (Or you can remove the loop unrolling and save on code size.)",
+      "range": {
+        "startLine": 1056,
+        "startChar": 0,
+        "endLine": 1057,
+        "endChar": 97
+      },
+      "revId": "2ede6b78499a8fccbb7629ebc9013bf2964ceebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "378e9e42_ce56a319",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1069,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-18T14:58:52Z",
+      "side": 1,
+      "message": "Use sub() instead of subs() as you don\u0027t explicitly use the flags. If temp0 is a low register, the sub() with kCcDontCare will use the 16-bit SUBS, otherwise it will use the 32-bit SUB.",
+      "range": {
+        "startLine": 1069,
+        "startChar": 2,
+        "endLine": 1069,
+        "endChar": 43
+      },
+      "revId": "2ede6b78499a8fccbb7629ebc9013bf2964ceebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
