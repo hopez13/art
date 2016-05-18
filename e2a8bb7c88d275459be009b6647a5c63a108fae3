@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5724f2f2_a1a872eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-05-18T15:15:28Z",
+      "side": 1,
+      "message": "That sounds weird...\n\n(We don\u0027t care too much for the Android argument, especially considering _your_ recent work... :-) )",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 3
+      },
+      "revId": "e2a8bb7c88d275459be009b6647a5c63a108fae3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b75fee26_50ba64ce",
         "filename": "runtime/arch/arm/instruction_set_features_arm.cc",
         "patchSetId": 1
