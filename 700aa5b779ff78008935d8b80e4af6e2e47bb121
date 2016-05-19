@@ -25,6 +25,52 @@
     },
     {
       "key": {
+        "uuid": "97374a6b_2df2787f",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-19T23:33:53Z",
+      "side": 1,
+      "message": "This may not zero out the entire JValue on 32 bit. Use SetJ(0)? I don\u0027t know if this causes the test failure.",
+      "range": {
+        "startLine": 567,
+        "startChar": 10,
+        "endLine": 567,
+        "endChar": 30
+      },
+      "revId": "700aa5b779ff78008935d8b80e4af6e2e47bb121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97374a6b_cde66cc3",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-19T23:33:53Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 576,
+        "startChar": 8,
+        "endLine": 576,
+        "endChar": 28
+      },
+      "revId": "700aa5b779ff78008935d8b80e4af6e2e47bb121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97374a6b_f0954ef3",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 3
