@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "378e9e42_0e342b9a",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 997,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-05-19T15:24:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "378e9e42_ceace348",
+      "range": {
+        "startLine": 996,
+        "startChar": 0,
+        "endLine": 997,
+        "endChar": 53
+      },
+      "revId": "2ede6b78499a8fccbb7629ebc9013bf2964ceebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "378e9e42_2e656710",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-05-18T14:58:52Z",
       "side": 1,
       "message": "Relax this at least for the kNoCall case.",
+      "range": {
+        "startLine": 1000,
+        "startChar": 47,
+        "endLine": 1000,
+        "endChar": 49
+      },
+      "revId": "2ede6b78499a8fccbb7629ebc9013bf2964ceebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "378e9e42_2e39e790",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1000,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-05-19T15:24:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "378e9e42_2e656710",
       "range": {
         "startLine": 1000,
         "startChar": 47,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "378e9e42_ee4eff28",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-05-19T15:24:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "378e9e42_ce7dc3a1",
+      "range": {
+        "startLine": 1032,
+        "startChar": 0,
+        "endLine": 1033,
+        "endChar": 41
+      },
+      "revId": "2ede6b78499a8fccbb7629ebc9013bf2964ceebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "378e9e42_4e3c73d0",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-05-18T14:58:52Z",
       "side": 1,
       "message": "Merge as SUBS.",
+      "range": {
+        "startLine": 1042,
+        "startChar": 0,
+        "endLine": 1045,
+        "endChar": 39
+      },
+      "revId": "2ede6b78499a8fccbb7629ebc9013bf2964ceebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "378e9e42_0e5d0bda",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-05-19T15:24:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "378e9e42_4e3c73d0",
       "range": {
         "startLine": 1042,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "378e9e42_4e5713ba",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1053,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-05-19T15:24:08Z",
+      "side": 1,
+      "message": "If the branch is predicted not taken, the three MOVs could be adjacent in the issue queue and this one likely dual-issue with the first in the IT block (if the right string is shorter).\n\nIf the branch is predicted taken, we would waste time on this MOV by putting it before the CBZ.",
+      "parentUuid": "378e9e42_0e498b7f",
+      "range": {
+        "startLine": 1053,
+        "startChar": 2,
+        "endLine": 1053,
+        "endChar": 46
+      },
+      "revId": "2ede6b78499a8fccbb7629ebc9013bf2964ceebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "378e9e42_6e484f79",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "f7cec6a2_9736263f",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1057,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-05-19T15:24:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "378e9e42_6e484f79",
+      "range": {
+        "startLine": 1056,
+        "startChar": 0,
+        "endLine": 1057,
+        "endChar": 97
+      },
+      "revId": "2ede6b78499a8fccbb7629ebc9013bf2964ceebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "378e9e42_ce56a319",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
@@ -151,6 +295,30 @@
       "writtenOn": "2016-05-18T14:58:52Z",
       "side": 1,
       "message": "Use sub() instead of subs() as you don\u0027t explicitly use the flags. If temp0 is a low register, the sub() with kCcDontCare will use the 16-bit SUBS, otherwise it will use the 32-bit SUB.",
+      "range": {
+        "startLine": 1069,
+        "startChar": 2,
+        "endLine": 1069,
+        "endChar": 43
+      },
+      "revId": "2ede6b78499a8fccbb7629ebc9013bf2964ceebf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9c29d_96ebca89",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1069,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-05-19T15:24:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "378e9e42_ce56a319",
       "range": {
         "startLine": 1069,
         "startChar": 2,
