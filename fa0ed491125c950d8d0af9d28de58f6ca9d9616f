@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "37e05ee0_7e439106",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-19T10:55:34Z",
+      "side": 1,
+      "message": "This pattern is recurring.  It\u0027d be nice to have some syntactic sugar to keep the code look simple.\n\nCould we introduce some sort of \"view\" or \"computed array\" over the input_records showing the instructions?  Something like:\n\n  // Type could be replaced by `auto`.\n  InstructionView\u003cArrayRef\u003cHUserRecord\u003cHInstruction*\u003e\u003e\u003e input_instructions(input_records);\n\n  // ...\n\n  HInstruction* input1 \u003d input_instruction[1];\n\n?",
+      "range": {
+        "startLine": 917,
+        "startChar": 27,
+        "endLine": 917,
+        "endChar": 60
+      },
+      "revId": "fa0ed491125c950d8d0af9d28de58f6ca9d9616f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57b232f7_bafd2d4b",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-19T10:55:34Z",
+      "side": 1,
+      "message": "Why not keeping `input_records.size()` in a variable `e` as in the original code (here and elsewhere)?",
+      "range": {
+        "startLine": 392,
+        "startChar": 25,
+        "endLine": 392,
+        "endChar": 45
+      },
+      "revId": "fa0ed491125c950d8d0af9d28de58f6ca9d9616f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7cec6a2_d485bc6c",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 2
@@ -13,6 +59,70 @@
       "writtenOn": "2016-05-18T18:44:20Z",
       "side": 1,
       "message": "Should we really try to preserve this DCHECK()?",
+      "revId": "fa0ed491125c950d8d0af9d28de58f6ca9d9616f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77a496ba_90f914d8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3932,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-19T10:55:34Z",
+      "side": 1,
+      "message": "Why not?  I does require a bit of checking code, but I think it\u0027s faire given the complexity of the HInvokeStaticOrDirect instruction.\n\nThere are too many \"special inputs\" IMO in HInvokeStaticOrDirect.  Maybe we should start thinking about simplifying/splitting this instruction.",
+      "parentUuid": "f7cec6a2_d485bc6c",
+      "revId": "fa0ed491125c950d8d0af9d28de58f6ca9d9616f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7cec6a2_74cdc896",
+        "filename": "compiler/utils/array_ref.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-19T10:55:34Z",
+      "side": 1,
+      "message": "Could you fix the indentation here as well?",
+      "range": {
+        "startLine": 63,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 4
+      },
+      "revId": "fa0ed491125c950d8d0af9d28de58f6ca9d9616f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37d5be2a_5692d4af",
+        "filename": "compiler/utils/array_ref.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-05-19T10:55:34Z",
+      "side": 1,
+      "message": "Would\n\n  template \u003csize_t size\u003e\n  explicit constexpr ArrayRef(typename std::remove_const\u003cT\u003e::type (\u0026array)[size])\n      : array_(array), size_(size) {\n  }\n\nwork too?",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 3
+      },
       "revId": "fa0ed491125c950d8d0af9d28de58f6ca9d9616f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
