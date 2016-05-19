@@ -45,6 +45,75 @@
       "revId": "8ca33bf04060fadd5b35fa93fa56547c62fe52e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5724f2f2_75b10b07",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-19T00:30:14Z",
+      "side": 1,
+      "message": "It looks like this could contain a stale ref at some points along the control flow below?",
+      "range": {
+        "startLine": 529,
+        "startChar": 2,
+        "endLine": 529,
+        "endChar": 14
+      },
+      "revId": "8ca33bf04060fadd5b35fa93fa56547c62fe52e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5724f2f2_b51f03f5",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-19T00:30:14Z",
+      "side": 1,
+      "message": "This could trigger GC via ResolveMethod. Do we have any refs in a place where GC won\u0027t see, eg. a ShadowFrame on the side or a local variable containing a ref?",
+      "range": {
+        "startLine": 560,
+        "startChar": 12,
+        "endLine": 560,
+        "endChar": 24
+      },
+      "revId": "8ca33bf04060fadd5b35fa93fa56547c62fe52e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5724f2f2_55d0473a",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-19T00:30:14Z",
+      "side": 1,
+      "message": "This could also trigger GC.",
+      "range": {
+        "startLine": 573,
+        "startChar": 47,
+        "endLine": 573,
+        "endChar": 58
+      },
+      "revId": "8ca33bf04060fadd5b35fa93fa56547c62fe52e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
