@@ -93,6 +93,30 @@
       "revId": "cd45aba1b557e91a10211e022a2f0cb0686e6074",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97374a6b_a7422e5a",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-05-19T17:49:37Z",
+      "side": 1,
+      "message": "If the compiler doesn\u0027t fully evaluate that call inside a non-constexpr, then it\u0027s either broken or has a good reason to think it\u0027s better to expand to the function code. I don\u0027t see manual enforcement as a great reason...",
+      "parentUuid": "d7c9c29d_9623ca9a",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 76
+      },
+      "revId": "cd45aba1b557e91a10211e022a2f0cb0686e6074",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
