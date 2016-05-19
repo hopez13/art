@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "e85340c8_f02bd272",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-19T02:18:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "289d58d4_56abca99",
+      "range": {
+        "startLine": 71,
+        "startChar": 17,
+        "endLine": 71,
+        "endChar": 22
+      },
+      "revId": "83c1a3db838d05a85e2a07d10ca52d567896e9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "288b98a4_80a5d877",
         "filename": "runtime/gc/collector/concurrent_copying-inl.h",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2016-04-22T09:05:43Z",
       "side": 1,
       "message": "maybe say why it is ok.",
+      "range": {
+        "startLine": 83,
+        "startChar": 47,
+        "endLine": 83,
+        "endChar": 49
+      },
+      "revId": "83c1a3db838d05a85e2a07d10ca52d567896e9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e85340c8_90e5be85",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-19T02:18:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "288b98a4_80a5d877",
       "range": {
         "startLine": 83,
         "startChar": 47,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "e85340c8_50ef4661",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-19T02:18:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8659cc5_fd4f230b",
+      "range": {
+        "startLine": 92,
+        "startChar": 11,
+        "endLine": 96,
+        "endChar": 74
+      },
+      "revId": "83c1a3db838d05a85e2a07d10ca52d567896e9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88864495_232b3476",
         "filename": "runtime/gc/collector/concurrent_copying-inl.h",
         "patchSetId": 1
@@ -105,6 +177,30 @@
       "writtenOn": "2016-04-22T09:05:43Z",
       "side": 1,
       "message": "why do you need to do it at the end of marking and not now?",
+      "range": {
+        "startLine": 97,
+        "startChar": 71,
+        "endLine": 97,
+        "endChar": 98
+      },
+      "revId": "83c1a3db838d05a85e2a07d10ca52d567896e9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e85340c8_50418618",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-19T02:18:51Z",
+      "side": 1,
+      "message": "This detection logic is conservative (it would include false-gray and some really-gray cases both.) If we change it to white now, it would be incorrect for really-gray cases, that is, turning off the read barrier and breaking the invariant (DCHECK) that the objects on the mark stack are gray. Doing it at the end of marking ensures that there\u0027s no such issues.",
+      "parentUuid": "88864495_232b3476",
       "range": {
         "startLine": 97,
         "startChar": 71,
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "e85340c8_d02d766d",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-19T02:18:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "289d58d4_f6b2b608",
+      "range": {
+        "startLine": 324,
+        "startChar": 15,
+        "endLine": 324,
+        "endChar": 20
+      },
+      "revId": "83c1a3db838d05a85e2a07d10ca52d567896e9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4879ac72_f992d3d3",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
@@ -151,6 +271,30 @@
       "writtenOn": "2016-04-22T09:05:43Z",
       "side": 1,
       "message": "Looks very similar to the other code in concurrent_copying-inl.h. Could you somehow share it?",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 343,
+        "endChar": 7
+      },
+      "revId": "83c1a3db838d05a85e2a07d10ca52d567896e9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e85340c8_1b2fafd0",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-19T02:18:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4879ac72_f992d3d3",
       "range": {
         "startLine": 324,
         "startChar": 0,
@@ -186,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "e85340c8_90605ead",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-19T02:18:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8a6e026_ee549fd2",
+      "range": {
+        "startLine": 708,
+        "startChar": 30,
+        "endLine": 708,
+        "endChar": 34
+      },
+      "revId": "83c1a3db838d05a85e2a07d10ca52d567896e9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c87cbc59_852de46e",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
@@ -209,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "e85340c8_5b1c47ae",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1946,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-19T02:18:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c87cbc59_852de46e",
+      "range": {
+        "startLine": 1927,
+        "startChar": 1,
+        "endLine": 1946,
+        "endChar": 7
+      },
+      "revId": "83c1a3db838d05a85e2a07d10ca52d567896e9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4879ac72_19986ff1",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
@@ -220,6 +412,30 @@
       "writtenOn": "2016-04-22T09:05:43Z",
       "side": 1,
       "message": "sort of ditto.",
+      "range": {
+        "startLine": 1988,
+        "startChar": 0,
+        "endLine": 2015,
+        "endChar": 11
+      },
+      "revId": "83c1a3db838d05a85e2a07d10ca52d567896e9d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e85340c8_db8117ef",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2015,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-19T02:18:51Z",
+      "side": 1,
+      "message": "I\u0027ll keep this one as it\u0027s part of a larger pattern with differences.",
+      "parentUuid": "4879ac72_19986ff1",
       "range": {
         "startLine": 1988,
         "startChar": 0,

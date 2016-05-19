@@ -22,6 +22,30 @@
       "revId": "20eef176101924d5047895214bad4e73b8ae35ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e85340c8_506c2694",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-19T02:18:51Z",
+      "side": 0,
+      "message": "There\u0027s a slight chance that some thread changes it back to gray right after the AtomicSetReadBarrierPointer call succeeds in a \u0027false gray\u0027 case. So, elided this. Note the DCHECK was somewhat redundant because the success of the AtomicSetReadBarrierPointer would at least indicate that the object changed to white at least once.",
+      "parentUuid": "a87f884b_c738d223",
+      "range": {
+        "startLine": 1097,
+        "startChar": 8,
+        "endLine": 1097,
+        "endChar": 75
+      },
+      "revId": "20eef176101924d5047895214bad4e73b8ae35ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
