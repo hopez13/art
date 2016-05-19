@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37769e4b_ce48a37e",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-19T23:38:26Z",
+      "side": 1,
+      "message": "Does this actually work in qemu as this code is expecting? IOW, are we missing tests for round()?\n\nUnless I\u0027m mistaken, FCSR.NAN2008\u003d1 support isn\u0027t yet in and so the emulator should still be behaving as if FCSR.NAN2008\u003d0.\n\nThese patches haven\u0027t been merged yet:\n\nhttps://android-review.googlesource.com/#/q/topic:MIPS-IEEE-754-2008\n\n(We should review them.)",
+      "range": {
+        "startLine": 910,
+        "startChar": 0,
+        "endLine": 910,
+        "endChar": 25
+      },
+      "revId": "f2f73f4aa8710fe80e05ee5abd705cee5771e1d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
