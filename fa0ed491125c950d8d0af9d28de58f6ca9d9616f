@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b7b52edc_5d016f5d",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-19T11:41:34Z",
+      "side": 1,
+      "message": "I\u0027m thinking about a bit more generic utility wrapper.",
+      "parentUuid": "37e05ee0_7e439106",
+      "range": {
+        "startLine": 917,
+        "startChar": 27,
+        "endLine": 917,
+        "endChar": 60
+      },
+      "revId": "fa0ed491125c950d8d0af9d28de58f6ca9d9616f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57b232f7_bafd2d4b",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-05-19T10:55:34Z",
       "side": 1,
       "message": "Why not keeping `input_records.size()` in a variable `e` as in the original code (here and elsewhere)?",
+      "range": {
+        "startLine": 392,
+        "startChar": 25,
+        "endLine": 392,
+        "endChar": 45
+      },
+      "revId": "fa0ed491125c950d8d0af9d28de58f6ca9d9616f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77a496ba_d0ed5c03",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-19T11:41:34Z",
+      "side": 1,
+      "message": "Have a little trust in clang\u0027s scalarization. (input_records is a local variable and its members never change.)",
+      "parentUuid": "57b232f7_bafd2d4b",
       "range": {
         "startLine": 392,
         "startChar": 25,
@@ -83,6 +131,24 @@
     },
     {
       "key": {
+        "uuid": "37e05ee0_fe00819f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3932,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-19T11:41:34Z",
+      "side": 1,
+      "message": "If we drop this check, we can remove the whole GetInputRecords() override and make the HInvoke::GetInputRecords() final.\n\n(And I\u0027m thinking about making the HExpression\u003c\u003e::GetInputRecords() final and rewriting the HLoadString to avoid the HExpression\u003c\u003e.)",
+      "parentUuid": "77a496ba_90f914d8",
+      "revId": "fa0ed491125c950d8d0af9d28de58f6ca9d9616f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7cec6a2_74cdc896",
         "filename": "compiler/utils/array_ref.h",
         "patchSetId": 2
@@ -106,6 +172,30 @@
     },
     {
       "key": {
+        "uuid": "57beb2e3_dabde1e5",
+        "filename": "compiler/utils/array_ref.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-19T11:41:34Z",
+      "side": 1,
+      "message": "Shall do.",
+      "parentUuid": "f7cec6a2_74cdc896",
+      "range": {
+        "startLine": 63,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 4
+      },
+      "revId": "fa0ed491125c950d8d0af9d28de58f6ca9d9616f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37d5be2a_5692d4af",
         "filename": "compiler/utils/array_ref.h",
         "patchSetId": 2
@@ -117,6 +207,30 @@
       "writtenOn": "2016-05-19T10:55:34Z",
       "side": 1,
       "message": "Would\n\n  template \u003csize_t size\u003e\n  explicit constexpr ArrayRef(typename std::remove_const\u003cT\u003e::type (\u0026array)[size])\n      : array_(array), size_(size) {\n  }\n\nwork too?",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 3
+      },
+      "revId": "fa0ed491125c950d8d0af9d28de58f6ca9d9616f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "378e9e42_8e22db43",
+        "filename": "compiler/utils/array_ref.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-19T11:41:34Z",
+      "side": 1,
+      "message": "You mean \"add_const\" instead of \"remove_const\". That would create 2 identical non-template overloads if T is const.",
+      "parentUuid": "37d5be2a_5692d4af",
       "range": {
         "startLine": 66,
         "startChar": 0,
