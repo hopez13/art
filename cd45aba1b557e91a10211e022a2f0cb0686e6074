@@ -69,6 +69,30 @@
       "revId": "cd45aba1b557e91a10211e022a2f0cb0686e6074",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9c29d_9623ca9a",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-19T17:37:22Z",
+      "side": 1,
+      "message": "I want them in variables that I can mark \"constexpr\" to enforce compile-time evaluation.",
+      "parentUuid": "97374a6b_c4b09006",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 76
+      },
+      "revId": "cd45aba1b557e91a10211e022a2f0cb0686e6074",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
