@@ -1,0 +1,262 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fcf6ab4a_7db89784",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-20T15:47:20Z",
+      "side": 1,
+      "message": "Can you split these out to separate CL(s)? (Not related or only remotely related to the HInvokeStaticOrDirect.)",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 37
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ceb9b63_01feca45",
+        "filename": "compiler/linker/mips/relative_patcher_mips_base.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-20T15:47:20Z",
+      "side": 1,
+      "message": "Do you anticipate using this also for mips64? If not, merge to the MipsRelativePatcher.",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17227a8a_e56e96f0",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-20T15:47:20Z",
+      "side": 1,
+      "message": "Please update to use map-\u003eGetOrCreate(...).",
+      "range": {
+        "startLine": 995,
+        "startChar": 0,
+        "endLine": 1003,
+        "endChar": 17
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17227a8a_25718ece",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3826,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-20T15:47:20Z",
+      "side": 1,
+      "message": "I don\u0027t see any reason to bundle kDexCachePcRelative with kCallDirectWithFixup.",
+      "range": {
+        "startLine": 3825,
+        "startChar": 0,
+        "endLine": 3826,
+        "endChar": 75
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17227a8a_45304af1",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5326,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-20T15:47:20Z",
+      "side": 1,
+      "message": "Can you already read the RA that in the delay slot?",
+      "range": {
+        "startLine": 5326,
+        "startChar": 2,
+        "endLine": 5326,
+        "endChar": 19
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17227a8a_a51f3e58",
+        "filename": "compiler/optimizing/dex_cache_array_fixups_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-20T15:47:20Z",
+      "side": 1,
+      "message": "Looks like there\u0027s another bit of code that could use SafeMap::GetOrCreate(), though I didn\u0027t clean this up for ARM either.",
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cfc5f2a_9e2fdd8c",
+        "filename": "compiler/optimizing/pc_relative_fixups_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-20T15:47:20Z",
+      "side": 1,
+      "message": "I see no reason to do anything for HInvokeVirtual and HInvokeInterface.",
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cfc5f2a_fe282188",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2448,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-20T15:47:20Z",
+      "side": 1,
+      "message": "Why not simply AUI and offset \u003d SignExtend(offset[0..15]) on R6?",
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17227a8a_a5c3beff",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2455,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-20T15:47:20Z",
+      "side": 1,
+      "message": "Please use more descriptive names, say kMaxOffsetForSimpleAdjustment.",
+      "range": {
+        "startLine": 2454,
+        "startChar": 0,
+        "endLine": 2455,
+        "endChar": 33
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7208684_042656c1",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2470,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-20T15:47:20Z",
+      "side": 1,
+      "message": "Why not LUI+ADDU and offset \u003d SignExtend(offset[0..15])?",
+      "range": {
+        "startLine": 2468,
+        "startChar": 0,
+        "endLine": 2470,
+        "endChar": 15
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7208684_242352b2",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-20T15:47:20Z",
+      "side": 1,
+      "message": "It\u0027s really weird to call these \"conditions.\" The branch type should be sufficient to distinguish the labels.",
+      "range": {
+        "startLine": 666,
+        "startChar": 0,
+        "endLine": 667,
+        "endChar": 62
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cf5a33d_3f5e876c",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-20T15:47:20Z",
+      "side": 1,
+      "message": "ArenaDeque",
+      "range": {
+        "startLine": 903,
+        "startChar": 2,
+        "endLine": 903,
+        "endChar": 12
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
