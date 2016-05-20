@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b7d7ee7d_f11477e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-20T23:02:11Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "fcf6ab4a_7db89784",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 37
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ceb9b63_01feca45",
         "filename": "compiler/linker/mips/relative_patcher_mips_base.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-05-20T15:47:20Z",
       "side": 1,
       "message": "Do you anticipate using this also for mips64? If not, merge to the MipsRelativePatcher.",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7d7ee7d_b1bddfe6",
+        "filename": "compiler/linker/mips/relative_patcher_mips_base.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-20T23:02:11Z",
+      "side": 1,
+      "message": "Yes, there should be a MIPS64 implementation as well (when we\u0027re done with the MIPS32 round).",
+      "parentUuid": "7ceb9b63_01feca45",
       "range": {
         "startLine": 25,
         "startChar": 6,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b7d7ee7d_91a09bb4",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-20T23:02:11Z",
+      "side": 1,
+      "message": "Is in CodeGeneratorARM::Deduplicate*Literal()? Will do.",
+      "parentUuid": "17227a8a_e56e96f0",
+      "range": {
+        "startLine": 995,
+        "startChar": 0,
+        "endLine": 1003,
+        "endChar": 17
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17227a8a_25718ece",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-05-20T15:47:20Z",
       "side": 1,
       "message": "I don\u0027t see any reason to bundle kDexCachePcRelative with kCallDirectWithFixup.",
+      "range": {
+        "startLine": 3825,
+        "startChar": 0,
+        "endLine": 3826,
+        "endChar": 75
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d742a22f_4bb6a54e",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3826,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-20T23:02:11Z",
+      "side": 1,
+      "message": "Could you please elaborate? My current implementation of VisitInvokeStaticOrDirect() adds at most one additional input register, which is either the base for PC-relative literals (needed for k*WithFixup) or the base for the dex cache array (needed for kDexCachePcRelative). It won\u0027t work with a combination of, say, kDexCachePcRelative and kCallDirectWithFixup because they\u0027d need two different input registers. Which is why I put a CHECK() below to catch this in case it happens (haven\u0027t seen so far). Do I need to do anything about the implementation or is your comment only about my comment? Or are you, in fact, confirming that kDexCachePcRelative and kCallDirectWithFixup can\u0027t (or shouldn\u0027t) ever come together? IOW, what do you want me to do here?",
+      "parentUuid": "17227a8a_25718ece",
       "range": {
         "startLine": 3825,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d742a22f_ab85496d",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5326,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-20T23:02:11Z",
+      "side": 1,
+      "message": "I\u0027ve found a statement in the documentation that says that RA is updated before the instruction in the delay slot. So, that\u0027s already happening (there\u0027s no NOP between NAL and MOVE).\n\nWhy?",
+      "parentUuid": "17227a8a_45304af1",
+      "range": {
+        "startLine": 5326,
+        "startChar": 2,
+        "endLine": 5326,
+        "endChar": 19
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17227a8a_a51f3e58",
         "filename": "compiler/optimizing/dex_cache_array_fixups_mips.cc",
         "patchSetId": 1
@@ -128,6 +248,24 @@
       "writtenOn": "2016-05-20T15:47:20Z",
       "side": 1,
       "message": "Looks like there\u0027s another bit of code that could use SafeMap::GetOrCreate(), though I didn\u0027t clean this up for ARM either.",
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d742a22f_eb7f5151",
+        "filename": "compiler/optimizing/dex_cache_array_fixups_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-20T23:02:11Z",
+      "side": 1,
+      "message": "If you do it for ARM, I can incorporate the change into here in a later patch set.",
+      "parentUuid": "17227a8a_a51f3e58",
       "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -151,6 +289,24 @@
     },
     {
       "key": {
+        "uuid": "d742a22f_2b9239af",
+        "filename": "compiler/optimizing/pc_relative_fixups_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-20T23:02:11Z",
+      "side": 1,
+      "message": "On x86 this is only needed for constant parameters being passed to invoked methods, right?",
+      "parentUuid": "1cfc5f2a_9e2fdd8c",
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cfc5f2a_fe282188",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 1
@@ -168,6 +324,24 @@
     },
     {
       "key": {
+        "uuid": "d742a22f_abee2931",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2448,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-20T23:02:11Z",
+      "side": 1,
+      "message": "We can do it in some but not all cases. 64-bit accesses broken down into pairs of 32-bit accesses need offset and offset + 4. On the caller side I may be unable to add the 4 in the 16 least-significant bits of the offset (e.g. 0x7ffc + 4) because the offset in LW and SW is int16_t (0x7ffc + 4 overflows into the negative range to -0x8000). This is why in the general case the 32-bit offset is first loaded in its entirety into a register after which we can always do e.g. LW reg, 0(reg) or LW reg, 4(reg).\n\nI didn\u0027t feel like complicating the code at this time by bringing in the type accessed (64-bit double vs 64-bit long vs everything else) and moving the existing callers\u0027 logic into this method.",
+      "parentUuid": "1cfc5f2a_fe282188",
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17227a8a_a5c3beff",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 1
@@ -179,6 +353,30 @@
       "writtenOn": "2016-05-20T15:47:20Z",
       "side": 1,
       "message": "Please use more descriptive names, say kMaxOffsetForSimpleAdjustment.",
+      "range": {
+        "startLine": 2454,
+        "startChar": 0,
+        "endLine": 2455,
+        "endChar": 33
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d742a22f_cbf37518",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2455,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-20T23:02:11Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "17227a8a_a5c3beff",
       "range": {
         "startLine": 2454,
         "startChar": 0,
@@ -214,6 +412,30 @@
     },
     {
       "key": {
+        "uuid": "d742a22f_0bde5d7a",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2470,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-20T23:02:11Z",
+      "side": 1,
+      "message": "Same as above. I may be unable to add 4 while staying within the bounds of the 16 least-significant bits of the offset.",
+      "parentUuid": "f7208684_042656c1",
+      "range": {
+        "startLine": 2468,
+        "startChar": 0,
+        "endLine": 2470,
+        "endChar": 15
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7208684_242352b2",
         "filename": "compiler/utils/mips/assembler_mips.h",
         "patchSetId": 1
@@ -237,6 +459,30 @@
     },
     {
       "key": {
+        "uuid": "d742a22f_0bc73daa",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-20T23:02:11Z",
+      "side": 1,
+      "message": "I agree it looks a bit weird now. The idea was that similarly to generating different conditional branches based on the condition we\u0027ll choose between e.g. lw and lwc1 for literals. OTOH, since PC-relative addressing on R6 is available for GPR loading only, different instruction sequences will be needed for literals of different types and we\u0027ll indeed have to use different \"branch types\" as you say. So, I guess, I could use some kind of kFakeLiteralCond here. How about that?",
+      "parentUuid": "f7208684_242352b2",
+      "range": {
+        "startLine": 666,
+        "startChar": 0,
+        "endLine": 667,
+        "endChar": 62
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cf5a33d_3f5e876c",
         "filename": "compiler/utils/mips/assembler_mips.h",
         "patchSetId": 1
@@ -248,6 +494,30 @@
       "writtenOn": "2016-05-20T15:47:20Z",
       "side": 1,
       "message": "ArenaDeque",
+      "range": {
+        "startLine": 903,
+        "startChar": 2,
+        "endLine": 903,
+        "endChar": 12
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d742a22f_2bc4f9a2",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-20T23:02:11Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "3cf5a33d_3f5e876c",
       "range": {
         "startLine": 903,
         "startChar": 2,
