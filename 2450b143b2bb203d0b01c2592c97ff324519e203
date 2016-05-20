@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7d7ee7d_beddb123",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2016-05-20T15:40:03Z",
+      "side": 1,
+      "message": "As interface dispatch can happen against any Object (the only guarantee from the verifier) why is this sound? The IMT is unnecessary in interface and abstract classes as these are non-instantiable.",
+      "range": {
+        "startLine": 9,
+        "startChar": 35,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "2450b143b2bb203d0b01c2592c97ff324519e203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
