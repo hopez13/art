@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7d7ee7d_6491e6ff",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-05-20T18:37:46Z",
+      "side": 1,
+      "message": "is this not something best tested inside PrintMemoryUse itself, rather than protecting all client calls?",
+      "range": {
+        "startLine": 132,
+        "startChar": 35,
+        "endLine": 133,
+        "endChar": 3
+      },
+      "revId": "af530866fadc5a5586a17f3e2444e6fff7f19ede",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
