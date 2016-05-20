@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7d7ee7d_993607f1",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-20T17:54:30Z",
+      "side": 1,
+      "message": "Add something like \"we don\u0027t want to use ResolveMethod which includes a suspend point and GC\" ?",
+      "range": {
+        "startLine": 491,
+        "startChar": 40,
+        "endLine": 491,
+        "endChar": 61
+      },
+      "revId": "dd64a5e648d8d08d630d2099e1383204917c3516",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7d7ee7d_190df726",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-20T17:54:30Z",
+      "side": 1,
+      "message": "Is this guaranteed to have a valid non-null ref here?\n\nWhat if we call ResolveType below or do \"value.SetJ(0)\" and then we don\u0027t call Execute below (if new_dex_pc \u003d\u003d DexFile::kDexNoIndex), and in the next iteration of the loop we reach here? Is it impossible to happen?",
+      "range": {
+        "startLine": 556,
+        "startChar": 17,
+        "endLine": 556,
+        "endChar": 29
+      },
+      "revId": "dd64a5e648d8d08d630d2099e1383204917c3516",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7d7ee7d_193697d6",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-05-20T17:54:30Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 566,
+        "startChar": 15,
+        "endLine": 566,
+        "endChar": 27
+      },
+      "revId": "dd64a5e648d8d08d630d2099e1383204917c3516",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
