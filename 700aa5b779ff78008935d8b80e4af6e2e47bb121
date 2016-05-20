@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b7d7ee7d_50c46471",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-05-20T05:31:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97374a6b_708a9ed2",
+      "range": {
+        "startLine": 494,
+        "startChar": 32,
+        "endLine": 494,
+        "endChar": 38
+      },
+      "revId": "700aa5b779ff78008935d8b80e4af6e2e47bb121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97374a6b_2df2787f",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-05-19T23:33:53Z",
       "side": 1,
       "message": "This may not zero out the entire JValue on 32 bit. Use SetJ(0)? I don\u0027t know if this causes the test failure.",
+      "range": {
+        "startLine": 567,
+        "startChar": 10,
+        "endLine": 567,
+        "endChar": 30
+      },
+      "revId": "700aa5b779ff78008935d8b80e4af6e2e47bb121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7d7ee7d_d0b7b402",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-05-20T05:31:37Z",
+      "side": 1,
+      "message": "changed to SetJ(0).",
+      "parentUuid": "97374a6b_2df2787f",
       "range": {
         "startLine": 567,
         "startChar": 10,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "b7d7ee7d_30cd7098",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-05-20T05:31:37Z",
+      "side": 1,
+      "message": "changed to SetJ(0)",
+      "parentUuid": "97374a6b_cde66cc3",
+      "range": {
+        "startLine": 576,
+        "startChar": 8,
+        "endLine": 576,
+        "endChar": 28
+      },
+      "revId": "700aa5b779ff78008935d8b80e4af6e2e47bb121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97374a6b_f0954ef3",
         "filename": "runtime/interpreter/interpreter.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2016-05-19T20:24:18Z",
       "side": 1,
       "message": "Add a comment: this is a suspend point, but it\u0027s ok because...",
+      "range": {
+        "startLine": 580,
+        "startChar": 0,
+        "endLine": 583,
+        "endChar": 41
+      },
+      "revId": "700aa5b779ff78008935d8b80e4af6e2e47bb121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7d7ee7d_10caec7f",
+        "filename": "runtime/interpreter/interpreter.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-05-20T05:31:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97374a6b_f0954ef3",
       "range": {
         "startLine": 580,
         "startChar": 0,
