@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17227a8a_05d2d20f",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-20T10:06:47Z",
+      "side": 1,
+      "message": "This is oddly self-referential. Maybe just drop the \"on the interval\" bit as you\u0027re explaining it below anyway.",
+      "range": {
+        "startLine": 1086,
+        "startChar": 84,
+        "endLine": 1086,
+        "endChar": 89
+      },
+      "revId": "3720694611bc93c2a3ad1cbda8f98cee76e210d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d71b8259_83279e10",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-20T10:06:47Z",
+      "side": 1,
+      "message": "Make this \"shorter string data.\"\n\nThis is actually going to be pretty common. If one string is a prefix of the other one and the length of the prefix is not a multiple of 4, we\u0027re going to hit this case with the exception of the longer string then continuing with the unusual \"(char)0\".",
+      "range": {
+        "startLine": 1088,
+        "startChar": 26,
+        "endLine": 1089,
+        "endChar": 31
+      },
+      "revId": "3720694611bc93c2a3ad1cbda8f98cee76e210d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
