@@ -49,6 +49,54 @@
     },
     {
       "key": {
+        "uuid": "17227a8a_65c0e63e",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1085,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-05-20T08:47:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "378e9e42_1107ee76",
+      "range": {
+        "startLine": 1085,
+        "startChar": 8,
+        "endLine": 1085,
+        "endChar": 44
+      },
+      "revId": "8c99388cda764211648c88d53d2b07fd0587a48a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17227a8a_45c3ea4b",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1085,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-05-20T08:47:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7c9c29d_960aaa10",
+      "range": {
+        "startLine": 1085,
+        "startChar": 8,
+        "endLine": 1085,
+        "endChar": 44
+      },
+      "revId": "8c99388cda764211648c88d53d2b07fd0587a48a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "378e9e42_d1dba626",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 2
@@ -60,6 +108,30 @@
       "writtenOn": "2016-05-19T16:21:16Z",
       "side": 1,
       "message": "Since you moved the BIC after the CMP+BLE, you should consider the BIC a part of the extraction and reorder it with the comment. (And maybe move the BIC to the same position in the arm64 intrinsic.)",
+      "range": {
+        "startLine": 1089,
+        "startChar": 0,
+        "endLine": 1090,
+        "endChar": 57
+      },
+      "revId": "8c99388cda764211648c88d53d2b07fd0587a48a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17227a8a_259d0e65",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1090,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-05-20T08:47:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "378e9e42_d1dba626",
       "range": {
         "startLine": 1089,
         "startChar": 0,
