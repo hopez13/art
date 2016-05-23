@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dca1e75f_5fa5afc0",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1005967
+      },
+      "writtenOn": "2016-05-23T18:07:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17227a8a_25934e6c",
+      "range": {
+        "startLine": 944,
+        "startChar": 16,
+        "endLine": 944,
+        "endChar": 34
+      },
+      "revId": "265b89b0d5f51114219a28260db7b0a0d859f54b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fcf6ab4a_dd432b04",
         "filename": "runtime/thread.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-05-23T14:23:52Z",
       "side": 1,
       "message": "one line?",
+      "range": {
+        "startLine": 2979,
+        "startChar": 0,
+        "endLine": 2980,
+        "endChar": 65
+      },
+      "revId": "265b89b0d5f51114219a28260db7b0a0d859f54b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dca1e75f_1faf27a3",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2980,
+      "author": {
+        "id": 1005967
+      },
+      "writtenOn": "2016-05-23T18:07:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcf6ab4a_dd432b04",
       "range": {
         "startLine": 2979,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "dca1e75f_9fa257b3",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3002,
+      "author": {
+        "id": 1005967
+      },
+      "writtenOn": "2016-05-23T18:07:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17227a8a_45a04ab3",
+      "range": {
+        "startLine": 3002,
+        "startChar": 14,
+        "endLine": 3002,
+        "endChar": 32
+      },
+      "revId": "265b89b0d5f51114219a28260db7b0a0d859f54b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fcf6ab4a_bd505fca",
         "filename": "runtime/thread.cc",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2016-05-23T14:23:52Z",
       "side": 1,
       "message": "* should be next to the type.",
+      "range": {
+        "startLine": 3003,
+        "startChar": 9,
+        "endLine": 3003,
+        "endChar": 10
+      },
+      "revId": "265b89b0d5f51114219a28260db7b0a0d859f54b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dca1e75f_bf9f1372",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3003,
+      "author": {
+        "id": 1005967
+      },
+      "writtenOn": "2016-05-23T18:07:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcf6ab4a_bd505fca",
       "range": {
         "startLine": 3003,
         "startChar": 9,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "dca1e75f_5f8ccf4a",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3005,
+      "author": {
+        "id": 1005967
+      },
+      "writtenOn": "2016-05-23T18:07:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17227a8a_659d4672",
+      "range": {
+        "startLine": 3005,
+        "startChar": 11,
+        "endLine": 3005,
+        "endChar": 91
+      },
+      "revId": "265b89b0d5f51114219a28260db7b0a0d859f54b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ce84f67_22b42ef4",
         "filename": "runtime/thread.h",
         "patchSetId": 5
@@ -128,6 +248,30 @@
       "writtenOn": "2016-05-23T14:23:52Z",
       "side": 1,
       "message": "nit: Move this to a local and share it with line 724.",
+      "range": {
+        "startLine": 721,
+        "startChar": 17,
+        "endLine": 721,
+        "endChar": 68
+      },
+      "revId": "265b89b0d5f51114219a28260db7b0a0d859f54b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dca1e75f_df7f7f00",
+        "filename": "runtime/thread.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1005967
+      },
+      "writtenOn": "2016-05-23T18:07:10Z",
+      "side": 1,
+      "message": "there is nothing to share",
+      "parentUuid": "9ce84f67_22b42ef4",
       "range": {
         "startLine": 721,
         "startChar": 17,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "dca1e75f_429ab677",
+        "filename": "runtime/thread.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1005967
+      },
+      "writtenOn": "2016-05-23T18:07:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcf6ab4a_fd46e715",
+      "range": {
+        "startLine": 736,
+        "startChar": 45,
+        "endLine": 736,
+        "endChar": 88
+      },
+      "revId": "265b89b0d5f51114219a28260db7b0a0d859f54b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fcf6ab4a_9d4da332",
         "filename": "runtime/thread.h",
         "patchSetId": 5
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "dca1e75f_c24ec6b4",
+        "filename": "runtime/thread.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 1549,
+      "author": {
+        "id": 1005967
+      },
+      "writtenOn": "2016-05-23T18:07:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcf6ab4a_9d4da332",
+      "range": {
+        "startLine": 1544,
+        "startChar": 0,
+        "endLine": 1549,
+        "endChar": 30
+      },
+      "revId": "265b89b0d5f51114219a28260db7b0a0d859f54b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c5cc335_2771facd",
         "filename": "test/018-stack-overflow/native.cc",
         "patchSetId": 5
@@ -197,6 +389,30 @@
       "writtenOn": "2016-05-23T14:23:52Z",
       "side": 1,
       "message": "next to type.",
+      "range": {
+        "startLine": 31,
+        "startChar": 21,
+        "endLine": 31,
+        "endChar": 22
+      },
+      "revId": "265b89b0d5f51114219a28260db7b0a0d859f54b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dca1e75f_22cd2a45",
+        "filename": "test/018-stack-overflow/native.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1005967
+      },
+      "writtenOn": "2016-05-23T18:07:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c5cc335_2771facd",
       "range": {
         "startLine": 31,
         "startChar": 21,
