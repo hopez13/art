@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fcecebcf_50b7d291",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-05-24T16:47:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c67b70e_982355f0",
+      "revId": "4daefab781bf11c37db87dde9af8fd60edc72b58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dca1e75f_597624c7",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "fcecebcf_5076b2c6",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4655,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-05-24T16:47:47Z",
+      "side": 1,
+      "message": "I was following the error/error_bad nomenclature used in this file, but happy to make this hard fail vs softfail.\n\nDone.",
+      "parentUuid": "dca1e75f_597624c7",
+      "range": {
+        "startLine": 4655,
+        "startChar": 37,
+        "endLine": 4655,
+        "endChar": 40
+      },
+      "revId": "4daefab781bf11c37db87dde9af8fd60edc72b58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c67b70e_188745ee",
         "filename": "test/600-verifier-fails/src/Main.java",
         "patchSetId": 1
@@ -53,6 +95,30 @@
       "writtenOn": "2016-05-24T09:09:50Z",
       "side": 1,
       "message": "drop?",
+      "range": {
+        "startLine": 21,
+        "startChar": 22,
+        "endLine": 21,
+        "endChar": 32
+      },
+      "revId": "4daefab781bf11c37db87dde9af8fd60edc72b58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcecebcf_90777abf",
+        "filename": "test/600-verifier-fails/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-05-24T16:47:47Z",
+      "side": 1,
+      "message": "Dropped!",
+      "parentUuid": "5c67b70e_188745ee",
       "range": {
         "startLine": 21,
         "startChar": 22,
