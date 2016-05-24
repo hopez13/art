@@ -39,6 +39,29 @@
       "revId": "4daefab781bf11c37db87dde9af8fd60edc72b58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c67b70e_188745ee",
+        "filename": "test/600-verifier-fails/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-24T09:09:50Z",
+      "side": 1,
+      "message": "drop?",
+      "range": {
+        "startLine": 21,
+        "startChar": 22,
+        "endLine": 21,
+        "endChar": 32
+      },
+      "revId": "4daefab781bf11c37db87dde9af8fd60edc72b58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
