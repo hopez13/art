@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "3ca763c1_cfe05da6",
+        "filename": "compiler/linker/mips/relative_patcher_mips_base.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-24T22:51:10Z",
+      "side": 1,
+      "message": "I believe the DexCacheArraysBase optimization is as useful on MIPS64 as it is on MIPS32. I guess, we could indeed fold MipsBaseRelativePatcher into MipsRelativePatcher and use the that same class for both MIPS32 and MIPS64 and simply invoke the constructor a bit differently so that MipsRelativePatcher::is_r6 is initialized with true on MIPS64. Is this what you\u0027re asking about?",
+      "parentUuid": "5c67b70e_3863292d",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17227a8a_e56e96f0",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 1
@@ -450,6 +474,24 @@
     },
     {
       "key": {
+        "uuid": "3ca763c1_2f964904",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2448,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-24T22:51:10Z",
+      "side": 1,
+      "message": "Yes, we must have aligned accesses on R2 and we prefer to have them aligned on R6 as well. The problem is that they aren\u0027t always aligned. For instance, as I indicated it a long time ago, CodeGenerator::InitializeCodeGeneration() does not care to align 64-bit things within the frame, however the frame size is guaranteed to be a multiple of 8 bytes.\n\nThis brings up a question. While the locations of non-callee-saves within the frame are controlled by the common part of the code generator, the code generator probably doesn\u0027t care about the exact locations of callee-saves so long as they occupy the same region at the top of the frame. If so (I haven\u0027t tried it yet), I could swap callee-saved FPU regs with callee-saved GPRs in CodeGenerator*::GenerateFrameEntry()/GenerateFrameExit() to guarantee 64-bit alignment for callee-save doubles on MIPS32. Do you think it\u0027d work and I should go for it?",
+      "parentUuid": "5c67b70e_78c8c135",
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17227a8a_a5c3beff",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 1
@@ -603,6 +645,30 @@
       "side": 1,
       "message": "I think storing kUncond in Branch::branch_condition_ should be just fine. You don\u0027t have to read it at all if you first check the Branch::type_. And you should create a different constructor for literals instead of trying to make the old one conform to a new use case.",
       "parentUuid": "d742a22f_0bc73daa",
+      "range": {
+        "startLine": 666,
+        "startChar": 0,
+        "endLine": 667,
+        "endChar": 62
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ca763c1_cfa5bd55",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-24T22:51:10Z",
+      "side": 1,
+      "message": "I\u0027ll clean this up.",
+      "parentUuid": "5c67b70e_7869a10c",
       "range": {
         "startLine": 666,
         "startChar": 0,
