@@ -22,6 +22,30 @@
       "revId": "987de8d2d64a795bd9c3a8afddb08eb25f5737f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c3ed74a_a90f657c",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-05-25T16:27:36Z",
+      "side": 1,
+      "message": "I put ART_TARGET_ANDROID to match the #ifdefs used in Dlopen for populating host_dlopen_handles_.\n\nThe important thing is that this block of code run at least whenever the corresponding block of code in Dlopen runs (lines 650, 664). It\u0027s okay if this block of code runs more often than the corresponding block in Dlopen.\n\nWould you like me to change this?",
+      "parentUuid": "3c804313_0700965c",
+      "range": {
+        "startLine": 505,
+        "startChar": 0,
+        "endLine": 505,
+        "endChar": 26
+      },
+      "revId": "987de8d2d64a795bd9c3a8afddb08eb25f5737f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
