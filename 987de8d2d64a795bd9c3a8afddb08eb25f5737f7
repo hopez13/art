@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c804313_0700965c",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-25T09:18:08Z",
+      "side": 1,
+      "message": "if (!kIsTargetBuild) ?",
+      "range": {
+        "startLine": 505,
+        "startChar": 0,
+        "endLine": 505,
+        "endChar": 26
+      },
+      "revId": "987de8d2d64a795bd9c3a8afddb08eb25f5737f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
