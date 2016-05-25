@@ -70,6 +70,30 @@
       "revId": "987de8d2d64a795bd9c3a8afddb08eb25f5737f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c3ed74a_b438182c",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2016-05-25T17:24:40Z",
+      "side": 1,
+      "message": "generally speaking, its preferred to not use the #ifdef",
+      "parentUuid": "bcb0b30a_1e2109e7",
+      "range": {
+        "startLine": 505,
+        "startChar": 0,
+        "endLine": 505,
+        "endChar": 26
+      },
+      "revId": "987de8d2d64a795bd9c3a8afddb08eb25f5737f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
