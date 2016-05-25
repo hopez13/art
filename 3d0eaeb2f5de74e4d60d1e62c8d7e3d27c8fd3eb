@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c804313_273afad4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-25T14:54:09Z",
+      "side": 1,
+      "message": "If you\u0027re seeing this, then we have a bug elsewhere in the inliner.\n\nWhen we try to inline invokes from a graph, there should be *no* inlined invokes.",
+      "range": {
+        "startLine": 14,
+        "startChar": 41,
+        "endLine": 15,
+        "endChar": 26
+      },
+      "revId": "3d0eaeb2f5de74e4d60d1e62c8d7e3d27c8fd3eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
