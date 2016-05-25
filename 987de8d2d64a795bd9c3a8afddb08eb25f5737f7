@@ -46,6 +46,30 @@
       "revId": "987de8d2d64a795bd9c3a8afddb08eb25f5737f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcb0b30a_1e2109e7",
+        "filename": "runtime/oat_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-25T16:53:35Z",
+      "side": 1,
+      "message": "Up to you. Not using a macro makes sure the code gets compiled no matter what.",
+      "parentUuid": "5c3ed74a_a90f657c",
+      "range": {
+        "startLine": 505,
+        "startChar": 0,
+        "endLine": 505,
+        "endChar": 26
+      },
+      "revId": "987de8d2d64a795bd9c3a8afddb08eb25f5737f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
