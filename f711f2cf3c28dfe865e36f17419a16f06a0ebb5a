@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c3ed74a_9c8f28e1",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2609,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-05-26T22:42:54Z",
+      "side": 1,
+      "message": "@shertz, we might be missing some debugger events if the calling code isn\u0027t deoptimizeable. Hope this is a rare enough case. And we\u0027ve agreed if there is code that\u0027s not deoptimizeable on stack when debugger attaches, debugger might be missing some events. Hopefully most of the code will enter jitted version after debugger attaches.",
+      "revId": "f711f2cf3c28dfe865e36f17419a16f06a0ebb5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
