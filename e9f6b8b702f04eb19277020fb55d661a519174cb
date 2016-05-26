@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c3ed74a_f815273e",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2605,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-05-26T16:15:39Z",
+      "side": 1,
+      "message": "Do we need another IsDeoptimizeable() check here? If the caller can\u0027t be deopted, we should just do regular exception handling starting from line 2616.",
+      "revId": "e9f6b8b702f04eb19277020fb55d661a519174cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
