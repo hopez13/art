@@ -25,6 +25,52 @@
     },
     {
       "key": {
+        "uuid": "3ca5a3c7_ffa41fc7",
+        "filename": "runtime/entrypoints/quick/quick_deoptimization_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-26T09:07:36Z",
+      "side": 1,
+      "message": "Please move this to the actual entry points, not the helper. Very brittle otherwise.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 41
+      },
+      "revId": "4d72795453c2558895baa3f703238c79488adaf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cbe83e3_1ad479fb",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1137,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-26T09:07:36Z",
+      "side": 1,
+      "message": "How about returning this instead? That would look nicer from an api standpoint.",
+      "range": {
+        "startLine": 1137,
+        "startChar": 9,
+        "endLine": 1137,
+        "endChar": 30
+      },
+      "revId": "4d72795453c2558895baa3f703238c79488adaf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c804313_47f7ee02",
         "filename": "runtime/instrumentation.h",
         "patchSetId": 1
