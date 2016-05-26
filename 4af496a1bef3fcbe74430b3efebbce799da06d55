@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "9ce04f3e_2226aeb9",
+        "filename": "compiler/linker/mips/relative_patcher_mips_base.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-26T17:02:52Z",
+      "side": 1,
+      "message": "No, that\u0027s not what I was asking about, but if it makes sense to share the implementation to such extent, you could merge it all to one class.\n\nAs it stands now, this class seems to add very little value to both mips and mips64. If you intend to add more shared code to this class (say, PatchCall()) but still keep some things separated, then it makes sense to keep it as is.",
+      "parentUuid": "3ca763c1_cfe05da6",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17227a8a_e56e96f0",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 1
