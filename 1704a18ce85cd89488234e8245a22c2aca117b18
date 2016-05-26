@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5c3ed74a_e1f9f28f",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3026,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-05-26T22:11:13Z",
+      "side": 0,
+      "message": "Keeping it right now since from_code is a good hint that the dex_pc should be kept instead of moving past the invoke instruction. We may get into complicated situation later when we allow more deoptimization points. from_code is at least informative.",
+      "parentUuid": "bcb0b30a_9eb63994",
+      "range": {
+        "startLine": 3026,
+        "startChar": 56,
+        "endLine": 3026,
+        "endChar": 65
+      },
+      "revId": "1704a18ce85cd89488234e8245a22c2aca117b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ce04f3e_82a97a8b",
         "filename": "runtime/thread.h",
         "patchSetId": 1
