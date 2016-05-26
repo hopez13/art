@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c83ef1c_ea8187a3",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-26T01:42:20Z",
+      "side": 1,
+      "message": "Amend",
+      "range": {
+        "startLine": 897,
+        "startChar": 14,
+        "endLine": 897,
+        "endChar": 20
+      },
+      "revId": "5302bf93102bfaa9feb6e3ab10ba0204c3b5d4f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c83ef1c_2a539f34",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-26T01:42:20Z",
+      "side": 1,
+      "message": "amended",
+      "range": {
+        "startLine": 907,
+        "startChar": 64,
+        "endLine": 908,
+        "endChar": 21
+      },
+      "revId": "5302bf93102bfaa9feb6e3ab10ba0204c3b5d4f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c83ef1c_ca5be345",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-26T01:42:20Z",
+      "side": 1,
+      "message": "You won\u0027t be able to just remove this piece of code when the bug is fixed. The reason is that for large positive \"in\" (including +INF) for which \"out\" becomes max, \"in - out\" can be larger than 0.5 and adding 1 to \"out\" will be incorrect.",
+      "range": {
+        "startLine": 910,
+        "startChar": 0,
+        "endLine": 917,
+        "endChar": 6
+      },
+      "revId": "5302bf93102bfaa9feb6e3ab10ba0204c3b5d4f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c3ed74a_b1dedf7e",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-26T01:42:20Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 946,
+        "startChar": 0,
+        "endLine": 946,
+        "endChar": 25
+      },
+      "revId": "5302bf93102bfaa9feb6e3ab10ba0204c3b5d4f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c3ed74a_71e8571c",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-26T01:42:20Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 989,
+        "startChar": 0,
+        "endLine": 989,
+        "endChar": 26
+      },
+      "revId": "5302bf93102bfaa9feb6e3ab10ba0204c3b5d4f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c3ed74a_91c87bbc",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 993,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-26T01:42:20Z",
+      "side": 1,
+      "message": "(D)mfc1\u0027s will set AT to all ones when Cmp.cond yield true (or all zeroes otherwise). So you can subtract AT instead of adding TMP:\n\n    __ Dsubu(out, out, AT);",
+      "range": {
+        "startLine": 993,
+        "startChar": 0,
+        "endLine": 993,
+        "endChar": 28
+      },
+      "revId": "5302bf93102bfaa9feb6e3ab10ba0204c3b5d4f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c3ed74a_b1c57fa2",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-05-26T01:42:20Z",
+      "side": 1,
+      "message": "Change to\n\n    __ Subu(out, out, AT);",
+      "range": {
+        "startLine": 995,
+        "startChar": 0,
+        "endLine": 995,
+        "endChar": 27
+      },
+      "revId": "5302bf93102bfaa9feb6e3ab10ba0204c3b5d4f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
