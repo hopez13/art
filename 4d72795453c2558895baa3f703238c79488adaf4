@@ -140,6 +140,30 @@
     },
     {
       "key": {
+        "uuid": "1cac5fb4_01b88c83",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-26T11:36:48Z",
+      "side": 1,
+      "message": "Actually just realized that this is something we do on all archs. I thought we had a helper for this but can\u0027t find it.",
+      "parentUuid": "1cac5fb4_81713cfe",
+      "range": {
+        "startLine": 559,
+        "startChar": 0,
+        "endLine": 567,
+        "endChar": 3
+      },
+      "revId": "4d72795453c2558895baa3f703238c79488adaf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c804313_a7dd0a86",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
