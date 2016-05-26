@@ -34,6 +34,24 @@
       "revId": "e9f6b8b702f04eb19277020fb55d661a519174cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcb0b30a_5e6b1173",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2605,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-26T16:20:54Z",
+      "side": 1,
+      "message": "And make sure to get the caller pc, as getting the caller method is not enough.",
+      "parentUuid": "3ca5a3c7_e295a8f7",
+      "revId": "e9f6b8b702f04eb19277020fb55d661a519174cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
