@@ -70,6 +70,30 @@
       "revId": "5cb371854b3d097376b63efd273ee5acf2447040",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ce04f3e_e21a066e",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1558,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-05-26T17:18:26Z",
+      "side": 1,
+      "message": "I\u0027ll leave this as is because I don\u0027t want to go into the trouble of retrieving the method index again in the \"prepare for register allocation\" pass when the original invoke has already been removed and we would have to go back to the dex bytecode.",
+      "parentUuid": "92e3d849_41e5b21a",
+      "range": {
+        "startLine": 1558,
+        "startChar": 37,
+        "endLine": 1558,
+        "endChar": 49
+      },
+      "revId": "5cb371854b3d097376b63efd273ee5acf2447040",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
