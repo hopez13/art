@@ -16,6 +16,24 @@
       "revId": "e9f6b8b702f04eb19277020fb55d661a519174cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ca5a3c7_e295a8f7",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2605,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-05-26T16:17:43Z",
+      "side": 1,
+      "message": "Yes, clearly. Just do regular catch handler finding and longjump to it.",
+      "parentUuid": "5c3ed74a_f815273e",
+      "revId": "e9f6b8b702f04eb19277020fb55d661a519174cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
