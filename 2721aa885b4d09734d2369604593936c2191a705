@@ -69,6 +69,30 @@
       "revId": "2721aa885b4d09734d2369604593936c2191a705",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c3ed74a_d1f60306",
+        "filename": "test/596-monitor-inflation/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-05-26T01:30:39Z",
+      "side": 1,
+      "message": "It will be true, just use native code in libarttest. See gc_coverage.cc for how to directly call heap functions.",
+      "parentUuid": "5c3ed74a_9658717e",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 16
+      },
+      "revId": "2721aa885b4d09734d2369604593936c2191a705",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
