@@ -45,6 +45,30 @@
       "revId": "2721aa885b4d09734d2369604593936c2191a705",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c3ed74a_9658717e",
+        "filename": "test/596-monitor-inflation/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-05-26T00:40:50Z",
+      "side": 1,
+      "message": "Mostly to encourage monitor deflation.  Added a comment to that effect.\n\nDoes that work? Or is CareAboutPauseTimes() going to be true here, so that there is no way to force this from Java?",
+      "parentUuid": "6d1763d9_98fe7579",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 16
+      },
+      "revId": "2721aa885b4d09734d2369604593936c2191a705",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
