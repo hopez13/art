@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ce04f3e_82a97a8b",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-05-26T08:25:10Z",
+      "side": 0,
+      "message": "So we lose the capability to deopt only one single-frame? Is that a regression or does the partial deopt is the replacement?",
+      "range": {
+        "startLine": 113,
+        "startChar": 2,
+        "endLine": 113,
+        "endChar": 39
+      },
+      "revId": "1704a18ce85cd89488234e8245a22c2aca117b18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

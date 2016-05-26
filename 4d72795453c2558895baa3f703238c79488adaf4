@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ce04f3e_62a6f6b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-05-26T08:25:10Z",
+      "side": 1,
+      "message": "That\u0027s a part I\u0027m not sure to understand: is the single-frame deopt a special case of partial deopt (when there is only one frame in the fragment or until an not deoptimizable frame) OR still a request from the runtime (or compiled code) to deopt exactly only one frame (whatever how many frames are in the fragment)?",
+      "range": {
+        "startLine": 16,
+        "startChar": 22,
+        "endLine": 17,
+        "endChar": 70
+      },
+      "revId": "4d72795453c2558895baa3f703238c79488adaf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c804313_47f7ee02",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-05-26T08:25:10Z",
+      "side": 1,
+      "message": "You change the return type of the method: please update the documentation to explain what is returned exactly.",
+      "range": {
+        "startLine": 405,
+        "startChar": 2,
+        "endLine": 405,
+        "endChar": 11
+      },
+      "revId": "4d72795453c2558895baa3f703238c79488adaf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c804313_67fcf2e6",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-05-26T08:25:10Z",
+      "side": 1,
+      "message": "long line",
+      "range": {
+        "startLine": 346,
+        "startChar": 4,
+        "endLine": 346,
+        "endChar": 105
+      },
+      "revId": "4d72795453c2558895baa3f703238c79488adaf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c804313_a7dd0a86",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-05-26T08:25:10Z",
+      "side": 1,
+      "message": "long line",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 112
+      },
+      "revId": "4d72795453c2558895baa3f703238c79488adaf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcb0b30a_1ef5895c",
+        "filename": "test/600-deoptimizeable/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-05-26T08:25:10Z",
+      "side": 1,
+      "message": "nit: the \"t \u003d new Thread(...); t.start(); t.join()\" could be moved to a method that takes your runnable as parameter.",
+      "range": {
+        "startLine": 71,
+        "startChar": 8,
+        "endLine": 72,
+        "endChar": 17
+      },
+      "revId": "4d72795453c2558895baa3f703238c79488adaf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c804313_c7eafe14",
+        "filename": "test/600-deoptimizeable/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-05-26T08:25:10Z",
+      "side": 1,
+      "message": "IIUC you use reflection to insert a transition in the stack, right? You should add a comment here for the reader.",
+      "range": {
+        "startLine": 79,
+        "startChar": 20,
+        "endLine": 82,
+        "endChar": 72
+      },
+      "revId": "4d72795453c2558895baa3f703238c79488adaf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ce04f3e_c28a6227",
+        "filename": "test/600-deoptimizeable/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-05-26T08:25:10Z",
+      "side": 1,
+      "message": "Add a comment to say that it throws the ArrayIndexOutOfBoundsException",
+      "range": {
+        "startLine": 151,
+        "startChar": 12,
+        "endLine": 151,
+        "endChar": 23
+      },
+      "revId": "4d72795453c2558895baa3f703238c79488adaf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ce04f3e_a28f5e35",
+        "filename": "test/600-deoptimizeable/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-05-26T08:25:10Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 175,
+        "startChar": 12,
+        "endLine": 175,
+        "endChar": 23
+      },
+      "revId": "4d72795453c2558895baa3f703238c79488adaf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ce04f3e_429f7265",
+        "filename": "test/common/stack_inspect.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-05-26T08:25:10Z",
+      "side": 1,
+      "message": "make static ?",
+      "range": {
+        "startLine": 40,
+        "startChar": 5,
+        "endLine": 40,
+        "endChar": 18
+      },
+      "revId": "4d72795453c2558895baa3f703238c79488adaf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ce04f3e_02956a45",
+        "filename": "test/common/stack_inspect.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-05-26T08:25:10Z",
+      "side": 1,
+      "message": "jboolean",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 4
+      },
+      "revId": "4d72795453c2558895baa3f703238c79488adaf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ce04f3e_e2996683",
+        "filename": "test/common/stack_inspect.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-05-26T08:25:10Z",
+      "side": 1,
+      "message": "jboolean",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 4
+      },
+      "revId": "4d72795453c2558895baa3f703238c79488adaf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ce04f3e_229cee6e",
+        "filename": "test/common/stack_inspect.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-05-26T08:25:10Z",
+      "side": 1,
+      "message": "make static?",
+      "range": {
+        "startLine": 62,
+        "startChar": 12,
+        "endLine": 62,
+        "endChar": 21
+      },
+      "revId": "4d72795453c2558895baa3f703238c79488adaf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
