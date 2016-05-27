@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c3ed74a_7f8c8f4a",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1111,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2016-05-27T18:41:51Z",
+      "side": 1,
+      "message": "missing time units",
+      "range": {
+        "startLine": 1111,
+        "startChar": 26,
+        "endLine": 1111,
+        "endChar": 41
+      },
+      "revId": "670ba2c71a471920b097e90fe4c5250d1598d0b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c3ed74a_1f7ea304",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1142,
+      "author": {
+        "id": 1010118
+      },
+      "writtenOn": "2016-05-27T18:41:51Z",
+      "side": 1,
+      "message": "a thread just terminated, why the wait? sleeping isn\u0027t a concurrency primitive and at best you are just moving races",
+      "range": {
+        "startLine": 1141,
+        "startChar": 0,
+        "endLine": 1142,
+        "endChar": 40
+      },
+      "revId": "670ba2c71a471920b097e90fe4c5250d1598d0b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
