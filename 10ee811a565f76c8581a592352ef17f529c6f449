@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c3ed74a_0758a624",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-05-27T22:10:47Z",
+      "side": 1,
+      "message": "Please note if these are clean or dirty.\n\nIIUC these should be clean.",
+      "range": {
+        "startLine": 172,
+        "startChar": 3,
+        "endLine": 172,
+        "endChar": 10
+      },
+      "revId": "10ee811a565f76c8581a592352ef17f529c6f449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c3ed74a_c60c0430",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3454,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-05-27T22:10:47Z",
+      "side": 1,
+      "message": "Why was this state change moved to after the SetIfTable call?",
+      "range": {
+        "startLine": 3454,
+        "startChar": 0,
+        "endLine": 3454,
+        "endChar": 79
+      },
+      "revId": "10ee811a565f76c8581a592352ef17f529c6f449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c3ed74a_8644bc3b",
+        "filename": "runtime/imtable.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-05-27T22:10:47Z",
+      "side": 1,
+      "message": "Copyright header. (copy from development/docs/copyright-templates/c.txt)",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 30
+      },
+      "revId": "10ee811a565f76c8581a592352ef17f529c6f449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c3ed74a_f944460e",
+        "filename": "runtime/imtable.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-05-27T22:10:47Z",
+      "side": 1,
+      "message": "constexpr?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 3
+      },
+      "revId": "10ee811a565f76c8581a592352ef17f529c6f449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c3ed74a_3942ae04",
+        "filename": "runtime/imtable.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-05-27T22:10:47Z",
+      "side": 1,
+      "message": "constexpr?",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "10ee811a565f76c8581a592352ef17f529c6f449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
