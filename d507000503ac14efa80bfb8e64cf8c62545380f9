@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bca6f325_f1e3e0aa",
+        "filename": "test/596-monitor-inflation/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-05-27T21:31:14Z",
+      "side": 1,
+      "message": "How\u0027s this hack? It seemed slightly cleaner than JNI calls into ART internals.\n\nPresumably this starts up a separate JVM each time, so I can\u0027t do any damage if I was wrong about the initial process state?  There doesn\u0027t seem to be any way to retrieve the state from Java.",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 87
+      },
+      "revId": "d507000503ac14efa80bfb8e64cf8c62545380f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
