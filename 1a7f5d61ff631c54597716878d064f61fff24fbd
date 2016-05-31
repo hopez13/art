@@ -22,6 +22,52 @@
       "revId": "1a7f5d61ff631c54597716878d064f61fff24fbd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39b855a6_877a060d",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-05-31T23:54:38Z",
+      "side": 1,
+      "message": "This is expected to include daemon threads plus us?",
+      "range": {
+        "startLine": 120,
+        "startChar": 6,
+        "endLine": 120,
+        "endChar": 31
+      },
+      "revId": "1a7f5d61ff631c54597716878d064f61fff24fbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39b855a6_2a3d1f19",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-05-31T23:54:38Z",
+      "side": 1,
+      "message": "This presumably also includes unattached threads?  In which case this fails?",
+      "range": {
+        "startLine": 122,
+        "startChar": 8,
+        "endLine": 122,
+        "endChar": 34
+      },
+      "revId": "1a7f5d61ff631c54597716878d064f61fff24fbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
