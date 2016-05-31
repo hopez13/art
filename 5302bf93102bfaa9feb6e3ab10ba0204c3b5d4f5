@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "bca6f325_3f99af91",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-05-31T23:52:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c83ef1c_2a539f34",
+      "range": {
+        "startLine": 907,
+        "startChar": 64,
+        "endLine": 908,
+        "endChar": 21
+      },
+      "revId": "5302bf93102bfaa9feb6e3ab10ba0204c3b5d4f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c83ef1c_ca5be345",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 6
@@ -59,6 +83,30 @@
       "writtenOn": "2016-05-26T01:42:20Z",
       "side": 1,
       "message": "You won\u0027t be able to just remove this piece of code when the bug is fixed. The reason is that for large positive \"in\" (including +INF) for which \"out\" becomes max, \"in - out\" can be larger than 0.5 and adding 1 to \"out\" will be incorrect.",
+      "range": {
+        "startLine": 910,
+        "startChar": 0,
+        "endLine": 917,
+        "endChar": 6
+      },
+      "revId": "5302bf93102bfaa9feb6e3ab10ba0204c3b5d4f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bca6f325_3a589d7c",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-05-31T23:52:52Z",
+      "side": 1,
+      "message": "Noted.",
+      "parentUuid": "9c83ef1c_ca5be345",
       "range": {
         "startLine": 910,
         "startChar": 0,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "bca6f325_1a55e142",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 946,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-05-31T23:52:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c3ed74a_b1dedf7e",
+      "range": {
+        "startLine": 946,
+        "startChar": 0,
+        "endLine": 946,
+        "endChar": 25
+      },
+      "revId": "5302bf93102bfaa9feb6e3ab10ba0204c3b5d4f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c3ed74a_71e8571c",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 6
@@ -105,6 +177,30 @@
       "writtenOn": "2016-05-26T01:42:20Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 989,
+        "startChar": 0,
+        "endLine": 989,
+        "endChar": 26
+      },
+      "revId": "5302bf93102bfaa9feb6e3ab10ba0204c3b5d4f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bca6f325_5a4f69b0",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-05-31T23:52:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c3ed74a_71e8571c",
       "range": {
         "startLine": 989,
         "startChar": 0,
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "bca6f325_9ac71125",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 993,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-05-31T23:52:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c3ed74a_91c87bbc",
+      "range": {
+        "startLine": 993,
+        "startChar": 0,
+        "endLine": 993,
+        "endChar": 28
+      },
+      "revId": "5302bf93102bfaa9feb6e3ab10ba0204c3b5d4f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c3ed74a_b1c57fa2",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 6
@@ -151,6 +271,30 @@
       "writtenOn": "2016-05-26T01:42:20Z",
       "side": 1,
       "message": "Change to\n\n    __ Subu(out, out, AT);",
+      "range": {
+        "startLine": 995,
+        "startChar": 0,
+        "endLine": 995,
+        "endChar": 27
+      },
+      "revId": "5302bf93102bfaa9feb6e3ab10ba0204c3b5d4f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bca6f325_facc554a",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-05-31T23:52:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c3ed74a_b1c57fa2",
       "range": {
         "startLine": 995,
         "startChar": 0,
