@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d91e5959_a365e49d",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-01T22:02:16Z",
+      "side": 1,
+      "message": "While this is the minimal change, I honestly think this is ugly. I\u0027d rather prefer this to be refactored to be one explicit decision higher up the stream (e.g., when compiling a dex file).\n\n(As usual, just my opinion, won\u0027t block this CL...)",
+      "range": {
+        "startLine": 578,
+        "startChar": 2,
+        "endLine": 597,
+        "endChar": 5
+      },
+      "revId": "7c7ece41378801bfb4ca4e8ca5d0c640b29ae4ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
