@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d91e5959_68768b92",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-06-01T20:50:11Z",
+      "side": 1,
+      "message": "We do log an ERROR in WaitForAllThreadsToFinish. The problem is that this is during runtime shutdown. We are in the destructor so returning anything is difficult.",
+      "parentUuid": "d91e5959_5d338f50",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 56
+      },
+      "revId": "1a7f5d61ff631c54597716878d064f61fff24fbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39b855a6_47716e97",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 3
