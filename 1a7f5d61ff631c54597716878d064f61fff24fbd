@@ -164,6 +164,30 @@
       "revId": "1a7f5d61ff631c54597716878d064f61fff24fbd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39b855a6_9cc25198",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-06-01T17:40:31Z",
+      "side": 1,
+      "message": "\u003e don\u0027t we know the tid\u0027s of the expected threads to remove from the\n \u003e set returned from GetProcessThreads()?\n\nI guess. This just seemed easier frankly and we don\u0027t need to do the intersect of a pair of vectors.\n\nAlso IIUC if we are good (and no other, unrelated, threads are around) this should be fine since the daemon threads won\u0027t really ever exit just sleep forever and should be the only thing on the thread list other then this thread. Therefore we can just see if we have more threads than expected.\n\n \u003e I was assuming we\u0027d just\n \u003e probe for the continued existence of the extra threads, \n \u003e since these\n \u003e an obvious place to have a TODO about using libbacktrace on these\n \u003e threads in the future.\n\nDone.",
+      "parentUuid": "39b855a6_5b34e3e8",
+      "range": {
+        "startLine": 122,
+        "startChar": 8,
+        "endLine": 122,
+        "endChar": 34
+      },
+      "revId": "1a7f5d61ff631c54597716878d064f61fff24fbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
