@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99306114_829a9a24",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2016-06-01T11:24:45Z",
+      "side": 1,
+      "message": "May be dex_method_index \u003d\u003d DexFile::kDexNoIndex ?",
+      "range": {
+        "startLine": 165,
+        "startChar": 8,
+        "endLine": 165,
+        "endChar": 38
+      },
+      "revId": "8935107c85260c2d24449a1e542ea9df3db5886c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
