@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "d91e5959_5d338f50",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1003723
+      },
+      "writtenOn": "2016-06-01T19:28:38Z",
+      "side": 1,
+      "message": "it was intended to implement this TODO as part of this, so we can have dalvikvm warn on shutdown issues so we can see if this is a problem in the tests in practice.",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 56
+      },
+      "revId": "1a7f5d61ff631c54597716878d064f61fff24fbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39b855a6_47716e97",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 3
