@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d933b9f3_2c0af3c4",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 813,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-06-01T17:55:08Z",
+      "side": 1,
+      "message": "The second part of the OR makes perfect sense but this one is fishy... If `new_rti` is exact and not a subtype of `upper_bound_rti`, then this must be a dead InstanceOf branch, right? That would be worth a comment, at least.\n\nShould we treat the object as `upper_bound_rti` + exact in that case?",
+      "range": {
+        "startLine": 813,
+        "startChar": 8,
+        "endLine": 813,
+        "endChar": 25
+      },
+      "revId": "be25ae47d64021c94737bacff777debeb25ec50f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
