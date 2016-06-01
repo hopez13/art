@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d933b9f3_0c28571d",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-01T19:22:58Z",
+      "side": 1,
+      "message": "No, we need the index for \"locations-\u003eAt(i)\".",
+      "parentUuid": "d933b9f3_ac3023d7",
+      "range": {
+        "startLine": 115,
+        "startChar": 2,
+        "endLine": 115,
+        "endChar": 44
+      },
+      "revId": "cbd098391ca22cc012f0a8d092223d852e3c79a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d933b9f3_6c48fb55",
         "filename": "compiler/optimizing/graph_checker.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-06-01T14:40:33Z",
       "side": 1,
       "message": "Looks like you don\u0027t need the records here. Use for-each on inputs?",
+      "range": {
+        "startLine": 338,
+        "startChar": 2,
+        "endLine": 340,
+        "endChar": 56
+      },
+      "revId": "cbd098391ca22cc012f0a8d092223d852e3c79a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d933b9f3_0c861779",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-01T19:22:58Z",
+      "side": 1,
+      "message": "This was reused further down. But I\u0027ve used GetInputs() here and moved the GetInputRecords() further down for readability.",
+      "parentUuid": "d933b9f3_6c48fb55",
       "range": {
         "startLine": 338,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d933b9f3_2ce0b307",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-01T19:22:58Z",
+      "side": 1,
+      "message": "This is actually one than I\u0027d like to keep. I\u0027ll rather replace the ArrayRef\u003c\u003e with \"auto\".",
+      "parentUuid": "d933b9f3_4c4d3f64",
+      "range": {
+        "startLine": 392,
+        "startChar": 4,
+        "endLine": 392,
+        "endChar": 36
+      },
+      "revId": "cbd098391ca22cc012f0a8d092223d852e3c79a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d933b9f3_2c52f307",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2016-06-01T14:40:33Z",
       "side": 1,
       "message": "GetInputs().back()",
+      "range": {
+        "startLine": 1542,
+        "startChar": 33,
+        "endLine": 1542,
+        "endChar": 74
+      },
+      "revId": "cbd098391ca22cc012f0a8d092223d852e3c79a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d933b9f3_8c1327f6",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1542,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-01T19:22:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d933b9f3_2c52f307",
       "range": {
         "startLine": 1542,
         "startChar": 33,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d933b9f3_6cd6bb3f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4039,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-01T19:22:58Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "d933b9f3_cc380fb9",
+      "range": {
+        "startLine": 4039,
+        "startChar": 41,
+        "endLine": 4039,
+        "endChar": 54
+      },
+      "revId": "cbd098391ca22cc012f0a8d092223d852e3c79a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d933b9f3_8c42072f",
         "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
         "patchSetId": 5
@@ -128,6 +248,30 @@
       "writtenOn": "2016-06-01T14:40:33Z",
       "side": 1,
       "message": "GetInputs().back()",
+      "range": {
+        "startLine": 172,
+        "startChar": 37,
+        "endLine": 172,
+        "endChar": 78
+      },
+      "revId": "cbd098391ca22cc012f0a8d092223d852e3c79a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d933b9f3_4cdbff63",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-01T19:22:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d933b9f3_8c42072f",
       "range": {
         "startLine": 172,
         "startChar": 37,
