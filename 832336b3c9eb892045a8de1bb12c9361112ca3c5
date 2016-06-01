@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99306114_e2a3a64e",
+        "filename": "runtime/entrypoints/quick/quick_fillarray_entrypoints.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1042686
+      },
+      "writtenOn": "2016-06-01T16:57:41Z",
+      "side": 1,
+      "message": "The type of payload_offset and the return type seems to not fit the declaration of HandleFillArray in art/runtime/entrypoints/quick/quick_entrypoints_list.h?",
+      "range": {
+        "startLine": 27,
+        "startChar": 11,
+        "endLine": 27,
+        "endChar": 69
+      },
+      "revId": "832336b3c9eb892045a8de1bb12c9361112ca3c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
