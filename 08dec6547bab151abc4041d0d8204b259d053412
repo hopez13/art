@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79e9edf9_d1b704e3",
+        "filename": "test/562-bce-preheader/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2016-06-02T06:58:11Z",
+      "side": 1,
+      "message": "Is it important increment by 1? If not you can speed-up the test in case it passes a lot.",
+      "range": {
+        "startLine": 100,
+        "startChar": 33,
+        "endLine": 100,
+        "endChar": 36
+      },
+      "revId": "08dec6547bab151abc4041d0d8204b259d053412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
