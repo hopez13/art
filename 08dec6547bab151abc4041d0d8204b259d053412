@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "f9715d1c_7400165c",
+        "filename": "test/562-bce-preheader/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-06-02T17:00:14Z",
+      "side": 1,
+      "message": "Ah thanks much for this test (please add this in the future right away to give me the chance to look smarter :-). I thought the concern was the trip count with dynamic bce, but this is a case were dominator-based bce using a test inside the loop is overlooked indeed while moving out.\n\nThis was done for dynamic bce (using dom all back edges), but it indeed looks we overlooked the static case.",
+      "range": {
+        "startLine": 97,
+        "startChar": 20,
+        "endLine": 97,
+        "endChar": 30
+      },
+      "revId": "08dec6547bab151abc4041d0d8204b259d053412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79e9edf9_d1b704e3",
         "filename": "test/562-bce-preheader/src/Main.java",
         "patchSetId": 3
