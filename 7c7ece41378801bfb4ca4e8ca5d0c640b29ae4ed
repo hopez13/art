@@ -46,6 +46,30 @@
       "revId": "7c7ece41378801bfb4ca4e8ca5d0c640b29ae4ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9715d1c_f9487fc0",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-02T14:56:06Z",
+      "side": 1,
+      "message": "I expected as much. Do you want to use the same bug for tracking the cleanup? Or file a second bug?",
+      "parentUuid": "198e3142_aec87761",
+      "range": {
+        "startLine": 578,
+        "startChar": 2,
+        "endLine": 597,
+        "endChar": 5
+      },
+      "revId": "7c7ece41378801bfb4ca4e8ca5d0c640b29ae4ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
