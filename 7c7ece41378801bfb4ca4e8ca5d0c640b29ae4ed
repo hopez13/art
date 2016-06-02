@@ -22,6 +22,30 @@
       "revId": "7c7ece41378801bfb4ca4e8ca5d0c640b29ae4ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "198e3142_aec87761",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-02T09:42:56Z",
+      "side": 1,
+      "message": "I fully agree with that. Unfortunately, making the choice at a higher level seems to require quite a substantial refactoring. As I want to cherry-pick this to N, I\u0027m trying to limit the risk, so a minimal change is desirable.\n\n(And I will start working on something better but more risky for AOSP.)",
+      "parentUuid": "d91e5959_a365e49d",
+      "range": {
+        "startLine": 578,
+        "startChar": 2,
+        "endLine": 597,
+        "endChar": 5
+      },
+      "revId": "7c7ece41378801bfb4ca4e8ca5d0c640b29ae4ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
