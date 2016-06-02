@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "59a269c0_3422a8ed",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-06-02T17:38:47Z",
+      "side": 1,
+      "message": "Ok, now that i understand your concern, anything that basically enables static bce has the potential to hoist the wrong stuff out of an unrelated inner loop, as for instance in slight variation on the theme:\n\n    int n \u003d a.length;\n    int x \u003d 0;\n    for (int i \u003d -100000000; i \u003c 1000000000; i++) {\n      for (int j \u003d 0; j \u003c\u003d 1; j++) {\n        if (0 \u003c\u003d i \u0026\u0026 i \u003c n)\n          x +\u003d a[i];\n      }\n    }\n\nI would prefer a solution that is consistent with what is done for dynamic bce. So would you mind\n\n(1) making L1481 and up a small utility (like DominatesBackEdges(loop, block)):\n\n\n1481   for (HBasicBlock* back_edge : loop-\u003eGetBackEdges()) {\n1482       if (!block-\u003eDominates(back_edge)) {\n1483         return false;\n1484       }\n1485     }\n\n(2) Replace L1481 obviously with that utility\n\n(3) Use the same test here rather than the dom all exits.\n\nThat way the tests are a bit more consistent over all cases.",
+      "range": {
+        "startLine": 1172,
+        "startChar": 21,
+        "endLine": 1172,
+        "endChar": 25
+      },
+      "revId": "08dec6547bab151abc4041d0d8204b259d053412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9715d1c_7400165c",
         "filename": "test/562-bce-preheader/src/Main.java",
         "patchSetId": 3
