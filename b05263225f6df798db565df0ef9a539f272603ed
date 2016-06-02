@@ -22,6 +22,30 @@
       "revId": "b05263225f6df798db565df0ef9a539f272603ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "993301d7_0aff3b41",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4933,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-06-02T19:39:19Z",
+      "side": 1,
+      "message": "I reused the comment at L4942 ;-)",
+      "parentUuid": "198e3142_0ed8ab36",
+      "range": {
+        "startLine": 4931,
+        "startChar": 0,
+        "endLine": 4933,
+        "endChar": 7
+      },
+      "revId": "b05263225f6df798db565df0ef9a539f272603ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
