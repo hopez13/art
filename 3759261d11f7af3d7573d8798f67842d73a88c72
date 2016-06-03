@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86339e1f_4772629b",
+        "filename": "test/600-verifier-fails/smali/iput.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-06-03T03:23:56Z",
+      "side": 1,
+      "message": "note that this test C is not covering as the other two yet, since it always seems to go through the interpreter (due to reflection to get a new instance)? so it only tests the interpreter part that was already correct [in contrast, A and B were true fail-before/pass-after tests).\n\nAny pointers on how to force this to compile first time?",
+      "range": {
+        "startLine": 19,
+        "startChar": 27,
+        "endLine": 19,
+        "endChar": 28
+      },
+      "revId": "3759261d11f7af3d7573d8798f67842d73a88c72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
