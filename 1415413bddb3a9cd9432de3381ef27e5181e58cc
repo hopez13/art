@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6f836fd_0103ae03",
+        "filename": "test/600-verifier-fails/smali/iput.smali",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-06-03T21:36:31Z",
+      "side": 1,
+      "message": "Ok, making this fail exactly as the fuzzed dex file took longer than writing the actual fix, but now we have a proper fail-before/pass-after test, as it should be.",
+      "range": {
+        "startLine": 19,
+        "startChar": 15,
+        "endLine": 19,
+        "endChar": 26
+      },
+      "revId": "1415413bddb3a9cd9432de3381ef27e5181e58cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
