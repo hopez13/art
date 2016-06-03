@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "86339e1f_4131b2a4",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-03T01:09:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86339e1f_c17822b1",
+      "revId": "a26e87f1e50fb1fc38f6d8cb2d02cf9187ded599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86339e1f_41f9b225",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "86339e1f_e1fd66bd",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3246,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-03T01:09:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86339e1f_41f9b225",
+      "range": {
+        "startLine": 3246,
+        "startChar": 2,
+        "endLine": 3246,
+        "endChar": 3
+      },
+      "revId": "a26e87f1e50fb1fc38f6d8cb2d02cf9187ded599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86339e1f_81461a71",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 1
@@ -53,6 +95,30 @@
       "writtenOn": "2016-06-03T00:58:02Z",
       "side": 1,
       "message": "Is this a temporary debug change? To be reverted?",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 5
+      },
+      "revId": "a26e87f1e50fb1fc38f6d8cb2d02cf9187ded599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86339e1f_a11a3e08",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-03T01:09:04Z",
+      "side": 1,
+      "message": "Sorry, forgot to disable.",
+      "parentUuid": "86339e1f_81461a71",
       "range": {
         "startLine": 120,
         "startChar": 0,
