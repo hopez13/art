@@ -22,6 +22,30 @@
       "revId": "3759261d11f7af3d7573d8798f67842d73a88c72",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86339e1f_27f47efc",
+        "filename": "test/600-verifier-fails/smali/iput.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-03T03:47:17Z",
+      "side": 1,
+      "message": "Reflection just does a regular invoke, so whatever the entry point is at the time is being called.\n\nThe class will soft-fail runtime verification, but that shouldn\u0027t set it up to be run through the interpreter (it will ensure at the moment that it won\u0027t ever be JIT-compiled). If that\u0027s happening, that\u0027s a bug.\n\nYou may want to debug dex2oat to see the compiler decision ( or verify that the oat file contains compiled code).",
+      "parentUuid": "86339e1f_4772629b",
+      "range": {
+        "startLine": 19,
+        "startChar": 27,
+        "endLine": 19,
+        "endChar": 28
+      },
+      "revId": "3759261d11f7af3d7573d8798f67842d73a88c72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
