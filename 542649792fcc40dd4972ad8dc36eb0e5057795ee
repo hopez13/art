@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "66530a56_18072579",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-03T09:53:42Z",
+      "side": 1,
+      "message": "L2590 is in a completely different code path that does not go through CompileOne(). Note that CompileOne() is only for testing.",
+      "parentUuid": "d95819e8_e4057a6e",
+      "range": {
+        "startLine": 734,
+        "startChar": 4,
+        "endLine": 734,
+        "endChar": 84
+      },
+      "revId": "542649792fcc40dd4972ad8dc36eb0e5057795ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59650995_48701ff9",
         "filename": "compiler/driver/compiler_driver.h",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-06-02T18:27:25Z",
       "side": 1,
       "message": "could you document the difference between these two?",
+      "range": {
+        "startLine": 717,
+        "startChar": 2,
+        "endLine": 718,
+        "endChar": 47
+      },
+      "revId": "542649792fcc40dd4972ad8dc36eb0e5057795ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66530a56_18328549",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-03T09:53:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59650995_48701ff9",
       "range": {
         "startLine": 717,
         "startChar": 2,
