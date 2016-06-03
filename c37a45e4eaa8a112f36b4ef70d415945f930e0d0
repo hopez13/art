@@ -22,6 +22,30 @@
       "revId": "c37a45e4eaa8a112f36b4ef70d415945f930e0d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6f6769d_6be5c1e9",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1799,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-06-03T08:56:04Z",
+      "side": 1,
+      "message": "Yes.\n\nARMv8 supports unaligned data accesses to Normal memory by LDP/STP.\n\nSoftware can control whether a misaligned access to Normal memory by one of these instructions causes an Alignment fault Data Abort exception:\n\n  - When executing at PL0 or PL1, by setting bit [1] in the System Control Register (SCTLR.A).\n  - When executing at EL2, by setting bit [1] in the Hyp System Control Register (HSCTLR.A).\n\nWe think it\u0027s safe to assume, in this case, this won\u0027t happen. What do you think?\n\nIn general, the cost of an unaligned LDP/STP is an extra cycle in the issue stage. Exceptions that may incur a further penalty are load operations that cross a cache line boundary, or store operations that cross a 16-byte boundary. These may reduce bandwidth or incur additional latency. The benchmark we\u0027ve quoted performance improvements from in this patch\u0027s commit message trigger both these cases with significant gain over what\u0027s currently committed.\n\nLDRD/STRD instructions on ARM *do* fault on non-WORD aligned addresses. We felt the additional code required to check and correct such misaligned addresses belonged more in an optimized routine meant for handling larger workloads than in an intrinsic that is inlined so often and which has the more common use case of working with shorter runs of memory. So on ARM we elected not to use LDRD/STRD, and on ARM64 we chose to take the performance gain from the simpler code you see here.",
+      "parentUuid": "79e3ad4a_61a556ab",
+      "range": {
+        "startLine": 1799,
+        "startChar": 32,
+        "endLine": 1799,
+        "endChar": 39
+      },
+      "revId": "c37a45e4eaa8a112f36b4ef70d415945f930e0d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
