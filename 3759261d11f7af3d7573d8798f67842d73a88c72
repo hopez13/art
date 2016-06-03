@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "86339e1f_708d9e45",
+        "filename": "test/600-verifier-fails/smali/iput.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-06-03T17:24:29Z",
+      "side": 1,
+      "message": "Oh, classic! I copied to code from A, but that of course has the missing super problem. Fixed! :-)\n\n\n+dex2oatd E 31352 31352 art/runtime/mirror/class.cc:91] Setting C to erroneous.\n+dex2oatd E 31352 31352 art/runtime/mirror/class.cc:93] Exception: java.lang.VerifyError: Verifier rejected class C: void C.\u003cinit\u003e() failed to verify: void C.\u003cinit\u003e(): [0x6] Constructor returning without calling superclass constructor (declaration of \u0027C\u0027 appears in /tmp/ajcbik/test-31083/600-verifier-fails.jar)",
+      "parentUuid": "86339e1f_50897a33",
+      "range": {
+        "startLine": 19,
+        "startChar": 27,
+        "endLine": 19,
+        "endChar": 28
+      },
+      "revId": "3759261d11f7af3d7573d8798f67842d73a88c72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66530a56_98097522",
         "filename": "test/600-verifier-fails/smali/iput.smali",
         "patchSetId": 1
