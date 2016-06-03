@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "66530a56_9824d5fc",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1803,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-06-03T10:28:03Z",
+      "side": 1,
+      "message": "I\u0027ll give this a try and benchmark it..",
+      "parentUuid": "66530a56_1819e5c9",
+      "revId": "c37a45e4eaa8a112f36b4ef70d415945f930e0d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66530a56_d8476db0",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -77,6 +95,24 @@
       "writtenOn": "2016-06-03T10:22:22Z",
       "side": 1,
       "message": "You\u0027re not handling num_chr \u003d\u003d 0 correctly here.",
+      "revId": "c37a45e4eaa8a112f36b4ef70d415945f930e0d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66214ae2_c8ecafcc",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1805,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-06-03T10:28:03Z",
+      "side": 1,
+      "message": "getCharsNoCheck can\u0027t be called with num_chr \u003d\u003d 0, getChars throws IndexOutOfBoundsException first.\n\nnum_chr \u003d\u003d 0 coming out of \u0026loop is handled by the B(eq, ..).",
+      "parentUuid": "66530a56_d8476db0",
       "revId": "c37a45e4eaa8a112f36b4ef70d415945f930e0d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
