@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86339e1f_015a0a41",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2095,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-06-03T00:58:02Z",
+      "side": 0,
+      "message": "Would it make sense to do this revert in a separate revert CL?",
+      "range": {
+        "startLine": 2095,
+        "startChar": 0,
+        "endLine": 2095,
+        "endChar": 1
+      },
+      "revId": "3f432d5a7c184b7580bd5aba27158c1455c328ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
