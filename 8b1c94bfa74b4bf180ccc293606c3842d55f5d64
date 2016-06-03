@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6f836fd_3ed525ca",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 6133,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-03T20:42:36Z",
+      "side": 1,
+      "message": "I changed this code since it was causing some dex2oat image writer crashes due to incorrect conflict tables.",
+      "range": {
+        "startLine": 6113,
+        "startChar": 2,
+        "endLine": 6133,
+        "endChar": 47
+      },
+      "revId": "8b1c94bfa74b4bf180ccc293606c3842d55f5d64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
