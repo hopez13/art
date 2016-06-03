@@ -116,6 +116,24 @@
       "revId": "c37a45e4eaa8a112f36b4ef70d415945f930e0d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66530a56_387f89cd",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1805,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-03T10:36:02Z",
+      "side": 1,
+      "message": "getCharsNoCheck() _can_ be called with srcBegin\u003d\u003dsrcEnd. For the latest version refer to https://android-review.googlesource.com/234690 . (And thanks for bringing my attention to the getCharsNoCheck(), otherwise I wouldn\u0027t have found the deficient bounds checks.)",
+      "parentUuid": "66214ae2_c8ecafcc",
+      "revId": "c37a45e4eaa8a112f36b4ef70d415945f930e0d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
