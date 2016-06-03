@@ -70,6 +70,29 @@
       "revId": "3759261d11f7af3d7573d8798f67842d73a88c72",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66530a56_98097522",
+        "filename": "test/600-verifier-fails/smali/iput.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-03T16:43:25Z",
+      "side": 1,
+      "message": "Do you need to use 2 different nulls here?",
+      "range": {
+        "startLine": 22,
+        "startChar": 16,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "3759261d11f7af3d7573d8798f67842d73a88c72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
