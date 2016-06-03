@@ -46,6 +46,40 @@
       "revId": "c37a45e4eaa8a112f36b4ef70d415945f930e0d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66530a56_1819e5c9",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1803,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-03T10:22:22Z",
+      "side": 1,
+      "message": "The loop is not exactly optimal, it contains one extra CMP+Bcc. What about\n\n    SUBS    num_chr, #8\n    BLT     remainder_preheader\n  loop:\n    LDP ...\n    SUBS    num_chr, #8\n    STP ...\n    BHS     loop\n  remainder_preheader:\n    ADDS    num_chr, #8\n    BEQ     done\n  remainder:\n    LDRH ...\n    SUBS    num_chr, #1\n    STRH ...\n    BNE     remainder\n  done:\n\n(This also handles num_chr \u003d\u003d 0 correctly.)",
+      "revId": "c37a45e4eaa8a112f36b4ef70d415945f930e0d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66530a56_d8476db0",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1805,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-03T10:22:22Z",
+      "side": 1,
+      "message": "You\u0027re not handling num_chr \u003d\u003d 0 correctly here.",
+      "revId": "c37a45e4eaa8a112f36b4ef70d415945f930e0d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
