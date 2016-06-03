@@ -46,6 +46,30 @@
       "revId": "3759261d11f7af3d7573d8798f67842d73a88c72",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86339e1f_50897a33",
+        "filename": "test/600-verifier-fails/smali/iput.smali",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-06-03T16:41:22Z",
+      "side": 1,
+      "message": "oat file has no compiled code, checking why not....\n\n2: LC; (offset\u003d0x00000e6c) (type_idx\u003d3) (StatusError) (OatClassNoneCompiled)\n  0: void C.\u003cinit\u003e() (dex_method_idx\u003d3)\n    DEX CODE:\n      0x0000: 1400 0000 0000           \t| const v0, #+0\n      0x0003: 5b00 0000                \t| iput-object v0, v0, Ljava/lang/String; Main.staticField // field@0\n      0x0005: 0e00                     \t| return-void",
+      "parentUuid": "86339e1f_27f47efc",
+      "range": {
+        "startLine": 19,
+        "startChar": 27,
+        "endLine": 19,
+        "endChar": 28
+      },
+      "revId": "3759261d11f7af3d7573d8798f67842d73a88c72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
