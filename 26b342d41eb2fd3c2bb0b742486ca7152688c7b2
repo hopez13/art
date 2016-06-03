@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "66214ae2_28dbcb34",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2973,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-06-03T10:31:03Z",
+      "side": 1,
+      "message": "Refactored the code.",
+      "parentUuid": "198e3142_4eb393a7",
+      "range": {
+        "startLine": 2972,
+        "startChar": 0,
+        "endLine": 2973,
+        "endChar": 56
+      },
+      "revId": "26b342d41eb2fd3c2bb0b742486ca7152688c7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "198e3142_ee8a7fce",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-06-02T14:14:59Z",
       "side": 1,
       "message": "Location::ConstantLocation(true_value-\u003eAsConstant())",
+      "range": {
+        "startLine": 2987,
+        "startChar": 42,
+        "endLine": 2987,
+        "endChar": 82
+      },
+      "revId": "26b342d41eb2fd3c2bb0b742486ca7152688c7b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66214ae2_08e087d9",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2987,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-06-03T10:31:03Z",
+      "side": 1,
+      "message": "There was a subtlety here: `should_synthesise_(true|false)_value` is only set when a constant should be synthesized in a register, not if the operand was already a register.\n\nI modified the code to make the distinction register/constant clearer.",
+      "parentUuid": "198e3142_ee8a7fce",
       "range": {
         "startLine": 2987,
         "startChar": 42,
