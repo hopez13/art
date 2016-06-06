@@ -22,6 +22,30 @@
       "revId": "d507000503ac14efa80bfb8e64cf8c62545380f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3660c36_d45d7c08",
+        "filename": "test/596-monitor-inflation/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-06T19:52:20Z",
+      "side": 1,
+      "message": "Not sure if that works, you probably need to wait after the GC since they heap trim is delayed around 5s.",
+      "parentUuid": "bca6f325_f1e3e0aa",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 87
+      },
+      "revId": "d507000503ac14efa80bfb8e64cf8c62545380f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
