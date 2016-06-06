@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c611160b_538e24e7",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-06T11:15:35Z",
+      "side": 1,
+      "message": "For the (written) record: not super happy about this feature creeping in the code... I\u0027ve discussed with David and Vladimir, and hopefully Vladimir will try to come up with a typedef.",
+      "range": {
+        "startLine": 915,
+        "startChar": 4,
+        "endLine": 915,
+        "endChar": 11
+      },
+      "revId": "372f10e5b0b34e2bb6e2b79aeba6c441e14afd1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
