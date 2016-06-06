@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23982433_3e7309d6",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-06T11:23:10Z",
+      "side": 1,
+      "message": "Maybe add a comment somewhere where this method is only used for testing.",
+      "range": {
+        "startLine": 671,
+        "startChar": 21,
+        "endLine": 671,
+        "endChar": 31
+      },
+      "revId": "492a7fa6df3b197a24099a50f5abf624164f3842",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c611160b_d3b87482",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 728,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-06T11:23:10Z",
+      "side": 1,
+      "message": "Why do we even need to lock? (but just realized CompileOne is only used by tests, so not worth fixing if it requires too much changes).",
+      "range": {
+        "startLine": 728,
+        "startChar": 0,
+        "endLine": 728,
+        "endChar": 67
+      },
+      "revId": "492a7fa6df3b197a24099a50f5abf624164f3842",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
