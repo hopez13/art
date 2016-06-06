@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a35fb426_4ad99367",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1040038
+      },
+      "writtenOn": "2016-06-06T17:03:11Z",
+      "side": 1,
+      "message": "I suggest to use GetBackEdges() utility here.",
+      "range": {
+        "startLine": 738,
+        "startChar": 33,
+        "endLine": 738,
+        "endChar": 44
+      },
+      "revId": "4cf026cabeb3690c3af7d4e6cf12717ca4dd70d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
