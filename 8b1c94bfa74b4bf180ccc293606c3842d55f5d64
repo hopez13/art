@@ -22,6 +22,30 @@
       "revId": "8b1c94bfa74b4bf180ccc293606c3842d55f5d64",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23fca42a_fe5a6171",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 6133,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2016-06-06T08:58:59Z",
+      "side": 1,
+      "message": "Could you tell me how to reproduce dex2oat crash?\nI checked your change and found many classes in boot.art where IMT is not shared.\nIn my version dex2oat works fine for user build for hammerhead.",
+      "parentUuid": "c6f836fd_3ed525ca",
+      "range": {
+        "startLine": 6113,
+        "startChar": 2,
+        "endLine": 6133,
+        "endChar": 47
+      },
+      "revId": "8b1c94bfa74b4bf180ccc293606c3842d55f5d64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
