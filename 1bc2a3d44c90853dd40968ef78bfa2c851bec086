@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "43b278f7_f7442040",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1686,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-07T18:09:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03db203a_fd124747",
+      "range": {
+        "startLine": 1686,
+        "startChar": 10,
+        "endLine": 1686,
+        "endChar": 28
+      },
+      "revId": "1bc2a3d44c90853dd40968ef78bfa2c851bec086",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03db203a_1d21b390",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2016-06-07T16:09:36Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 1689,
+        "startChar": 16,
+        "endLine": 1689,
+        "endChar": 34
+      },
+      "revId": "1bc2a3d44c90853dd40968ef78bfa2c851bec086",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23c9047a_16927c0f",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1689,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-07T18:09:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03db203a_1d21b390",
       "range": {
         "startLine": 1689,
         "startChar": 16,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c30f4877_c32bf667",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1692,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-07T18:09:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03db203a_3d266fa9",
+      "range": {
+        "startLine": 1692,
+        "startChar": 13,
+        "endLine": 1692,
+        "endChar": 31
+      },
+      "revId": "1bc2a3d44c90853dd40968ef78bfa2c851bec086",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03db203a_5d1b3b60",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 10
@@ -82,6 +154,30 @@
       "writtenOn": "2016-06-07T16:09:36Z",
       "side": 1,
       "message": "Kudos for remembering to do this.",
+      "range": {
+        "startLine": 1704,
+        "startChar": 0,
+        "endLine": 1704,
+        "endChar": 39
+      },
+      "revId": "1bc2a3d44c90853dd40968ef78bfa2c851bec086",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03db203a_fd440740",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 1704,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-07T18:09:55Z",
+      "side": 1,
+      "message": "My String BCE tests were failing, so I had to find out why.",
+      "parentUuid": "03db203a_5d1b3b60",
       "range": {
         "startLine": 1704,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "03d0803a_759ca86d",
+        "filename": "compiler/optimizing/instruction_simplifier_arm64.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-07T18:09:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03db203a_bd319fdb",
+      "range": {
+        "startLine": 59,
+        "startChar": 24,
+        "endLine": 61,
+        "endChar": 61
+      },
+      "revId": "1bc2a3d44c90853dd40968ef78bfa2c851bec086",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03db203a_fd2b2767",
         "filename": "runtime/thread.h",
         "patchSetId": 10
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "03db203a_dd474b42",
+        "filename": "runtime/thread.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 1477,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-07T18:09:55Z",
+      "side": 1,
+      "message": "We have a new entrypoint, so these members are moving and some hand-written assembly for ARM reads thread_local_pos+thread_local_end with LDRD which should be preferably 8B-aligned. (There is an assertion.)",
+      "parentUuid": "03db203a_fd2b2767",
+      "range": {
+        "startLine": 1477,
+        "startChar": 5,
+        "endLine": 1477,
+        "endChar": 32
+      },
+      "revId": "1bc2a3d44c90853dd40968ef78bfa2c851bec086",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03db203a_1d4a9350",
         "filename": "test/536-checker-intrinsic-optimization/src/Main.java",
         "patchSetId": 10
@@ -151,6 +295,24 @@
       "writtenOn": "2016-06-07T16:09:36Z",
       "side": 1,
       "message": "You could test the error message, if you were really pedantic. Just a suggestion...",
+      "revId": "1bc2a3d44c90853dd40968ef78bfa2c851bec086",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03d0803a_b591205b",
+        "filename": "test/536-checker-intrinsic-optimization/src/Main.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-07T18:09:55Z",
+      "side": 1,
+      "message": "No, I don\u0027t want to test the error message. On the other hand, let\u0027s check the throw site, i.e. the top 2 stack trace elements.",
+      "parentUuid": "03db203a_1d4a9350",
       "revId": "1bc2a3d44c90853dd40968ef78bfa2c851bec086",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
