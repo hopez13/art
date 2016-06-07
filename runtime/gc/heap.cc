@@ -163,6 +163,10 @@ static inline bool CareAboutPauseTimes() {
   return Runtime::Current()->InJankPerceptibleProcessState();
 }
 
+#if defined(BLOCKING_GC_CRASH)
+static constexpr int64_t kGCWaitCompletionTimeout = 90 * 1000;
+#endif
+
 Heap::Heap(size_t initial_size,
            size_t growth_limit,
            size_t min_free,
@@ -3359,7 +3363,14 @@ collector::GcType Heap::WaitForGcToCompleteLocked(GcCause cause, Thread* self) {
     }
     ScopedTrace trace("GC: Wait For Completion");
     // We must wait, change thread state then sleep on gc_complete_cond_;
+#if defined(BLOCKING_GC_CRASH)
+    if (gc_complete_cond_->TimedWait(self, kGCWaitCompletionTimeout, 0)) {
+        // Timed out.
+        LOG(FATAL) << "GC " << cause << " is blocked for a long time.";
+    }
+#else
     gc_complete_cond_->Wait(self);
+#endif
     last_gc_type = last_gc_type_;
     last_gc_cause = last_gc_cause_;
   }
