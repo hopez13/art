@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "03db203a_7d4c7791",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-06-07T15:05:32Z",
+      "side": 1,
+      "message": "Mention the DCHECK that the original CL hit",
+      "revId": "00bed5fe12f5b10362de39c3bc091d4e7a2f43ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03db203a_5d47bb6f",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-06-07T15:05:32Z",
+      "side": 1,
+      "message": "assume",
+      "range": {
+        "startLine": 704,
+        "startChar": 44,
+        "endLine": 704,
+        "endChar": 51
+      },
+      "revId": "00bed5fe12f5b10362de39c3bc091d4e7a2f43ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
