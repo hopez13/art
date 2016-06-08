@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0318802b_55472cb2",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1703,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-08T09:48:52Z",
+      "side": 1,
+      "message": "We\u0027ve just discussed this. I agree with Aart here that we coulda void this complexity and move this to prepare_for_register_allocaiton.cc. I think this is safer and cleaner when you think about not spreading the complexity of this CharAt optimization\n\nAdding a method_idx into BoundsCheck should do the trick and avoid going back to the dex file which I agree sucks.",
+      "parentUuid": "0318802b_15f49490",
+      "range": {
+        "startLine": 1693,
+        "startChar": 0,
+        "endLine": 1703,
+        "endChar": 39
+      },
+      "revId": "b1306a9459056634802760afa8d195702fbe53f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0318802b_95b544dc",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 11
