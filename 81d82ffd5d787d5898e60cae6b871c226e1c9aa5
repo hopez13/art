@@ -22,6 +22,30 @@
       "revId": "81d82ffd5d787d5898e60cae6b871c226e1c9aa5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "239024ca_07071c0f",
+        "filename": "test/604-hot-static-interface/hot_static_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-06-08T21:13:20Z",
+      "side": 1,
+      "message": "I agree. Doesn\u0027t usleep(1000) or so make more sense?\n\nOr possibly with arguments growing by a few percent each time?",
+      "parentUuid": "0318802b_7516a83e",
+      "range": {
+        "startLine": 52,
+        "startChar": 6,
+        "endLine": 52,
+        "endChar": 14
+      },
+      "revId": "81d82ffd5d787d5898e60cae6b871c226e1c9aa5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
