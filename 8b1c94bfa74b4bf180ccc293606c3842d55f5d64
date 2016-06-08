@@ -94,6 +94,30 @@
       "revId": "8b1c94bfa74b4bf180ccc293606c3842d55f5d64",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "239024ca_3e3b49b3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 6133,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-08T20:13:52Z",
+      "side": 1,
+      "message": "This is similar to what I had in mind, I think it is not 100% correct for the conflict table case but I have a fix for this.",
+      "parentUuid": "235f44cd_06de9aec",
+      "range": {
+        "startLine": 6113,
+        "startChar": 2,
+        "endLine": 6133,
+        "endChar": 47
+      },
+      "revId": "8b1c94bfa74b4bf180ccc293606c3842d55f5d64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
