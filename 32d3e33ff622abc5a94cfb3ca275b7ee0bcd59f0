@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af9cf82a_1b1adb73",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-06-09T15:12:37Z",
+      "side": 1,
+      "message": "extra \u0027)\u0027",
+      "range": {
+        "startLine": 350,
+        "startChar": 63,
+        "endLine": 350,
+        "endChar": 64
+      },
+      "revId": "32d3e33ff622abc5a94cfb3ca275b7ee0bcd59f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af9cf82a_fb07ef0b",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-06-09T15:12:37Z",
+      "side": 1,
+      "message": "add a comment on why this can be kDexNoIndex now.",
+      "range": {
+        "startLine": 239,
+        "startChar": 10,
+        "endLine": 239,
+        "endChar": 54
+      },
+      "revId": "32d3e33ff622abc5a94cfb3ca275b7ee0bcd59f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af9cf82a_9b14ab3b",
+        "filename": "runtime/thread.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 1477,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-06-09T15:12:37Z",
+      "side": 1,
+      "message": "why this change?",
+      "range": {
+        "startLine": 1477,
+        "startChar": 4,
+        "endLine": 1477,
+        "endChar": 32
+      },
+      "revId": "32d3e33ff622abc5a94cfb3ca275b7ee0bcd59f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
