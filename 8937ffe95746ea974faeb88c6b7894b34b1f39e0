@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af9cf82a_3b48f766",
+        "filename": "profman/profman.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-09T14:50:20Z",
+      "side": 1,
+      "message": "Please say defaults.",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 65
+      },
+      "revId": "8937ffe95746ea974faeb88c6b7894b34b1f39e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af9cf82a_fb292f96",
+        "filename": "profman/profman.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-09T14:50:20Z",
+      "side": 1,
+      "message": "Maybe a comment that updating those needs an update to Usage?",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 60
+      },
+      "revId": "8937ffe95746ea974faeb88c6b7894b34b1f39e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af9cf82a_5b2063a5",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-09T14:50:20Z",
+      "side": 1,
+      "message": "Add a note that those limits are from the dex file spec. We don\u0027t have any usable kConstant?",
+      "range": {
+        "startLine": 670,
+        "startChar": 0,
+        "endLine": 671,
+        "endChar": 62
+      },
+      "revId": "8937ffe95746ea974faeb88c6b7894b34b1f39e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af9cf82a_7b251fb4",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-09T14:50:20Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 678,
+        "startChar": 17,
+        "endLine": 678,
+        "endChar": 39
+      },
+      "revId": "8937ffe95746ea974faeb88c6b7894b34b1f39e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af9cf82a_db13135b",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-09T14:50:20Z",
+      "side": 1,
+      "message": "parens?",
+      "range": {
+        "startLine": 689,
+        "startChar": 14,
+        "endLine": 689,
+        "endChar": 45
+      },
+      "revId": "8937ffe95746ea974faeb88c6b7894b34b1f39e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af9cf82a_fb104f50",
+        "filename": "runtime/jit/offline_profiling_info.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-09T14:50:20Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 697,
+        "startChar": 14,
+        "endLine": 697,
+        "endChar": 45
+      },
+      "revId": "8937ffe95746ea974faeb88c6b7894b34b1f39e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
