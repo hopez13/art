@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "af9cf82a_3bc797a1",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 1791,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-09T18:36:17Z",
+      "side": 1,
+      "message": "I\u0027m thinking about how to do that but the lambda below will need to be a standalone class. That actually tears the code apart and reduces readability.",
+      "parentUuid": "af9cf82a_db5f93f8",
+      "range": {
+        "startLine": 1791,
+        "startChar": 2,
+        "endLine": 1791,
+        "endChar": 6
+      },
+      "revId": "372f10e5b0b34e2bb6e2b79aeba6c441e14afd1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af9cf82a_bb3f27aa",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 9
@@ -117,6 +141,30 @@
     },
     {
       "key": {
+        "uuid": "af9cf82a_7bcd1fc1",
+        "filename": "compiler/utils/transform_array_ref.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-09T18:36:17Z",
+      "side": 1,
+      "message": "As long as you don\u0027t actually instantiate it, the typedef is just fine.",
+      "parentUuid": "af9cf82a_9bdeeb72",
+      "range": {
+        "startLine": 57,
+        "startChar": 2,
+        "endLine": 57,
+        "endChar": 55
+      },
+      "revId": "372f10e5b0b34e2bb6e2b79aeba6c441e14afd1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af9cf82a_fbd12f63",
         "filename": "compiler/utils/transform_array_ref.h",
         "patchSetId": 9
@@ -128,6 +176,30 @@
       "writtenOn": "2016-06-09T17:33:47Z",
       "side": 1,
       "message": "I would use the expanded acronym: \"Empty Base Optimization (EBO)\".\n\nAlso, this design choice means that `Function` has to be a class (and thus cannot be a function pointer type).",
+      "range": {
+        "startLine": 134,
+        "startChar": 11,
+        "endLine": 134,
+        "endChar": 14
+      },
+      "revId": "372f10e5b0b34e2bb6e2b79aeba6c441e14afd1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af9cf82a_dbbb1328",
+        "filename": "compiler/utils/transform_array_ref.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-09T18:36:17Z",
+      "side": 1,
+      "message": "Hm, I didn\u0027t realize that. I\u0027ll need to introduce a compressed pair helper that works for both classes and fundamental types.",
+      "parentUuid": "af9cf82a_fbd12f63",
       "range": {
         "startLine": 134,
         "startChar": 11,
@@ -180,6 +252,30 @@
     },
     {
       "key": {
+        "uuid": "af9cf82a_fbb84f2d",
+        "filename": "compiler/utils/transform_iterator.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-09T18:36:17Z",
+      "side": 1,
+      "message": "I\u0027ll need to think about this a bit. Originally, I wanted to support output iterators but now the assertion above probably precludes void here.",
+      "parentUuid": "af9cf82a_7b98bfe3",
+      "range": {
+        "startLine": 49,
+        "startChar": 10,
+        "endLine": 49,
+        "endChar": 91
+      },
+      "revId": "372f10e5b0b34e2bb6e2b79aeba6c441e14afd1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af9cf82a_9b87cb74",
         "filename": "compiler/utils/transform_iterator.h",
         "patchSetId": 9
@@ -191,6 +287,30 @@
       "writtenOn": "2016-06-09T17:33:47Z",
       "side": 1,
       "message": "As this method is not a template itself (meaning it will be instantiated when `TransformIterator` is instantiated IIUC), will the whole class compile without error if `BaseIterator` is not a bidirectional iterator (even if this operator-- is never used)?  Intuitively, I would say this need an `std::enable_if` to work even with non-bidirectional iterators, but maybe I\u0027m wrong.\n\nI would add a test to cover this (e.g., one wrapping `std::istream_iterator` or `std::forward_list\u003cT\u003e::iterator`).",
+      "range": {
+        "startLine": 85,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 75
+      },
+      "revId": "372f10e5b0b34e2bb6e2b79aeba6c441e14afd1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af9cf82a_9bb58b34",
+        "filename": "compiler/utils/transform_iterator.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-09T18:36:17Z",
+      "side": 1,
+      "message": "No, implicit instantiation of the class does not instantiate every member function; though the declaration needs to be well-formed. Otherwise the TEST(TransformIterator, ForwardListSub1) would not compile.",
+      "parentUuid": "af9cf82a_9b87cb74",
       "range": {
         "startLine": 85,
         "startChar": 4,
@@ -237,6 +357,30 @@
       "writtenOn": "2016-06-09T17:33:47Z",
       "side": 1,
       "message": "Why is this not between lines 17 and 18?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 16
+      },
+      "revId": "372f10e5b0b34e2bb6e2b79aeba6c441e14afd1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af9cf82a_bbb2c747",
+        "filename": "compiler/utils/transform_iterator_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-09T18:36:17Z",
+      "side": 1,
+      "message": "Why is it here at all? Something I forgot to remove after choosing not to use std::array\u003c\u003e?",
+      "parentUuid": "af9cf82a_5be14338",
       "range": {
         "startLine": 23,
         "startChar": 0,
