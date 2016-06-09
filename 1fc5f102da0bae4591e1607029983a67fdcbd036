@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f14c033_b814f091",
+        "filename": "runtime/gc/space/region_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-06-09T20:28:32Z",
+      "side": 1,
+      "message": "this should be live_bytes_",
+      "range": {
+        "startLine": 142,
+        "startChar": 17,
+        "endLine": 142,
+        "endChar": 32
+      },
+      "revId": "1fc5f102da0bae4591e1607029983a67fdcbd036",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
