@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "af9cf82a_3bfb1784",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-09T09:36:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0318802b_f50118fc",
+      "range": {
+        "startLine": 93,
+        "startChar": 49,
+        "endLine": 93,
+        "endChar": 50
+      },
+      "revId": "ea6d1c15bf5af8a5a106dd808eb9c0a12c0ce130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0318802b_95fc2416",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-06-08T17:49:35Z",
       "side": 1,
       "message": "Thanks for the refactoring!\n\nMaybe this could factored a bit further, as this new macro shares a lot of code with SETUP_REFS_ONLY_CALLEE_SAVE_FRAME?",
+      "range": {
+        "startLine": 96,
+        "startChar": 7,
+        "endLine": 96,
+        "endChar": 56
+      },
+      "revId": "ea6d1c15bf5af8a5a106dd808eb9c0a12c0ce130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af9cf82a_9be90bb7",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-09T09:36:27Z",
+      "side": 1,
+      "message": "Just checked with vmarko, we agree trying to share code here by using more macros won\u0027t really help readability. Did you have something specific in mind?",
+      "parentUuid": "0318802b_95fc2416",
       "range": {
         "startLine": 96,
         "startChar": 7,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "af9cf82a_bbe647e2",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-09T09:36:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0318802b_350c302f",
+      "revId": "ea6d1c15bf5af8a5a106dd808eb9c0a12c0ce130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0318802b_d5069c11",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 1
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "af9cf82a_5b23830a",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-09T09:36:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0318802b_d5069c11",
+      "range": {
+        "startLine": 98,
+        "startChar": 7,
+        "endLine": 98,
+        "endChar": 14
+      },
+      "revId": "ea6d1c15bf5af8a5a106dd808eb9c0a12c0ce130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8385505b_80410002",
         "filename": "test/605-new-string-from-bytes/src/Main.java",
         "patchSetId": 1
@@ -99,6 +189,30 @@
       "writtenOn": "2016-06-08T17:38:47Z",
       "side": 1,
       "message": "Is 10 iterations really enough to repro the issue?",
+      "range": {
+        "startLine": 27,
+        "startChar": 24,
+        "endLine": 27,
+        "endChar": 26
+      },
+      "revId": "ea6d1c15bf5af8a5a106dd808eb9c0a12c0ce130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af9cf82a_7b28bfe5",
+        "filename": "test/605-new-string-from-bytes/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-09T09:36:27Z",
+      "side": 1,
+      "message": "For gcstress yes. Though the test wasn\u0027t enough for non-gcstress, so I just increased the size of the array below, and now I get consistent crashes even with non-gcstress with 10 iterations.",
+      "parentUuid": "8385505b_80410002",
       "range": {
         "startLine": 27,
         "startChar": 24,
