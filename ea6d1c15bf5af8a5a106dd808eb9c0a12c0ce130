@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "af9cf82a_bb3de723",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-09T10:21:37Z",
+      "side": 1,
+      "message": "These macros only differ by two lines (saving and restoring rTemp2).  What about something like this:\n\n      /*\n       * Macro that sets up the callee save frame to conform with\n       * Runtime::CreateCalleeSaveMethod(kRefsOnly).\n       * If preserveRTemp2 is non null, preserve the value of rTemp2 at entry.\n       */\n  .macro SETUP_REFS_ONLY_CALLEE_SAVE_FRAME_MAYBE_PRESERVE_RTEMP2 rTemp1, rTemp2, preserveRTemp2\n      push {r5-r8, r10-r11, lr}                     @ 7 words of callee saves\n      .cfi_adjust_cfa_offset 28\n      .cfi_rel_offset r5, 0\n      .cfi_rel_offset r6, 4\n      .cfi_rel_offset r7, 8\n      .cfi_rel_offset r8, 12\n      .cfi_rel_offset r10, 16\n      .cfi_rel_offset r11, 20\n      .cfi_rel_offset lr, 24\n      sub sp, #4                                    @ bottom word will hold Method*\n      .cfi_adjust_cfa_offset 4\n      .if preserveRTemp2\n      str \\rTemp2, [sp, #0]                         @ save rTemp2\n      .endif\n      RUNTIME_CURRENT2 \\rTemp1, \\rTemp2             @ Load Runtime::Current into rTemp1.\n      ldr \\rTemp1, [\\rTemp1, #RUNTIME_REFS_ONLY_CALLEE_SAVE_FRAME_OFFSET] @ rTemp1 is kRefsOnly Method*.\n      .if preserveRTemp2\n      str \\rTemp2, [sp, #0]                         @ save rTemp2\n      .endif\n      ldr \\rTemp2, [sp, #0]                         @ restore rTemp2\n      str \\rTemp1, [sp, #0]                         @ Place Method* at bottom of stack.\n      str sp, [r9, #THREAD_TOP_QUICK_FRAME_OFFSET]  @ Place sp in Thread::Current()-\u003etop_quick_frame.\n  \n      // Ugly compile-time check, but we only have the preprocessor.\n  #if (FRAME_SIZE_REFS_ONLY_CALLEE_SAVE !\u003d 28 + 4)\n  #error \"REFS_ONLY_CALLEE_SAVE_FRAME(ARM) size not as expected.\"\n  #endif\n  .endm\n  \n      /*\n       * Macro that sets up the callee save frame to conform with\n       * Runtime::CreateCalleeSaveMethod(kRefsOnly).\n       */\n  .macro SETUP_REFS_ONLY_CALLEE_SAVE_FRAME rTemp1, rTemp2\n      SETUP_REFS_ONLY_CALLEE_SAVE_FRAME_MAYBE_PRESERVE_RTEMP2 rTemp1, rTemp2, 0\n  .endm\n  \n      /*\n       * Macro that sets up the callee save frame to conform with\n       * Runtime::CreateCalleeSaveMethod(kRefsOnly)\n       * and preserves the value of rTemp2 at entry.\n       */\n  .macro SETUP_REFS_ONLY_CALLEE_SAVE_FRAME_PRESERVE_RTEMP2 rTemp1, rTemp2\n      SETUP_REFS_ONLY_CALLEE_SAVE_FRAME_MAYBE_PRESERVE_RTEMP2 rTemp1, rTemp2, 1\n  .endm\n\n?",
+      "parentUuid": "af9cf82a_9be90bb7",
+      "range": {
+        "startLine": 96,
+        "startChar": 7,
+        "endLine": 96,
+        "endChar": 56
+      },
+      "revId": "ea6d1c15bf5af8a5a106dd808eb9c0a12c0ce130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0318802b_350c302f",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 1
