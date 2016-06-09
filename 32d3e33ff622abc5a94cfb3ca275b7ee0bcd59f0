@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "af9cf82a_1b665bd9",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-09T16:23:30Z",
+      "side": 1,
+      "message": "Removed. (Copy-paste error propagation, see https://android-review.googlesource.com/#/c/220991/3..4/compiler/optimizing/code_generator.h .)",
+      "parentUuid": "af9cf82a_1b1adb73",
+      "range": {
+        "startLine": 350,
+        "startChar": 63,
+        "endLine": 350,
+        "endChar": 64
+      },
+      "revId": "32d3e33ff622abc5a94cfb3ca275b7ee0bcd59f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af9cf82a_fb07ef0b",
         "filename": "compiler/optimizing/stack_map_stream.cc",
         "patchSetId": 14
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "af9cf82a_5b1e235b",
+        "filename": "compiler/optimizing/stack_map_stream.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-09T16:23:30Z",
+      "side": 1,
+      "message": "There\u0027s a comment on InlineInfoEntry::dex_pc. That should be enough.",
+      "parentUuid": "af9cf82a_fb07ef0b",
+      "range": {
+        "startLine": 239,
+        "startChar": 10,
+        "endLine": 239,
+        "endChar": 54
+      },
+      "revId": "32d3e33ff622abc5a94cfb3ca275b7ee0bcd59f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af9cf82a_9b14ab3b",
         "filename": "runtime/thread.h",
         "patchSetId": 14
@@ -59,6 +107,30 @@
       "writtenOn": "2016-06-09T15:12:37Z",
       "side": 1,
       "message": "why this change?",
+      "range": {
+        "startLine": 1477,
+        "startChar": 4,
+        "endLine": 1477,
+        "endChar": 32
+      },
+      "revId": "32d3e33ff622abc5a94cfb3ca275b7ee0bcd59f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af9cf82a_7b23dfa1",
+        "filename": "runtime/thread.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 1477,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-09T16:23:30Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/#/c/220983/10/runtime/thread.h@1477",
+      "parentUuid": "af9cf82a_9b14ab3b",
       "range": {
         "startLine": 1477,
         "startChar": 4,
