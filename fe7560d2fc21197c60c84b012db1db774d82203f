@@ -22,6 +22,30 @@
       "revId": "fe7560d2fc21197c60c84b012db1db774d82203f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f14c033_8ec447ff",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 6163,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-09T18:12:23Z",
+      "side": 1,
+      "message": "I suppose that should be correct, even if the imt is used by a subclass.",
+      "parentUuid": "ef927013_3de46fe6",
+      "range": {
+        "startLine": 6162,
+        "startChar": 4,
+        "endLine": 6163,
+        "endChar": 24
+      },
+      "revId": "fe7560d2fc21197c60c84b012db1db774d82203f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
