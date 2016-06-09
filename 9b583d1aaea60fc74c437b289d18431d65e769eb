@@ -22,6 +22,30 @@
       "revId": "9b583d1aaea60fc74c437b289d18431d65e769eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f14c033_d82b2474",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2016-06-09T20:46:01Z",
+      "side": 1,
+      "message": "Use BUILD_PREBUILT to copy this into place, and LOCAL_REQUIRED_MODULES to depend on it.",
+      "parentUuid": "838710d1_44b080e7",
+      "range": {
+        "startLine": 453,
+        "startChar": 0,
+        "endLine": 454,
+        "endChar": 9
+      },
+      "revId": "9b583d1aaea60fc74c437b289d18431d65e769eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
