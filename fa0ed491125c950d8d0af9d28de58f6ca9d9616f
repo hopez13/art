@@ -240,6 +240,30 @@
       "revId": "fa0ed491125c950d8d0af9d28de58f6ca9d9616f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af9cf82a_fb5ccf05",
+        "filename": "compiler/utils/array_ref.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-09T17:33:47Z",
+      "side": 1,
+      "message": "Yeah, I was wrongly expecting a different behavior from SFINAE…",
+      "parentUuid": "378e9e42_8e22db43",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 3
+      },
+      "revId": "fa0ed491125c950d8d0af9d28de58f6ca9d9616f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
