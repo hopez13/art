@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef927013_3de46fe6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 6163,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2016-06-09T08:08:26Z",
+      "side": 1,
+      "message": "Why don\u0027t reuse memory of the old IMT? It reduces number of allocations.",
+      "range": {
+        "startLine": 6162,
+        "startChar": 4,
+        "endLine": 6163,
+        "endChar": 24
+      },
+      "revId": "fe7560d2fc21197c60c84b012db1db774d82203f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
