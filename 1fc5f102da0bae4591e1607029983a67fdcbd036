@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "6f14c033_d89a0427",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1993,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-06-09T20:35:43Z",
+      "side": 1,
+      "message": "Does this value make sense at all if n \u003d 1? If not, would it make sense to not dump anything rather than computing this value at all?",
+      "range": {
+        "startLine": 1993,
+        "startChar": 13,
+        "endLine": 1993,
+        "endChar": 26
+      },
+      "revId": "1fc5f102da0bae4591e1607029983a67fdcbd036",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f14c033_b814f091",
         "filename": "runtime/gc/space/region_space.cc",
         "patchSetId": 2
