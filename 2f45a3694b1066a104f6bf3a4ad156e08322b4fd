@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "af9cf82a_dbeeb3f7",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1925,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-06-10T11:04:12Z",
+      "side": 1,
+      "message": "I\u0027ve changed them to is64bit, thanks.",
+      "parentUuid": "97374a6b_248ffc87",
+      "range": {
+        "startLine": 1925,
+        "startChar": 45,
+        "endLine": 1925,
+        "endChar": 52
+      },
+      "revId": "2f45a3694b1066a104f6bf3a4ad156e08322b4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97374a6b_24b61c4e",
         "filename": "compiler/optimizing/intrinsics_arm.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-05-19T16:56:47Z",
       "side": 1,
       "message": "optimization",
+      "range": {
+        "startLine": 1938,
+        "startChar": 37,
+        "endLine": 1938,
+        "endChar": 49
+      },
+      "revId": "2f45a3694b1066a104f6bf3a4ad156e08322b4fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f67fc0e_f8fdb1bc",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1938,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-06-10T11:04:12Z",
+      "side": 1,
+      "message": "Done. I\u0027ll pay attention and stick to US spelling. Thanks.",
+      "parentUuid": "97374a6b_24b61c4e",
       "range": {
         "startLine": 1938,
         "startChar": 37,
