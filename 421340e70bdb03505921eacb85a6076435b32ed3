@@ -16,6 +16,23 @@
       "revId": "421340e70bdb03505921eacb85a6076435b32ed3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f14c033_0d8953d0",
+        "filename": "compiler/utils/arm/assembler_arm32.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-06-10T16:54:47Z",
+      "side": 1,
+      "message": "actually, can you please do this in a separate CL?\n\nI would like to keep new instructions and optimizations CL separate, just so that the conflicts are less, and any reversing is simpler.",
+      "revId": "421340e70bdb03505921eacb85a6076435b32ed3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
