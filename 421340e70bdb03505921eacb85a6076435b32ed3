@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f14c033_0db273aa",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2056,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-06-10T16:53:20Z",
+      "side": 1,
+      "message": "one last nit: to be consistent, please group the locations/code methods together, as done consistently in all our intrinsics files. So:\n\nlocations:integerbitcount\n\ncodgen:integerbitcount\n\nlocations:longbitcount\n\ncodgen:longbitcount",
+      "revId": "421340e70bdb03505921eacb85a6076435b32ed3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
