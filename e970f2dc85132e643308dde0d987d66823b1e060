@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef927013_fd48479f",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 6167,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2016-06-10T08:10:06Z",
+      "side": 1,
+      "message": "I think this code is not quite correct.\nFor example we have a class Base and a class Derived which extends the class Base. Both classes shares same IMT at address 0xaaaa.\nNext we calls the method InitializeArrayClassesAndCreateConflictTablesVisitor which replace old IMT by new IMT with conflict tables.\nThe method InitializeArrayClassesAndCreateConflictTablesVisitor calls this method for the class Base. Suppose memory of old IMT can be reused (i.e. code under if (imt \u003d\u003d nullptr) is executed) and we refill old IMT by address 0xaaaa.\nNext, the method FillIMTAndConflictTables is called for the class Derived. For example, new IMT of the class Derived can\u0027t be shared and we execute code under if (imt \u003d\u003d nullptr) as well.\nIn this case we refill IMT of the class Derived by address 0xaaaa. But IMT from the class Base reffers to this memory as well. So IMT of the class Base will be corrupted.\n\nI think code in pathcset 9 was correct.\nI checked whether IMT of the class Derived shared with the class Base before. If true I allocated new memory.",
+      "range": {
+        "startLine": 6161,
+        "startChar": 0,
+        "endLine": 6167,
+        "endChar": 3
+      },
+      "revId": "e970f2dc85132e643308dde0d987d66823b1e060",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
