@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cffcccc7_44e0eea0",
+        "filename": "test/149-suspend-all-stress/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-11T00:29:21Z",
+      "side": 1,
+      "message": "What?",
+      "range": {
+        "startLine": 20,
+        "startChar": 39,
+        "endLine": 20,
+        "endChar": 40
+      },
+      "revId": "a44bbbcd081df594b1ed818b95122009e0aae69a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cffcccc7_e4f59a60",
+        "filename": "test/149-suspend-all-stress/suspend_all.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-11T00:29:21Z",
+      "side": 1,
+      "message": "Why not sleep a little (random amount) there to increase the range it may conflict?",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 43
+      },
+      "revId": "a44bbbcd081df594b1ed818b95122009e0aae69a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
