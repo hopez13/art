@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2f62c8c0_376378f7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-13T14:04:08Z",
+      "side": 1,
+      "message": "Are you referring to missing calls to RecordPCInfo (e.g. in IntrinsicCodeGeneratorARM64::VisitStringCompareTo)?",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 11,
+        "endChar": 47
+      },
+      "revId": "5a99e72b75625317e0b4da8942ca7b1c78cc3569",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f62c8c0_9751a422",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4175,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-13T14:04:08Z",
+      "side": 1,
+      "message": "Nit: fits on a single line.",
+      "range": {
+        "startLine": 4174,
+        "startChar": 26,
+        "endLine": 4175,
+        "endChar": 69
+      },
+      "revId": "5a99e72b75625317e0b4da8942ca7b1c78cc3569",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f62c8c0_b756a815",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4176,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-13T14:04:08Z",
+      "side": 1,
+      "message": "Nit: align with first argument.",
+      "range": {
+        "startLine": 4176,
+        "startChar": 0,
+        "endLine": 4176,
+        "endChar": 6
+      },
+      "revId": "5a99e72b75625317e0b4da8942ca7b1c78cc3569",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f62c8c0_17667406",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1197,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-13T14:04:08Z",
+      "side": 1,
+      "message": "As you\u0027ve replace the initial code with a call to InvokeRuntime, does it mean we were missing a call to RecordPcInfo here (as well as in GenerateVisitStringIndexOf)?",
+      "range": {
+        "startLine": 1197,
+        "startChar": 12,
+        "endLine": 1197,
+        "endChar": 25
+      },
+      "revId": "5a99e72b75625317e0b4da8942ca7b1c78cc3569",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
