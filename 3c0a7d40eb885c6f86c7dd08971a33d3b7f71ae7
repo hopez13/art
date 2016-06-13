@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b447f166_8658ace5",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-13T22:26:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b447f166_061efc55",
+      "range": {
+        "startLine": 1126,
+        "startChar": 4,
+        "endLine": 1129,
+        "endChar": 51
+      },
+      "revId": "3c0a7d40eb885c6f86c7dd08971a33d3b7f71ae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b447f166_2619f86d",
         "filename": "runtime/thread.cc",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2016-06-13T22:10:42Z",
       "side": 1,
       "message": "Ignore.",
+      "parentUuid": "b447f166_2619f86d",
+      "range": {
+        "startLine": 1147,
+        "startChar": 8,
+        "endLine": 1149,
+        "endChar": 14
+      },
+      "revId": "3c0a7d40eb885c6f86c7dd08971a33d3b7f71ae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b447f166_a65ba8e1",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1149,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-13T22:26:12Z",
+      "side": 1,
+      "message": "No, but I just made the logic clearer.",
       "parentUuid": "b447f166_2619f86d",
       "range": {
         "startLine": 1147,
