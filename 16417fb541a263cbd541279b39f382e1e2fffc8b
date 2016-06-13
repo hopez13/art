@@ -200,6 +200,24 @@
       "revId": "16417fb541a263cbd541279b39f382e1e2fffc8b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f62c8c0_976b64a3",
+        "filename": "test/570-checker-select/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-13T14:59:05Z",
+      "side": 1,
+      "message": "Though, frankly, this looks like trivially inline-able, so the standard trick \"if (doThrow) throw new Error();\" should probably be applied to all methods.",
+      "parentUuid": "2f62c8c0_57438c28",
+      "revId": "16417fb541a263cbd541279b39f382e1e2fffc8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
