@@ -45,6 +45,30 @@
       "revId": "3c0a7d40eb885c6f86c7dd08971a33d3b7f71ae7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b447f166_a62cc88c",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1149,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-13T22:10:42Z",
+      "side": 1,
+      "message": "Ignore.",
+      "parentUuid": "b447f166_2619f86d",
+      "range": {
+        "startLine": 1147,
+        "startChar": 8,
+        "endLine": 1149,
+        "endChar": 14
+      },
+      "revId": "3c0a7d40eb885c6f86c7dd08971a33d3b7f71ae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
