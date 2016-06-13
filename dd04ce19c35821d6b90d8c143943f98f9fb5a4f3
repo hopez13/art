@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2f62c8c0_37d29868",
+        "filename": "compiler/compiled_method.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-13T17:22:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f62c8c0_77433080",
+      "revId": "dd04ce19c35821d6b90d8c143943f98f9fb5a4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f62c8c0_97ce0436",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2016-06-13T11:50:14Z",
       "side": 1,
       "message": "const? Or \"*\" otherwise?",
+      "range": {
+        "startLine": 648,
+        "startChar": 57,
+        "endLine": 648,
+        "endChar": 59
+      },
+      "revId": "dd04ce19c35821d6b90d8c143943f98f9fb5a4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f62c8c0_773410ed",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-13T17:22:28Z",
+      "side": 1,
+      "message": "I think our style guide now allows non-const references but I\u0027m OK with the pointer. Just don\u0027t be scared of the \"\u0026*it\" this will create in CompileOne(), it is a normal way of turning an iterator into a pointer.",
+      "parentUuid": "2f62c8c0_97ce0436",
       "range": {
         "startLine": 648,
         "startChar": 57,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "2f62c8c0_d7195c80",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-13T17:22:28Z",
+      "side": 1,
+      "message": "Added extra comments.",
+      "parentUuid": "2f62c8c0_b7d308df",
+      "range": {
+        "startLine": 657,
+        "startChar": 14,
+        "endLine": 657,
+        "endChar": 15
+      },
+      "revId": "dd04ce19c35821d6b90d8c143943f98f9fb5a4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f62c8c0_776c101c",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 3
@@ -76,6 +142,30 @@
       "writtenOn": "2016-06-13T11:50:14Z",
       "side": 1,
       "message": "4 more extra spaces?",
+      "range": {
+        "startLine": 2619,
+        "startChar": 5,
+        "endLine": 2620,
+        "endChar": 56
+      },
+      "revId": "dd04ce19c35821d6b90d8c143943f98f9fb5a4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f62c8c0_5788ec84",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2620,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-13T17:22:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f62c8c0_776c101c",
       "range": {
         "startLine": 2619,
         "startChar": 5,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "2f62c8c0_178e7493",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2660,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-13T17:22:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f62c8c0_9757e443",
+      "range": {
+        "startLine": 2660,
+        "startChar": 2,
+        "endLine": 2660,
+        "endChar": 10
+      },
+      "revId": "dd04ce19c35821d6b90d8c143943f98f9fb5a4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f62c8c0_b75ce868",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 3
@@ -122,6 +236,30 @@
       "writtenOn": "2016-06-13T11:50:14Z",
       "side": 1,
       "message": "\u0027*\u0027.",
+      "range": {
+        "startLine": 2661,
+        "startChar": 53,
+        "endLine": 2661,
+        "endChar": 54
+      },
+      "revId": "dd04ce19c35821d6b90d8c143943f98f9fb5a4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f62c8c0_378b7884",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2661,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-13T17:22:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f62c8c0_b75ce868",
       "range": {
         "startLine": 2661,
         "startChar": 53,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "2f62c8c0_b7e5c846",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2720,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-13T17:22:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f62c8c0_f7566044",
+      "range": {
+        "startLine": 2708,
+        "startChar": 0,
+        "endLine": 2720,
+        "endChar": 5
+      },
+      "revId": "dd04ce19c35821d6b90d8c143943f98f9fb5a4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f62c8c0_f7dd80ea",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 3
@@ -168,6 +330,30 @@
       "writtenOn": "2016-06-13T11:50:14Z",
       "side": 1,
       "message": "Isn\u0027t that wrong? If enabled_compilers_ was false for enabled_compilers_ because it\u0027s the second pass, you\u0027d now put it to true.",
+      "range": {
+        "startLine": 2722,
+        "startChar": 0,
+        "endLine": 2722,
+        "endChar": 100
+      },
+      "revId": "dd04ce19c35821d6b90d8c143943f98f9fb5a4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f62c8c0_7785f069",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2722,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-13T17:22:28Z",
+      "side": 1,
+      "message": "Thanks for catching that, it shouldn\u0027t be here at all.",
+      "parentUuid": "2f62c8c0_f7dd80ea",
       "range": {
         "startLine": 2722,
         "startChar": 0,
@@ -203,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "2f62c8c0_97e0c437",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2724,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-13T17:22:28Z",
+      "side": 1,
+      "message": "Just like the JNI case above, this is something I forgot to clean up, i.e. remove.",
+      "parentUuid": "2f62c8c0_d7515c4f",
+      "range": {
+        "startLine": 2722,
+        "startChar": 0,
+        "endLine": 2724,
+        "endChar": 90
+      },
+      "revId": "dd04ce19c35821d6b90d8c143943f98f9fb5a4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f62c8c0_174cb4b1",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 3
@@ -226,6 +436,30 @@
     },
     {
       "key": {
+        "uuid": "2f62c8c0_d7ea3c15",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2791,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-13T17:22:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f62c8c0_174cb4b1",
+      "range": {
+        "startLine": 2791,
+        "startChar": 58,
+        "endLine": 2791,
+        "endChar": 59
+      },
+      "revId": "dd04ce19c35821d6b90d8c143943f98f9fb5a4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f62c8c0_3749b8a2",
         "filename": "runtime/base/dchecked_vector.h",
         "patchSetId": 3
@@ -237,6 +471,30 @@
       "writtenOn": "2016-06-13T11:50:14Z",
       "side": 1,
       "message": "And no compiler complained?",
+      "range": {
+        "startLine": 189,
+        "startChar": 4,
+        "endLine": 189,
+        "endChar": 10
+      },
+      "revId": "dd04ce19c35821d6b90d8c143943f98f9fb5a4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f62c8c0_f750201b",
+        "filename": "runtime/base/dchecked_vector.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-13T17:22:28Z",
+      "side": 1,
+      "message": "Yeah, looks like you need to instantiate the function to actually trigger the warning. From the compiler\u0027s PoV, the \"iterator\" could theoretically be \"void\", so as long as all instantiations happen to be for such a case, there is no problem.",
+      "parentUuid": "2f62c8c0_3749b8a2",
       "range": {
         "startLine": 189,
         "startChar": 4,
