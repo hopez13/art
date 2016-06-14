@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5467950e_b8017931",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-14T13:30:08Z",
+      "side": 1,
+      "message": "Please move this back where it was before. There is no reason why it would have to be before CreateAssembler() from the C++ language PoV.",
+      "range": {
+        "startLine": 460,
+        "startChar": 2,
+        "endLine": 460,
+        "endChar": 41
+      },
+      "revId": "d78d4a7eb8084062374cce3659bf82ec903fe600",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
