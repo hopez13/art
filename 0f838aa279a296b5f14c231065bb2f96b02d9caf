@@ -16,6 +16,23 @@
       "revId": "0f838aa279a296b5f14c231065bb2f96b02d9caf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4924913_5df61b37",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-14T17:28:06Z",
+      "side": 1,
+      "message": "Missing CFI_ADJUST_OFFSET(4)! This should be PUSH instead of pushl and you need a CFI_RESTORE to follow line 99.",
+      "revId": "0f838aa279a296b5f14c231065bb2f96b02d9caf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
