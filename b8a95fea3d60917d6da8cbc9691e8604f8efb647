@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "94c10d6f_1a7c7d03",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1904,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-06-14T20:37:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b447f166_a5a035a8",
+      "range": {
+        "startLine": 1904,
+        "startChar": 33,
+        "endLine": 1904,
+        "endChar": 54
+      },
+      "revId": "b8a95fea3d60917d6da8cbc9691e8604f8efb647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94c10d6f_5a07950e",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-06-14T20:15:18Z",
       "side": 1,
       "message": "Only needed on declaration.",
+      "range": {
+        "startLine": 283,
+        "startChar": 4,
+        "endLine": 283,
+        "endChar": 40
+      },
+      "revId": "b8a95fea3d60917d6da8cbc9691e8604f8efb647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94c10d6f_9d94074f",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-06-14T20:37:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94c10d6f_5a07950e",
       "range": {
         "startLine": 283,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "94c10d6f_da95e554",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-06-14T20:37:16Z",
+      "side": 1,
+      "message": "It is a bit awkward having two functions here, but some code knows method indices and some code knows ArtMethods.\ne.g., \"mirror::Class::GetIMTIndex(instruction-\u003eGetIndex())\"",
+      "parentUuid": "b447f166_42bdf7ec",
+      "range": {
+        "startLine": 825,
+        "startChar": 2,
+        "endLine": 825,
+        "endChar": 53
+      },
+      "revId": "b8a95fea3d60917d6da8cbc9691e8604f8efb647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b447f166_6296b362",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-06-14T18:48:42Z",
       "side": 1,
       "message": "I wonder whether we should give the IMT size as a parameter (to remove the modulo at the call-site). Pros? Cons?",
+      "range": {
+        "startLine": 827,
+        "startChar": 2,
+        "endLine": 827,
+        "endChar": 58
+      },
+      "revId": "b8a95fea3d60917d6da8cbc9691e8604f8efb647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94c10d6f_1a07ddbd",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-06-14T20:37:16Z",
+      "side": 1,
+      "message": "Call sites shouldn\u0027t have to worry about taking the result modulo IMT size, since this function already does that using the global ImTable::kSize variable.",
+      "parentUuid": "b447f166_6296b362",
       "range": {
         "startLine": 827,
         "startChar": 2,
