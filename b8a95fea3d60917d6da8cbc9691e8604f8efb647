@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "94c10d6f_fd9b032f",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-14T20:44:39Z",
+      "side": 1,
+      "message": "Which cases do not have an ArtMethod available?\n\nHaving this function precludes us from experimenting with non-method-index hashes.",
+      "parentUuid": "94c10d6f_da95e554",
+      "range": {
+        "startLine": 825,
+        "startChar": 2,
+        "endLine": 825,
+        "endChar": 53
+      },
+      "revId": "b8a95fea3d60917d6da8cbc9691e8604f8efb647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b447f166_6296b362",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 1
