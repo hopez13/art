@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b447f166_17fce477",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-14T00:18:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b447f166_09904d60",
+      "revId": "ca1239029da7eb6ca187be205ac2cfc3c6ad0b09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b447f166_29e42918",
         "filename": "runtime/thread.h",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2016-06-13T23:01:06Z",
       "side": 1,
       "message": "Mention checkpoint_overflow_ here?",
+      "range": {
+        "startLine": 1452,
+        "startChar": 57,
+        "endLine": 1452,
+        "endChar": 58
+      },
+      "revId": "ca1239029da7eb6ca187be205ac2cfc3c6ad0b09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b447f166_f7f0289e",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1452,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-14T00:18:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b447f166_29e42918",
       "range": {
         "startLine": 1452,
         "startChar": 57,
