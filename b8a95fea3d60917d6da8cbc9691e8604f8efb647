@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "94c10d6f_5a07950e",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-14T20:15:18Z",
+      "side": 1,
+      "message": "Only needed on declaration.",
+      "range": {
+        "startLine": 283,
+        "startChar": 4,
+        "endLine": 283,
+        "endChar": 40
+      },
+      "revId": "b8a95fea3d60917d6da8cbc9691e8604f8efb647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b447f166_42bdf7ec",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 1
