@@ -46,6 +46,30 @@
       "revId": "e970f2dc85132e643308dde0d987d66823b1e060",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4662536_941b04c3",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 6167,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2016-06-14T09:06:22Z",
+      "side": 1,
+      "message": "I\u0027ve checked it. You are right.",
+      "parentUuid": "6f14c033_cd66bbaa",
+      "range": {
+        "startLine": 6161,
+        "startChar": 0,
+        "endLine": 6167,
+        "endChar": 3
+      },
+      "revId": "e970f2dc85132e643308dde0d987d66823b1e060",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
