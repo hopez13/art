@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b447f166_a5a035a8",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1904,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-14T18:48:42Z",
+      "side": 1,
+      "message": "The naming for this function seems weird now. I think it would be better to clean this up so the value is filled in where the HInterfaceInvoke is constructed (at that point you also have the ArtMethod).",
+      "range": {
+        "startLine": 1904,
+        "startChar": 33,
+        "endLine": 1904,
+        "endChar": 54
+      },
+      "revId": "b8a95fea3d60917d6da8cbc9691e8604f8efb647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b447f166_42bdf7ec",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-14T18:48:42Z",
+      "side": 1,
+      "message": "Feels like this is superfluous?",
+      "range": {
+        "startLine": 825,
+        "startChar": 2,
+        "endLine": 825,
+        "endChar": 53
+      },
+      "revId": "b8a95fea3d60917d6da8cbc9691e8604f8efb647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b447f166_6296b362",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 827,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-14T18:48:42Z",
+      "side": 1,
+      "message": "I wonder whether we should give the IMT size as a parameter (to remove the modulo at the call-site). Pros? Cons?",
+      "range": {
+        "startLine": 827,
+        "startChar": 2,
+        "endLine": 827,
+        "endChar": 58
+      },
+      "revId": "b8a95fea3d60917d6da8cbc9691e8604f8efb647",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
