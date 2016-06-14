@@ -22,6 +22,30 @@
       "revId": "d78d4a7eb8084062374cce3659bf82ec903fe600",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b447f166_a5cef55d",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-06-14T18:47:53Z",
+      "side": 1,
+      "message": "I moved this declaration to this location because when we try to run this new set of tests the compiler emits the following set of errors:\n\nart/compiler/utils/mips/assembler_mips32r6_test.cc:60:17: error: \u0027arena_\u0027 is a private member of \u0027art::AssemblerTest\u003cart::mips::MipsAssembler, art::mips::Register, art::mips::FRegister, unsigned int\u003e\u0027\n    return new (arena_.get()) mips::MipsAssembler(arena_.get(), instruction_set_features_.get());\n                ^\nart/compiler/utils/assembler_test.h:931:35: note: declared private here\n  std::unique_ptr\u003cArenaAllocator\u003e arena_;\n                                  ^\nart/compiler/utils/mips/assembler_mips32r6_test.cc:60:51: error: \u0027arena_\u0027 is a private member of \u0027art::AssemblerTest\u003cart::mips::MipsAssembler, art::mips::Register, art::mips::FRegister, unsigned int\u003e\u0027\n    return new (arena_.get()) mips::MipsAssembler(arena_.get(), instruction_set_features_.get());\n                                                  ^\nart/compiler/utils/assembler_test.h:931:35: note: declared private here\n  std::unique_ptr\u003cArenaAllocator\u003e arena_;\n                                  ^\n2 errors generated.\nninja: build stopped: subcommand failed.\nmake: *** [ninja_wrapper] Error 1\nmake: Leaving directory `/local/home/crl/src/aosp\u0027\n\n#### make failed to build some targets (18:22 (mm:ss)) ####",
+      "parentUuid": "5467950e_b8017931",
+      "range": {
+        "startLine": 460,
+        "startChar": 2,
+        "endLine": 460,
+        "endChar": 41
+      },
+      "revId": "d78d4a7eb8084062374cce3659bf82ec903fe600",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
