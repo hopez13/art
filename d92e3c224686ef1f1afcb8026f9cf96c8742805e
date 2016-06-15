@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "145fddcc_06ec5a9a",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-15T00:57:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "145fddcc_a67ea6c7",
+      "range": {
+        "startLine": 448,
+        "startChar": 6,
+        "endLine": 448,
+        "endChar": 33
+      },
+      "revId": "d92e3c224686ef1f1afcb8026f9cf96c8742805e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "145fddcc_0619bac9",
         "filename": "runtime/gc/collector/mark_sweep.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "145fddcc_460b3253",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-15T00:57:43Z",
+      "side": 1,
+      "message": "Other CL? There is other callers to fix up too.",
+      "parentUuid": "145fddcc_0619bac9",
+      "range": {
+        "startLine": 575,
+        "startChar": 80,
+        "endLine": 575,
+        "endChar": 83
+      },
+      "revId": "d92e3c224686ef1f1afcb8026f9cf96c8742805e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "145fddcc_263dd620",
         "filename": "runtime/thread_list.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2016-06-15T00:48:48Z",
       "side": 1,
       "message": "Aren\u0027t you holding the mutator lock here?",
+      "range": {
+        "startLine": 1321,
+        "startChar": 33,
+        "endLine": 1321,
+        "endChar": 42
+      },
+      "revId": "d92e3c224686ef1f1afcb8026f9cf96c8742805e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145fddcc_2644f686",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1321,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-15T00:57:43Z",
+      "side": 1,
+      "message": "Not necessarily, but maybe. I\u0027ll fix the comment.",
+      "parentUuid": "145fddcc_263dd620",
       "range": {
         "startLine": 1321,
         "startChar": 33,
