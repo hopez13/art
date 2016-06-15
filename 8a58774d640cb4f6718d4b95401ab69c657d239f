@@ -46,6 +46,30 @@
       "revId": "8a58774d640cb4f6718d4b95401ab69c657d239f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "145fddcc_8c2b8be0",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-15T17:11:11Z",
+      "side": 1,
+      "message": "Yes, style is to include the more specific one. (Though we may want to discuss this, as tools like include-what-you-use don\u0027t understand this)",
+      "parentUuid": "145fddcc_29860979",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 23
+      },
+      "revId": "8a58774d640cb4f6718d4b95401ab69c657d239f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
