@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5486b597_a0fc9a7c",
+        "filename": "compiler/utils/assembler_test.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 930,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-15T09:07:47Z",
+      "side": 1,
+      "message": "Please move this below the pool_ (where it was originally) for the sake of correct destruction order.",
+      "range": {
+        "startLine": 930,
+        "startChar": 2,
+        "endLine": 930,
+        "endChar": 41
+      },
+      "revId": "60c7c0095ceb8657005f0cd0190014a594d3038a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
