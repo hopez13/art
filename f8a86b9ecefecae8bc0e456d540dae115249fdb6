@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "540315bf_a1cda4c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-06-15T19:11:15Z",
+      "side": 1,
+      "message": "To clarify, I think there are three situations reaching this code:\n\n1 the current thread is a mutator thread doing the checkpoint to mark its thread roots,\n\n2 the current thread is the GC-running thread that\u0027s doing concurrent recursive mark,\n\n3 the current thread is the GC-running thread that\u0027s doing non-concurrent (at a pause) (recursive or non-recursive) mark\n\nIs that right? And the strategy is:\n\nFor 1, we don\u0027t care about the other threads\u0027 roots. Check self\u0027s thread roots.\n\nFor 2, it\u0027s a recursive mark and we don\u0027t care about the thread roots. We don\u0027t check thread roots at all.\n\nFor 3, it\u0027s at a pause, thread are already suspended. Check their thread roots.\n\nRight?",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 56
+      },
+      "revId": "f8a86b9ecefecae8bc0e456d540dae115249fdb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "540315bf_e1b67c09",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1307,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-06-15T19:11:15Z",
+      "side": 1,
+      "message": "Can you clarify what VisitRootsForSuspendedThreads does in a comment?\n\nThis comment and the name of the function do not seem to match clearly for me. We are not trying to suspend all threads (and wait for them to suspend) like SuspendAll does, but making sure that the suspended threads stay suspended and picking out a set of threads that includes the already-suspended ones, by doing ModifySuspendCount(+1). Right?",
+      "range": {
+        "startLine": 1307,
+        "startChar": 2,
+        "endLine": 1307,
+        "endChar": 28
+      },
+      "revId": "f8a86b9ecefecae8bc0e456d540dae115249fdb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
