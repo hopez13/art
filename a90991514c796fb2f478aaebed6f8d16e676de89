@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "346221c1_77a330c5",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3799,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-16T15:07:15Z",
+      "side": 1,
+      "message": "Shouldn\u0027t that be ObjectReference?",
+      "range": {
+        "startLine": 3799,
+        "startChar": 14,
+        "endLine": 3799,
+        "endChar": 22
+      },
+      "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "346221c1_37829817",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2437,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-16T15:07:15Z",
+      "side": 1,
+      "message": "Isn\u0027t this preventing you from GVN\u0027ing the same class but reference from different dex files? Which is what you\u0027re trying to achieve with line 2443?",
+      "range": {
+        "startLine": 2437,
+        "startChar": 5,
+        "endLine": 2437,
+        "endChar": 50
+      },
+      "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "346221c1_f78f403d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 5388,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-16T15:07:15Z",
+      "side": 1,
+      "message": "It has to be an invariant that HInstruction can only be in use/def relations, not in raw fields of other HInstruction.\n\nI think  you can add this to the inputs a build time, and then remove it when sharpening?",
+      "range": {
+        "startLine": 5388,
+        "startChar": 0,
+        "endLine": 5388,
+        "endChar": 67
+      },
+      "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "545f95f9_7b115b49",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-16T15:07:15Z",
+      "side": 1,
+      "message": "Maybe just say we\u0027re going to call the runtime anyway, so might was well just get the class as a return value of the runtime call.",
+      "range": {
+        "startLine": 159,
+        "startChar": 7,
+        "endLine": 159,
+        "endChar": 52
+      },
+      "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "346221c1_577f0cfa",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-16T15:07:15Z",
+      "side": 1,
+      "message": "Maybe add: \u003c\u003c \"a load class shouldn\u0027t have been optimized before sharpening\" ?",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 38
+      },
+      "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "346221c1_777c1005",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-16T15:07:15Z",
+      "side": 1,
+      "message": "I\u0027d move this 2 lines below to have the stack allocated objects first, motivating the new block.",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 58
+      },
+      "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "346221c1_ba8a0d28",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-16T15:07:15Z",
+      "side": 1,
+      "message": "Isn\u0027t that going to be prevented by the call line 248 anyway?",
+      "range": {
+        "startLine": 192,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 69
+      },
+      "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "346221c1_1a9a1979",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-16T15:07:15Z",
+      "side": 1,
+      "message": "Maybe add a comment: \"we only put direct addresses of class from the boot image\".\n\nAlso, maybe add a comment on classes from an app image?",
+      "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "346221c1_3a97dd51",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-16T15:07:15Z",
+      "side": 1,
+      "message": "Please file a bug instead, these TODOs get lost.",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 38
+      },
+      "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
