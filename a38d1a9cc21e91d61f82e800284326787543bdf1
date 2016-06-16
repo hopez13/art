@@ -22,6 +22,30 @@
       "revId": "a38d1a9cc21e91d61f82e800284326787543bdf1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "295c8835_aa0c8fe3",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-16T22:12:01Z",
+      "side": 1,
+      "message": "If it has two callers or the implementation is long, I dont use a lambda. UpdateObjectReferencesVisitor has two callers.",
+      "parentUuid": "295c8835_8ab42b34",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 2
+      },
+      "revId": "a38d1a9cc21e91d61f82e800284326787543bdf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
