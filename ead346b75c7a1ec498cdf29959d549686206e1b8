@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "346221c1_da042167",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2079,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-16T18:34:22Z",
+      "side": 1,
+      "message": "You don\u0027t need this at all. You\u0027re copying only actual data and you don\u0027t even care about alignment as ART is always running with SCTRL.A\u003d0. If you did care about alignment, you would have to deal with unaligned srcBegin/dstBegin.",
+      "range": {
+        "startLine": 2076,
+        "startChar": 0,
+        "endLine": 2079,
+        "endChar": 89
+      },
+      "revId": "ead346b75c7a1ec498cdf29959d549686206e1b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
