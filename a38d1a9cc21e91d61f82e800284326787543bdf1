@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "295c8835_8ab42b34",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-16T22:09:25Z",
+      "side": 1,
+      "message": "How did you decide which to make lambdas and which not? MoveObjectVisit seems to have the same interface, and you moved it.",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 2
+      },
+      "revId": "a38d1a9cc21e91d61f82e800284326787543bdf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
