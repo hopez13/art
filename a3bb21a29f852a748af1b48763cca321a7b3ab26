@@ -284,6 +284,30 @@
       "revId": "a3bb21a29f852a748af1b48763cca321a7b3ab26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "346221c1_ba012d68",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-16T17:04:57Z",
+      "side": 1,
+      "message": "There is no reason why two methods cannot share the same code_item, right? (The code item does not need to reference the declaring class in any way.) And trying to quicken the same code_item from two different threads shall race.",
+      "parentUuid": "540315bf_848503b6",
+      "range": {
+        "startLine": 697,
+        "startChar": 14,
+        "endLine": 697,
+        "endChar": 61
+      },
+      "revId": "a3bb21a29f852a748af1b48763cca321a7b3ab26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
