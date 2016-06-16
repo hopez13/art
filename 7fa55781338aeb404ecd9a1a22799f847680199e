@@ -22,6 +22,30 @@
       "revId": "7fa55781338aeb404ecd9a1a22799f847680199e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "540315bf_73a6b728",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1171,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-16T01:35:52Z",
+      "side": 1,
+      "message": "No, the maps dumping is off in this case, too (I just made the MapAnonymous case consistent).",
+      "parentUuid": "540315bf_b314cf3b",
+      "range": {
+        "startLine": 1171,
+        "startChar": 19,
+        "endLine": 1171,
+        "endChar": 35
+      },
+      "revId": "7fa55781338aeb404ecd9a1a22799f847680199e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
