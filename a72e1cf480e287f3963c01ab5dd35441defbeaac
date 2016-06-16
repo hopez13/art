@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "346221c1_1764b435",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-16T13:25:59Z",
+      "side": 1,
+      "message": "I think I\u0027m fine if you merge them into a PatchInfo in a follow-up CL.",
+      "range": {
+        "startLine": 506,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 80
+      },
+      "revId": "a72e1cf480e287f3963c01ab5dd35441defbeaac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "346221c1_374a9896",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 4
