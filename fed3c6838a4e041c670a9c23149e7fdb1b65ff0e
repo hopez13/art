@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "540315bf_b525d7b7",
+        "filename": "test/033-class-init-deadlock/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-16T00:04:00Z",
+      "side": 1,
+      "message": "Not required.",
+      "range": {
+        "startLine": 29,
+        "startChar": 33,
+        "endLine": 29,
+        "endChar": 73
+      },
+      "revId": "fed3c6838a4e041c670a9c23149e7fdb1b65ff0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "540315bf_f5462f5b",
+        "filename": "test/033-class-init-deadlock/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-16T00:04:00Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 38,
+        "startChar": 8,
+        "endLine": 39,
+        "endChar": 71
+      },
+      "revId": "fed3c6838a4e041c670a9c23149e7fdb1b65ff0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "540315bf_550a7b17",
+        "filename": "test/033-class-init-deadlock/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-16T00:04:00Z",
+      "side": 1,
+      "message": "I would argue to make the barrier count 3, and await before this. That way you don\u0027t start sleeping before the threads have started initializing.\n\nThere\u0027s still a potential race then (if the threads don\u0027t get scheduled), but it\u0027s at least smaller.",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 71
+      },
+      "revId": "fed3c6838a4e041c670a9c23149e7fdb1b65ff0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "540315bf_356427fd",
+        "filename": "test/033-class-init-deadlock/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-16T00:04:00Z",
+      "side": 1,
+      "message": "Remove, will make the test non-deterministic, and isn\u0027t relevant.",
+      "range": {
+        "startLine": 56,
+        "startChar": 8,
+        "endLine": 56,
+        "endChar": 48
+      },
+      "revId": "fed3c6838a4e041c670a9c23149e7fdb1b65ff0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "540315bf_f5510f1f",
+        "filename": "test/033-class-init-deadlock/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-16T00:04:00Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 66,
+        "startChar": 8,
+        "endLine": 66,
+        "endChar": 48
+      },
+      "revId": "fed3c6838a4e041c670a9c23149e7fdb1b65ff0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
