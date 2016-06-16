@@ -260,6 +260,30 @@
       "revId": "a3bb21a29f852a748af1b48763cca321a7b3ab26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "540315bf_848503b6",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-16T15:31:25Z",
+      "side": 1,
+      "message": "Of course that reasoning is half-assed, thinking about it. No reason for \"overlap\" to start at the same offset, so \"seeing\" the same instructions. :-(\n\nMaybe we should tighten the spec, or give a signal from the dex file verifier to punt compiling.",
+      "parentUuid": "540315bf_447beba7",
+      "range": {
+        "startLine": 697,
+        "startChar": 14,
+        "endLine": 697,
+        "endChar": 61
+      },
+      "revId": "a3bb21a29f852a748af1b48763cca321a7b3ab26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
