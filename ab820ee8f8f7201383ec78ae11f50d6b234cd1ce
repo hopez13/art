@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "540315bf_24f19773",
+        "filename": "test/033-class-init-deadlock/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-16T15:23:35Z",
+      "side": 1,
+      "message": "The barrier.await makes sure they have started the \u003cclinit\u003e. After that, you can\u0027t really guarantee a lot.\n\n(We could use a volatile or Atomic, but that only says they were scheduled after their await, but not that they have started the cross-clinit.)",
+      "parentUuid": "346221c1_575b8c0a",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 71
+      },
+      "revId": "ab820ee8f8f7201383ec78ae11f50d6b234cd1ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94658dc6_bda04b5f",
         "filename": "test/033-class-init-deadlock/src/Main.java",
         "patchSetId": 2
