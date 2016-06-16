@@ -801,6 +801,30 @@
     },
     {
       "key": {
+        "uuid": "346221c1_b7dea845",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 5342,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-16T13:24:19Z",
+      "side": 1,
+      "message": "Oh right, I was looking at old code for HLoadString.",
+      "parentUuid": "d499c5fa_bc7f614e",
+      "range": {
+        "startLine": 5342,
+        "startChar": 32,
+        "endLine": 5342,
+        "endChar": 44
+      },
+      "revId": "a72e1cf480e287f3963c01ab5dd35441defbeaac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f48a499e_dd798be3",
         "filename": "compiler/utils/type_reference.h",
         "patchSetId": 4
