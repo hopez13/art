@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "743659c9_c941b146",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-16T11:54:49Z",
+      "side": 1,
+      "message": "10 parameters for CompileMethod() are bad enough. Why would you want 12?",
+      "parentUuid": "346221c1_f779006a",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 2
+      },
+      "revId": "a3bb21a29f852a748af1b48763cca321a7b3ab26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "346221c1_57b70c3b",
         "filename": "compiler/driver/compiler_driver.cc",
         "patchSetId": 4
@@ -60,6 +84,30 @@
       "writtenOn": "2016-06-16T11:21:23Z",
       "side": 1,
       "message": "I know that this is copy paste, but why is the extract only reference here?",
+      "range": {
+        "startLine": 663,
+        "startChar": 7,
+        "endLine": 663,
+        "endChar": 29
+      },
+      "revId": "a3bb21a29f852a748af1b48763cca321a7b3ab26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b49451c2_5ba663d6",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-16T11:54:49Z",
+      "side": 1,
+      "message": "For extract-only (i.e. kVerifyAtRuntime) we prefer not to compile anything, not even the JNI stubs.",
+      "parentUuid": "346221c1_57b70c3b",
       "range": {
         "startLine": 663,
         "startChar": 7,
