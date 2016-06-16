@@ -45,6 +45,30 @@
       "revId": "a3bb21a29f852a748af1b48763cca321a7b3ab26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "747f394d_cac9b716",
+        "filename": "compiler/driver/compiler_driver.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-16T09:40:12Z",
+      "side": 1,
+      "message": "A class SHALL NOT be defined twice in a dex file. Class definition\u0027s items SHALL refer to field and method ids with class_idx_ of that class.\n\nGiven that we shard on class definitions, this is enough; however, we would be fine even if sharding on method definitions because we also forbid unordered method definitions in a class def, filter out duplicates within \"direct\" and \"virtual\" and forbid the same method index in both \"direct\" and \"virtual\".",
+      "parentUuid": "145fddcc_e9579112",
+      "range": {
+        "startLine": 697,
+        "startChar": 14,
+        "endLine": 697,
+        "endChar": 61
+      },
+      "revId": "a3bb21a29f852a748af1b48763cca321a7b3ab26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
