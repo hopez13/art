@@ -46,6 +46,29 @@
       "revId": "ead346b75c7a1ec498cdf29959d549686206e1b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "295c8835_a683a3b0",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2096,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-17T15:35:47Z",
+      "side": 1,
+      "message": "I am curious about this. I understand a runtime check is jucky and all, but ldm/stm with two registers is as fast as ldr/str AFAIK. Reserving another temp (or maybe destroying the receiver register, it\u0027s probably dead) shouldn\u0027t be the end of the world.\n\nI\u0027m curious what the code would look like when embedded into a method. Can you make any comments about the quality from experiments?",
+      "range": {
+        "startLine": 2094,
+        "startChar": 0,
+        "endLine": 2096,
+        "endChar": 57
+      },
+      "revId": "ead346b75c7a1ec498cdf29959d549686206e1b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
