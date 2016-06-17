@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9c20c57_b73702d1",
+        "filename": "test/dexdump/values.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-06-17T19:08:44Z",
+      "side": 1,
+      "message": "Just in case you are wondering, this is simply a class that defines stuff as follows, just to make sure that sign/zero extension is done at the right byte boundary:\n\n  static public final long mJ0 \u003d 0x0000000000000000L;\n  static public final long mJ1 \u003d 0x7fffffffffffffffL;\n  static public final long mJ2 \u003d 0x8000000000000000L;\n  static public final long mJ3 \u003d 0x00000000000000ffL;\n  static public final long mJ4 \u003d 0xfffffffffffffff0L;\n  static public final long mJ5 \u003d 0xfffffffffffff000L;\n  static public final long mJ6 \u003d 0xfffffffffff00000L;\n  static public final long mJ7 \u003d 0xfffffffff0000000L;\n  static public final long mJ8 \u003d 0xfffffff000000000L;\n  static public final long mJ9 \u003d 0xfffff00000000000L;\n  static public final long mJa \u003d 0xfff0000000000000L;\n  static public final long mJb \u003d 0xffffffffffffffffL;",
+      "revId": "15ef3d733de459924d18680d007e603fa39cfc7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
