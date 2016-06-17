@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9c20c57_1a08dd7b",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-17T19:44:02Z",
+      "side": 1,
+      "message": "Why is this required if the map is not shared across multiple threads?",
+      "range": {
+        "startLine": 161,
+        "startChar": 2,
+        "endLine": 161,
+        "endChar": 32
+      },
+      "revId": "56f8b5631ab2874dc2ec385802e38555acac0d90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
