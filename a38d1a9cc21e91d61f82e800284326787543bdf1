@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c9c20c57_7430084b",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-17T18:36:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9c0b017_4d219902",
+      "revId": "a38d1a9cc21e91d61f82e800284326787543bdf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "295c8835_8ab42b34",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 2
@@ -83,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "c9c20c57_b4bc60cf",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-17T18:36:10Z",
+      "side": 1,
+      "message": "Temporary change had made it too long.",
+      "parentUuid": "e9c0b017_ed31654d",
+      "revId": "a38d1a9cc21e91d61f82e800284326787543bdf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9c0b017_8d3ea11c",
         "filename": "runtime/gc/collector/semi_space-inl.h",
         "patchSetId": 2
@@ -100,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "c9c20c57_b4ee20bf",
+        "filename": "runtime/gc/collector/semi_space-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-17T18:36:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9c0b017_8d3ea11c",
+      "revId": "a38d1a9cc21e91d61f82e800284326787543bdf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9c0b017_ad3b5d2b",
         "filename": "runtime/gc/collector/semi_space.cc",
         "patchSetId": 2
@@ -111,6 +165,24 @@
       "writtenOn": "2016-06-17T09:17:05Z",
       "side": 1,
       "message": "This was the second use of SemiSpaceScanObjectVisitor. Maybe keep the named class?",
+      "revId": "a38d1a9cc21e91d61f82e800284326787543bdf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9c20c57_14cd143d",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-17T18:36:10Z",
+      "side": 1,
+      "message": "I think I prefer just having a one liner lambda, it was just proxy calling anyways.",
+      "parentUuid": "e9c0b017_ad3b5d2b",
       "revId": "a38d1a9cc21e91d61f82e800284326787543bdf1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
