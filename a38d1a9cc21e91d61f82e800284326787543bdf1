@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "e9c0b017_4d219902",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-17T09:17:05Z",
+      "side": 1,
+      "message": "This looks a bit weird. You could define a named lambda \"auto visitor \u003d [this](...) { ... };\"",
+      "revId": "a38d1a9cc21e91d61f82e800284326787543bdf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "295c8835_8ab42b34",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 2
@@ -43,6 +60,57 @@
         "endLine": 331,
         "endChar": 2
       },
+      "revId": "a38d1a9cc21e91d61f82e800284326787543bdf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9c0b017_ed31654d",
+        "filename": "runtime/gc/collector/mark_sweep.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1147,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-17T09:17:05Z",
+      "side": 1,
+      "message": "Why the line break?",
+      "revId": "a38d1a9cc21e91d61f82e800284326787543bdf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9c0b017_8d3ea11c",
+        "filename": "runtime/gc/collector/semi_space-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-17T09:17:05Z",
+      "side": 1,
+      "message": "Maybe a named lambda?",
+      "revId": "a38d1a9cc21e91d61f82e800284326787543bdf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9c0b017_ad3b5d2b",
+        "filename": "runtime/gc/collector/semi_space.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-17T09:17:05Z",
+      "side": 1,
+      "message": "This was the second use of SemiSpaceScanObjectVisitor. Maybe keep the named class?",
       "revId": "a38d1a9cc21e91d61f82e800284326787543bdf1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
