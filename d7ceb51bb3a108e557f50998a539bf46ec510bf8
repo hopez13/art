@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89bbb49f_ea63872d",
+        "filename": "test/033-class-init-deadlock/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-17T12:26:16Z",
+      "side": 1,
+      "message": "I\u0027d also add a comment: sleep hopefully enough to get both threads in the deadlock situation.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 71
+      },
+      "revId": "d7ceb51bb3a108e557f50998a539bf46ec510bf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
