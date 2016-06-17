@@ -22,6 +22,30 @@
       "revId": "56f8b5631ab2874dc2ec385802e38555acac0d90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9c20c57_e35b7c07",
+        "filename": "runtime/mem_map.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2016-06-17T22:10:23Z",
+      "side": 1,
+      "message": "Yeah, I added this in all calls. I get a little nervous not having this in case map ever changes to being passed around.\n\nI can remove this and add a comment so that nobody forgets this is only okay because the map is created here.",
+      "parentUuid": "c9c20c57_1a08dd7b",
+      "range": {
+        "startLine": 161,
+        "startChar": 2,
+        "endLine": 161,
+        "endChar": 32
+      },
+      "revId": "56f8b5631ab2874dc2ec385802e38555acac0d90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
