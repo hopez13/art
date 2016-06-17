@@ -16,6 +16,24 @@
       "revId": "ca1bbb04987810171f22fcdb4ec29d3b7f309058",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "295c8835_86c09f5c",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-06-17T16:22:44Z",
+      "side": 1,
+      "message": "Happy to split this up if you really insist (and I have asked for this many times myself when a CL really had several components), but just for my own understanding, this is not a cherry pick and we are far from the next release. In  most other groups it was perfectly okay to make some unrelated formatting fixes while working on a file during very active development....",
+      "parentUuid": "2f62c8c0_b7a14863",
+      "revId": "ca1bbb04987810171f22fcdb4ec29d3b7f309058",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
