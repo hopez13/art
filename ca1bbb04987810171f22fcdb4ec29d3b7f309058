@@ -34,6 +34,24 @@
       "revId": "ca1bbb04987810171f22fcdb4ec29d3b7f309058",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "692a00c1_ac086b21",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-06-20T10:31:45Z",
+      "side": 1,
+      "message": "I insist on this for all libcore changes and believe it\u0027s the right thing to do here - i spent several minutes looking through these diffs to see what had changed (so will all future readers of this). I don\u0027t own this code so i won\u0027t impose myself here.",
+      "parentUuid": "295c8835_86c09f5c",
+      "revId": "ca1bbb04987810171f22fcdb4ec29d3b7f309058",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
