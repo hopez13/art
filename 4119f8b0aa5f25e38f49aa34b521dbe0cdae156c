@@ -157,6 +157,30 @@
     },
     {
       "key": {
+        "uuid": "a90f9877_63a9624a",
+        "filename": "test/458-checker-instruction-simplification/smali/SmaliTests.smali",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-06-20T13:03:12Z",
+      "side": 1,
+      "message": "The test code in Java provides that. The only reason for the tests implemented in Smali is because I haven\u0027t figured out a way to generate a constant subtraction in Java (I always get an addition with a negative constant).",
+      "parentUuid": "692a00c1_8c5e47f9",
+      "range": {
+        "startLine": 262,
+        "startChar": 22,
+        "endLine": 262,
+        "endChar": 28
+      },
+      "revId": "4119f8b0aa5f25e38f49aa34b521dbe0cdae156c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "692a00c1_ec5b8307",
         "filename": "test/458-checker-instruction-simplification/src/Main.java",
         "patchSetId": 2
@@ -168,6 +192,30 @@
       "writtenOn": "2016-06-20T12:53:04Z",
       "side": 1,
       "message": "jack isn\u0027t optimizing this?",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 3
+      },
+      "revId": "4119f8b0aa5f25e38f49aa34b521dbe0cdae156c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9da7034_fd6de71a",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-06-20T13:03:12Z",
+      "side": 1,
+      "message": "I was using \"dx\", to be honest. The transformation is applied close to 1000 times for boot.oat, though, and even more if we relax the restriction for only one use that is also non-environmental.",
+      "parentUuid": "692a00c1_ec5b8307",
       "range": {
         "startLine": 95,
         "startChar": 0,
