@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c97f6c20_7bd12b28",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1278,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-06-20T22:49:39Z",
+      "side": 1,
+      "message": "add some sanity checks on value of size?",
+      "range": {
+        "startLine": 1278,
+        "startChar": 19,
+        "endLine": 1278,
+        "endChar": 20
+      },
+      "revId": "eef6cfddb2253d24bed4552ddc6c303e76b00038",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c97f6c20_1bcee78b",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3131,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-06-20T22:49:39Z",
+      "side": 1,
+      "message": "same suggestion",
+      "revId": "eef6cfddb2253d24bed4552ddc6c303e76b00038",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
