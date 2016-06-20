@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "692a00c1_4ca0cf0c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3799,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-20T12:59:49Z",
+      "side": 1,
+      "message": "It\u0027s more the size I\u0027m worried about: we say here it\u0027s 32bits because ObjectReference is 32bits, but it could be 64bits some time in the future.",
+      "parentUuid": "346221c1_7ae875af",
+      "range": {
+        "startLine": 3799,
+        "startChar": 14,
+        "endLine": 3799,
+        "endChar": 22
+      },
+      "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "346221c1_37829817",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 5
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Yes, I\u0027ve got a little mental TODO scheduled for this and HLoadString::InstructionDataEquals() that I\u0027d like to address in a follow-up CL. But it will also require a rethink of the hash codes, so that\u0027s really too much for this CL.",
       "parentUuid": "346221c1_37829817",
+      "range": {
+        "startLine": 2437,
+        "startChar": 5,
+        "endLine": 2437,
+        "endChar": 50
+      },
+      "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "692a00c1_8ca12711",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2437,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-20T12:59:49Z",
+      "side": 1,
+      "message": "OK. Please add at least some comment that would make sure no one gets surprised by this.",
+      "parentUuid": "545f95f9_9b6c6fbb",
       "range": {
         "startLine": 2437,
         "startChar": 5,
@@ -360,6 +408,24 @@
       "side": 1,
       "message": "Hm, app image... are objects in the app image movable? Maybe I should actually check if runtime-\u003eGetHeap()-\u003eIsMovableObject(klass)?",
       "parentUuid": "346221c1_1a9a1979",
+      "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "692a00c1_6c9b13de",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-20T12:59:49Z",
+      "side": 1,
+      "message": "Yeah, I think you can use this.",
+      "parentUuid": "d420e584_c41a7e72",
       "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
