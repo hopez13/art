@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "891d74f9_da07056b",
+        "filename": "test/607-daemon-stress/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-06-20T18:24:14Z",
+      "side": 1,
+      "message": "nit: isn\u0027t this going to burn the cpu? Especially if you end up running multiple test in parallel on host.",
+      "range": {
+        "startLine": 29,
+        "startChar": 12,
+        "endLine": 29,
+        "endChar": 25
+      },
+      "revId": "302ed32fdc0cf1b0b1b101a5711fc06b790cfe9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
