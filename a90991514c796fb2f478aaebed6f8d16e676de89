@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "291ac803_376f387c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3799,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-21T14:05:28Z",
+      "side": 1,
+      "message": "There\u0027s a DCHECK() in VisitLoadClass().",
+      "parentUuid": "09318482_b677c8ba",
+      "range": {
+        "startLine": 3799,
+        "startChar": 14,
+        "endLine": 3799,
+        "endChar": 22
+      },
+      "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "346221c1_37829817",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 5
@@ -534,6 +558,24 @@
       "side": 1,
       "message": "Sure. I\u0027d add a TODO then.",
       "parentUuid": "6920402e_b977bfba",
+      "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "291ac803_17723461",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-21T14:05:28Z",
+      "side": 1,
+      "message": "Done; new bug filed.",
+      "parentUuid": "6920402e_f954570e",
       "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
