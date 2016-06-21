@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "09318482_b677c8ba",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3799,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-21T13:48:11Z",
+      "side": 1,
+      "message": "Any way to guard the code here that the boot image is in low 4G?",
+      "parentUuid": "692a00c1_ccab1fed",
+      "range": {
+        "startLine": 3799,
+        "startChar": 14,
+        "endLine": 3799,
+        "endChar": 22
+      },
+      "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "346221c1_37829817",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 5
@@ -492,6 +516,24 @@
       "side": 1,
       "message": "But then the kBootImageAddress becomes very misleading. Should I rename it to kDirectAddress? I\u0027d like to postpone that to a follow-up CL.",
       "parentUuid": "692a00c1_6c9b13de",
+      "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6920402e_f954570e",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-21T13:48:11Z",
+      "side": 1,
+      "message": "Sure. I\u0027d add a TODO then.",
+      "parentUuid": "6920402e_b977bfba",
       "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
