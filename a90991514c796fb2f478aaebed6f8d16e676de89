@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "692a00c1_ccab1fed",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3799,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-21T13:34:14Z",
+      "side": 1,
+      "message": "As long as the boot image is in low 4GiB, even 64-bit references do not make a difference here.",
+      "parentUuid": "692a00c1_4ca0cf0c",
+      "range": {
+        "startLine": 3799,
+        "startChar": 14,
+        "endLine": 3799,
+        "endChar": 22
+      },
+      "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "346221c1_37829817",
         "filename": "compiler/optimizing/nodes.cc",
         "patchSetId": 5
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "OK. Please add at least some comment that would make sure no one gets surprised by this.",
       "parentUuid": "545f95f9_9b6c6fbb",
+      "range": {
+        "startLine": 2437,
+        "startChar": 5,
+        "endLine": 2437,
+        "endChar": 50
+      },
+      "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a94cf814_db6dd3b9",
+        "filename": "compiler/optimizing/nodes.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2437,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-21T13:34:14Z",
+      "side": 1,
+      "message": "Added a TODO. (Did not file a bug as I consider this really low priority.)",
+      "parentUuid": "692a00c1_8ca12711",
       "range": {
         "startLine": 2437,
         "startChar": 5,
@@ -426,6 +474,24 @@
       "side": 1,
       "message": "Yeah, I think you can use this.",
       "parentUuid": "d420e584_c41a7e72",
+      "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6920402e_b977bfba",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-21T13:34:14Z",
+      "side": 1,
+      "message": "But then the kBootImageAddress becomes very misleading. Should I rename it to kDirectAddress? I\u0027d like to postpone that to a follow-up CL.",
+      "parentUuid": "692a00c1_6c9b13de",
       "revId": "a90991514c796fb2f478aaebed6f8d16e676de89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
