@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6e5cc664_d92773a9",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1278,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-06-22T15:33:58Z",
+      "side": 1,
+      "message": "Done.\nIn Patch 2, I added DCHECK to check the \u0027size\u0027 value. Yes, the size value should only be 8, 16, or 32. Thanks.",
+      "parentUuid": "c97f6c20_7bd12b28",
+      "range": {
+        "startLine": 1278,
+        "startChar": 19,
+        "endLine": 1278,
+        "endChar": 20
+      },
+      "revId": "eef6cfddb2253d24bed4552ddc6c303e76b00038",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c97f6c20_1bcee78b",
         "filename": "compiler/utils/arm/assembler_thumb2.cc",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2016-06-20T22:49:39Z",
       "side": 1,
       "message": "same suggestion",
+      "revId": "eef6cfddb2253d24bed4552ddc6c303e76b00038",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e5cc664_39466f42",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3131,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-06-22T15:33:58Z",
+      "side": 1,
+      "message": "Done.\nIn Patch 2, I added DCHECK to check the \u0027size\u0027 value. Yes, the size value should only be 8, 16, or 32. Thanks.",
+      "parentUuid": "c97f6c20_1bcee78b",
       "revId": "eef6cfddb2253d24bed4552ddc6c303e76b00038",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
