@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0e3eea9b_aed0f7d2",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1388,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-06-23T11:14:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce721291_5449cca0",
+      "range": {
+        "startLine": 1386,
+        "startChar": 6,
+        "endLine": 1388,
+        "endChar": 7
+      },
+      "revId": "baf84885cfcab79a1f20da7beafe7d832ef6dbba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e657ac6_3a79a1ad",
         "filename": "compiler/optimizing/reference_type_propagation.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-06-23T11:10:23Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 8
+      },
+      "revId": "baf84885cfcab79a1f20da7beafe7d832ef6dbba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce205285_27bef4c5",
+        "filename": "compiler/optimizing/reference_type_propagation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-06-23T11:14:46Z",
+      "side": 1,
+      "message": "Why? This is called from the inliner now.",
+      "parentUuid": "8e657ac6_3a79a1ad",
       "range": {
         "startLine": 47,
         "startChar": 2,
