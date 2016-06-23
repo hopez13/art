@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce721291_5449cca0",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1388,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-23T11:10:23Z",
+      "side": 1,
+      "message": "This is a matter of personal preference, but I would test the opposite condition, and replace line 1387 with lines 1390–1399.",
+      "range": {
+        "startLine": 1386,
+        "startChar": 6,
+        "endLine": 1388,
+        "endChar": 7
+      },
+      "revId": "baf84885cfcab79a1f20da7beafe7d832ef6dbba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e657ac6_3a79a1ad",
+        "filename": "compiler/optimizing/reference_type_propagation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-23T11:10:23Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 8
+      },
+      "revId": "baf84885cfcab79a1f20da7beafe7d832ef6dbba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
