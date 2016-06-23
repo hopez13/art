@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "639dc16f_e5637eee",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-06-23T23:55:16Z",
+      "side": 1,
+      "message": "Does this mean OOME?",
+      "range": {
+        "startLine": 405,
+        "startChar": 51,
+        "endLine": 405,
+        "endChar": 77
+      },
+      "revId": "421aefd4f74cb2c05f279b42573103750023d93b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "639dc16f_25f3c641",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-06-23T23:55:16Z",
+      "side": 1,
+      "message": "Does this expect an OOME? Or is this just a catch-all for any throwable?",
+      "range": {
+        "startLine": 524,
+        "startChar": 29,
+        "endLine": 524,
+        "endChar": 40
+      },
+      "revId": "421aefd4f74cb2c05f279b42573103750023d93b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "639dc16f_c52afa6d",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-06-23T23:55:16Z",
+      "side": 1,
+      "message": "typo: surprisingly",
+      "range": {
+        "startLine": 678,
+        "startChar": 32,
+        "endLine": 678,
+        "endChar": 43
+      },
+      "revId": "421aefd4f74cb2c05f279b42573103750023d93b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "639dc16f_e527fea2",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-06-23T23:55:16Z",
+      "side": 1,
+      "message": "4-space indent?",
+      "revId": "421aefd4f74cb2c05f279b42573103750023d93b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "639dc16f_053c02b1",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 690,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-06-23T23:55:16Z",
+      "side": 1,
+      "message": "I think wait() should be surrounded by a loop in case of a spurious wakeup. So, maybe\n\nif (count !\u003d 0) {\n  do {\n    wait();\n  } while (count !\u003d 0);\n} else {\n  notifyAll();\n}\n\n?",
+      "range": {
+        "startLine": 686,
+        "startChar": 0,
+        "endLine": 690,
+        "endChar": 9
+      },
+      "revId": "421aefd4f74cb2c05f279b42573103750023d93b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "639dc16f_2541062a",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-06-23T23:55:16Z",
+      "side": 1,
+      "message": "private?",
+      "revId": "421aefd4f74cb2c05f279b42573103750023d93b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
