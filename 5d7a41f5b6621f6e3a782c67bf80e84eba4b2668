@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e572eeb_ef35a184",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1429,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2016-06-23T15:53:10Z",
+      "side": 1,
+      "message": "Without this, when intrinsics_arm64.cc:[1449-1453] will be transformed to InvokeRuntime() (part of the following patch), we will hit a DCHECK in ValidateInvokeRuntime(), line code_generator.cc:1176.",
+      "range": {
+        "startLine": 1429,
+        "startChar": 60,
+        "endLine": 1429,
+        "endChar": 100
+      },
+      "revId": "5d7a41f5b6621f6e3a782c67bf80e84eba4b2668",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
