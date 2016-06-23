@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce721291_d454fc3e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-23T11:12:04Z",
+      "side": 1,
+      "message": "it",
+      "range": {
+        "startLine": 18,
+        "startChar": 6,
+        "endLine": 18,
+        "endChar": 8
+      },
+      "revId": "7a698e11296b7e599206dc39af89717ec134f8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e657ac6_5a8655c4",
+        "filename": "test/004-ThreadStress/check",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-23T11:12:04Z",
+      "side": 1,
+      "message": ", so replace numbers with \u0027N\u0027.",
+      "range": {
+        "startLine": 17,
+        "startChar": 24,
+        "endLine": 17,
+        "endChar": 25
+      },
+      "revId": "7a698e11296b7e599206dc39af89717ec134f8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e300ecd_47704ef1",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-23T11:12:04Z",
+      "side": 1,
+      "message": "Won\u0027t that hide the failure? I guess the expected.txt test will fail, but would it make sense to also do System.exit(errorCode) and then make sure our run-test understand that such error code makes the test fail?",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 68
+      },
+      "revId": "7a698e11296b7e599206dc39af89717ec134f8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e3eea9b_4e7073f1",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-23T11:12:04Z",
+      "side": 1,
+      "message": "extra ws",
+      "range": {
+        "startLine": 499,
+        "startChar": 0,
+        "endLine": 499,
+        "endChar": 4
+      },
+      "revId": "7a698e11296b7e599206dc39af89717ec134f8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e3eea9b_ce54633f",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-23T11:12:04Z",
+      "side": 1,
+      "message": "Add a comment why it\u0027s ok failing creating the Thread.",
+      "range": {
+        "startLine": 508,
+        "startChar": 57,
+        "endLine": 509,
+        "endChar": 71
+      },
+      "revId": "7a698e11296b7e599206dc39af89717ec134f8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e657ac6_fa4f2977",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-23T11:12:04Z",
+      "side": 1,
+      "message": "Please add a comment on why you\u0027re doing this. I guess that\u0027s to make sure the test fails?",
+      "range": {
+        "startLine": 653,
+        "startChar": 0,
+        "endLine": 654,
+        "endChar": 39
+      },
+      "revId": "7a698e11296b7e599206dc39af89717ec134f8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e3eea9b_ee591f74",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-23T11:12:04Z",
+      "side": 1,
+      "message": "will?",
+      "range": {
+        "startLine": 668,
+        "startChar": 63,
+        "endLine": 668,
+        "endChar": 68
+      },
+      "revId": "7a698e11296b7e599206dc39af89717ec134f8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

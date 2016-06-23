@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e3eea9b_2e4c07b2",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-23T11:12:04Z",
+      "side": 0,
+      "message": "How did it work before? Did we rely on getting a OOME or just it was ok to have the daemon still running after main finished?",
+      "range": {
+        "startLine": 587,
+        "startChar": 23,
+        "endLine": 587,
+        "endChar": 27
+      },
+      "revId": "b94b5706f0b8e2e1c7e1db22274f9f4bae0c4b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
