@@ -93,6 +93,30 @@
       "revId": "baf84885cfcab79a1f20da7beafe7d832ef6dbba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce205285_473e901d",
+        "filename": "compiler/optimizing/reference_type_propagation.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-23T12:15:45Z",
+      "side": 1,
+      "message": "Sorry, I didn\u0027t see that when you moved this function, you made it a member of the ReferenceTypePropagation class, and I thought the `static` keyword has been kept incorrectly.",
+      "parentUuid": "ce205285_27bef4c5",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 8
+      },
+      "revId": "baf84885cfcab79a1f20da7beafe7d832ef6dbba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
