@@ -22,6 +22,30 @@
       "revId": "b94b5706f0b8e2e1c7e1db22274f9f4bae0c4b5a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4da659_915a7c69",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-23T12:59:34Z",
+      "side": 0,
+      "message": "The daemons were still running and we were just hoping that the runners can make progress. (Though the upcoming comment for OOM in runners in PS3 makes it clear that we can still fail to make progress.)",
+      "parentUuid": "0e3eea9b_2e4c07b2",
+      "range": {
+        "startLine": 587,
+        "startChar": 23,
+        "endLine": 587,
+        "endChar": 27
+      },
+      "revId": "b94b5706f0b8e2e1c7e1db22274f9f4bae0c4b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

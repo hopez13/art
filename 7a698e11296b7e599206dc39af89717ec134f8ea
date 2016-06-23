@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8e657ac6_da1c256e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-23T12:59:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce721291_d454fc3e",
+      "range": {
+        "startLine": 18,
+        "startChar": 6,
+        "endLine": 18,
+        "endChar": 8
+      },
+      "revId": "7a698e11296b7e599206dc39af89717ec134f8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e657ac6_5a8655c4",
         "filename": "test/004-ThreadStress/check",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-06-23T11:12:04Z",
       "side": 1,
       "message": ", so replace numbers with \u0027N\u0027.",
+      "range": {
+        "startLine": 17,
+        "startChar": 24,
+        "endLine": 17,
+        "endChar": 25
+      },
+      "revId": "7a698e11296b7e599206dc39af89717ec134f8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e572eeb_cf99bde5",
+        "filename": "test/004-ThreadStress/check",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-23T12:59:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e657ac6_5a8655c4",
       "range": {
         "startLine": 17,
         "startChar": 24,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ce205285_8708887d",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-23T12:59:34Z",
+      "side": 1,
+      "message": "Do we check the exit code?\n\nIf there are still threads trying to perform tasks (including OOM, Alloc and LargeAlloc), there is no guarantee we shall ever be able to print anything here.",
+      "parentUuid": "2e300ecd_47704ef1",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 68
+      },
+      "revId": "7a698e11296b7e599206dc39af89717ec134f8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e3eea9b_4e7073f1",
         "filename": "test/004-ThreadStress/src/Main.java",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-06-23T11:12:04Z",
       "side": 1,
       "message": "extra ws",
+      "range": {
+        "startLine": 499,
+        "startChar": 0,
+        "endLine": 499,
+        "endChar": 4
+      },
+      "revId": "7a698e11296b7e599206dc39af89717ec134f8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e572eeb_cf161d3d",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-23T12:59:34Z",
+      "side": 1,
+      "message": "Already removed in PS2.",
+      "parentUuid": "0e3eea9b_4e7073f1",
       "range": {
         "startLine": 499,
         "startChar": 0,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "2e572eeb_af9479ae",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-23T12:59:34Z",
+      "side": 1,
+      "message": "Added some comment that indirectly implies that it\u0027s \"almost OK\".",
+      "parentUuid": "0e3eea9b_ce54633f",
+      "range": {
+        "startLine": 508,
+        "startChar": 57,
+        "endLine": 509,
+        "endChar": 71
+      },
+      "revId": "7a698e11296b7e599206dc39af89717ec134f8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e657ac6_fa4f2977",
         "filename": "test/004-ThreadStress/src/Main.java",
         "patchSetId": 1
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "0e798a73_f654a0e5",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-23T12:59:34Z",
+      "side": 1,
+      "message": "Yes, rather than allowing the main thread to be blocked indefinitely on a Barrier.",
+      "parentUuid": "8e657ac6_fa4f2977",
+      "range": {
+        "startLine": 653,
+        "startChar": 0,
+        "endLine": 654,
+        "endChar": 39
+      },
+      "revId": "7a698e11296b7e599206dc39af89717ec134f8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e3eea9b_ee591f74",
         "filename": "test/004-ThreadStress/src/Main.java",
         "patchSetId": 1
@@ -151,6 +295,30 @@
       "writtenOn": "2016-06-23T11:12:04Z",
       "side": 1,
       "message": "will?",
+      "range": {
+        "startLine": 668,
+        "startChar": 63,
+        "endLine": 668,
+        "endChar": 68
+      },
+      "revId": "7a698e11296b7e599206dc39af89717ec134f8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "430b5d18_7856611e",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 668,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-23T12:59:34Z",
+      "side": 1,
+      "message": "This spells out a requirement on the runtime. As such I prefer the authoritative \"shall\".",
+      "parentUuid": "0e3eea9b_ee591f74",
       "range": {
         "startLine": 668,
         "startChar": 63,
