@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "430b5d18_985255f0",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-06-23T13:56:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e4da659_716d1818",
+      "range": {
+        "startLine": 1165,
+        "startChar": 2,
+        "endLine": 1165,
+        "endChar": 35
+      },
+      "revId": "d4d5e0179a5607e7bad5fa0a5884b46e397feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce721291_b4cb000f",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-06-23T12:30:46Z",
       "side": 1,
       "message": "How about GetClassRTI()? and document that InexactObject is returned if not admissible.",
+      "range": {
+        "startLine": 1356,
+        "startChar": 28,
+        "endLine": 1356,
+        "endChar": 63
+      },
+      "revId": "d4d5e0179a5607e7bad5fa0a5884b46e397feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce205285_e7c5bcfa",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1356,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-06-23T13:56:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce721291_b4cb000f",
       "range": {
         "startLine": 1356,
         "startChar": 28,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0e3eea9b_ce4aa36a",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1362,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-06-23T13:56:42Z",
+      "side": 1,
+      "message": "Done. (I do admit that is more than marginally more elegant)",
+      "parentUuid": "ce205285_47177095",
+      "range": {
+        "startLine": 1362,
+        "startChar": 15,
+        "endLine": 1362,
+        "endChar": 48
+      },
+      "revId": "d4d5e0179a5607e7bad5fa0a5884b46e397feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ce205285_27635432",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 5
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "ce205285_47b5b08f",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1376,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-06-23T13:56:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce205285_27635432",
+      "range": {
+        "startLine": 1368,
+        "startChar": 0,
+        "endLine": 1376,
+        "endChar": 3
+      },
+      "revId": "d4d5e0179a5607e7bad5fa0a5884b46e397feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e3eea9b_0e92eb0f",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 5
@@ -105,6 +201,30 @@
       "writtenOn": "2016-06-23T12:32:07Z",
       "side": 1,
       "message": "Comments please.",
+      "range": {
+        "startLine": 1378,
+        "startChar": 0,
+        "endLine": 1399,
+        "endChar": 3
+      },
+      "revId": "d4d5e0179a5607e7bad5fa0a5884b46e397feae7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce205285_27b8b488",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1399,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-06-23T13:56:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e3eea9b_0e92eb0f",
       "range": {
         "startLine": 1378,
         "startChar": 0,
