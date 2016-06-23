@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3ca5937_4b1ae56a",
+        "filename": "compiler/utils/arm/assembler_arm32_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-06-23T16:33:17Z",
+      "side": 1,
+      "message": "+2 in indentation, like L924 and up",
+      "range": {
+        "startLine": 909,
+        "startChar": 0,
+        "endLine": 909,
+        "endChar": 4
+      },
+      "revId": "3475ae0cafcf309f8c3169b565c7bc8916ce621a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83bb959f_8a10cb4a",
+        "filename": "compiler/utils/arm/assembler_thumb2_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1390,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-06-23T16:33:17Z",
+      "side": 1,
+      "message": "+2 in indentation , like L1405 and up",
+      "revId": "3475ae0cafcf309f8c3169b565c7bc8916ce621a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23df49f4_ef8e4196",
+        "filename": "disassembler/disassembler_arm.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1503,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-06-23T16:33:17Z",
+      "side": 1,
+      "message": "I find it a bit cleaner if you call the first variable differently rather than renaming, so something like\n\nuint32_t decode \u003d ...\nuint32_t size   \u003d (decode \u003d\u003d 0) ? ...",
+      "revId": "3475ae0cafcf309f8c3169b565c7bc8916ce621a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
