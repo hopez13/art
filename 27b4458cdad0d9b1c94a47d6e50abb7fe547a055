@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "230ca9bf_c7285e8c",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1269,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-24T15:57:08Z",
+      "side": 1,
+      "message": "Style: add space around \u0027*\u0027 (here and elsewhere).",
+      "range": {
+        "startLine": 1269,
+        "startChar": 36,
+        "endLine": 1269,
+        "endChar": 37
+      },
+      "revId": "27b4458cdad0d9b1c94a47d6e50abb7fe547a055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3e3cd1d_aca0a308",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-24T15:57:08Z",
+      "side": 1,
+      "message": "CHECK",
+      "range": {
+        "startLine": 1279,
+        "startChar": 2,
+        "endLine": 1279,
+        "endChar": 8
+      },
+      "revId": "27b4458cdad0d9b1c94a47d6e50abb7fe547a055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43f0bddc_70b4d093",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-24T15:57:08Z",
+      "side": 1,
+      "message": "\u003c\u003c size;",
+      "range": {
+        "startLine": 1279,
+        "startChar": 47,
+        "endLine": 1279,
+        "endChar": 48
+      },
+      "revId": "27b4458cdad0d9b1c94a47d6e50abb7fe547a055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63e941fa_318d30e1",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1284,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-24T15:57:08Z",
+      "side": 1,
+      "message": "Maybe turn this bit into a Boolean argument of this function (\"op\" or maybe \"is_unsigned\")?",
+      "range": {
+        "startLine": 1284,
+        "startChar": 10,
+        "endLine": 1284,
+        "endChar": 12
+      },
+      "revId": "27b4458cdad0d9b1c94a47d6e50abb7fe547a055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "830f15b1_8abeeb74",
+        "filename": "compiler/utils/arm/assembler_arm32_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-24T15:57:08Z",
+      "side": 1,
+      "message": "I think you should document that \"M\" (resp. \"D\") here represents bit 4 of the source (resp. destination) register number.",
+      "range": {
+        "startLine": 903,
+        "startChar": 54,
+        "endLine": 903,
+        "endChar": 62
+      },
+      "revId": "27b4458cdad0d9b1c94a47d6e50abb7fe547a055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3e3cd1d_8ca5e718",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3132,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-24T15:57:08Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 3132,
+        "startChar": 2,
+        "endLine": 3132,
+        "endChar": 48
+      },
+      "revId": "27b4458cdad0d9b1c94a47d6e50abb7fe547a055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "631221da_a9a09d08",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3137,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-24T15:57:08Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 3137,
+        "startChar": 10,
+        "endLine": 3137,
+        "endChar": 12
+      },
+      "revId": "27b4458cdad0d9b1c94a47d6e50abb7fe547a055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
