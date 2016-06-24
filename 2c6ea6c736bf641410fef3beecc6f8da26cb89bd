@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "03da4564_ce9be3e3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-24T13:57:31Z",
+      "side": 1,
+      "message": "Of course. Without the fix both comparisons yield false and the EXPECT_TRUE() fails.",
+      "parentUuid": "63e941fa_b1eb607d",
+      "revId": "2c6ea6c736bf641410fef3beecc6f8da26cb89bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63e941fa_f1f1e870",
         "filename": "compiler/utils/string_reference_test.cc",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2016-06-24T13:45:34Z",
       "side": 1,
       "message": "I don\u0027t properly understand how this test works because I haven\u0027t checked out test_dex_file_builder, and I don\u0027t know where the value \u0027lu\u0027 comes from, so this may be a stupid question:\n\nDoes the implication that this ASSERT_EQ carries meaningful information rely on the assumption that dex_file2-\u003eNumStringIds() is different from lu? If yes, should we assert this here?",
+      "range": {
+        "startLine": 36,
+        "startChar": 16,
+        "endLine": 36,
+        "endChar": 41
+      },
+      "revId": "2c6ea6c736bf641410fef3beecc6f8da26cb89bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3e3cd1d_cc41af4a",
+        "filename": "compiler/utils/string_reference_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-24T13:57:31Z",
+      "side": 1,
+      "message": "Are you confusing the number \u00271\u0027 (one) with the letter \u0027l\u0027 (lower-case L)? Many fonts make them look the same.\nThis is a simple assertion that the dex file contains exactly one string to make sure the index 0 below actually refers to the string we have added above.",
+      "parentUuid": "63e941fa_f1f1e870",
       "range": {
         "startLine": 36,
         "startChar": 16,
