@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "639dc16f_20f2d474",
+        "filename": "test/004-ThreadStress/check",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-24T00:36:07Z",
+      "side": 1,
+      "message": "Unnecessary. sed could take this as a parameter, instead.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 10
+      },
+      "revId": "421aefd4f74cb2c05f279b42573103750023d93b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "639dc16f_e5637eee",
         "filename": "test/004-ThreadStress/src/Main.java",
         "patchSetId": 3
