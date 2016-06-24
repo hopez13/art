@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "63e941fa_f198c83a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-24T14:44:15Z",
+      "side": 1,
+      "message": "Strings in the dex file must be ordered.\n\nI added a few more tests but comprehensive tests would be essentially testing the uint32_t operator\u003c for the same dex file and CompareModifiedUtf8ToModifiedUtf8AsUtf16CodePointValues() for different dex files. The former doesn\u0027t need tests and if someone wants to add tests for the latter, they are welcome to add them to utf_test.cc.",
+      "parentUuid": "63e941fa_11fd8c3d",
+      "revId": "2c6ea6c736bf641410fef3beecc6f8da26cb89bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63e941fa_f1f1e870",
         "filename": "compiler/utils/string_reference_test.cc",
         "patchSetId": 1
