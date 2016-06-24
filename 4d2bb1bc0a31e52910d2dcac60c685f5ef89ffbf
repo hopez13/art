@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3f899fb_7be69fe1",
+        "filename": "compiler/utils/string_reference.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1103743
+      },
+      "writtenOn": "2016-06-24T16:48:44Z",
+      "side": 1,
+      "message": "Strong suggestion:\n\nThe bug was due to a complex blob having to have three mentions of sr[12] be identical, and there are at least four lines like this.  A utility function please.",
+      "range": {
+        "startLine": 50,
+        "startChar": 14,
+        "endLine": 50,
+        "endChar": 85
+      },
+      "revId": "4d2bb1bc0a31e52910d2dcac60c685f5ef89ffbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
