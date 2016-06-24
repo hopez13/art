@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "63e941fa_11fd8c3d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2016-06-24T14:04:51Z",
+      "side": 1,
+      "message": "Right, because the strings were considered equal with the broken comparator. Thanks.\n\nPerhaps we should also test the case:\n\ndex 1:\n\"a\"\n\"b\"\n\ndex 2:\n\"b\"\n\"a\"\n\n(or some other combination where dex1 has two strings in ascending order vs. dex2 has descending order) and comprehensively check that all string comparisons are correct both within and across two dex files? Does that sound useful?",
+      "parentUuid": "03da4564_ce9be3e3",
+      "revId": "2c6ea6c736bf641410fef3beecc6f8da26cb89bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63e941fa_f1f1e870",
         "filename": "compiler/utils/string_reference_test.cc",
         "patchSetId": 1
@@ -72,6 +90,30 @@
       "side": 1,
       "message": "Are you confusing the number \u00271\u0027 (one) with the letter \u0027l\u0027 (lower-case L)? Many fonts make them look the same.\nThis is a simple assertion that the dex file contains exactly one string to make sure the index 0 below actually refers to the string we have added above.",
       "parentUuid": "63e941fa_f1f1e870",
+      "range": {
+        "startLine": 36,
+        "startChar": 16,
+        "endLine": 36,
+        "endChar": 41
+      },
+      "revId": "2c6ea6c736bf641410fef3beecc6f8da26cb89bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "830f15b1_2ae93f89",
+        "filename": "compiler/utils/string_reference_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2016-06-24T14:04:51Z",
+      "side": 1,
+      "message": "Ah, yes, thanks. I did indeed misread as \"1u\" as \"lu\" and completely misread this assertion. Disregard my comment :)",
+      "parentUuid": "c3e3cd1d_cc41af4a",
       "range": {
         "startLine": 36,
         "startChar": 16,
