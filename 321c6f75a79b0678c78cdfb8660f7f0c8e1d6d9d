@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "830f15b1_8af02b6a",
+        "filename": "compiler/utils/string_reference_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2016-06-24T14:43:38Z",
+      "side": 1,
+      "message": "are the strings within a dex file guaranteed to be in lexicographical order? If not, then maybe they shouldn\u0027t be here, either: maybe one of these two arrays should be in reverse order?",
+      "revId": "321c6f75a79b0678c78cdfb8660f7f0c8e1d6d9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
