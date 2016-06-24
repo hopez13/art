@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3d45139_cdc40903",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2042,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-06-24T14:18:23Z",
+      "side": 1,
+      "message": "I think these two extra spaces here might caused the cpplint fail? I have removed the spaces in Patch 6. I hope this can fix following problem:\n\nart/compiler/optimizing/intrinsics_arm.cc:1993: Extra space before ( in function call [whitespace/parens] [4]",
+      "range": {
+        "startLine": 2042,
+        "startChar": 10,
+        "endLine": 2042,
+        "endChar": 12
+      },
+      "revId": "3815c1298472e4ac316aaad3de693f90d28c569d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
