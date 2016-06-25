@@ -46,6 +46,30 @@
       "revId": "9d31de2819d0a62a113c262a93c3daee06eec47e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "837c7558_1c184d25",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-25T00:34:47Z",
+      "side": 1,
+      "message": "You are adding specifc output with a specific format. That *should* be tested. I don\u0027t care that oatdump doesn\u0027t crash. That\u0027s not a quality test.",
+      "parentUuid": "837c7558_3c76f154",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 19
+      },
+      "revId": "9d31de2819d0a62a113c262a93c3daee06eec47e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
