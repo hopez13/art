@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "a342592e_eb22f1a6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-27T12:57:07Z",
+      "side": 1,
+      "message": "flip?",
+      "range": {
+        "startLine": 12,
+        "startChar": 45,
+        "endLine": 12,
+        "endChar": 48
+      },
+      "revId": "9b74514025ac5b2d26ae75b7afcb209385029c89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e338d1b2_0d3111fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-27T12:57:07Z",
+      "side": 1,
+      "message": "I\u0027m not sure I understand this sentence.",
+      "range": {
+        "startLine": 15,
+        "startChar": 27,
+        "endLine": 16,
+        "endChar": 7
+      },
+      "revId": "9b74514025ac5b2d26ae75b7afcb209385029c89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e338d1b2_4d3b19dc",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-27T12:57:07Z",
+      "side": 1,
+      "message": "Nit: one statement per line.",
+      "range": {
+        "startLine": 81,
+        "startChar": 15,
+        "endLine": 82,
+        "endChar": 39
+      },
+      "revId": "9b74514025ac5b2d26ae75b7afcb209385029c89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "837c7558_d7415e4a",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 2
