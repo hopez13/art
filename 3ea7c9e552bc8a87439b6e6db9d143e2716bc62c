@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "837c7558_3d18a825",
+        "filename": "test/004-ThreadStress/src/Main.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-06-27T18:08:39Z",
+      "side": 1,
+      "message": "Does this mean that the following code would not be equivalent (and not preallocate the strings)?\n\n\nstatic final String finishingWorkerMessage \u003d \"Finishing worker\\n\";\nstatic final String errnoExceptionName \u003d \"ErrnoException\";",
+      "range": {
+        "startLine": 675,
+        "startChar": 0,
+        "endLine": 682,
+        "endChar": 5
+      },
+      "revId": "3ea7c9e552bc8a87439b6e6db9d143e2716bc62c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
