@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e338d1b2_4d3f99a7",
+        "filename": "test/608-checker-unresolved-lse/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-06-27T14:24:10Z",
+      "side": 1,
+      "message": "A comment on the expected outcome wouldn\u0027t go amiss",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 80
+      },
+      "revId": "39a55f73dd2204f2ebe14a9be0a15f631e7dc66e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "400b5318_385d89d6",
+        "filename": "test/608-checker-unresolved-lse/src/Main.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-06-27T14:24:10Z",
+      "side": 1,
+      "message": "You removed this one. Isn\u0027t the test failing on this?",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 44
+      },
+      "revId": "39a55f73dd2204f2ebe14a9be0a15f631e7dc66e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
