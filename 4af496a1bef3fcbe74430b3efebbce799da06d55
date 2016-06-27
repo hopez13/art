@@ -192,6 +192,30 @@
     },
     {
       "key": {
+        "uuid": "60ebf763_e103e63c",
+        "filename": "compiler/linker/mips/relative_patcher_mips_base.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-06-27T01:51:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ceb9b63_01feca45",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17227a8a_e56e96f0",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 1
@@ -226,6 +250,30 @@
       "writtenOn": "2016-05-20T23:02:11Z",
       "side": 1,
       "message": "Is in CodeGeneratorARM::Deduplicate*Literal()? Will do.",
+      "parentUuid": "17227a8a_e56e96f0",
+      "range": {
+        "startLine": 995,
+        "startChar": 0,
+        "endLine": 1003,
+        "endChar": 17
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60ebf763_c100e232",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-06-27T01:51:14Z",
+      "side": 1,
+      "message": "Done",
       "parentUuid": "17227a8a_e56e96f0",
       "range": {
         "startLine": 995,
@@ -416,6 +464,24 @@
     },
     {
       "key": {
+        "uuid": "60ebf763_a1fdde3e",
+        "filename": "compiler/optimizing/dex_cache_array_fixups_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-06-27T01:51:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17227a8a_a51f3e58",
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cfc5f2a_9e2fdd8c",
         "filename": "compiler/optimizing/pc_relative_fixups_mips.cc",
         "patchSetId": 1
@@ -463,6 +529,24 @@
       "side": 1,
       "message": "Yes, constant floating point parameters (and some FP constants for intrinsics).",
       "parentUuid": "d742a22f_2b9239af",
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60ebf763_81989a38",
+        "filename": "compiler/optimizing/pc_relative_fixups_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-06-27T01:51:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cfc5f2a_9e2fdd8c",
       "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -540,6 +624,24 @@
     },
     {
       "key": {
+        "uuid": "60ebf763_619d9626",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2448,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-06-27T01:51:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cfc5f2a_fe282188",
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17227a8a_a5c3beff",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 1
@@ -587,6 +689,30 @@
     },
     {
       "key": {
+        "uuid": "60ebf763_41a29262",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2455,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-06-27T01:51:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17227a8a_a5c3beff",
+      "range": {
+        "startLine": 2454,
+        "startChar": 0,
+        "endLine": 2455,
+        "endChar": 33
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7208684_042656c1",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 1
@@ -621,6 +747,30 @@
       "writtenOn": "2016-05-20T23:02:11Z",
       "side": 1,
       "message": "Same as above. I may be unable to add 4 while staying within the bounds of the 16 least-significant bits of the offset.",
+      "parentUuid": "f7208684_042656c1",
+      "range": {
+        "startLine": 2468,
+        "startChar": 0,
+        "endLine": 2470,
+        "endChar": 15
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60ebf763_21a78e72",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2470,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-06-27T01:51:14Z",
+      "side": 1,
+      "message": "Done",
       "parentUuid": "f7208684_042656c1",
       "range": {
         "startLine": 2468,
@@ -729,6 +879,30 @@
     },
     {
       "key": {
+        "uuid": "60ebf763_018c8af4",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-06-27T01:51:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7208684_242352b2",
+      "range": {
+        "startLine": 666,
+        "startChar": 0,
+        "endLine": 667,
+        "endChar": 62
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3cf5a33d_3f5e876c",
         "filename": "compiler/utils/mips/assembler_mips.h",
         "patchSetId": 1
@@ -763,6 +937,30 @@
       "writtenOn": "2016-05-20T23:02:11Z",
       "side": 1,
       "message": "Will do.",
+      "parentUuid": "3cf5a33d_3f5e876c",
+      "range": {
+        "startLine": 903,
+        "startChar": 2,
+        "endLine": 903,
+        "endChar": 12
+      },
+      "revId": "4af496a1bef3fcbe74430b3efebbce799da06d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60ebf763_e18886e2",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-06-27T01:51:14Z",
+      "side": 1,
+      "message": "Done",
       "parentUuid": "3cf5a33d_3f5e876c",
       "range": {
         "startLine": 903,
