@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "432d1d76_68428399",
+        "filename": "test/run-test",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1029223
+      },
+      "writtenOn": "2016-06-27T07:41:23Z",
+      "side": 1,
+      "message": "nit: is ANDROID_HOST_OUT supported by the build server? \n\nI don\u0027t think that\u0027s an issue right now because we launch these tests with \u0027make test-art-...\u0027 where JACK_CLASSPATH is exported already. \nPeople using run-test directly will likely run it in a configured Android tree where ANDROID_HOST_OUT is set.",
+      "range": {
+        "startLine": 83,
+        "startChar": 27,
+        "endLine": 83,
+        "endChar": 43
+      },
+      "revId": "3ba6aee4dedd1e7a000d4fad10a070afe14709b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
