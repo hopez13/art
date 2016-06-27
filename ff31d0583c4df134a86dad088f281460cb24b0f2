@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3474d3d_ac73a3ce",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-06-27T11:58:39Z",
+      "side": 1,
+      "message": "Up to you but looks like it could be merged with the above `if`.",
+      "range": {
+        "startLine": 68,
+        "startChar": 6,
+        "endLine": 68,
+        "endChar": 85
+      },
+      "revId": "ff31d0583c4df134a86dad088f281460cb24b0f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e321b186_c55b5ae2",
+        "filename": "test/608-checker-unresolved-lse/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-06-27T11:58:39Z",
+      "side": 1,
+      "message": "Can you add the Unresolved... instructions in the CHECK? It will make clearer what flow you handle.",
+      "range": {
+        "startLine": 35,
+        "startChar": 21,
+        "endLine": 35,
+        "endChar": 38
+      },
+      "revId": "ff31d0583c4df134a86dad088f281460cb24b0f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
