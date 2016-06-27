@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e321b186_e52216a7",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-06-27T09:29:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "432d1d76_e85af36d",
+      "range": {
+        "startLine": 76,
+        "startChar": 21,
+        "endLine": 76,
+        "endChar": 25
+      },
+      "revId": "76d80133a8d97f72a3a23dacfef7cf0064ad5253",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e338d1b2_4de95988",
         "filename": "test/458-checker-instruction-simplification/src/Main.java",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-06-27T09:19:31Z",
       "side": 1,
       "message": "Nit: we typically write this as one line. Might help us get rid of them / replace them if we need to in the future. It\u0027s probably not done consistently across tests, but I\u0027d prefer to do it like that.\n\n  if (doThrow) { throw new Error(); }",
+      "range": {
+        "startLine": 77,
+        "startChar": 3,
+        "endLine": 80,
+        "endChar": 5
+      },
+      "revId": "76d80133a8d97f72a3a23dacfef7cf0064ad5253",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "432d1d76_484a1f9b",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-06-27T09:29:36Z",
+      "side": 1,
+      "message": "Sure. I prefer it as well. (I copy-pasted from somewhere.)",
+      "parentUuid": "e338d1b2_4de95988",
       "range": {
         "startLine": 77,
         "startChar": 3,
