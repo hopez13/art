@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3474d3d_8cca6726",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-06-27T09:15:24Z",
+      "side": 1,
+      "message": "What about static fields?",
+      "range": {
+        "startLine": 443,
+        "startChar": 7,
+        "endLine": 443,
+        "endChar": 38
+      },
+      "revId": "6be8810798a4a95baad4256bdb60885127266b40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
