@@ -22,6 +22,29 @@
       "revId": "6be8810798a4a95baad4256bdb60885127266b40",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e338d1b2_6de615b9",
+        "filename": "test/608-checker-unresolved-lse/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-27T10:21:49Z",
+      "side": 1,
+      "message": "Nit: indentation is off w.r.t. line 26.",
+      "range": {
+        "startLine": 23,
+        "startChar": 20,
+        "endLine": 23,
+        "endChar": 24
+      },
+      "revId": "6be8810798a4a95baad4256bdb60885127266b40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
