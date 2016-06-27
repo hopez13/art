@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "033ec59b_ae60f719",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1992,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-06-27T10:43:18Z",
+      "side": 1,
+      "message": "Let me just point out that the way -DAG is defined cannot mix up these lines. -DAG line is matched with the first suitable (regex match + not matched before) line after the current cursor location. I do agree that it makes it difficult to spot bugs such as mixing up types, e.g. foo(long, int) and having ParamValues for int and then long.",
+      "parentUuid": "a342592e_4baea542",
+      "range": {
+        "startLine": 1992,
+        "startChar": 6,
+        "endLine": 1992,
+        "endChar": 15
+      },
+      "revId": "090105b2fee057fee6531e456f88a705456509c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "432d1d76_68e603b9",
         "filename": "test/458-checker-instruction-simplification/src/Main.java",
         "patchSetId": 1
