@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "033ec59b_4e7313fb",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-27T10:34:25Z",
+      "side": 1,
+      "message": "The unresolved access has all side effects, so lse can not remove a store from a:\nStaticFieldSet\nUnresolvedStaticFieldGet\nStaticFieldSet.\n\nI\u0027ve added a test.",
+      "parentUuid": "c3474d3d_8cca6726",
+      "range": {
+        "startLine": 443,
+        "startChar": 7,
+        "endLine": 443,
+        "endChar": 38
+      },
+      "revId": "6be8810798a4a95baad4256bdb60885127266b40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e338d1b2_6de615b9",
         "filename": "test/608-checker-unresolved-lse/src/Main.java",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-06-27T10:21:49Z",
       "side": 1,
       "message": "Nit: indentation is off w.r.t. line 26.",
+      "range": {
+        "startLine": 23,
+        "startChar": 20,
+        "endLine": 23,
+        "endChar": 24
+      },
+      "revId": "6be8810798a4a95baad4256bdb60885127266b40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8011cb44_ba5751bb",
+        "filename": "test/608-checker-unresolved-lse/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-27T10:34:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e338d1b2_6de615b9",
       "range": {
         "startLine": 23,
         "startChar": 20,
