@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "432d1d76_e85af36d",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-06-27T09:19:31Z",
+      "side": 1,
+      "message": "If you really don\u0027t want this to inline, please also add the $noinline$ marker.",
+      "range": {
+        "startLine": 76,
+        "startChar": 21,
+        "endLine": 76,
+        "endChar": 25
+      },
+      "revId": "76d80133a8d97f72a3a23dacfef7cf0064ad5253",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e338d1b2_4de95988",
+        "filename": "test/458-checker-instruction-simplification/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-06-27T09:19:31Z",
+      "side": 1,
+      "message": "Nit: we typically write this as one line. Might help us get rid of them / replace them if we need to in the future. It\u0027s probably not done consistently across tests, but I\u0027d prefer to do it like that.\n\n  if (doThrow) { throw new Error(); }",
+      "range": {
+        "startLine": 77,
+        "startChar": 3,
+        "endLine": 80,
+        "endChar": 5
+      },
+      "revId": "76d80133a8d97f72a3a23dacfef7cf0064ad5253",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
