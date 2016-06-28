@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80bb8b9f_6ac6b70c",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-28T17:27:36Z",
+      "side": 1,
+      "message": "DCHECK !\u003d null",
+      "range": {
+        "startLine": 405,
+        "startChar": 49,
+        "endLine": 405,
+        "endChar": 59
+      },
+      "revId": "e6ccd944a2aa71dc643ffb4ed1c09b8282fe3144",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80bb8b9f_ea64e733",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-28T17:27:36Z",
+      "side": 1,
+      "message": "Empty line should not lint.",
+      "range": {
+        "startLine": 407,
+        "startChar": 0,
+        "endLine": 407,
+        "endChar": 0
+      },
+      "revId": "e6ccd944a2aa71dc643ffb4ed1c09b8282fe3144",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80bb8b9f_0a57fb48",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-28T17:27:36Z",
+      "side": 1,
+      "message": "Can we maybe put this into constants somewhere? It still feels a bit hackish to have this not a shared constant between runtime and compiler...",
+      "range": {
+        "startLine": 408,
+        "startChar": 2,
+        "endLine": 410,
+        "endChar": 3
+      },
+      "revId": "e6ccd944a2aa71dc643ffb4ed1c09b8282fe3144",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80bb8b9f_ea4dc7b1",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-28T17:27:36Z",
+      "side": 1,
+      "message": "That isn\u0027t reflecting the check below.",
+      "range": {
+        "startLine": 442,
+        "startChar": 6,
+        "endLine": 442,
+        "endChar": 68
+      },
+      "revId": "e6ccd944a2aa71dc643ffb4ed1c09b8282fe3144",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80bb8b9f_aa47cf8f",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-28T17:27:36Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 462,
+        "startChar": 6,
+        "endLine": 462,
+        "endChar": 84
+      },
+      "revId": "e6ccd944a2aa71dc643ffb4ed1c09b8282fe3144",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80bb8b9f_ca8b23dd",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-28T17:27:36Z",
+      "side": 1,
+      "message": "Put a big note here that this needs to be kept in sync with the compiler. The comment is to general. Other instructions can throw NPEs, we just don\u0027t see \u0027em in compiled code, yet.\n\n(E.g., monitor stuff...)",
+      "range": {
+        "startLine": 497,
+        "startChar": 6,
+        "endLine": 497,
+        "endChar": 64
+      },
+      "revId": "e6ccd944a2aa71dc643ffb4ed1c09b8282fe3144",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80bb8b9f_2a567f1b",
+        "filename": "runtime/common_throws.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-28T17:27:36Z",
+      "side": 1,
+      "message": "Why are these defaulted? It seems better to be explicit about this.",
+      "range": {
+        "startLine": 198,
+        "startChar": 59,
+        "endLine": 198,
+        "endChar": 66
+      },
+      "revId": "e6ccd944a2aa71dc643ffb4ed1c09b8282fe3144",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
