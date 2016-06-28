@@ -58,6 +58,7 @@ File* OS::OpenFileWithFlags(const char* name, int flags) {
   if (!file->IsOpened()) {
     return nullptr;
   }
+  CHECK_EQ(read_only, file->ReadOnlyMode());
   return file.release();
 }
 
