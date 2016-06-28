@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "033ec59b_cee8e3eb",
+        "filename": "runtime/interpreter/mterp/mterp.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-28T13:52:00Z",
+      "side": 1,
+      "message": "Why is that better than eg artGetByteStaticFromCode?",
+      "range": {
+        "startLine": 603,
+        "startChar": 0,
+        "endLine": 613,
+        "endChar": 13
+      },
+      "revId": "c71cf8fc57e65fb79d3121faf2a0fbc4dbeaafa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
