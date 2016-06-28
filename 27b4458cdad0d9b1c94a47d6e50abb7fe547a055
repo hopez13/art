@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "033ec59b_0ec02b89",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1269,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-06-28T09:52:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "230ca9bf_c7285e8c",
+      "range": {
+        "startLine": 1269,
+        "startChar": 36,
+        "endLine": 1269,
+        "endChar": 37
+      },
+      "revId": "27b4458cdad0d9b1c94a47d6e50abb7fe547a055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3e3cd1d_aca0a308",
         "filename": "compiler/utils/arm/assembler_arm32.cc",
         "patchSetId": 5
@@ -71,6 +95,54 @@
     },
     {
       "key": {
+        "uuid": "033ec59b_2ebde717",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-06-28T09:52:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3e3cd1d_aca0a308",
+      "range": {
+        "startLine": 1279,
+        "startChar": 2,
+        "endLine": 1279,
+        "endChar": 8
+      },
+      "revId": "27b4458cdad0d9b1c94a47d6e50abb7fe547a055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "400b5318_fb814baf",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-06-28T09:52:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43f0bddc_70b4d093",
+      "range": {
+        "startLine": 1279,
+        "startChar": 47,
+        "endLine": 1279,
+        "endChar": 48
+      },
+      "revId": "27b4458cdad0d9b1c94a47d6e50abb7fe547a055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63e941fa_318d30e1",
         "filename": "compiler/utils/arm/assembler_arm32.cc",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2016-06-24T15:57:08Z",
       "side": 1,
       "message": "Maybe turn this bit into a Boolean argument of this function (\"op\" or maybe \"is_unsigned\")?",
+      "range": {
+        "startLine": 1284,
+        "startChar": 10,
+        "endLine": 1284,
+        "endChar": 12
+      },
+      "revId": "27b4458cdad0d9b1c94a47d6e50abb7fe547a055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "432d1d76_28fa4bc1",
+        "filename": "compiler/utils/arm/assembler_arm32.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1284,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-06-28T09:52:12Z",
+      "side": 1,
+      "message": "Done.\nLike you said, in Patch 6, I\u0027ve added a new argument \"is_unsigned\" to VPADDLD assemblers. Now it can encode both data types: VPADDL.S and VPADDL.U.",
+      "parentUuid": "63e941fa_318d30e1",
       "range": {
         "startLine": 1284,
         "startChar": 10,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "e338d1b2_3066263a",
+        "filename": "compiler/utils/arm/assembler_arm32_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 903,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-06-28T09:52:12Z",
+      "side": 1,
+      "message": "Done.\nIn Patch 6, I\u0027ve added the comments to describe using different register numbers to test encodings of M:Vm and D:Vd bits in these instructions.",
+      "parentUuid": "830f15b1_8abeeb74",
+      "range": {
+        "startLine": 903,
+        "startChar": 54,
+        "endLine": 903,
+        "endChar": 62
+      },
+      "revId": "27b4458cdad0d9b1c94a47d6e50abb7fe547a055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3e3cd1d_8ca5e718",
         "filename": "compiler/utils/arm/assembler_thumb2.cc",
         "patchSetId": 5
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "00fcfb29_de21e542",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3132,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-06-28T09:52:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3e3cd1d_8ca5e718",
+      "range": {
+        "startLine": 3132,
+        "startChar": 2,
+        "endLine": 3132,
+        "endChar": 48
+      },
+      "revId": "27b4458cdad0d9b1c94a47d6e50abb7fe547a055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "631221da_a9a09d08",
         "filename": "compiler/utils/arm/assembler_thumb2.cc",
         "patchSetId": 5
@@ -151,6 +295,30 @@
       "writtenOn": "2016-06-24T15:57:08Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 3137,
+        "startChar": 10,
+        "endLine": 3137,
+        "endChar": 12
+      },
+      "revId": "27b4458cdad0d9b1c94a47d6e50abb7fe547a055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8011cb44_5d682f70",
+        "filename": "compiler/utils/arm/assembler_thumb2.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 3137,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-06-28T09:52:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "631221da_a9a09d08",
       "range": {
         "startLine": 3137,
         "startChar": 10,
