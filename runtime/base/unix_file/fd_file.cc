@@ -133,7 +133,7 @@ bool FdFile::Open(const std::string& path, int flags) {
 
 bool FdFile::Open(const std::string& path, int flags, mode_t mode) {
   CHECK_EQ(fd_, -1) << path;
-  read_only_mode_ = (flags & O_RDONLY) != 0;
+  read_only_mode_ = (flags == O_RDONLY);
   fd_ = TEMP_FAILURE_RETRY(open(path.c_str(), flags, mode));
   if (fd_ == -1) {
     return false;
