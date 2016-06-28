@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "205c9f35_7640be26",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-06-28T00:06:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a342592e_eb22f1a6",
+      "range": {
+        "startLine": 12,
+        "startChar": 45,
+        "endLine": 12,
+        "endChar": 48
+      },
+      "revId": "9b74514025ac5b2d26ae75b7afcb209385029c89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e338d1b2_0d3111fc",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-06-27T12:57:07Z",
       "side": 1,
       "message": "I\u0027m not sure I understand this sentence.",
+      "range": {
+        "startLine": 15,
+        "startChar": 27,
+        "endLine": 16,
+        "endChar": 7
+      },
+      "revId": "9b74514025ac5b2d26ae75b7afcb209385029c89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "205c9f35_963a12b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-06-28T00:06:58Z",
+      "side": 1,
+      "message": "Sorry, there was a typo here. It should go \"mutators don\u0027t need to gray immune space objects\".",
+      "parentUuid": "e338d1b2_0d3111fc",
       "range": {
         "startLine": 15,
         "startChar": 27,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "205c9f35_d659aa17",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-06-28T00:06:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e338d1b2_4d3b19dc",
+      "range": {
+        "startLine": 81,
+        "startChar": 15,
+        "endLine": 82,
+        "endChar": 39
+      },
+      "revId": "9b74514025ac5b2d26ae75b7afcb209385029c89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "837c7558_d7415e4a",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2016-06-25T01:20:47Z",
       "side": 1,
       "message": "Maybe it would be possible to avoid this checkpoint if we just check the immune_gray_stack_ after the next checkpoint and set the objects in the stack back to white?",
+      "range": {
+        "startLine": 382,
+        "startChar": 4,
+        "endLine": 382,
+        "endChar": 24
+      },
+      "revId": "9b74514025ac5b2d26ae75b7afcb209385029c89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "205c9f35_761b1e6d",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-06-28T00:06:58Z",
+      "side": 1,
+      "message": "That\u0027s possible. But we\u0027d like to whiten the immune objects sooner rather than later so that mutators will stop triggering the slow path when loading field from immune objects (though they won\u0027t *newly* gray immune objects from this point on.) I think this checkpoint is worth it for that.",
+      "parentUuid": "837c7558_d7415e4a",
       "range": {
         "startLine": 382,
         "startChar": 4,
