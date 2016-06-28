@@ -22,6 +22,30 @@
       "revId": "0bc7db7d6bd7320922c5c4c35803e09671f7f777",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "432d1d76_ab2b95dd",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1899,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-06-28T17:06:22Z",
+      "side": 1,
+      "message": "IMHO it should be static, but I was trying to abstain from putting an unrelated cleanup into this patch. Besides, I might have missed something.",
+      "parentUuid": "6336a1c9_6fe605b9",
+      "range": {
+        "startLine": 1899,
+        "startChar": 0,
+        "endLine": 1899,
+        "endChar": 38
+      },
+      "revId": "0bc7db7d6bd7320922c5c4c35803e09671f7f777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
