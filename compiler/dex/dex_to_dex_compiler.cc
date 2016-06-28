@@ -20,6 +20,7 @@
 #include "art_method-inl.h"
 #include "base/logging.h"
 #include "base/mutex.h"
+#include "bytecode_utils.h"
 #include "compiled_method.h"
 #include "dex_file-inl.h"
 #include "dex_instruction-inl.h"
@@ -368,6 +369,147 @@ CompiledMethod* ArtCompileDEX(
         ArrayRef<const LinkerPatch>());
   }
   return nullptr;
+}
+
+class DexDecompiler {
+ public:
+  DexDecompiler(const DexFile::CodeItem& code_item,
+                const std::vector<QuickenedInfo>& quickened_info)
+    : code_item_(code_item),
+      quickened_info_(quickened_info),
+      quickened_info_idx_(0u) {}
+
+  bool Decompile();
+
+ private:
+  void DecompileInstanceFieldAccess(Instruction* inst,
+                                    uint32_t dex_pc,
+                                    Instruction::Code new_opcode) {
+    QuickenedInfo info = quickened_info_[quickened_info_idx_++];
+    CHECK_EQ(info.dex_pc, dex_pc);
+    inst->SetOpcode(new_opcode);
+    inst->SetVRegC_22c(info.dex_member_index);
+  }
+
+  void DecompileInvokeVirtual(Instruction* inst,
+                              uint32_t dex_pc,
+                              Instruction::Code new_opcode,
+                              bool is_range) {
+    QuickenedInfo info = quickened_info_[quickened_info_idx_++];
+    CHECK_EQ(info.dex_pc, dex_pc);
+    inst->SetOpcode(new_opcode);
+    if (is_range) {
+      inst->SetVRegB_3rc(info.dex_member_index);
+    } else {
+      inst->SetVRegB_35c(info.dex_member_index);
+    }
+  }
+
+  const DexFile::CodeItem& code_item_;
+  const std::vector<QuickenedInfo>& quickened_info_;
+  size_t quickened_info_idx_;
+
+  DISALLOW_COPY_AND_ASSIGN(DexDecompiler);
+};
+
+bool DexDecompiler::Decompile() {
+  for (CodeItemIterator it(code_item_); !it.Done(); it.Advance()) {
+    uint32_t dex_pc = it.CurrentDexPc();
+    Instruction* inst = const_cast<Instruction*>(&it.CurrentInstruction());
+
+    switch (inst->Opcode()) {
+      case Instruction::RETURN_VOID_NO_BARRIER:
+        inst->SetOpcode(Instruction::RETURN_VOID);
+        break;
+
+      case Instruction::IGET_QUICK:
+        DecompileInstanceFieldAccess(inst, dex_pc, Instruction::IGET);
+        break;
+
+      case Instruction::IGET_WIDE_QUICK:
+        DecompileInstanceFieldAccess(inst, dex_pc, Instruction::IGET_WIDE);
+        break;
+
+      case Instruction::IGET_OBJECT_QUICK:
+        DecompileInstanceFieldAccess(inst, dex_pc, Instruction::IGET_OBJECT);
+        break;
+
+      case Instruction::IGET_BOOLEAN_QUICK:
+        DecompileInstanceFieldAccess(inst, dex_pc, Instruction::IGET_BOOLEAN);
+        break;
+
+      case Instruction::IGET_BYTE_QUICK:
+        DecompileInstanceFieldAccess(inst, dex_pc, Instruction::IGET_BYTE);
+        break;
+
+      case Instruction::IGET_CHAR_QUICK:
+        DecompileInstanceFieldAccess(inst, dex_pc, Instruction::IGET_CHAR);
+        break;
+
+      case Instruction::IGET_SHORT_QUICK:
+        DecompileInstanceFieldAccess(inst, dex_pc, Instruction::IGET_SHORT);
+        break;
+
+      case Instruction::IPUT_QUICK:
+        DecompileInstanceFieldAccess(inst, dex_pc, Instruction::IPUT);
+        break;
+
+      case Instruction::IPUT_BOOLEAN_QUICK:
+        DecompileInstanceFieldAccess(inst, dex_pc, Instruction::IPUT_BOOLEAN);
+        break;
+
+      case Instruction::IPUT_BYTE_QUICK:
+        DecompileInstanceFieldAccess(inst, dex_pc, Instruction::IPUT_BYTE);
+        break;
+
+      case Instruction::IPUT_CHAR_QUICK:
+        DecompileInstanceFieldAccess(inst, dex_pc, Instruction::IPUT_CHAR);
+        break;
+
+      case Instruction::IPUT_SHORT_QUICK:
+        DecompileInstanceFieldAccess(inst, dex_pc, Instruction::IPUT_SHORT);
+        break;
+
+      case Instruction::IPUT_WIDE_QUICK:
+        DecompileInstanceFieldAccess(inst, dex_pc, Instruction::IPUT_WIDE);
+        break;
+
+      case Instruction::IPUT_OBJECT_QUICK:
+        DecompileInstanceFieldAccess(inst, dex_pc, Instruction::IPUT_OBJECT);
+        break;
+
+      case Instruction::INVOKE_VIRTUAL_QUICK:
+        DecompileInvokeVirtual(inst, dex_pc, Instruction::INVOKE_VIRTUAL, false);
+        break;
+
+      case Instruction::INVOKE_VIRTUAL_RANGE_QUICK:
+        DecompileInvokeVirtual(inst, dex_pc, Instruction::INVOKE_VIRTUAL_RANGE, true);
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  if (quickened_info_idx_ != quickened_info_.size()) {
+    PLOG(ERROR) << "Failed to use all values in quickening info."
+                << " Actual: " << quickened_info_idx_ << " Expected: " << quickened_info_.size();
+    for (auto entry : quickened_info_) {
+      LOG(INFO) << entry.dex_pc << " = " << Instruction::At(&code_item_.insns_[entry.dex_pc])->Opcode();
+    }
+    return false;
+  }
+
+  return true;
+}
+
+bool ArtDecompileDEX(const DexFile::CodeItem& code_item, const uint8_t* data, size_t length) {
+  std::vector<QuickenedInfo> quickened_info;
+  for (const uint8_t* ptr = data; ptr < data + length;) {
+    quickened_info.push_back(QuickenedInfo(DecodeUnsignedLeb128(&ptr), DecodeUnsignedLeb128(&ptr)));
+  }
+  DexDecompiler decompiler(code_item, quickened_info);
+  return decompiler.Decompile();
 }
 
 }  // namespace optimizer

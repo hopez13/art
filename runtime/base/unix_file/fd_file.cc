@@ -390,10 +390,15 @@ bool FdFile::ClearContent() {
 }
 
 bool FdFile::ResetOffset() {
+  return MoveToOffset(0);
+}
+
+bool FdFile::MoveToOffset(off_t off) {
   DCHECK(!read_only_mode_);
-  off_t rc =  TEMP_FAILURE_RETRY(lseek(fd_, 0, SEEK_SET));
+  CHECK_GE(off, 0);
+  off_t rc = TEMP_FAILURE_RETRY(lseek(fd_, off, SEEK_SET));
   if (rc == static_cast<off_t>(-1)) {
-    PLOG(art::ERROR) << "Failed to reset the offset";
+    PLOG(art::ERROR) << "Failed to set the offset to " << off;
     return false;
   }
   return true;

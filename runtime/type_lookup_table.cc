@@ -96,6 +96,7 @@ TypeLookupTable::TypeLookupTable(const DexFile& dex_file, uint8_t* storage)
   // into the nearest free cells and link them together by updating next_pos_delta.
   for (uint16_t class_def_idx : conflict_class_defs) {
     const DexFile::ClassDef& class_def = dex_file.GetClassDef(class_def_idx);
+    LOG(INFO) << "Something class " << dex_file.GetClassDescriptor(class_def);
     const DexFile::TypeId& type_id = dex_file.GetTypeId(class_def.class_idx_);
     const DexFile::StringId& str_id = dex_file.GetStringId(type_id.descriptor_idx_);
     const uint32_t hash = ComputeModifiedUtf8Hash(dex_file.GetStringData(str_id));
@@ -104,6 +105,7 @@ TypeLookupTable::TypeLookupTable(const DexFile& dex_file, uint8_t* storage)
     entry.data = MakeData(class_def_idx, hash, GetSizeMask());
     Insert(entry, hash);
   }
+  LOG(INFO) << "Finished";
 }
 
 TypeLookupTable::TypeLookupTable(const uint8_t* raw_data, const DexFile& dex_file)
@@ -123,15 +125,20 @@ bool TypeLookupTable::SetOnInitialPos(const Entry& entry, uint32_t hash) {
 }
 
 void TypeLookupTable::Insert(const Entry& entry, uint32_t hash) {
+  LOG(INFO) << "Czechpoint 1";
   uint32_t pos = FindLastEntryInBucket(hash & GetSizeMask());
+  LOG(INFO) << "Czechpoint 2";
   uint32_t next_pos = (pos + 1) & GetSizeMask();
   while (!entries_[next_pos].IsEmpty()) {
+    LOG(INFO) << "Czechpoint 3";
     next_pos = (next_pos + 1) & GetSizeMask();
   }
+  LOG(INFO) << "Czechpoint 4";
   const uint32_t delta = (next_pos >= pos) ? (next_pos - pos) : (next_pos + Size() - pos);
   entries_[pos].next_pos_delta = delta;
   entries_[next_pos] = entry;
   entries_[next_pos].next_pos_delta = 0;
+  LOG(INFO) << "Czechpoint 5";
 }
 
 uint32_t TypeLookupTable::FindLastEntryInBucket(uint32_t pos) const {

@@ -32,6 +32,7 @@
 #include "method_reference.h"
 #include "register_line.h"
 #include "reg_type_cache.h"
+#include "verifier_metadata.h"
 
 namespace art {
 
@@ -151,6 +152,7 @@ class MethodVerifier {
   static FailureKind VerifyClass(Thread* self,
                                  mirror::Class* klass,
                                  CompilerCallbacks* callbacks,
+                                 DexVerifierMetadata* metadata,
                                  bool allow_soft_failures,
                                  LogSeverity log_level,
                                  std::string* error)
@@ -159,8 +161,9 @@ class MethodVerifier {
                                  const DexFile* dex_file,
                                  Handle<mirror::DexCache> dex_cache,
                                  Handle<mirror::ClassLoader> class_loader,
-                                 const DexFile::ClassDef* class_def,
+                                 const DexFile::ClassDef& class_def,
                                  CompilerCallbacks* callbacks,
+                                 DexVerifierMetadata* metadata,
                                  bool allow_soft_failures,
                                  LogSeverity log_level,
                                  std::string* error)
@@ -172,9 +175,11 @@ class MethodVerifier {
                                              const DexFile* dex_file,
                                              Handle<mirror::DexCache> dex_cache,
                                              Handle<mirror::ClassLoader> class_loader,
-                                             const DexFile::ClassDef* class_def,
-                                             const DexFile::CodeItem* code_item, ArtMethod* method,
-                                             uint32_t method_access_flags)
+                                             const DexFile::ClassDef& class_def,
+                                             const DexFile::CodeItem* code_item,
+                                             ArtMethod* method,
+                                             uint32_t method_access_flags,
+                                             DexVerifierMetadata* metadata)
       SHARED_REQUIRES(Locks::mutator_lock_);
 
   uint8_t EncodePcToReferenceMapData() const;
@@ -185,6 +190,10 @@ class MethodVerifier {
 
   RegTypeCache* GetRegTypeCache() {
     return &reg_types_;
+  }
+
+  DexVerifierMetadata* GetMetadata() const {
+    return metadata_;
   }
 
   // Log a verification failure.
@@ -283,7 +292,7 @@ class MethodVerifier {
                  const DexFile* dex_file,
                  Handle<mirror::DexCache> dex_cache,
                  Handle<mirror::ClassLoader> class_loader,
-                 const DexFile::ClassDef* class_def,
+                 const DexFile::ClassDef& class_def,
                  const DexFile::CodeItem* code_item,
                  uint32_t method_idx,
                  ArtMethod* method,
@@ -292,7 +301,8 @@ class MethodVerifier {
                  bool allow_soft_failures,
                  bool need_precise_constants,
                  bool verify_to_dump,
-                 bool allow_thread_suspension)
+                 bool allow_thread_suspension,
+                 DexVerifierMetadata* metadata)
       SHARED_REQUIRES(Locks::mutator_lock_);
 
   void UninstantiableError(const char* descriptor);
@@ -314,6 +324,9 @@ class MethodVerifier {
   // Adds the given string to the end of the last failure message.
   void AppendToLastFailMessage(std::string);
 
+  bool IsTypeAssignableFrom(const RegType& dst, const RegType& src, bool strict = false)
+      SHARED_REQUIRES(Locks::mutator_lock_);
+
   // Verification result for method(s). Includes a (maximum) failure kind, and (the union of)
   // all failure types.
   struct FailureData : ValueObject {
@@ -330,11 +343,12 @@ class MethodVerifier {
   static FailureData VerifyMethods(Thread* self,
                                    ClassLinker* linker,
                                    const DexFile* dex_file,
-                                   const DexFile::ClassDef* class_def,
+                                   const DexFile::ClassDef& class_def,
                                    ClassDataItemIterator* it,
                                    Handle<mirror::DexCache> dex_cache,
                                    Handle<mirror::ClassLoader> class_loader,
                                    CompilerCallbacks* callbacks,
+                                   DexVerifierMetadata* metadata,
                                    bool allow_soft_failures,
                                    LogSeverity log_level,
                                    bool need_precise_constants,
@@ -356,11 +370,12 @@ class MethodVerifier {
                                   const DexFile* dex_file,
                                   Handle<mirror::DexCache> dex_cache,
                                   Handle<mirror::ClassLoader> class_loader,
-                                  const DexFile::ClassDef* class_def_idx,
+                                  const DexFile::ClassDef& class_def_idx,
                                   const DexFile::CodeItem* code_item,
                                   ArtMethod* method,
                                   uint32_t method_access_flags,
                                   CompilerCallbacks* callbacks,
+                                  DexVerifierMetadata* metadata,
                                   bool allow_soft_failures,
                                   LogSeverity log_level,
                                   bool need_precise_constants,
@@ -506,8 +521,7 @@ class MethodVerifier {
 
   // Extract the relative offset from a branch instruction.
   // Returns "false" on failure (e.g. this isn't a branch instruction).
-  bool GetBranchOffset(uint32_t cur_offset, int32_t* pOffset, bool* pConditional,
-                       bool* selfOkay);
+  bool GetBranchOffset(uint32_t cur_offset, int32_t* pOffset, bool* pConditional, bool* selfOkay);
 
   /* Perform detailed code-flow analysis on a single method. */
   bool VerifyCodeFlow() SHARED_REQUIRES(Locks::mutator_lock_);
@@ -596,11 +610,11 @@ class MethodVerifier {
                   bool is_primitive) SHARED_REQUIRES(Locks::mutator_lock_);
 
   // Lookup instance field and fail for resolution violations
-  ArtField* GetInstanceField(const RegType& obj_type, int field_idx)
+  ArtField* GetInstanceField(const RegType& obj_type, uint32_t field_idx)
       SHARED_REQUIRES(Locks::mutator_lock_);
 
   // Lookup static field and fail for resolution violations
-  ArtField* GetStaticField(int field_idx) SHARED_REQUIRES(Locks::mutator_lock_);
+  ArtField* GetStaticField(uint32_t field_idx) SHARED_REQUIRES(Locks::mutator_lock_);
 
   // Perform verification of an iget/sget/iput/sput instruction.
   enum class FieldAccessType {  // private
@@ -635,6 +649,9 @@ class MethodVerifier {
    * Does not throw exceptions.
    */
   ArtMethod* ResolveMethodAndCheckAccess(uint32_t method_idx, MethodType method_type)
+      SHARED_REQUIRES(Locks::mutator_lock_);
+
+  ArtMethod* ResolveMethodAndCheckAccess_Impl(uint32_t method_idx, MethodType method_type)
       SHARED_REQUIRES(Locks::mutator_lock_);
 
   /*
@@ -735,6 +752,8 @@ class MethodVerifier {
   ArenaStack arena_stack_;
   ScopedArenaAllocator arena_;
 
+  DexVerifierMetadata* metadata_;
+
   RegTypeCache reg_types_;
 
   PcToRegisterLineTable reg_table_;
@@ -759,7 +778,7 @@ class MethodVerifier {
   Handle<mirror::DexCache> dex_cache_ GUARDED_BY(Locks::mutator_lock_);
   // The class loader for the declaring class of the method.
   Handle<mirror::ClassLoader> class_loader_ GUARDED_BY(Locks::mutator_lock_);
-  const DexFile::ClassDef* const class_def_;  // The class def of the declaring class of the method.
+  const DexFile::ClassDef& class_def_;  // The class def of the declaring class of the method.
   const DexFile::CodeItem* const code_item_;  // The code item containing the code for the method.
   const RegType* declaring_class_;  // Lazily computed reg type of the method's declaring class.
   // Instruction widths and flags, one entry per code unit.
@@ -841,6 +860,7 @@ class MethodVerifier {
   MethodVerifier* link_;
 
   friend class art::Thread;
+  friend class DexVerifierMetadataTest;
 
   DISALLOW_COPY_AND_ASSIGN(MethodVerifier);
 };

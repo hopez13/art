@@ -46,6 +46,8 @@ CompiledMethod* ArtCompileDEX(CompilerDriver* driver,
                               const DexFile& dex_file,
                               DexToDexCompilationLevel dex_to_dex_compilation_level);
 
+bool ArtDecompileDEX(const DexFile::CodeItem& code_item, const uint8_t* data, size_t length);
+
 }  // namespace optimizer
 
 }  // namespace art

@@ -113,6 +113,7 @@ enum LockLevel {
   kRuntimeShutdownLock,
   kTraceLock,
   kHeapBitmapLock,
+  kVerifierMetadataLock,
   kMutatorLock,
   kInstrumentEntrypointsLock,
   kZygoteCreationLock,

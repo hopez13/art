@@ -3809,13 +3809,14 @@ void ClassLinker::LookupClasses(const char* descriptor, std::vector<mirror::Clas
 
 bool ClassLinker::AttemptSupertypeVerification(Thread* self,
                                                Handle<mirror::Class> klass,
-                                               Handle<mirror::Class> supertype) {
+                                               Handle<mirror::Class> supertype,
+                                               verifier::VerifierMetadata* metadata) {
   DCHECK(self != nullptr);
   DCHECK(klass.Get() != nullptr);
   DCHECK(supertype.Get() != nullptr);
 
   if (!supertype->IsVerified() && !supertype->IsErroneous()) {
-    VerifyClass(self, supertype);
+    VerifyClass(self, supertype, metadata);
   }
   if (supertype->IsCompileTimeVerified()) {
     // Either we are verified or we soft failed and need to retry at runtime.
@@ -3848,7 +3849,10 @@ bool ClassLinker::AttemptSupertypeVerification(Thread* self,
   return false;
 }
 
-void ClassLinker::VerifyClass(Thread* self, Handle<mirror::Class> klass, LogSeverity log_level) {
+void ClassLinker::VerifyClass(Thread* self,
+                              Handle<mirror::Class> klass,
+                              verifier::VerifierMetadata* metadata,
+                              LogSeverity log_level) {
   {
     // TODO: assert that the monitor on the Class is held
     ObjectLock<mirror::Class> lock(self, klass);
@@ -3901,7 +3905,8 @@ void ClassLinker::VerifyClass(Thread* self, Handle<mirror::Class> klass, LogSeve
   StackHandleScope<2> hs(self);
   MutableHandle<mirror::Class> supertype(hs.NewHandle(klass->GetSuperClass()));
   // If we have a superclass and we get a hard verification failure we can return immediately.
-  if (supertype.Get() != nullptr && !AttemptSupertypeVerification(self, klass, supertype)) {
+  if (supertype.Get() != nullptr &&
+      !AttemptSupertypeVerification(self, klass, supertype, metadata)) {
     CHECK(self->IsExceptionPending()) << "Verification error should be pending.";
     return;
   }
@@ -3927,7 +3932,7 @@ void ClassLinker::VerifyClass(Thread* self, Handle<mirror::Class> klass, LogSeve
       // We only care if we have default interfaces and can skip if we are already verified...
       if (LIKELY(!iface->HasDefaultMethods() || iface->IsVerified())) {
         continue;
-      } else if (UNLIKELY(!AttemptSupertypeVerification(self, klass, iface))) {
+      } else if (UNLIKELY(!AttemptSupertypeVerification(self, klass, iface, metadata))) {
         // We had a hard failure while verifying this interface. Just return immediately.
         CHECK(self->IsExceptionPending()) << "Verification error should be pending.";
         return;
@@ -3947,25 +3952,39 @@ void ClassLinker::VerifyClass(Thread* self, Handle<mirror::Class> klass, LogSeve
          supertype.Get() == klass->GetSuperClass() ||
          !supertype->IsVerified());
 
-  // Try to use verification information from the oat file, otherwise do runtime verification.
+  bool preverified = false;
   const DexFile& dex_file = *klass->GetDexCache()->GetDexFile();
-  mirror::Class::Status oat_file_class_status(mirror::Class::kStatusNotReady);
-  bool preverified = VerifyClassUsingOatFile(dex_file, klass.Get(), oat_file_class_status);
-  // If the oat file says the class had an error, re-run the verifier. That way we will get a
-  // precise error message. To ensure a rerun, test:
-  //     oat_file_class_status == mirror::Class::kStatusError => !preverified
-  DCHECK(!(oat_file_class_status == mirror::Class::kStatusError) || !preverified);
+
+  // Try to use verification information from the vdex file.
+  if (!preverified && metadata != nullptr && metadata->IsSuccessfullyLoadedFromFile()) {
+    verifier::DexVerifierMetadata* dex_metadata = metadata->GetDexMetadataFor(dex_file);
+    if (dex_metadata != nullptr) {
+      preverified = dex_metadata->IsClassVerified(*klass->GetClassDef());
+    }
+  }
+
+  // Try to use verification information from the oat file, otherwise do runtime verification.
+  if (!preverified) {
+    mirror::Class::Status oat_file_class_status(mirror::Class::kStatusNotReady);
+    preverified = VerifyClassUsingOatFile(dex_file, klass.Get(), oat_file_class_status);
+    // If the oat file says the class had an error, re-run the verifier. That way we will get a
+    // precise error message. To ensure a rerun, test:
+    //     oat_file_class_status == mirror::Class::kStatusError => !preverified
+    DCHECK(!(oat_file_class_status == mirror::Class::kStatusError) || !preverified);
+  }
 
   verifier::MethodVerifier::FailureKind verifier_failure = verifier::MethodVerifier::kNoFailure;
   std::string error_msg;
   if (!preverified) {
     Runtime* runtime = Runtime::Current();
-    verifier_failure = verifier::MethodVerifier::VerifyClass(self,
-                                                             klass.Get(),
-                                                             runtime->GetCompilerCallbacks(),
-                                                             runtime->IsAotCompiler(),
-                                                             log_level,
-                                                             &error_msg);
+    verifier_failure = verifier::MethodVerifier::VerifyClass(
+        self,
+        klass.Get(),
+        runtime->GetCompilerCallbacks(),
+        (metadata == nullptr) ? nullptr : metadata->GetDexMetadataFor(dex_file),
+        runtime->IsAotCompiler(),
+        log_level,
+        &error_msg);
   }
 
   // Verification is done, grab the lock again.
@@ -4482,7 +4501,7 @@ bool ClassLinker::InitializeClass(Thread* self, Handle<mirror::Class> klass,
     CHECK(klass->IsResolved()) << PrettyClass(klass.Get()) << ": state=" << klass->GetStatus();
 
     if (!klass->IsVerified()) {
-      VerifyClass(self, klass);
+      VerifyClass(self, klass, /* metadata */ nullptr);
       if (!klass->IsVerified()) {
         // We failed to verify, expect either the klass to be erroneous or verification failed at
         // compile time.

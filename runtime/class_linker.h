@@ -53,6 +53,9 @@ namespace mirror {
   template<class T> class ObjectArray;
   class StackTraceElement;
 }  // namespace mirror
+namespace verifier {
+  class VerifierMetadata;
+}  // namespace verifier
 
 class ImtConflictTable;
 template<class T> class Handle;
@@ -460,6 +463,7 @@ class ClassLinker {
 
   void VerifyClass(Thread* self,
                    Handle<mirror::Class> klass,
+                   verifier::VerifierMetadata* metadata,
                    LogSeverity log_level = LogSeverity::NONE)
       SHARED_REQUIRES(Locks::mutator_lock_)
       REQUIRES(!dex_lock_);
@@ -675,7 +679,8 @@ class ClassLinker {
   // soft-failures.
   bool AttemptSupertypeVerification(Thread* self,
                                     Handle<mirror::Class> klass,
-                                    Handle<mirror::Class> supertype)
+                                    Handle<mirror::Class> supertype,
+                                    verifier::VerifierMetadata* metadata)
       REQUIRES(!dex_lock_)
       SHARED_REQUIRES(Locks::mutator_lock_);
 
