@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00fcfb29_be05f9ba",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints_enum.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-28T09:10:39Z",
+      "side": 1,
+      "message": "How platform dependent is this? Are we guaranteed to get a leaf method?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 24
+      },
+      "revId": "b388f590e111cca0190a1076bc3790122ad74aa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
