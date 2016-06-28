@@ -19,6 +19,7 @@
 #include <unordered_set>
 #include <vector>
 #include <unistd.h>
+#include <iostream>
 
 #ifndef __APPLE__
 #include <malloc.h>  // For mallinfo
@@ -72,6 +73,7 @@
 #include "utils/swap_space.h"
 #include "verifier/method_verifier.h"
 #include "verifier/method_verifier-inl.h"
+#include "verifier/verifier_metadata.h"
 
 namespace art {
 
@@ -468,6 +470,7 @@ std::unique_ptr<const std::vector<uint8_t>> CompilerDriver::CreateQuickToInterpr
 
 void CompilerDriver::CompileAll(jobject class_loader,
                                 const std::vector<const DexFile*>& dex_files,
+                                verifier::VerifierMetadata* vdex_metadata,
                                 TimingLogger* timings) {
   DCHECK(!Runtime::Current()->IsStarted());
 
@@ -479,7 +482,7 @@ void CompilerDriver::CompileAll(jobject class_loader,
   // 2) Resolve all classes
   // 3) Attempt to verify all classes
   // 4) Attempt to initialize image classes, and trivially initialized classes
-  PreCompile(class_loader, dex_files, timings);
+  PreCompile(class_loader, dex_files, vdex_metadata, timings);
   // Compile:
   // 1) Compile all classes and methods enabled for compilation. May fall back to dex-to-dex
   //    compilation.
@@ -697,7 +700,7 @@ void CompilerDriver::CompileOne(Thread* self, ArtMethod* method, TimingLogger* t
 
   InitializeThreadPools();
 
-  PreCompile(jclass_loader, dex_files, timings);
+  PreCompile(jclass_loader, dex_files, /* vdex_metadata */ {}, timings);
 
   // Can we run DEX-to-DEX compiler on this class ?
   optimizer::DexToDexCompilationLevel dex_to_dex_compilation_level =
@@ -757,6 +760,8 @@ void CompilerDriver::CompileOne(Thread* self, ArtMethod* method, TimingLogger* t
 void CompilerDriver::Resolve(jobject class_loader,
                              const std::vector<const DexFile*>& dex_files,
                              TimingLogger* timings) {
+  TimingLogger::ScopedTiming t("Resolution", timings);
+
   // Resolution allocates classes and needs to run single-threaded to be deterministic.
   bool force_determinism = GetCompilerOptions().IsForceDeterminism();
   ThreadPool* resolve_thread_pool = force_determinism
@@ -887,6 +892,7 @@ inline void CompilerDriver::CheckThreadPools() {
 
 void CompilerDriver::PreCompile(jobject class_loader,
                                 const std::vector<const DexFile*>& dex_files,
+                                verifier::VerifierMetadata* vdex_metadata,
                                 TimingLogger* timings) {
   CheckThreadPools();
 
@@ -897,10 +903,20 @@ void CompilerDriver::PreCompile(jobject class_loader,
   const bool never_verify = compiler_options_->NeverVerify();
   const bool verify_only_profile = compiler_options_->VerifyOnlyProfile();
 
+  bool fast_verified = false;
+  if (!never_verify && verification_enabled) {
+    fast_verified = FastVerify(class_loader, vdex_metadata, timings);
+    VLOG(compiler) << "Fast verify: " << GetMemoryUsageString(false);
+
+    if (fast_verified) {
+      SetFastVerified(class_loader, dex_files, vdex_metadata, timings);
+    }
+  }
+
   // We need to resolve for never_verify since it needs to run dex to dex to add the
   // RETURN_VOID_NO_BARRIER.
   // Let the verifier resolve as needed for the verify_only_profile case.
-  if ((never_verify || verification_enabled) && !verify_only_profile) {
+  if ((never_verify || verification_enabled) && !verify_only_profile && !fast_verified) {
     Resolve(class_loader, dex_files, timings);
     VLOG(compiler) << "Resolve: " << GetMemoryUsageString(false);
   }
@@ -920,8 +936,10 @@ void CompilerDriver::PreCompile(jobject class_loader,
     VLOG(compiler) << "Resolve const-strings: " << GetMemoryUsageString(false);
   }
 
-  Verify(class_loader, dex_files, timings);
-  VLOG(compiler) << "Verify: " << GetMemoryUsageString(false);
+  if (!fast_verified) {
+    Verify(class_loader, dex_files, vdex_metadata, timings);
+    VLOG(compiler) << "Verify: " << GetMemoryUsageString(false);
+  }
 
   if (had_hard_verifier_failure_ && GetCompilerOptions().AbortOnHardVerifierFailure()) {
     LOG(FATAL) << "Had a hard failure verifying all classes, and was asked to abort in such "
@@ -2200,6 +2218,43 @@ void CompilerDriver::ResolveDexFile(jobject class_loader,
   context.ForAll(0, dex_file.NumClassDefs(), &visitor, thread_count);
 }
 
+void CompilerDriver::SetFastVerified(jobject class_loader,
+                                     const std::vector<const DexFile*>& dex_files,
+                                     verifier::VerifierMetadata* metadata,
+                                     TimingLogger* timings) {
+  CHECK(metadata != nullptr);
+  // This can be run in parallel.
+  for (const DexFile* dex_file : dex_files) {
+    CHECK(dex_file != nullptr);
+    verifier::DexVerifierMetadata* dex_metadata = metadata->GetDexMetadataFor(*dex_file);
+    CHECK(dex_metadata != nullptr);
+
+    SetFastVerifiedDexFile(class_loader,
+                           dex_metadata,
+                           dex_files,
+                           parallel_thread_pool_.get(),
+                           parallel_thread_count_,
+                           timings);
+  }
+}
+
+bool CompilerDriver::FastVerify(jobject class_loader,
+                                verifier::VerifierMetadata* vdex_metadata,
+                                TimingLogger* timings) {
+  if (vdex_metadata == nullptr || !vdex_metadata->IsSuccessfullyLoadedFromFile()) {
+    return false;
+  }
+
+  TimingLogger::ScopedTiming t("Fast Verification", timings);
+
+  if (vdex_metadata->Verify(class_loader)) {
+    return true;
+  } else {
+    vdex_metadata->Clear();
+    return false;
+  }
+}
+
 void CompilerDriver::SetVerified(jobject class_loader,
                                  const std::vector<const DexFile*>& dex_files,
                                  TimingLogger* timings) {
@@ -2217,14 +2272,19 @@ void CompilerDriver::SetVerified(jobject class_loader,
 
 void CompilerDriver::Verify(jobject class_loader,
                             const std::vector<const DexFile*>& dex_files,
+                            verifier::VerifierMetadata* vdex_metadata,
                             TimingLogger* timings) {
+  TimingLogger::ScopedTiming t("Full Verification", timings);
+
   // Note: verification should not be pulling in classes anymore when compiling the boot image,
   //       as all should have been resolved before. As such, doing this in parallel should still
   //       be deterministic.
-  for (const DexFile* dex_file : dex_files) {
+  for (size_t i = 0; i < dex_files.size(); ++i) {
+    const DexFile* dex_file = dex_files[i];
     CHECK(dex_file != nullptr);
     VerifyDexFile(class_loader,
                   *dex_file,
+                  vdex_metadata,
                   dex_files,
                   parallel_thread_pool_.get(),
                   parallel_thread_count_,
@@ -2234,8 +2294,10 @@ void CompilerDriver::Verify(jobject class_loader,
 
 class VerifyClassVisitor : public CompilationVisitor {
  public:
-  VerifyClassVisitor(const ParallelCompilationManager* manager, LogSeverity log_level)
-     : manager_(manager), log_level_(log_level) {}
+  VerifyClassVisitor(const ParallelCompilationManager* manager,
+                     verifier::VerifierMetadata* vdex_metadata,
+                     LogSeverity log_level)
+     : manager_(manager), vdex_metadata_(vdex_metadata), log_level_(log_level) {}
 
   virtual void Visit(size_t class_def_index) REQUIRES(!Locks::mutator_lock_) OVERRIDE {
     ATRACE_CALL();
@@ -2266,23 +2328,24 @@ class VerifyClassVisitor : public CompilationVisitor {
       Handle<mirror::DexCache> dex_cache(hs.NewHandle(class_linker->FindDexCache(
           soa.Self(), dex_file, false)));
       std::string error_msg;
-      if (verifier::MethodVerifier::VerifyClass(soa.Self(),
-                                                &dex_file,
-                                                dex_cache,
-                                                class_loader,
-                                                &class_def,
-                                                Runtime::Current()->GetCompilerCallbacks(),
-                                                true /* allow soft failures */,
-                                                log_level_,
-                                                &error_msg) ==
-                                                    verifier::MethodVerifier::kHardFailure) {
+      if (verifier::MethodVerifier::VerifyClass(
+              soa.Self(),
+              &dex_file,
+              dex_cache,
+              class_loader,
+              class_def,
+              Runtime::Current()->GetCompilerCallbacks(),
+              (vdex_metadata_ == nullptr) ? nullptr : vdex_metadata_->GetDexMetadataFor(dex_file),
+              true /* allow soft failures */,
+              log_level_,
+              &error_msg) == verifier::MethodVerifier::kHardFailure) {
         LOG(ERROR) << "Verification failed on class " << PrettyDescriptor(descriptor)
                    << " because: " << error_msg;
         manager_->GetCompiler()->SetHadHardVerifierFailure();
       }
     } else if (!SkipClass(jclass_loader, dex_file, klass.Get())) {
       CHECK(klass->IsResolved()) << PrettyClass(klass.Get());
-      class_linker->VerifyClass(soa.Self(), klass, log_level_);
+      class_linker->VerifyClass(soa.Self(), klass, vdex_metadata_, log_level_);
 
       if (klass->IsErroneous()) {
         // ClassLinker::VerifyClass throws, which isn't useful in the compiler.
@@ -2305,11 +2368,13 @@ class VerifyClassVisitor : public CompilationVisitor {
 
  private:
   const ParallelCompilationManager* const manager_;
+  verifier::VerifierMetadata* const vdex_metadata_;
   const LogSeverity log_level_;
 };
 
 void CompilerDriver::VerifyDexFile(jobject class_loader,
                                    const DexFile& dex_file,
+                                   verifier::VerifierMetadata* vdex_metadata,
                                    const std::vector<const DexFile*>& dex_files,
                                    ThreadPool* thread_pool,
                                    size_t thread_count,
@@ -2321,8 +2386,83 @@ void CompilerDriver::VerifyDexFile(jobject class_loader,
   LogSeverity log_level = GetCompilerOptions().AbortOnHardVerifierFailure()
                               ? LogSeverity::INTERNAL_FATAL
                               : LogSeverity::WARNING;
-  VerifyClassVisitor visitor(&context, log_level);
+  VerifyClassVisitor visitor(&context, vdex_metadata, log_level);
   context.ForAll(0, dex_file.NumClassDefs(), &visitor, thread_count);
+}
+
+class SetFastVerifiedClassVisitor : public CompilationVisitor {
+ public:
+  explicit SetFastVerifiedClassVisitor(const ParallelCompilationManager* manager,
+                                       verifier::DexVerifierMetadata* dex_metadata)
+      : manager_(manager),
+        dex_metadata_(dex_metadata) {}
+
+  virtual void Visit(size_t class_def_index) REQUIRES(!Locks::mutator_lock_) OVERRIDE {
+    ATRACE_CALL();
+    ScopedObjectAccess soa(Thread::Current());
+    const DexFile& dex_file = *manager_->GetDexFile();
+    const DexFile::ClassDef& class_def = dex_file.GetClassDef(class_def_index);
+    bool is_verified = dex_metadata_->IsClassVerified(class_def);
+
+    const char* descriptor = dex_file.GetClassDescriptor(class_def);
+    ClassLinker* class_linker = manager_->GetClassLinker();
+    jobject jclass_loader = manager_->GetClassLoader();
+    StackHandleScope<3> hs(soa.Self());
+    Handle<mirror::ClassLoader> class_loader(
+        hs.NewHandle(soa.Decode<mirror::ClassLoader*>(jclass_loader)));
+    Handle<mirror::Class> klass(
+        hs.NewHandle(class_linker->FindClass(soa.Self(), descriptor, class_loader)));
+    // Class might have failed resolution. Then don't set it to verified.
+    if (klass.Get() != nullptr) {
+      // Only do this if the class is resolved. If even resolution fails, quickening will go very,
+      // very wrong.
+      if (klass->IsResolved()) {
+        std::string temp;
+        if (is_verified && (klass->GetStatus() < mirror::Class::kStatusVerified)) {
+          ObjectLock<mirror::Class> lock(soa.Self(), klass);
+          // Set class status to verified.
+          mirror::Class::SetStatus(klass, mirror::Class::kStatusVerified, soa.Self());
+          // Mark methods as pre-verified. If we don't do this, the interpreter will run with
+          // access checks.
+          klass->SetSkipAccessChecksFlagOnAllMethods(
+              GetInstructionSetPointerSize(manager_->GetCompiler()->GetInstructionSet()));
+          klass->SetVerificationAttempted();
+        } else if (!is_verified &&
+                   (klass->GetStatus() < mirror::Class::kStatusRetryVerificationAtRuntime)) {
+          ObjectLock<mirror::Class> lock(soa.Self(), klass);
+          mirror::Class::SetStatus(klass,
+                                   mirror::Class::kStatusRetryVerificationAtRuntime,
+                                   soa.Self());
+          klass->SetVerificationAttempted();
+        }
+        // Record the final class status if necessary.
+        ClassReference ref(manager_->GetDexFile(), class_def_index);
+        manager_->GetCompiler()->RecordClassStatus(ref, klass->GetStatus());
+      }
+    } else {
+      Thread* self = soa.Self();
+      DCHECK(self->IsExceptionPending());
+      self->ClearException();
+    }
+  }
+
+ private:
+  const ParallelCompilationManager* const manager_;
+  verifier::DexVerifierMetadata* dex_metadata_;
+};
+
+void CompilerDriver::SetFastVerifiedDexFile(jobject class_loader,
+                                            verifier::DexVerifierMetadata* dex_metadata,
+                                            const std::vector<const DexFile*>& dex_files,
+                                            ThreadPool* thread_pool,
+                                            size_t thread_count,
+                                            TimingLogger* timings) {
+  TimingLogger::ScopedTiming t("Set FastVerified Dex File", timings);
+  ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
+  ParallelCompilationManager context(class_linker, class_loader, this, &dex_metadata->GetDexFile(),
+                                     dex_files, thread_pool);
+  SetFastVerifiedClassVisitor visitor(&context, dex_metadata);
+  context.ForAll(0, dex_metadata->GetDexFile().NumClassDefs(), &visitor, thread_count);
 }
 
 class SetVerifiedClassVisitor : public CompilationVisitor {

@@ -126,6 +126,8 @@ class FdFile : public RandomAccessFile {
   bool ClearContent();
   // Resets the file offset to the beginning of the file.
   bool ResetOffset();
+  // Seeks to the given offset from the beginning of the file.
+  bool MoveToOffset(off_t offset);
 
   // This enum is public so that we can define the << operator over it.
   enum class GuardState {

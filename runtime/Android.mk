@@ -187,11 +187,13 @@ LIBART_COMMON_SRC_FILES := \
   type_lookup_table.cc \
   utf.cc \
   utils.cc \
+  vdex.cc \
   verifier/instruction_flags.cc \
   verifier/method_verifier.cc \
   verifier/reg_type.cc \
   verifier/reg_type_cache.cc \
   verifier/register_line.cc \
+  verifier/verifier_metadata.cc \
   well_known_classes.cc \
   zip_archive.cc
 
@@ -375,6 +377,7 @@ LIBART_ENUM_OPERATOR_OUT_HEADER_FILES := \
   stack.h \
   thread.h \
   thread_state.h \
+  vdex.h \
   verifier/method_verifier.h
 
 LIBOPENJDKJVM_SRC_FILES := openjdkjvm/OpenjdkJvm.cc
