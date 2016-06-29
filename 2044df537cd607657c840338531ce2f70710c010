@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e0152784_45f26a73",
+        "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-29T11:06:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0152784_e5e716b4",
+      "range": {
+        "startLine": 602,
+        "startChar": 38,
+        "endLine": 602,
+        "endChar": 83
+      },
+      "revId": "2044df537cd607657c840338531ce2f70710c010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0152784_c5e49ab2",
         "filename": "runtime/common_throws.cc",
         "patchSetId": 2
@@ -54,6 +78,24 @@
       "side": 1,
       "message": "Why std::dec? I would prefer \u003c\u003c \"0x\" \u003c\u003c std:hex.",
       "parentUuid": "e0152784_c5e49ab2",
+      "revId": "2044df537cd607657c840338531ce2f70710c010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0152784_8503c23d",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-29T11:06:00Z",
+      "side": 1,
+      "message": "I agree. Done.",
+      "parentUuid": "e0152784_05f87251",
       "revId": "2044df537cd607657c840338531ce2f70710c010",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
