@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "e0152784_c592da11",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-29T11:25:16Z",
+      "side": 1,
+      "message": "Fits on a single line.",
+      "range": {
+        "startLine": 624,
+        "startChar": 0,
+        "endLine": 624,
+        "endChar": 41
+      },
+      "revId": "f29931edd7e24866c9d266fd53f293ec7ef38cc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0152784_e59556fc",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-29T11:25:16Z",
+      "side": 1,
+      "message": "Extra space.",
+      "range": {
+        "startLine": 625,
+        "startChar": 39,
+        "endLine": 625,
+        "endChar": 40
+      },
+      "revId": "f29931edd7e24866c9d266fd53f293ec7ef38cc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0152784_a506be4d",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-29T11:25:16Z",
+      "side": 1,
+      "message": "Extra space.",
+      "range": {
+        "startLine": 632,
+        "startChar": 11,
+        "endLine": 632,
+        "endChar": 12
+      },
+      "revId": "f29931edd7e24866c9d266fd53f293ec7ef38cc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80bb8b9f_9f1c87bf",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
