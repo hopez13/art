@@ -166,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "00c95b79_d90f5727",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-06-29T16:51:25Z",
+      "side": 1,
+      "message": "I don\u0027t feel strongly either way, and agree in some cases it makes it more readable. But I have not used that style in the rest of the file, so I am going to lean towards keeping it this way  (not saying you are not right, just going with style consistency :-) :)",
+      "parentUuid": "e0152784_a524fe53",
+      "range": {
+        "startLine": 304,
+        "startChar": 41,
+        "endLine": 304,
+        "endChar": 92
+      },
+      "revId": "351035bc65533dc4e640e232d47f53be3fc5f22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0152784_a5ecfec2",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 2
