@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e0152784_e56436fb",
+        "filename": "cmdline/cmdline_parser_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-29T13:24:14Z",
+      "side": 1,
+      "message": "I think you could drop this.",
+      "range": {
+        "startLine": 486,
+        "startChar": 37,
+        "endLine": 486,
+        "endChar": 43
+      },
+      "revId": "dabcea0a17e0b730ceda2a97778c364ca122b7f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0152784_05419249",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-29T13:24:14Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 201,
+        "startChar": 20,
+        "endLine": 202,
+        "endChar": 48
+      },
+      "revId": "dabcea0a17e0b730ceda2a97778c364ca122b7f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0152784_65468663",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-29T13:24:14Z",
+      "side": 1,
+      "message": "Drop.",
+      "range": {
+        "startLine": 311,
+        "startChar": 49,
+        "endLine": 311,
+        "endChar": 53
+      },
+      "revId": "dabcea0a17e0b730ceda2a97778c364ca122b7f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0152784_454b8a67",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-29T13:24:14Z",
+      "side": 1,
+      "message": "Number",
+      "range": {
+        "startLine": 313,
+        "startChar": 15,
+        "endLine": 313,
+        "endChar": 17
+      },
+      "revId": "dabcea0a17e0b730ceda2a97778c364ca122b7f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0152784_a52fde95",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-29T13:24:14Z",
+      "side": 1,
+      "message": "Number",
+      "range": {
+        "startLine": 314,
+        "startChar": 15,
+        "endLine": 314,
+        "endChar": 17
+      },
+      "revId": "dabcea0a17e0b730ceda2a97778c364ca122b7f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0152784_e539d6e2",
+        "filename": "runtime/jit/profile_saver_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-29T13:24:14Z",
+      "side": 1,
+      "message": "I\u0027d drop that and just put false in the constructor. Otherwise I find it confusing to have such a constexpr.",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 41
+      },
+      "revId": "dabcea0a17e0b730ceda2a97778c364ca122b7f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0152784_c50c9a35",
+        "filename": "runtime/jit/profile_saver_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-29T13:24:14Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 95,
+        "startChar": 18,
+        "endLine": 95,
+        "endChar": 24
+      },
+      "revId": "dabcea0a17e0b730ceda2a97778c364ca122b7f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0152784_251bee6d",
+        "filename": "runtime/jit/profile_saver_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-29T13:24:14Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 106,
+        "startChar": 15,
+        "endLine": 106,
+        "endChar": 21
+      },
+      "revId": "dabcea0a17e0b730ceda2a97778c364ca122b7f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8030eb13_8278daaa",
+        "filename": "runtime/jit/profile_saver_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-29T13:24:14Z",
+      "side": 1,
+      "message": "extra line",
+      "revId": "dabcea0a17e0b730ceda2a97778c364ca122b7f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
