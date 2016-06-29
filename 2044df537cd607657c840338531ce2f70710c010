@@ -39,6 +39,24 @@
       "revId": "2044df537cd607657c840338531ce2f70710c010",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0152784_05f87251",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-29T11:04:15Z",
+      "side": 1,
+      "message": "Why std::dec? I would prefer \u003c\u003c \"0x\" \u003c\u003c std:hex.",
+      "parentUuid": "e0152784_c5e49ab2",
+      "revId": "2044df537cd607657c840338531ce2f70710c010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
