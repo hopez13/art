@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e0152784_050d12e5",
+        "filename": "compiler/optimizing/prepare_for_register_allocation.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-29T16:12:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0152784_45626a91",
+      "revId": "bf42441300255af4b296301e77ab878c6d686754",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0152784_a576be53",
         "filename": "test/478-checker-clinit-check-pruning/src/Main.java",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2016-06-29T15:55:55Z",
       "side": 1,
       "message": "Unless you have a flollow-up: TODO: write checker statements.",
+      "revId": "bf42441300255af4b296301e77ab878c6d686754",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0152784_65120609",
+        "filename": "test/478-checker-clinit-check-pruning/src/Main.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-29T16:12:58Z",
+      "side": 1,
+      "message": "Added a TODO further down. As discussed, there will be a follow-up a bit later.",
+      "parentUuid": "e0152784_a576be53",
       "revId": "bf42441300255af4b296301e77ab878c6d686754",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
