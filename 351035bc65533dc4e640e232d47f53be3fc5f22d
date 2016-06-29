@@ -142,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "e0152784_a524fe53",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-29T16:38:53Z",
+      "side": 1,
+      "message": "Yeah, I found the parens make things much more readable. I don\u0027t know if we found a consensus within the team, so up to you.",
+      "parentUuid": "00c95b79_39c68b0b",
+      "range": {
+        "startLine": 304,
+        "startChar": 41,
+        "endLine": 304,
+        "endChar": 92
+      },
+      "revId": "351035bc65533dc4e640e232d47f53be3fc5f22d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0152784_a5ecfec2",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 2
