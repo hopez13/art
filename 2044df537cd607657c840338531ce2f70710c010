@@ -99,6 +99,24 @@
       "revId": "2044df537cd607657c840338531ce2f70710c010",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0152784_c5fdba3e",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-06-29T11:09:15Z",
+      "side": 1,
+      "message": "\u003e Why std::dec? I would prefer \u003c\u003c \"0x\" \u003c\u003c std:hex.\n\nI meant after printing `addr`, i.e. :\n\n  std::hex \u003c\u003c addr \u003c\u003c std::dec",
+      "parentUuid": "e0152784_05f87251",
+      "revId": "2044df537cd607657c840338531ce2f70710c010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
