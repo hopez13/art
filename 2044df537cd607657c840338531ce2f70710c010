@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e0152784_85daa2f1",
+        "filename": "runtime/arch/arm/fault_handler_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-06-29T11:18:33Z",
+      "side": 1,
+      "message": "I think it\u0027s worth adding a doc line on why you need this.",
+      "range": {
+        "startLine": 128,
+        "startChar": 2,
+        "endLine": 128,
+        "endChar": 58
+      },
+      "revId": "2044df537cd607657c840338531ce2f70710c010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0152784_e5e716b4",
         "filename": "runtime/arch/mips64/quick_entrypoints_mips64.S",
         "patchSetId": 2
@@ -42,6 +65,29 @@
         "startChar": 38,
         "endLine": 602,
         "endChar": 83
+      },
+      "revId": "2044df537cd607657c840338531ce2f70710c010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0152784_059d1227",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-06-29T11:18:33Z",
+      "side": 1,
+      "message": "Not much to do unless keep it in mind. But it\u0027s easy to miss this if we end up extending what the compiler handles.",
+      "range": {
+        "startLine": 498,
+        "startChar": 6,
+        "endLine": 501,
+        "endChar": 19
       },
       "revId": "2044df537cd607657c840338531ce2f70710c010",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -132,6 +178,29 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "e0152784_c5fdba3e",
+      "revId": "2044df537cd607657c840338531ce2f70710c010",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0152784_a58b5edd",
+        "filename": "runtime/globals.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-06-29T11:18:33Z",
+      "side": 1,
+      "message": "Please change nodes.h CanDoImplicitNullCheckOn to use this helper. It will keep things consistent.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 1
+      },
       "revId": "2044df537cd607657c840338531ce2f70710c010",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
