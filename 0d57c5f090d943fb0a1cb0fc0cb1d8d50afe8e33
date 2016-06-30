@@ -46,6 +46,46 @@
       "revId": "0d57c5f090d943fb0a1cb0fc0cb1d8d50afe8e33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_676572f4",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-06-30T14:34:35Z",
+      "side": 1,
+      "message": "nullptr",
+      "revId": "0d57c5f090d943fb0a1cb0fc0cb1d8d50afe8e33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_0768f6cb",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-06-30T14:34:35Z",
+      "side": 1,
+      "message": "you can avoid this pukealicious const_cast by simply making c_args std::vector\u003cchar*\u003e.. that\u0027s appropriate because this is the only place you\u0027re using it.",
+      "range": {
+        "startLine": 180,
+        "startChar": 23,
+        "endLine": 180,
+        "endChar": 47
+      },
+      "revId": "0d57c5f090d943fb0a1cb0fc0cb1d8d50afe8e33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
