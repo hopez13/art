@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20d49f7c_c77c1e9f",
+        "filename": "runtime/arch/mips/instruction_set_features_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1067943
+      },
+      "writtenOn": "2016-06-30T14:05:16Z",
+      "side": 1,
+      "message": "You don\u0027t need ternary operator here and below.",
+      "range": {
+        "startLine": 84,
+        "startChar": 41,
+        "endLine": 84,
+        "endChar": 55
+      },
+      "revId": "fdc7ed4e8e0f01b2bda50bd32f0bba0ab84fed2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
