@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fd6cf216_9c284d79",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-06-30T19:44:14Z",
+      "side": 1,
+      "message": "I like that suggestion (going to do that in a follow up)",
+      "parentUuid": "fd6cf216_d91c970e",
+      "revId": "52be7e759acecc3841dca0ac1b703034d8cad60d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6037776c_a18bfe2f",
         "filename": "compiler/optimizing/induction_var_range.cc",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2016-06-30T19:41:25Z",
       "side": 1,
       "message": "kAtMost?",
+      "range": {
+        "startLine": 247,
+        "startChar": 62,
+        "endLine": 247,
+        "endChar": 70
+      },
+      "revId": "52be7e759acecc3841dca0ac1b703034d8cad60d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd6cf216_dc22c594",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-06-30T19:44:14Z",
+      "side": 1,
+      "message": "It does not matter here, since we just want to make sure that it is a proper interval, which means we can get a sensible answer here.",
+      "parentUuid": "6037776c_a18bfe2f",
       "range": {
         "startLine": 247,
         "startChar": 62,
