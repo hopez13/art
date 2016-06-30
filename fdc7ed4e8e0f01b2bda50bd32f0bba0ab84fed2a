@@ -49,6 +49,54 @@
     },
     {
       "key": {
+        "uuid": "fd6cf216_b9a27bbe",
+        "filename": "runtime/arch/mips/instruction_set_features_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1056098
+      },
+      "writtenOn": "2016-06-30T19:06:36Z",
+      "side": 1,
+      "message": "You\u0027re absolutely right. But I vaguely remember having been asked to write this kind of code more explicitly.",
+      "parentUuid": "20d49f7c_c77c1e9f",
+      "range": {
+        "startLine": 84,
+        "startChar": 41,
+        "endLine": 84,
+        "endChar": 55
+      },
+      "revId": "fdc7ed4e8e0f01b2bda50bd32f0bba0ab84fed2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd6cf216_19e28f0b",
+        "filename": "runtime/arch/mips/instruction_set_features_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1056098
+      },
+      "writtenOn": "2016-06-30T19:06:36Z",
+      "side": 1,
+      "message": "Goran is saying that the \"? true : false\" part is redundant and that \"r6 \u003d (variant[kPrefixLength] \u003e\u003d \u00276\u0027);\" is sufficient.",
+      "parentUuid": "606e977c_0971c95a",
+      "range": {
+        "startLine": 84,
+        "startChar": 41,
+        "endLine": 84,
+        "endChar": 55
+      },
+      "revId": "fdc7ed4e8e0f01b2bda50bd32f0bba0ab84fed2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "606e977c_6974054c",
         "filename": "runtime/arch/mips/instruction_set_features_mips.cc",
         "patchSetId": 1
@@ -60,6 +108,30 @@
       "writtenOn": "2016-06-30T18:07:54Z",
       "side": 1,
       "message": "We need to set the default value of all the variables here also, since they might be different than GetFlagsCppDefined().",
+      "range": {
+        "startLine": 95,
+        "startChar": 4,
+        "endLine": 95,
+        "endChar": 17
+      },
+      "revId": "fdc7ed4e8e0f01b2bda50bd32f0bba0ab84fed2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd6cf216_b9255b52",
+        "filename": "runtime/arch/mips/instruction_set_features_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1056098
+      },
+      "writtenOn": "2016-06-30T19:06:36Z",
+      "side": 1,
+      "message": "I tried setting the two other bools here and ran into a lot of trouble, which is why I extended the comment. We have code and tests that rely on \"default\" working for both MIPS32R2 and MIPS32R6.\n\nIf we make \"default\" mean R2, R6 will break. If we make \"default\" mean R6, R2 will break. Effectively, \"default\" means good enough for the runtime ISA.\n\nIf we want \"default\" to always (that is, irrespective of the runtime ISA) mean the same thing, e.g. R2, we need to make some other changes and that\u0027s more than I\u0027m really after. I only need the \"mips32r#\" part to properly set all three bools to make test-art-target-gtest-relative_patcher_mips_test32 work.",
+      "parentUuid": "606e977c_6974054c",
       "range": {
         "startLine": 95,
         "startChar": 4,
