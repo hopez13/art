@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ddc00e18_33535029",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-30T16:53:10Z",
+      "side": 1,
+      "message": "Can you change this not to pass nullptr? That\u0027s the exit code, and I\u0027d make success_ dependent on that, maybe?",
+      "range": {
+        "startLine": 191,
+        "startChar": 43,
+        "endLine": 191,
+        "endChar": 48
+      },
+      "revId": "3473a3f8add41be7a57012288f24519944105383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
