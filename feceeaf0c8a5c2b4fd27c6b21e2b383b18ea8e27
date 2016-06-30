@@ -141,6 +141,30 @@
       "revId": "feceeaf0c8a5c2b4fd27c6b21e2b383b18ea8e27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddc00e18_10e72a1c",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-30T15:43:06Z",
+      "side": 1,
+      "message": "The read call tries to read as many bytes as you tell it to:\n\n The read() function shall attempt to read nbyte bytes from the file associated with the open file descriptor, fildes, into the buffer pointed to by buf.\n\nThe result of the read call is the number of bytes written (if \u003e 0).\n\n Upon successful completion, read() [XSI] [Option Start]  and pread() [Option End] shall return a non-negative integer indicating the number of bytes actually read. Otherwise, the functions shall return -1 and set errno to indicate the error.\n\nThe value of buffer does *not* form a C string, as it is not zero-terminated by the call (the memset will only ensure that it\u0027s correct for the very first string).\n\nAs such, you should take care of this yourself. One option is:\n\n output_ +\u003d std::string(buffer, read_result);",
+      "parentUuid": "20d49f7c_c7009efe",
+      "range": {
+        "startLine": 188,
+        "startChar": 35,
+        "endLine": 188,
+        "endChar": 38
+      },
+      "revId": "feceeaf0c8a5c2b4fd27c6b21e2b383b18ea8e27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
