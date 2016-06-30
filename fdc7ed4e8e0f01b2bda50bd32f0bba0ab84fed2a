@@ -22,6 +22,53 @@
       "revId": "fdc7ed4e8e0f01b2bda50bd32f0bba0ab84fed2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "606e977c_0971c95a",
+        "filename": "runtime/arch/mips/instruction_set_features_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1079955
+      },
+      "writtenOn": "2016-06-30T18:07:54Z",
+      "side": 1,
+      "message": "ternary operator is needed to override the value from GetFlagsFromCppDefined().",
+      "parentUuid": "20d49f7c_c77c1e9f",
+      "range": {
+        "startLine": 84,
+        "startChar": 41,
+        "endLine": 84,
+        "endChar": 55
+      },
+      "revId": "fdc7ed4e8e0f01b2bda50bd32f0bba0ab84fed2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "606e977c_6974054c",
+        "filename": "runtime/arch/mips/instruction_set_features_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1079955
+      },
+      "writtenOn": "2016-06-30T18:07:54Z",
+      "side": 1,
+      "message": "We need to set the default value of all the variables here also, since they might be different than GetFlagsCppDefined().",
+      "range": {
+        "startLine": 95,
+        "startChar": 4,
+        "endLine": 95,
+        "endChar": 17
+      },
+      "revId": "fdc7ed4e8e0f01b2bda50bd32f0bba0ab84fed2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
