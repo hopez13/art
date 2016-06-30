@@ -22,6 +22,30 @@
       "revId": "2a1b7ac77446d12befceb9946dc418d15119bc05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_674452a5",
+        "filename": "test/600-verifier-fails/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-30T10:02:57Z",
+      "side": 1,
+      "message": "Isn\u0027t there some \"reverse dx\" tool for dex bytecode -\u003e Java bytecode translation?",
+      "parentUuid": "a07a4f31_cbf2d575",
+      "range": {
+        "startLine": 41,
+        "startChar": 8,
+        "endLine": 41,
+        "endChar": 10
+      },
+      "revId": "2a1b7ac77446d12befceb9946dc418d15119bc05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
