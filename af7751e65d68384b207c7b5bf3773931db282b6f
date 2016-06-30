@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20d49f7c_6713b260",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-30T15:05:07Z",
+      "side": 1,
+      "message": "Mathieu, can you take over and write a test that actually needs to resolve the interface type from GetDirectInterface() called here? Such test should fail in the gcstress mode with non-Handle DexCache*.",
+      "range": {
+        "startLine": 767,
+        "startChar": 52,
+        "endLine": 767,
+        "endChar": 70
+      },
+      "revId": "af7751e65d68384b207c7b5bf3773931db282b6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
