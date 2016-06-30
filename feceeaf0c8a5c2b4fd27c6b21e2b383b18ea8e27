@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ddc00e18_10f16a03",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-30T14:59:51Z",
+      "side": 1,
+      "message": "Should be an error value, not zero.",
+      "range": {
+        "startLine": 181,
+        "startChar": 11,
+        "endLine": 181,
+        "endChar": 12
+      },
+      "revId": "feceeaf0c8a5c2b4fd27c6b21e2b383b18ea8e27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddc00e18_30f6e6fc",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-30T14:59:51Z",
+      "side": 1,
+      "message": "read doesn\u0027t zero-terminate, and you don\u0027t leave space for it, anyways. You need to capture the result - it\u0027s the number of bytes written.",
+      "range": {
+        "startLine": 188,
+        "startChar": 35,
+        "endLine": 188,
+        "endChar": 38
+      },
+      "revId": "feceeaf0c8a5c2b4fd27c6b21e2b383b18ea8e27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
