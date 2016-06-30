@@ -46,6 +46,30 @@
       "revId": "af7751e65d68384b207c7b5bf3773931db282b6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_47b82e25",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-30T17:40:09Z",
+      "side": 1,
+      "message": "Then we should instead remove the StackHandleScope above and assert no thread suspension.",
+      "parentUuid": "fd6cf216_36a8388c",
+      "range": {
+        "startLine": 767,
+        "startChar": 52,
+        "endLine": 767,
+        "endChar": 70
+      },
+      "revId": "af7751e65d68384b207c7b5bf3773931db282b6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
