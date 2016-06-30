@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "20d49f7c_87f6a62e",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-30T15:06:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddc00e18_10f16a03",
+      "range": {
+        "startLine": 181,
+        "startChar": 11,
+        "endLine": 181,
+        "endChar": 12
+      },
+      "revId": "feceeaf0c8a5c2b4fd27c6b21e2b383b18ea8e27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ddc00e18_30f6e6fc",
         "filename": "dex2oat/dex2oat_test.cc",
         "patchSetId": 5
@@ -59,6 +83,54 @@
       "writtenOn": "2016-06-30T15:00:53Z",
       "side": 1,
       "message": "Plus it should be in a TEMP_FAILURE_RETRY...",
+      "parentUuid": "ddc00e18_30f6e6fc",
+      "range": {
+        "startLine": 188,
+        "startChar": 35,
+        "endLine": 188,
+        "endChar": 38
+      },
+      "revId": "feceeaf0c8a5c2b4fd27c6b21e2b383b18ea8e27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_c7009efe",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-30T15:06:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddc00e18_f0d7fe57",
+      "range": {
+        "startLine": 188,
+        "startChar": 35,
+        "endLine": 188,
+        "endChar": 38
+      },
+      "revId": "feceeaf0c8a5c2b4fd27c6b21e2b383b18ea8e27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_2706da17",
+        "filename": "dex2oat/dex2oat_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-06-30T15:06:29Z",
+      "side": 1,
+      "message": "I don\u0027t understand your comment. \"Capture the result\"? Which result?",
       "parentUuid": "ddc00e18_30f6e6fc",
       "range": {
         "startLine": 188,
