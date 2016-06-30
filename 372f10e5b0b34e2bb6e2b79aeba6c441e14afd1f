@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "20d49f7c_87834672",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-30T16:16:22Z",
+      "side": 1,
+      "message": "Typedef added: https://android-review.googlesource.com/245061",
+      "parentUuid": "c611160b_538e24e7",
+      "range": {
+        "startLine": 915,
+        "startChar": 4,
+        "endLine": 915,
+        "endChar": 11
+      },
+      "revId": "372f10e5b0b34e2bb6e2b79aeba6c441e14afd1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af9cf82a_db5f93f8",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 9
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "I\u0027m thinking about how to do that but the lambda below will need to be a standalone class. That actually tears the code apart and reduces readability.",
       "parentUuid": "af9cf82a_db5f93f8",
+      "range": {
+        "startLine": 1791,
+        "startChar": 2,
+        "endLine": 1791,
+        "endChar": 6
+      },
+      "revId": "372f10e5b0b34e2bb6e2b79aeba6c441e14afd1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_a77e4a4e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 1791,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-30T16:16:22Z",
+      "side": 1,
+      "message": "Typedef added: https://android-review.googlesource.com/245061",
+      "parentUuid": "af9cf82a_3bc797a1",
       "range": {
         "startLine": 1791,
         "startChar": 2,
@@ -130,6 +178,30 @@
       "writtenOn": "2016-06-09T17:33:47Z",
       "side": 1,
       "message": "Nit: align with previous line.",
+      "range": {
+        "startLine": 825,
+        "startChar": 0,
+        "endLine": 825,
+        "endChar": 6
+      },
+      "revId": "372f10e5b0b34e2bb6e2b79aeba6c441e14afd1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_67b4524b",
+        "filename": "compiler/optimizing/reference_type_propagation.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-30T16:16:22Z",
+      "side": 1,
+      "message": "Done: https://android-review.googlesource.com/245061",
+      "parentUuid": "af9cf82a_3b6b17a2",
       "range": {
         "startLine": 825,
         "startChar": 0,
@@ -300,6 +372,30 @@
     },
     {
       "key": {
+        "uuid": "20d49f7c_e7784264",
+        "filename": "compiler/utils/transform_iterator.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-30T16:16:22Z",
+      "side": 1,
+      "message": "Removed that possibility: https://android-review.googlesource.com/245061",
+      "parentUuid": "af9cf82a_fbb84f2d",
+      "range": {
+        "startLine": 49,
+        "startChar": 10,
+        "endLine": 49,
+        "endChar": 91
+      },
+      "revId": "372f10e5b0b34e2bb6e2b79aeba6c441e14afd1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af9cf82a_9b87cb74",
         "filename": "compiler/utils/transform_iterator.h",
         "patchSetId": 9
@@ -405,6 +501,30 @@
       "side": 1,
       "message": "Why is it here at all? Something I forgot to remove after choosing not to use std::array\u003c\u003e?",
       "parentUuid": "af9cf82a_5be14338",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 16
+      },
+      "revId": "372f10e5b0b34e2bb6e2b79aeba6c441e14afd1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_c77d3e52",
+        "filename": "compiler/utils/transform_iterator_test.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-06-30T16:16:22Z",
+      "side": 1,
+      "message": "Removed: https://android-review.googlesource.com/245061",
+      "parentUuid": "af9cf82a_bbb2c747",
       "range": {
         "startLine": 23,
         "startChar": 0,
