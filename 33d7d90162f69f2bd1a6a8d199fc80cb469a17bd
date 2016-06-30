@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "ddc00e18_937484e1",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3462,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-30T17:33:20Z",
+      "side": 1,
+      "message": "Could use java_lang_Object from above.",
+      "range": {
+        "startLine": 3462,
+        "startChar": 24,
+        "endLine": 3462,
+        "endChar": 53
+      },
+      "revId": "33d7d90162f69f2bd1a6a8d199fc80cb469a17bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddc00e18_d351ac4e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5028,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-30T17:33:20Z",
+      "side": 1,
+      "message": "What is with the namespace keyword here?",
+      "range": {
+        "startLine": 5028,
+        "startChar": 0,
+        "endLine": 5028,
+        "endChar": 11
+      },
+      "revId": "33d7d90162f69f2bd1a6a8d199fc80cb469a17bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20065fd0_1703f407",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -18,6 +64,53 @@
         "startChar": 37,
         "endLine": 5030,
         "endChar": 42
+      },
+      "revId": "33d7d90162f69f2bd1a6a8d199fc80cb469a17bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddc00e18_9319e4ce",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5030,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-30T17:33:20Z",
+      "side": 1,
+      "message": "That would only be necessary if there was thread suspension in this function, and there isn\u0027t.\n\nAlso this line is longer than 100.",
+      "parentUuid": "20065fd0_1703f407",
+      "range": {
+        "startLine": 5030,
+        "startChar": 37,
+        "endLine": 5030,
+        "endChar": 42
+      },
+      "revId": "33d7d90162f69f2bd1a6a8d199fc80cb469a17bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddc00e18_73631828",
+        "filename": "runtime/class_linker_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-06-30T17:33:20Z",
+      "side": 1,
+      "message": "We could check that all of the methods in the IMT are runtime methods.",
+      "range": {
+        "startLine": 151,
+        "startChar": 23,
+        "endLine": 151,
+        "endChar": 36
       },
       "revId": "33d7d90162f69f2bd1a6a8d199fc80cb469a17bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
