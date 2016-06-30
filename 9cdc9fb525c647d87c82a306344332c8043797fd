@@ -22,6 +22,30 @@
       "revId": "9cdc9fb525c647d87c82a306344332c8043797fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "606e977c_69d88553",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1059614
+      },
+      "writtenOn": "2016-06-30T19:38:20Z",
+      "side": 1,
+      "message": "OK, I will redo as a virtual function.",
+      "parentUuid": "fd6cf216_b936fbd0",
+      "range": {
+        "startLine": 290,
+        "startChar": 2,
+        "endLine": 291,
+        "endChar": 26
+      },
+      "revId": "9cdc9fb525c647d87c82a306344332c8043797fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
