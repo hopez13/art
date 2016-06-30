@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd6cf216_d91c970e",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-06-30T19:41:25Z",
+      "side": 1,
+      "message": "I\u0027d suggest a helper function like GetTripCountLowerBound() for the op_b-\u003eop_a part, which can also do some DCHECK\u0027s.",
+      "revId": "52be7e759acecc3841dca0ac1b703034d8cad60d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6037776c_a18bfe2f",
+        "filename": "compiler/optimizing/induction_var_range.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-06-30T19:41:25Z",
+      "side": 1,
+      "message": "kAtMost?",
+      "range": {
+        "startLine": 247,
+        "startChar": 62,
+        "endLine": 247,
+        "endChar": 70
+      },
+      "revId": "52be7e759acecc3841dca0ac1b703034d8cad60d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
