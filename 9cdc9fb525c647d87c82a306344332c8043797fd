@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd6cf216_b936fbd0",
+        "filename": "runtime/oat_file.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-06-30T18:44:19Z",
+      "side": 1,
+      "message": "I think it makes more sense to hide this and not incur the storage impact. You could make the function virtual and recover the value at call-time.",
+      "range": {
+        "startLine": 290,
+        "startChar": 2,
+        "endLine": 291,
+        "endChar": 26
+      },
+      "revId": "9cdc9fb525c647d87c82a306344332c8043797fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
