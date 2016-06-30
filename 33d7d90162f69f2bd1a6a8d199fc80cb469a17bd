@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20065fd0_1703f407",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5030,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2016-06-30T15:40:02Z",
+      "side": 1,
+      "message": "Should I use StackHandleScope here?\nI looked at ClassLinker::LinkSuperClass and found that it does not use StackHandleScope.",
+      "range": {
+        "startLine": 5030,
+        "startChar": 37,
+        "endLine": 5030,
+        "endChar": 42
+      },
+      "revId": "33d7d90162f69f2bd1a6a8d199fc80cb469a17bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
