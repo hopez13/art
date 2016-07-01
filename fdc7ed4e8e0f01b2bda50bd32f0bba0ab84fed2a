@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "a0116f0b_b3305896",
+        "filename": "runtime/arch/mips/instruction_set_features_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-01T09:23:47Z",
+      "side": 1,
+      "message": "The rule of thumb is to avoid implicit conversions.\n\n  int x \u003d (a \u003c b);  // Bad, implicit conversion.\n  int y \u003d (a \u003c b) ? 1 : 0;  // Good, yields the same result as x.\n  bool z \u003d (a \u003c b);  // Good, no conversion at all.",
+      "parentUuid": "fd6cf216_b9a27bbe",
+      "range": {
+        "startLine": 84,
+        "startChar": 41,
+        "endLine": 84,
+        "endChar": 55
+      },
+      "revId": "fdc7ed4e8e0f01b2bda50bd32f0bba0ab84fed2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "606e977c_6974054c",
         "filename": "runtime/arch/mips/instruction_set_features_mips.cc",
         "patchSetId": 1
