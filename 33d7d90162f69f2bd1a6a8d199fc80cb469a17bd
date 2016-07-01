@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "20065fd0_3a96dd59",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 5028,
+      "author": {
+        "id": 1083288
+      },
+      "writtenOn": "2016-07-01T10:04:45Z",
+      "side": 1,
+      "message": "I\u0027ve decided to use static because all helper functions in this file are also static, not in anonymous namespace.",
+      "parentUuid": "20d49f7c_07be3613",
+      "range": {
+        "startLine": 5028,
+        "startChar": 0,
+        "endLine": 5028,
+        "endChar": 11
+      },
+      "revId": "33d7d90162f69f2bd1a6a8d199fc80cb469a17bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20065fd0_1703f407",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
