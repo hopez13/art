@@ -531,9 +531,243 @@ class StubTest : public CommonRuntimeTest {
     return result;
   }
 
+// TODO: Add checks regarding the values of registers that are
+// expected to be preserved accross the calls to ReadBarrierMarkRegX.
+
+// Template used for ARM extended assembler statements in
+// InvokeReadBarrierMark (asm assembler templates require a literal string).
+#define ASM_ARM_INVOKE_READ_BARRIER_MARK_REG(Register)                       \
+  __asm__ __volatile__(                                                      \
+      /* Push everything on the stack, so we don't rely on the order. */     \
+      "sub sp, sp, #8\n\t"                                                   \
+      ".cfi_adjust_cfa_offset 8\n\t"                                         \
+      /* All things are "r" constraints, so direct str should work. */       \
+      "str %[arg0], [sp]\n\t"                                                \
+      "str %[code], [sp, #4]\n\t"                                            \
+                                                                             \
+      /* Load call params into the right registers. */                       \
+      /* Entrypoint ReadBarrierMarkRegX expects its input in register X. */  \
+      /* We use R12 (IP) to store the entrypoint, because it is a */         \
+      /* caller-save and because `Register` is not expected to be `r12`. */  \
+      "ldr " #Register ", [sp]\n\t"                                          \
+      "ldr r12, [sp, #4]\n\t"                                                \
+      "add sp, sp, #8\n\t"                                                   \
+      ".cfi_adjust_cfa_offset -8\n\t"                                        \
+                                                                             \
+      /* Invoke read barrier marking entrypoint. */                          \
+      "blx r12\n\t"                       /* Call the stub. */               \
+      "mov %[result], " #Register "\n\t"  /* Save the result */              \
+                                                                             \
+      : [result] "=r" (result)                                               \
+      : [arg0] "r" (arg0), [code] "r" (code)                                 \
+      : #Register, "r12",                                                    \
+        "memory")
+
+// Template used for ARM64 extended assembler statements in
+// InvokeReadBarrierMark (asm assembler templates require a literal string).
+#define ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(Register)                     \
+  __asm__ __volatile__(                                                      \
+      /* Push everything on the stack, so we don't rely on the order. */     \
+      "sub sp, sp, #16\n\t"                                                  \
+      ".cfi_adjust_cfa_offset 16\n\t"                                        \
+      /* All things are "r" constraints, so direct str/stp should work. */   \
+      "stp %[arg0], %[code], [sp]\n\t"                                       \
+                                                                             \
+      /* Load call params into the right registers. */                       \
+      /* Entrypoint ReadBarrierMarkRegX expects its input in register X. */  \
+      /* We use X16 (IP0) to store the entrypoint, because it is a */        \
+      /* caller-save and because `Register` is not expected to be `x16`. */  \
+      "ldp " #Register ", x16, [sp]\n\t"                                     \
+      "add sp, sp, #16\n\t"                                                  \
+      ".cfi_adjust_cfa_offset -16\n\t"                                       \
+                                                                             \
+      /* Invoke read barrier marking entrypoint. */                          \
+      "blr x16\n\t"                       /* Call the stub. */               \
+      "mov %[result], " #Register "\n\t"  /* Save the result */              \
+                                                                             \
+      : [result] "=r" (result)  /* Use the result from X0. */                \
+      : [arg0] "r" (arg0), [code] "r" (code)                                 \
+      : #Register, "x16",                                                    \
+        "memory")
+
+// Template used for x86 extended assembler statements in
+// InvokeReadBarrierMark (asm assembler templates require a literal string).
+#define ASM_X86_INVOKE_READ_BARRIER_MARK_REG(Register)                       \
+  __asm__ __volatile__(                                                      \
+      /* Save `Register` as the code below clobbers it. */                   \
+      "pushl %%" #Register" \n\t"                                            \
+      "subl $12, %%esp\n\t"             /* 16-byte alignment padding. */     \
+      ".cfi_adjust_cfa_offset 16\n\t"                                        \
+                                                                             \
+      /* Load call params into the right registers. */                       \
+      /* Entrypoint ReadBarrierMarkRegX expects its input in register X. */  \
+      "movl %[arg0], %%" #Register "\n\t"                                    \
+                                                                             \
+      /* Invoke read barrier marking entrypoint. */                          \
+      "call *%[code]\n\t"                   /* Call the stub. */             \
+      "movl %%" #Register", %[result]\n\t"  /* Save the result */            \
+                                                                             \
+      /* Pop padding and restore `Register`. */                              \
+      "addl $12, %%esp\n\t"                                                  \
+      "popl %%" #Register" \n\t"                                             \
+      ".cfi_adjust_cfa_offset -16\n\t"                                       \
+                                                                             \
+      : [result] "=r" (result)                                               \
+      : [arg0] "r" (arg0), [code] "r" (code)                                 \
+      : #Register,                                                           \
+        "memory")
+
+// Template used for x86-64 extended assembler statements in
+// InvokeReadBarrierMark (asm assembler templates require a literal string).
+#define ASM_X86_64_INVOKE_READ_BARRIER_MARK_REG(Register)                    \
+  __asm__ __volatile__(                                                      \
+      /* Save `Register` as the code below clobbers it. */                   \
+      "pushq %%" #Register" \n\t"                                            \
+      "subq $8, %%rsp\n\t"             /* 16-byte alignment padding. */      \
+      ".cfi_adjust_cfa_offset 16\n\t"                                        \
+                                                                             \
+      /* Load call params into the right registers. */                       \
+      /* Entrypoint ReadBarrierMarkRegX expects its input in register X. */  \
+      "movq %[arg0], %%" #Register "\n\t"                                    \
+                                                                             \
+      /* Invoke read barrier marking entrypoint. */                          \
+      "call *%[code]\n\t"                   /* Call the stub. */             \
+      "movq %%" #Register", %[result]\n\t"  /* Save the result */            \
+                                                                             \
+      /* Pop padding and restore `Register`. */                              \
+      "addq $8, %%rsp\n\t"                                                   \
+      "popq %%" #Register" \n\t"                                             \
+      ".cfi_adjust_cfa_offset -16\n\t"                                       \
+                                                                             \
+      : [result] "=r" (result)                                               \
+      : [arg0] "r" (arg0), [code] "r" (code)                                 \
+      : #Register,                                                           \
+        "memory")
+
+  // Special Invoke method to invoke one of the ReadBarrierMarkRegX
+  // entrypoints (whose address is passed via `code`). This method
+  // saves/restores nothing (as ReadBarrierMarkRegX entrypoints
+  // save/restore everything). Register number `reg` is used to pass
+  // argument `arg` to the entrypoint and to receive the value
+  // returned by it.
+  size_t InvokeReadBarrierMark(size_t arg0, uintptr_t code, size_t reg) {
+#if !defined(ART_USE_READ_BARRIER) || !defined(ART_READ_BARRIER_TYPE_IS_BAKER)
+    LOG(FATAL) << "This method should not be used outside of the Baker read barrier configuration."
+#endif
+    size_t result = 0u;
+#if defined(__arm__)
+    switch (reg) {
+      case  0: ASM_ARM_INVOKE_READ_BARRIER_MARK_REG(r0);  break;
+      case  1: ASM_ARM_INVOKE_READ_BARRIER_MARK_REG(r1);  break;
+      case  2: ASM_ARM_INVOKE_READ_BARRIER_MARK_REG(r2);  break;
+      case  3: ASM_ARM_INVOKE_READ_BARRIER_MARK_REG(r3);  break;
+      case  4: ASM_ARM_INVOKE_READ_BARRIER_MARK_REG(r4);  break;
+      case  5: ASM_ARM_INVOKE_READ_BARRIER_MARK_REG(r5);  break;
+      case  6: ASM_ARM_INVOKE_READ_BARRIER_MARK_REG(r6);  break;
+      case  7: ASM_ARM_INVOKE_READ_BARRIER_MARK_REG(r7);  break;
+      case  8: ASM_ARM_INVOKE_READ_BARRIER_MARK_REG(r8);  break;
+      case  9: ASM_ARM_INVOKE_READ_BARRIER_MARK_REG(r9);  break;
+      case 10: ASM_ARM_INVOKE_READ_BARRIER_MARK_REG(r10); break;
+      case 11: ASM_ARM_INVOKE_READ_BARRIER_MARK_REG(r11); break;
+        // On ARM, entrypoint ReadBarrierMarkReg12 (corresponding to
+        // register IP) is reserved for another use (read barrier
+        // introspection entrypoint); entrypoints ReadBarrierMarkReg13,
+        // ReadBarrierMarkReg14, and ReadBarrierMarkReg15 are undefined,
+        // as register 13 (SP), 14 (LR) and 15 (PC) cannot be used to
+        // pass arguments.
+      default:
+        LOG(WARNING) << "Was asked to invoke for a register number I do not support: " << reg;
+    }
+#elif defined(__aarch64__)
+    switch (reg) {
+      case  0: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x0);  break;
+      case  1: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x1);  break;
+      case  2: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x2);  break;
+      case  3: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x3);  break;
+      case  4: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x4);  break;
+      case  5: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x5);  break;
+      case  6: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x6);  break;
+      case  7: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x7);  break;
+      case  8: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x8);  break;
+      case  9: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x9);  break;
+      case 10: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x10); break;
+      case 11: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x11); break;
+      case 12: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x12); break;
+      case 13: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x13); break;
+      case 14: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x14); break;
+      case 15: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x15); break;
+        // On ARM64, entrypoint ReadBarrierMarkReg16(corresponding to
+        // register IP0) is reserved for another use (read barrier
+        // introspection entrypoint).
+      case 17: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x17); break;
+      case 18: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x18); break;
+      case 19: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x19); break;
+      case 20: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x20); break;
+      case 21: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x21); break;
+      case 22: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x22); break;
+      case 23: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x23); break;
+      case 24: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x24); break;
+      case 25: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x25); break;
+      case 26: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x26); break;
+      case 27: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x27); break;
+      case 28: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x28); break;
+      case 29: ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG(x29); break;
+      default:
+        LOG(WARNING) << "Was asked to invoke for a register number I do not support: " << reg;
+    }
+#elif defined(__i386__)
+    switch (reg) {
+      case 0: ASM_X86_INVOKE_READ_BARRIER_MARK_REG(eax); break;
+      case 1: ASM_X86_INVOKE_READ_BARRIER_MARK_REG(ecx); break;
+      case 2: ASM_X86_INVOKE_READ_BARRIER_MARK_REG(edx); break;
+      case 3: ASM_X86_INVOKE_READ_BARRIER_MARK_REG(ebx); break;
+        // On x86, entrypoint ReadBarrierMarkReg4 is undefined, as
+        // register 4 (ESP) cannot be used to pass arguments.
+      case 5: ASM_X86_INVOKE_READ_BARRIER_MARK_REG(ebp); break;
+      case 6: ASM_X86_INVOKE_READ_BARRIER_MARK_REG(esi); break;
+      case 7: ASM_X86_INVOKE_READ_BARRIER_MARK_REG(edi); break;
+      default:
+        LOG(WARNING) << "Was asked to invoke for a register number I do not support: " << reg;
+    }
+#elif defined(__x86_64__) && !defined(__APPLE__)
+    switch (reg) {
+      case  0: ASM_X86_64_INVOKE_READ_BARRIER_MARK_REG(rax); break;
+      case  1: ASM_X86_64_INVOKE_READ_BARRIER_MARK_REG(rcx); break;
+      case  2: ASM_X86_64_INVOKE_READ_BARRIER_MARK_REG(rdx); break;
+      case  3: ASM_X86_64_INVOKE_READ_BARRIER_MARK_REG(rbx); break;
+        // On x86-64, entrypoint ReadBarrierMarkReg4 is undefined, as
+        // register 4 (RSP) cannot be used to pass arguments.
+      case  5: ASM_X86_64_INVOKE_READ_BARRIER_MARK_REG(rbp); break;
+      case  6: ASM_X86_64_INVOKE_READ_BARRIER_MARK_REG(rsi); break;
+      case  7: ASM_X86_64_INVOKE_READ_BARRIER_MARK_REG(rdi); break;
+      case  8: ASM_X86_64_INVOKE_READ_BARRIER_MARK_REG(r8);  break;
+      case  9: ASM_X86_64_INVOKE_READ_BARRIER_MARK_REG(r9);  break;
+      case 10: ASM_X86_64_INVOKE_READ_BARRIER_MARK_REG(r10); break;
+      case 11: ASM_X86_64_INVOKE_READ_BARRIER_MARK_REG(r11); break;
+      case 12: ASM_X86_64_INVOKE_READ_BARRIER_MARK_REG(r12); break;
+      case 13: ASM_X86_64_INVOKE_READ_BARRIER_MARK_REG(r13); break;
+      case 14: ASM_X86_64_INVOKE_READ_BARRIER_MARK_REG(r14); break;
+      case 15: ASM_X86_64_INVOKE_READ_BARRIER_MARK_REG(r15); break;
+      default:
+        LOG(WARNING) << "Was asked to invoke for a register number I do not support: " << reg;
+    }
+#else
+    UNUSED(arg0, code, reg);
+    LOG(WARNING) << "Was asked to invoke for an architecture I do not understand.";
+#endif
+    return result;
+  }
+
+#undef ASM_ARM64_INVOKE_READ_BARRIER_MARK_REG
+
   static uintptr_t GetEntrypoint(Thread* self, QuickEntrypointEnum entrypoint) {
-    int32_t offset;
-    offset = GetThreadOffset<kRuntimePointerSize>(entrypoint).Int32Value();
+    int32_t offset = GetThreadOffset<kRuntimePointerSize>(entrypoint).Int32Value();
+    return *reinterpret_cast<uintptr_t*>(reinterpret_cast<uint8_t*>(self) + offset);
+  }
+
+  // Return the ReadBarrierMarkRegX entry point, where X is `reg`.
+  static uintptr_t GetReadBarrierMarkEntrypoint(Thread* self, size_t reg) {
+    int32_t offset = Thread::ReadBarrierMarkEntryPointsOffset<kRuntimePointerSize>(reg);
     return *reinterpret_cast<uintptr_t*>(reinterpret_cast<uint8_t*>(self) + offset);
   }
 
@@ -2039,24 +2273,108 @@ TEST_F(StubTest, StringIndexOf) {
 #endif
 }
 
-// TODO: Exercise the ReadBarrierMarkRegX entry points.
+// Exercise ReadBarrierMarkRegX entrypoint where X is register number `reg`.
+void TestReadBarrierMarkRegEntrypoint(Thread* self, StubTest* test, size_t reg){
+  const uintptr_t readBarrierMarkEntrypoint = StubTest::GetReadBarrierMarkEntrypoint(self, reg);
+  CHECK_NE(readBarrierMarkEntrypoint, 0u);
 
-TEST_F(StubTest, ReadBarrier) {
+  // Create an object.
+  ScopedObjectAccess soa(self);
+  // Garbage is created during ClassLinker::Init.
+
+  StackHandleScope<2> hs(soa.Self());
+  Handle<mirror::Class> c(
+      hs.NewHandle(test->GetClassLinker()->FindSystemClass(soa.Self(), "Ljava/lang/Object;")));
+
+  // Build an Object instance.
+  Handle<mirror::Object> obj(hs.NewHandle(c->AllocObject(soa.Self())));
+
+  EXPECT_FALSE(self->IsExceptionPending());
+
+  size_t result = test->InvokeReadBarrierMark(reinterpret_cast<size_t>(obj.Get()),
+                                              readBarrierMarkEntrypoint,
+                                              reg);
+
+  EXPECT_FALSE(self->IsExceptionPending());
+  EXPECT_NE(reinterpret_cast<size_t>(nullptr), result);
+  mirror::Object* result_object = reinterpret_cast<mirror::Object*>(result);
+  // The object may have moved after the call to the ReadBarrierMark
+  // entry point, so we cannot check that `result_object == obj.Get()`.
+  // We can however check that `result_object` and `obj.Get()` are
+  // instances of the same class (java.lang.Object).
+  EXPECT_EQ(c.Get(), obj->GetClass());
+  EXPECT_EQ(c.Get(), result_object->GetClass());
+}
+
+TEST_F(StubTest, ReadBarrierMark) {
+#if defined(ART_USE_READ_BARRIER) && defined(ART_READ_BARRIER_TYPE_IS_BAKER)
+  Thread* self = Thread::Current();
+  // Make sure read barrier marking entrypoints are not null.
+  self->SetReadBarrierEntrypoints();
+
+// TODO: Implement for MIPS and MIPS64.
+#if defined(__arm__)
+  // On ARM, entrypoint ReadBarrierMarkReg12 (corresponding to
+  // register IP) is reserved for another use (read barrier
+  // introspection entrypoint); entrypoints ReadBarrierMarkReg13,
+  // ReadBarrierMarkReg14, and ReadBarrierMarkReg15 are undefined, as
+  // register 13 (SP), 14 (LR) and 15 (PC) cannot be used to pass
+  // arguments; skip them all.
+  for (size_t reg = 0; reg <= 11; ++reg) {
+    TestReadBarrierMarkRegEntrypoint(self, this, reg);
+  }
+#elif defined(__aarch64__)
+  for (size_t reg = 0; reg <= 29; ++reg) {
+    if (reg == 16) {
+      // On ARM64, entrypoint ReadBarrierMarkReg16 (corresponding to
+      // register IP0) is reserved for another use (read barrier
+      // introspection entrypoint); skip it.
+      continue;
+    }
+    TestReadBarrierMarkRegEntrypoint(self, this, reg);
+  }
+#elif defined(__i386__)
+  for (size_t reg = 0; reg <= 7; ++reg) {
+    if (reg == 4) {
+      // On x86, entrypoint ReadBarrierMarkReg4 is undefined, as
+      // register 4 (ESP) cannot be used to pass arguments; skip it.
+      continue;
+    }
+    TestReadBarrierMarkRegEntrypoint(self, this, reg);
+  }
+#elif defined(__x86_64__) && !defined(__APPLE__)
+  for (size_t reg = 0; reg <= 15; ++reg) {
+    if (reg == 4) {
+      // On x86-64, entrypoint ReadBarrierMarkReg4 is undefined, as
+      // register 4 (RSP) cannot be used to pass arguments; skip it.
+      continue;
+    }
+    TestReadBarrierMarkRegEntrypoint(self, this, reg);
+  }
+#else
+  LOG(INFO) << "Skipping read_barrier_mark";
+  // Force-print to std::cout so it's also outside the logcat.
+  std::cout << "Skipping read_barrier_mark" << std::endl;
+#endif
+#endif
+}
+
+TEST_F(StubTest, ReadBarrierSlow) {
 #if defined(ART_USE_READ_BARRIER) && (defined(__i386__) || defined(__arm__) || \
       defined(__aarch64__) || defined(__mips__) || (defined(__x86_64__) && !defined(__APPLE__)))
   Thread* self = Thread::Current();
 
   const uintptr_t readBarrierSlow = StubTest::GetEntrypoint(self, kQuickReadBarrierSlow);
 
-  // Create an object
+  // Create an object.
   ScopedObjectAccess soa(self);
-  // garbage is created during ClassLinker::Init
+  // Garbage is created during ClassLinker::Init.
 
   StackHandleScope<2> hs(soa.Self());
   Handle<mirror::Class> c(
       hs.NewHandle(class_linker_->FindSystemClass(soa.Self(), "Ljava/lang/Object;")));
 
-  // Build an object instance
+  // Build an Object instance.
   Handle<mirror::Object> obj(hs.NewHandle(c->AllocObject(soa.Self())));
 
   EXPECT_FALSE(self->IsExceptionPending());
@@ -2066,8 +2384,11 @@ TEST_F(StubTest, ReadBarrier) {
 
   EXPECT_FALSE(self->IsExceptionPending());
   EXPECT_NE(reinterpret_cast<size_t>(nullptr), result);
-  mirror::Class* klass = reinterpret_cast<mirror::Class*>(result);
-  EXPECT_EQ(klass, obj->GetClass());
+  mirror::Class* result_class = reinterpret_cast<mirror::Class*>(result);
+  // Check that the heap reference returned by the ReadBarrierSlow
+  // entry point is still the java.lang.Object class.
+  EXPECT_EQ(c.Get(), obj->GetClass());
+  EXPECT_EQ(c.Get(), result_class);
 
   // Tests done.
 #else
@@ -2077,7 +2398,7 @@ TEST_F(StubTest, ReadBarrier) {
 #endif
 }
 
-TEST_F(StubTest, ReadBarrierForRoot) {
+TEST_F(StubTest, ReadBarrierForRootSlow) {
 #if defined(ART_USE_READ_BARRIER) && (defined(__i386__) || defined(__arm__) || \
       defined(__aarch64__) || defined(__mips__) || (defined(__x86_64__) && !defined(__APPLE__)))
   Thread* self = Thread::Current();
@@ -2085,14 +2406,16 @@ TEST_F(StubTest, ReadBarrierForRoot) {
   const uintptr_t readBarrierForRootSlow =
       StubTest::GetEntrypoint(self, kQuickReadBarrierForRootSlow);
 
-  // Create an object
   ScopedObjectAccess soa(self);
-  // garbage is created during ClassLinker::Init
+  // Garbage is created during ClassLinker::Init
 
-  StackHandleScope<1> hs(soa.Self());
+  StackHandleScope<2> hs(soa.Self());
+  Handle<mirror::Class> c(
+      hs.NewHandle(class_linker_->FindSystemClass(soa.Self(), "Ljava/lang/String;")));
 
+  // Build a String instance.
   Handle<mirror::String> obj(
-      hs.NewHandle(mirror::String::AllocFromModifiedUtf8(soa.Self(), "hello, world!")));
+      hs.NewHandle(mirror::String::AllocFromModifiedUtf8(soa.Self(), "Hello, World!")));
 
   EXPECT_FALSE(self->IsExceptionPending());
 
@@ -2101,8 +2424,11 @@ TEST_F(StubTest, ReadBarrierForRoot) {
 
   EXPECT_FALSE(self->IsExceptionPending());
   EXPECT_NE(reinterpret_cast<size_t>(nullptr), result);
-  mirror::Class* klass = reinterpret_cast<mirror::Class*>(result);
-  EXPECT_EQ(klass, obj->GetClass());
+  mirror::Class* result_class = reinterpret_cast<mirror::Class*>(result);
+  // Check that the GC root class returned by the ReadBarrierForRootSlow
+  // entry point is still the java.lang.String class.
+  EXPECT_EQ(c.Get(), obj->GetClass());
+  EXPECT_EQ(c.Get(), result_class);
 
   // Tests done.
 #else

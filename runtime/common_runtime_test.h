@@ -115,6 +115,10 @@ class CommonRuntimeTestImpl {
   // A helper to set up a small heap (4M) to make FillHeap faster.
   static void SetUpRuntimeOptionsForFillHeap(RuntimeOptions *options);
 
+  ClassLinker* GetClassLinker() {
+    return class_linker_;
+  }
+
  protected:
   // Allow subclases such as CommonCompilerTest to add extra options.
   virtual void SetUpRuntimeOptions(RuntimeOptions* options ATTRIBUTE_UNUSED) {}
