@@ -22,6 +22,47 @@
       "revId": "6498edd9ee413b93a9f25a51053af98f17c3dace",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_2a07bf4c",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-07-01T16:11:59Z",
+      "side": 1,
+      "message": "Without this `using`, `vixl::aarch64::` becomes very invasive.\nI felt this might be an acceptable trespassing:\n- The `using` is in the namespace `art::arm64`, so does not leak out to other backends.\n- ARM64 code including this header likely will deal with code-generation and also use VIXL.\nDoes it sound reasonable to you? Up to you.",
+      "parentUuid": "606e977c_1d7263f8",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 60
+      },
+      "revId": "6498edd9ee413b93a9f25a51053af98f17c3dace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_6ae89784",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-07-01T16:11:59Z",
+      "side": 1,
+      "message": "Alignment. Same below.",
+      "revId": "6498edd9ee413b93a9f25a51053af98f17c3dace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
