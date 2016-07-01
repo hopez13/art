@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "00a23b11_ee2adf1f",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1418,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-01T09:43:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0abc3ee_ec9f8bcc",
+      "range": {
+        "startLine": 1418,
+        "startChar": 7,
+        "endLine": 1418,
+        "endChar": 22
+      },
+      "revId": "f86b8fce3a18fe7d774aceb58edb048845f7133d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "001ddb1a_9913bfb4",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-01T09:23:40Z",
       "side": 1,
       "message": "this can still be const right?",
+      "range": {
+        "startLine": 1419,
+        "startChar": 27,
+        "endLine": 1419,
+        "endChar": 53
+      },
+      "revId": "f86b8fce3a18fe7d774aceb58edb048845f7133d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_07ef56ee",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-01T09:43:15Z",
+      "side": 1,
+      "message": "Yes, it could be, but I prefer it this way. Going from const HUserRecord\u003c\u003e to non-const HInstruction* subverts the constness of the graph.",
+      "parentUuid": "001ddb1a_9913bfb4",
       "range": {
         "startLine": 1419,
         "startChar": 27,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "20d49f7c_27f25ada",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-01T09:43:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00a23b11_6e06efc6",
+      "range": {
+        "startLine": 1420,
+        "startChar": 0,
+        "endLine": 1420,
+        "endChar": 6
+      },
+      "revId": "f86b8fce3a18fe7d774aceb58edb048845f7133d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0116f0b_93355c86",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "a0116f0b_d32fd42d",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1423,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-01T09:43:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0116f0b_93355c86",
+      "range": {
+        "startLine": 1423,
+        "startChar": 0,
+        "endLine": 1423,
+        "endChar": 6
+      },
+      "revId": "f86b8fce3a18fe7d774aceb58edb048845f7133d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0f88ffb_9bd1eb66",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2016-07-01T09:23:40Z",
       "side": 1,
       "message": "Now that const/non const is more obvious, what is the use case for the non-const one?",
+      "range": {
+        "startLine": 1819,
+        "startChar": 0,
+        "endLine": 1821,
+        "endChar": 3
+      },
+      "revId": "f86b8fce3a18fe7d774aceb58edb048845f7133d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdaeb264_a93fd913",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1821,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-01T09:43:15Z",
+      "side": 1,
+      "message": "If you want to modify those inputs in any way, you need non-const HInstruction*. For example, in UpdateInputsUsers().",
+      "parentUuid": "a0f88ffb_9bd1eb66",
       "range": {
         "startLine": 1819,
         "startChar": 0,
