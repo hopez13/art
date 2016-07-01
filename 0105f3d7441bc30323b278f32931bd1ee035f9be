@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a0116f0b_96ceea37",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1912,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-07-01T16:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20d49f7c_ead92733",
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80ae2bf8_d5820ee4",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 4
@@ -30,6 +48,30 @@
       "writtenOn": "2016-07-01T13:43:51Z",
       "side": 1,
       "message": "Could you use GetLeastConstantLeft instead here?",
+      "range": {
+        "startLine": 1917,
+        "startChar": 0,
+        "endLine": 1919,
+        "endChar": 61
+      },
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0f88ffb_9b99eb95",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1919,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-07-01T16:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80ae2bf8_d5820ee4",
       "range": {
         "startLine": 1917,
         "startChar": 0,
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "20d49f7c_6a4b779d",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1923,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-07-01T16:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20d49f7c_0ac11b36",
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20d49f7c_6aced765",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 4
@@ -70,6 +130,24 @@
       "writtenOn": "2016-07-01T13:43:51Z",
       "side": 1,
       "message": "Ditto.",
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_4a48339f",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1925,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-07-01T16:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20d49f7c_6aced765",
       "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -99,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "20d49f7c_aaf28f73",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1947,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-07-01T16:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20d49f7c_4acb1354",
+      "range": {
+        "startLine": 1938,
+        "startChar": 0,
+        "endLine": 1947,
+        "endChar": 1
+      },
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20d49f7c_8afd0b75",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 4
@@ -116,6 +218,24 @@
     },
     {
       "key": {
+        "uuid": "20d49f7c_8aceab37",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1964,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-07-01T16:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20d49f7c_8afd0b75",
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20d49f7c_eaf2c7a2",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 4
@@ -127,6 +247,24 @@
       "writtenOn": "2016-07-01T13:43:51Z",
       "side": 1,
       "message": "Remove blank line.",
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_2ade9fe8",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-07-01T16:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20d49f7c_eaf2c7a2",
       "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -186,6 +324,24 @@
     },
     {
       "key": {
+        "uuid": "9d193675_93059cbb",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1975,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-07-01T16:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20d49f7c_4a415393",
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20d49f7c_0aeabba5",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 4
@@ -203,6 +359,24 @@
     },
     {
       "key": {
+        "uuid": "a0f88ffb_de908160",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1989,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-07-01T16:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20d49f7c_0aeabba5",
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20d49f7c_6ae7f7dd",
         "filename": "test/458-checker-instruction-simplification/smali/SmaliTests.smali",
         "patchSetId": 4
@@ -214,6 +388,30 @@
       "writtenOn": "2016-07-01T13:43:51Z",
       "side": 1,
       "message": "Could these constants be encoded as decimal values instead?",
+      "range": {
+        "startLine": 295,
+        "startChar": 26,
+        "endLine": 295,
+        "endChar": 29
+      },
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_8af7cb63",
+        "filename": "test/458-checker-instruction-simplification/smali/SmaliTests.smali",
+        "patchSetId": 4
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-07-01T16:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20d49f7c_6ae7f7dd",
       "range": {
         "startLine": 295,
         "startChar": 26,
