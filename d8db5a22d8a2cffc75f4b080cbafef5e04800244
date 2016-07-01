@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "20d49f7c_8a134bb4",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-01T14:36:58Z",
+      "side": 1,
+      "message": "Nit: DCHECK_EQ(obj-\u003eGetReadBarrierPointer(), ReadBarrier::GrayPtr());",
+      "range": {
+        "startLine": 388,
+        "startChar": 6,
+        "endLine": 388,
+        "endChar": 69
+      },
+      "revId": "d8db5a22d8a2cffc75f4b080cbafef5e04800244",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c0abc3ee_cc7d6f52",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 2
@@ -18,6 +41,75 @@
         "startChar": 63,
         "endLine": 1637,
         "endChar": 69
+      },
+      "revId": "d8db5a22d8a2cffc75f4b080cbafef5e04800244",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_ea08077e",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1957,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-01T14:36:58Z",
+      "side": 1,
+      "message": "nor?",
+      "range": {
+        "startLine": 1957,
+        "startChar": 20,
+        "endLine": 1957,
+        "endChar": 22
+      },
+      "revId": "d8db5a22d8a2cffc75f4b080cbafef5e04800244",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_ca0d438c",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-01T14:36:58Z",
+      "side": 1,
+      "message": "Nit: one statement per line?",
+      "range": {
+        "startLine": 1966,
+        "startChar": 12,
+        "endLine": 1967,
+        "endChar": 66
+      },
+      "revId": "d8db5a22d8a2cffc75f4b080cbafef5e04800244",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_2a233ffd",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1973,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-01T14:36:58Z",
+      "side": 1,
+      "message": "Ditto?",
+      "range": {
+        "startLine": 1972,
+        "startChar": 12,
+        "endLine": 1973,
+        "endChar": 66
       },
       "revId": "d8db5a22d8a2cffc75f4b080cbafef5e04800244",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
