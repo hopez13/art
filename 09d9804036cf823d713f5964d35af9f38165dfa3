@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20d49f7c_4a1af3c2",
+        "filename": "compiler/optimizing/code_generator_mips.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-01T16:37:31Z",
+      "side": 1,
+      "message": "Do you intend to implement that similarly to arm?",
+      "range": {
+        "startLine": 379,
+        "startChar": 5,
+        "endLine": 379,
+        "endChar": 27
+      },
+      "revId": "09d9804036cf823d713f5964d35af9f38165dfa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_caf1c36f",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1509,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-01T16:37:31Z",
+      "side": 1,
+      "message": "Both need to be \"true\" to fail the assertion, so the extra output doesn\u0027t yield any new information.",
+      "range": {
+        "startLine": 1509,
+        "startChar": 40,
+        "endLine": 1509,
+        "endChar": 72
+      },
+      "revId": "09d9804036cf823d713f5964d35af9f38165dfa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_aa972f08",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1988,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-01T16:37:31Z",
+      "side": 1,
+      "message": "Why do you need the \"MipsLabel*\" overload? Shouldn\u0027t you just have one function taking the \"const MipsLabel*\"?",
+      "revId": "09d9804036cf823d713f5964d35af9f38165dfa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
