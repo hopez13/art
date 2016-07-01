@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20d49f7c_a7ddaa51",
+        "filename": "runtime/arch/stub_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-01T09:01:51Z",
+      "side": 1,
+      "message": "Maybe add a comment what this is actually filtering out (or add a macro).",
+      "range": {
+        "startLine": 2157,
+        "startChar": 0,
+        "endLine": 2158,
+        "endChar": 96
+      },
+      "revId": "848ef1c7414d2a9600dfd0b1afd01dfba2934417",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d193675_9310fc4f",
+        "filename": "runtime/arch/stub_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2182,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-01T09:01:51Z",
+      "side": 1,
+      "message": "Add a note that the object may have moved, so you cannot check result and obj begin equal.",
+      "revId": "848ef1c7414d2a9600dfd0b1afd01dfba2934417",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
