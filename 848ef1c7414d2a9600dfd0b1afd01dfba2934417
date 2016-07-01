@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a0116f0b_531c640c",
+        "filename": "runtime/arch/stub_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2158,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-01T10:52:58Z",
+      "side": 1,
+      "message": "(I copied this from the existing read barrier stub tests.)\n\nI don\u0027t know why we filter on `__APPLE__` here.  Maybe the read barrier stub tests are/were not working on Darwin?  I\u0027ll have a look at this.\n\nAlso, I\u0027d gladly replace the preprocessor `#if defined(ART_USE_READ_BARRIER)` with a C++ `if (kUseReadBarrier)`, so that the code is still compiled (though not executed) even when ART_USE_READ_BARRIER is not defined.",
+      "parentUuid": "20d49f7c_a7ddaa51",
+      "range": {
+        "startLine": 2157,
+        "startChar": 0,
+        "endLine": 2158,
+        "endChar": 96
+      },
+      "revId": "848ef1c7414d2a9600dfd0b1afd01dfba2934417",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d193675_9310fc4f",
         "filename": "runtime/arch/stub_test.cc",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2016-07-01T09:01:51Z",
       "side": 1,
       "message": "Add a note that the object may have moved, so you cannot check result and obj begin equal.",
+      "revId": "848ef1c7414d2a9600dfd0b1afd01dfba2934417",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0abc3ee_ccf28f0a",
+        "filename": "runtime/arch/stub_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2182,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-01T10:52:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d193675_9310fc4f",
       "revId": "848ef1c7414d2a9600dfd0b1afd01dfba2934417",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
