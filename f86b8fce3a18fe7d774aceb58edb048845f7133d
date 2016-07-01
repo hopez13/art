@@ -258,6 +258,30 @@
       "revId": "f86b8fce3a18fe7d774aceb58edb048845f7133d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d193675_531dc45c",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1821,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-01T10:42:34Z",
+      "side": 1,
+      "message": "Well, that would be the theory. Unfortunately, our codebase is not exactly const correct, so GetInputsForModification() would crop up in places where you wouldn\u0027t expect it and I don\u0027t want to shock readers into spending time pondering \"why ForModification\". And I\u0027d like to keep this CL simple and not go to a thousands-of-lines const correctness fix. That needs to be done gradually. A little bit has been done in PS3.",
+      "parentUuid": "20d49f7c_a7c64a79",
+      "range": {
+        "startLine": 1819,
+        "startChar": 0,
+        "endLine": 1821,
+        "endChar": 3
+      },
+      "revId": "f86b8fce3a18fe7d774aceb58edb048845f7133d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
