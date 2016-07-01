@@ -1,0 +1,192 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20d49f7c_ead92733",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1912,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-01T13:43:51Z",
+      "side": 1,
+      "message": "I\u0027d remove this blank line.",
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80ae2bf8_d5820ee4",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1919,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-01T13:43:51Z",
+      "side": 1,
+      "message": "Could you use GetLeastConstantLeft instead here?",
+      "range": {
+        "startLine": 1917,
+        "startChar": 0,
+        "endLine": 1919,
+        "endChar": 61
+      },
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_0ac11b36",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1923,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-01T13:43:51Z",
+      "side": 1,
+      "message": "I\u0027d remove that blank line.",
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_6aced765",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1925,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-01T13:43:51Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_4acb1354",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1947,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-01T13:43:51Z",
+      "side": 1,
+      "message": "What about something like:\n\n  static int64_t ComputeAddition(Primitive::Type type, int64_t x, int64_t y) {\n    // Use the HAdd::Compute\u003cT\u003e() method for consistency with TryStaticEvaluation().\n    if (type \u003d\u003d Primitive::kPrimInt) {\n      return HAdd::Compute\u003cint32_t\u003e(x, y);\n    } else {\n      DCHECK_EQ(type, Primitive::kPrimLong);\n      return HAdd::Compute\u003cint64_t\u003e(x, y);\n    }\n  }\n\n?",
+      "range": {
+        "startLine": 1938,
+        "startChar": 0,
+        "endLine": 1947,
+        "endChar": 1
+      },
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_8afd0b75",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1964,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-01T13:43:51Z",
+      "side": 1,
+      "message": "\u003c\u003c instruction-\u003eDebugName()",
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_eaf2c7a2",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1967,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-01T13:43:51Z",
+      "side": 1,
+      "message": "Remove blank line.",
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_caf70391",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1975,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-01T13:43:51Z",
+      "side": 1,
+      "message": "I\u0027d move the\n\n  if (const2 \u003d\u003d nullptr) {\n    return false;\n  }\n\ntest from lines 1983–1985 here just after line 1975.",
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_0aeabba5",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1989,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-01T13:43:51Z",
+      "side": 1,
+      "message": "Ditto, I\u0027d move the\n\n  if (const1 \u003d\u003d nullptr) {\n    return false;\n  }\n\ntest from lines 1993–1995 just after line 1989.",
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_6ae7f7dd",
+        "filename": "test/458-checker-instruction-simplification/smali/SmaliTests.smali",
+        "patchSetId": 4
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-01T13:43:51Z",
+      "side": 1,
+      "message": "Could these constants be encoded as decimal values instead?",
+      "range": {
+        "startLine": 295,
+        "startChar": 26,
+        "endLine": 295,
+        "endChar": 29
+      },
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
