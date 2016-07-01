@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "606e977c_03d20269",
+        "filename": "compiler/optimizing/code_generator_mips.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-01T22:02:31Z",
+      "side": 1,
+      "message": "Yes, improvements in string and class loading are planned. This change is a large one on its own, so I\u0027d rather have it done first and then I can add more stuff on top of it.",
+      "parentUuid": "20d49f7c_4a1af3c2",
+      "range": {
+        "startLine": 379,
+        "startChar": 5,
+        "endLine": 379,
+        "endChar": 27
+      },
+      "revId": "09d9804036cf823d713f5964d35af9f38165dfa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20d49f7c_caf1c36f",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 6
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "bde99ad1_82f9de85",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1509,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-01T22:02:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20d49f7c_caf1c36f",
+      "range": {
+        "startLine": 1509,
+        "startChar": 40,
+        "endLine": 1509,
+        "endChar": 72
+      },
+      "revId": "09d9804036cf823d713f5964d35af9f38165dfa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20d49f7c_aa972f08",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 6
@@ -59,6 +107,24 @@
       "writtenOn": "2016-07-01T16:37:31Z",
       "side": 1,
       "message": "Why do you need the \"MipsLabel*\" overload? Shouldn\u0027t you just have one function taking the \"const MipsLabel*\"?",
+      "revId": "09d9804036cf823d713f5964d35af9f38165dfa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bde99ad1_a2edfac2",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1988,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-01T22:02:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20d49f7c_aa972f08",
       "revId": "09d9804036cf823d713f5964d35af9f38165dfa3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
