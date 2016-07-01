@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80ae2bf8_7283781e",
+        "filename": "test/141-class-unload/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-01T09:10:27Z",
+      "side": 1,
+      "message": "No guarantees that the generated dex will overwrite the register used in move-result-object....",
+      "range": {
+        "startLine": 80,
+        "startChar": 37,
+        "endLine": 80,
+        "endChar": 93
+      },
+      "revId": "32fd3e91beeda18d13313447979695f3c2df4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0116f0b_13f94ccb",
+        "filename": "test/141-class-unload/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-01T09:10:27Z",
+      "side": 1,
+      "message": "If you disregard my comment above, why don\u0027t you use the same trick of creating the class loader, fetching the intHolder.newInstance, then setting the loader to null?",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 92
+      },
+      "revId": "32fd3e91beeda18d13313447979695f3c2df4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00a23b11_8e0cfbe9",
+        "filename": "test/141-class-unload/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-01T09:10:27Z",
+      "side": 1,
+      "message": "loader",
+      "range": {
+        "startLine": 136,
+        "startChar": 14,
+        "endLine": 136,
+        "endChar": 20
+      },
+      "revId": "32fd3e91beeda18d13313447979695f3c2df4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
