@@ -2041,22 +2041,22 @@ TEST_F(StubTest, StringIndexOf) {
 
 // TODO: Exercise the ReadBarrierMarkRegX entry points.
 
-TEST_F(StubTest, ReadBarrier) {
+TEST_F(StubTest, ReadBarrierSlow) {
 #if defined(ART_USE_READ_BARRIER) && (defined(__i386__) || defined(__arm__) || \
       defined(__aarch64__) || defined(__mips__) || (defined(__x86_64__) && !defined(__APPLE__)))
   Thread* self = Thread::Current();
 
   const uintptr_t readBarrierSlow = StubTest::GetEntrypoint(self, kQuickReadBarrierSlow);
 
-  // Create an object
+  // Create an object.
   ScopedObjectAccess soa(self);
-  // garbage is created during ClassLinker::Init
+  // Garbage is created during ClassLinker::Init.
 
   StackHandleScope<2> hs(soa.Self());
   Handle<mirror::Class> c(
       hs.NewHandle(class_linker_->FindSystemClass(soa.Self(), "Ljava/lang/Object;")));
 
-  // Build an object instance
+  // Build an Object instance.
   Handle<mirror::Object> obj(hs.NewHandle(c->AllocObject(soa.Self())));
 
   EXPECT_FALSE(self->IsExceptionPending());
@@ -2066,8 +2066,11 @@ TEST_F(StubTest, ReadBarrier) {
 
   EXPECT_FALSE(self->IsExceptionPending());
   EXPECT_NE(reinterpret_cast<size_t>(nullptr), result);
-  mirror::Class* klass = reinterpret_cast<mirror::Class*>(result);
-  EXPECT_EQ(klass, obj->GetClass());
+  mirror::Class* result_class = reinterpret_cast<mirror::Class*>(result);
+  // Check that the heap reference returned by the ReadBarrierSlow
+  // entry point is still the java.lang.Object class.
+  EXPECT_EQ(c.Get(), obj->GetClass());
+  EXPECT_EQ(c.Get(), result_class);
 
   // Tests done.
 #else
@@ -2077,7 +2080,7 @@ TEST_F(StubTest, ReadBarrier) {
 #endif
 }
 
-TEST_F(StubTest, ReadBarrierForRoot) {
+TEST_F(StubTest, ReadBarrierForRootSlow) {
 #if defined(ART_USE_READ_BARRIER) && (defined(__i386__) || defined(__arm__) || \
       defined(__aarch64__) || defined(__mips__) || (defined(__x86_64__) && !defined(__APPLE__)))
   Thread* self = Thread::Current();
@@ -2085,14 +2088,16 @@ TEST_F(StubTest, ReadBarrierForRoot) {
   const uintptr_t readBarrierForRootSlow =
       StubTest::GetEntrypoint(self, kQuickReadBarrierForRootSlow);
 
-  // Create an object
   ScopedObjectAccess soa(self);
-  // garbage is created during ClassLinker::Init
+  // Garbage is created during ClassLinker::Init
 
-  StackHandleScope<1> hs(soa.Self());
+  StackHandleScope<2> hs(soa.Self());
+  Handle<mirror::Class> c(
+      hs.NewHandle(class_linker_->FindSystemClass(soa.Self(), "Ljava/lang/String;")));
 
+  // Build a String instance.
   Handle<mirror::String> obj(
-      hs.NewHandle(mirror::String::AllocFromModifiedUtf8(soa.Self(), "hello, world!")));
+      hs.NewHandle(mirror::String::AllocFromModifiedUtf8(soa.Self(), "Hello, World!")));
 
   EXPECT_FALSE(self->IsExceptionPending());
 
@@ -2101,8 +2106,11 @@ TEST_F(StubTest, ReadBarrierForRoot) {
 
   EXPECT_FALSE(self->IsExceptionPending());
   EXPECT_NE(reinterpret_cast<size_t>(nullptr), result);
-  mirror::Class* klass = reinterpret_cast<mirror::Class*>(result);
-  EXPECT_EQ(klass, obj->GetClass());
+  mirror::Class* result_class = reinterpret_cast<mirror::Class*>(result);
+  // Check that the GC root class returned by the ReadBarrierForRootSlow
+  // entry point is still the java.lang.String class.
+  EXPECT_EQ(c.Get(), obj->GetClass());
+  EXPECT_EQ(c.Get(), result_class);
 
   // Tests done.
 #else

@@ -26,7 +26,7 @@ namespace art {
 template<class T> class Handle;
 struct StringOffsets;
 class StringPiece;
-class StubTest_ReadBarrierForRoot_Test;
+class StubTest_ReadBarrierForRootSlow_Test;
 
 namespace mirror {
 
@@ -269,7 +269,7 @@ class MANAGED String FINAL : public Object {
   static GcRoot<Class> java_lang_String_;
 
   friend struct art::StringOffsets;  // for verifying offset information
-  ART_FRIEND_TEST(art::StubTest, ReadBarrierForRoot);  // For java_lang_String_.
+  ART_FRIEND_TEST(art::StubTest, ReadBarrierForRootSlow);  // For java_lang_String_.
 
   DISALLOW_IMPLICIT_CONSTRUCTORS(String);
 };
