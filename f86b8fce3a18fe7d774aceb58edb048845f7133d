@@ -234,6 +234,30 @@
       "revId": "f86b8fce3a18fe7d774aceb58edb048845f7133d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20d49f7c_a7c64a79",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1821,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-01T09:46:32Z",
+      "side": 1,
+      "message": "OK. Could we make this one GetInputsForModification? Looks to me the users will mostly use GetInputs, and some specific methods doing replacement use the former.",
+      "parentUuid": "fdaeb264_a93fd913",
+      "range": {
+        "startLine": 1819,
+        "startChar": 0,
+        "endLine": 1821,
+        "endChar": 3
+      },
+      "revId": "f86b8fce3a18fe7d774aceb58edb048845f7133d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
