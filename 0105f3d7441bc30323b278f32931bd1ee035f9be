@@ -150,6 +150,24 @@
     },
     {
       "key": {
+        "uuid": "20d49f7c_2a3a1f29",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1975,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-07-01T14:12:41Z",
+      "side": 1,
+      "message": "This will split the pattern check in two. Do you prefer it for the early bailout\u0027s sake (potentially saving some operations)?",
+      "parentUuid": "20d49f7c_caf70391",
+      "revId": "0105f3d7441bc30323b278f32931bd1ee035f9be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20d49f7c_0aeabba5",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 4
