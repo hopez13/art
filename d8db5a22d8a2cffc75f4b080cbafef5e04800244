@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0abc3ee_cc7d6f52",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1637,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-01T09:53:14Z",
+      "side": 1,
+      "message": "Could you then make ScopedGcGraysImmuneObjects consturctor and destructore code depend on kIsDebugBuild?",
+      "range": {
+        "startLine": 1637,
+        "startChar": 63,
+        "endLine": 1637,
+        "endChar": 69
+      },
+      "revId": "d8db5a22d8a2cffc75f4b080cbafef5e04800244",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
