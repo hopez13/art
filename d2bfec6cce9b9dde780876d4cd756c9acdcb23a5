@@ -73,6 +73,24 @@
       "revId": "d2bfec6cce9b9dde780876d4cd756c9acdcb23a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bde35a1e_ef245d11",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-04T13:43:57Z",
+      "side": 1,
+      "message": "It\u0027s OK to update the cache entry. The code pointer in static methods still points to the resolution trampoline at that point.",
+      "parentUuid": "fdd4f22f_568c14f7",
+      "revId": "d2bfec6cce9b9dde780876d4cd756c9acdcb23a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
