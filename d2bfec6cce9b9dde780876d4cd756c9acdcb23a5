@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d0c66bf_474fceac",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1791,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-04T11:07:02Z",
+      "side": 1,
+      "message": "This old line is too long.",
+      "revId": "d2bfec6cce9b9dde780876d4cd756c9acdcb23a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddd48e39_ed2585b4",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1824,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-04T11:07:02Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "d2bfec6cce9b9dde780876d4cd756c9acdcb23a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d0f22b2_0ae43baf",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-04T11:07:02Z",
+      "side": 1,
+      "message": "This is unnecessary if there is no code between the two cases.",
+      "range": {
+        "startLine": 98,
+        "startChar": 20,
+        "endLine": 98,
+        "endChar": 40
+      },
+      "revId": "d2bfec6cce9b9dde780876d4cd756c9acdcb23a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdd4f22f_568c14f7",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-04T11:07:02Z",
+      "side": 1,
+      "message": "What if the caller is only initializing? Doesn\u0027t this allow other threads to proceed with calling the method without waiting for the initializing thread to complete the initialization?",
+      "revId": "d2bfec6cce9b9dde780876d4cd756c9acdcb23a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
