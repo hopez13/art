@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ddd48e39_ed5d8567",
+        "filename": "compiler/optimizing/code_generator_mips.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-04T11:09:21Z",
+      "side": 1,
+      "message": "It\u0027s just that the comment (and the struct) is a bit out of touch with this particular CL. But if the strings are coming soon, I\u0027m fine with it.",
+      "parentUuid": "606e977c_03d20269",
+      "range": {
+        "startLine": 379,
+        "startChar": 5,
+        "endLine": 379,
+        "endChar": 27
+      },
+      "revId": "09d9804036cf823d713f5964d35af9f38165dfa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20d49f7c_caf1c36f",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 6
