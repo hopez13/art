@@ -36,6 +36,29 @@
     },
     {
       "key": {
+        "uuid": "1d0c66bf_273dfacc",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-04T14:23:31Z",
+      "side": 1,
+      "message": "This creates a temporary that will be immediately destroyed. We want this to be a named variable that lives for the duration of the function.",
+      "range": {
+        "startLine": 50,
+        "startChar": 2,
+        "endLine": 50,
+        "endChar": 66
+      },
+      "revId": "d2bfec6cce9b9dde780876d4cd756c9acdcb23a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d0f22b2_0ae43baf",
         "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
         "patchSetId": 3
