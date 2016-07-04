@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd02328c_86a94a48",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-04T15:19:36Z",
+      "side": 1,
+      "message": "This applies only to static methods. (Other methods are OK because you obviously cannot have a receiver of an uninitialized class.)",
+      "range": {
+        "startLine": 114,
+        "startChar": 46,
+        "endLine": 116,
+        "endChar": 31
+      },
+      "revId": "46c0b62674ae2321fd975ac19ba09271c13eeb86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
