@@ -46,6 +46,30 @@
       "revId": "e14dc86d4e84d52426510d0fafbac3d7e04f960c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddd48e39_4dbff90e",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1954,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-04T16:37:57Z",
+      "side": 1,
+      "message": "Even if the divisor divides the multiplicand, you would also have to check that the intermediate results do not overflow; without that you cannot guarantee that (x * 14) / 7 is the same as x * 2.",
+      "parentUuid": "1d0c66bf_0723169b",
+      "range": {
+        "startLine": 1954,
+        "startChar": 35,
+        "endLine": 1954,
+        "endChar": 68
+      },
+      "revId": "e14dc86d4e84d52426510d0fafbac3d7e04f960c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
