@@ -22,6 +22,30 @@
       "revId": "e14dc86d4e84d52426510d0fafbac3d7e04f960c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d0c66bf_0723169b",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1954,
+      "author": {
+        "id": 1084448
+      },
+      "writtenOn": "2016-07-04T16:14:40Z",
+      "side": 1,
+      "message": "Mainly thoughts on why it can\u0027t be applied: The main reason is that division over the integers does not work like subtraction (with respect to the corresponding inverse operations). Consider the expression x * 5 / 4. If x is 20, then (x * 5) / 4 will be 25, but x * (5 / 4) will be 20. I suppose that the code could check whether the divisor divides the multiplicand, and only then apply the transformation (or check if the divisor and the multiplicand are not coprime, and apply a partial transformation, which may enable further simplifications). However, given that the current optimization is applied a lot less frequently to multiplications than to additions (the difference is a couple of orders of magnitude based on testing with boot.oat, Facebook, Facebook Messenger and Twitter, if I remember correctly), I have decided that further work is not justified.",
+      "parentUuid": "7d0f22b2_0a879b7a",
+      "range": {
+        "startLine": 1954,
+        "startChar": 35,
+        "endLine": 1954,
+        "endChar": 68
+      },
+      "revId": "e14dc86d4e84d52426510d0fafbac3d7e04f960c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
