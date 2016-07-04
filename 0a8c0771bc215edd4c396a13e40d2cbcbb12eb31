@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bde35a1e_0f7209f4",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1766,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-04T15:41:52Z",
+      "side": 1,
+      "message": "As discussed, moved the ++run in body.",
+      "parentUuid": "ddd48e39_0d87b17a",
+      "range": {
+        "startLine": 1766,
+        "startChar": 29,
+        "endLine": 1766,
+        "endChar": 31
+      },
+      "revId": "0a8c0771bc215edd4c396a13e40d2cbcbb12eb31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d348266_c2d722ca",
         "filename": "oatdump/oatdump.cc",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-04T15:32:09Z",
       "side": 1,
       "message": "Ditto?",
+      "range": {
+        "startLine": 1827,
+        "startChar": 29,
+        "endLine": 1827,
+        "endChar": 31
+      },
+      "revId": "0a8c0771bc215edd4c396a13e40d2cbcbb12eb31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdd4f22f_16545cb1",
+        "filename": "oatdump/oatdump.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1827,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-04T15:41:52Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "7d348266_c2d722ca",
       "range": {
         "startLine": 1827,
         "startChar": 29,
