@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "9df776e1_06b31cf9",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-07-05T16:35:44Z",
+      "side": 1,
+      "message": "I think I should. Because you\u0027re not the only one who asked me to do that :)\nFCVTPS doesn\u0027t perform rounding to nearest. It performs rounding toward positive infinity.\nFor example, FCVTPS(-1.9) \u003d -1 and FCVTPS(1.1) \u003d 2.\nThe challenge here is that for many ISAs, there is no single instruction that can support Java8\u0027s math.round definition: round to nearest integer/long and ties to positive infinity.\n\nI can put above description as comment in this function.",
+      "parentUuid": "9df776e1_e6a7e0ba",
+      "range": {
+        "startLine": 637,
+        "startChar": 5,
+        "endLine": 637,
+        "endChar": 28
+      },
+      "revId": "f29931edd7e24866c9d266fd53f293ec7ef38cc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9dde9659_cb64f5a0",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
