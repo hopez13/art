@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bde35a1e_2f5705ba",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-07-05T12:38:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0152784_c592da11",
+      "range": {
+        "startLine": 624,
+        "startChar": 0,
+        "endLine": 624,
+        "endChar": 41
+      },
+      "revId": "f29931edd7e24866c9d266fd53f293ec7ef38cc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0152784_e59556fc",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "bd519aaa_9c2e65ee",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-07-05T12:38:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0152784_e59556fc",
+      "range": {
+        "startLine": 625,
+        "startChar": 39,
+        "endLine": 625,
+        "endChar": 40
+      },
+      "revId": "f29931edd7e24866c9d266fd53f293ec7ef38cc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0152784_a506be4d",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-06-29T11:25:16Z",
       "side": 1,
       "message": "Extra space.",
+      "range": {
+        "startLine": 632,
+        "startChar": 11,
+        "endLine": 632,
+        "endChar": 12
+      },
+      "revId": "f29931edd7e24866c9d266fd53f293ec7ef38cc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d0f22b2_0d49f5a5",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-07-05T12:38:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0152784_a506be4d",
       "range": {
         "startLine": 632,
         "startChar": 11,
@@ -111,6 +183,29 @@
         "startChar": 5,
         "endLine": 637,
         "endChar": 28
+      },
+      "revId": "f29931edd7e24866c9d266fd53f293ec7ef38cc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9dde9659_cb64f5a0",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-07-05T12:38:45Z",
+      "side": 1,
+      "message": "Here is why the 580-checker-round test failed on this patch. Inside this Fcmp, VIXL also uses UseScratchRegisterScope register which trashes tmp_fp.\nFixed in the new patch.",
+      "range": {
+        "startLine": 646,
+        "startChar": 5,
+        "endLine": 646,
+        "endChar": 9
       },
       "revId": "f29931edd7e24866c9d266fd53f293ec7ef38cc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
