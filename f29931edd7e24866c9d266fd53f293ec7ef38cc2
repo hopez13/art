@@ -210,6 +210,30 @@
       "revId": "f29931edd7e24866c9d266fd53f293ec7ef38cc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd519aaa_3c407190",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-05T12:48:36Z",
+      "side": 1,
+      "message": "This is strange; I thought UseScratchRegisterScope would prevent register reuse.",
+      "parentUuid": "9dde9659_cb64f5a0",
+      "range": {
+        "startLine": 646,
+        "startChar": 5,
+        "endLine": 646,
+        "endChar": 9
+      },
+      "revId": "f29931edd7e24866c9d266fd53f293ec7ef38cc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
