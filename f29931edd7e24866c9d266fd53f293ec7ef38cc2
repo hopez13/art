@@ -234,6 +234,30 @@
       "revId": "f29931edd7e24866c9d266fd53f293ec7ef38cc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d41c6d7_bfa9d747",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-07-05T13:09:20Z",
+      "side": 1,
+      "message": "Roland, I think only DEBUG version of VIXL would perform such check.\nHowever, in ART we always use the release build of libvixl no matter we build debug or release version of ART.\nI was thinking that I can propose in another patch, to use libvixld for debug build of ART. Then we can prevent such mistake.",
+      "parentUuid": "bd519aaa_3c407190",
+      "range": {
+        "startLine": 646,
+        "startChar": 5,
+        "endLine": 646,
+        "endChar": 9
+      },
+      "revId": "f29931edd7e24866c9d266fd53f293ec7ef38cc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
