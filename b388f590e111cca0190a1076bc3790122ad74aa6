@@ -22,6 +22,30 @@
       "revId": "b388f590e111cca0190a1076bc3790122ad74aa6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bde35a1e_4f3011f5",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints_enum.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1072549
+      },
+      "writtenOn": "2016-07-05T08:58:00Z",
+      "side": 1,
+      "message": "I will double check all these entrypoints for all the arches, but as far as I am aware this is arch independent. \n\nThere are either specialised assembly - eg: art_quick_mul_long or libc/libm functions eg: fmod (that are called directly - no JNI).",
+      "parentUuid": "00fcfb29_be05f9ba",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 24
+      },
+      "revId": "b388f590e111cca0190a1076bc3790122ad74aa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
