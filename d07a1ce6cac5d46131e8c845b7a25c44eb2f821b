@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d0c66bf_c7ebbe17",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-05T08:23:13Z",
+      "side": 1,
+      "message": "Should this be kCallOnMain? Or kCallOnMainOnly?",
+      "range": {
+        "startLine": 485,
+        "startChar": 4,
+        "endLine": 485,
+        "endChar": 9
+      },
+      "revId": "d07a1ce6cac5d46131e8c845b7a25c44eb2f821b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
