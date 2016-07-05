@@ -258,6 +258,30 @@
       "revId": "f29931edd7e24866c9d266fd53f293ec7ef38cc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bde35a1e_6fff4db0",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-05T13:17:08Z",
+      "side": 1,
+      "message": "Please do. Using vixld was disabled by https://android-review.googlesource.com/207387 as a workaround for ODR violations. When you fix it, please reference the bug 27588884.",
+      "parentUuid": "1d41c6d7_bfa9d747",
+      "range": {
+        "startLine": 646,
+        "startChar": 5,
+        "endLine": 646,
+        "endChar": 9
+      },
+      "revId": "f29931edd7e24866c9d266fd53f293ec7ef38cc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
