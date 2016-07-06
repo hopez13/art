@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "bd519aaa_7c711958",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-06T14:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdd95270_b1d23adb",
+      "range": {
+        "startLine": 767,
+        "startChar": 0,
+        "endLine": 770,
+        "endChar": 7
+      },
+      "revId": "d9faceaa8da92f4a56c2907de949081bd42faf79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d0f22b2_b04da088",
         "filename": "compiler/optimizing/inliner.cc",
         "patchSetId": 6
@@ -118,6 +142,30 @@
       "writtenOn": "2016-07-06T13:57:01Z",
       "side": 1,
       "message": "Strange to use plural here compared to singular in all other places.",
+      "range": {
+        "startLine": 512,
+        "startChar": 28,
+        "endLine": 512,
+        "endChar": 34
+      },
+      "revId": "d9faceaa8da92f4a56c2907de949081bd42faf79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdd4f22f_9c0acd75",
+        "filename": "test/478-checker-clinit-check-pruning/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-06T14:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d41c6d7_5fd8cb52",
       "range": {
         "startLine": 512,
         "startChar": 28,
