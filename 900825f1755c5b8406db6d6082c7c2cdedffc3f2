@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd4792ea_a1e9b888",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-06T17:01:10Z",
+      "side": 1,
+      "message": "Why not QUICK_ENTRYPOINT_OFFSET(pointer_size, pReadBarrierMarkReg00).Int32Value()+pointer_size*reg?",
+      "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d41c6d7_82c4bc47",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-06T17:01:10Z",
+      "side": 1,
+      "message": "The slow-path is always constructed with out_\u003d\u003dobj_. Can we clean this up and remove the \"standard\" slow-path?",
+      "range": {
+        "startLine": 444,
+        "startChar": 8,
+        "endLine": 444,
+        "endChar": 25
+      },
+      "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d0c66bf_0de455af",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-06T17:01:10Z",
+      "side": 1,
+      "message": "a non-conventional calling convention",
+      "range": {
+        "startLine": 454,
+        "startChar": 29,
+        "endLine": 454,
+        "endChar": 64
+      },
+      "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d0f22b2_106b4c6c",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-06T17:01:10Z",
+      "side": 1,
+      "message": "Isn\u0027t 8-byte alignment sufficient for ARM native ABI? (Or was that x86 with the mismatch?)",
+      "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d0f22b2_d00ff4de",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1931,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-06T17:01:10Z",
+      "side": 1,
+      "message": "4",
+      "range": {
+        "startLine": 1931,
+        "startChar": 26,
+        "endLine": 1931,
+        "endChar": 27
+      },
+      "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9df776e1_e65fe0cd",
+        "filename": "runtime/entrypoints/quick/quick_entrypoints_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-06T17:01:10Z",
+      "side": 1,
+      "message": "Despite using a different calling convention, I think they should be declared as taking and returning mirror::Object* because that\u0027s what they do.",
+      "range": {
+        "startLine": 168,
+        "startChar": 26,
+        "endLine": 168,
+        "endChar": 30
+      },
+      "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
