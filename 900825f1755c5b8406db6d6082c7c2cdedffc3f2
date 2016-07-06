@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "bde99ad1_972f53eb",
+        "filename": "compiler/oat_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-06T18:29:56Z",
+      "side": 1,
+      "message": "Do we also need to bump the oat version?",
+      "range": {
+        "startLine": 441,
+        "startChar": 7,
+        "endLine": 441,
+        "endChar": 14
+      },
+      "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd4792ea_a1e9b888",
         "filename": "compiler/optimizing/code_generator.h",
         "patchSetId": 1
@@ -13,6 +36,29 @@
       "writtenOn": "2016-07-06T17:01:10Z",
       "side": 1,
       "message": "Why not QUICK_ENTRYPOINT_OFFSET(pointer_size, pReadBarrierMarkReg00).Int32Value()+pointer_size*reg?",
+      "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bde99ad1_177503dc",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-06T18:29:56Z",
+      "side": 1,
+      "message": "Just to clarify, this CL doesn\u0027t move the register saving code to the slow path entrypoints (yet), correct?",
+      "range": {
+        "startLine": 440,
+        "startChar": 4,
+        "endLine": 440,
+        "endChar": 21
+      },
       "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -65,6 +111,76 @@
     },
     {
       "key": {
+        "uuid": "bde99ad1_570ceb94",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-06T18:29:56Z",
+      "side": 1,
+      "message": "\"non-standard\"?",
+      "parentUuid": "1d0c66bf_0de455af",
+      "range": {
+        "startLine": 454,
+        "startChar": 29,
+        "endLine": 454,
+        "endChar": 64
+      },
+      "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bde99ad1_3723df9a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-06T18:29:56Z",
+      "side": 1,
+      "message": "(Side note, we could also remove the stack map for this runtime call.)",
+      "range": {
+        "startLine": 459,
+        "startChar": 19,
+        "endLine": 459,
+        "endChar": 32
+      },
+      "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bde99ad1_1ccfea8b",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1750,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-06T18:29:56Z",
+      "side": 1,
+      "message": "I\u0027m probably confused about the calling conventions across the architectures. Can you clarify what this non-standard calling convention is like? Does r0 need to be saved?",
+      "range": {
+        "startLine": 1750,
+        "startChar": 17,
+        "endLine": 1750,
+        "endChar": 50
+      },
+      "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d0f22b2_106b4c6c",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 1
@@ -76,6 +192,47 @@
       "writtenOn": "2016-07-06T17:01:10Z",
       "side": 1,
       "message": "Isn\u0027t 8-byte alignment sufficient for ARM native ABI? (Or was that x86 with the mismatch?)",
+      "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bde99ad1_5c65f299",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-06T18:29:56Z",
+      "side": 1,
+      "message": "I heard a 8 byte alignment for arm and arm64.",
+      "parentUuid": "7d0f22b2_106b4c6c",
+      "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bde99ad1_17142343",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1929,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-06T18:29:56Z",
+      "side": 1,
+      "message": "Do we need to save EAX?",
+      "range": {
+        "startLine": 1929,
+        "startChar": 40,
+        "endLine": 1929,
+        "endChar": 48
+      },
       "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -98,6 +255,52 @@
         "startChar": 26,
         "endLine": 1931,
         "endChar": 27
+      },
+      "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bde99ad1_17b6e3e8",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1837,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-06T18:29:56Z",
+      "side": 1,
+      "message": "Why save RDI?",
+      "range": {
+        "startLine": 1837,
+        "startChar": 39,
+        "endLine": 1837,
+        "endChar": 47
+      },
+      "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bde99ad1_b7e28fd7",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1850,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-06T18:29:56Z",
+      "side": 1,
+      "message": "Similarly why save RAX?",
+      "range": {
+        "startLine": 1850,
+        "startChar": 39,
+        "endLine": 1850,
+        "endChar": 47
       },
       "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
