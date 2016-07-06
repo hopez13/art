@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7d0f22b2_907a9c57",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2689,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-06T15:28:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdd95270_d1cdc640",
+      "range": {
+        "startLine": 2689,
+        "startChar": 8,
+        "endLine": 2689,
+        "endChar": 54
+      },
+      "revId": "b284344b180be4cea1404d36c3b57a374e01ae5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9df776e1_e69480b3",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-06T15:19:27Z",
       "side": 1,
       "message": "Nit: I would give names to the input numbers to make this easier to read:\n\n  !IsSameInput(invoke, input_pos, dest_pos) \u0026\u0026\n  !IsSameInput(invoke, input_pos, length) \u0026\u0026\n  …",
+      "range": {
+        "startLine": 2692,
+        "startChar": 31,
+        "endLine": 2692,
+        "endChar": 32
+      },
+      "revId": "b284344b180be4cea1404d36c3b57a374e01ae5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdd95270_917bbea4",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2692,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-06T15:28:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9df776e1_e69480b3",
       "range": {
         "startLine": 2692,
         "startChar": 31,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "fdd4f22f_fc7661ed",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2808,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-06T15:28:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9df776e1_a6c7a8a5",
+      "range": {
+        "startLine": 2808,
+        "startChar": 7,
+        "endLine": 2808,
+        "endChar": 25
+      },
+      "revId": "b284344b180be4cea1404d36c3b57a374e01ae5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd4792ea_21d12804",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2016-07-06T15:19:27Z",
       "side": 1,
       "message": "push it",
+      "range": {
+        "startLine": 2822,
+        "startChar": 15,
+        "endLine": 2822,
+        "endChar": 19
+      },
+      "revId": "b284344b180be4cea1404d36c3b57a374e01ae5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d41c6d7_e2802812",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2822,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-06T15:28:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd4792ea_21d12804",
       "range": {
         "startLine": 2822,
         "startChar": 15,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "1d41c6d7_a28a202e",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2833,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-06T15:28:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bde35a1e_55365e42",
+      "range": {
+        "startLine": 2833,
+        "startChar": 6,
+        "endLine": 2833,
+        "endChar": 49
+      },
+      "revId": "b284344b180be4cea1404d36c3b57a374e01ae5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fdd4f22f_5cc43546",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2016-07-06T15:19:27Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 2846,
+        "startChar": 6,
+        "endLine": 2846,
+        "endChar": 50
+      },
+      "revId": "b284344b180be4cea1404d36c3b57a374e01ae5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d176ada_5820ddef",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2846,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-06T15:28:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdd4f22f_5cc43546",
       "range": {
         "startLine": 2846,
         "startChar": 6,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "1d0c66bf_6d52b154",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2860,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-06T15:28:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdd4f22f_fcf9c187",
+      "range": {
+        "startLine": 2860,
+        "startChar": 6,
+        "endLine": 2860,
+        "endChar": 50
+      },
+      "revId": "b284344b180be4cea1404d36c3b57a374e01ae5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d41c6d7_bfc23764",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "1d41c6d7_6295f848",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2888,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-06T15:28:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d41c6d7_bfc23764",
+      "range": {
+        "startLine": 2888,
+        "startChar": 34,
+        "endLine": 2888,
+        "endChar": 37
+      },
+      "revId": "b284344b180be4cea1404d36c3b57a374e01ae5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d0f22b2_f042f82f",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 3
@@ -197,6 +389,30 @@
       "writtenOn": "2016-07-06T15:19:27Z",
       "side": 1,
       "message": "kObjectReferenceSize?",
+      "range": {
+        "startLine": 2898,
+        "startChar": 26,
+        "endLine": 2898,
+        "endChar": 41
+      },
+      "revId": "b284344b180be4cea1404d36c3b57a374e01ae5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdd95270_318bead1",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2898,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-06T15:28:55Z",
+      "side": 1,
+      "message": "Replace with  Primitive::ComponentSize(Primitive::kPrimNot) to make it uniform with the other backends.",
+      "parentUuid": "7d0f22b2_f042f82f",
       "range": {
         "startLine": 2898,
         "startChar": 26,
