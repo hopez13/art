@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bde99ad1_1c9c4a73",
+        "filename": "test/537-checker-arraycopy/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-06T17:01:18Z",
+      "side": 1,
+      "message": "here, and below, don\u0027t you want to include something like \"intrinsic:SystemArrayCopy\" to make the match more precise?",
+      "range": {
+        "startLine": 71,
+        "startChar": 22,
+        "endLine": 71,
+        "endChar": 42
+      },
+      "revId": "c8605c2fa0eb214d5919a64d55c6d84c7801f430",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
