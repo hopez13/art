@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bde99ad1_d10ba478",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-07-06T22:32:41Z",
+      "side": 1,
+      "message": "Note: This adds additional dependencies that were not previously there: bouncycastle, okhttp, conscrypt, and apache-xml in addition to core-libart and core-oj.\n\nDoes anyone know if those new dependencies are appropriate to include or exclude from this list?",
+      "range": {
+        "startLine": 102,
+        "startChar": 2,
+        "endLine": 102,
+        "endChar": 31
+      },
+      "revId": "c5a0004ac86f976011723c176b589cc99c99e180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
