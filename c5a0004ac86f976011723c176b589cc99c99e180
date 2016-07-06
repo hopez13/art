@@ -22,6 +22,30 @@
       "revId": "c5a0004ac86f976011723c176b589cc99c99e180",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd7fda20_8c6387c6",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-06T23:41:34Z",
+      "side": 1,
+      "message": "I think you\u0027d need to check the master-art(-host) manifest to see if they\u0027re available there. Nicolas\u0027 bots all run with that reduced branch.\n\n(I think they should all be there, considering they\u0027re required for the core image)",
+      "parentUuid": "bde99ad1_d10ba478",
+      "range": {
+        "startLine": 102,
+        "startChar": 2,
+        "endLine": 102,
+        "endChar": 31
+      },
+      "revId": "c5a0004ac86f976011723c176b589cc99c99e180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
