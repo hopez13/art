@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fdd95270_d1cdc640",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2689,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-06T15:19:27Z",
+      "side": 1,
+      "message": "invoke-\u003eInputAt(1)-\u003eIsIntConstant()",
+      "range": {
+        "startLine": 2689,
+        "startChar": 8,
+        "endLine": 2689,
+        "endChar": 54
+      },
+      "revId": "b284344b180be4cea1404d36c3b57a374e01ae5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9df776e1_e69480b3",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2692,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-06T15:19:27Z",
+      "side": 1,
+      "message": "Nit: I would give names to the input numbers to make this easier to read:\n\n  !IsSameInput(invoke, input_pos, dest_pos) \u0026\u0026\n  !IsSameInput(invoke, input_pos, length) \u0026\u0026\n  …",
+      "range": {
+        "startLine": 2692,
+        "startChar": 31,
+        "endLine": 2692,
+        "endChar": 32
+      },
+      "revId": "b284344b180be4cea1404d36c3b57a374e01ae5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9df776e1_a6c7a8a5",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2808,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-06T15:19:27Z",
+      "side": 1,
+      "message": "This is just a matter of personal taste, but this phrasing seems odd; I think we\u0027ve usually used \"saving\" rather than \"restoring\" in the code base (even if we do both) when talking about using the stack to preserve the value of a register; up to you. :)",
+      "range": {
+        "startLine": 2808,
+        "startChar": 7,
+        "endLine": 2808,
+        "endChar": 25
+      },
+      "revId": "b284344b180be4cea1404d36c3b57a374e01ae5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd4792ea_21d12804",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2822,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-06T15:19:27Z",
+      "side": 1,
+      "message": "push it",
+      "range": {
+        "startLine": 2822,
+        "startChar": 15,
+        "endLine": 2822,
+        "endChar": 19
+      },
+      "revId": "b284344b180be4cea1404d36c3b57a374e01ae5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bde35a1e_55365e42",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2833,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-06T15:19:27Z",
+      "side": 1,
+      "message": "For the sake of uniformity, add before this before line 2833:\n\n  // /* HeapReference\u003cClass\u003e */ temp1 \u003d src-\u003eklass_",
+      "range": {
+        "startLine": 2833,
+        "startChar": 6,
+        "endLine": 2833,
+        "endChar": 49
+      },
+      "revId": "b284344b180be4cea1404d36c3b57a374e01ae5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdd4f22f_5cc43546",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2846,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-06T15:19:27Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2846,
+        "startChar": 6,
+        "endLine": 2846,
+        "endChar": 50
+      },
+      "revId": "b284344b180be4cea1404d36c3b57a374e01ae5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdd4f22f_fcf9c187",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2860,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-06T15:19:27Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 2860,
+        "startChar": 6,
+        "endLine": 2860,
+        "endChar": 50
+      },
+      "revId": "b284344b180be4cea1404d36c3b57a374e01ae5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d41c6d7_bfc23764",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2888,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-06T15:19:27Z",
+      "side": 1,
+      "message": "temp1",
+      "range": {
+        "startLine": 2888,
+        "startChar": 34,
+        "endLine": 2888,
+        "endChar": 37
+      },
+      "revId": "b284344b180be4cea1404d36c3b57a374e01ae5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d0f22b2_f042f82f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2898,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-06T15:19:27Z",
+      "side": 1,
+      "message": "kObjectReferenceSize?",
+      "range": {
+        "startLine": 2898,
+        "startChar": 26,
+        "endLine": 2898,
+        "endChar": 41
+      },
+      "revId": "b284344b180be4cea1404d36c3b57a374e01ae5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
