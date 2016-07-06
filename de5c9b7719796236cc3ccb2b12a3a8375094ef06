@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d0c66bf_aabd2fea",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-06T12:26:36Z",
+      "side": 1,
+      "message": "Nit: fits on a single line.",
+      "range": {
+        "startLine": 771,
+        "startChar": 0,
+        "endLine": 772,
+        "endChar": 41
+      },
+      "revId": "de5c9b7719796236cc3ccb2b12a3a8375094ef06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d41c6d7_7ffcafb9",
+        "filename": "test/609-checker-inline-interface/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-06T12:26:36Z",
+      "side": 1,
+      "message": "Nit: give more explicit names to these tests?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 12
+      },
+      "revId": "de5c9b7719796236cc3ccb2b12a3a8375094ef06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd4792ea_e1802012",
+        "filename": "test/609-checker-inline-interface/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-06T12:26:36Z",
+      "side": 1,
+      "message": "Add the `method_name`?",
+      "revId": "de5c9b7719796236cc3ccb2b12a3a8375094ef06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdd95270_b157da43",
+        "filename": "test/609-checker-inline-interface/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-06T12:26:36Z",
+      "side": 1,
+      "message": "Ditto?",
+      "revId": "de5c9b7719796236cc3ccb2b12a3a8375094ef06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
