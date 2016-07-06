@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d0f22b2_b04da088",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-06T12:40:01Z",
+      "side": 1,
+      "message": "Not directly related to this CL, but I noticed this while reading some of this file\u0027s code: is this normal that this case does not end with `return false;`?  Is so, I think that deserves a comment.",
+      "revId": "d9faceaa8da92f4a56c2907de949081bd42faf79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
