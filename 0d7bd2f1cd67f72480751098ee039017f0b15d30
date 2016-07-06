@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1d0c66bf_8a302b90",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1022077
+      },
+      "writtenOn": "2016-07-06T11:17:24Z",
+      "side": 1,
+      "message": "could you reverse the if, or maybe drop it entirely with\nif (!invoke...) {\n  return false;\n}\n// the rest.\n\nI think it will be more readable.",
+      "range": {
+        "startLine": 778,
+        "startChar": 6,
+        "endLine": 780,
+        "endChar": 5
+      },
+      "revId": "0d7bd2f1cd67f72480751098ee039017f0b15d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d41c6d7_1fbc8317",
         "filename": "test/478-checker-clinit-check-pruning/src/Main.java",
         "patchSetId": 2
