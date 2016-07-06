@@ -16,6 +16,24 @@
       "revId": "d9faceaa8da92f4a56c2907de949081bd42faf79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d0c66bf_8a94ab57",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-06T13:10:00Z",
+      "side": 1,
+      "message": "Oh, thanks, I think this felt through the cracks because of line 866 and 869. Will fix in another CL.",
+      "parentUuid": "7d0f22b2_b04da088",
+      "revId": "d9faceaa8da92f4a56c2907de949081bd42faf79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
