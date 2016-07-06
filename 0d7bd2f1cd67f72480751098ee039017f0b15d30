@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fdd4f22f_f9955356",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-06T11:52:38Z",
+      "side": 1,
+      "message": "Actually, I find your suggestion less readable, as I want to say \"if you\u0027re an invoke interface  do this\", instead of \"hey you\u0027re not an invoke interface, then I won\u0027t do it\".\n\nDetails I know. I\u0027ve added a comment, maybe that makes it clearer?",
+      "parentUuid": "1d0c66bf_8a302b90",
+      "range": {
+        "startLine": 778,
+        "startChar": 6,
+        "endLine": 780,
+        "endChar": 5
+      },
+      "revId": "0d7bd2f1cd67f72480751098ee039017f0b15d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d41c6d7_1fbc8317",
         "filename": "test/478-checker-clinit-check-pruning/src/Main.java",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "fdd4f22f_d9b3b714",
+        "filename": "test/478-checker-clinit-check-pruning/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-06T11:52:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d41c6d7_1fbc8317",
+      "range": {
+        "startLine": 363,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 39
+      },
+      "revId": "0d7bd2f1cd67f72480751098ee039017f0b15d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bde35a1e_3209a8d7",
         "filename": "test/478-checker-clinit-check-pruning/src/Main.java",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2016-07-06T11:01:50Z",
       "side": 1,
       "message": "Huh? doThrow is always false. Keep the same as others",
+      "range": {
+        "startLine": 465,
+        "startChar": 10,
+        "endLine": 465,
+        "endChar": 31
+      },
+      "revId": "0d7bd2f1cd67f72480751098ee039017f0b15d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bde35a1e_12f8ecb2",
+        "filename": "test/478-checker-clinit-check-pruning/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-06T11:52:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bde35a1e_3209a8d7",
       "range": {
         "startLine": 465,
         "startChar": 10,
@@ -105,6 +177,30 @@
       "writtenOn": "2016-07-06T11:01:50Z",
       "side": 1,
       "message": "You don\u0027t need to mix CHECK and CHECK-NOT here and actually the test is more robust if you don\u0027t. Please split into two CHECK-START groups... Same with all the others.",
+      "range": {
+        "startLine": 33,
+        "startChar": 1,
+        "endLine": 34,
+        "endChar": 53
+      },
+      "revId": "0d7bd2f1cd67f72480751098ee039017f0b15d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd519aaa_3c3e31a9",
+        "filename": "test/609-checker-inline-interface/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-06T11:52:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d0f22b2_10e46caf",
       "range": {
         "startLine": 33,
         "startChar": 1,
