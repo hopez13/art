@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bde99ad1_0684fb24",
+        "filename": "runtime/interpreter/mterp/mips/alt_stub.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-07-06T16:10:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "606e977c_c3cb8aae",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 11
+      },
+      "revId": "d0c8b691d94252651eb9f643edca0fc7eff7262c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d348266_c2ee428e",
         "filename": "runtime/interpreter/mterp/mterp.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-04T16:01:38Z",
       "side": 1,
       "message": "kTestExportPC?",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 1
+      },
+      "revId": "d0c8b691d94252651eb9f643edca0fc7eff7262c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bde99ad1_39c2f8f8",
+        "filename": "runtime/interpreter/mterp/mterp.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1001578
+      },
+      "writtenOn": "2016-07-06T16:10:19Z",
+      "side": 1,
+      "message": "Done, and for consistency did the same for the existing TraceExecutionEnabled() -\u003e kTraceExecutionEnabled.",
+      "parentUuid": "7d348266_c2ee428e",
       "range": {
         "startLine": 40,
         "startChar": 0,
