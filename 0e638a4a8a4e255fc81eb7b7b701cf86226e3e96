@@ -72,6 +72,23 @@
     },
     {
       "key": {
+        "uuid": "dd73ae92_75e408b1",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2704,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-07T11:00:03Z",
+      "side": 1,
+      "message": "I think we should instead set the \"length\" location to \"Location::Any()\" and load it to \"temp3\" if it ends up on the stack. That will greatly simplify the code.",
+      "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd73ae92_152034ef",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 6
