@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9d42162f_2b34f9c7",
+        "filename": "test/537-checker-arraycopy/src/Main.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-07T14:55:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5dda5eaa_a96c5df1",
+      "range": {
+        "startLine": 69,
+        "startChar": 5,
+        "endLine": 69,
+        "endChar": 39
+      },
+      "revId": "0a9a1af26aef9510c9b3098d6f449bb55a729835",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d2daa77_287ecb92",
         "filename": "test/537-checker-arraycopy/src/Main.java",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-07T14:48:28Z",
       "side": 1,
       "message": "And we\u0027re passing two inputs twice, not just one.",
+      "range": {
+        "startLine": 79,
+        "startChar": 5,
+        "endLine": 79,
+        "endChar": 34
+      },
+      "revId": "0a9a1af26aef9510c9b3098d6f449bb55a729835",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5dda5eaa_698b85d0",
+        "filename": "test/537-checker-arraycopy/src/Main.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-07T14:55:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d2daa77_287ecb92",
       "range": {
         "startLine": 79,
         "startChar": 5,
