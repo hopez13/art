@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5d7fbe4c_645704b9",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2016-07-07T16:50:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d36dec8_e97af557",
+      "range": {
+        "startLine": 817,
+        "startChar": 99,
+        "endLine": 817,
+        "endChar": 111
+      },
+      "revId": "a2c4710fc70d8db0a377b02b83f2598dd1346f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bde99ad1_ae587975",
         "filename": "test/115-native-bridge/nativebridge.cc",
         "patchSetId": 2
