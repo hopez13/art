@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a11e841_5d294fe5",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-07-07T22:04:35Z",
+      "side": 1,
+      "message": "Perhaps change this to -1, since that\u0027s really what you\u0027re computing?  Otherwise the subtraction below is mysterious.",
+      "range": {
+        "startLine": 967,
+        "startChar": 33,
+        "endLine": 967,
+        "endChar": 34
+      },
+      "revId": "1cf0832e490748316f153e3a231d85c8a8e5164f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
