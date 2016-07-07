@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "5d36dec8_09b6699a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-07T12:34:33Z",
+      "side": 1,
+      "message": "What I meant was that this is badly ordered in time. The source/dest position comparison is done at compile time and checking whether source/dest are the same comes later at runtime. But the way you phrased it, it would seem that the \"two arrays are found to be the same at runtime\" check comes before comparing the source/dest positions.\n\nI find it odd but acceptable - I\u0027m not that picky about commit messages.",
+      "parentUuid": "5d36dec8_89c179f6",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "23029a47688048fa4eb639a004eb52a6823b42bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d4dfe58_5199f433",
         "filename": "test/610-arraycopy/src/Main.java",
         "patchSetId": 2
