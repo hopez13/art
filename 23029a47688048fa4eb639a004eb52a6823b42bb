@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "dd73ae92_956c44f2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-07T12:38:39Z",
+      "side": 1,
+      "message": "Rephrased in latest PS. Is that less odd?",
+      "parentUuid": "5d36dec8_09b6699a",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "23029a47688048fa4eb639a004eb52a6823b42bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d4dfe58_5199f433",
         "filename": "test/610-arraycopy/src/Main.java",
         "patchSetId": 2
