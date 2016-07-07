@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "5d4dfe58_717278f5",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-07T13:37:50Z",
+      "side": 1,
+      "message": "No, CheckPosition is called for arraycopy and the char version of arraycopy.",
+      "parentUuid": "3d2daa77_e8e113d6",
+      "range": {
+        "startLine": 1079,
+        "startChar": 32,
+        "endLine": 1079,
+        "endChar": 37
+      },
+      "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d2daa77_48d13f03",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 6
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "dd73ae92_f58578ed",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1102,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-07T13:37:50Z",
+      "side": 1,
+      "message": "Done here and on x86_64/arm/arm64.",
+      "parentUuid": "3d2daa77_48d13f03",
+      "range": {
+        "startLine": 1096,
+        "startChar": 0,
+        "endLine": 1102,
+        "endChar": 52
+      },
+      "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd73ae92_75e408b1",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 6
@@ -83,6 +131,24 @@
       "writtenOn": "2016-07-07T11:00:03Z",
       "side": 1,
       "message": "I think we should instead set the \"length\" location to \"Location::Any()\" and load it to \"temp3\" if it ends up on the stack. That will greatly simplify the code.",
+      "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5dda5eaa_49e4c1b0",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2704,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-07T13:37:50Z",
+      "side": 1,
+      "message": "Excellent suggestion. Done.",
+      "parentUuid": "dd73ae92_75e408b1",
       "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -129,6 +195,30 @@
     },
     {
       "key": {
+        "uuid": "fd3dd29f_cee9c388",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2885,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-07T13:37:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d36dec8_2936cd41",
+      "range": {
+        "startLine": 2883,
+        "startChar": 0,
+        "endLine": 2885,
+        "endChar": 29
+      },
+      "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d4dfe58_f15ca869",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 6
@@ -140,6 +230,30 @@
       "writtenOn": "2016-07-07T10:35:00Z",
       "side": 1,
       "message": "Assert that element_size\u003d\u003d4.",
+      "range": {
+        "startLine": 2913,
+        "startChar": 64,
+        "endLine": 2913,
+        "endChar": 84
+      },
+      "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d2daa77_6849a3a5",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2913,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-07T13:37:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d4dfe58_f15ca869",
       "range": {
         "startLine": 2913,
         "startChar": 64,
@@ -169,6 +283,24 @@
     },
     {
       "key": {
+        "uuid": "5dda5eaa_e9d2d5db",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2924,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-07T13:37:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3dd12a8d_a85d7b68",
+      "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd73ae92_f55c9869",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 6
@@ -180,6 +312,24 @@
       "writtenOn": "2016-07-07T10:35:00Z",
       "side": 1,
       "message": "__ cfi().AdjustCFAOffset(4);",
+      "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd380eb3_8d42612f",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2940,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-07T13:37:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd73ae92_f55c9869",
       "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -203,6 +353,24 @@
     },
     {
       "key": {
+        "uuid": "3d2daa77_e8d753c9",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2941,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-07T13:37:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d36dec8_c9053167",
+      "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd787271_d6bb2484",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 6
@@ -220,6 +388,24 @@
     },
     {
       "key": {
+        "uuid": "9d42162f_cb4d3588",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2945,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-07T13:37:50Z",
+      "side": 1,
+      "message": "I\u0027ll leave it for a follow-up performance experiment.",
+      "parentUuid": "fd787271_d6bb2484",
+      "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fd787271_d6a40470",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 6
@@ -231,6 +417,24 @@
       "writtenOn": "2016-07-07T10:35:00Z",
       "side": 1,
       "message": "__ cfi().AdjustCFAOffset(-4);",
+      "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d36dec8_a971ddc6",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2949,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-07T13:37:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd787271_d6a40470",
       "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
