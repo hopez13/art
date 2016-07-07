@@ -46,6 +46,30 @@
       "revId": "c5a0004ac86f976011723c176b589cc99c99e180",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d7fbe4c_84b9682a",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1057373
+      },
+      "writtenOn": "2016-07-07T16:49:31Z",
+      "side": 1,
+      "message": "They appear to already be picked up as part of a dependency on the core image, so this shouldn\u0027t break anything.",
+      "parentUuid": "bd7fda20_8c6387c6",
+      "range": {
+        "startLine": 102,
+        "startChar": 2,
+        "endLine": 102,
+        "endChar": 31
+      },
+      "revId": "c5a0004ac86f976011723c176b589cc99c99e180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
