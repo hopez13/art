@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5d4dfe58_915d1c69",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-07T10:35:00Z",
+      "side": 1,
+      "message": "Sorry, I got confused. Ignore this one.",
+      "parentUuid": "3d2daa77_e8e113d6",
+      "range": {
+        "startLine": 1079,
+        "startChar": 32,
+        "endLine": 1079,
+        "endChar": 37
+      },
+      "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d2daa77_48d13f03",
         "filename": "compiler/optimizing/intrinsics_x86.cc",
         "patchSetId": 6
@@ -59,6 +83,137 @@
       "writtenOn": "2016-07-07T09:55:16Z",
       "side": 1,
       "message": "If src_pos \u003c dst_pos, you still need to __ j(kEqual, slow_path-\u003eGetEntryLabel()).",
+      "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d36dec8_2936cd41",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2885,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-07T10:35:00Z",
+      "side": 1,
+      "message": "__ cmpl(Address(temp1, super_offet), Immediate(0));",
+      "range": {
+        "startLine": 2883,
+        "startChar": 0,
+        "endLine": 2885,
+        "endChar": 29
+      },
+      "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d4dfe58_f15ca869",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2913,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-07T10:35:00Z",
+      "side": 1,
+      "message": "Assert that element_size\u003d\u003d4.",
+      "range": {
+        "startLine": 2913,
+        "startChar": 64,
+        "endLine": 2913,
+        "endChar": 84
+      },
+      "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3dd12a8d_a85d7b68",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2924,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-07T10:35:00Z",
+      "side": 1,
+      "message": "__ cfi().AdjustCFAOffset(4);",
+      "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd73ae92_f55c9869",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2940,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-07T10:35:00Z",
+      "side": 1,
+      "message": "__ cfi().AdjustCFAOffset(4);",
+      "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d36dec8_c9053167",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2941,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-07T10:35:00Z",
+      "side": 1,
+      "message": "__ cfi().AdjustCFAOffset(-4);",
+      "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd787271_d6bb2484",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2945,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-07T10:35:00Z",
+      "side": 1,
+      "message": "Why don\u0027t we use __ rep_movsl()? (Not yet provided by the assembler.)",
+      "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd787271_d6a40470",
+        "filename": "compiler/optimizing/intrinsics_x86.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2949,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-07T10:35:00Z",
+      "side": 1,
+      "message": "__ cfi().AdjustCFAOffset(-4);",
       "revId": "0e638a4a8a4e255fc81eb7b7b701cf86226e3e96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
