@@ -22,6 +22,30 @@
       "revId": "1cf0832e490748316f153e3a231d85c8a8e5164f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd727a8f_54ad4cad",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-07-07T23:24:37Z",
+      "side": 1,
+      "message": "I can do that but if I do I think I should also change the comment below to \"Return out +\u003d TMP\".",
+      "parentUuid": "7a11e841_5d294fe5",
+      "range": {
+        "startLine": 967,
+        "startChar": 33,
+        "endLine": 967,
+        "endChar": 34
+      },
+      "revId": "1cf0832e490748316f153e3a231d85c8a8e5164f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
