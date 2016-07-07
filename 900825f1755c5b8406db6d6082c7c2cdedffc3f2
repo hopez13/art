@@ -537,6 +537,30 @@
     },
     {
       "key": {
+        "uuid": "dd73ae92_f5f578ef",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1837,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-07T16:31:17Z",
+      "side": 1,
+      "message": "Ah, sorry, this change was not included in PS2; fixing…",
+      "parentUuid": "fd3dd29f_8e6c1bf2",
+      "range": {
+        "startLine": 1837,
+        "startChar": 39,
+        "endLine": 1837,
+        "endChar": 47
+      },
+      "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bde99ad1_b7e28fd7",
         "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
         "patchSetId": 1
@@ -572,6 +596,30 @@
       "side": 1,
       "message": "Ditto.",
       "parentUuid": "bde99ad1_b7e28fd7",
+      "range": {
+        "startLine": 1850,
+        "startChar": 39,
+        "endLine": 1850,
+        "endChar": 47
+      },
+      "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd787271_164d9c2c",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1850,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-07T16:31:17Z",
+      "side": 1,
+      "message": "Ditto, fix pending.",
+      "parentUuid": "9d42162f_0b057d0b",
       "range": {
         "startLine": 1850,
         "startChar": 39,
