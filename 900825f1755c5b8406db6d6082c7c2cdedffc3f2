@@ -308,6 +308,29 @@
     },
     {
       "key": {
+        "uuid": "dd380eb3_edf84582",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1865,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-07T09:03:07Z",
+      "side": 1,
+      "message": "And why save RDI and RAX? In the follow-up we shall save all caller-save registers but in this CL the caller still considers RDI and RAX clobbered.",
+      "range": {
+        "startLine": 1864,
+        "startChar": 0,
+        "endLine": 1865,
+        "endChar": 86
+      },
+      "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9df776e1_e65fe0cd",
         "filename": "runtime/entrypoints/quick/quick_entrypoints_list.h",
         "patchSetId": 1
