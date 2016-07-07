@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "5d4dfe58_f17bc8a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-07T12:40:53Z",
+      "side": 1,
+      "message": "Yes, PS4 commit message is clear.",
+      "parentUuid": "dd73ae92_956c44f2",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "23029a47688048fa4eb639a004eb52a6823b42bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d4dfe58_5199f433",
         "filename": "test/610-arraycopy/src/Main.java",
         "patchSetId": 2
