@@ -22,6 +22,30 @@
       "revId": "59e1168b558c3cb4dd4ec66f85dc7bacd0809390",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a11e841_a1fb9d7d",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2016-07-08T17:01:13Z",
+      "side": 1,
+      "message": "Ideally it should be just CloseNativeLibrary(handle_); but this requires a bit of refactoring of nativeloader.I am inclined to leave this as is for now.",
+      "parentUuid": "7a11e841_c9559db2",
+      "range": {
+        "startLine": 81,
+        "startChar": 15,
+        "endLine": 81,
+        "endChar": 40
+      },
+      "revId": "59e1168b558c3cb4dd4ec66f85dc7bacd0809390",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
