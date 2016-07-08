@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba3360f4_2cd2f3dd",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-08T13:35:16Z",
+      "side": 1,
+      "message": "\"There is no single instruction in ARMv8 that can support the above definition.\" ?",
+      "range": {
+        "startLine": 624,
+        "startChar": 4,
+        "endLine": 624,
+        "endChar": 84
+      },
+      "revId": "78ee300cb9871b1fd586c2156b92828b3402e674",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba3360f4_0cd737ce",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-08T13:35:16Z",
+      "side": 1,
+      "message": "\"is enough\" ?",
+      "range": {
+        "startLine": 627,
+        "startChar": 70,
+        "endLine": 627,
+        "endChar": 82
+      },
+      "revId": "78ee300cb9871b1fd586c2156b92828b3402e674",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa523822_86e2eaa4",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-08T13:35:16Z",
+      "side": 1,
+      "message": "Remove comma.",
+      "range": {
+        "startLine": 628,
+        "startChar": 50,
+        "endLine": 628,
+        "endChar": 51
+      },
+      "revId": "78ee300cb9871b1fd586c2156b92828b3402e674",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa523822_66f12e6e",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-08T13:35:16Z",
+      "side": 1,
+      "message": "were using",
+      "range": {
+        "startLine": 633,
+        "startChar": 11,
+        "endLine": 633,
+        "endChar": 14
+      },
+      "revId": "78ee300cb9871b1fd586c2156b92828b3402e674",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a2e9c8f_8bfb0d47",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-08T13:35:16Z",
+      "side": 1,
+      "message": "would be",
+      "range": {
+        "startLine": 633,
+        "startChar": 69,
+        "endLine": 633,
+        "endChar": 71
+      },
+      "revId": "78ee300cb9871b1fd586c2156b92828b3402e674",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
