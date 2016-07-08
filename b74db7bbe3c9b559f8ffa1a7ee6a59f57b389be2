@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ba3360f4_8c9a0776",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1751,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-08T10:30:54Z",
+      "side": 1,
+      "message": "This is correct.  I\u0027ve rephrased the comment (here and in other back ends); this should hopefully be more clear. :)",
+      "parentUuid": "5d7fbe4c_0769daa5",
+      "range": {
+        "startLine": 1750,
+        "startChar": 45,
+        "endLine": 1751,
+        "endChar": 25
+      },
+      "revId": "b74db7bbe3c9b559f8ffa1a7ee6a59f57b389be2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d7fbe4c_272c1e8c",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ba3360f4_4cae5f99",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1754,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-08T10:30:54Z",
+      "side": 1,
+      "message": "Yes, I realize this comment is superfluous; removed in PS5.",
+      "parentUuid": "5d7fbe4c_272c1e8c",
+      "range": {
+        "startLine": 1753,
+        "startChar": 37,
+        "endLine": 1754,
+        "endChar": 56
+      },
+      "revId": "b74db7bbe3c9b559f8ffa1a7ee6a59f57b389be2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d7fbe4c_e775d668",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2016-07-07T17:44:37Z",
       "side": 1,
       "message": "EAX?",
+      "range": {
+        "startLine": 1926,
+        "startChar": 21,
+        "endLine": 1926,
+        "endChar": 23
+      },
+      "revId": "b74db7bbe3c9b559f8ffa1a7ee6a59f57b389be2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba4c408c_e4c51a46",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 1926,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-08T10:30:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d7fbe4c_e775d668",
       "range": {
         "startLine": 1926,
         "startChar": 21,
