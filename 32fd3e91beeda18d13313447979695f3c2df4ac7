@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7a11e841_41ce01c3",
+        "filename": "test/141-class-unload/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-08T20:47:47Z",
+      "side": 1,
+      "message": "True, I can add a wrapper to return that.",
+      "parentUuid": "80ae2bf8_7283781e",
+      "range": {
+        "startLine": 80,
+        "startChar": 37,
+        "endLine": 80,
+        "endChar": 93
+      },
+      "revId": "32fd3e91beeda18d13313447979695f3c2df4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0116f0b_13f94ccb",
         "filename": "test/141-class-unload/src/Main.java",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "7a11e841_da079ac2",
+        "filename": "test/141-class-unload/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-08T20:47:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0116f0b_13f94ccb",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 92
+      },
+      "revId": "32fd3e91beeda18d13313447979695f3c2df4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00a23b11_8e0cfbe9",
         "filename": "test/141-class-unload/src/Main.java",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2016-07-01T09:10:27Z",
       "side": 1,
       "message": "loader",
+      "range": {
+        "startLine": 136,
+        "startChar": 14,
+        "endLine": 136,
+        "endChar": 20
+      },
+      "revId": "32fd3e91beeda18d13313447979695f3c2df4ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a11e841_1afe32b3",
+        "filename": "test/141-class-unload/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-08T20:47:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00a23b11_8e0cfbe9",
       "range": {
         "startLine": 136,
         "startChar": 14,
