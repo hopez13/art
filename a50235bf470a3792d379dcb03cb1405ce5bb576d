@@ -22,6 +22,30 @@
       "revId": "a50235bf470a3792d379dcb03cb1405ce5bb576d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da4d7487_05f03266",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-07-08T13:37:27Z",
+      "side": 1,
+      "message": "Done.\nI\u0027ve replaced these two instructions with Cinc in Patch 3.\nThanks for the suggestion!",
+      "parentUuid": "1d0c66bf_67a3f2c5",
+      "range": {
+        "startLine": 640,
+        "startChar": 0,
+        "endLine": 645,
+        "endChar": 30
+      },
+      "revId": "a50235bf470a3792d379dcb03cb1405ce5bb576d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
