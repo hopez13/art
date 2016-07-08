@@ -238,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "da4d7487_a5fefe36",
+        "filename": "compiler/optimizing/intrinsics_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-07-08T13:37:27Z",
+      "side": 1,
+      "message": "I added above descriptions (about why we didn\u0027t use FCVTPS) as comments in Patch 3.",
+      "parentUuid": "9df776e1_06b31cf9",
+      "range": {
+        "startLine": 637,
+        "startChar": 5,
+        "endLine": 637,
+        "endChar": 28
+      },
+      "revId": "f29931edd7e24866c9d266fd53f293ec7ef38cc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9dde9659_cb64f5a0",
         "filename": "compiler/optimizing/intrinsics_arm64.cc",
         "patchSetId": 1
