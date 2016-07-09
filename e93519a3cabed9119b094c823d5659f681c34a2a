@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "7a11e841_0bb7ffe6",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-09T03:47:41Z",
+      "side": 1,
+      "message": "Except when it doesn\u0027t, as in line 897. ART style is to still wrap, and release on return.\n\nOr, to make it really intention-revealing, *return* the unique_ptr.",
+      "parentUuid": "7a11e841_abaed395",
+      "range": {
+        "startLine": 790,
+        "startChar": 2,
+        "endLine": 790,
+        "endChar": 11
+      },
+      "revId": "e93519a3cabed9119b094c823d5659f681c34a2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a11e841_4b94d74e",
         "filename": "dexdump/dexdump.cc",
         "patchSetId": 2
