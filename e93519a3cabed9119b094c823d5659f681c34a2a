@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7a11e841_eb9a8b76",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-09T03:42:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a11e841_8b8aef2c",
+      "range": {
+        "startLine": 788,
+        "startChar": 54,
+        "endLine": 788,
+        "endChar": 68
+      },
+      "revId": "e93519a3cabed9119b094c823d5659f681c34a2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a11e841_6b8f9b3e",
         "filename": "dexdump/dexdump.cc",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-09T03:37:28Z",
       "side": 1,
       "message": "Why not unique_ptr?",
+      "range": {
+        "startLine": 790,
+        "startChar": 2,
+        "endLine": 790,
+        "endChar": 11
+      },
+      "revId": "e93519a3cabed9119b094c823d5659f681c34a2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a11e841_abaed395",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 790,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-09T03:42:52Z",
+      "side": 1,
+      "message": "client takes ownership",
+      "parentUuid": "7a11e841_6b8f9b3e",
       "range": {
         "startLine": 790,
         "startChar": 2,
