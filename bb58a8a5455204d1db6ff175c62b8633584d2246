@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "1a0b8c62_af35f9c8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-11T18:46:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a6264ef_4cae4f99",
+      "revId": "bb58a8a5455204d1db6ff175c62b8633584d2246",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba660035_9dbfa70d",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -53,6 +71,30 @@
       "writtenOn": "2016-07-11T18:02:42Z",
       "side": 1,
       "message": "A shorter way to do a fake address dependency.",
+      "range": {
+        "startLine": 6285,
+        "startChar": 5,
+        "endLine": 6285,
+        "endChar": 8
+      },
+      "revId": "bb58a8a5455204d1db6ff175c62b8633584d2246",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da4d7487_a88a5380",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6285,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-11T18:46:14Z",
+      "side": 1,
+      "message": "Do you want me to add \"A shorter way to do a fake address dependency.\" as an additional comment?",
+      "parentUuid": "ba660035_9dbfa70d",
       "range": {
         "startLine": 6285,
         "startChar": 5,
@@ -88,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "fa295886_512cb69e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6325,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-11T18:46:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba660035_3d9ad32e",
+      "range": {
+        "startLine": 6325,
+        "startChar": 77,
+        "endLine": 6325,
+        "endChar": 78
+      },
+      "revId": "bb58a8a5455204d1db6ff175c62b8633584d2246",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba660035_1d9f171f",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -111,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "da4d7487_c88d8f9c",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6327,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-11T18:46:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba660035_1d9f171f",
+      "range": {
+        "startLine": 6327,
+        "startChar": 76,
+        "endLine": 6327,
+        "endChar": 77
+      },
+      "revId": "bb58a8a5455204d1db6ff175c62b8633584d2246",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba660035_7d656bca",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -122,6 +212,30 @@
       "writtenOn": "2016-07-11T18:02:42Z",
       "side": 1,
       "message": "This sets the carry flag if the 28th bit (the last bit shifted off the edge) was 1, correct?",
+      "range": {
+        "startLine": 6328,
+        "startChar": 5,
+        "endLine": 6328,
+        "endChar": 9
+      },
+      "revId": "bb58a8a5455204d1db6ff175c62b8633584d2246",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bafb6085_4c7c5f53",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6328,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-11T18:46:14Z",
+      "side": 1,
+      "message": "Yes, you can follow the manual from LSR through Shift_C() to LSR_C().",
+      "parentUuid": "ba660035_7d656bca",
       "range": {
         "startLine": 6328,
         "startChar": 5,
