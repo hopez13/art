@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5a6264ef_8923199a",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1039815
+      },
+      "writtenOn": "2016-07-11T09:26:40Z",
+      "side": 1,
+      "message": "Makes sense for me. Will update the patch.",
+      "parentUuid": "5a6264ef_e903b507",
+      "range": {
+        "startLine": 944,
+        "startChar": 23,
+        "endLine": 944,
+        "endChar": 65
+      },
+      "revId": "e32648be3c97752cd1312b4d38d65e864e25a1b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a6264ef_e92cd58d",
         "filename": "compiler/optimizing/instruction_simplifier.cc",
         "patchSetId": 2
