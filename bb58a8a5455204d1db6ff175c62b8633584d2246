@@ -39,6 +39,98 @@
       "revId": "bb58a8a5455204d1db6ff175c62b8633584d2246",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba660035_9dbfa70d",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6285,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-11T18:02:42Z",
+      "side": 1,
+      "message": "A shorter way to do a fake address dependency.",
+      "range": {
+        "startLine": 6285,
+        "startChar": 5,
+        "endLine": 6285,
+        "endChar": 8
+      },
+      "revId": "bb58a8a5455204d1db6ff175c62b8633584d2246",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba660035_3d9ad32e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6325,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-11T18:02:42Z",
+      "side": 1,
+      "message": "0",
+      "range": {
+        "startLine": 6325,
+        "startChar": 77,
+        "endLine": 6325,
+        "endChar": 78
+      },
+      "revId": "bb58a8a5455204d1db6ff175c62b8633584d2246",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba660035_1d9f171f",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6327,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-11T18:02:42Z",
+      "side": 1,
+      "message": "2",
+      "range": {
+        "startLine": 6327,
+        "startChar": 76,
+        "endLine": 6327,
+        "endChar": 77
+      },
+      "revId": "bb58a8a5455204d1db6ff175c62b8633584d2246",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba660035_7d656bca",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6328,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-11T18:02:42Z",
+      "side": 1,
+      "message": "This sets the carry flag if the 28th bit (the last bit shifted off the edge) was 1, correct?",
+      "range": {
+        "startLine": 6328,
+        "startChar": 5,
+        "endLine": 6328,
+        "endChar": 9
+      },
+      "revId": "bb58a8a5455204d1db6ff175c62b8633584d2246",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
