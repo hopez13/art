@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a6264ef_e9fdf5b6",
+        "filename": "test/141-class-unload/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-11T12:39:16Z",
+      "side": 1,
+      "message": "I don\u0027t understand this comment. Aren\u0027t we testing that the class loader is not null? The Pair is holding a IntHolder, which will always keep alive the class loader, right?",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 86
+      },
+      "revId": "b0e861cb829f190f91579637f93a096fc1a680b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
