@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ba660035_f7d23a30",
+        "filename": "compiler/optimizing/nodes_x86.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-07-11T15:41:37Z",
+      "side": 1,
+      "message": "Probably.  This was done a LONG time ago, and not updated, since there wasn\u0027t much interest.  Would you like me to refresh this and try again?",
+      "parentUuid": "1a0b8c62_0f9fe51e",
+      "range": {
+        "startLine": 105,
+        "startChar": 6,
+        "endLine": 105,
+        "endChar": 27
+      },
+      "revId": "d47db991dc6174297066cb44a678b6db8de9862e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa295886_b1e51ab1",
         "filename": "compiler/optimizing/x86_memory_gen.cc",
         "patchSetId": 6
