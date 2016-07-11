@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a6264ef_e903b507",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-11T09:20:18Z",
+      "side": 1,
+      "message": "Since addition is commutative, we should simplify also if\n\n    right-\u003eIsSub() \u0026\u0026 right-\u003eInputAt(1) \u003d\u003d left\n\nreplacing with right-\u003eInputAt(0).",
+      "range": {
+        "startLine": 944,
+        "startChar": 23,
+        "endLine": 944,
+        "endChar": 65
+      },
+      "revId": "e32648be3c97752cd1312b4d38d65e864e25a1b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a6264ef_e92cd58d",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1460,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-11T09:20:18Z",
+      "side": 1,
+      "message": "Also simplify if left-\u003eInputAt(0) \u003d\u003d right.",
+      "range": {
+        "startLine": 1460,
+        "startChar": 23,
+        "endLine": 1460,
+        "endChar": 48
+      },
+      "revId": "e32648be3c97752cd1312b4d38d65e864e25a1b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
