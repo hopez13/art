@@ -139,6 +139,30 @@
       "revId": "e7c9ba7761410ba37ce6cbb0b161f07dc3999346",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ab2acf6_5af5f187",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5142,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-12T17:45:02Z",
+      "side": 1,
+      "message": "Actually, array_length-\u003eGetLocations()-\u003eInAt(0).",
+      "parentUuid": "1ab2acf6_bac28d3a",
+      "range": {
+        "startLine": 5142,
+        "startChar": 50,
+        "endLine": 5142,
+        "endChar": 55
+      },
+      "revId": "e7c9ba7761410ba37ce6cbb0b161f07dc3999346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
