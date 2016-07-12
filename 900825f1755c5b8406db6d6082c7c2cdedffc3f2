@@ -396,6 +396,24 @@
     },
     {
       "key": {
+        "uuid": "1ab2acf6_facc056f",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1758,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-12T17:27:46Z",
+      "side": 1,
+      "message": "It seems 16-byte alignment is required on ARM64; with just 8-byte alignment, I get SIGBUSes when running tests on angler.  I\u0027ll fix this in my next patch set.",
+      "parentUuid": "fd3dd29f_2e8c07f7",
+      "revId": "900825f1755c5b8406db6d6082c7c2cdedffc3f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bde99ad1_17142343",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 1
