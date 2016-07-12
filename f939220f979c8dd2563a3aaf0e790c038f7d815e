@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1ab2acf6_97a76421",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-07-12T14:08:42Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "1ab2acf6_f738a0dc",
+      "range": {
+        "startLine": 214,
+        "startChar": 19,
+        "endLine": 214,
+        "endChar": 34
+      },
+      "revId": "f939220f979c8dd2563a3aaf0e790c038f7d815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ab2acf6_77e1f0d4",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-12T08:57:52Z",
       "side": 1,
       "message": "So this is 8 right? Worth just making it a GetRegSizeFor...() and put this RoundUp logic in the caller?",
+      "range": {
+        "startLine": 425,
+        "startChar": 43,
+        "endLine": 425,
+        "endChar": 59
+      },
+      "revId": "f939220f979c8dd2563a3aaf0e790c038f7d815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ab2acf6_77a3b016",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-07-12T14:08:42Z",
+      "side": 1,
+      "message": "It is 8 indeed.\n\nI don\u0027t think we want to push the RoundUp in the caller: I am not sure other archs want to round up that part of the stack.",
+      "parentUuid": "1ab2acf6_77e1f0d4",
       "range": {
         "startLine": 425,
         "startChar": 43,
