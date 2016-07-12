@@ -189,6 +189,30 @@
       "revId": "f939220f979c8dd2563a3aaf0e790c038f7d815e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ab2acf6_b723884b",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-12T14:56:51Z",
+      "side": 1,
+      "message": "Yes, and I felt the RoundUp(slots_size, GetPreferedAlignment()) was a good compromise :)",
+      "parentUuid": "1ab2acf6_f70420c0",
+      "range": {
+        "startLine": 425,
+        "startChar": 43,
+        "endLine": 425,
+        "endChar": 59
+      },
+      "revId": "f939220f979c8dd2563a3aaf0e790c038f7d815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
