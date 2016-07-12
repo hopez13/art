@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ab2acf6_774d707c",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1355,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-12T12:37:26Z",
+      "side": 1,
+      "message": "How about:\nif (!parent-\u003eNeedsTwoSpillSlots()) {\n  break;\n}\n\nif (slot \u003d\u003d e - 1 || ...) {\n  break;\n}",
+      "range": {
+        "startLine": 1349,
+        "startChar": 0,
+        "endLine": 1355,
+        "endChar": 5
+      },
+      "revId": "d4d0407ccca7f30012af9519e5bce38eae98ae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
