@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5acfc472_196376f4",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-07-12T17:57:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ab2acf6_1a80d90f",
+      "range": {
+        "startLine": 243,
+        "startChar": 6,
+        "endLine": 243,
+        "endChar": 37
+      },
+      "revId": "e7c9ba7761410ba37ce6cbb0b161f07dc3999346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ab2acf6_17aef4b0",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 8
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "5acfc472_f965f2f8",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5064,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-07-12T17:57:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ab2acf6_7ae1d5d4",
+      "range": {
+        "startLine": 5064,
+        "startChar": 4,
+        "endLine": 5064,
+        "endChar": 56
+      },
+      "revId": "e7c9ba7761410ba37ce6cbb0b161f07dc3999346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ab2acf6_dacf4161",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 8
@@ -107,6 +155,30 @@
       "writtenOn": "2016-07-12T17:28:21Z",
       "side": 1,
       "message": "I believe this is unnecessary after the PrepareForRegisterAllocation.",
+      "range": {
+        "startLine": 5138,
+        "startChar": 0,
+        "endLine": 5140,
+        "endChar": 7
+      },
+      "revId": "e7c9ba7761410ba37ce6cbb0b161f07dc3999346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5acfc472_b9544a11",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5140,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-07-12T17:57:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ab2acf6_dacf4161",
       "range": {
         "startLine": 5138,
         "startChar": 0,
@@ -153,6 +225,30 @@
       "writtenOn": "2016-07-12T17:45:02Z",
       "side": 1,
       "message": "Actually, array_length-\u003eGetLocations()-\u003eInAt(0).",
+      "parentUuid": "1ab2acf6_bac28d3a",
+      "range": {
+        "startLine": 5142,
+        "startChar": 50,
+        "endLine": 5142,
+        "endChar": 55
+      },
+      "revId": "e7c9ba7761410ba37ce6cbb0b161f07dc3999346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5acfc472_d9682ed2",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5142,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-07-12T17:57:18Z",
+      "side": 1,
+      "message": "Done",
       "parentUuid": "1ab2acf6_bac28d3a",
       "range": {
         "startLine": 5142,
