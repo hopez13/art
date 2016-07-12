@@ -22,6 +22,30 @@
       "revId": "d4d0407ccca7f30012af9519e5bce38eae98ae1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5acfc472_194d36b2",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1355,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-07-12T17:47:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ab2acf6_774d707c",
+      "range": {
+        "startLine": 1349,
+        "startChar": 0,
+        "endLine": 1355,
+        "endChar": 5
+      },
+      "revId": "d4d0407ccca7f30012af9519e5bce38eae98ae1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
