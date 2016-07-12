@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1ab2acf6_1a80d90f",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-12T17:28:21Z",
+      "side": 1,
+      "message": "Most of the work here is the same as for BoundsCheckSlowPathX86_64, so it would make sense to simply adjust that class to handle the length being emitted at use site.",
+      "range": {
+        "startLine": 243,
+        "startChar": 6,
+        "endLine": 243,
+        "endChar": 37
+      },
+      "revId": "e7c9ba7761410ba37ce6cbb0b161f07dc3999346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ab2acf6_17aef4b0",
         "filename": "compiler/optimizing/code_generator_x86_64.cc",
         "patchSetId": 8
@@ -42,6 +65,76 @@
         "startChar": 4,
         "endLine": 5064,
         "endChar": 56
+      },
+      "revId": "e7c9ba7761410ba37ce6cbb0b161f07dc3999346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ab2acf6_7ae1d5d4",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5064,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-12T17:28:21Z",
+      "side": 1,
+      "message": "You should also move the ArrayLength just before the BoundsCheck. Together with the \"Out() -\u003e InputAt(0)\" fix below, you should be closer to a working version.",
+      "parentUuid": "5acfc472_40dc2352",
+      "range": {
+        "startLine": 5064,
+        "startChar": 4,
+        "endLine": 5064,
+        "endChar": 56
+      },
+      "revId": "e7c9ba7761410ba37ce6cbb0b161f07dc3999346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ab2acf6_dacf4161",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5140,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-12T17:28:21Z",
+      "side": 1,
+      "message": "I believe this is unnecessary after the PrepareForRegisterAllocation.",
+      "range": {
+        "startLine": 5138,
+        "startChar": 0,
+        "endLine": 5140,
+        "endChar": 7
+      },
+      "revId": "e7c9ba7761410ba37ce6cbb0b161f07dc3999346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ab2acf6_bac28d3a",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5142,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-12T17:28:21Z",
+      "side": 1,
+      "message": "InputAt(0)",
+      "range": {
+        "startLine": 5142,
+        "startChar": 50,
+        "endLine": 5142,
+        "endChar": 55
       },
       "revId": "e7c9ba7761410ba37ce6cbb0b161f07dc3999346",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
