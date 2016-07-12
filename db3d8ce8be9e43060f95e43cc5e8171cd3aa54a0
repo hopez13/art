@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ab2acf6_1a245910",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 5029,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-12T18:08:05Z",
+      "side": 1,
+      "message": "In the slow path, after you have spilled live registers, you can select any register that doesn\u0027t hold the index, preferably the correct register according to the calling convention.",
+      "range": {
+        "startLine": 5029,
+        "startChar": 4,
+        "endLine": 5029,
+        "endChar": 53
+      },
+      "revId": "db3d8ce8be9e43060f95e43cc5e8171cd3aa54a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
