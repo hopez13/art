@@ -22,6 +22,30 @@
       "revId": "e7c9ba7761410ba37ce6cbb0b161f07dc3999346",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5acfc472_40dc2352",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 5064,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-07-12T15:36:13Z",
+      "side": 1,
+      "message": "I tried that originally.  Dies with:\nssa_liveness_analysis.h:321] Check failed: first_range_-\u003eGetStart() \u003e position\ncalled from ssa_liveness_analysis.cc:194",
+      "parentUuid": "1ab2acf6_17aef4b0",
+      "range": {
+        "startLine": 5064,
+        "startChar": 4,
+        "endLine": 5064,
+        "endChar": 56
+      },
+      "revId": "e7c9ba7761410ba37ce6cbb0b161f07dc3999346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
