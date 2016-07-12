@@ -46,6 +46,30 @@
       "revId": "59e1168b558c3cb4dd4ec66f85dc7bacd0809390",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5acfc472_5bb33b16",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1104175
+      },
+      "writtenOn": "2016-07-12T02:08:11Z",
+      "side": 1,
+      "message": "ok.",
+      "parentUuid": "7a11e841_a1fb9d7d",
+      "range": {
+        "startLine": 81,
+        "startChar": 15,
+        "endLine": 81,
+        "endChar": 40
+      },
+      "revId": "59e1168b558c3cb4dd4ec66f85dc7bacd0809390",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
