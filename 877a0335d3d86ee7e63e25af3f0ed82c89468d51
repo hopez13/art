@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ab2acf6_37ebf818",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5270,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-12T14:21:41Z",
+      "side": 1,
+      "message": "Should we be worried about large methods where the offset between this TBNZ instruction and the slow path entry could be larger 32 KiB?  Or do we know we\u0027ll never hit that case (because of our filters on the maximum size of a compilable Dex code item)?",
+      "range": {
+        "startLine": 5270,
+        "startChar": 5,
+        "endLine": 5270,
+        "endChar": 9
+      },
+      "revId": "877a0335d3d86ee7e63e25af3f0ed82c89468d51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
