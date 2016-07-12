@@ -213,6 +213,30 @@
       "revId": "f939220f979c8dd2563a3aaf0e790c038f7d815e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ab2acf6_77ebb0e5",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-07-12T14:59:26Z",
+      "side": 1,
+      "message": "Ok, so in the end I go for the `if (arm64)`, right? Or you prefer the `GetPreferredAllignment()` version?",
+      "parentUuid": "1ab2acf6_b723884b",
+      "range": {
+        "startLine": 425,
+        "startChar": 43,
+        "endLine": 425,
+        "endChar": 59
+      },
+      "revId": "f939220f979c8dd2563a3aaf0e790c038f7d815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
