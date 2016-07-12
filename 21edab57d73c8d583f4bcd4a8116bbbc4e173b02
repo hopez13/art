@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ab2acf6_97d92490",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-12T14:31:22Z",
+      "side": 1,
+      "message": "Why are we not reusing the same slots for core and FP registers?\n\nOn 64-bit architectures, why are we not saving just the low word for 32-bit (and smaller) types, including references?",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 80
+      },
+      "revId": "21edab57d73c8d583f4bcd4a8116bbbc4e173b02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
