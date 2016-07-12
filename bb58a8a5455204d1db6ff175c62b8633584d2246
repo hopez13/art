@@ -107,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "5acfc472_d4c55546",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6285,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-12T18:29:04Z",
+      "side": 1,
+      "message": "No, I just meant to say, \"it\u0027s a nice way to shorten the fake address dependency!\" Sorry for the ambiguity.",
+      "parentUuid": "da4d7487_a88a5380",
+      "range": {
+        "startLine": 6285,
+        "startChar": 5,
+        "endLine": 6285,
+        "endChar": 8
+      },
+      "revId": "bb58a8a5455204d1db6ff175c62b8633584d2246",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba660035_3d9ad32e",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
