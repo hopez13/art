@@ -707,10 +707,8 @@ static void GenFPToFPCall(HInvoke* invoke, CodeGeneratorX86_64* codegen,
   LocationSummary* locations = invoke->GetLocations();
   DCHECK(locations->WillCall());
   DCHECK(invoke->IsInvokeStaticOrDirect());
-  X86_64Assembler* assembler = codegen->GetAssembler();
 
-  __ gs()->call(Address::Absolute(GetThreadOffset<kX86_64PointerSize>(entry), true));
-  codegen->RecordPcInfo(invoke, invoke->GetDexPc());
+  codegen->InvokeRuntime(entry, invoke, invoke->GetDexPc());
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitMathCos(HInvoke* invoke) {
@@ -1313,8 +1311,7 @@ void IntrinsicCodeGeneratorX86_64::VisitStringCompareTo(HInvoke* invoke) {
   codegen_->AddSlowPath(slow_path);
   __ j(kEqual, slow_path->GetEntryLabel());
 
-  __ gs()->call(Address::Absolute(QUICK_ENTRYPOINT_OFFSET(kX86_64PointerSize, pStringCompareTo),
-                                  /* no_rip */ true));
+  codegen_->InvokeRuntime(kQuickStringCompareTo, invoke, invoke->GetDexPc(), slow_path);
   __ Bind(slow_path->GetExitLabel());
 }
 
@@ -1586,11 +1583,8 @@ void IntrinsicCodeGeneratorX86_64::VisitStringNewStringFromBytes(HInvoke* invoke
   codegen_->AddSlowPath(slow_path);
   __ j(kEqual, slow_path->GetEntryLabel());
 
-  __ gs()->call(Address::Absolute(QUICK_ENTRYPOINT_OFFSET(kX86_64PointerSize,
-                                                          pAllocStringFromBytes),
-                                  /* no_rip */ true));
+  codegen_->InvokeRuntime(kQuickAllocStringFromBytes, invoke, invoke->GetDexPc());
   CheckEntrypointTypes<kQuickAllocStringFromBytes, void*, void*, int32_t, int32_t, int32_t>();
-  codegen_->RecordPcInfo(invoke, invoke->GetDexPc());
   __ Bind(slow_path->GetExitLabel());
 }
 
@@ -1606,19 +1600,14 @@ void IntrinsicLocationsBuilderX86_64::VisitStringNewStringFromChars(HInvoke* inv
 }
 
 void IntrinsicCodeGeneratorX86_64::VisitStringNewStringFromChars(HInvoke* invoke) {
-  X86_64Assembler* assembler = GetAssembler();
-
   // No need to emit code checking whether `locations->InAt(2)` is a null
   // pointer, as callers of the native method
   //
   //   java.lang.StringFactory.newStringFromChars(int offset, int charCount, char[] data)
   //
   // all include a null check on `data` before calling that method.
-  __ gs()->call(Address::Absolute(QUICK_ENTRYPOINT_OFFSET(kX86_64PointerSize,
-                                                          pAllocStringFromChars),
-                                  /* no_rip */ true));
+  codegen_->InvokeRuntime(kQuickAllocStringFromChars, invoke, invoke->GetDexPc());
   CheckEntrypointTypes<kQuickAllocStringFromChars, void*, int32_t, int32_t, void*>();
-  codegen_->RecordPcInfo(invoke, invoke->GetDexPc());
 }
 
 void IntrinsicLocationsBuilderX86_64::VisitStringNewStringFromString(HInvoke* invoke) {
@@ -1640,11 +1629,8 @@ void IntrinsicCodeGeneratorX86_64::VisitStringNewStringFromString(HInvoke* invok
   codegen_->AddSlowPath(slow_path);
   __ j(kEqual, slow_path->GetEntryLabel());
 
-  __ gs()->call(Address::Absolute(QUICK_ENTRYPOINT_OFFSET(kX86_64PointerSize,
-                                                          pAllocStringFromString),
-                                  /* no_rip */ true));
+  codegen_->InvokeRuntime(kQuickAllocStringFromString, invoke, invoke->GetDexPc());
   CheckEntrypointTypes<kQuickAllocStringFromString, void*, void*>();
-  codegen_->RecordPcInfo(invoke, invoke->GetDexPc());
   __ Bind(slow_path->GetExitLabel());
 }
 
