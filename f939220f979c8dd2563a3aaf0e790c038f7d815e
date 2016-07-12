@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1ab2acf6_f738a0dc",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-12T12:54:00Z",
+      "side": 1,
+      "message": "Please document this (especially since it\u0027s the default implementation, \"doing nothing\").",
+      "range": {
+        "startLine": 214,
+        "startChar": 19,
+        "endLine": 214,
+        "endChar": 34
+      },
+      "revId": "f939220f979c8dd2563a3aaf0e790c038f7d815e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ab2acf6_77e1f0d4",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 1
