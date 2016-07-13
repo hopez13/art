@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "1ab2acf6_fafb2545",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-13T10:06:56Z",
+      "side": 1,
+      "message": "Looks like Scott did the change? Looking at PS3, maybe just \"using namespace vixl\" would be ok for me. But maybe not worth trsspassing the style?",
+      "parentUuid": "20d49f7c_2a07bf4c",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 60
+      },
+      "revId": "6498edd9ee413b93a9f25a51053af98f17c3dace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20d49f7c_6ae89784",
         "filename": "compiler/optimizing/code_generator_arm64.h",
         "patchSetId": 1
