@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1ab2acf6_3a475d42",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-13T14:22:26Z",
+      "side": 1,
+      "message": "Replace with \"Test: 609-checker-x86-bounds-check\"",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 50
+      },
+      "revId": "05758dec9d844e7772cde9d6ced1ab61bbb91bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ab2acf6_3a1e7d5a",
         "filename": "test/609-checker-x86-bounds-check/src/Main.java",
         "patchSetId": 14
