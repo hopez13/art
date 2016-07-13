@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ab2acf6_3a1e7d5a",
+        "filename": "test/609-checker-x86-bounds-check/src/Main.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-13T14:21:32Z",
+      "side": 1,
+      "message": "Why do you mix CHEK and CHECK-DAG for ParameterValue? I\u0027d have either both CHECK or both CHECK-DAG. And since the parameters have different types, I\u0027d prefer CHECK-DAG.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 58
+      },
+      "revId": "05758dec9d844e7772cde9d6ced1ab61bbb91bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ab2acf6_1a19b971",
+        "filename": "test/609-checker-x86-bounds-check/src/Main.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-13T14:21:32Z",
+      "side": 1,
+      "message": "In python regex, \\w includes digits, so the \\d is unnecessary (and the \\w alone doesn\u0027t need square brackets).",
+      "range": {
+        "startLine": 51,
+        "startChar": 59,
+        "endLine": 51,
+        "endChar": 65
+      },
+      "revId": "05758dec9d844e7772cde9d6ced1ab61bbb91bac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
