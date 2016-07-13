@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ab2acf6_9a04e94a",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-13T09:56:21Z",
+      "side": 1,
+      "message": "Maybe that\u0027s the bogus bit: that should not work with ART_ENABLE_CODEGEN_arm64 set to false.",
+      "range": {
+        "startLine": 309,
+        "startChar": 53,
+        "endLine": 309,
+        "endChar": 59
+      },
+      "revId": "725bea5ade632fe1a2724e1d47fb91d51e7c121b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
