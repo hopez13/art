@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5acfc472_86746ce2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2197,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-13T22:38:35Z",
+      "side": 1,
+      "message": "Clarify this comment a bit? Mathieu says in person that this means we can\u0027t use h_class-\u003eMonitorEnter (or block in any way) to avoid a deadlock.",
+      "range": {
+        "startLine": 2196,
+        "startChar": 54,
+        "endLine": 2197,
+        "endChar": 28
+      },
+      "revId": "10ba560dc59d6d35051715e8e24497d7668ffd1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
