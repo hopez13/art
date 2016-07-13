@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "5acfc472_1d526ffc",
+        "filename": "runtime/base/unix_file/fd_file.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-13T20:51:45Z",
+      "side": 1,
+      "message": "The community seems to disagree. unique_ptr doesn\u0027t protect itself that way, either.\n\nThe reasoning is that the rvalue reference is supposed to be somewhat of an unnamed temp, so how can you assign it to self?",
+      "parentUuid": "5acfc472_bd1424f2",
+      "range": {
+        "startLine": 82,
+        "startChar": 2,
+        "endLine": 82,
+        "endChar": 9
+      },
+      "revId": "9377e99ee6262fdeb2f8c4aa994a5df290155691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5acfc472_02b76d98",
         "filename": "runtime/base/unix_file/fd_file.h",
         "patchSetId": 6
