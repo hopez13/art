@@ -22,6 +22,30 @@
       "revId": "534b99f5bff8bb28f7f112fb1e10d5de064ab744",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ab2acf6_ba8a8dd9",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1052304
+      },
+      "writtenOn": "2016-07-13T10:18:48Z",
+      "side": 1,
+      "message": "I think we can deal with not using the vixl namespace in the header. But here it is another level. We use vixl code everywhere. And since it is a `.cc` file I think it is well worth the `using`.",
+      "parentUuid": "1ab2acf6_1a9a992e",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 59
+      },
+      "revId": "534b99f5bff8bb28f7f112fb1e10d5de064ab744",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
