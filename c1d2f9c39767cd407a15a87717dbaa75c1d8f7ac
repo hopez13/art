@@ -22,6 +22,30 @@
       "revId": "c1d2f9c39767cd407a15a87717dbaa75c1d8f7ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5acfc472_e7f0db69",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2196,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-13T18:02:37Z",
+      "side": 1,
+      "message": "Ill change it to a yield to prevent slowdown.",
+      "parentUuid": "5acfc472_87246f12",
+      "range": {
+        "startLine": 2196,
+        "startChar": 11,
+        "endLine": 2196,
+        "endChar": 14
+      },
+      "revId": "c1d2f9c39767cd407a15a87717dbaa75c1d8f7ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
