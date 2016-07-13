@@ -22,6 +22,30 @@
       "revId": "ee8d971b14edfc1e0af9436fd223277df966e4c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5acfc472_6e6ca881",
+        "filename": "compiler/optimizing/x86_memory_gen.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1036869
+      },
+      "writtenOn": "2016-07-13T15:05:55Z",
+      "side": 1,
+      "message": "Yes.  Otherwise we fail in ssa_liveness DCHECK.  It is safe, as we know that the bound check is the only user of the ArrayLength.",
+      "parentUuid": "1ab2acf6_7a7c7553",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 35
+      },
+      "revId": "ee8d971b14edfc1e0af9436fd223277df966e4c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
