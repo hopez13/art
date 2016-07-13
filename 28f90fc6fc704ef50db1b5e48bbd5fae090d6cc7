@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ab2acf6_9ad94990",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1883,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-13T15:14:03Z",
+      "side": 1,
+      "message": "Drop.",
+      "range": {
+        "startLine": 1883,
+        "startChar": 29,
+        "endLine": 1883,
+        "endChar": 34
+      },
+      "revId": "28f90fc6fc704ef50db1b5e48bbd5fae090d6cc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ab2acf6_baa44d1d",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1888,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-13T15:14:03Z",
+      "side": 1,
+      "message": "I\u0027d move this DCHECK at the beginning of the function.",
+      "range": {
+        "startLine": 1888,
+        "startChar": 2,
+        "endLine": 1888,
+        "endChar": 8
+      },
+      "revId": "28f90fc6fc704ef50db1b5e48bbd5fae090d6cc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ab2acf6_9aa78921",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1888,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-13T15:14:03Z",
+      "side": 1,
+      "message": "\u003c\u003c type.DebugName();",
+      "range": {
+        "startLine": 1888,
+        "startChar": 69,
+        "endLine": 1888,
+        "endChar": 70
+      },
+      "revId": "28f90fc6fc704ef50db1b5e48bbd5fae090d6cc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ab2acf6_faaec5f8",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1892,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-13T15:14:03Z",
+      "side": 1,
+      "message": "INT64_C(0x8000000000000000)",
+      "range": {
+        "startLine": 1892,
+        "startChar": 23,
+        "endLine": 1892,
+        "endChar": 42
+      },
+      "revId": "28f90fc6fc704ef50db1b5e48bbd5fae090d6cc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ab2acf6_5af09100",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1899,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-13T15:14:03Z",
+      "side": 1,
+      "message": "I guess this instruction addresses the case where `in` contains 0, because a logical right shift of 64 with DSRLV (resp. 32 with SRLV) is a no-op?  I would add a comment about that.",
+      "range": {
+        "startLine": 1899,
+        "startChar": 2,
+        "endLine": 1899,
+        "endChar": 22
+      },
+      "revId": "28f90fc6fc704ef50db1b5e48bbd5fae090d6cc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ab2acf6_bad60d5d",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1921,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-13T15:14:03Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 1921,
+        "startChar": 28,
+        "endLine": 1921,
+        "endChar": 33
+      },
+      "revId": "28f90fc6fc704ef50db1b5e48bbd5fae090d6cc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ab2acf6_dab1015a",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1926,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-13T15:14:03Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 1926,
+        "startChar": 2,
+        "endLine": 1926,
+        "endChar": 8
+      },
+      "revId": "28f90fc6fc704ef50db1b5e48bbd5fae090d6cc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bace00a2_97e066d3",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1926,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-13T15:14:03Z",
+      "side": 1,
+      "message": "\u003c\u003c type.DebugName();",
+      "range": {
+        "startLine": 1926,
+        "startChar": 69,
+        "endLine": 1926,
+        "endChar": 70
+      },
+      "revId": "28f90fc6fc704ef50db1b5e48bbd5fae090d6cc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
