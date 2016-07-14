@@ -22,6 +22,30 @@
       "revId": "21f81136e0d6c61bea5725115820187b2f559ea1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba58c0e6_c7c72020",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-07-14T21:50:58Z",
+      "side": 1,
+      "message": "For the sake of reducing git conflicts it\u0027s best to keep it the same in this commit, because in the follow-up refactoring we still want other files to reference a class called \"RegisterAllocator\", not \"RegisterAllocatorLinearScan\".",
+      "parentUuid": "ba58c0e6_67350c35",
+      "range": {
+        "startLine": 40,
+        "startChar": 6,
+        "endLine": 40,
+        "endChar": 23
+      },
+      "revId": "21f81136e0d6c61bea5725115820187b2f559ea1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
