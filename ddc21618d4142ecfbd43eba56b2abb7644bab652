@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ab2acf6_fdccff6e",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-14T16:48:52Z",
+      "side": 1,
+      "message": "This is getting to the point where I\u0027d really prefer having the vixl::kXRegSizeInBytes be returned by a virtual method.",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 312,
+        "endChar": 6
+      },
+      "revId": "ddc21618d4142ecfbd43eba56b2abb7644bab652",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
