@@ -1,0 +1,146 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ad1308d_0e664f04",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-07-14T23:38:29Z",
+      "side": 1,
+      "message": "Most of this file comes from register_allocator_linear_scan. See the .h for more info.",
+      "revId": "ddd25118b26df8da2e5d548a91b5729e8720cbf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_2e1b5378",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-07-14T23:38:29Z",
+      "side": 1,
+      "message": "These two functions come from register_allocator_linear_scan.",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 59
+      },
+      "revId": "ddd25118b26df8da2e5d548a91b5729e8720cbf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_ae2623bf",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-07-14T23:38:29Z",
+      "side": 1,
+      "message": "All of the methods below come directly from register_allocator_linear_scan.",
+      "revId": "ddd25118b26df8da2e5d548a91b5729e8720cbf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_8e423f4f",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-07-14T23:38:29Z",
+      "side": 1,
+      "message": "These three functions were factored out of the Resolve() method of register_allocator_linear_scan.",
+      "revId": "ddd25118b26df8da2e5d548a91b5729e8720cbf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_8e599f4b",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-07-14T23:38:29Z",
+      "side": 1,
+      "message": "Functions deleted from this file were moved, generally unmodified, to register_allocator. See register_allocator.h for more info.",
+      "revId": "ddd25118b26df8da2e5d548a91b5729e8720cbf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_2e051345",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-07-14T23:38:29Z",
+      "side": 1,
+      "message": "Some unit tests, such as this one, test specific properties of the linear scan implementation and so cannot be applied to any register allocator.",
+      "revId": "ddd25118b26df8da2e5d548a91b5729e8720cbf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_2edcf3ec",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 878,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-07-14T23:38:29Z",
+      "side": 1,
+      "message": "This function is moved, unmodified, from below so that it is public.",
+      "revId": "ddd25118b26df8da2e5d548a91b5729e8720cbf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_0e500f49",
+        "filename": "test/565-checker-condition-liveness/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-07-14T23:38:29Z",
+      "side": 1,
+      "message": "This test relies on the output of live interval dumping, and I updated live interval dumping so that it puts a \u0027*\u0027 next to uses that require registers.",
+      "revId": "ddd25118b26df8da2e5d548a91b5729e8720cbf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
