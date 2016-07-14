@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa75d83e_0e3c6bce",
+        "filename": "oatdump/oatdump_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-14T20:29:20Z",
+      "side": 1,
+      "message": "This is yuck and should be rewritten. Exec forks itself, and that\u0027s why you need to delete the runtime. Instead, exec() here, because this is already the fork.\n\nPlease open a cleanup bug.",
+      "range": {
+        "startLine": 119,
+        "startChar": 6,
+        "endLine": 122,
+        "endChar": 24
+      },
+      "revId": "dc00f184b57086263587f1a1c1991336c07a8e4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
