@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "1ab2acf6_1a97f960",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1888,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-14T10:56:53Z",
+      "side": 1,
+      "message": "Sorry, that was a typo; I meant:\n\n  DCHECK(/* ... */) \u003c\u003c type;\n\nI\u0027m fine with your solution too.",
+      "parentUuid": "5acfc472_d1fab90f",
+      "range": {
+        "startLine": 1888,
+        "startChar": 2,
+        "endLine": 1888,
+        "endChar": 8
+      },
+      "revId": "28f90fc6fc704ef50db1b5e48bbd5fae090d6cc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ab2acf6_faaec5f8",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 4
