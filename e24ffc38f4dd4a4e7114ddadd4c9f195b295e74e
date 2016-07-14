@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ab2acf6_7da8ef88",
+        "filename": "compiler/optimizing/intrinsics_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1985,
+      "author": {
+        "id": 1096678
+      },
+      "writtenOn": "2016-07-14T15:46:24Z",
+      "side": 1,
+      "message": "This Patch Set 2 is the original patch which caused regression and got reverted by I263cfc09ebf78956cd1e86a0bb59ba1b36ffeafe.\n\nHere is the incorrect DCHECK which caused it failed 564-checker-bitcount test. The input types of bitcount are actually not just Integer and Long, but also Byte, Short, Char etc.\nIt is fixed in the new patch.",
+      "range": {
+        "startLine": 1984,
+        "startChar": 2,
+        "endLine": 1985,
+        "endChar": 76
+      },
+      "revId": "e24ffc38f4dd4a4e7114ddadd4c9f195b295e74e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
