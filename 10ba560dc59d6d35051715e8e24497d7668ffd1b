@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5acfc472_86638cf2",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2197,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-14T16:39:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5acfc472_86746ce2",
+      "range": {
+        "startLine": 2196,
+        "startChar": 54,
+        "endLine": 2197,
+        "endChar": 28
+      },
+      "revId": "10ba560dc59d6d35051715e8e24497d7668ffd1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5acfc472_91e908b4",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-13T23:26:22Z",
       "side": 1,
       "message": "In my experience, sched_yield loops are prone to livelock, especially if you\u0027re adjusting priorities, as we do.  If we are one of the N highest priority threads, all waiting, and the thread we are waiting for has a lower priority, and the number of cores is \u003c\u003d N, we never make progress.  This is probably unlikely here, but I would call usleep after the first few iterations, on general principles.",
+      "range": {
+        "startLine": 2198,
+        "startChar": 4,
+        "endLine": 2198,
+        "endChar": 18
+      },
+      "revId": "10ba560dc59d6d35051715e8e24497d7668ffd1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5acfc472_4cc36399",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2198,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-14T16:39:09Z",
+      "side": 1,
+      "message": "We could add a dedicated lock object for class initialization, this would be a bit slower though.",
+      "parentUuid": "5acfc472_91e908b4",
       "range": {
         "startLine": 2198,
         "startChar": 4,
