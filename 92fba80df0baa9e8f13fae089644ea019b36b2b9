@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "3ad1308d_285fcbfb",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1885,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-14T22:41:25Z",
+      "side": 1,
+      "message": "kCall",
+      "range": {
+        "startLine": 1885,
+        "startChar": 77,
+        "endLine": 1885,
+        "endChar": 84
+      },
+      "revId": "92fba80df0baa9e8f13fae089644ea019b36b2b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_a8e57b46",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1942,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-14T22:41:25Z",
+      "side": 1,
+      "message": "memcpy() will always do this check, so I\u0027d rather remove the duplication so as not to penalize the normal cases, when there\u0027s data to copy. Shorter code too.",
+      "range": {
+        "startLine": 1941,
+        "startChar": 0,
+        "endLine": 1942,
+        "endChar": 27
+      },
+      "revId": "92fba80df0baa9e8f13fae089644ea019b36b2b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_a8329b99",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1953,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-14T22:41:25Z",
+      "side": 1,
+      "message": "Move it into the delay slot.",
+      "range": {
+        "startLine": 1952,
+        "startChar": 0,
+        "endLine": 1953,
+        "endChar": 31
+      },
+      "revId": "92fba80df0baa9e8f13fae089644ea019b36b2b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_089f677a",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1959,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-14T22:41:25Z",
+      "side": 1,
+      "message": "Make it the very first instruction, so the call address is available in advance.\n\nWe should probably make a separate change to do this in other places, wherever possible.",
+      "range": {
+        "startLine": 1955,
+        "startChar": 0,
+        "endLine": 1959,
+        "endChar": 67
+      },
+      "revId": "92fba80df0baa9e8f13fae089644ea019b36b2b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba58c0e6_c4addeb4",
         "filename": "compiler/utils/assembler_test.h",
         "patchSetId": 1
