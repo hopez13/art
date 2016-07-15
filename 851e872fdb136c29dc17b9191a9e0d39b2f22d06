@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ad1308d_5c9bdd7b",
+        "filename": "compiler/optimizing/register_allocator.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-15T02:53:33Z",
+      "side": 1,
+      "message": "That\u0027s bold. :-)",
+      "range": {
+        "startLine": 43,
+        "startChar": 33,
+        "endLine": 43,
+        "endChar": 43
+      },
+      "revId": "851e872fdb136c29dc17b9191a9e0d39b2f22d06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_bcf0196c",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-15T02:53:33Z",
+      "side": 1,
+      "message": "size_t, no C ints. Same below.",
+      "range": {
+        "startLine": 155,
+        "startChar": 17,
+        "endLine": 155,
+        "endChar": 20
+      },
+      "revId": "851e872fdb136c29dc17b9191a9e0d39b2f22d06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_9cd6f500",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-15T02:53:33Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 147,
+        "endChar": 35
+      },
+      "revId": "851e872fdb136c29dc17b9191a9e0d39b2f22d06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_3cc6e951",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-15T02:53:33Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 150,
+        "startChar": 2,
+        "endLine": 150,
+        "endChar": 29
+      },
+      "revId": "851e872fdb136c29dc17b9191a9e0d39b2f22d06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
