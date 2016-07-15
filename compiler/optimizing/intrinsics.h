@@ -34,16 +34,14 @@ static constexpr uint64_t kPositiveInfinityDouble = UINT64_C(0x7ff0000000000000)
 // Recognize intrinsics from HInvoke nodes.
 class IntrinsicsRecognizer : public HOptimization {
  public:
-  IntrinsicsRecognizer(HGraph* graph, CompilerDriver* driver, OptimizingCompilerStats* stats)
-      : HOptimization(graph, kIntrinsicsRecognizerPassName, stats),
-        driver_(driver) {}
+  IntrinsicsRecognizer(HGraph* graph, CompilerDriver*, OptimizingCompilerStats* stats)
+      : HOptimization(graph, kIntrinsicsRecognizerPassName, stats) {}
 
   void Run() OVERRIDE;
 
   static constexpr const char* kIntrinsicsRecognizerPassName = "intrinsics_recognition";
 
  private:
-  CompilerDriver* driver_;
 
   DISALLOW_COPY_AND_ASSIGN(IntrinsicsRecognizer);
 };
@@ -58,7 +56,7 @@ class IntrinsicVisitor : public ValueObject {
     switch (invoke->GetIntrinsic()) {
       case Intrinsics::kNone:
         return;
-#define OPTIMIZING_INTRINSICS(Name, IsStatic, NeedsEnvironment, SideEffects, Exceptions) \
+#define OPTIMIZING_INTRINSICS(Name, IsStatic, NeedsEnvironment, SideEffects, Exceptions, ...) \
       case Intrinsics::k ## Name: \
         Visit ## Name(invoke);    \
         return;
@@ -73,7 +71,7 @@ INTRINSICS_LIST(OPTIMIZING_INTRINSICS)
 
   // Define visitor methods.
 
-#define OPTIMIZING_INTRINSICS(Name, IsStatic, NeedsEnvironment, SideEffects, Exceptions) \
+#define OPTIMIZING_INTRINSICS(Name, IsStatic, NeedsEnvironment, SideEffects, Exceptions, ...) \
   virtual void Visit ## Name(HInvoke* invoke ATTRIBUTE_UNUSED) { \
   }
 #include "intrinsics_list.h"
