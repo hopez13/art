@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ad1308d_3e509649",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-15T21:54:36Z",
+      "side": 1,
+      "message": "I am not 100% if this works, and also not sure if this works after you already made this CL, but if you can use git cp on the register_allocator_linear.h file to this file (and same for .cc), then the diff of what you moved up (and what you changed in the process would be a little easier to read). Is that still doable?",
+      "range": {
+        "startLine": 3,
+        "startChar": 1,
+        "endLine": 3,
+        "endChar": 2
+      },
+      "revId": "fd0a659714431b9ca8672f827463b8d96bac93b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_3e1ed6b5",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-15T21:54:36Z",
+      "side": 1,
+      "message": "I don\u0027t think we use this order in header files. The only comes-first rule I am aware of is that in x.cc, we include x.h first...",
+      "range": {
+        "startLine": 20,
+        "startChar": 30,
+        "endLine": 20,
+        "endChar": 31
+      },
+      "revId": "fd0a659714431b9ca8672f827463b8d96bac93b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
