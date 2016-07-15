@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "caf9233e_bd9cdf5b",
+        "filename": "compiler/optimizing/common_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-07-15T08:44:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ab2acf6_9a6869d1",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 37
+      },
+      "revId": "0a9ab74d7077b3c21c3e8a361babac33b806bc5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ab2acf6_ba652dfa",
         "filename": "compiler/utils/arm64/assembler_arm64.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-13T13:31:08Z",
       "side": 1,
       "message": "Also mention other ignored warnings?",
+      "range": {
+        "startLine": 31,
+        "startChar": 29,
+        "endLine": 31,
+        "endChar": 37
+      },
+      "revId": "0a9ab74d7077b3c21c3e8a361babac33b806bc5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "caf9233e_9d99236c",
+        "filename": "compiler/utils/arm64/assembler_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-07-15T08:44:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ab2acf6_ba652dfa",
       "range": {
         "startLine": 31,
         "startChar": 29,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "caf9233e_7da657ac",
+        "filename": "disassembler/disassembler_arm64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-07-15T08:44:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ab2acf6_fa5fa525",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 28
+      },
+      "revId": "0a9ab74d7077b3c21c3e8a361babac33b806bc5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ab2acf6_1a3e19cf",
         "filename": "disassembler/disassembler_arm64.h",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2016-07-13T13:31:08Z",
       "side": 1,
       "message": "Ditto, I think our C++ style discourages using-namespace directives in headers (they seem to be tolerated in .cc files).",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 30
+      },
+      "revId": "0a9ab74d7077b3c21c3e8a361babac33b806bc5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "caf9233e_5dab9b72",
+        "filename": "disassembler/disassembler_arm64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1076052
+      },
+      "writtenOn": "2016-07-15T08:44:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ab2acf6_1a3e19cf",
       "range": {
         "startLine": 31,
         "startChar": 0,
