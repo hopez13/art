@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ad1308d_4388153b",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1913,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-07-15T21:42:00Z",
+      "side": 1,
+      "message": "Since the code now gets the shift amount for scaling dynamically, can the comment, and \"DCHECK_EQ(char_size, 2u);\" be deleted?",
+      "range": {
+        "startLine": 1910,
+        "startChar": 0,
+        "endLine": 1913,
+        "endChar": 80
+      },
+      "revId": "63d462f02e7bd3aab97e178fcd870f96efb333aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
