@@ -22,6 +22,52 @@
       "revId": "63d462f02e7bd3aab97e178fcd870f96efb333aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_5e758a45",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1038,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-15T22:57:01Z",
+      "side": 1,
+      "message": "Change to something like\n\nCHECK(1 \u003c\u003d saPlusOne \u0026\u0026 saPlusOne \u003c\u003d 4) \u003c\u003c saPlusOne;\nEmitR(0x0, rs, rt, rd, (saPlusOne - 1), 0x05);",
+      "range": {
+        "startLine": 1036,
+        "startChar": 0,
+        "endLine": 1038,
+        "endChar": 35
+      },
+      "revId": "63d462f02e7bd3aab97e178fcd870f96efb333aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_9e6f0276",
+        "filename": "compiler/utils/mips64/assembler_mips64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-15T22:57:01Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1042,
+        "startChar": 0,
+        "endLine": 1044,
+        "endChar": 35
+      },
+      "revId": "63d462f02e7bd3aab97e178fcd870f96efb333aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
