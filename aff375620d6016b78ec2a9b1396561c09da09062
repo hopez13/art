@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ae91769_82de5ad8",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-15T10:58:19Z",
+      "side": 1,
+      "message": "Move this to line 294?",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 305,
+        "endChar": 78
+      },
+      "revId": "aff375620d6016b78ec2a9b1396561c09da09062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa26b89b_e60bfe77",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-15T10:58:19Z",
+      "side": 1,
+      "message": "Replace with something like \"for most platforms, there is not need for alignment\".",
+      "range": {
+        "startLine": 214,
+        "startChar": 79,
+        "endLine": 216,
+        "endChar": 14
+      },
+      "revId": "aff375620d6016b78ec2a9b1396561c09da09062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
