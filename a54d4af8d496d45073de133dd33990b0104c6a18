@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba20c083_a49e621f",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-15T13:08:00Z",
+      "side": 1,
+      "message": "I\u0027d prefer HCondition. That\u0027s the only instruction kind this is used for.",
+      "range": {
+        "startLine": 97,
+        "startChar": 21,
+        "endLine": 97,
+        "endChar": 33
+      },
+      "revId": "a54d4af8d496d45073de133dd33990b0104c6a18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ae91769_2239cef9",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-15T13:08:00Z",
+      "side": 1,
+      "message": "For FP argument, this may be wrong for NaN. For integral argument, we should be able to fully evaluate all conditions here.",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 5
+      },
+      "revId": "a54d4af8d496d45073de133dd33990b0104c6a18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ae91769_e24ac67d",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-15T13:08:00Z",
+      "side": 1,
+      "message": "Add a comment that this may change inside the loop.",
+      "range": {
+        "startLine": 176,
+        "startChar": 27,
+        "endLine": 176,
+        "endChar": 48
+      },
+      "revId": "a54d4af8d496d45073de133dd33990b0104c6a18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da21f486_0521f2f4",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-15T13:08:00Z",
+      "side": 1,
+      "message": "I\u0027d prefer the \"++i\" moved out of the for() statement to an else block, so that we can avoid the \"--i\".",
+      "range": {
+        "startLine": 203,
+        "startChar": 12,
+        "endLine": 203,
+        "endChar": 16
+      },
+      "revId": "a54d4af8d496d45073de133dd33990b0104c6a18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ae91769_e2f8861d",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-15T13:08:00Z",
+      "side": 1,
+      "message": "This can be inside the \"if (value_to_check !\u003d nullptr)\" block and since the predecessor count is the same as phi-\u003eInputCount(), I\u0027d check the latter.",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 213,
+        "endChar": 11
+      },
+      "revId": "a54d4af8d496d45073de133dd33990b0104c6a18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa022ff5_9cc7e53b",
+        "filename": "test/611-checker-simplify-if/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-15T13:08:00Z",
+      "side": 1,
+      "message": "Add a test with more predecessors, say\n\n  bool cond \u003d false;\n  switch (args.length) {\n    case 42:\n      staticField \u003d 11;\n      cond \u003d true;\n      break;\n    case 43:\n      cond \u003d $noinline$foo();\n      break;\n    default:\n      cond \u003d false;\n      break;\n  }\n  // Keep case 43 going here.\n  if (cond) {\n    // Redirect case 42 here.\n    bar(1234);\n  }\n  // Redirect default here.\n\nAlso add the following test case that can create an irreducible loop:\n\n  void foo(boolean c) {\n    while (true) {\n      if (c) {\n        if ($noinline$foo()) return;\n        c \u003d false;\n        // Redirecting to the \"else\" branch...\n      } else {\n        $noinline$bar();\n        c \u003d true;\n        // ... and redirecting to the \"then\" branch creates irreducible loop.\n      }\n    }\n  }",
+      "revId": "a54d4af8d496d45073de133dd33990b0104c6a18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "caf9233e_3d732f1c",
+        "filename": "test/611-checker-simplify-if/src/Main.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-15T13:08:00Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 112,
+        "startChar": 15,
+        "endLine": 112,
+        "endChar": 16
+      },
+      "revId": "a54d4af8d496d45073de133dd33990b0104c6a18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
