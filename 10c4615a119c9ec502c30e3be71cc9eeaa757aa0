@@ -93,6 +93,30 @@
       "revId": "10c4615a119c9ec502c30e3be71cc9eeaa757aa0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a12f748_3ad8e1e9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-15T16:21:34Z",
+      "side": 1,
+      "message": "For cleanups that is. We can surely put some hooks between class linker and dex method inliner / compiler driver, but I feel it\u0027s much nicer to avoid the map altogeter and not require any hooks.",
+      "parentUuid": "0af41b40_df1f9b5f",
+      "range": {
+        "startLine": 14,
+        "startChar": 16,
+        "endLine": 16,
+        "endChar": 18
+      },
+      "revId": "10c4615a119c9ec502c30e3be71cc9eeaa757aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
