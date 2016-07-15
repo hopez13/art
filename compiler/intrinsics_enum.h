@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 The Android Open Source Project
+ * Copyright (C) 2016 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,22 @@
  * limitations under the License.
  */
 
-#include "quick_compiler_callbacks.h"
-
-#include "verifier/method_verifier-inl.h"
-#include "verification_results.h"
+#ifndef ART_COMPILER_INTRINSICS_H_
+#define ART_COMPILER_INTRINSICS_H_
 
 namespace art {
 
-void QuickCompilerCallbacks::MethodVerified(verifier::MethodVerifier* verifier) {
-  verification_results_->ProcessVerifiedMethod(verifier);
+enum class Intrinsics {
+#define OPTIMIZING_INTRINSICS(Name, IsStatic, NeedsEnvironmentOrCache, SideEffects, Exceptions, ...) \
+  k ## Name,
+#include "intrinsics_list.h"
+  kNone,
+  INTRINSICS_LIST(OPTIMIZING_INTRINSICS)
+#undef INTRINSICS_LIST
+#undef OPTIMIZING_INTRINSICS
+};
+std::ostream& operator<<(std::ostream& os, const Intrinsics& intrinsic);
+
 }
 
-void QuickCompilerCallbacks::ClassRejected(ClassReference ref) {
-  verification_results_->AddRejectedClass(ref);
-}
-
-}  // namespace art
+#endif  // ART_COMPILER_INTRINSICS_H_

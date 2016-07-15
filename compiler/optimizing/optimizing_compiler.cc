@@ -56,7 +56,6 @@
 #include "dead_code_elimination.h"
 #include "debug/elf_debug_writer.h"
 #include "debug/method_debug_info.h"
-#include "dex/quick/dex_file_to_method_inliner_map.h"
 #include "dex/verification_results.h"
 #include "dex/verified_method.h"
 #include "driver/compiler_driver-inl.h"
