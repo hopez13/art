@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "2a08ff1a_d859ed94",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-15T16:42:06Z",
+      "side": 1,
+      "message": "But only for the constant case. We are able to evaluate GreaterThan(x,x) for non-constant integer x.",
+      "parentUuid": "6ae91769_a29cbeb2",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 5
+      },
+      "revId": "a54d4af8d496d45073de133dd33990b0104c6a18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ae91769_e24ac67d",
         "filename": "compiler/optimizing/dead_code_elimination.cc",
         "patchSetId": 3
