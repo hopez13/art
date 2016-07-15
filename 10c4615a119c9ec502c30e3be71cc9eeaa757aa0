@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "ba20c083_8441662f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-15T16:25:37Z",
+      "side": 1,
+      "message": "Oh I see. Hmm, should I bring up kAccMustCountLocks? :)",
+      "parentUuid": "3ad1308d_fd2c4b3f",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 11,
+        "endChar": 41
+      },
+      "revId": "10c4615a119c9ec502c30e3be71cc9eeaa757aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ad1308d_7d569bbe",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -168,6 +192,30 @@
     },
     {
       "key": {
+        "uuid": "2a08ff1a_182ac5e4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-15T16:25:37Z",
+      "side": 1,
+      "message": "Why do you hate svelte?",
+      "parentUuid": "3ad1308d_5d1e3704",
+      "range": {
+        "startLine": 14,
+        "startChar": 16,
+        "endLine": 16,
+        "endChar": 18
+      },
+      "revId": "10c4615a119c9ec502c30e3be71cc9eeaa757aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ad1308d_bdc49375",
         "filename": "runtime/art_method.h",
         "patchSetId": 2
@@ -179,6 +227,30 @@
       "writtenOn": "2016-07-15T16:23:37Z",
       "side": 1,
       "message": "Why waste another bit?",
+      "range": {
+        "startLine": 297,
+        "startChar": 57,
+        "endLine": 297,
+        "endChar": 70
+      },
+      "revId": "10c4615a119c9ec502c30e3be71cc9eeaa757aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba20c083_64246aa2",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-15T16:25:37Z",
+      "side": 1,
+      "message": "? That\u0027s the way to know the method is an intrinsic. Not sure I understand your question.",
+      "parentUuid": "3ad1308d_bdc49375",
       "range": {
         "startLine": 297,
         "startChar": 57,
