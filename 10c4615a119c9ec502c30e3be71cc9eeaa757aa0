@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "3ad1308d_fd2c4b3f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-15T16:23:37Z",
+      "side": 1,
+      "message": "No, I meant the number of methods being tagged that way.",
+      "parentUuid": "6a12f748_5ae395a1",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 11,
+        "endChar": 41
+      },
+      "revId": "10c4615a119c9ec502c30e3be71cc9eeaa757aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ad1308d_7d569bbe",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -113,6 +137,53 @@
         "startChar": 16,
         "endLine": 16,
         "endChar": 18
+      },
+      "revId": "10c4615a119c9ec502c30e3be71cc9eeaa757aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_5d1e3704",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-15T16:23:37Z",
+      "side": 1,
+      "message": "Using a map nicely decouples runtime internals (who don\u0027t care that the method can be intrinsified) from the compiler, though. And means that my favorite modes, interpreter and AoT, don\u0027t have any \"overhead.\" Maybe an implementation of a sparse map would save space?",
+      "parentUuid": "0af41b40_df1f9b5f",
+      "range": {
+        "startLine": 14,
+        "startChar": 16,
+        "endLine": 16,
+        "endChar": 18
+      },
+      "revId": "10c4615a119c9ec502c30e3be71cc9eeaa757aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_bdc49375",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-15T16:23:37Z",
+      "side": 1,
+      "message": "Why waste another bit?",
+      "range": {
+        "startLine": 297,
+        "startChar": 57,
+        "endLine": 297,
+        "endChar": 70
       },
       "revId": "10c4615a119c9ec502c30e3be71cc9eeaa757aa0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
