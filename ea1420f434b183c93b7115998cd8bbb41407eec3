@@ -140,6 +140,30 @@
       "revId": "ea1420f434b183c93b7115998cd8bbb41407eec3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba20c083_c44b5e49",
+        "filename": "test/530-checker-loops3/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-15T16:27:42Z",
+      "side": 1,
+      "message": "Actually, I see you\u0027re commenting in the code body. so scratch my comment.",
+      "parentUuid": "3ad1308d_5dd0f727",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 37
+      },
+      "revId": "ea1420f434b183c93b7115998cd8bbb41407eec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
