@@ -260,6 +260,30 @@
       "revId": "10c4615a119c9ec502c30e3be71cc9eeaa757aa0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_fd90cb66",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-15T16:27:30Z",
+      "side": 1,
+      "message": "Start counting at 1. That gives you 2^(N+1)-1 intrinsics, vs the 2^N right now. A signalling bit is wasteful when you control the value range...",
+      "parentUuid": "ba20c083_64246aa2",
+      "range": {
+        "startLine": 297,
+        "startChar": 57,
+        "endLine": 297,
+        "endChar": 70
+      },
+      "revId": "10c4615a119c9ec502c30e3be71cc9eeaa757aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
