@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "eafc272d_9eca3d9b",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-15T16:35:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa022ff5_3cd8d1e9",
+      "revId": "a8e7f2065827eeab2566b488309d242bf3bfd616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa26b89b_86188a6f",
         "filename": "compiler/optimizing/dead_code_elimination.cc",
         "patchSetId": 5
@@ -30,6 +48,30 @@
       "writtenOn": "2016-07-15T16:30:21Z",
       "side": 1,
       "message": "Add \"()\"",
+      "range": {
+        "startLine": 179,
+        "startChar": 21,
+        "endLine": 179,
+        "endChar": 36
+      },
+      "revId": "a8e7f2065827eeab2566b488309d242bf3bfd616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa022ff5_9ce80579",
+        "filename": "compiler/optimizing/dead_code_elimination.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-15T16:35:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa26b89b_86188a6f",
       "range": {
         "startLine": 179,
         "startChar": 21,
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "aa022ff5_7c8539b1",
+        "filename": "test/611-checker-simplify-if/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-15T16:35:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a12f748_1add1dda",
+      "revId": "a8e7f2065827eeab2566b488309d242bf3bfd616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eafc272d_becdf9b6",
         "filename": "test/611-checker-simplify-if/src/Main.java",
         "patchSetId": 5
@@ -70,6 +130,30 @@
       "writtenOn": "2016-07-15T16:30:21Z",
       "side": 1,
       "message": "You changed the \"cond \u003d $noinline$foo()\" from my example, so the comments below are inconsistent with the actual code.",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 20
+      },
+      "revId": "a8e7f2065827eeab2566b488309d242bf3bfd616",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa022ff5_3c8fb1d3",
+        "filename": "test/611-checker-simplify-if/src/Main.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-15T16:35:42Z",
+      "side": 1,
+      "message": "Yeah, updating the comment. I had to update it because of an environment use, which is bizarre. I\u0027ll look at it separately.",
+      "parentUuid": "eafc272d_becdf9b6",
       "range": {
         "startLine": 235,
         "startChar": 0,
