@@ -895,6 +895,54 @@
     },
     {
       "key": {
+        "uuid": "3ad1308d_91653e9e",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-07-15T16:29:35Z",
+      "side": 1,
+      "message": "I\u0027m putting the bias argument back in. It simplifies/clarifies the use of these functions because by using a bias to adjust the immediate value, the function can be passed the same set of values as one would use if one were writing assembler code.",
+      "parentUuid": "3ad1308d_48567fe5",
+      "range": {
+        "startLine": 982,
+        "startChar": 90,
+        "endLine": 982,
+        "endChar": 99
+      },
+      "revId": "92fba80df0baa9e8f13fae089644ea019b36b2b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_314c522f",
+        "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 982,
+      "author": {
+        "id": 1071873
+      },
+      "writtenOn": "2016-07-15T16:29:35Z",
+      "side": 1,
+      "message": "Noted.",
+      "parentUuid": "faab189c_f2d33069",
+      "range": {
+        "startLine": 982,
+        "startChar": 90,
+        "endLine": 982,
+        "endChar": 99
+      },
+      "revId": "92fba80df0baa9e8f13fae089644ea019b36b2b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bab520fa_22f70ac6",
         "filename": "compiler/utils/mips64/assembler_mips64_test.cc",
         "patchSetId": 1
