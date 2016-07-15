@@ -284,6 +284,30 @@
       "revId": "10c4615a119c9ec502c30e3be71cc9eeaa757aa0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0af41b40_7f364fee",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-15T16:31:28Z",
+      "side": 1,
+      "message": "You don\u0027t control the range, other flags are in it. Or maybe I still don\u0027t understand what you\u0027re suggesting.",
+      "parentUuid": "3ad1308d_fd90cb66",
+      "range": {
+        "startLine": 297,
+        "startChar": 57,
+        "endLine": 297,
+        "endChar": 70
+      },
+      "revId": "10c4615a119c9ec502c30e3be71cc9eeaa757aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
