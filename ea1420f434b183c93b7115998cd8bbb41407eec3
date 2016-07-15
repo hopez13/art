@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "caf9233e_bdb3bfe5",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1424,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-15T09:25:09Z",
+      "side": 1,
+      "message": "line too long (here and below).",
+      "range": {
+        "startLine": 1424,
+        "startChar": 0,
+        "endLine": 1424,
+        "endChar": 109
+      },
+      "revId": "ea1420f434b183c93b7115998cd8bbb41407eec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "caf9233e_fdb947c9",
+        "filename": "test/449-checker-bce/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1390,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-15T09:25:09Z",
+      "side": 1,
+      "message": "Add one line 1385?",
+      "range": {
+        "startLine": 1390,
+        "startChar": 7,
+        "endLine": 1390,
+        "endChar": 12
+      },
+      "revId": "ea1420f434b183c93b7115998cd8bbb41407eec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "caf9233e_ddb68bd7",
+        "filename": "test/530-checker-loops3/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-15T09:25:09Z",
+      "side": 1,
+      "message": "Nit: maybe worth adding a comment for each Deoptimize what purpose it serves?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 37
+      },
+      "revId": "ea1420f434b183c93b7115998cd8bbb41407eec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
