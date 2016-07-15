@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "3ad1308d_39ba70ce",
+        "filename": "compiler/optimizing/intrinsics_mips64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1942,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-15T22:57:01Z",
+      "side": 1,
+      "message": "Let\u0027s try a custom microbenchmark on the MIPS32 version of the intrinsic on e.g. CI20 since we can\u0027t perftest it well on MIPS64 at the moment.",
+      "parentUuid": "3ad1308d_cb69c9a6",
+      "range": {
+        "startLine": 1941,
+        "startChar": 0,
+        "endLine": 1942,
+        "endChar": 27
+      },
+      "revId": "92fba80df0baa9e8f13fae089644ea019b36b2b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ad1308d_a8329b99",
         "filename": "compiler/optimizing/intrinsics_mips64.cc",
         "patchSetId": 1
