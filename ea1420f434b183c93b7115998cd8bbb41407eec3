@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "6ae91769_02bfea16",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-15T16:33:38Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "ea1420f434b183c93b7115998cd8bbb41407eec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba20c083_a4f4a226",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1339,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-15T16:33:38Z",
+      "side": 1,
+      "message": "If you\u0027re rewriting the transformation, can I suggest a very different approach? For example, the \"stencil\" test is transformed to\n\n  if (end \u003e\u003d start) {\n    if (array \u003d\u003d null) deopt;\n    if (Above(start - 2, start + 2) deopt;\n    if (Above(start + 2, end + 2) deopt;\n    if (Above(end + 2, array.length) deopt;\n  }\n  for (int i \u003d end; i \u003e\u003d start; i--) {\n    \u003cbody without null/bound checks\u003e;\n  }\n\nbut I\u0027d prefer\n\n  if (end \u003c start) goto skip_loop;\n  if (array \u003d\u003d null) deopt;\n  // The max \u0027i\u0027 for accessing elements in range [i, i+5).\n  int max_i \u003d array.length - 5;\n  if (max_i \u003c 0) deopt;\n  if (Above(end - 2, max_i) deopt;  // AIOOB in first iteration?\n  int cutoff \u003d max(start, 2);\n  int i;\n  for (i \u003d end; i \u003e\u003d cutoff; --i) {\n    \u003cbody without null/bound checks\u003e;\n  } while (i \u003e\u003d start);\n  if (i \u003e\u003d start) deopt;\n  skip_loop:\n\nThis approach is also applicable in cases where we previously didn\u0027t want to deoptimize, for example where an early exit from the loop can avoid AIOOB. And if we do throw AIOOB, this will speed up the execution to get there.",
+      "revId": "ea1420f434b183c93b7115998cd8bbb41407eec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "caf9233e_bdb3bfe5",
         "filename": "compiler/optimizing/bounds_check_elimination.cc",
         "patchSetId": 1
@@ -161,6 +195,74 @@
         "endLine": 32,
         "endChar": 37
       },
+      "revId": "ea1420f434b183c93b7115998cd8bbb41407eec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba20c083_247d1295",
+        "filename": "test/530-checker-loops3/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-15T16:33:38Z",
+      "side": 1,
+      "message": "One Deopt is later eliminated (fold+simplify) because Above(0,.) is always false. There is a missed optimization opportunity to eliminate another Deopt because Below(x,2) is always false in a branch taken on GreaterThan(x,1).",
+      "revId": "ea1420f434b183c93b7115998cd8bbb41407eec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba20c083_242fd298",
+        "filename": "test/530-checker-loops3/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-15T16:33:38Z",
+      "side": 1,
+      "message": "Similarly, one Deopt eliminated by fold+simplify, another missed opportunity (though relating Below(x+1,4) to GreaterThan(x,2) requires considering that x+1 does not overflow to 0).",
+      "revId": "ea1420f434b183c93b7115998cd8bbb41407eec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa26b89b_c67522b2",
+        "filename": "test/530-checker-loops3/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-15T16:33:38Z",
+      "side": 1,
+      "message": "Optimization opportunity: the loop body is always executed and the null check is the first instruction there, so the Deopt is unnecessary if we do an actual (implicit) null check on the ArrayLength, though we would need to provide an environment appropriate for the first iteration.",
+      "revId": "ea1420f434b183c93b7115998cd8bbb41407eec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "caf9233e_7dde57db",
+        "filename": "test/530-checker-loops3/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-15T16:33:38Z",
+      "side": 1,
+      "message": "What we generate for the inputs of these Deopts is pretty brain-dead (especially since we do not run GVN after BCE). There are additions and subtractions that cancel each other out but they make it all the way to codegen.\n\n  i64 \u003d start - 1\n  i65 \u003d end - (start - 1) \u003d end - start + 1\n  i66 \u003d (end - start + 1) - 1 \u003d end - start\n  i67 \u003d end + 2\n  i68 \u003d (end + 2) - (end - start) \u003d start + 2\n  i70 \u003d end + 2\n  i72 \u003d start - 1\n  i73 \u003d end - (start - 1) \u003d end - start + 1\n  i74 \u003d (end - start + 1) - 1 \u003d end - start\n  i75 \u003d end - 2\n  i76 \u003d (end - 2) - (end - start) \u003d start - 2\n  z79 \u003d (start - 2) above (start + 2)\n  v80 Deoptimize[z79]\n  z81 \u003d (start + 2) above (end + 2)\n  v82 Deoptimize[z81]\n  z83 \u003d (end + 2) above/equal array.length\n  v84 Deoptimize[z83]",
       "revId": "ea1420f434b183c93b7115998cd8bbb41407eec3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
