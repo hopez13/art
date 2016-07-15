@@ -201,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "3ad1308d_ef5db263",
+        "filename": "test/530-checker-loops3/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-15T16:49:15Z",
+      "side": 1,
+      "message": "Ok. I added more checks for the cases where subsequent HDeoptimize are optimized away (by design we don\u0027t simplify too much in the range codegen itself, since we rely on later phases).",
+      "parentUuid": "ba20c083_c44b5e49",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 37
+      },
+      "revId": "ea1420f434b183c93b7115998cd8bbb41407eec3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba20c083_247d1295",
         "filename": "test/530-checker-loops3/src/Main.java",
         "patchSetId": 1
