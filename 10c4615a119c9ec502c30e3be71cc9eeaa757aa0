@@ -308,6 +308,30 @@
       "revId": "10c4615a119c9ec502c30e3be71cc9eeaa757aa0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_4f531e58",
+        "filename": "runtime/art_method.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-15T16:49:15Z",
+      "side": 1,
+      "message": "The value of \"intrinsic,\" make 0 denote \"not an intrinsic.\"\n\n(If you want to \"protect\" the caller, add one to it before storing...)",
+      "parentUuid": "0af41b40_7f364fee",
+      "range": {
+        "startLine": 297,
+        "startChar": 57,
+        "endLine": 297,
+        "endChar": 70
+      },
+      "revId": "10c4615a119c9ec502c30e3be71cc9eeaa757aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
