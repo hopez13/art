@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ad1308d_dac7c306",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-16T01:10:31Z",
+      "side": 1,
+      "message": "Would love to replace that, but it introduces an include of \"os.h\" into dex_file.h. I am considering breaking loading out of DexFile into dex_file_io.h or so.",
+      "range": {
+        "startLine": 234,
+        "startChar": 49,
+        "endLine": 234,
+        "endChar": 55
+      },
+      "revId": "fa405be668b264710c9202b4a25b36b0130bd68c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
