@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "3ad1308d_bad3ef34",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-16T03:41:04Z",
+      "side": 1,
+      "message": "You are right. That seems to be a perforce feature only.\n\nBut, it still seems doable for this review. Why don\u0027t you make PS1 the original file (copied contents) and then PS2 the new contents. That way I can still easily do the diff, even though this won\u0027t keep the tracking history after submit....",
+      "parentUuid": "3ad1308d_3a489f6d",
+      "range": {
+        "startLine": 3,
+        "startChar": 1,
+        "endLine": 3,
+        "endChar": 2
+      },
+      "revId": "fd0a659714431b9ca8672f827463b8d96bac93b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ad1308d_3e1ed6b5",
         "filename": "compiler/optimizing/register_allocator_linear_scan.h",
         "patchSetId": 5
