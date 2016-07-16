@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3ad1308d_3a489f6d",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-07-16T01:32:08Z",
+      "side": 1,
+      "message": "I tried \u0027git cp\u0027, but that\u0027s not a valid command for git.\n(Let me know if you have another idea, though)",
+      "parentUuid": "3ad1308d_3e509649",
+      "range": {
+        "startLine": 3,
+        "startChar": 1,
+        "endLine": 3,
+        "endChar": 2
+      },
+      "revId": "fd0a659714431b9ca8672f827463b8d96bac93b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ad1308d_3e1ed6b5",
         "filename": "compiler/optimizing/register_allocator_linear_scan.h",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-15T21:54:36Z",
       "side": 1,
       "message": "I don\u0027t think we use this order in header files. The only comes-first rule I am aware of is that in x.cc, we include x.h first...",
+      "range": {
+        "startLine": 20,
+        "startChar": 30,
+        "endLine": 20,
+        "endChar": 31
+      },
+      "revId": "fd0a659714431b9ca8672f827463b8d96bac93b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ad1308d_fa544714",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-07-16T01:32:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ad1308d_3e1ed6b5",
       "range": {
         "startLine": 20,
         "startChar": 30,
