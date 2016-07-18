@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0af41b40_1ff2a3d5",
+        "filename": "compiler/optimizing/code_generator.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-18T09:05:09Z",
+      "side": 1,
+      "message": "Nit: maybe just a preference, but RoundUp one line up, and its two arguments aligned 4 spaces here on two lines (just like line 306).",
+      "range": {
+        "startLine": 295,
+        "startChar": 6,
+        "endLine": 295,
+        "endChar": 13
+      },
+      "revId": "9b6551a9cebcb3ee221d25d6597dbc0490d6a7f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba20c083_641e2a05",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-18T09:05:09Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 423,
+        "startChar": 2,
+        "endLine": 423,
+        "endChar": 9
+      },
+      "revId": "9b6551a9cebcb3ee221d25d6597dbc0490d6a7f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa022ff5_1c075521",
+        "filename": "compiler/optimizing/code_generator_arm64.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-18T09:05:09Z",
+      "side": 1,
+      "message": "OVERRIDE",
+      "range": {
+        "startLine": 423,
+        "startChar": 53,
+        "endLine": 423,
+        "endChar": 54
+      },
+      "revId": "9b6551a9cebcb3ee221d25d6597dbc0490d6a7f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
