@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a12f748_9a1b6d82",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-18T09:50:45Z",
+      "side": 1,
+      "message": "Unrelated?",
+      "range": {
+        "startLine": 379,
+        "startChar": 0,
+        "endLine": 381,
+        "endChar": 3
+      },
+      "revId": "2e9bf152082b27a1c416ec1fe1d049172422062e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eafc272d_415df451",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-18T09:50:45Z",
+      "side": 1,
+      "message": "How about making SSA deconstruction its own class?",
+      "range": {
+        "startLine": 39,
+        "startChar": 11,
+        "endLine": 39,
+        "endChar": 29
+      },
+      "revId": "2e9bf152082b27a1c416ec1fe1d049172422062e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a12f748_7a089932",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-18T09:50:45Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 126,
+        "startChar": 28,
+        "endLine": 126,
+        "endChar": 39
+      },
+      "revId": "2e9bf152082b27a1c416ec1fe1d049172422062e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba20c083_44d3ee35",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-18T09:50:45Z",
+      "side": 1,
+      "message": "Changes in this file look unrelated?",
+      "revId": "2e9bf152082b27a1c416ec1fe1d049172422062e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea2507a1_5607f471",
+        "filename": "test/565-checker-condition-liveness/src/Main.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-18T09:50:45Z",
+      "side": 1,
+      "message": "Unrelated?",
+      "revId": "2e9bf152082b27a1c416ec1fe1d049172422062e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
