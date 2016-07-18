@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "3ad1308d_6ed9b955",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-07-18T17:29:23Z",
+      "side": 1,
+      "message": "Working on this now.\nShould SSA deconstruction include all the following?\n\n- Resolve non-linear control flow\n- Resolve phi inputs\n- Connect siblings\n- Connect split siblings\n\n(Those are the functions that involve inserting moves into the graph, but I\u0027m not sure if they all belong in SSA deconstruction.)",
+      "parentUuid": "eafc272d_415df451",
+      "range": {
+        "startLine": 39,
+        "startChar": 11,
+        "endLine": 39,
+        "endChar": 29
+      },
+      "revId": "2e9bf152082b27a1c416ec1fe1d049172422062e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a12f748_7a089932",
         "filename": "compiler/optimizing/register_allocator.h",
         "patchSetId": 6
