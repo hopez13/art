@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea2507a1_96c7cc3b",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1014443
+      },
+      "writtenOn": "2016-07-18T07:46:42Z",
+      "side": 1,
+      "message": "i\u0027d rather not return kEntryNotFound for this case. I think kDexFileError with a custom error_msg is more appropriate.",
+      "range": {
+        "startLine": 320,
+        "startChar": 36,
+        "endLine": 320,
+        "endChar": 50
+      },
+      "revId": "4b547d283b2242500f7f408cb90e5ac38a2ba336",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
