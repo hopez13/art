@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa022ff5_1c91959c",
+        "filename": "compiler/optimizing/graph_checker.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-18T12:37:02Z",
+      "side": 1,
+      "message": "Can you remind my why we can\u0027t do NeedsEnvironment() \u003d\u003d HasEnvironment() ?",
+      "range": {
+        "startLine": 489,
+        "startChar": 6,
+        "endLine": 489,
+        "endChar": 71
+      },
+      "revId": "11be9528e4af5cfeffa430ec51424c3dc00662b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
