@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ad1308d_971b5976",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2016-07-18T21:58:01Z",
+      "side": 1,
+      "message": "Unrelated, but how about changing this to:\n\nso that it also ensures ordering of the class status load with respect to later accesses to the class object.",
+      "range": {
+        "startLine": 1045,
+        "startChar": 98,
+        "endLine": 1048,
+        "endChar": 89
+      },
+      "revId": "c4a441a2644082b64ff93989733e60ab54f89748",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
