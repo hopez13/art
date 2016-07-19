@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a697be4_573a6cf2",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1410,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-19T13:28:07Z",
+      "side": 1,
+      "message": "This isn\u0027t really Resolve anymore, more of an adjusting stack location method. Maybe it\u0027s fine to move it to the new class?",
+      "range": {
+        "startLine": 1410,
+        "startChar": 24,
+        "endLine": 1410,
+        "endChar": 31
+      },
+      "revId": "740c50de5072ea214ff6515649e307f96fe8dda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_175dd452",
+        "filename": "compiler/optimizing/ssa_deconstruction.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-19T13:28:07Z",
+      "side": 1,
+      "message": "This is just a copy of the old code right? No functionality change?",
+      "revId": "740c50de5072ea214ff6515649e307f96fe8dda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_1773941b",
+        "filename": "compiler/optimizing/ssa_deconstruction.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-19T13:28:07Z",
+      "side": 1,
+      "message": ": public ValueObject",
+      "range": {
+        "startLine": 37,
+        "startChar": 23,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "740c50de5072ea214ff6515649e307f96fe8dda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
