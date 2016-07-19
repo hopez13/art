@@ -49,6 +49,54 @@
     },
     {
       "key": {
+        "uuid": "0a697be4_f774e098",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1992,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-07-19T16:59:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a697be4_f74aa07d",
+      "range": {
+        "startLine": 1992,
+        "startChar": 50,
+        "endLine": 1992,
+        "endChar": 76
+      },
+      "revId": "a0c94fc9460a51b5b86797c4dbe5ffc5a8428413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_9771e4a7",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1992,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-07-19T16:59:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a697be4_f775c0db",
+      "range": {
+        "startLine": 1992,
+        "startChar": 50,
+        "endLine": 1992,
+        "endChar": 76
+      },
+      "revId": "a0c94fc9460a51b5b86797c4dbe5ffc5a8428413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a697be4_978244a3",
         "filename": "compiler/optimizing/instruction_simplifier_arm.cc",
         "patchSetId": 1
@@ -60,6 +108,24 @@
       "writtenOn": "2016-07-19T13:09:58Z",
       "side": 1,
       "message": "Remove one of the two blank lines.",
+      "revId": "a0c94fc9460a51b5b86797c4dbe5ffc5a8428413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_37833865",
+        "filename": "compiler/optimizing/instruction_simplifier_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-07-19T16:59:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a697be4_978244a3",
       "revId": "a0c94fc9460a51b5b86797c4dbe5ffc5a8428413",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -83,6 +149,24 @@
     },
     {
       "key": {
+        "uuid": "0a697be4_177e347c",
+        "filename": "compiler/optimizing/instruction_simplifier_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-07-19T16:59:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a697be4_57acac3a",
+      "revId": "a0c94fc9460a51b5b86797c4dbe5ffc5a8428413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a697be4_d79f5cf8",
         "filename": "test/527-checker-array-access-split/src/Main.java",
         "patchSetId": 1
@@ -94,6 +178,24 @@
       "writtenOn": "2016-07-19T13:09:58Z",
       "side": 1,
       "message": "Please add tests that ARM does not split array access for long[]/float[]/double[].",
+      "revId": "a0c94fc9460a51b5b86797c4dbe5ffc5a8428413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_d7ec3c29",
+        "filename": "test/527-checker-array-access-split/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-07-19T16:59:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a697be4_d79f5cf8",
       "revId": "a0c94fc9460a51b5b86797c4dbe5ffc5a8428413",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
