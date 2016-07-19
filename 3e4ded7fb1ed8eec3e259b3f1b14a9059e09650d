@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0a5b3b40_7f9d2a63",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-19T23:47:31Z",
+      "side": 1,
+      "message": "What does this mean, non-copied, here?\n\nI am asserting you\u0027re masking an error.",
+      "parentUuid": "0a5b3b40_dfe1b6c4",
+      "range": {
+        "startLine": 854,
+        "startChar": 66,
+        "endLine": 854,
+        "endChar": 94
+      },
+      "revId": "3e4ded7fb1ed8eec3e259b3f1b14a9059e09650d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5b3b40_5fda6674",
         "filename": "runtime/trace.cc",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "writtenOn": "2016-07-19T23:32:17Z",
       "side": 1,
       "message": "As an aside I found an unrelated bug. If you have a large amount of uptime your pid_ts can get \u003e65536 which causes this to fail.\n\nWe should maybe deal with this since it will almost certainly happen on the buildbots (it took only 12 days of uptime on my workstation to hit this and fixing it required a reboot).",
+      "range": {
+        "startLine": 871,
+        "startChar": 0,
+        "endLine": 871,
+        "endChar": 47
+      },
+      "revId": "3e4ded7fb1ed8eec3e259b3f1b14a9059e09650d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5b3b40_9f98de75",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-19T23:47:31Z",
+      "side": 1,
+      "message": "You didn\u0027t find this bug, it\u0027s known.",
+      "parentUuid": "0a5b3b40_5fda6674",
       "range": {
         "startLine": 871,
         "startChar": 0,
