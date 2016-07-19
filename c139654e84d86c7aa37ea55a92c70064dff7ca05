@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a697be4_97eb2475",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-19T13:40:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ad1308d_b7565de2",
+      "range": {
+        "startLine": 12,
+        "startChar": 8,
+        "endLine": 12,
+        "endChar": 14
+      },
+      "revId": "c139654e84d86c7aa37ea55a92c70064dff7ca05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eafc272d_a144b86f",
         "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2016-07-18T10:47:55Z",
       "side": 1,
       "message": "If we want precise CFI, we should record offsets also for FP registers.",
+      "revId": "c139654e84d86c7aa37ea55a92c70064dff7ca05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a12f748_ba43d147",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1774,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-19T13:40:27Z",
+      "side": 1,
+      "message": "I agree, but I think we do not record stack offset for FP registers anywhere in this file at the moment; I don\u0027t know why – maybe it is (or was?) not supported by all the tools we use?",
+      "parentUuid": "eafc272d_a144b86f",
       "revId": "c139654e84d86c7aa37ea55a92c70064dff7ca05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "2a08ff1a_d8e9ed16",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1796,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-19T13:40:27Z",
+      "side": 1,
+      "message": "Thanks for the suggestion; done in PS3.",
+      "parentUuid": "2a08ff1a_981b7582",
+      "range": {
+        "startLine": 1787,
+        "startChar": 0,
+        "endLine": 1796,
+        "endChar": 48
+      },
+      "revId": "c139654e84d86c7aa37ea55a92c70064dff7ca05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eafc272d_2130a803",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -76,6 +142,24 @@
       "writtenOn": "2016-07-18T10:47:55Z",
       "side": 1,
       "message": "It is a bit odd to leave the \\xReg1 recoverable by the debugger at this point.",
+      "revId": "c139654e84d86c7aa37ea55a92c70064dff7ca05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_d7cafc16",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-19T13:40:27Z",
+      "side": 1,
+      "message": "Right; changed in PS3.\n\nI guess we should change the definition of POP_REG_NE (lines 1249–1254) similarly, right?",
+      "parentUuid": "eafc272d_2130a803",
       "revId": "c139654e84d86c7aa37ea55a92c70064dff7ca05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -99,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "ea2507a1_96d10ccb",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2294,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-19T13:40:27Z",
+      "side": 1,
+      "message": "Likewise, it seems we do not record CFI information for FP registers anywhere in this file.",
+      "parentUuid": "2a08ff1a_d8f8cd1d",
+      "revId": "c139654e84d86c7aa37ea55a92c70064dff7ca05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ae91769_65d24005",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 1
@@ -110,6 +212,30 @@
       "writtenOn": "2016-07-18T10:47:55Z",
       "side": 1,
       "message": "4B-aligned store of 8B register. Is this intended?",
+      "range": {
+        "startLine": 1935,
+        "startChar": 4,
+        "endLine": 1935,
+        "endChar": 24
+      },
+      "revId": "c139654e84d86c7aa37ea55a92c70064dff7ca05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a08ff1a_38da2974",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1935,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-19T13:40:27Z",
+      "side": 1,
+      "message": "Good catch!  I didn\u0027t think about that, as we already had similar code in other places in this file (e.g. in every function using the macro SETUP_REFS_AND_ARGS_CALLEE_SAVE_FRAME).\n\nI\u0027ve fixed this particular case; I\u0027ll have a look a other occurrences in another CL.",
+      "parentUuid": "6ae91769_65d24005",
       "range": {
         "startLine": 1935,
         "startChar": 4,
