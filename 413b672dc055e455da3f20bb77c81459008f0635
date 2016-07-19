@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a5b3b40_5c26f9d2",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-07-19T18:47:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a697be4_b77f48ba",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 19
+      },
+      "revId": "413b672dc055e455da3f20bb77c81459008f0635",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a697be4_178f14d3",
         "filename": "compiler/optimizing/register_allocator.h",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-19T13:02:56Z",
       "side": 1,
       "message": "I think kRegisterAllocatorDefault should be a const in the optimizing compiler.\n\nHaving a \"Default\" value as part of the enum is not very intuitive and makes you do the test hack in ::Create.",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 29
+      },
+      "revId": "413b672dc055e455da3f20bb77c81459008f0635",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5b3b40_7c92dda5",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-07-19T18:47:09Z",
+      "side": 1,
+      "message": "Good point.\nIn my latest patch set I\u0027ve put the default as a static member of RegisterAllocator, since I think we still want to access the default without going through the optimizing compiler (e.g., for unit testing). Let me know if that\u0027s alright, though.",
+      "parentUuid": "0a697be4_178f14d3",
       "range": {
         "startLine": 48,
         "startChar": 4,
