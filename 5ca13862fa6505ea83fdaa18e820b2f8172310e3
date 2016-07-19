@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a697be4_b7f2e837",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1794,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-19T14:10:08Z",
+      "side": 1,
+      "message": ".ifnc \\reg, r1\n.ifnc \\reg, r2\n.ifnc \\reg, r3\n.ifnc \\reg, r4\n.ifnc \\reg, r9\n.ifnc \\reg, r12",
+      "revId": "5ca13862fa6505ea83fdaa18e820b2f8172310e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_570fcc33",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1936,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-19T14:10:08Z",
+      "side": 1,
+      "message": "Merge the two instructions.",
+      "range": {
+        "startLine": 1931,
+        "startChar": 0,
+        "endLine": 1936,
+        "endChar": 32
+      },
+      "revId": "5ca13862fa6505ea83fdaa18e820b2f8172310e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
