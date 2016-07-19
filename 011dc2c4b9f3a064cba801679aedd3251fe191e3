@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca7e839c_95b324e6",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-19T08:29:30Z",
+      "side": 1,
+      "message": "extra \u0027)\u0027",
+      "range": {
+        "startLine": 1051,
+        "startChar": 87,
+        "endLine": 1051,
+        "endChar": 88
+      },
+      "revId": "011dc2c4b9f3a064cba801679aedd3251fe191e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_97b324e6",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1053,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-19T08:29:30Z",
+      "side": 1,
+      "message": "allocation stack",
+      "range": {
+        "startLine": 1053,
+        "startChar": 65,
+        "endLine": 1053,
+        "endChar": 75
+      },
+      "revId": "011dc2c4b9f3a064cba801679aedd3251fe191e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a647f09_98b355e6",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1642,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-19T08:29:30Z",
+      "side": 1,
+      "message": "extra \u0027)\u0027",
+      "range": {
+        "startLine": 1642,
+        "startChar": 87,
+        "endLine": 1642,
+        "endChar": 88
+      },
+      "revId": "011dc2c4b9f3a064cba801679aedd3251fe191e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a748bbe_93b33ce6",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1644,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-19T08:29:30Z",
+      "side": 1,
+      "message": "allocation stack",
+      "range": {
+        "startLine": 1644,
+        "startChar": 65,
+        "endLine": 1644,
+        "endChar": 75
+      },
+      "revId": "011dc2c4b9f3a064cba801679aedd3251fe191e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
