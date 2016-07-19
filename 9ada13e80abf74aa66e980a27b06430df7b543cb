@@ -210,6 +210,30 @@
       "revId": "9ada13e80abf74aa66e980a27b06430df7b543cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_57ca6c74",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-19T22:12:37Z",
+      "side": 1,
+      "message": "I have b/29712509 on my plate.\n\nBut I have sort of anticipated this with:\nhttps://cs.corp.google.com/android/art/runtime/gc/heap.cc?rcl\u003dd429249ba9b12ce3d8a2c0ee6416bc325163e375\u0026l\u003d2713",
+      "parentUuid": "0a5b3b40_e9f3acd5",
+      "range": {
+        "startLine": 106,
+        "startChar": 27,
+        "endLine": 106,
+        "endChar": 51
+      },
+      "revId": "9ada13e80abf74aa66e980a27b06430df7b543cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
