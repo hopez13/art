@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "0a5b3b40_5a25d412",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1047769
+      },
+      "writtenOn": "2016-07-19T23:54:53Z",
+      "side": 1,
+      "message": "If the resolved method is copied that\u0027s fine. It just means that the passed in method is default (and already in the dexCache BTW since it\u0027s not null) so we shouldn\u0027t change it to the original (non-copied, interface) version.",
+      "parentUuid": "0a5b3b40_7f9d2a63",
+      "range": {
+        "startLine": 854,
+        "startChar": 66,
+        "endLine": 854,
+        "endChar": 94
+      },
+      "revId": "3e4ded7fb1ed8eec3e259b3f1b14a9059e09650d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5b3b40_5fda6674",
         "filename": "runtime/trace.cc",
         "patchSetId": 1
