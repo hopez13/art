@@ -234,6 +234,30 @@
       "revId": "9ada13e80abf74aa66e980a27b06430df7b543cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5b3b40_7f208a04",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-19T23:03:28Z",
+      "side": 1,
+      "message": "A side question re: the ClearGcRootsInInlineCaches call there, did you mean kGcTypeFull or kGcTypePartial there? \n\nI think in a zygote-forked process, we usually do kGcTypePartial when it\u0027s not a sticky collection, and probably no kGcTypeFull at all. As a side note, it\u0027s always kGcTypeFull for the non-CMS collectors.",
+      "parentUuid": "0a697be4_57ca6c74",
+      "range": {
+        "startLine": 106,
+        "startChar": 27,
+        "endLine": 106,
+        "endChar": 51
+      },
+      "revId": "9ada13e80abf74aa66e980a27b06430df7b543cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
