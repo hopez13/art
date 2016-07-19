@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0a697be4_57f90ceb",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1794,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-19T17:42:22Z",
+      "side": 1,
+      "message": "I\u0027ve done something along the lines of what you suggested in PS4; let me know what you think.",
+      "parentUuid": "0a697be4_b7f2e837",
+      "revId": "5ca13862fa6505ea83fdaa18e820b2f8172310e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a697be4_570fcc33",
         "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2016-07-19T14:10:08Z",
       "side": 1,
       "message": "Merge the two instructions.",
+      "range": {
+        "startLine": 1931,
+        "startChar": 0,
+        "endLine": 1936,
+        "endChar": 32
+      },
+      "revId": "5ca13862fa6505ea83fdaa18e820b2f8172310e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_771a1026",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1936,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-19T17:42:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a697be4_570fcc33",
       "range": {
         "startLine": 1931,
         "startChar": 0,
