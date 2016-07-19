@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a697be4_57082c32",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4448,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-07-19T16:59:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a697be4_d743dc98",
+      "range": {
+        "startLine": 4448,
+        "startChar": 46,
+        "endLine": 4448,
+        "endChar": 94
+      },
+      "revId": "7ff7c19018458520886843c4ad0d34166ce64439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a697be4_f740608e",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-19T12:39:33Z",
       "side": 1,
       "message": "Use local variable, break the line after \"\u003d\" if needed.",
+      "range": {
+        "startLine": 4596,
+        "startChar": 46,
+        "endLine": 4596,
+        "endChar": 94
+      },
+      "revId": "7ff7c19018458520886843c4ad0d34166ce64439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_770d3041",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4596,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-07-19T16:59:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a697be4_f740608e",
       "range": {
         "startLine": 4596,
         "startChar": 46,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0a697be4_1702b410",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4656,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-07-19T16:59:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a697be4_973d6415",
+      "range": {
+        "startLine": 4656,
+        "startChar": 46,
+        "endLine": 4656,
+        "endChar": 60
+      },
+      "revId": "7ff7c19018458520886843c4ad0d34166ce64439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a697be4_b73ae818",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 1
@@ -82,6 +154,24 @@
       "writtenOn": "2016-07-19T12:39:33Z",
       "side": 1,
       "message": "This is inconsistent - there is StoreToShiftedRegOffset() for the same above, yet str() here?",
+      "revId": "7ff7c19018458520886843c4ad0d34166ce64439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_f7f8601d",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4743,
+      "author": {
+        "id": 1089808
+      },
+      "writtenOn": "2016-07-19T16:59:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a697be4_b73ae818",
       "revId": "7ff7c19018458520886843c4ad0d34166ce64439",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
