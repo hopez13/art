@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a5b3b40_7089e184",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-19T19:36:17Z",
+      "side": 1,
+      "message": "I wonder why we didn\u0027t do this to begin with? Any reason that we originally wanted to get to inline cache roots via ArtMethod\u0027s?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 57
+      },
+      "revId": "9ada13e80abf74aa66e980a27b06430df7b543cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5b3b40_1c7881f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-19T19:36:17Z",
+      "side": 1,
+      "message": "This is referring to loading 0xwilldie into a local variable (eg art_method-inl.h:468 in Base PS), right?",
+      "range": {
+        "startLine": 10,
+        "startChar": 26,
+        "endLine": 10,
+        "endChar": 59
+      },
+      "revId": "9ada13e80abf74aa66e980a27b06430df7b543cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5b3b40_9c3a3119",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-19T19:36:17Z",
+      "side": 1,
+      "message": "I think the GC thread (when running GC) is treated as suspended and the checkpoint code (is it MarkCodeClosure?) for the GC thread is run by the thread driving the checkpoint rather than the GC thread itself.\n\nSo, is it more like the checkpoint is still run for the GC thread but not by the GC thread itself and so running the checkpoint doesn\u0027t ensure that the GC will see the updated (nulled) profiling info, that is, GC isn\u0027t in the middle of visiting a profiling info and is potentially preempted with a stale local variable?",
+      "range": {
+        "startLine": 14,
+        "startChar": 50,
+        "endLine": 15,
+        "endChar": 54
+      },
+      "revId": "9ada13e80abf74aa66e980a27b06430df7b543cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5b3b40_dc11c963",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-19T19:36:17Z",
+      "side": 1,
+      "message": "Is this referring to the FreeData call near the end of JitCodeCache::DoCollection?",
+      "range": {
+        "startLine": 16,
+        "startChar": 3,
+        "endLine": 17,
+        "endChar": 43
+      },
+      "revId": "9ada13e80abf74aa66e980a27b06430df7b543cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
