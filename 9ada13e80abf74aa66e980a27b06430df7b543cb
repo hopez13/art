@@ -187,6 +187,29 @@
       "revId": "9ada13e80abf74aa66e980a27b06430df7b543cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5b3b40_e9f3acd5",
+        "filename": "runtime/jit/profiling_info.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-19T22:07:03Z",
+      "side": 1,
+      "message": "Always visiting the inline caches seems like it would prevent class unloading in a lot of cases. Does class unloading test pass with jit + this change?",
+      "range": {
+        "startLine": 106,
+        "startChar": 27,
+        "endLine": 106,
+        "endChar": 51
+      },
+      "revId": "9ada13e80abf74aa66e980a27b06430df7b543cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
