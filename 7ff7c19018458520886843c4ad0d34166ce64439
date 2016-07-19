@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a697be4_d743dc98",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4448,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-19T12:39:33Z",
+      "side": 1,
+      "message": "Use local variable for this (for example \"const_index\") and break the line after \"\u003d\" if it still doesn\u0027t fit into 100 characters.",
+      "range": {
+        "startLine": 4448,
+        "startChar": 46,
+        "endLine": 4448,
+        "endChar": 94
+      },
+      "revId": "7ff7c19018458520886843c4ad0d34166ce64439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_f740608e",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4596,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-19T12:39:33Z",
+      "side": 1,
+      "message": "Use local variable, break the line after \"\u003d\" if needed.",
+      "range": {
+        "startLine": 4596,
+        "startChar": 46,
+        "endLine": 4596,
+        "endChar": 94
+      },
+      "revId": "7ff7c19018458520886843c4ad0d34166ce64439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_973d6415",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4656,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-19T12:39:33Z",
+      "side": 1,
+      "message": "One parameter per line.",
+      "range": {
+        "startLine": 4656,
+        "startChar": 46,
+        "endLine": 4656,
+        "endChar": 60
+      },
+      "revId": "7ff7c19018458520886843c4ad0d34166ce64439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_b73ae818",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4743,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-19T12:39:33Z",
+      "side": 1,
+      "message": "This is inconsistent - there is StoreToShiftedRegOffset() for the same above, yet str() here?",
+      "revId": "7ff7c19018458520886843c4ad0d34166ce64439",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
