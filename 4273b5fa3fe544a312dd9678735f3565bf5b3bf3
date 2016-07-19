@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "0a697be4_b7f3c804",
+        "filename": "compiler/optimizing/inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-19T16:49:31Z",
+      "side": 1,
+      "message": "Sure I could, thought about doing it instead but:\n- Change wouldn\u0027t be \"minimal\"\n- Can we please kill the dex cache.",
+      "parentUuid": "0a5b3b40_96633243",
+      "range": {
+        "startLine": 222,
+        "startChar": 4,
+        "endLine": 227,
+        "endChar": 5
+      },
+      "revId": "4273b5fa3fe544a312dd9678735f3565bf5b3bf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a697be4_370818f7",
         "filename": "test/612-classloader-wonkery/src/Main.java",
         "patchSetId": 2
@@ -59,6 +83,30 @@
       "writtenOn": "2016-07-19T16:31:31Z",
       "side": 1,
       "message": "you can drop a 0 :)",
+      "range": {
+        "startLine": 55,
+        "startChar": 29,
+        "endLine": 55,
+        "endChar": 30
+      },
+      "revId": "4273b5fa3fe544a312dd9678735f3565bf5b3bf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_77e53034",
+        "filename": "test/612-classloader-wonkery/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-19T16:49:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a697be4_370818f7",
       "range": {
         "startLine": 55,
         "startChar": 29,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "0a697be4_17dab473",
+        "filename": "test/612-classloader-wonkery/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-19T16:49:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a5b3b40_d612caae",
+      "range": {
+        "startLine": 56,
+        "startChar": 21,
+        "endLine": 56,
+        "endChar": 28
+      },
+      "revId": "4273b5fa3fe544a312dd9678735f3565bf5b3bf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5b3b40_3673661c",
         "filename": "test/common/runtime_state.cc",
         "patchSetId": 2
@@ -105,6 +177,30 @@
       "writtenOn": "2016-07-19T16:25:24Z",
       "side": 1,
       "message": "That isn\u0027t an intuitive name considering it forces JITing...",
+      "range": {
+        "startLine": 123,
+        "startChar": 44,
+        "endLine": 123,
+        "endChar": 59
+      },
+      "revId": "4273b5fa3fe544a312dd9678735f3565bf5b3bf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_57e02c25",
+        "filename": "test/common/runtime_state.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-19T16:49:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a5b3b40_3673661c",
       "range": {
         "startLine": 123,
         "startChar": 44,
