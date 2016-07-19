@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0a697be4_174ab4b1",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3546,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-19T12:17:51Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this comment be updated too?",
+      "range": {
+        "startLine": 3546,
+        "startChar": 59,
+        "endLine": 3546,
+        "endChar": 72
+      },
+      "revId": "f24b518c2eb77d636b837bdc1701314f3e91bdb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5b3b40_0a94bbe3",
         "filename": "runtime/gc/heap.cc",
         "patchSetId": 2
