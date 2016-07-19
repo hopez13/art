@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a5b3b40_645123dd",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 854,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-19T22:46:30Z",
+      "side": 1,
+      "message": "I do not understand this. So the resolved method is not the same, it is not null, but it\u0027s not copied? When is that supposed to happen? That actually looks like an error situation to me.",
+      "range": {
+        "startLine": 854,
+        "startChar": 66,
+        "endLine": 854,
+        "endChar": 94
+      },
+      "revId": "3e4ded7fb1ed8eec3e259b3f1b14a9059e09650d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
