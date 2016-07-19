@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a697be4_f775c0db",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1992,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-19T13:09:58Z",
+      "side": 1,
+      "message": "I see you\u0027re making a minor functional change to arm64 as well. I think you should mention that in the commit message.",
+      "range": {
+        "startLine": 1992,
+        "startChar": 50,
+        "endLine": 1992,
+        "endChar": 76
+      },
+      "revId": "a0c94fc9460a51b5b86797c4dbe5ffc5a8428413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_978244a3",
+        "filename": "compiler/optimizing/instruction_simplifier_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-19T13:09:58Z",
+      "side": 1,
+      "message": "Remove one of the two blank lines.",
+      "revId": "a0c94fc9460a51b5b86797c4dbe5ffc5a8428413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_57acac3a",
+        "filename": "compiler/optimizing/instruction_simplifier_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-19T13:09:58Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "a0c94fc9460a51b5b86797c4dbe5ffc5a8428413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_d79f5cf8",
+        "filename": "test/527-checker-array-access-split/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-19T13:09:58Z",
+      "side": 1,
+      "message": "Please add tests that ARM does not split array access for long[]/float[]/double[].",
+      "revId": "a0c94fc9460a51b5b86797c4dbe5ffc5a8428413",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
