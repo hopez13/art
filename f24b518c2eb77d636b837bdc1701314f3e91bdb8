@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a5b3b40_0a94bbe3",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3548,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-19T00:22:58Z",
+      "side": 1,
+      "message": "Hmm, is it worth only doing this for foreground? Also it might be cleaner to store the updated value in foreground_heap_growth_multiplier_ instead of changing the logic here.",
+      "range": {
+        "startLine": 3548,
+        "startChar": 17,
+        "endLine": 3548,
+        "endChar": 43
+      },
+      "revId": "f24b518c2eb77d636b837bdc1701314f3e91bdb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
