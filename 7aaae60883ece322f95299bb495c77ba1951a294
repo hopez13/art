@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a697be4_976484bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-19T17:26:39Z",
+      "side": 1,
+      "message": "... in https://android-review.googlesource.com/248406",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 53
+      },
+      "revId": "7aaae60883ece322f95299bb495c77ba1951a294",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_b76188ac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-19T17:26:39Z",
+      "side": 1,
+      "message": "You should list the code we generate before this CL. Alternatively, provide both \"Before https://android-review.googlesource.com/248406 \" and \"Before this CL\".",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 21
+      },
+      "revId": "7aaae60883ece322f95299bb495c77ba1951a294",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_d75afcf8",
+        "filename": "compiler/optimizing/instruction_simplifier_shared.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-19T17:26:39Z",
+      "side": 1,
+      "message": "Style: The operator should be at the end of the previous line (as in PS1).",
+      "range": {
+        "startLine": 244,
+        "startChar": 6,
+        "endLine": 244,
+        "endChar": 8
+      },
+      "revId": "7aaae60883ece322f95299bb495c77ba1951a294",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a697be4_f75700ce",
+        "filename": "compiler/optimizing/instruction_simplifier_shared.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-19T17:26:39Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 250,
+        "startChar": 6,
+        "endLine": 250,
+        "endChar": 8
+      },
+      "revId": "7aaae60883ece322f95299bb495c77ba1951a294",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
