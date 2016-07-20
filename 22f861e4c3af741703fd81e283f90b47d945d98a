@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4ad8d308_37dca015",
+        "filename": "build/Android.common_build.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-20T19:13:18Z",
+      "side": 1,
+      "message": "What\u0027s the complexity besides knowing you can adjust it? Or are you talking about complexity in the tracing infrastructure (like the bit array size or what not).",
+      "parentUuid": "2a1e3fa6_8ba2b1ef",
+      "range": {
+        "startLine": 312,
+        "startChar": 0,
+        "endLine": 317,
+        "endChar": 5
+      },
+      "revId": "22f861e4c3af741703fd81e283f90b47d945d98a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a1e3fa6_4bba7927",
         "filename": "runtime/trace.h",
         "patchSetId": 1
