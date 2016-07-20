@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a5b3b40_62834e64",
+        "filename": "compiler/optimizing/register_allocator.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-07-20T17:10:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a697be4_da430199",
+      "range": {
+        "startLine": 38,
+        "startChar": 42,
+        "endLine": 39,
+        "endChar": 28
+      },
+      "revId": "9954ab13a24db0190d507e5b85ae0b07e734bcba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a697be4_fa40458e",
         "filename": "compiler/optimizing/register_allocator_linear_scan.h",
         "patchSetId": 12
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-20T11:32:50Z",
       "side": 1,
       "message": "OVERRIDE",
+      "range": {
+        "startLine": 47,
+        "startChar": 27,
+        "endLine": 47,
+        "endChar": 35
+      },
+      "revId": "9954ab13a24db0190d507e5b85ae0b07e734bcba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5b3b40_42784a8c",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-07-20T17:10:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a697be4_fa40458e",
       "range": {
         "startLine": 47,
         "startChar": 27,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0a5b3b40_22755693",
+        "filename": "compiler/optimizing/register_allocator_linear_scan.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-07-20T17:10:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a697be4_9a3d8915",
+      "range": {
+        "startLine": 49,
+        "startChar": 43,
+        "endLine": 49,
+        "endChar": 51
+      },
+      "revId": "9954ab13a24db0190d507e5b85ae0b07e734bcba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a697be4_ba3acd18",
         "filename": "compiler/optimizing/register_allocator_test.cc",
         "patchSetId": 12
@@ -82,6 +154,30 @@
       "writtenOn": "2016-07-20T11:32:50Z",
       "side": 1,
       "message": "line too long (here and below)",
+      "range": {
+        "startLine": 545,
+        "startChar": 0,
+        "endLine": 545,
+        "endChar": 102
+      },
+      "revId": "9954ab13a24db0190d507e5b85ae0b07e734bcba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5b3b40_c2ab1ada",
+        "filename": "compiler/optimizing/register_allocator_test.cc",
+        "patchSetId": 12
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-07-20T17:10:51Z",
+      "side": 1,
+      "message": "I was wondering what the character limit was :-)\nDone.",
+      "parentUuid": "0a697be4_ba3acd18",
       "range": {
         "startLine": 545,
         "startChar": 0,
