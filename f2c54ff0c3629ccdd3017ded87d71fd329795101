@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "2a7abff6_6883e363",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1108540
+      },
+      "writtenOn": "2016-07-20T23:52:15Z",
+      "side": 1,
+      "message": "After some testing, this turned out to be too conservative, because all registers are blocked at the top of a catch block, yet shouldn\u0027t be considered allocated registers. I\u0027ve updated this behavior in PS17, and I now count: assigned registers, fixed input registers, fixed output registers, and fixed temporaries.",
+      "parentUuid": "0a5b3b40_3c79fbd8",
+      "range": {
+        "startLine": 263,
+        "startChar": 0,
+        "endLine": 268,
+        "endChar": 78
+      },
+      "revId": "f2c54ff0c3629ccdd3017ded87d71fd329795101",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5b3b40_1cef5784",
         "filename": "compiler/optimizing/register_allocator_graph_color.cc",
         "patchSetId": 16
