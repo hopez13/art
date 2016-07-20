@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2a1e3fa6_b777129c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-20T21:56:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a1e3fa6_51ab4620",
+      "range": {
+        "startLine": 11,
+        "startChar": 19,
+        "endLine": 11,
+        "endChar": 21
+      },
+      "revId": "58aaaa4ef53afcd5499c8701afa4abf3fbf41831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a1e3fa6_91bbfe27",
         "filename": "cmdline/cmdline_types.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-20T20:31:44Z",
       "side": 1,
       "message": "I think this is good for testing the measurement code, but the measurements in a debug build is not very useful?",
+      "range": {
+        "startLine": 476,
+        "startChar": 18,
+        "endLine": 476,
+        "endChar": 31
+      },
+      "revId": "58aaaa4ef53afcd5499c8701afa4abf3fbf41831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a1e3fa6_f7998a13",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-20T21:56:38Z",
+      "side": 1,
+      "message": "Yes, it is only to get test coverage.",
+      "parentUuid": "2a1e3fa6_91bbfe27",
       "range": {
         "startLine": 476,
         "startChar": 18,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2a1e3fa6_57621614",
+        "filename": "runtime/gc/collector/concurrent_copying-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-20T21:56:38Z",
+      "side": 1,
+      "message": "It is in the noise for me, there is a slight slowdown when mark_from_read_barrier_checks_ is true though. We can maybe delete it after we are done investigating.",
+      "parentUuid": "2a1e3fa6_b150c208",
+      "range": {
+        "startLine": 157,
+        "startChar": 6,
+        "endLine": 157,
+        "endChar": 46
+      },
+      "revId": "58aaaa4ef53afcd5499c8701afa4abf3fbf41831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a1e3fa6_110d4e42",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "2a1e3fa6_f7706adb",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-20T21:56:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a1e3fa6_110d4e42",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 41
+      },
+      "revId": "58aaaa4ef53afcd5499c8701afa4abf3fbf41831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a1e3fa6_d16e16c4",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2016-07-20T20:31:44Z",
       "side": 1,
       "message": "How about \"WithMeasurements\"? \"Checks\" may be confused with assertions.",
+      "range": {
+        "startLine": 2065,
+        "startChar": 54,
+        "endLine": 2065,
+        "endChar": 64
+      },
+      "revId": "58aaaa4ef53afcd5499c8701afa4abf3fbf41831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a1e3fa6_77b59a35",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2065,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-20T21:56:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a1e3fa6_d16e16c4",
       "range": {
         "startLine": 2065,
         "startChar": 54,
