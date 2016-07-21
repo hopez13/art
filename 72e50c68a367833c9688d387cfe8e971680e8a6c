@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2a7abff6_b2145d55",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-21T19:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a7abff6_f1ca5a9b",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 69
+      },
+      "revId": "72e50c68a367833c9688d387cfe8e971680e8a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea77c70c_e699be6a",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-21T08:39:20Z",
       "side": 1,
       "message": "nit: one per line",
+      "range": {
+        "startLine": 202,
+        "startChar": 18,
+        "endLine": 203,
+        "endChar": 55
+      },
+      "revId": "72e50c68a367833c9688d387cfe8e971680e8a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a7abff6_b2661d25",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-21T19:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea77c70c_e699be6a",
       "range": {
         "startLine": 202,
         "startChar": 18,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "2a7abff6_9262f911",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-21T19:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea77c70c_06a6daaa",
+      "range": {
+        "startLine": 217,
+        "startChar": 18,
+        "endLine": 218,
+        "endChar": 55
+      },
+      "revId": "72e50c68a367833c9688d387cfe8e971680e8a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea77c70c_06f41a8b",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-07-21T09:31:27Z",
       "side": 1,
       "message": "Maybe add a comment mentioning that you can use a non-CAS thread flip root visitor because it only updates thread-local GC roots?",
+      "range": {
+        "startLine": 265,
+        "startChar": 4,
+        "endLine": 265,
+        "endChar": 25
+      },
+      "revId": "72e50c68a367833c9688d387cfe8e971680e8a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a7abff6_92303906",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-21T19:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea77c70c_06f41a8b",
       "range": {
         "startLine": 265,
         "startChar": 4,
