@@ -68,6 +68,29 @@
       "revId": "72e50c68a367833c9688d387cfe8e971680e8a6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea77c70c_06f41a8b",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-21T09:31:27Z",
+      "side": 1,
+      "message": "Maybe add a comment mentioning that you can use a non-CAS thread flip root visitor because it only updates thread-local GC roots?",
+      "range": {
+        "startLine": 265,
+        "startChar": 4,
+        "endLine": 265,
+        "endChar": 25
+      },
+      "revId": "72e50c68a367833c9688d387cfe8e971680e8a6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
