@@ -16,6 +16,24 @@
       "revId": "1cfada1535c8b1c15a2943cdf37a0b177d45fd4e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea77c70c_46c1b2fa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-21T14:07:17Z",
+      "side": 1,
+      "message": "Unfortunately, you cannot run \"make build-art-host-tests\" (nor even \"make build-art-host\") on OS X, because these targets have a dependency on `out/host/darwin-x86/framework/core-oj-hostdex.jar` that cannot be satisfied (we don\u0027t build `*-hostdex.jar` files outside Linux).\n\nYou can build ART with \"mmma art\" though; I\u0027ve updated the \"Test:\" stanza in PS2.",
+      "parentUuid": "ea77c70c_c63da214",
+      "revId": "1cfada1535c8b1c15a2943cdf37a0b177d45fd4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
