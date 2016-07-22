@@ -1,0 +1,268 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a23733a_bfdc7fde",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-22T18:15:45Z",
+      "side": 1,
+      "message": "I would change the main line to read \"Implementation of bisection bug search in the compiler\" or something like that (the fact that you use switches is a minor detail, this CL does already much more)",
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_ff6197e1",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-22T18:15:45Z",
+      "side": 1,
+      "message": "see elsewhere that we probably don\u0027t need this bool",
+      "range": {
+        "startLine": 163,
+        "startChar": 25,
+        "endLine": 163,
+        "endChar": 26
+      },
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_bf6b1fc0",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-22T18:15:45Z",
+      "side": 1,
+      "message": "see elsewhere on guarding against having this, but not the other flag",
+      "range": {
+        "startLine": 173,
+        "startChar": 31,
+        "endLine": 173,
+        "endChar": 32
+      },
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_1f448b4e",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-22T18:15:45Z",
+      "side": 1,
+      "message": "perhaps we don\u0027t need this bool field; having optimize_up_to_method !\u003d maxuint32 seems the same",
+      "range": {
+        "startLine": 173,
+        "startChar": 11,
+        "endLine": 173,
+        "endChar": 33
+      },
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_5fbf6315",
+        "filename": "compiler/optimizing/bisection_controller.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-22T18:15:45Z",
+      "side": 1,
+      "message": "I would use one API consistent, as in \"bool Can...\" even if you don\u0027t test the return value, but move that logic in the phase method in the controller. Having two forms (start next and can run next) seems a bit confusing.\n\nAlso, I would not use Next, but just CanOptimizeMethod() to be consistent with what you did for phase.",
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_3fc62fb0",
+        "filename": "compiler/optimizing/bisection_controller.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-22T18:15:45Z",
+      "side": 1,
+      "message": "white line before the DISALLOW",
+      "range": {
+        "startLine": 37,
+        "startChar": 20,
+        "endLine": 37,
+        "endChar": 21
+      },
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_bff1dfd2",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-22T18:15:45Z",
+      "side": 1,
+      "message": "I suspect that most team members would like the static instance method change to be done in its own (preparing CL).",
+      "range": {
+        "startLine": 310,
+        "startChar": 15,
+        "endLine": 310,
+        "endChar": 31
+      },
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_df3b7384",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-22T18:15:45Z",
+      "side": 1,
+      "message": "I would not exit the loop, but keep on querying\n\nthat way, we can get the log that comes with this mechanism that is more intuitive\n\noptimizing method [1] foo\n        doing inlining\n        doing constant folding\n        doing etc.\noptimizing method [2] bar      [LAST]\n        doing inlining\n        NOT doing constant folding\n        NOT doing etc.\nNOT optimizing method [3] joho\nNOT optimizing method [4] doit",
+      "range": {
+        "startLine": 1101,
+        "startChar": 30,
+        "endLine": 1101,
+        "endChar": 53
+      },
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_5f23e3ae",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-22T18:15:45Z",
+      "side": 1,
+      "message": "do we have to say to here (seems generally true, and I would expect most clients to stick to dec)",
+      "range": {
+        "startLine": 387,
+        "startChar": 53,
+        "endLine": 387,
+        "endChar": 60
+      },
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_3f6e2ffd",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-22T18:15:45Z",
+      "side": 1,
+      "message": "example does not match switch",
+      "range": {
+        "startLine": 388,
+        "startChar": 36,
+        "endLine": 388,
+        "endChar": 45
+      },
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_3f2aaf81",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-22T18:15:45Z",
+      "side": 1,
+      "message": "not sure if we want to show a default. intuitively not setting the flag means all methods are optimized",
+      "range": {
+        "startLine": 391,
+        "startChar": 20,
+        "endLine": 391,
+        "endChar": 27
+      },
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_ff3af7cf",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-22T18:15:45Z",
+      "side": 1,
+      "message": "we probably want to complain if this flag is set but not the other",
+      "range": {
+        "startLine": 393,
+        "startChar": 73,
+        "endLine": 393,
+        "endChar": 77
+      },
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
