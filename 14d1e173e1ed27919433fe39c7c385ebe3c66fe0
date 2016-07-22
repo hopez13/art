@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a23733a_dc970143",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1438,
+      "author": {
+        "id": 1043514
+      },
+      "writtenOn": "2016-07-22T17:39:22Z",
+      "side": 1,
+      "message": "Is it possible here to DCHECK it\u0027s unit stride?",
+      "revId": "14d1e173e1ed27919433fe39c7c385ebe3c66fe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
