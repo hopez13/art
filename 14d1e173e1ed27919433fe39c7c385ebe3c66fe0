@@ -16,6 +16,24 @@
       "revId": "14d1e173e1ed27919433fe39c7c385ebe3c66fe0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_bfdb1f1e",
+        "filename": "compiler/optimizing/bounds_check_elimination.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1438,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-22T17:43:47Z",
+      "side": 1,
+      "message": "That is not simple, as it would require analyzing the generated code again (or exposing the computed induction). I made a note at L1398 and friends on this (also on the comment you requested in offline discussion)",
+      "parentUuid": "4a23733a_dc970143",
+      "revId": "14d1e173e1ed27919433fe39c7c385ebe3c66fe0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
