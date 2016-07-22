@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a23733a_bcc80d79",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 839,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-22T17:33:55Z",
+      "side": 1,
+      "message": "This should not be necessary at all if you remove GetVisitedMethodsFromBitSets...",
+      "range": {
+        "startLine": 833,
+        "startChar": 2,
+        "endLine": 839,
+        "endChar": 3
+      },
+      "revId": "847c30868ffce95c84ea5202a1a8a4b5adaeffe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
