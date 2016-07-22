@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4a23733a_e58d8128",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T23:06:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_6ebf1316",
+      "revId": "7090f25cf2e0c06476485e71ca91c0726eb185b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a23733a_ae8beb6c",
         "filename": "compiler/driver/compiler_options.cc",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2016-07-22T21:39:27Z",
       "side": 1,
       "message": "nit: use a constant here",
+      "range": {
+        "startLine": 48,
+        "startChar": 29,
+        "endLine": 48,
+        "endChar": 65
+      },
+      "revId": "7090f25cf2e0c06476485e71ca91c0726eb185b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_82f27b6b",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T23:06:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_ae8beb6c",
       "range": {
         "startLine": 48,
         "startChar": 29,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "4a23733a_a2ef7f81",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T23:06:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_ce909f9b",
+      "range": {
+        "startLine": 49,
+        "startChar": 28,
+        "endLine": 49,
+        "endChar": 63
+      },
+      "revId": "7090f25cf2e0c06476485e71ca91c0726eb185b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a23733a_2e659bb7",
         "filename": "compiler/driver/compiler_options.cc",
         "patchSetId": 2
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "4a23733a_626e47fe",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T23:06:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_2e659bb7",
+      "revId": "7090f25cf2e0c06476485e71ca91c0726eb185b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a23733a_ce55ffc9",
         "filename": "compiler/driver/compiler_options.cc",
         "patchSetId": 2
@@ -93,6 +177,24 @@
       "writtenOn": "2016-07-22T21:39:27Z",
       "side": 1,
       "message": "Doesn\u0027t check for ERANGE",
+      "revId": "7090f25cf2e0c06476485e71ca91c0726eb185b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_223fefe1",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T23:06:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_ce55ffc9",
       "revId": "7090f25cf2e0c06476485e71ca91c0726eb185b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -122,6 +224,30 @@
     },
     {
       "key": {
+        "uuid": "4a23733a_824efb91",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T23:06:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_ee91e3a0",
+      "range": {
+        "startLine": 172,
+        "startChar": 36,
+        "endLine": 172,
+        "endChar": 73
+      },
+      "revId": "7090f25cf2e0c06476485e71ca91c0726eb185b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a23733a_ee6d639f",
         "filename": "compiler/jit/jit_compiler.cc",
         "patchSetId": 2
@@ -133,6 +259,24 @@
       "writtenOn": "2016-07-22T21:39:27Z",
       "side": 1,
       "message": "nit: use a constant here",
+      "revId": "7090f25cf2e0c06476485e71ca91c0726eb185b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_c2d713b9",
+        "filename": "compiler/jit/jit_compiler.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T23:06:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_ee6d639f",
       "revId": "7090f25cf2e0c06476485e71ca91c0726eb185b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -156,6 +300,24 @@
     },
     {
       "key": {
+        "uuid": "4a23733a_42e223ca",
+        "filename": "compiler/optimizing/bisection_controller.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T23:06:46Z",
+      "side": 1,
+      "message": "It\u0027s for API consistency as per Aart\u0027s suggestion.",
+      "parentUuid": "4a23733a_8e7f0744",
+      "revId": "7090f25cf2e0c06476485e71ca91c0726eb185b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a23733a_2e7cbb4d",
         "filename": "compiler/optimizing/bisection_controller.cc",
         "patchSetId": 2
@@ -173,6 +335,24 @@
     },
     {
       "key": {
+        "uuid": "4a23733a_62c8874c",
+        "filename": "compiler/optimizing/bisection_controller.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T23:06:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_2e7cbb4d",
+      "revId": "7090f25cf2e0c06476485e71ca91c0726eb185b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a23733a_aeec4bf9",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 2
@@ -184,6 +364,30 @@
       "writtenOn": "2016-07-22T21:39:27Z",
       "side": 1,
       "message": "nit: %#010x",
+      "range": {
+        "startLine": 388,
+        "startChar": 53,
+        "endLine": 388,
+        "endChar": 57
+      },
+      "revId": "7090f25cf2e0c06476485e71ca91c0726eb185b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_a2c8df1e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T23:06:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_aeec4bf9",
       "range": {
         "startLine": 388,
         "startChar": 53,
@@ -219,6 +423,30 @@
     },
     {
       "key": {
+        "uuid": "4a23733a_82cb5b1b",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T23:06:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_ee1483f9",
+      "range": {
+        "startLine": 389,
+        "startChar": 13,
+        "endLine": 389,
+        "endChar": 49
+      },
+      "revId": "7090f25cf2e0c06476485e71ca91c0726eb185b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a23733a_0ecf7783",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 2
@@ -230,6 +458,30 @@
       "writtenOn": "2016-07-22T21:39:27Z",
       "side": 1,
       "message": "nit: use a constant here",
+      "range": {
+        "startLine": 911,
+        "startChar": 54,
+        "endLine": 911,
+        "endChar": 90
+      },
+      "revId": "7090f25cf2e0c06476485e71ca91c0726eb185b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_e2c57707",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 911,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T23:06:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_0ecf7783",
       "range": {
         "startLine": 911,
         "startChar": 54,
@@ -265,6 +517,30 @@
     },
     {
       "key": {
+        "uuid": "4a23733a_22bccf82",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 912,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T23:06:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_aec3eb5b",
+      "range": {
+        "startLine": 912,
+        "startChar": 56,
+        "endLine": 912,
+        "endChar": 92
+      },
+      "revId": "7090f25cf2e0c06476485e71ca91c0726eb185b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a23733a_6ede3337",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 2
@@ -276,6 +552,30 @@
       "writtenOn": "2016-07-22T21:39:27Z",
       "side": 1,
       "message": "nit: must",
+      "range": {
+        "startLine": 917,
+        "startChar": 37,
+        "endLine": 917,
+        "endChar": 43
+      },
+      "revId": "7090f25cf2e0c06476485e71ca91c0726eb185b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_02b74ba1",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T23:06:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_6ede3337",
       "range": {
         "startLine": 917,
         "startChar": 37,
