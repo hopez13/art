@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4a23733a_f3b6b0a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T21:16:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_bfdc7fde",
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a23733a_ff6197e1",
         "filename": "compiler/driver/compiler_options.cc",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2016-07-22T18:15:45Z",
       "side": 1,
       "message": "see elsewhere that we probably don\u0027t need this bool",
+      "range": {
+        "startLine": 163,
+        "startChar": 25,
+        "endLine": 163,
+        "endChar": 26
+      },
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_6dd4fd43",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T21:16:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_ff6197e1",
       "range": {
         "startLine": 163,
         "startChar": 25,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "4a23733a_2dce05b2",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T21:16:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_bf6b1fc0",
+      "range": {
+        "startLine": 173,
+        "startChar": 31,
+        "endLine": 173,
+        "endChar": 32
+      },
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a23733a_1f448b4e",
         "filename": "compiler/driver/compiler_options.h",
         "patchSetId": 1
@@ -76,6 +142,30 @@
       "writtenOn": "2016-07-22T18:15:45Z",
       "side": 1,
       "message": "perhaps we don\u0027t need this bool field; having optimize_up_to_method !\u003d maxuint32 seems the same",
+      "range": {
+        "startLine": 173,
+        "startChar": 11,
+        "endLine": 173,
+        "endChar": 33
+      },
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_4df499ec",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T21:16:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_1f448b4e",
       "range": {
         "startLine": 173,
         "startChar": 11,
@@ -105,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "4a23733a_cd23c95e",
+        "filename": "compiler/optimizing/bisection_controller.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T21:16:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_5fbf6315",
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a23733a_3fc62fb0",
         "filename": "compiler/optimizing/bisection_controller.h",
         "patchSetId": 1
@@ -116,6 +224,30 @@
       "writtenOn": "2016-07-22T18:15:45Z",
       "side": 1,
       "message": "white line before the DISALLOW",
+      "range": {
+        "startLine": 37,
+        "startChar": 20,
+        "endLine": 37,
+        "endChar": 21
+      },
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_ad1e9515",
+        "filename": "compiler/optimizing/bisection_controller.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T21:16:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_3fc62fb0",
       "range": {
         "startLine": 37,
         "startChar": 20,
@@ -151,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "4a23733a_b3c038f9",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T21:16:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_bff1dfd2",
+      "range": {
+        "startLine": 310,
+        "startChar": 15,
+        "endLine": 310,
+        "endChar": 31
+      },
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a23733a_df3b7384",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 1
@@ -162,6 +318,30 @@
       "writtenOn": "2016-07-22T18:15:45Z",
       "side": 1,
       "message": "I would not exit the loop, but keep on querying\n\nthat way, we can get the log that comes with this mechanism that is more intuitive\n\noptimizing method [1] foo\n        doing inlining\n        doing constant folding\n        doing etc.\noptimizing method [2] bar      [LAST]\n        doing inlining\n        NOT doing constant folding\n        NOT doing etc.\nNOT optimizing method [3] joho\nNOT optimizing method [4] doit",
+      "range": {
+        "startLine": 1101,
+        "startChar": 30,
+        "endLine": 1101,
+        "endChar": 53
+      },
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_c81df76a",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T21:16:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_df3b7384",
       "range": {
         "startLine": 1101,
         "startChar": 30,
@@ -197,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "4a23733a_6844eba1",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T21:16:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_5f23e3ae",
+      "range": {
+        "startLine": 387,
+        "startChar": 53,
+        "endLine": 387,
+        "endChar": 60
+      },
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a23733a_3f6e2ffd",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -208,6 +412,30 @@
       "writtenOn": "2016-07-22T18:15:45Z",
       "side": 1,
       "message": "example does not match switch",
+      "range": {
+        "startLine": 388,
+        "startChar": 36,
+        "endLine": 388,
+        "endChar": 45
+      },
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_88413f93",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T21:16:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_3f6e2ffd",
       "range": {
         "startLine": 388,
         "startChar": 36,
@@ -243,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "4a23733a_483b271f",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T21:16:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_3f2aaf81",
+      "range": {
+        "startLine": 391,
+        "startChar": 20,
+        "endLine": 391,
+        "endChar": 27
+      },
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a23733a_ff3af7cf",
         "filename": "dex2oat/dex2oat.cc",
         "patchSetId": 1
@@ -254,6 +506,30 @@
       "writtenOn": "2016-07-22T18:15:45Z",
       "side": 1,
       "message": "we probably want to complain if this flag is set but not the other",
+      "range": {
+        "startLine": 393,
+        "startChar": 73,
+        "endLine": 393,
+        "endChar": 77
+      },
+      "revId": "01bbb3032feec67882b9b5aacfea248a7e4e5609",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_68cb8b1c",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T21:16:22Z",
+      "side": 1,
+      "message": "Done, also added a check for the -j1 flag.",
+      "parentUuid": "4a23733a_ff3af7cf",
       "range": {
         "startLine": 393,
         "startChar": 73,
