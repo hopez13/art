@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4a23733a_1bcfb683",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-22T23:54:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a7abff6_3d36794e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 4
+      },
+      "revId": "3c75e7191d777438edec3d595b16d1a4bcf6c673",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a23733a_5fe8c3aa",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-22T17:58:46Z",
       "side": 1,
       "message": "\"#ifdef USE_BAKER_READ_BARRIER\" instead, which is equivalent but we already use in some places?",
+      "range": {
+        "startLine": 1281,
+        "startChar": 4,
+        "endLine": 1281,
+        "endChar": 34
+      },
+      "revId": "3c75e7191d777438edec3d595b16d1a4bcf6c673",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_7bdef236",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1281,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-22T23:54:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_5fe8c3aa",
       "range": {
         "startLine": 1281,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4a23733a_1bb6d6f3",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1286,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-22T23:54:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_5f79a3d7",
+      "range": {
+        "startLine": 1286,
+        "startChar": 4,
+        "endLine": 1286,
+        "endChar": 7
+      },
+      "revId": "3c75e7191d777438edec3d595b16d1a4bcf6c673",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a23733a_3fe94f7c",
         "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-07-22T17:58:46Z",
       "side": 1,
       "message": "How about 0, 1, 2 instead of 0, 2, 1 for extra clarity?",
+      "range": {
+        "startLine": 1364,
+        "startChar": 73,
+        "endLine": 1364,
+        "endChar": 74
+      },
+      "revId": "3c75e7191d777438edec3d595b16d1a4bcf6c673",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_9f189b7c",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 1364,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-22T23:54:34Z",
+      "side": 1,
+      "message": "I changed the order to be able to use w4 as temp, it was 0, 1, 2 before.",
+      "parentUuid": "4a23733a_3fe94f7c",
       "range": {
         "startLine": 1364,
         "startChar": 73,
