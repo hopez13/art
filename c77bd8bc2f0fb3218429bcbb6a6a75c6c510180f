@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "4a23733a_62d5e70b",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-22T22:08:57Z",
+      "side": 1,
+      "message": "and this really is GetCompilerDriver() (your super\u0027s compiler_driver_). See if it becomes more readable if you use that instead of parameters",
+      "range": {
+        "startLine": 437,
+        "startChar": 41,
+        "endLine": 437,
+        "endChar": 55
+      },
+      "revId": "c77bd8bc2f0fb3218429bcbb6a6a75c6c510180f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a23733a_422d4397",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 1
