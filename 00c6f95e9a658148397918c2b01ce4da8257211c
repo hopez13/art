@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a23733a_bc96cd43",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1237,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-22T17:40:18Z",
+      "side": 1,
+      "message": "Would it be any cleaner if we handle this variant with a boolean argument for InvokeRuntime (like \"bool do_record_pc_info\")?",
+      "range": {
+        "startLine": 1237,
+        "startChar": 23,
+        "endLine": 1237,
+        "endChar": 58
+      },
+      "revId": "00c6f95e9a658148397918c2b01ce4da8257211c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
