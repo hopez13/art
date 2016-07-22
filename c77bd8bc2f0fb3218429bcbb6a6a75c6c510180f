@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4a23733a_58c8d44b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T23:06:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_85a0453b",
+      "range": {
+        "startLine": 7,
+        "startChar": 22,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "c77bd8bc2f0fb3218429bcbb6a6a75c6c510180f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a23733a_ee97a342",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-22T21:40:17Z",
       "side": 1,
       "message": "preparation",
+      "range": {
+        "startLine": 11,
+        "startChar": 13,
+        "endLine": 11,
+        "endChar": 23
+      },
+      "revId": "c77bd8bc2f0fb3218429bcbb6a6a75c6c510180f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_18f9fc83",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T23:06:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_ee97a342",
       "range": {
         "startLine": 11,
         "startChar": 13,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4a23733a_1807bc72",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T23:06:29Z",
+      "side": 1,
+      "message": "It seems like Emit accepts driver as its argument even though it is also a member function, maybe we should stay consistent and let it be?",
+      "parentUuid": "4a23733a_62d5e70b",
+      "range": {
+        "startLine": 437,
+        "startChar": 41,
+        "endLine": 437,
+        "endChar": 55
+      },
+      "revId": "c77bd8bc2f0fb3218429bcbb6a6a75c6c510180f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a23733a_422d4397",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-07-22T22:00:21Z",
       "side": 1,
       "message": "this is always your own compilation_stats_ now, so need to pass it anymore, simplifies calling",
+      "range": {
+        "startLine": 438,
+        "startChar": 41,
+        "endLine": 438,
+        "endChar": 64
+      },
+      "revId": "c77bd8bc2f0fb3218429bcbb6a6a75c6c510180f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_d8f2a49d",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-22T23:06:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a23733a_422d4397",
       "range": {
         "startLine": 438,
         "startChar": 41,
