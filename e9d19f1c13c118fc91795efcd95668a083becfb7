@@ -59,6 +59,24 @@
     },
     {
       "key": {
+        "uuid": "2a89df77_504a0c61",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4597,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-25T13:48:52Z",
+      "side": 1,
+      "message": "Or you can keep the LUI+ORI and add that to the HMipsComputeBaseMethodAddress which will at least allow sharing of the base.",
+      "parentUuid": "4a88d372_11f6cc2e",
+      "revId": "e9d19f1c13c118fc91795efcd95668a083becfb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca73e35a_4d51190b",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 4
