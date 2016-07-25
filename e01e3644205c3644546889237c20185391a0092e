@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a4bd746_15a67606",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-07-25T20:31:33Z",
+      "side": 1,
+      "message": "Or just make one or both of the parameters an enum. Then there won\u0027t be implicit conversions and the default parameter will be fine.\n\nI also find an enum would be much more readable than a boolean.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 35
+      },
+      "revId": "e01e3644205c3644546889237c20185391a0092e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a4bd746_15bf5616",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1644,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-07-25T20:31:33Z",
+      "side": 1,
+      "message": "This is getting kind of unseemly, how about naming them kPointerSize64 and kPointerSize32 (or similar) instead of using raw numerical values all over the place?",
+      "range": {
+        "startLine": 1644,
+        "startChar": 57,
+        "endLine": 1644,
+        "endChar": 59
+      },
+      "revId": "e01e3644205c3644546889237c20185391a0092e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
