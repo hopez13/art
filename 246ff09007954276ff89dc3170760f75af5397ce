@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6a4bd746_9baa97d6",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-07-25T22:16:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a4bd746_f86ba9be",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 74
+      },
+      "revId": "246ff09007954276ff89dc3170760f75af5397ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a4bd746_35db7a46",
         "filename": "tools/cpp-define-generator/main.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-25T21:10:14Z",
       "side": 1,
       "message": "Line too long.",
+      "range": {
+        "startLine": 108,
+        "startChar": 100,
+        "endLine": 108,
+        "endChar": 126
+      },
+      "revId": "246ff09007954276ff89dc3170760f75af5397ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a4bd746_dbb41f3c",
+        "filename": "tools/cpp-define-generator/main.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-07-25T22:16:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a4bd746_35db7a46",
       "range": {
         "startLine": 108,
         "startChar": 100,
