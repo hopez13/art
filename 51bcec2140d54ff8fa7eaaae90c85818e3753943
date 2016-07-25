@@ -1,0 +1,222 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a23733a_aa4aed5d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-25T17:42:35Z",
+      "side": 1,
+      "message": "Is this part to be removed (there\u0027s already Maps data above and this one doesn\u0027t show any change between before and after)?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 31
+      },
+      "revId": "51bcec2140d54ff8fa7eaaae90c85818e3753943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_2ab1fdfb",
+        "filename": "runtime/gc/accounting/mod_union_table.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-25T17:42:35Z",
+      "side": 1,
+      "message": "Add a comment that we use an empty visitor because filtering is done as part of UpdateAndMarkReferences?",
+      "range": {
+        "startLine": 328,
+        "startChar": 2,
+        "endLine": 328,
+        "endChar": 24
+      },
+      "revId": "51bcec2140d54ff8fa7eaaae90c85818e3753943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_6a7295ac",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-25T17:42:35Z",
+      "side": 1,
+      "message": "I think if we want to allow kGrayDirtyImmuneObjects to be switched on and off with this flag, changing this to \n\n\"if (kUseBakerReadBarrier \u0026\u0026 kGrayDirtyImmuneObjects)\"\n\nand changing line 46 above to\n\n\"static constexpr bool kGrayDirtyImmuneObjects \u003d true;\"\n\nwould match the existing convention to surround Baker-RB specific code with \"if (kUseBakerReadBarrier) {...}\" and, if we need to, use a separate flag to switch it and off.",
+      "range": {
+        "startLine": 325,
+        "startChar": 8,
+        "endLine": 325,
+        "endChar": 31
+      },
+      "revId": "51bcec2140d54ff8fa7eaaae90c85818e3753943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_cd12db67",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-25T17:42:35Z",
+      "side": 1,
+      "message": "There\u0027s a presubmit check around here about noreturn.",
+      "range": {
+        "startLine": 367,
+        "startChar": 59,
+        "endLine": 367,
+        "endChar": 74
+      },
+      "revId": "51bcec2140d54ff8fa7eaaae90c85818e3753943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_eaec65fa",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-25T17:42:35Z",
+      "side": 1,
+      "message": "The \"table !\u003d nullptr\" case is for the boot image spaces and the zygote, and the other case is for the app image spaces, correct? Add a comment?",
+      "range": {
+        "startLine": 391,
+        "startChar": 8,
+        "endLine": 391,
+        "endChar": 24
+      },
+      "revId": "51bcec2140d54ff8fa7eaaae90c85818e3753943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_ed49dfbd",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-25T17:42:35Z",
+      "side": 1,
+      "message": "Add \"TODO: preclean outside the pause\"?",
+      "revId": "51bcec2140d54ff8fa7eaaae90c85818e3753943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_0dc69313",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-25T17:42:35Z",
+      "side": 1,
+      "message": "I guess I overlooked this case previously. How about we add \"TODO: maybe bring back a mark bitmap for app image spaces and avoid scanning during the pause because app image spaces are all dirty anyway.\"?",
+      "revId": "51bcec2140d54ff8fa7eaaae90c85818e3753943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_4a41d1f3",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-25T17:42:35Z",
+      "side": 1,
+      "message": "May not matter, but StoreRelaxed as this is during a pause?",
+      "range": {
+        "startLine": 400,
+        "startChar": 30,
+        "endLine": 400,
+        "endChar": 57
+      },
+      "revId": "51bcec2140d54ff8fa7eaaae90c85818e3753943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_4dd24b05",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-25T17:42:35Z",
+      "side": 1,
+      "message": "Similarly,\n\n\"if (kUseBakerReadBarrier \u0026\u0026 kGrayDirtyImmuneObjects)\"\n\n?",
+      "range": {
+        "startLine": 446,
+        "startChar": 8,
+        "endLine": 446,
+        "endChar": 31
+      },
+      "revId": "51bcec2140d54ff8fa7eaaae90c85818e3753943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a23733a_2d53574a",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2122,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-25T17:42:35Z",
+      "side": 1,
+      "message": "Similarly,\n\n\"if (kUseBakerReadBarrier \u0026\u0026 kFilterModUnionCards)\"\n\n?",
+      "range": {
+        "startLine": 2122,
+        "startChar": 8,
+        "endLine": 2122,
+        "endChar": 28
+      },
+      "revId": "51bcec2140d54ff8fa7eaaae90c85818e3753943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
