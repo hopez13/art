@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6a4bd746_39fc5010",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-26T21:52:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a4bd746_b9dda0de",
+      "range": {
+        "startLine": 151,
+        "startChar": 57,
+        "endLine": 151,
+        "endChar": 73
+      },
+      "revId": "4d1c34fd7cc38eb31b6df4e65c1a847aa71c9500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a4bd746_194f8cc1",
         "filename": "compiler/driver/compiler_options.h",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-26T01:20:03Z",
       "side": 1,
       "message": "period at end\n\nalso, I would be a bit more descriptive rather than just saying who uses it",
+      "range": {
+        "startLine": 310,
+        "startChar": 13,
+        "endLine": 310,
+        "endChar": 32
+      },
+      "revId": "4d1c34fd7cc38eb31b6df4e65c1a847aa71c9500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_4346e628",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-26T21:52:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a4bd746_194f8cc1",
       "range": {
         "startLine": 310,
         "startChar": 13,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6a4bd746_992a9c7f",
+        "filename": "compiler/optimizing/bisection_controller.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-26T21:52:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a4bd746_b93920ff",
+      "range": {
+        "startLine": 67,
+        "startChar": 29,
+        "endLine": 67,
+        "endChar": 35
+      },
+      "revId": "4d1c34fd7cc38eb31b6df4e65c1a847aa71c9500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a4bd746_797178dd",
         "filename": "compiler/optimizing/bisection_controller.h",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2016-07-26T01:20:03Z",
       "side": 1,
       "message": "document class\n\nin particular, we want to start documenting the config format here in detail",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "4d1c34fd7cc38eb31b6df4e65c1a847aa71c9500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_8350cedb",
+        "filename": "compiler/optimizing/bisection_controller.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-26T21:52:11Z",
+      "side": 1,
+      "message": "Is this enough detail?",
+      "parentUuid": "6a4bd746_797178dd",
       "range": {
         "startLine": 28,
         "startChar": 6,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "0f0a6d5d_8f1e3562",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-26T21:52:11Z",
+      "side": 1,
+      "message": "Moved some code from BisectableOptimizingCompiler::Init to BisectionController::Init, dont think we can move much more with this inheritance based approach.",
+      "parentUuid": "6a4bd746_b9520043",
+      "range": {
+        "startLine": 368,
+        "startChar": 6,
+        "endLine": 368,
+        "endChar": 34
+      },
+      "revId": "4d1c34fd7cc38eb31b6df4e65c1a847aa71c9500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a4bd746_b9abe022",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2016-07-26T01:20:03Z",
       "side": 1,
       "message": "destructor",
+      "range": {
+        "startLine": 370,
+        "startChar": 62,
+        "endLine": 370,
+        "endChar": 64
+      },
+      "revId": "4d1c34fd7cc38eb31b6df4e65c1a847aa71c9500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a4bd746_f9b4883b",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-26T21:52:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a4bd746_b9abe022",
       "range": {
         "startLine": 370,
         "startChar": 62,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "6a4bd746_f97d687f",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-26T21:52:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a4bd746_d9b0a491",
+      "range": {
+        "startLine": 386,
+        "startChar": 55,
+        "endLine": 386,
+        "endChar": 57
+      },
+      "revId": "4d1c34fd7cc38eb31b6df4e65c1a847aa71c9500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a4bd746_f95c8858",
         "filename": "compiler/optimizing/optimizing_compiler.cc",
         "patchSetId": 4
@@ -174,6 +342,30 @@
       "writtenOn": "2016-07-26T01:20:03Z",
       "side": 1,
       "message": "personal style it: omit else for cases that return for anything else",
+      "range": {
+        "startLine": 944,
+        "startChar": 8,
+        "endLine": 944,
+        "endChar": 9
+      },
+      "revId": "4d1c34fd7cc38eb31b6df4e65c1a847aa71c9500",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a4bd746_79c978c0",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1067043
+      },
+      "writtenOn": "2016-07-26T21:52:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a4bd746_f95c8858",
       "range": {
         "startLine": 944,
         "startChar": 8,
