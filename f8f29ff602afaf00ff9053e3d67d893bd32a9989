@@ -163,6 +163,30 @@
       "revId": "f8f29ff602afaf00ff9053e3d67d893bd32a9989",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_ece8a2ab",
+        "filename": "runtime/base/enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-27T12:35:41Z",
+      "side": 1,
+      "message": "We have kInstructionSet and enum InstructionSet. We can make it consistent by having kPointerSize and enum PointerSize.",
+      "parentUuid": "0f0a6d5d_8ec58e63",
+      "range": {
+        "startLine": 31,
+        "startChar": 29,
+        "endLine": 31,
+        "endChar": 44
+      },
+      "revId": "f8f29ff602afaf00ff9053e3d67d893bd32a9989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
