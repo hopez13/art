@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0f0a6d5d_0e007e9b",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1434,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-27T02:55:19Z",
+      "side": 1,
+      "message": "When I read your argument, I should then reply that it should have never been kMipsWordSize either. It should have been a hard-coded 4. Because this is about halves of a 64-bit value. Otherwise there should have been an assert that word-size equals 32-bits at line 1425 to assert that your layout is actually correct at all (or that Low32 and High32 mean anything in respect to Mips words).\n\nSo, yeah, I wanted maintainability by reducing the amount of dummy variables that are redundant (because word size is luckily pointer size, unlike something backwards [IMHO brain-dead] like Mips64). But I\u0027ll revert this and let ImgTec deal with all the duplicate values.",
+      "parentUuid": "0f0a6d5d_eec41aaa",
+      "revId": "f8f29ff602afaf00ff9053e3d67d893bd32a9989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f0a6d5d_cea67607",
         "filename": "compiler/utils/mips/assembler_mips.cc",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-07-27T02:35:29Z",
       "side": 1,
       "message": "You need to run a script on the changed files to detect overly long lines and fix them.",
+      "revId": "f8f29ff602afaf00ff9053e3d67d893bd32a9989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_ced4b647",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2453,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-27T02:55:19Z",
+      "side": 1,
+      "message": "Yes, this will all be fixed. This is still a work-in-progress, as clearly marked in the commit message.",
+      "parentUuid": "0f0a6d5d_cea67607",
       "revId": "f8f29ff602afaf00ff9053e3d67d893bd32a9989",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
