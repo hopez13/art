@@ -117,6 +117,30 @@
       "revId": "31273a84e332e68ee9516735152053295bc0185f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_22d473ba",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4572,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-27T17:24:31Z",
+      "side": 1,
+      "message": "Yeah, no, this was a brain-fart, I had to follow things through here (this is never descriptor based because of the cache id stuff).",
+      "parentUuid": "4f2d45d5_693145f2",
+      "range": {
+        "startLine": 4572,
+        "startChar": 10,
+        "endLine": 4572,
+        "endChar": 50
+      },
+      "revId": "31273a84e332e68ee9516735152053295bc0185f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
