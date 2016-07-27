@@ -1,0 +1,365 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f0a6d5d_785590c9",
+        "filename": "compiler/driver/compiler_options.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T00:45:53Z",
+      "side": 1,
+      "message": "do we have any guard setting -j1 in combination with this flag?",
+      "range": {
+        "startLine": 152,
+        "startChar": 2,
+        "endLine": 152,
+        "endChar": 19
+      },
+      "revId": "4cbe09583e1d35ea3b5ba251ea8b21cb96a0cc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_38e66843",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T00:45:53Z",
+      "side": 1,
+      "message": "I would omit the used by, just start with Specifies ....",
+      "range": {
+        "startLine": 310,
+        "startChar": 13,
+        "endLine": 310,
+        "endChar": 32
+      },
+      "revId": "4cbe09583e1d35ea3b5ba251ea8b21cb96a0cc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_18f604f8",
+        "filename": "compiler/driver/compiler_options.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T00:45:53Z",
+      "side": 1,
+      "message": "isn\u0027t it simpler to make this a string (empty string means not set). it introduces having to copy values a few times, but other than that seems a bit simpler",
+      "range": {
+        "startLine": 312,
+        "startChar": 48,
+        "endLine": 312,
+        "endChar": 49
+      },
+      "revId": "4cbe09583e1d35ea3b5ba251ea8b21cb96a0cc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_187d644a",
+        "filename": "compiler/optimizing/bisection_controller.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T00:45:53Z",
+      "side": 1,
+      "message": "how about making this a static, file private array in the implementation file instead?",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 14
+      },
+      "revId": "4cbe09583e1d35ea3b5ba251ea8b21cb96a0cc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_3819482f",
+        "filename": "compiler/optimizing/bisection_controller.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T00:45:53Z",
+      "side": 1,
+      "message": "is this safe for weird values like method\u003dfoo ?",
+      "revId": "4cbe09583e1d35ea3b5ba251ea8b21cb96a0cc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_04c864ba",
+        "filename": "compiler/optimizing/bisection_controller.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T00:45:53Z",
+      "side": 1,
+      "message": "don\u0027t we want to make this a bit more robust, also allowing just method:xxx and only add pass: once method search is over",
+      "range": {
+        "startLine": 55,
+        "startChar": 31,
+        "endLine": 55,
+        "endChar": 36
+      },
+      "revId": "4cbe09583e1d35ea3b5ba251ea8b21cb96a0cc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_781d9068",
+        "filename": "compiler/optimizing/bisection_controller.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T00:45:53Z",
+      "side": 1,
+      "message": "I find the current mechanism a bit confusing in practice.\nHow about counting from 1 for the first method/optimization, and having the flag do the same\n\nso not\n\noptimizing method [0] void Main.\u003cinit\u003e()\noptimizing method [1] int[] Main.add()\n\nbut\n\noptimizing method [1] void Main.\u003cinit\u003e()\noptimizing method [2] int[] Main.add()\n\nand when I set method:2, then add() is the last optimized\n\nSame for passes",
+      "range": {
+        "startLine": 70,
+        "startChar": 38,
+        "endLine": 70,
+        "endChar": 60
+      },
+      "revId": "4cbe09583e1d35ea3b5ba251ea8b21cb96a0cc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_bb8ed21f",
+        "filename": "compiler/optimizing/bisection_controller.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T00:45:53Z",
+      "side": 1,
+      "message": "what about mandatory passes?",
+      "range": {
+        "startLine": 86,
+        "startChar": 16,
+        "endLine": 86,
+        "endChar": 17
+      },
+      "revId": "4cbe09583e1d35ea3b5ba251ea8b21cb96a0cc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_b88ed81f",
+        "filename": "compiler/optimizing/bisection_controller.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T00:45:53Z",
+      "side": 1,
+      "message": "I would recommend only showing the break down of passes in the log for the last method (all methods before do everything, all methods after do nothing).",
+      "range": {
+        "startLine": 95,
+        "startChar": 9,
+        "endLine": 95,
+        "endChar": 10
+      },
+      "revId": "4cbe09583e1d35ea3b5ba251ea8b21cb96a0cc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_69db091e",
+        "filename": "compiler/optimizing/bisection_controller.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T00:45:53Z",
+      "side": 1,
+      "message": "built-in\n\nperiod at end\n\nAlso, I would give a bit longer description of this debugging mechanism here",
+      "range": {
+        "startLine": 28,
+        "startChar": 19,
+        "endLine": 28,
+        "endChar": 26
+      },
+      "revId": "4cbe09583e1d35ea3b5ba251ea8b21cb96a0cc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_18d444ba",
+        "filename": "compiler/optimizing/bisection_controller.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T00:45:53Z",
+      "side": 1,
+      "message": "Let\u0027s allow just giving prefix (just method for example), with all implied for all all following.",
+      "range": {
+        "startLine": 30,
+        "startChar": 18,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "4cbe09583e1d35ea3b5ba251ea8b21cb96a0cc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_b841b893",
+        "filename": "compiler/optimizing/bisection_controller.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T00:45:53Z",
+      "side": 1,
+      "message": "perhaps also syntax for step",
+      "revId": "4cbe09583e1d35ea3b5ba251ea8b21cb96a0cc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_98c034fa",
+        "filename": "compiler/optimizing/bisection_controller.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T00:45:53Z",
+      "side": 1,
+      "message": "perhaps give an example\n\nSample usages:\n\n--bisection-config\u003d\"method:all\"\n--bisection-config\u003d\"method:10,pass:all\"\n--bisection-config\u003d\"method:10,pass:10\"",
+      "range": {
+        "startLine": 35,
+        "startChar": 1,
+        "endLine": 35,
+        "endChar": 3
+      },
+      "revId": "4cbe09583e1d35ea3b5ba251ea8b21cb96a0cc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_586fec96",
+        "filename": "compiler/optimizing/bisection_controller.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T00:45:53Z",
+      "side": 1,
+      "message": "white space before Init()",
+      "range": {
+        "startLine": 39,
+        "startChar": 22,
+        "endLine": 39,
+        "endChar": 25
+      },
+      "revId": "4cbe09583e1d35ea3b5ba251ea8b21cb96a0cc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_d882bc2e",
+        "filename": "compiler/optimizing/bisection_controller.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T00:45:53Z",
+      "side": 1,
+      "message": "I would use white lines between the methods here too",
+      "revId": "4cbe09583e1d35ea3b5ba251ea8b21cb96a0cc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_583d2c77",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1071,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T00:45:53Z",
+      "side": 1,
+      "message": "probably hard CHECK, not just DCHECK",
+      "revId": "4cbe09583e1d35ea3b5ba251ea8b21cb96a0cc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_3baca288",
+        "filename": "compiler/optimizing/optimizing_compiler.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1083,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T00:45:53Z",
+      "side": 1,
+      "message": "it is tempting to use the return value of the method request and skip all passes otherwise, but this would also skip mandatory passes",
+      "revId": "4cbe09583e1d35ea3b5ba251ea8b21cb96a0cc48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
