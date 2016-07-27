@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0f0a6d5d_e7bf1da3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-27T15:47:10Z",
+      "side": 1,
+      "message": "That\u0027s only true if the \"precise\" flag matches, I\u0027d think. Is there a corner case where From() could screw up?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 33
+      },
+      "revId": "31273a84e332e68ee9516735152053295bc0185f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f0a6d5d_8c23d65f",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 2
