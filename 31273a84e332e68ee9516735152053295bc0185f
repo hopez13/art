@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f0a6d5d_8c23d65f",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4572,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-27T15:35:54Z",
+      "side": 1,
+      "message": "This should not be a semantical no-op...",
+      "range": {
+        "startLine": 4572,
+        "startChar": 10,
+        "endLine": 4572,
+        "endChar": 50
+      },
+      "revId": "31273a84e332e68ee9516735152053295bc0185f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
