@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "0f0a6d5d_6ecaea70",
+        "filename": "runtime/base/enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-27T02:57:00Z",
+      "side": 1,
+      "message": "I started with an enum (non-class), that\u0027s where it came from.",
+      "parentUuid": "0f0a6d5d_4e3726ea",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 16
+      },
+      "revId": "f8f29ff602afaf00ff9053e3d67d893bd32a9989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f0a6d5d_ce4af65d",
         "filename": "runtime/base/enums.h",
         "patchSetId": 1
@@ -106,6 +130,30 @@
       "writtenOn": "2016-07-27T02:19:02Z",
       "side": 1,
       "message": "Current?",
+      "range": {
+        "startLine": 31,
+        "startChar": 29,
+        "endLine": 31,
+        "endChar": 44
+      },
+      "revId": "f8f29ff602afaf00ff9053e3d67d893bd32a9989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_8ec58e63",
+        "filename": "runtime/base/enums.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-27T02:57:00Z",
+      "side": 1,
+      "message": "Makes it too long and unwieldy in many contexts. It needs to replace sizeof(void*), which is significantly shorter. I don\u0027t want this CL\u0027s line count to balloon anymore than necessary. :-)",
+      "parentUuid": "0f0a6d5d_ce4af65d",
       "range": {
         "startLine": 31,
         "startChar": 29,
