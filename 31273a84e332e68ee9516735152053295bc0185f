@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4f2d45d5_493601ec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-07-27T17:21:17Z",
+      "side": 1,
+      "message": "Yeah, you\u0027re right. If the precise flag does not match, the lookup will continue... Let\u0027s break this thing then.",
+      "parentUuid": "0f0a6d5d_e7bf1da3",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 33
+      },
+      "revId": "31273a84e332e68ee9516735152053295bc0185f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f0a6d5d_8c23d65f",
         "filename": "runtime/verifier/method_verifier.cc",
         "patchSetId": 2
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "Or am I missing something like that it\u0027s resolved?",
       "parentUuid": "0f0a6d5d_8c23d65f",
+      "range": {
+        "startLine": 4572,
+        "startChar": 10,
+        "endLine": 4572,
+        "endChar": 50
+      },
+      "revId": "31273a84e332e68ee9516735152053295bc0185f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f2d45d5_693145f2",
+        "filename": "runtime/verifier/method_verifier.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4572,
+      "author": {
+        "id": 1059815
+      },
+      "writtenOn": "2016-07-27T17:21:17Z",
+      "side": 1,
+      "message": "Huh? I don\u0027t follow",
+      "parentUuid": "0f0a6d5d_6c3dd277",
       "range": {
         "startLine": 4572,
         "startChar": 10,
