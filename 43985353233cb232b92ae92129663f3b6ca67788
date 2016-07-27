@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f0a6d5d_3b74a26b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 20
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T01:17:28Z",
+      "side": 1,
+      "message": "true :-), but a unit test would be nice as well (see elsewhere)",
+      "revId": "43985353233cb232b92ae92129663f3b6ca67788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_bb47f255",
+        "filename": "compiler/optimizing/locations.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T01:17:28Z",
+      "side": 1,
+      "message": "const?",
+      "revId": "43985353233cb232b92ae92129663f3b6ca67788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_1b643ebc",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T01:17:28Z",
+      "side": 1,
+      "message": "It would be really nice to have a unit test for so much new code. I am not sure if  register_allocator_test.cc is  applicable on both types (if so great, if not perhaps you could write a unit test for the coloring scheme).",
+      "revId": "43985353233cb232b92ae92129663f3b6ca67788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_9b8dce82",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T01:17:28Z",
+      "side": 1,
+      "message": "provide destructor, since base class defines virtual?",
+      "revId": "43985353233cb232b92ae92129663f3b6ca67788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_7bb90a30",
+        "filename": "runtime/base/arena_containers.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1074526
+      },
+      "writtenOn": "2016-07-27T01:17:28Z",
+      "side": 1,
+      "message": "own CL?",
+      "revId": "43985353233cb232b92ae92129663f3b6ca67788",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
