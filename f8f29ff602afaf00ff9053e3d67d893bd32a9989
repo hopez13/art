@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "0f0a6d5d_eec41aaa",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1434,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-27T02:35:29Z",
+      "side": 1,
+      "message": "Here and in several other places \"pointer\" and its size is not what\u0027s being actually used if we\u0027re trying to use the right terms in the code. Specifically, here we aren\u0027t storing 2 pointers to memory and aren\u0027t adding a pointer size to the offset. It\u0027s a word (two words) here. I\u0027m confused. Could you elaborate here and in the commit message?",
+      "revId": "f8f29ff602afaf00ff9053e3d67d893bd32a9989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_cea67607",
+        "filename": "compiler/utils/mips/assembler_mips.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2453,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-27T02:35:29Z",
+      "side": 1,
+      "message": "You need to run a script on the changed files to detect overly long lines and fix them.",
+      "revId": "f8f29ff602afaf00ff9053e3d67d893bd32a9989",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f0a6d5d_4e3726ea",
         "filename": "runtime/base/enums.h",
         "patchSetId": 1
