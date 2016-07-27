@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0f0a6d5d_b856d8d2",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4170,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-27T00:35:49Z",
+      "side": 1,
+      "message": "Done, but kept the assembly entry point changes since they\u0027re being reviewed here.",
+      "parentUuid": "ca73e35a_0d5b112d",
+      "revId": "e9d19f1c13c118fc91795efcd95668a083becfb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a8edb80_ef57a131",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 4
@@ -30,6 +48,30 @@
       "writtenOn": "2016-07-25T13:37:09Z",
       "side": 1,
       "message": "Unnecessary.",
+      "range": {
+        "startLine": 4247,
+        "startChar": 0,
+        "endLine": 4249,
+        "endChar": 7
+      },
+      "revId": "e9d19f1c13c118fc91795efcd95668a083becfb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_186444bc",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4249,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-27T00:35:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a8edb80_ef57a131",
       "range": {
         "startLine": 4247,
         "startChar": 0,
@@ -77,6 +119,24 @@
     },
     {
       "key": {
+        "uuid": "0f0a6d5d_b87ff842",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4597,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-27T00:35:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a89df77_504a0c61",
+      "revId": "e9d19f1c13c118fc91795efcd95668a083becfb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca73e35a_4d51190b",
         "filename": "compiler/optimizing/code_generator_mips.cc",
         "patchSetId": 4
@@ -88,6 +148,24 @@
       "writtenOn": "2016-07-25T13:37:09Z",
       "side": 1,
       "message": "Why do you need a literal? You should do a simple LUI.",
+      "revId": "e9d19f1c13c118fc91795efcd95668a083becfb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_b80418c3",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4630,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-27T00:35:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca73e35a_4d51190b",
       "revId": "e9d19f1c13c118fc91795efcd95668a083becfb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -111,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "0f0a6d5d_3842e8fa",
+        "filename": "compiler/optimizing/code_generator_mips.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4802,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-27T00:35:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca2e8326_380de58b",
+      "revId": "e9d19f1c13c118fc91795efcd95668a083becfb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea76e749_ae82f75d",
         "filename": "compiler/optimizing/nodes.h",
         "patchSetId": 4
@@ -122,6 +218,24 @@
       "writtenOn": "2016-07-25T13:37:09Z",
       "side": 1,
       "message": "I\u0027d prefer to keep a DCHECK(). Also, improve the comment above, pointing out that literal pool loads are PC-relative and may need this too.",
+      "revId": "e9d19f1c13c118fc91795efcd95668a083becfb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_d830fc9e",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 5630,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-27T00:35:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea76e749_ae82f75d",
       "revId": "e9d19f1c13c118fc91795efcd95668a083becfb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -145,6 +259,24 @@
     },
     {
       "key": {
+        "uuid": "0f0a6d5d_b82d3843",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 5847,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-27T00:35:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca73e35a_ad343de1",
+      "revId": "e9d19f1c13c118fc91795efcd95668a083becfb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa278f49_54fc2c10",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 4
@@ -162,6 +294,24 @@
     },
     {
       "key": {
+        "uuid": "0f0a6d5d_182ba42d",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 2065,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-27T00:35:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa278f49_54fc2c10",
+      "revId": "e9d19f1c13c118fc91795efcd95668a083becfb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a88d372_312af081",
         "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
         "patchSetId": 4
@@ -173,6 +323,24 @@
       "writtenOn": "2016-07-25T13:37:09Z",
       "side": 1,
       "message": "Overwrites v0 before it\u0027s moved to the destination register.",
+      "revId": "e9d19f1c13c118fc91795efcd95668a083becfb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f0a6d5d_d8f59cbe",
+        "filename": "runtime/arch/mips/quick_entrypoints_mips.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 2148,
+      "author": {
+        "id": 1057043
+      },
+      "writtenOn": "2016-07-27T00:35:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a88d372_312af081",
       "revId": "e9d19f1c13c118fc91795efcd95668a083becfb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
