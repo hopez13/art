@@ -22,6 +22,30 @@
       "revId": "1b6c43c6691c40b61b127c41eb59e9b46469204b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef03598f_269bb60c",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4816,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-28T15:08:27Z",
+      "side": 1,
+      "message": "I think we do, as we shall preserve the invariant that the mutator never sees a reference from the from-space after the flip; but I\u0027ll let Hiroshi give a more authoritative answer. :)",
+      "parentUuid": "ef03598f_c6550255",
+      "range": {
+        "startLine": 4810,
+        "startChar": 0,
+        "endLine": 4816,
+        "endChar": 92
+      },
+      "revId": "1b6c43c6691c40b61b127c41eb59e9b46469204b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
