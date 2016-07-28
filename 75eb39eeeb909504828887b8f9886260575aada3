@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2f62d18f_b1dd82da",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-28T20:55:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f62d18f_11b56eca",
+      "range": {
+        "startLine": 11,
+        "startChar": 32,
+        "endLine": 11,
+        "endChar": 37
+      },
+      "revId": "75eb39eeeb909504828887b8f9886260575aada3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f62d18f_113fae0b",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2016-07-28T20:51:20Z",
       "side": 1,
       "message": "Maybe clarify what the failure case would be like in the comment?\n\nIs the failure case that if we do a read barrier while holding this lock, we could do a nested call to AllocateInSkippedBlock (and try to acquire the same lock again)?",
+      "revId": "75eb39eeeb909504828887b8f9886260575aada3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f62d18f_31eaf270",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1934,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-28T20:55:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f62d18f_113fae0b",
       "revId": "75eb39eeeb909504828887b8f9886260575aada3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
