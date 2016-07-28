@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2f62d18f_48457f9d",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4604,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-28T19:12:53Z",
+      "side": 1,
+      "message": "A minor point, but in the spirit of having kEmitCompilerReadBarrier separately from kUseReadBarrier, should we define kEmitCompilerBakerReadBarrier and use it instead of kUseBakerReadBarrier so that we can emit Baker code without enabling CC (for debugging etc.)? There\u0027s already other code that uses kUseBakerReadBarrier, however.",
+      "range": {
+        "startLine": 4604,
+        "startChar": 44,
+        "endLine": 4604,
+        "endChar": 64
+      },
+      "revId": "60c00edb0c02f4cd14f896caed73d5879a588930",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f62d18f_c883afae",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4722,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-28T19:12:53Z",
+      "side": 1,
+      "message": "Can the code structure be simplified to\n\nif (kEmitCompilerReadBarrier) {\n  if (!kUseBakerReadBarrier) {\n    // Non-Baker RB case.\n   } else {\n    // Baker RB case.\n   }\n} else {\n   // Non-RB case.\n}\n\n?",
+      "range": {
+        "startLine": 4722,
+        "startChar": 8,
+        "endLine": 4722,
+        "endChar": 10
+      },
+      "revId": "60c00edb0c02f4cd14f896caed73d5879a588930",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f62d18f_a82e7ba5",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4776,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-28T19:12:53Z",
+      "side": 1,
+      "message": "Is this line a dup of line 4770 and removable?",
+      "range": {
+        "startLine": 4776,
+        "startChar": 15,
+        "endLine": 4776,
+        "endChar": 72
+      },
+      "revId": "60c00edb0c02f4cd14f896caed73d5879a588930",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
