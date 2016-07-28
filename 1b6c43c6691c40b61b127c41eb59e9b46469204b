@@ -70,6 +70,53 @@
       "revId": "1b6c43c6691c40b61b127c41eb59e9b46469204b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f62d18f_48a7bf03",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4816,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-28T19:12:53Z",
+      "side": 1,
+      "message": "Right, checking nullness doesn\u0027t need a read barrier as long as we don\u0027t keep the loaded ref. Because if it\u0027s not null, it could be either a from-space (stale) ref or a to-space (updated) ref. Either way, it\u0027s not null. So we can omit this read barrier.\n\nThere\u0027s the to-space invariant, which is an important property for correctness. There are some edge cases where we can loosen it a bit for performance.",
+      "parentUuid": "4f3aa556_e1dee6d7",
+      "range": {
+        "startLine": 4810,
+        "startChar": 0,
+        "endLine": 4816,
+        "endChar": 92
+      },
+      "revId": "1b6c43c6691c40b61b127c41eb59e9b46469204b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2f62d18f_e818f32c",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2178,
+      "author": {
+        "id": 1022530
+      },
+      "writtenOn": "2016-07-28T19:12:53Z",
+      "side": 1,
+      "message": "Does this mean we use more temp registers for this? If so, perhaps, a potential slowdown, if any, might be due to the extra temp register pressure?",
+      "range": {
+        "startLine": 2178,
+        "startChar": 7,
+        "endLine": 2178,
+        "endChar": 17
+      },
+      "revId": "1b6c43c6691c40b61b127c41eb59e9b46469204b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
