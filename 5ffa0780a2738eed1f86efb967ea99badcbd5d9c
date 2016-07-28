@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cfd7753a_a5830933",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1843,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-28T17:56:43Z",
+      "side": 1,
+      "message": "It was mostly diagnostic, I can disable now that the majority of extra read barriers here are gone.",
+      "parentUuid": "cfd7753a_65a1a1ec",
+      "range": {
+        "startLine": 1843,
+        "startChar": 53,
+        "endLine": 1843,
+        "endChar": 66
+      },
+      "revId": "5ffa0780a2738eed1f86efb967ea99badcbd5d9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cfd7753a_a5be6916",
         "filename": "runtime/gc/collector/concurrent_copying.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-07-28T17:50:19Z",
       "side": 1,
       "message": "RB needs to be disabled here as well?",
+      "range": {
+        "startLine": 1853,
+        "startChar": 42,
+        "endLine": 1853,
+        "endChar": 55
+      },
+      "revId": "5ffa0780a2738eed1f86efb967ea99badcbd5d9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cfd7753a_657d2149",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1853,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-28T17:56:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfd7753a_a5be6916",
       "range": {
         "startLine": 1853,
         "startChar": 42,
