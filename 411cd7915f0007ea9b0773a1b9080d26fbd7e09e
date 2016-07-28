@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cfd7753a_19cb6e78",
+        "filename": "runtime/gc/space/image_space_fs.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-28T04:33:13Z",
+      "side": 1,
+      "message": "I really don\u0027t understand why you\u0027re pushing this hack when you here so clearly state what the issue is. That we Erase(), which doesn\u0027t unlink. *That* is the issue, which wouldn\u0027t require your hackish special-casing of zero.\n\nI have a patch for that, but I need to inspect all other sites of Erase() to decide whether it\u0027s OK to make it unlink(), or whether FdFile should expose Unlink() itself.",
+      "range": {
+        "startLine": 232,
+        "startChar": 11,
+        "endLine": 232,
+        "endChar": 59
+      },
+      "revId": "411cd7915f0007ea9b0773a1b9080d26fbd7e09e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
