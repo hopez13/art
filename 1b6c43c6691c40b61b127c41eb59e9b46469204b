@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef03598f_c6550255",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4816,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2016-07-28T11:27:53Z",
+      "side": 1,
+      "message": "Do we need the read barrier if we\u0027re just comparing against null?",
+      "range": {
+        "startLine": 4810,
+        "startChar": 0,
+        "endLine": 4816,
+        "endChar": 92
+      },
+      "revId": "1b6c43c6691c40b61b127c41eb59e9b46469204b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
