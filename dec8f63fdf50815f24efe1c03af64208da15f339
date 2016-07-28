@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cfd7753a_8f2eecf4",
+        "filename": "compiler/optimizing/code_generator_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-28T14:22:36Z",
+      "side": 1,
+      "message": "Do we need a new method? IT\u0027s only being used once, so maybe inline it?",
+      "range": {
+        "startLine": 397,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 68
+      },
+      "revId": "dec8f63fdf50815f24efe1c03af64208da15f339",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
