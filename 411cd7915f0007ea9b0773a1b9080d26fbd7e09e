@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cfd7753a_6511a1aa",
+        "filename": "runtime/gc/space/image_space_fs.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-28T17:43:28Z",
+      "side": 1,
+      "message": "As you know yourself, this is an outdated comment. The file should not be empty. It should contain a number.",
+      "parentUuid": "afb2410f_7c2ed9f7",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 59
+      },
+      "revId": "411cd7915f0007ea9b0773a1b9080d26fbd7e09e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cfd7753a_19cb6e78",
         "filename": "runtime/gc/space/image_space_fs.h",
         "patchSetId": 2
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "Hi Andreas,\nMay I know more about the concept of your patch?\nThanks.",
       "parentUuid": "cfd7753a_19cb6e78",
+      "range": {
+        "startLine": 232,
+        "startChar": 11,
+        "endLine": 232,
+        "endChar": 59
+      },
+      "revId": "411cd7915f0007ea9b0773a1b9080d26fbd7e09e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cfd7753a_0561bde1",
+        "filename": "runtime/gc/space/image_space_fs.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-07-28T17:43:28Z",
+      "side": 1,
+      "message": "Your issue is that right now:\n\n  * file is length 0\n  * this code fails reading\n  * this code erases the file (\u003d\u003d sets it to zero length)\n  * this code does not prune the cache\n  * the zygote boots up with the same old files\n  * the system crashes before deleting the boot file\n  * go to first step\n\nThis cycle would be broken if you change the third step to not erase but unlink. Then it will still crash once, but then finds back to the right counting process.",
+      "parentUuid": "afb2410f_1c359541",
       "range": {
         "startLine": 232,
         "startChar": 11,
