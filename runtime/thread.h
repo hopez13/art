@@ -89,6 +89,10 @@ class ScopedObjectAccessAlreadyRunnable;
 class ShadowFrame;
 class SingleStepControl;
 class StackedShadowFrameRecord;
+namespace ti {
+class Env;
+}  // namespace ti
+
 class Thread;
 class ThreadList;
 

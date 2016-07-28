@@ -23,6 +23,7 @@
 #include <sys/prctl.h>
 #endif
 
+#include <dlfcn.h>
 #include <signal.h>
 #include <sys/syscall.h>
 #include "base/memory_tool.h"
@@ -129,6 +130,7 @@
 #include "signal_set.h"
 #include "thread.h"
 #include "thread_list.h"
+#include "ti/agent.h"
 #include "trace.h"
 #include "transaction.h"
 #include "utils.h"
@@ -278,6 +280,11 @@ Runtime::~Runtime() {
     jit_->DeleteThreadPool();
     // Similarly, stop the profile saver thread before deleting the thread list.
     jit_->StopProfileSaver();
+  }
+
+  // TODO Maybe do some locking.
+  for (auto agent : agents_) {
+    agent.Unload();
   }
 
   // Make sure our internal threads are dead before we start tearing down things they're using.
@@ -892,6 +899,21 @@ void Runtime::SetSentinel(mirror::Object* sentinel) {
   sentinel_ = GcRoot<mirror::Object>(sentinel);
 }
 
+// TODO We might want to keep track of plugins to unload them or allow more dynamic loading of
+// plugins during runtime.
+static GetEnvHook OpenPlugin(const std::string& library) {
+  void* lib = dlopen(library.c_str(), RTLD_LAZY);
+  if (lib == nullptr) {
+    LOG(ERROR) << "Unable to load '" << library << "' due to error: " << dlerror();
+    return nullptr;
+  }
+  void* hook = dlsym(lib, "GetEnvHandler");
+  if (hook == nullptr) {
+    LOG(ERROR) << "Unable to find 'GetEnvHandler' entrypoint into plugin!" << dlerror();
+  }
+  return reinterpret_cast<GetEnvHook>(hook);
+}
+
 bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   RuntimeArgumentMap runtime_options(std::move(runtime_options_in));
   ScopedTrace trace(__FUNCTION__);
@@ -960,6 +982,13 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   experimental_flags_ = runtime_options.GetOrDefault(Opt::Experimental);
   is_low_memory_mode_ = runtime_options.Exists(Opt::LowMemoryMode);
 
+  if (experimental_flags_ & ExperimentalFlags::kJvmti) {
+    agents_ = runtime_options.ReleaseOrDefault(Opt::AgentPath);
+    // TODO Add back in -agentlib
+    // for (auto lib : runtime_options.ReleaseOrDefault(Opt::AgentLib)) {
+    //   agents_.push_back(lib);
+    // }
+  }
   XGcOption xgc_option = runtime_options.GetOrDefault(Opt::GcOption);
   heap_ = new gc::Heap(runtime_options.GetOrDefault(Opt::MemoryInitialSize),
                        runtime_options.GetOrDefault(Opt::HeapGrowthLimit),
@@ -1085,6 +1114,18 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   }
 
   java_vm_ = new JavaVMExt(this, runtime_options);
+
+  // TODO Refactor this stuff.
+  java_vm_->AddEnvironmentHook(JNIEnvExt::GetEnvHandler);
+  for (const std::string& plugin : runtime_options.GetOrDefault(Opt::EnvPlugins)) {
+    // TODO We might want to make these be unloadable at some point.
+    GetEnvHook hook = OpenPlugin(plugin);
+    if (hook != nullptr) {
+      java_vm_->AddEnvironmentHook(hook);
+    } else {
+      LOG(ERROR) << "Unable to load plugin " << plugin;
+    }
+  }
 
   Thread::Startup();
 
@@ -1232,6 +1273,18 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
   {
     std::string native_bridge_file_name = runtime_options.ReleaseOrDefault(Opt::NativeBridge);
     is_native_bridge_loaded_ = LoadNativeBridge(native_bridge_file_name);
+  }
+  // Startup agents
+  for (auto& agent : agents_) {
+    // TODO Check err
+    int res = 0;
+    std::string err = "";
+    ti::Agent::LoadError result = agent.Load(&res, &err);
+    if (result == ti::Agent::InitializationError) {
+      LOG(FATAL) << "Unable to initialize agent!";
+    } else if (result != ti::Agent::NoError) {
+      LOG(ERROR) << "Unable to load an agent: " << err;
+    }
   }
 
   VLOG(startup) << "Runtime::Init exiting";

@@ -22,7 +22,9 @@
 #include "jni_env_ext-inl.h"
 #include "art_field.h"
 #include "read_barrier.h"
+#include "runtime-inl.h"
 #include "thread-inl.h"
+// #include "ti/env.h"
 #include "verify_object.h"
 
 namespace art {
