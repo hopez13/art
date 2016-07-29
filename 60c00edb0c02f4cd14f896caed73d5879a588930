@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d4f9ce3d_1ddbd3e5",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4604,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-29T15:35:46Z",
+      "side": 1,
+      "message": "Sure, but I\u0027d like to do this in a different CL.  I filed a new bug (b/30497566) to track this.",
+      "parentUuid": "2f62d18f_48457f9d",
+      "range": {
+        "startLine": 4604,
+        "startChar": 44,
+        "endLine": 4604,
+        "endChar": 64
+      },
+      "revId": "60c00edb0c02f4cd14f896caed73d5879a588930",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f62d18f_c883afae",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b4029af5_fc5ee97a",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4722,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-29T15:35:46Z",
+      "side": 1,
+      "message": "Done in PS3.  The new code is less compact, as there is less sharing between common parts.  It seems easier to read though.",
+      "parentUuid": "2f62d18f_c883afae",
+      "range": {
+        "startLine": 4722,
+        "startChar": 8,
+        "endLine": 4722,
+        "endChar": 10
+      },
+      "revId": "60c00edb0c02f4cd14f896caed73d5879a588930",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f62d18f_a82e7ba5",
         "filename": "compiler/optimizing/code_generator_arm.cc",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2016-07-28T19:12:53Z",
       "side": 1,
       "message": "Is this line a dup of line 4770 and removable?",
+      "range": {
+        "startLine": 4776,
+        "startChar": 15,
+        "endLine": 4776,
+        "endChar": 72
+      },
+      "revId": "60c00edb0c02f4cd14f896caed73d5879a588930",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f4533225_e6e99eb1",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4776,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-29T15:35:46Z",
+      "side": 1,
+      "message": "Good catch.  Removed in PS3.",
+      "parentUuid": "2f62d18f_a82e7ba5",
       "range": {
         "startLine": 4776,
         "startChar": 15,
