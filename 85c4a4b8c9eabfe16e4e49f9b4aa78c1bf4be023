@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f34c9be_a45bbe2f",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-07-29T17:54:06Z",
+      "side": 0,
+      "message": "I wonder why we only do this for the mips architectures.. all the other ones hardcode 32 or 64.\n\nEither way I\u0027m not sure there\u0027s a tangible benefit (to the old approach) since it\u0027s not like this whole header is templatized to different bit-sizes.",
+      "revId": "85c4a4b8c9eabfe16e4e49f9b4aa78c1bf4be023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
