@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "145b6640_a7e3aacd",
+        "filename": "compiler/optimizing/code_generator_arm.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4816,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-29T15:35:46Z",
+      "side": 1,
+      "message": "Right, makes sense.  Done in PS3.",
+      "parentUuid": "2f62d18f_48a7bf03",
+      "range": {
+        "startLine": 4810,
+        "startChar": 0,
+        "endLine": 4816,
+        "endChar": 92
+      },
+      "revId": "1b6c43c6691c40b61b127c41eb59e9b46469204b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f62d18f_e818f32c",
         "filename": "compiler/optimizing/code_generator_arm64.cc",
         "patchSetId": 1
@@ -108,6 +132,30 @@
       "writtenOn": "2016-07-28T19:12:53Z",
       "side": 1,
       "message": "Does this mean we use more temp registers for this? If so, perhaps, a potential slowdown, if any, might be due to the extra temp register pressure?",
+      "range": {
+        "startLine": 2178,
+        "startChar": 7,
+        "endLine": 2178,
+        "endChar": 17
+      },
+      "revId": "1b6c43c6691c40b61b127c41eb59e9b46469204b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b430dae9_ec64eb21",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2178,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2016-07-29T15:35:46Z",
+      "side": 1,
+      "message": "Yes, (Baker) read barriers require more registers for ArraySet; this might indeed have an impact on performance.",
+      "parentUuid": "2f62d18f_e818f32c",
       "range": {
         "startLine": 2178,
         "startChar": 7,
