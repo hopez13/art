@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f34c9be_1fa77704",
+        "filename": "runtime/gc/collector/concurrent_copying.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-29T17:42:38Z",
+      "side": 0,
+      "message": "I think the bug was that the table was only being updated with new cards for kUseBakerReadBarrier case?",
+      "range": {
+        "startLine": 565,
+        "startChar": 48,
+        "endLine": 565,
+        "endChar": 74
+      },
+      "revId": "8256da35feac0ba7589fcd4b692a4b9a936679a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
