@@ -3181,6 +3181,7 @@ void ClassLinker::LoadMethod(Thread* self,
       }
     }
   }
+
   dst->SetAccessFlags(access_flags);
 }
 
