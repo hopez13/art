@@ -177,23 +177,23 @@ HBasicBlock* CodeGenerator::FirstNonEmptyBlock(HBasicBlock* block) const {
 
 class DisassemblyScope {
  public:
-  DisassemblyScope(HInstruction* instruction, const CodeGenerator& codegen)
+  DisassemblyScope(HInstruction* instruction, CodeGenerator* codegen)
       : codegen_(codegen), instruction_(instruction), start_offset_(static_cast<size_t>(-1)) {
-    if (codegen_.GetDisassemblyInformation() != nullptr) {
-      start_offset_ = codegen_.GetAssembler().CodeSize();
+    if (codegen_->GetDisassemblyInformation() != nullptr) {
+      start_offset_ = codegen_->GetAssembler()->CodePosition();
     }
   }
 
   ~DisassemblyScope() {
     // We avoid building this data when we know it will not be used.
-    if (codegen_.GetDisassemblyInformation() != nullptr) {
-      codegen_.GetDisassemblyInformation()->AddInstructionInterval(
-          instruction_, start_offset_, codegen_.GetAssembler().CodeSize());
+    if (codegen_->GetDisassemblyInformation() != nullptr) {
+      codegen_->GetDisassemblyInformation()->AddInstructionInterval(
+          instruction_, start_offset_, codegen_->GetAssembler()->CodePosition());
     }
   }
 
  private:
-  const CodeGenerator& codegen_;
+  CodeGenerator* codegen_;
   HInstruction* instruction_;
   size_t start_offset_;
 };
@@ -205,13 +205,13 @@ void CodeGenerator::GenerateSlowPaths() {
     SlowPathCode* slow_path = slow_path_unique_ptr.get();
     current_slow_path_ = slow_path;
     if (disasm_info_ != nullptr) {
-      code_start = GetAssembler()->CodeSize();
+      code_start = GetAssembler()->CodePosition();
     }
     // Record the dex pc at start of slow path (required for java line number mapping).
     MaybeRecordNativeDebugInfo(slow_path->GetInstruction(), slow_path->GetDexPc(), slow_path);
     slow_path->EmitNativeCode(this);
     if (disasm_info_ != nullptr) {
-      disasm_info_->AddSlowPathInterval(slow_path, code_start, GetAssembler()->CodeSize());
+      disasm_info_->AddSlowPathInterval(slow_path, code_start, GetAssembler()->CodePosition());
     }
   }
   current_slow_path_ = nullptr;
@@ -226,11 +226,11 @@ void CodeGenerator::Compile(CodeAllocator* allocator) {
   HGraphVisitor* instruction_visitor = GetInstructionVisitor();
   DCHECK_EQ(current_block_index_, 0u);
 
-  size_t frame_start = GetAssembler()->CodeSize();
+  size_t frame_start = GetAssembler()->CodePosition();
   GenerateFrameEntry();
   DCHECK_EQ(GetAssembler()->cfi().GetCurrentCFAOffset(), static_cast<int>(frame_size_));
   if (disasm_info_ != nullptr) {
-    disasm_info_->SetFrameEntryInterval(frame_start, GetAssembler()->CodeSize());
+    disasm_info_->SetFrameEntryInterval(frame_start, GetAssembler()->CodePosition());
   }
 
   for (size_t e = block_order_->size(); current_block_index_ < e; ++current_block_index_) {
@@ -252,7 +252,7 @@ void CodeGenerator::Compile(CodeAllocator* allocator) {
         // so the runtime's stackmap is not sufficient since it is at PC after the call.
         MaybeRecordNativeDebugInfo(current, block->GetDexPc());
       }
-      DisassemblyScope disassembly_scope(current, *this);
+      DisassemblyScope disassembly_scope(current, this);
       DCHECK(CheckTypeConsistency(current));
       current->Accept(instruction_visitor);
     }
@@ -753,7 +753,7 @@ void CodeGenerator::RecordPcInfo(HInstruction* instruction,
   }
 
   // Collect PC infos for the mapping table.
-  uint32_t native_pc = GetAssembler()->CodeSize();
+  uint32_t native_pc = GetAssembler()->CodePosition();
 
   if (instruction == nullptr) {
     // For stack overflow checks and native-debug-info entries without dex register
@@ -835,7 +835,7 @@ void CodeGenerator::RecordPcInfo(HInstruction* instruction,
 }
 
 bool CodeGenerator::HasStackMapAtCurrentPc() {
-  uint32_t pc = GetAssembler()->CodeSize();
+  uint32_t pc = GetAssembler()->CodePosition();
   size_t count = stack_map_stream_.GetNumberOfStackMaps();
   return count > 0 && stack_map_stream_.GetStackMap(count - 1).native_pc_offset == pc;
 }
