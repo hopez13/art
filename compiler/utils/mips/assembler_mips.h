@@ -152,6 +152,9 @@ class MipsAssembler FINAL : public Assembler {
       : Assembler(arena),
         overwriting_(false),
         overwrite_location_(0),
+        reordering_(true),
+        ds_fsm_state_(kExpectingLabel),
+        ds_fsm_target_pc_(0),
         literals_(arena->Adapter(kArenaAllocAssembler)),
         last_position_adjustment_(0),
         last_old_position_(0),
@@ -165,6 +168,8 @@ class MipsAssembler FINAL : public Assembler {
       CHECK(branch.IsResolved());
     }
   }
+
+  virtual size_t CodePosition() OVERRIDE;
 
   // Emit Machine Instructions.
   void Addu(Register rd, Register rs, Register rt);
@@ -251,6 +256,11 @@ class MipsAssembler FINAL : public Assembler {
   void Slti(Register rt, Register rs, uint16_t imm16);
   void Sltiu(Register rt, Register rs, uint16_t imm16);
 
+  // Branches and jumps to immediate offsets/addresses do not take care of their
+  // delay/forbidden slots and generally should not be used directly. This applies
+  // to the following R2 and R6 branch/jump instructions with imm16, imm21, addr26
+  // offsets/addresses.
+  // Use branches/jumps to labels instead.
   void B(uint16_t imm16);
   void Bal(uint16_t imm16);
   void Beq(Register rs, Register rt, uint16_t imm16);
@@ -267,9 +277,13 @@ class MipsAssembler FINAL : public Assembler {
   void Bc1t(int cc, uint16_t imm16);  // R2
   void J(uint32_t addr26);
   void Jal(uint32_t addr26);
+  // Jalr() and Jr() fill their delay slots when reordering is enabled.
+  // When reordering is disabled, the delay slots must be filled manually.
+  // You may use NopIfNoReordering() to fill them when reordering is disabled.
   void Jalr(Register rd, Register rs);
   void Jalr(Register rs);
   void Jr(Register rs);
+  // Nal() does not fill its delay slot. It must be filled manually.
   void Nal();
   void Auipc(Register rs, uint16_t imm16);  // R6
   void Addiupc(Register rs, uint32_t imm19);  // R6
@@ -398,6 +412,7 @@ class MipsAssembler FINAL : public Assembler {
 
   void Break();
   void Nop();
+  void NopIfNoReordering();
   void Move(Register rd, Register rs);
   void Clear(Register rd);
   void Not(Register rd, Register rs);
@@ -411,7 +426,8 @@ class MipsAssembler FINAL : public Assembler {
   void StoreConst64ToOffset(int64_t value, Register base, int32_t offset, Register temp);
   void Addiu32(Register rt, Register rs, int32_t value, Register rtmp = AT);
 
-  // These will generate R2 branches or R6 branches as appropriate.
+  // These will generate R2 branches or R6 branches as appropriate and take care of
+  // the delay/forbidden slots.
   void Bind(MipsLabel* label);
   void B(MipsLabel* label);
   void Bal(MipsLabel* label);
@@ -673,7 +689,51 @@ class MipsAssembler FINAL : public Assembler {
   };
   friend std::ostream& operator<<(std::ostream& os, const BranchCondition& rhs);
 
+  // Enables or disables instruction reordering (IOW, automatic filling of delay slots)
+  // similarly to ".set reorder" / ".set noreorder" in traditional MIPS assembly.
+  // Returns the last state, which may be useful for temporary enabling/disabling of
+  // reordering.
+  bool SetReorder(bool enable);
+
  private:
+  // Description of the last instruction in terms of input and output registers.
+  // Used to make the decision of moving the instruction into a delay slot.
+  struct DelaySlot {
+    DelaySlot();
+    // Encoded instruction that may be used to fill the delay slot or 0
+    // (0 conveniently represents NOP).
+    uint32_t instruction_;
+    // Mask of output GPRs for the instruction.
+    uint32_t gpr_outs_mask_;
+    // Mask of input GPRs for the instruction.
+    uint32_t gpr_ins_mask_;
+    // Mask of output FPRs for the instruction.
+    uint32_t fpr_outs_mask_;
+    // Mask of input FPRs for the instruction.
+    uint32_t fpr_ins_mask_;
+    // Mask of output FPU condition code flags for the instruction.
+    uint32_t cc_outs_mask_;
+    // Mask of input FPU condition code flags for the instruction.
+    uint32_t cc_ins_mask_;
+    // Branches never operate on the LO and HI registers, hence there's
+    // no mask for LO and HI.
+  };
+
+  // Delay slot FSM state. The FSM state is updated upon every new instruction and
+  // label generated. The FSM detects instructions suitable for delay slots and
+  // immediately preceded with labels. These are target instructions for branches.
+  // If an unconditional R2 branch does not get its delay slot filled with the
+  // immediately preceding instruction, it may instead get the slot filled with the
+  // target instruction (the branch will need its offset incremented past the target
+  // instruction). The FSM records PCs of the target instructions suitable for this
+  // optimization.
+  enum DsFsmState {
+    kExpectingLabel,
+    kExpectingInstruction,
+    kExpectingCommit
+  };
+  friend std::ostream& operator<<(std::ostream& os, const DsFsmState& rhs);
+
   class Branch {
    public:
     enum Type {
@@ -715,6 +775,10 @@ class MipsAssembler FINAL : public Assembler {
     static constexpr uint32_t kUnresolved = 0xffffffff;  // Unresolved target_
     static constexpr int32_t kMaxBranchLength = 32;
     static constexpr int32_t kMaxBranchSize = kMaxBranchLength * sizeof(uint32_t);
+    // The following two instruction encodings can never legally occur in branch delay
+    // slots and are used as markers.
+    static constexpr uint32_t kUnfilledDelaySlot = 0x10000000;  // beq zero, zero, 0.
+    static constexpr uint32_t kUnfillableDelaySlot = 0x13FF0000;  // beq ra, ra, 0.
 
     struct BranchInfo {
       // Branch length as a number of 4-byte-long instructions.
@@ -763,6 +827,8 @@ class MipsAssembler FINAL : public Assembler {
     uint32_t GetTarget() const;
     uint32_t GetLocation() const;
     uint32_t GetOldLocation() const;
+    uint32_t GetPrecedingInstructionLength(Type type) const;
+    uint32_t GetPrecedingInstructionSize(Type type) const;
     uint32_t GetLength() const;
     uint32_t GetOldLength() const;
     uint32_t GetSize() const;
@@ -771,6 +837,12 @@ class MipsAssembler FINAL : public Assembler {
     uint32_t GetOldEndLocation() const;
     bool IsLong() const;
     bool IsResolved() const;
+
+    // Various helpers for branch delay slot management.
+    bool CanHaveDelayedInstruction(const DelaySlot& delay_slot) const;
+    void SetDelayedInstruction(uint32_t instruction);
+    uint32_t GetDelayedInstruction() const;
+    void DecrementLocations();
 
     // Returns the bit size of the signed offset that the branch instruction can handle.
     OffsetBits GetOffsetSize() const;
@@ -836,27 +908,34 @@ class MipsAssembler FINAL : public Assembler {
     // Helper for the above.
     void InitShortOrLong(OffsetBits ofs_size, Type short_type, Type long_type);
 
-    uint32_t old_location_;      // Offset into assembler buffer in bytes.
-    uint32_t location_;          // Offset into assembler buffer in bytes.
-    uint32_t target_;            // Offset into assembler buffer in bytes.
+    uint32_t old_location_;         // Offset into assembler buffer in bytes.
+    uint32_t location_;             // Offset into assembler buffer in bytes.
+    uint32_t target_;               // Offset into assembler buffer in bytes.
 
-    uint32_t lhs_reg_;           // Left-hand side register in conditional branches or
-                                 // indirect call register.
-    uint32_t rhs_reg_;           // Right-hand side register in conditional branches.
-    BranchCondition condition_;  // Condition for conditional branches.
+    uint32_t lhs_reg_;              // Left-hand side register in conditional branches or
+                                    // FPU condition code. Destination register in literals.
+    uint32_t rhs_reg_;              // Right-hand side register in conditional branches.
+                                    // Base register in literals (ZERO on R6).
+    BranchCondition condition_;     // Condition for conditional branches.
 
-    Type type_;                  // Current type of the branch.
-    Type old_type_;              // Initial type of the branch.
+    Type type_;                     // Current type of the branch.
+    Type old_type_;                 // Initial type of the branch.
+
+    uint32_t delayed_instruction_;  // Encoded instruction for the delay slot or
+                                    // kUnfilledDelaySlot if none but fillable or
+                                    // kUnfillableDelaySlot if none and unfillable
+                                    // (the latter is only used for unconditional R2
+                                    // branches).
   };
   friend std::ostream& operator<<(std::ostream& os, const Branch::Type& rhs);
   friend std::ostream& operator<<(std::ostream& os, const Branch::OffsetBits& rhs);
 
-  void EmitR(int opcode, Register rs, Register rt, Register rd, int shamt, int funct);
-  void EmitI(int opcode, Register rs, Register rt, uint16_t imm);
-  void EmitI21(int opcode, Register rs, uint32_t imm21);
-  void EmitI26(int opcode, uint32_t imm26);
-  void EmitFR(int opcode, int fmt, FRegister ft, FRegister fs, FRegister fd, int funct);
-  void EmitFI(int opcode, int fmt, FRegister rt, uint16_t imm);
+  uint32_t EmitR(int opcode, Register rs, Register rt, Register rd, int shamt, int funct);
+  uint32_t EmitI(int opcode, Register rs, Register rt, uint16_t imm);
+  uint32_t EmitI21(int opcode, Register rs, uint32_t imm21);
+  uint32_t EmitI26(int opcode, uint32_t imm26);
+  uint32_t EmitFR(int opcode, int fmt, FRegister ft, FRegister fs, FRegister fd, int funct);
+  uint32_t EmitFI(int opcode, int fmt, FRegister rt, uint16_t imm);
   void EmitBcondR2(BranchCondition cond, Register rs, Register rt, uint16_t imm16);
   void EmitBcondR6(BranchCondition cond, Register rs, Register rt, uint32_t imm16_21);
 
@@ -864,6 +943,32 @@ class MipsAssembler FINAL : public Assembler {
   void Bcond(MipsLabel* label, BranchCondition condition, Register lhs, Register rhs = ZERO);
   void Call(MipsLabel* label);
   void FinalizeLabeledBranch(MipsLabel* label);
+
+  // Various helpers for branch delay slot management.
+  void DsFsmInstr(uint32_t instruction,
+                  uint32_t gpr_outs_mask,
+                  uint32_t gpr_ins_mask,
+                  uint32_t fpr_outs_mask,
+                  uint32_t fpr_ins_mask,
+                  uint32_t cc_outs_mask,
+                  uint32_t cc_ins_mask);
+  void DsFsmInstrNop(uint32_t instruction);
+  void DsFsmInstrRrr(uint32_t instruction, Register out, Register in1, Register in2);
+  void DsFsmInstrRrrr(uint32_t instruction, Register in1_out, Register in2, Register in3);
+  void DsFsmInstrFff(uint32_t instruction, FRegister out, FRegister in1, FRegister in2);
+  void DsFsmInstrFfff(uint32_t instruction, FRegister in1_out, FRegister in2, FRegister in3);
+  void DsFsmInstrRf(uint32_t instruction, Register out, FRegister in);
+  void DsFsmInstrFr(uint32_t instruction, FRegister out, Register in);
+  void DsFsmInstrFR(uint32_t instruction, FRegister in1, Register in2);
+  void DsFsmInstrCff(uint32_t instruction, int cc_out, FRegister in1, FRegister in2);
+  void DsFsmInstrRrc(uint32_t instruction, Register in1_out, Register in2, int cc_in);
+  void DsFsmInstrFfc(uint32_t instruction, FRegister in1_out, FRegister in2, int cc_in);
+  void DsFsmLabel();
+  void DsFsmCommitLabel();
+  void DsFsmDropLabel();
+  void MoveInstructionToDelaySlot(Branch& branch);
+  bool CanExchangeWithSlt(Register rs, Register rt) const;
+  void ExchangeWithSlt(const DelaySlot& forwarded_slot);
 
   Branch* GetBranch(uint32_t branch_id);
   const Branch* GetBranch(uint32_t branch_id) const;
@@ -905,6 +1010,17 @@ class MipsAssembler FINAL : public Assembler {
   // The current overwrite location.
   uint32_t overwrite_location_;
 
+  // Whether instruction reordering (IOW, automatic filling of delay slots) is enabled.
+  bool reordering_;
+  // Information about the last instruction that may be used to fill a branch delay slot.
+  DelaySlot delay_slot_;
+  // Delay slot FSM state.
+  DsFsmState ds_fsm_state_;
+  // PC of the current labeled target instruction.
+  uint32_t ds_fsm_target_pc_;
+  // PCs of labeled target instructions.
+  std::vector<uint32_t> ds_fsm_target_pcs_;
+
   // Use std::deque<> for literal labels to allow insertions at the end
   // without invalidating pointers and references to existing elements.
   ArenaDeque<Literal> literals_;
@@ -914,7 +1030,7 @@ class MipsAssembler FINAL : public Assembler {
   // that PC (from NAL) points to.
   MipsLabel pc_rel_base_label_;
 
-  // Data for AdjustedPosition(), see the description there.
+  // Data for GetAdjustedPosition(), see the description there.
   uint32_t last_position_adjustment_;
   uint32_t last_old_position_;
   uint32_t last_branch_id_;
