@@ -1,0 +1,808 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f34c9be_fb89cd85",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "Comment. I assume that\u0027s the highest of all the platforms we support?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 41
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_1b7f8177",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "\u0026",
+      "range": {
+        "startLine": 33,
+        "startChar": 72,
+        "endLine": 33,
+        "endChar": 73
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_3b84456b",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "Put this method in LiveInterval?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 91
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_5b79f98e",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "Add a IsBlockedCoreRegister(i) to CodeGenerator.",
+      "range": {
+        "startLine": 84,
+        "startChar": 18,
+        "endLine": 84,
+        "endChar": 46
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_7b76bda1",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 94,
+        "startChar": 18,
+        "endLine": 94,
+        "endChar": 50
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_9b7371af",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "One line?",
+      "range": {
+        "startLine": 104,
+        "startChar": 19,
+        "endLine": 106,
+        "endChar": 29
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_bb7035a3",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "adjacent_nodes_\n\nIf too long, consider neighboors_ or something similar.",
+      "range": {
+        "startLine": 108,
+        "startChar": 10,
+        "endLine": 108,
+        "endChar": 14
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_fbae2de8",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "Missing new line",
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_1bb4e139",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_3bb9a531",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_5bbe5919",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "Looks off. Can you comment what degree is for, and then your constraints (like what you\u0027re currently saying?)",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 33
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_9bc8d1bd",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "Only used to avoid pointer comparisons in the set right?",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 39
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_fb970d92",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "Why? Please add more context.",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 61
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_9ba1b1ef",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "Looks odd, how are we making sure we\u0027re successful before such many attempts?",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 72
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_bb9e75a7",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "avoid",
+      "range": {
+        "startLine": 260,
+        "startChar": 14,
+        "endLine": 260,
+        "endChar": 15
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_dbf7a9f7",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "new line for this one.",
+      "range": {
+        "startLine": 318,
+        "startChar": 27,
+        "endLine": 318,
+        "endChar": 46
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_9bf611f6",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "Please upload a change where ProcessInstruction is shared between LinearScan and GraphColoring. The code involved looks awfully the same.",
+      "range": {
+        "startLine": 336,
+        "startChar": 34,
+        "endLine": 336,
+        "endChar": 52
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_fbfc6ddc",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "So did this solve your problem with the SuspendCheck?",
+      "range": {
+        "startLine": 342,
+        "startChar": 0,
+        "endLine": 347,
+        "endChar": 11
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_1b0221da",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "Add a comment.",
+      "range": {
+        "startLine": 363,
+        "startChar": 0,
+        "endLine": 366,
+        "endChar": 3
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_3b07e5e9",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "Add a comment that the HasSpillSlot is at this stage equivalent to being a parameter (or the ArtMethod, right?)",
+      "range": {
+        "startLine": 380,
+        "startChar": 6,
+        "endLine": 383,
+        "endChar": 19
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_7be95d14",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "Top level comment like the method above.",
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_bbf3d505",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "Memory wise, this looks scary, since we can do many attemps to build the interference graph. Consider creating a ArenaAllocator dedicated for each round.",
+      "range": {
+        "startLine": 662,
+        "startChar": 6,
+        "endLine": 664,
+        "endChar": 56
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_5bd5793f",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "What does that mean?",
+      "range": {
+        "startLine": 689,
+        "startChar": 2,
+        "endLine": 689,
+        "endChar": 16
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_7bd23d5a",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "English comment please on what you\u0027re doing here.",
+      "range": {
+        "startLine": 693,
+        "startChar": 0,
+        "endLine": 693,
+        "endChar": 58
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_9bcff1ab",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "Move this to else body, and say // end of range.",
+      "range": {
+        "startLine": 703,
+        "startChar": 11,
+        "endLine": 703,
+        "endChar": 27
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_bbccb5b7",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "Expand. I assume that\u0027s to avoid infinite loop?",
+      "range": {
+        "startLine": 711,
+        "startChar": 54,
+        "endLine": 712,
+        "endChar": 12
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_db45e91b",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "one per line",
+      "range": {
+        "startLine": 764,
+        "startChar": 21,
+        "endLine": 764,
+        "endChar": 36
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_fb4aad28",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "adjacent",
+      "range": {
+        "startLine": 770,
+        "startChar": 27,
+        "endLine": 770,
+        "endChar": 30
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_1b5061da",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "You never introduced the notion of high degree and low degree.",
+      "range": {
+        "startLine": 781,
+        "startChar": 10,
+        "endLine": 781,
+        "endChar": 65
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_3b5525ca",
+        "filename": "compiler/optimizing/register_allocator_graph_color.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "avoid",
+      "range": {
+        "startLine": 835,
+        "startChar": 8,
+        "endLine": 835,
+        "endChar": 9
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_78596392",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "requires",
+      "range": {
+        "startLine": 61,
+        "startChar": 18,
+        "endLine": 61,
+        "endChar": 25
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_7b579dd0",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "As a rule, please make reference const, and what you cannot make const, make it \u0027*\u0027. It avoids confusion.",
+      "range": {
+        "startLine": 98,
+        "startChar": 54,
+        "endLine": 98,
+        "endChar": 57
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_1b66a1f9",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "Why is that not the returned type?",
+      "range": {
+        "startLine": 102,
+        "startChar": 66,
+        "endLine": 104,
+        "endChar": 16
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_bb5755fd",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "avoid, make that the return value.",
+      "range": {
+        "startLine": 119,
+        "startChar": 40,
+        "endLine": 119,
+        "endChar": 46
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_db840971",
+        "filename": "compiler/optimizing/register_allocator_graph_color.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "Say that it\u0027s either one or two depending on whether 32bits or 64bits.",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 72
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_5b5ad9f9",
+        "filename": "compiler/optimizing/ssa_liveness_analysis.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2016-07-30T16:00:47Z",
+      "side": 1,
+      "message": "definition",
+      "range": {
+        "startLine": 510,
+        "startChar": 24,
+        "endLine": 510,
+        "endChar": 35
+      },
+      "revId": "ae31189023d2f23ca4716d8462e4247ae5e4689e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
