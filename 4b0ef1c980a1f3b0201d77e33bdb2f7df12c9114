@@ -22,6 +22,30 @@
       "revId": "4b0ef1c980a1f3b0201d77e33bdb2f7df12c9114",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_f8555354",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2205,
+      "author": {
+        "id": 1015378
+      },
+      "writtenOn": "2016-07-30T01:17:55Z",
+      "side": 1,
+      "message": "I think this case is rare enough that there should not be a real difference.",
+      "parentUuid": "6f34c9be_f86c733a",
+      "range": {
+        "startLine": 2205,
+        "startChar": 6,
+        "endLine": 2205,
+        "endChar": 51
+      },
+      "revId": "4b0ef1c980a1f3b0201d77e33bdb2f7df12c9114",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
