@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f34c9be_f65ba55c",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T19:07:02Z",
+      "side": 1,
+      "message": "Can we move this to some helper h or ArtMethod.h? It seems this could be shared later.\n\n(It would also allow testing in a gtest...)",
+      "range": {
+        "startLine": 559,
+        "startChar": 0,
+        "endLine": 601,
+        "endChar": 1
+      },
+      "revId": "12089af567bd5c2c06b387b882f00b927756ad11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_001d5668",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T19:07:02Z",
+      "side": 1,
+      "message": "I\u0027d consider putting this into another helper function to keep this method\u0027s size at bay.\n\n(It would also help to track not using an ArtMethod, which should be a strong TODO.)",
+      "range": {
+        "startLine": 651,
+        "startChar": 6,
+        "endLine": 669,
+        "endChar": 82
+      },
+      "revId": "12089af567bd5c2c06b387b882f00b927756ad11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_60453a4c",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T19:07:02Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 432,
+        "startChar": 15,
+        "endLine": 432,
+        "endChar": 33
+      },
+      "revId": "12089af567bd5c2c06b387b882f00b927756ad11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_e0b3ea51",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 680,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T19:07:02Z",
+      "side": 1,
+      "message": "Why do you need this as a root? It much more fits into WellKnownClasses by the usage, I think.",
+      "range": {
+        "startLine": 679,
+        "startChar": 0,
+        "endLine": 680,
+        "endChar": 83
+      },
+      "revId": "12089af567bd5c2c06b387b882f00b927756ad11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_c0898e86",
+        "filename": "runtime/entrypoints/quick/quick_jni_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T19:07:02Z",
+      "side": 1,
+      "message": "Line too long.\n\nI think it may have been used directly at one point, before it became thread entrypoints? Feel free to clean up in a follow-up CL.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 103
+      },
+      "revId": "12089af567bd5c2c06b387b882f00b927756ad11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
