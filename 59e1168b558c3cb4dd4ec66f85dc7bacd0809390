@@ -94,6 +94,30 @@
       "revId": "59e1168b558c3cb4dd4ec66f85dc7bacd0809390",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_12ca0c17",
+        "filename": "runtime/java_vm_ext.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1104175
+      },
+      "writtenOn": "2016-08-01T05:09:30Z",
+      "side": 1,
+      "message": "ok. maybe i will update the API and leave the refactoring work Dimitry maintained to him.",
+      "parentUuid": "b4029af5_3c5b315f",
+      "range": {
+        "startLine": 81,
+        "startChar": 15,
+        "endLine": 81,
+        "endChar": 40
+      },
+      "revId": "59e1168b558c3cb4dd4ec66f85dc7bacd0809390",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
