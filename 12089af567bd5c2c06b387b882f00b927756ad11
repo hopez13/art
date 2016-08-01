@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "af44013b_fb071b1e",
+        "filename": "compiler/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 672,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-01T20:19:42Z",
+      "side": 1,
+      "message": "Are you saying to pass it as a separate parameter or to pass it as part of access_flags?",
+      "parentUuid": "af44013b_e0d84aec",
+      "range": {
+        "startLine": 669,
+        "startChar": 0,
+        "endLine": 672,
+        "endChar": 68
+      },
+      "revId": "12089af567bd5c2c06b387b882f00b927756ad11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af44013b_60453a4c",
         "filename": "compiler/jni/quick/jni_compiler.cc",
         "patchSetId": 1
@@ -151,6 +175,30 @@
       "writtenOn": "2016-08-01T20:10:34Z",
       "side": 1,
       "message": "I don\u0027t understand this TODO.",
+      "range": {
+        "startLine": 432,
+        "startChar": 0,
+        "endLine": 432,
+        "endChar": 56
+      },
+      "revId": "12089af567bd5c2c06b387b882f00b927756ad11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_3bfa8314",
+        "filename": "compiler/jni/quick/jni_compiler.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1021471
+      },
+      "writtenOn": "2016-08-01T20:19:42Z",
+      "side": 1,
+      "message": "Sorry, bad merge from when I was prototyping this.",
+      "parentUuid": "af44013b_80ea266e",
       "range": {
         "startLine": 432,
         "startChar": 0,
