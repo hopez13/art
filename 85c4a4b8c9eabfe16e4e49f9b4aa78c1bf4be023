@@ -16,6 +16,24 @@
       "revId": "85c4a4b8c9eabfe16e4e49f9b4aa78c1bf4be023",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_b8f4bb26",
+        "filename": "compiler/utils/mips/assembler_mips.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 0,
+      "message": "I was looking into templatizing the assembler by pointer size, but the templates would permeate the optimizing compiler, and I think Nicolas hates templates.",
+      "parentUuid": "6f34c9be_a45bbe2f",
+      "revId": "85c4a4b8c9eabfe16e4e49f9b4aa78c1bf4be023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6f34c9be_14acb935",
+        "filename": "compiler/dex/quick/dex_file_method_inliner.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "This is Jeff\u0027s code. There\u0027s a range of String.\u003cinit\u003e replacement entrypoints in the TLS. As they\u0027re pointing to code, they\u0027re all pointer-sized...",
+      "parentUuid": "6f34c9be_24e98eae",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_04500a61",
         "filename": "compiler/image_writer.cc",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2016-07-29T17:54:06Z",
       "side": 1,
       "message": "Why not change this parameter to PointerSize?",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_789ec3fc",
+        "filename": "compiler/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1576,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Because it\u0027s directly written to file. It seemed cleaner this way.",
+      "parentUuid": "6f34c9be_04500a61",
       "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "6f34c9be_58a1ff3d",
+        "filename": "compiler/image_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "No, the image writer is setting this late. This would be a larger refactor.",
+      "parentUuid": "6f34c9be_245c2e83",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_a4de5ed6",
         "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
         "patchSetId": 2
@@ -64,6 +118,30 @@
       "writtenOn": "2016-07-29T17:54:06Z",
       "side": 1,
       "message": "What\u0027s the difference  between this and 293?",
+      "range": {
+        "startLine": 258,
+        "startChar": 63,
+        "endLine": 258,
+        "endChar": 77
+      },
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_78632317",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_a4de5ed6",
       "range": {
         "startLine": 258,
         "startChar": 63,
@@ -99,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "6f34c9be_185ce754",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Because we didn\u0027t have a distinction before, and kFramePointerSize is used as an integral for offset computations otherwise so is kept size_t (ImgTec complained about mixing terminology).",
+      "parentUuid": "6f34c9be_04c56a07",
+      "range": {
+        "startLine": 293,
+        "startChar": 49,
+        "endLine": 293,
+        "endChar": 64
+      },
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_44420298",
         "filename": "compiler/jni/quick/arm/calling_convention_arm.h",
         "patchSetId": 2
@@ -116,6 +218,24 @@
     },
     {
       "key": {
+        "uuid": "6f34c9be_d8516f42",
+        "filename": "compiler/jni/quick/arm/calling_convention_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_44420298",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_c4b19295",
         "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
         "patchSetId": 2
@@ -127,6 +247,30 @@
       "writtenOn": "2016-07-29T17:54:06Z",
       "side": 1,
       "message": "Are we losing anything from dropping the word \"Frame\"? Can any of the frame pointers ever be a different size than non-frame pointers?",
+      "range": {
+        "startLine": 214,
+        "startChar": 63,
+        "endLine": 214,
+        "endChar": 80
+      },
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_584f3f8e",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Nope, it\u0027s always the same. Not sure why Ian called it frame pointer size before.",
+      "parentUuid": "6f34c9be_c4b19295",
       "range": {
         "startLine": 214,
         "startChar": 63,
@@ -162,6 +306,30 @@
     },
     {
       "key": {
+        "uuid": "6f34c9be_9870d7dc",
+        "filename": "compiler/jni/quick/arm64/calling_convention_arm64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Because it\u0027s not declared to keep includes small.",
+      "parentUuid": "6f34c9be_c488b2cb",
+      "range": {
+        "startLine": 36,
+        "startChar": 40,
+        "endLine": 36,
+        "endChar": 42
+      },
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_e4a69658",
         "filename": "compiler/jni/quick/calling_convention.h",
         "patchSetId": 2
@@ -173,6 +341,30 @@
       "writtenOn": "2016-07-29T17:54:06Z",
       "side": 1,
       "message": "nit: frame pointer",
+      "range": {
+        "startLine": 203,
+        "startChar": 19,
+        "endLine": 203,
+        "endChar": 26
+      },
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_b8467b76",
+        "filename": "compiler/jni/quick/calling_convention.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "See previous comment, there\u0027s really no distinction, and a separate cleanup should probably change this...",
+      "parentUuid": "6f34c9be_e4a69658",
       "range": {
         "startLine": 203,
         "startChar": 19,
@@ -202,6 +394,24 @@
     },
     {
       "key": {
+        "uuid": "6f34c9be_f82473cb",
+        "filename": "compiler/jni/quick/x86/calling_convention_x86.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_846dda00",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_c43fd2dd",
         "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.h",
         "patchSetId": 2
@@ -213,6 +423,24 @@
       "writtenOn": "2016-07-29T17:54:06Z",
       "side": 1,
       "message": "Why not kFramePointerSize \u003d PointerSize::k64",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_382feba4",
+        "filename": "compiler/jni/quick/x86_64/calling_convention_x86_64.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_c43fd2dd",
       "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -236,6 +464,24 @@
     },
     {
       "key": {
+        "uuid": "6f34c9be_78116363",
+        "filename": "compiler/oat_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Defined independently. There\u0027s a test in instruction_set_test (GetInstructionSetPointerSize is not constexpr as it contains a switch).",
+      "parentUuid": "6f34c9be_c40d1242",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_441f625f",
         "filename": "compiler/utils/arm/assembler_arm.cc",
         "patchSetId": 2
@@ -247,6 +493,24 @@
       "writtenOn": "2016-07-29T17:54:06Z",
       "side": 1,
       "message": "ATTR_UNUSED ?",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f34c9be_d8088f34",
+        "filename": "compiler/utils/arm/assembler_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_441f625f",
       "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -270,6 +534,24 @@
     },
     {
       "key": {
+        "uuid": "6f34c9be_3808cb2e",
+        "filename": "compiler/utils/arm64/assembler_arm64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 546,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_a4365eeb",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_444da26b",
         "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
         "patchSetId": 2
@@ -287,6 +569,24 @@
     },
     {
       "key": {
+        "uuid": "af44013b_15d59640",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2686,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Minimal change.\n\nI\u0027m working on potential cleanup of the assemblers, anyways.",
+      "parentUuid": "6f34c9be_444da26b",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_c4899286",
         "filename": "patchoat/patchoat.h",
         "patchSetId": 2
@@ -298,6 +598,24 @@
       "writtenOn": "2016-07-29T17:54:06Z",
       "side": 1,
       "message": "Do we do this often? Perhaps we can have IsISAPointerSize32() and IsISAPointerSize64() helpers?",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_80b226e1",
+        "filename": "patchoat/patchoat.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Only these two here, I think. Not sure it\u0027s worth it, but I\u0027ll add a helper.",
+      "parentUuid": "6f34c9be_c4899286",
       "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -327,6 +645,30 @@
     },
     {
       "key": {
+        "uuid": "af44013b_e0d5aaeb",
+        "filename": "runtime/arch/arm/fault_handler_arm.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "The comment describes this, it\u0027s the encoding of the ldr.",
+      "parentUuid": "6f34c9be_a4f73ef8",
+      "range": {
+        "startLine": 148,
+        "startChar": 24,
+        "endLine": 148,
+        "endChar": 34
+      },
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_a4e01e28",
         "filename": "runtime/arch/instruction_set.h",
         "patchSetId": 2
@@ -338,6 +680,24 @@
       "writtenOn": "2016-07-29T17:54:06Z",
       "side": 1,
       "message": "Couldn\u0027t this be constexpr on C++14?",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_00db961e",
+        "filename": "runtime/arch/instruction_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "But we are not C++14 AFAIK.\n\n(And yes, once we are, I\u0027ll happily set this to be constexpr)",
+      "parentUuid": "6f34c9be_a4e01e28",
       "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -361,6 +721,24 @@
     },
     {
       "key": {
+        "uuid": "af44013b_40bd9ea9",
+        "filename": "runtime/arch/instruction_set.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "6f34c9be_44d2025a",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_c44a7229",
         "filename": "runtime/art_method-inl.h",
         "patchSetId": 2
@@ -378,6 +756,24 @@
     },
     {
       "key": {
+        "uuid": "af44013b_80c7863b",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "All inherited.",
+      "parentUuid": "6f34c9be_c44a7229",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_647d4649",
         "filename": "runtime/art_method.cc",
         "patchSetId": 2
@@ -389,6 +785,24 @@
       "writtenOn": "2016-07-29T17:54:06Z",
       "side": 1,
       "message": "nit: line breaks should be 4 spaces indented",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_00f47688",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "We\u0027re very inconsistent when it comes to parts of a conjunction or disjunction.",
+      "parentUuid": "6f34c9be_647d4649",
       "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -429,6 +843,24 @@
     },
     {
       "key": {
+        "uuid": "af44013b_40e67edf",
+        "filename": "runtime/asm_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "__SIZEOF_POINTER__ is not the enum. So it seems more straightforward to use the conditional here.",
+      "parentUuid": "6f34c9be_840f9ada",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_e4fcd663",
         "filename": "runtime/base/enums.h",
         "patchSetId": 2
@@ -440,6 +872,24 @@
       "writtenOn": "2016-07-29T17:54:06Z",
       "side": 1,
       "message": "Maybe add/move some helpers here?\n\n  PointerSize GetImagePointerSize() -\u003e Runtime::Current()-\u003eGetClassLinker()-\u003eGetImagePointerSize()\n\n  constexpr PointerSize GetIsaPointerSize(isa) -\u003e InstructionSetPointerSize(ptr_size) \n\netc?",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_a019e2e1",
+        "filename": "runtime/base/enums.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Any of these would require an -inl or .cc file to avoid the dependencies. I wanted to keep it as simple as possible for the time being. (Especially since I wasn\u0027t sure about where to place it - could as well go into globals.h...)",
+      "parentUuid": "6f34c9be_e4fcd663",
       "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -463,6 +913,24 @@
     },
     {
       "key": {
+        "uuid": "af44013b_202ed2f6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "What exactly do you mean? The test overall? Yeah, it will tell you you can\u0027t run with a 32-bit boot.oat when running 64-bit dalvikvm.",
+      "parentUuid": "6f34c9be_84287a30",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_04f1ead1",
         "filename": "runtime/class_linker.cc",
         "patchSetId": 2
@@ -474,6 +942,24 @@
       "writtenOn": "2016-07-29T17:54:06Z",
       "side": 1,
       "message": "nit: I\u0027d slightly prefer a line break between ( and image_pointer_size_ for extra readability\n\nIt\u0027s technically expr(expr2) and line breaking at outer expression boundaries is superior to line breaking in the middle of an inner expression",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_c007ce70",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2054,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_04f1ead1",
       "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -497,6 +983,24 @@
     },
     {
       "key": {
+        "uuid": "af44013b_0002b660",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2008,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_6487060e",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_9f7d271a",
         "filename": "runtime/dex_file.cc",
         "patchSetId": 2
@@ -508,6 +1012,24 @@
       "writtenOn": "2016-07-29T17:54:06Z",
       "side": 1,
       "message": "indentation seems off",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_2017b2a2",
+        "filename": "runtime/dex_file.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2012,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_9f7d271a",
       "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -531,6 +1053,24 @@
     },
     {
       "key": {
+        "uuid": "af44013b_800ea685",
+        "filename": "runtime/entrypoints/quick/callee_save_frame.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "This was guaranteed compile-time evaluated for the save frames, so it seemed OK to use conditionals instead of lookup table, whereas the version in instruction_set is known to have to work on parameters unknown at runtime. That\u0027s the original reason not to merge.\n\nAs mentioned, once we do move to C++14, this can be deleted.",
+      "parentUuid": "6f34c9be_ff8c632c",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_dfa07f8f",
         "filename": "runtime/handle_scope-inl.h",
         "patchSetId": 2
@@ -542,6 +1082,24 @@
       "writtenOn": "2016-07-29T17:54:06Z",
       "side": 1,
       "message": "using ReferencesOffset here would probably be slightly more readable",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_40591e92",
+        "filename": "runtime/handle_scope-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_dfa07f8f",
       "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -599,6 +1157,24 @@
     },
     {
       "key": {
+        "uuid": "af44013b_a0500266",
+        "filename": "runtime/handle_scope.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_3fb8bbc2",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_7fe073c0",
         "filename": "runtime/memory_region.h",
         "patchSetId": 2
@@ -610,6 +1186,24 @@
       "writtenOn": "2016-07-29T17:54:06Z",
       "side": 1,
       "message": "nit: constexpr ?",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_c0550e55",
+        "filename": "runtime/memory_region.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_7fe073c0",
       "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -639,6 +1233,30 @@
     },
     {
       "key": {
+        "uuid": "af44013b_e04a0ab0",
+        "filename": "runtime/mirror/abstract_method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "I\u0027d rather not. It wasn\u0027t there before, messes up alignment, and will go away when I introduce an enum for it in a follow-up CL...",
+      "parentUuid": "6f34c9be_ff28e3ec",
+      "range": {
+        "startLine": 36,
+        "startChar": 68,
+        "endLine": 36,
+        "endChar": 73
+      },
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_7fea3371",
         "filename": "runtime/mirror/method.cc",
         "patchSetId": 2
@@ -650,6 +1268,24 @@
       "writtenOn": "2016-07-29T17:54:06Z",
       "side": 1,
       "message": "indentation seems off",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_c088aecb",
+        "filename": "runtime/mirror/method.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_7fea3371",
       "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -673,6 +1309,24 @@
     },
     {
       "key": {
+        "uuid": "af44013b_40759eda",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Well, my guess is that this works because of inference? Anyways, not related to this CL...",
+      "parentUuid": "6f34c9be_bfb10b96",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_5f9baf0a",
         "filename": "runtime/mirror/reference-inl.h",
         "patchSetId": 2
@@ -684,6 +1338,30 @@
       "writtenOn": "2016-07-29T17:54:06Z",
       "side": 1,
       "message": "+ sizeof something?",
+      "range": {
+        "startLine": 26,
+        "startChar": 52,
+        "endLine": 26,
+        "endChar": 53
+      },
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_c0b18e95",
+        "filename": "runtime/mirror/reference-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "No. It means there are four new virtual methods in Reference. Should this be a constexpr? Probably.\n\n(Not related to this CL.)",
+      "parentUuid": "6f34c9be_5f9baf0a",
       "range": {
         "startLine": 26,
         "startChar": 52,
@@ -719,6 +1397,30 @@
     },
     {
       "key": {
+        "uuid": "af44013b_00ac7635",
+        "filename": "runtime/mirror/string-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "See reference.",
+      "parentUuid": "6f34c9be_5f700fdb",
+      "range": {
+        "startLine": 37,
+        "startChar": 52,
+        "endLine": 37,
+        "endChar": 54
+      },
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_1f14d753",
         "filename": "runtime/native/java_lang_Class.cc",
         "patchSetId": 2
@@ -730,6 +1432,24 @@
       "writtenOn": "2016-07-29T17:54:06Z",
       "side": 1,
       "message": "indentation seems off",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_20a1723f",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_1f14d753",
       "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -753,6 +1473,24 @@
     },
     {
       "key": {
+        "uuid": "af44013b_609b7a0b",
+        "filename": "runtime/native/java_lang_Class.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_3f119b64",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_3f57dbd1",
         "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
         "patchSetId": 2
@@ -770,6 +1508,24 @@
     },
     {
       "key": {
+        "uuid": "af44013b_601e1a74",
+        "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_3f57dbd1",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f34c9be_ff6d439b",
         "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
         "patchSetId": 2
@@ -781,6 +1537,24 @@
       "writtenOn": "2016-07-29T17:54:06Z",
       "side": 1,
       "message": "What happened to IsValidPointerSize?\nI can see a helper here\n\n  template \u003ctypename T\u003e\n  constexpr ConvertToPointerSize(T any) {\n    if (any \u003d\u003d 4 || any \u003d\u003d 8) return static_cast\u003cPointerSize\u003e(any); else { LOG(FATAL); UNREACHABLE(); }\n  }\n\nThis logic is also replicated in image.h iirc (with a DCHECK)",
+      "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af44013b_204fb28f",
+        "filename": "runtime/utils/dex_cache_arrays_layout-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1041833
+      },
+      "writtenOn": "2016-08-01T22:49:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f34c9be_ff6d439b",
       "revId": "c3e93211244a0aeeb856c8909204896f89f25c76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
