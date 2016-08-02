@@ -105,7 +105,7 @@ inline uint32_t ArtMethod::GetAccessFlags() {
       DoGetAccessFlagsHelper<kReadBarrierOption>(this);
     }
   }
-  return access_flags_;
+  return access_flags_.load(std::memory_order_relaxed);
 }
 
 inline uint16_t ArtMethod::GetMethodIndex() {
