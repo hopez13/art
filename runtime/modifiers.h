@@ -69,6 +69,10 @@ static constexpr uint32_t kAccCompileDontBother =     0x01000000;  // method (ru
 static constexpr uint32_t kAccMustCountLocks =        0x02000000;  // method (runtime)
 static constexpr uint32_t kAccIntrinsic  =            0x80000000;  // method (runtime)
 
+// Set by the class linker for a method that has only one implementation for a
+// virtual call.
+static constexpr uint32_t kAccSingleImplementation =  0x04000000;  // method (runtime)
+
 // Special runtime-only flags.
 // Interface and all its super-interfaces with default methods have been recursively initialized.
 static constexpr uint32_t kAccRecursivelyInitialized    = 0x20000000;
@@ -88,7 +92,7 @@ static constexpr uint32_t kAccValidFieldFlags = kAccPublic | kAccPrivate | kAccP
 static constexpr uint32_t kAccValidMethodFlags = kAccPublic | kAccPrivate | kAccProtected |
     kAccStatic | kAccFinal | kAccSynchronized | kAccBridge | kAccVarargs | kAccNative |
     kAccAbstract | kAccStrict | kAccSynthetic | kAccMiranda | kAccConstructor |
-    kAccDeclaredSynchronized;
+    kAccDeclaredSynchronized | kAccSingleImplementation;
 
 // Valid (meaningful) bits for a class (not interface).
 // Note 1. These are positive bits. Other bits may have to be zero.

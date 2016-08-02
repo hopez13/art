@@ -84,9 +84,29 @@ class ArtMethod FINAL {
   template <ReadBarrierOption kReadBarrierOption = kWithReadBarrier>
   ALWAYS_INLINE uint32_t GetAccessFlags();
 
+  // This version should only be called when it's certain there is no
+  // concurrency so there is no need to guarantee atomicity. For example,
+  // before the method is linked.
   void SetAccessFlags(uint32_t new_access_flags) {
-    // Not called within a transaction.
-    access_flags_ = new_access_flags;
+    access_flags_.store(new_access_flags, std::memory_order_relaxed);
+  }
+
+  // This setter guarantees atomicity.
+  void AddAccessFlags(uint32_t flag) {
+    uint32_t old_access_flags = access_flags_.load(std::memory_order_relaxed);
+    uint32_t new_access_flags;
+    do {
+      new_access_flags = old_access_flags | flag;
+    } while (!access_flags_.compare_exchange_weak(old_access_flags, new_access_flags));
+  }
+
+  // This setter guarantees atomicity.
+  void ClearAccessFlags(uint32_t flag) {
+    uint32_t old_access_flags = access_flags_.load(std::memory_order_relaxed);
+    uint32_t new_access_flags;
+    do {
+      new_access_flags = old_access_flags & ~flag;
+    } while (!access_flags_.compare_exchange_weak(old_access_flags, new_access_flags));
   }
 
   // Approximate what kind of method call would be used for this method.
@@ -253,7 +273,7 @@ class ArtMethod FINAL {
 
   void SetSkipAccessChecks() {
     DCHECK(!SkipAccessChecks());
-    SetAccessFlags(GetAccessFlags() | kAccSkipAccessChecks);
+    AddAccessFlags(kAccSkipAccessChecks);
   }
 
   // Should this method be run in the interpreter and count locks (e.g., failed structured-
@@ -453,6 +473,27 @@ class ArtMethod FINAL {
     return DataOffset(kRuntimePointerSize);
   }
 
+  ALWAYS_INLINE bool HasSingleImplementation() {
+    return (GetAccessFlags() & kAccSingleImplementation) != 0;
+  }
+
+  ALWAYS_INLINE void SetHasSingleImplementation(bool single_impl) {
+    if (single_impl) {
+      AddAccessFlags(kAccSingleImplementation);
+    } else {
+      ClearAccessFlags(kAccSingleImplementation);
+    }
+  }
+
+  ArtMethod* GetSingleImplementation()
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  ALWAYS_INLINE void SetSingleImplementation(ArtMethod* method, PointerSize pointer_size) {
+    DCHECK(!IsNative());
+    DCHECK(IsAbstract());  // Non-abstract method's single implementation is just itself.
+    SetDataPtrSize(method, pointer_size);
+  }
+
   void* GetEntryPointFromJni() {
     DCHECK(IsNative());
     return GetEntryPointFromJniPtrSize(kRuntimePointerSize);
@@ -632,7 +673,10 @@ class ArtMethod FINAL {
   GcRoot<mirror::Class> declaring_class_;
 
   // Access flags; low 16 bits are defined by spec.
-  uint32_t access_flags_;
+  // Getting and setting this flag needs to be atomic when concurrency is
+  // possible, e.g. after this method's class is linked. Such as when setting
+  // verifier flags and single-implementation flag.
+  std::atomic<std::uint32_t> access_flags_;
 
   /* Dex file fields. The defining dex file is available via declaring_class_->dex_cache_ */
 
