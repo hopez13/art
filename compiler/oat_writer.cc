@@ -771,7 +771,7 @@ class OatWriter::InitCodeMethodVisitor : public OatDexMethodVisitor {
       // Update quick method header.
       DCHECK_LT(method_offsets_index_, oat_class->method_headers_.size());
       OatQuickMethodHeader* method_header = &oat_class->method_headers_[method_offsets_index_];
-      uint32_t vmap_table_offset = method_header->vmap_table_offset_;
+      uint32_t vmap_table_offset = method_header->GetVmapTableOffset();
       // The code offset was 0 when the mapping/vmap table offset was set, so it's set
       // to 0-offset and we need to adjust it by code_offset.
       uint32_t code_offset = quick_code_offset - thumb_offset;
@@ -910,6 +910,7 @@ class OatWriter::InitMapMethodVisitor : public OatDexMethodVisitor {
 
     if (compiled_method != nullptr) {
       DCHECK_LT(method_offsets_index_, oat_class->method_offsets_.size());
+<<<<<<< c33daa3739bbb7288f231a034f3ff80c5df2dd5a
       // If vdex is enabled, we only emit the stack map of compiled code. The quickening info will
       // be in the vdex file.
       if (!compiled_method->GetQuickCode().empty() || !kIsVdexEnabled) {
@@ -929,6 +930,23 @@ class OatWriter::InitMapMethodVisitor : public OatDexMethodVisitor {
           DCHECK_EQ(oat_class->method_offsets_[method_offsets_index_].code_offset_, 0u);
           oat_class->method_headers_[method_offsets_index_].vmap_table_offset_ = 0u - offset;
         }
+=======
+      DCHECK_EQ(oat_class->method_headers_[method_offsets_index_].GetVmapTableOffset(), 0u);
+
+      ArrayRef<const uint8_t> map = compiled_method->GetVmapTable();
+      uint32_t map_size = map.size() * sizeof(map[0]);
+      if (map_size != 0u) {
+        size_t offset = dedupe_map_.GetOrCreate(
+            map.data(),
+            [this, map_size]() {
+              uint32_t new_offset = offset_;
+              offset_ += map_size;
+              return new_offset;
+            });
+        // Code offset is not initialized yet, so set the map offset to 0u-offset.
+        DCHECK_EQ(oat_class->method_offsets_[method_offsets_index_].code_offset_, 0u);
+        oat_class->method_headers_[method_offsets_index_].SetVmapTableOffset(0u - offset);
+>>>>>>> Class Hierarchy Analysis (CHA)
       }
       ++method_offsets_index_;
     }
@@ -1384,7 +1402,7 @@ class OatWriter::WriteMapMethodVisitor : public OatDexMethodVisitor {
       size_t file_offset = file_offset_;
       OutputStream* out = out_;
 
-      uint32_t map_offset = oat_class->method_headers_[method_offsets_index_].vmap_table_offset_;
+      uint32_t map_offset = oat_class->method_headers_[method_offsets_index_].GetVmapTableOffset();
       uint32_t code_offset = oat_class->method_offsets_[method_offsets_index_].code_offset_;
       ++method_offsets_index_;
 
